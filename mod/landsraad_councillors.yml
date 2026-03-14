@@ -1,0 +1,220 @@
+# ============================================================
+# Landsraad Faction — Starting Councillors
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+# CDB target sheet: character  (referenced in faction@characters@councilors)
+# ============================================================
+
+councillors:
+
+  # ── Councillor 1: Jakob ──────────────────────────────────
+  - id: Landsraad_Jakob
+    name: "Jakob"
+    role: "Guild Liaison"
+    portrait_notes: "Older merchant-noble; elaborate robes; Guild sigil pin"
+
+    lore: >
+      Jakob spent decades brokering contracts between the noble houses and the
+      Spacing Guild. His connections ensure the Landsraad's forces can move
+      across the stars faster and cheaper than any rival.
+
+    focus: Guild relations and logistics
+    specialty: transport_cost_reduction
+
+    passive_abilities:
+      - id: GuildFriendship
+        description: >
+          Reduces the cost of all Guild-related operations by 25%.
+          Increases GuildFavor income by +3 per cycle.
+      - id: EfficientConvoys
+        description: >
+          All unit transport and deployment costs (Solari, GuildFavor) are
+          reduced by 20%.
+
+    council_ability:
+      id: GuildTransitContract
+      name: "Guild Transit Contract"
+      description: >
+        Spend 80 GuildFavor to instantly move any friendly army to any
+        owned territory on the map. 60-cycle cooldown.
+      cost:
+        GuildFavor: 80
+      cooldown_cycles: 60
+      effect: Teleport selected army to target owned territory.
+
+    stat_bonuses:
+      GuildFavor_income: +3
+      transport_cost_multiplier: 0.75   # 25% reduction
+      deployment_cost_multiplier: 0.80  # 20% reduction
+
+    cdb_notes: >
+      - Implement as `character` row with `ability` references.
+      - Passive bonuses via `faction@props@startingTraits` or effect chain.
+      - `GuildTransitContract` → new `ability` row with cost/cooldown props.
+
+
+  # ── Councillor 2: Siora ──────────────────────────────────
+  - id: Landsraad_Siora
+    name: "Siora"
+    role: "Spymaster"
+    portrait_notes: "Sharp-featured woman; dark attire; concealed weapons implied"
+
+    lore: >
+      Siora's methods are never questioned and rarely seen. She maintains an
+      invisible web of informants across Arrakis. Factions who cross the
+      Landsraad find their territories suddenly patrolled by Landsraad Guards
+      — without warning, and without mercy.
+
+    focus: Espionage, surveillance, and punitive response
+    specialty: auto_punitive_deployment
+
+    passive_abilities:
+      - id: AutoDeploy_Guards
+        description: >
+          When any rival faction's standing drops below a threshold (defined
+          by game balance), Siora automatically dispatches a squad of
+          Landsraad Guards to attack that faction's nearest territory.
+          Triggers at most once per faction per 30 cycles.
+        trigger: rival_standing_low
+        cooldown_cycles: 30
+        units_deployed: 1x LandsraadGuard squad
+      - id: IntelSurplus
+        description: >
+          Generates +4 Intel per cycle passively.
+
+    council_ability:
+      id: ImposeSanctions
+      name: "Impose Sanctions"
+      description: >
+        Call a Landsraad vote to impose economic sanctions on a target faction.
+        All of the target faction's building, unit recruitment, and operation
+        costs are increased by 30% for 20 cycles.
+      cost:
+        CouncilVote: 2
+        Influence: 50
+      cooldown_cycles: 90
+      effect: >
+        Apply "Sanctioned" debuff to target faction increasing all costs by 30%
+        for 20 cycles.
+      vote_required: true
+
+    stat_bonuses:
+      Intel_income: +4
+      espionage_detection_bonus: +15%
+
+    cdb_notes: >
+      - `AutoDeploy_Guards` likely implemented as a periodic `effect` or
+        `gameStat` event that checks standing thresholds.
+      - `ImposeSanctions` → `ability` row; requires council vote mechanic
+        (reference existing sanction/vote abilities in data.cdb for template).
+
+
+  # ── Councillor 3: Herbert ─────────────────────────────────
+  - id: Landsraad_Herbert
+    name: "Herbert"
+    role: "Marshal-General"
+    portrait_notes: "Battle-hardened general; military uniform; medals of service"
+
+    lore: >
+      Herbert rose through thirty years of Imperial military campaigns. He has
+      brought order to rebellious worlds before. On Arrakis, his presence alone
+      inspires Landsraad soldiers to hold the line where others would break.
+
+    focus: Military command and militia augmentation
+    specialty: military_buffs
+
+    passive_abilities:
+      - id: MilitaryDoctrine
+        description: >
+          All Landsraad military units gain +10% attack damage and
+          +10% maximum health.
+      - id: MilitiaSupport
+        description: >
+          Militia units (Landsraad Guard and Landsraad Legionnaire) gain
+          an additional +5 armor and +5% movement speed.
+      - id: CommanderPresence
+        description: >
+          While Herbert is on the council, Manpower income is increased by +3
+          per cycle and CommandPoint base production by +15.
+
+    council_ability:
+      id: CallToArms
+      name: "Call to Arms"
+      description: >
+        Immediately recruit 2 Landsraad Guard squads and 1 Landsraad Legionnaire
+        squad at no Solari cost. Units spawn at the faction's capital.
+      cost:
+        Manpower: 60
+        CommandPoint: 30
+      cooldown_cycles: 45
+
+    stat_bonuses:
+      unit_attack_multiplier: 1.10
+      unit_health_multiplier: 1.10
+      Manpower_income: +3
+      CommandPoint_income: +15
+      militia_armor_bonus: +5
+      militia_speed_bonus: +5%
+
+    cdb_notes: >
+      - Passive buffs → faction traits / global effect rows referencing unit
+        stats. Mirror how existing faction unit buffs are applied (e.g. Corrino
+        Sardaukar bonuses).
+      - `CallToArms` → `ability` row with unit spawn effect.
+
+
+  # ── Councillor 4: Nier ───────────────────────────────────
+  - id: Landsraad_Nier
+    name: "Nier"
+    role: "Grand Diplomat"
+    portrait_notes: "Elegant elder stateswoman; immaculate formal dress; calm demeanor"
+
+    lore: >
+      Nier has negotiated more treaties than most nobles have fought battles.
+      Under her guidance, the Landsraad's political reach extends far beyond
+      military force. Rival factions find it increasingly expensive to oppose
+      her council's will.
+
+    focus: Diplomacy, treaties, and influence dominance
+    specialty: diplomatic_bonuses
+
+    passive_abilities:
+      - id: DiplomaticPrestige
+        description: >
+          Influence income is increased by +5 per cycle.
+          All treaty negotiation costs are reduced by 20%.
+      - id: PoliticalNetwork
+        description: >
+          Relationship scores with all non-hostile factions improve by +5
+          passively each cycle until neutral threshold is reached.
+      - id: CouncilInfluence
+        description: >
+          When the Landsraad wins a council vote, gain +15 Influence as a bonus.
+
+    council_ability:
+      id: InternationalTreaty
+      name: "International Treaty"
+      description: >
+        Immediately establish a non-aggression pact with a target faction
+        regardless of current relationship level. Target faction cannot
+        declare war for 30 cycles. Can be used on hostile factions.
+      cost:
+        Influence: 100
+        CouncilVote: 1
+      cooldown_cycles: 80
+      effect: >
+        Force a non-aggression pact on target faction for 30 cycles.
+        Negates any ongoing conflict state.
+
+    stat_bonuses:
+      Influence_income: +5
+      treaty_cost_multiplier: 0.80
+      passive_relationship_gain: +5 per cycle (to neutral cap)
+      council_vote_win_bonus: +15 Influence
+
+    cdb_notes: >
+      - Influence bonus → `faction@baseProduction` override or trait.
+      - `InternationalTreaty` → `ability` referencing `diplomacy` sheet
+        status rows. Check existing forced-peace abilities for template.
+      - Passive relationship gain likely a periodic `effect` checking
+        current diplomatic status per faction pair.

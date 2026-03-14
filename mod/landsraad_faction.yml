@@ -1,0 +1,125 @@
+# ============================================================
+# Landsraad Faction — Core Identity
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+
+faction:
+  id: LandsraadFaction
+  name: "The Landsraad"
+  long_name: "Landsraad|Council"
+  short_name: "Landsraad"
+  adjective: "Landsraad"
+  plural_name: "The Landsraad"
+
+  # ── Lore & Background ────────────────────────────────────
+  lore: >
+    The Landsraad is the great assembly of noble houses united under Imperial
+    authority. Backed by the wealth of CHOAM and the logistical reach of the
+    Spacing Guild, they do not merely govern Arrakis — they enforce the law
+    upon it. Those who defy the Imperial order will find Landsraad Punishers at
+    their gates and their coffers drained by Auditor Drones. Wealth is their
+    weapon; the Guild is their fleet; and their standing is above reproach.
+
+  # ── Visual Style ─────────────────────────────────────────
+  visuals:
+    primary_color: "#D4AF37"       # gold
+    secondary_color: "#4B0082"     # imperial purple
+    color_int: 13938999            # 0xD4AF37 as decimal (placeholder — verify)
+    emblem_notes: "Imperial seal motif on gold field"
+    background_notes: "Grand hall / senate chamber aesthetic"
+    banner_notes: "Gold and purple vertical banner"
+
+  # ── Global Mechanics ─────────────────────────────────────
+  global_mechanics:
+    - id: ignore_standing_penalties
+      description: >
+        The Landsraad is immune to all Landsraad standing penalties.
+        They suffer no relationship penalties, resource penalties, or
+        voting disadvantages from low standing.
+
+    - id: starting_solari_bonus
+      description: >
+        Begins each game with 10,000 Solari, reflecting their CHOAM-backed
+        wealth. This is in addition to any standard starting resources.
+
+    - id: spice_for_influence
+      description: >
+        Can exchange Spice for Influence at any time via a passive council
+        ability. Rate: 1 Spice → 5 Influence (subject to balance tuning).
+
+    - id: leader_assassination_immunity
+      description: >
+        The faction leader (Karlin Mallenor) is completely immune to
+        assassination attempts. No espionage operation, regardless of source
+        or cost, can target or remove the leader.
+
+  # ── Starting Resources (all difficulties) ────────────────
+  start_resources:
+    - resource: Solari
+      qty: 10000
+    - resource: Plascrete
+      qty: 500
+    - resource: Manpower
+      qty: 200
+    - resource: Authority
+      qty: 80
+    - resource: Influence
+      qty: 100
+    - resource: Intel
+      qty: 75
+    - resource: Standing
+      qty: 250        # High; partially immune anyway
+    - resource: CHOAMShare
+      qty: 20         # Above-average CHOAM presence
+    - resource: GuildFavor
+      qty: 150        # Strong Guild ties via Jakob
+
+  # ── Base Production (per cycle) ──────────────────────────
+  base_production:
+    - resource: Solari
+      qty: 100        # Wealthiest base income of all factions
+    - resource: Plascrete
+      qty: 30
+    - resource: Water
+      qty: 20
+    - resource: Manpower
+      qty: 4
+    - resource: Authority
+      qty: 5
+    - resource: Knowledge
+      qty: 3
+    - resource: Influence
+      qty: 5          # Higher than average — political faction
+    - resource: CouncilVote
+      qty: 100
+    - resource: CommandPoint
+      qty: 50
+    - resource: TrainingSlot
+      qty: 5
+    - resource: Standing
+      qty: 0          # Standing gain is irrelevant; they ignore penalties
+
+  # ── Starting Location ─────────────────────────────────────
+  landmarks:
+    region: "Arrakeen"              # Placeholder — assign own start region
+    territory: "PlainsOfArrakeen"   # Placeholder
+    city: "LandsraadHQ"
+    conquest_city: "ConquestBase_Landsraad"
+    conquest_region: "ConquestBase_Landsraad"
+
+  # ── Faction Traits / Tags ─────────────────────────────────
+  traits:
+    - LandsraadImmunity          # Custom trait: ignore all standing penalties
+    - GuildTransportAccess       # Unlocks Guild Transporters operation
+    - CHOAMWealth                # Starting CHOAM share bonus
+    - PunitiveForce              # Elite punitive unit unlock
+    - LeaderImmortal             # Leader assassination immunity flag
+
+  # ── Notes for CDB Translation ─────────────────────────────
+  cdb_notes: >
+    - Map `color_int` to `faction.color` field (integer).
+    - `start_resources` → `faction@startResources` sub-sheet lines.
+    - `base_production` → `faction@baseProduction` sub-sheet lines.
+    - `traits` → `faction@props@startingTraits` list.
+    - `global_mechanics` must be implemented as `condition`/`effect` pairs
+      referenced from `faction@props` or dedicated `ability` entries.

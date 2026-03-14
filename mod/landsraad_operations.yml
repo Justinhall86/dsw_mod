@@ -1,0 +1,240 @@
+# ============================================================
+# Landsraad Faction — Operations & Espionage Missions
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+# CDB target sheet: quest (operations/missions sub-category)
+# Espionage operations in Dune: Spice Wars are modelled as
+# quest entries with espionage-type props and Intel/Influence costs.
+# ============================================================
+
+operations:
+
+  # ── PRIMARY SIGNATURE OPERATION ──────────────────────────
+  - id: GuildTransporters
+    name: "Guild Transporters"
+    type: espionage_operation
+    category: logistics
+    faction_exclusive: LandsraadFaction
+    tier: 2
+
+    description: >
+      The Landsraad calls upon its privileged relationship with the Spacing
+      Guild to requisition a Heighliner transit. Any army or unit group under
+      Landsraad command can be instantly folded across space and deployed
+      anywhere on the map — a maneuver no rival faction can replicate or
+      anticipate.
+
+    lore: >
+      "The Guild does not take sides. But it does take contracts. And the
+      Landsraad's contracts are the most lucrative on Giedi Prime."
+      — Attributed to Guildsman Edric, commercial division
+
+    cost:
+      primary: Intel
+      primary_qty: 50
+      alternate: Influence
+      alternate_qty: 50
+      note: >
+        Can be paid with EITHER 50 Intel OR 50 Influence (player chooses
+        at time of activation). Not both. Mirrors the Corrino Heighliner
+        drop cost structure for balance parity.
+
+    cooldown_cycles: 50
+    can_be_disrupted: false    # Guild transport cannot be intercepted
+    requires_spy_network: false
+
+    effect:
+      - id: InstantTroopTransport
+        description: >
+          Immediately teleport the selected friendly army (up to the target's
+          full stack) from its current location to any valid deployment zone
+          on the map, including enemy territory (as a hostile insertion).
+          Units arrive ready to act with no movement penalty.
+        target_type: friendly_army
+        destination: any_valid_map_tile
+        arrival_action_delay: none
+
+    balance_notes: >
+      - Comparable to the Corrino Heighliner drop, but applies to existing
+        armies rather than spawning new units.
+      - The alternate Influence cost creates an interesting resource choice for
+        the political-economy playstyle.
+      - 50-cycle cooldown prevents trivial map-wide repositioning every turn.
+      - Consider whether "any tile including enemy territory" should require an
+        adjacent revealing unit, similar to paradrop mechanics.
+
+    cdb_notes: >
+      - Map to `quest` row with `props.type` = espionage or operation.
+      - `props@cost` → dual-resource cost with OR logic (see existing dual-cost
+        operations in base data.cdb for reference).
+      - Effect → teleport/warp mechanic; check if `effect` sheet has an existing
+        army-move or summon-at-location type. If not, may require custom effect.
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+
+
+  # ── SECONDARY OPERATIONS ─────────────────────────────────
+  - id: FinancialAudit
+    name: "Financial Audit"
+    type: espionage_operation
+    category: economic_sabotage
+    faction_exclusive: LandsraadFaction
+    tier: 1
+
+    description: >
+      Landsraad Auditor drones infiltrate a target faction's economic
+      infrastructure, diverting Solari flows and freezing asset transfers
+      for a short period. The target faction's Solari income is cut and
+      a fine is levied.
+
+    lore: >
+      Every great house keeps two sets of books. The Landsraad's auditors
+      keep a third.
+
+    cost:
+      Intel: 35
+
+    cooldown_cycles: 40
+
+    effect:
+      - id: SolariLevy
+        description: >
+          The target faction immediately loses 500 Solari (transferred to
+          the Landsraad treasury).
+        resource_stolen: Solari
+        amount: 500
+      - id: IncomeFreeze
+        description: >
+          The target faction's Solari income is reduced by 40% for 15 cycles.
+        debuff: Solari_income_multiplier 0.60
+        duration_cycles: 15
+
+    cdb_notes: >
+      - `effect@vals` with resource steal and income debuff types.
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+
+
+  - id: ImperialSummons
+    name: "Imperial Summons"
+    type: espionage_operation
+    category: political_coercion
+    faction_exclusive: LandsraadFaction
+    tier: 2
+
+    description: >
+      The Landsraad issues a formal Imperial Summons demanding a target
+      faction's leader appear before the council. While the summons is
+      in effect, the faction's ability to declare new wars and launch
+      offensive operations is suspended.
+
+    lore: >
+      No noble house ignores an Imperial Summons. Not twice.
+
+    cost:
+      Influence: 80
+
+    cooldown_cycles: 70
+    requires_spy_network: false
+
+    effect:
+      - id: WarDeclarationBlock
+        description: >
+          The target faction cannot declare new wars for 20 cycles.
+      - id: OffensiveOperationSuspension
+        description: >
+          The target faction's offensive espionage operations are disabled
+          for 20 cycles.
+      duration_cycles: 20
+
+    cdb_notes: >
+      - Political debuff mechanic; check existing Corrino or BeneGesserit
+        control operations for similar "disable action" effect types.
+      - May require a `diplomacy` status reference to block war declarations.
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+
+
+  - id: GuildInformationBroker
+    name: "Guild Information Broker"
+    type: espionage_operation
+    category: intelligence
+    faction_exclusive: LandsraadFaction
+    tier: 1
+
+    description: >
+      Through Guild intermediaries, the Landsraad purchases comprehensive
+      intelligence on all factions — their resources, military positions,
+      and active operations.
+
+    lore: >
+      Information flows like spice along Guild routes. For a price.
+
+    cost:
+      GuildFavor: 40
+
+    cooldown_cycles: 30
+
+    effect:
+      - id: MapReveal
+        description: >
+          Reveals the map positions of all units belonging to target faction
+          for 20 cycles (persistent vision, not just snapshot).
+        target_type: single_faction
+        duration_cycles: 20
+      - id: ResourceIntelligence
+        description: >
+          Reveals current resource stockpiles of the target faction.
+
+    cdb_notes: >
+      - Vision/map reveal effect → check existing "spy reveal" quest effects
+        in base data.cdb (Fremen, Smuggler operations likely have these).
+      - Resource reveal may need a custom UI hook or gameStat display trigger.
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+
+
+  - id: PunitiveExpedition
+    name: "Punitive Expedition"
+    type: espionage_operation
+    category: military_intervention
+    faction_exclusive: LandsraadFaction
+    tier: 3
+
+    description: >
+      The Landsraad officially sanctions a punitive military expedition against
+      a faction that has violated Imperial law. A force of Landsraad Guards
+      and Punishers is deployed directly into the target faction's territory.
+
+    lore: >
+      There is no judicial appeal once the Landsraad stamps the order.
+      The expedition arrives within the hour.
+
+    cost:
+      Intel: 80
+      Influence: 40
+      Manpower: 50
+
+    cooldown_cycles: 80
+
+    unlocks_after: GuildTransporters   # Requires Guild Transporters to be available
+
+    effect:
+      - id: PunitiveForceSpawn
+        description: >
+          Spawn 2 Landsraad Guard squads and 1 Punisher squad directly inside
+          a target faction's territory (hostile deployment). Units are under
+          Landsraad control and fight until destroyed or withdrawn.
+        units:
+          - 2x LandsraadGuard
+          - 1x Punisher
+        target_type: enemy_territory
+
+    balance_notes: >
+      - High triple-resource cost ensures this is a situational, high-impact
+        operation rather than routine harassment.
+      - Spawning directly in enemy territory is a significant map threat;
+        cooldown of 80 cycles limits use to roughly once per major conflict.
+
+    cdb_notes: >
+      - Hostile unit spawn in target territory → similar to Corrino legion
+        drop or Fremen summon mechanics in data.cdb.
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+      - Requires checking if `quest` supports conditional unlock via
+        `props` or if the faction trait is sufficient to gate this.

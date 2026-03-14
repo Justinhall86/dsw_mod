@@ -83,7 +83,7 @@ modifying unit/faction/asset data. Do not guess CDB schema — look it up in the
 | "generate unit JSON" / "write CDB entry" / "add unit to data.cdb" | [docs/howto_castledb_workflow.md](../docs/howto_castledb_workflow.md) |
 | "add operation" / "add quest" / "write quest entry" | [docs/howto_castledb_workflow.md](../docs/howto_castledb_workflow.md) |
 | "how does X look" / "change unit appearance" / "kitbash" / "unit model" / "unit icon" | [docs/howto_visual_kitbashing.md](../docs/howto_visual_kitbashing.md) |
-| "stuck on a trait" / "how does vanilla implement X" / "reverse engineer" / "extract pak" / "study Minx mod" | [docs/howto_reverse_engineering.md](../docs/howto_reverse_engineering.md) |
+ 
 
 **Explicit trigger rules (MUST follow):**
 - Any request involving new CDB JSON → MUST open `docs/howto_castledb_workflow.md` first and confirm the Atreides template pattern is followed before writing any JSON.
