@@ -1,0 +1,440 @@
+# ============================================================
+# Landsraad Faction — Military Roster
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+# CDB target sheet: unit
+# Each unit here maps to a `unit` row. Stats are design targets;
+# final values will be balanced against existing faction units.
+# ============================================================
+
+units:
+
+  # ── LEADER ───────────────────────────────────────────────
+  - id: KarlinMallenor
+    name: "Karlin Mallenor"
+    role: leader
+    unit_class: HeroLeader
+    description: >
+      Supreme commander of the Landsraad military presence on Arrakis.
+      Karlin Mallenor does not lead from behind. His personal command vessel
+      can carry an entire company of soldiers and deploy them in a single,
+      overwhelming strike.
+
+    stats:
+      health: 8000
+      armor: 25
+      speed: 5.0
+      sight_range: 14
+
+    abilities:
+      - id: HouseMonitor
+        name: "House Monitor"
+        description: >
+          Passive aura. While Karlin Mallenor is on the field, all nearby
+          Landsraad units gain +10 Power (combat effectiveness).
+        type: passive_aura
+        range: 10
+        effect: power_bonus +10 (all allied units in range)
+
+      - id: AssassinationImmunity
+        name: "Untouchable"
+        description: >
+          Karlin Mallenor cannot be targeted by any assassination operation,
+          abduction ability, or removal effect, regardless of source.
+        type: passive_permanent
+        effect: immune_to_assassination
+
+    capital_ship:
+      name: "Adjudicator"
+      troop_capacity: 25
+      description: >
+        Karlin's flagship can transport up to 25 soldiers and deploy them
+        anywhere on the battlefield as a single action.
+      deploy_ability:
+        id: AdjudicatorDrop
+        name: "Adjudicator Drop"
+        cost:
+          GuildFavor: 30
+        cooldown_cycles: 20
+        effect: Deploy all embarked troops at target location.
+
+    recruitment:
+      costs:
+        Solari: 0          # Leader; no recruit cost
+        Manpower: 0
+      upkeep:
+        Solari: 50
+        CommandPoint: 3
+
+    cdb_notes: >
+      - Map to `unit` row with `character` reference for leader character link.
+      - `HouseMonitor` aura → `unit@effects` with area power modifier.
+      - `AssassinationImmunity` → special flag in `unit@props` or a
+        permanent `effect` blocking assassination condition checks.
+      - Capital ship capacity → custom `ability` or ship-class `unit` subunit.
+
+
+  # ── HERO ─────────────────────────────────────────────────
+  - id: VaneTorvver
+    name: "Vane Torvver"
+    role: hero
+    unit_class: HeroUnit
+    description: >
+      Vane Torvver is the Landsraad's foremost battlefield enforcer — fast,
+      devastating, and nearly impossible to bring down behind his shield dome.
+      He specializes in rapid strikes and holding ground against counter-attacks.
+
+    stats:
+      health: 5500
+      armor: 25             # +10 armor bonus applied
+      speed: 8.5            # High speed
+      power: 85             # +10 power bonus applied; base 75
+      sight_range: 12
+
+    combat:
+      primary_attack: "Rocket Barrage"
+      attack_style: ranged_explosive
+      aoe_damage_bonus: +50   # +50 Area of Effect damage
+      notes: "Fast rocket projectiles; high AoE splash radius"
+
+    abilities:
+      - id: ShieldDome
+        name: "Shield Dome"
+        description: >
+          Vane activates a personal energy shield dome around himself and
+          nearby allies. While active, no units inside the dome can recover
+          health through regeneration, healing abilities, or support effects —
+          including enemy units caught inside. Duration 15 seconds.
+          Also blocks ranged projectiles from entering the dome perimeter.
+        type: active
+        radius: 8
+        duration_seconds: 15
+        cooldown_cycles: 40
+        effect:
+          - Suppress health recovery (regen, heal abilities) for all units inside dome
+          - Block incoming ranged projectiles crossing dome boundary
+        cost:
+          CommandPoint: 1
+
+    recruitment:
+      costs:
+        Solari: 600
+        Manpower: 20
+      upkeep:
+        Solari: 30
+        CommandPoint: 2
+
+    cdb_notes: >
+      - Hero unit; unique (one instance per faction).
+      - Speed and AoE stats → `unit@stats` fields.
+      - `ShieldDome` → `ability` with area effect suppressing heal conditions.
+        Reference existing shield/dome abilities in data.cdb for mechanic hook.
+
+
+  # ── BASIC MELEE ──────────────────────────────────────────
+  - id: LandsraadSoldiers_Faufreluches
+    name: "Landsraad Guard"
+    name_plural: "Landsraad Guards"
+    role: basic_melee
+    unit_class: Infantry
+    faction: LandsraadFaction
+    inherits: Landsraad_Soldier
+    description: >
+      [Landsraad-longname] maintains a professional troop of peacekeepers,
+      lent only to the most favored houses.
+
+    stats:
+      health: 600
+      armor: 6
+      power: 18
+      range: 0                # melee
+      squad_size: 3           # props.squadSize from Landsraad_Soldier
+      max_supply: 100
+      training_time: 3
+      safe_regen: 0.5
+      max_exp_level: 0
+
+    combat:
+      attack_style: melee
+      attacks:
+        - ref: Generic_Melee  # inherited from Landsraad_Soldier
+
+    traits:
+      # Inherited from Landsraad_Soldier base template:
+      # LandGuard_Trait, Warrior_Trait
+      # LandsraadSoldiers_Faufreluches overrides traits with [] (empty list)
+
+    gfx:
+      file: "UI/Faction/unitsSmall_Common.png"
+      size: 80
+      x: 0
+      y: 3
+    wheel_portrait:
+      file: "UI/console/wheel_units_misc.png"
+      size: 358
+      x: 7
+      y: 0
+
+    model: N_LR_Guard         # see unitGfx sheet
+
+    sounds:
+      # Placeholder voices used in Faufreluches variant (override base):
+      select: "Voice_O_Fremenmercenaries_Select"
+      move:   "Voice_O_Fremenmercenaries_Move"
+      attack: "Voice_O_Fremenmercenaries_Attack"
+      # Base Landsraad_Soldier uses proper Landsraad Guard voice events.
+      # Replace with Voice_O_Landsraadguard_* when available.
+
+    recruitment:
+      costs: {}               # not set in CDB yet; costs block is empty
+      upkeep: {}
+
+    flags: 1
+
+    cdb_notes: >
+      - Unit exists in data.cdb at line ~96198 with id LandsraadSoldiers_Faufreluches.
+      - Inherits from Landsraad_Soldier (stats, squadSize:3, model N_LR_Guard,
+        attacks Generic_Melee, traits LandGuard_Trait + Warrior_Trait).
+      - LandsraadSoldiers_Faufreluches overrides: faction→LandsraadFaction,
+        texts (name/desc/plural), traits→[], sounds→Fremen placeholder, flags:1.
+      - costs and upkeep are currently empty ({}) in CDB; need to be populated.
+      - Companion ranged unit is LandsraadRanged_Faufreluches ("Landsraad Judge").
+      - Starting-army reference: LandsraadSoldiers_Faufreluches used in faction
+        startUnits effect at data.cdb line ~333175.
+
+
+  # ── BASIC RANGED ─────────────────────────────────────────
+  - id: LandsraadRanged_Faufreluches
+    name: "Landsraad Judge"
+    name_plural: "Landsraad Judges"
+    role: basic_ranged
+    unit_class: Infantry
+    faction: LandsraadFaction
+    inherits: Landsraad_Ranged
+    description: >
+      The honor guard of [Landsraad-longname] is rarely seen on the field,
+      but they are fearsome fighters nonetheless.
+
+    stats:
+      health: 400
+      armor: 2
+      power: 19
+      range: 35                # ranged
+      squad_size: 3            # from Landsraad_Ranged base template
+      max_supply: 100
+      training_time: 3
+      safe_regen: 0.5
+      max_exp_level: 0
+
+    combat:
+      attack_style: ranged
+      attacks: {}              # inherited from Landsraad_Ranged base
+
+    traits: []                 # overrides base traits
+
+    gfx:
+      file: "UI/Faction/unitsSmall_Common.png"
+      size: 80
+      x: 1
+      y: 3
+
+    sounds:
+      select: "Voice_O_Fremenmercenaries_Select"
+      move:   "Voice_O_Fremenmercenaries_Move"
+      attack: "Voice_O_Fremenmercenaries_Attack"
+
+    recruitment:
+      costs: {}               # not set in CDB
+      upkeep: {}
+
+    flags: 1
+
+    cdb_notes: >
+      - Unit exists in data.cdb at line ~96261 with id LandsraadRanged_Faufreluches.
+      - Inherits from Landsraad_Ranged base template.
+      - LandsraadRanged_Faufreluches overrides: faction→LandsraadFaction,
+        texts (name/desc/plural), traits→[], sounds→Fremen placeholder voices.
+      - costs and upkeep empty in CDB; need population.
+      - Companion melee unit is LandsraadSoldiers_Faufreluches (Guard).
+
+
+  # ── ANTI-ARMOR ───────────────────────────────────────────
+  - id: LandsraadDemo_Faufreluches
+    name: "Landsraad Punisher"
+    name_plural: "Landsraad Punishers"
+    role: anti_armor
+    unit_class: Infantry_AntiArmor
+    faction: LandsraadFaction
+    inherits: Landsraad_Demo
+    description: >
+      In exceptional cases where [Landsraad-longname] needs to take
+      disciplinary action, some guards are trained to use powerful
+      siege equipment.
+
+    stats:
+      health: 400
+      armor: 2
+      power: 25
+      range: 35                # ranged demo/siege
+      squad_size: 3            # from Landsraad_Demo base template
+      max_supply: 100
+      training_time: 3
+      safe_regen: 0.5
+      max_exp_level: 0
+
+    combat:
+      attack_style: ranged_heavy
+      attacks: {}              # inherited from Landsraad_Demo base
+
+    traits: []                 # overrides base traits
+
+    gfx:
+      file: "UI/Faction/unitsSmall_Common.png"
+      size: 80
+      x: 1
+      y: 3
+    wheel_portrait:
+      file: "UI/console/wheel_units_misc.png"
+      size: 358
+      x: 5
+      y: 0
+
+    sounds:
+      select: "Voice_O_Fremenmercenaries_Select"
+      move:   "Voice_O_Fremenmercenaries_Move"
+      attack: "Voice_O_Fremenmercenaries_Attack"
+
+    recruitment:
+      costs: {}               # not set in CDB
+      upkeep: {}
+
+    flags: 1
+
+    cdb_notes: >
+      - Unit exists in data.cdb at line ~96324 with id LandsraadDemo_Faufreluches.
+      - Inherits from Landsraad_Demo base template.
+      - LandsraadDemo_Faufreluches overrides: faction→LandsraadFaction,
+        texts (name/desc/plural), traits→[], sounds→Fremen placeholder voices.
+      - range: 35 and power: 25 from CDB; anti-armor via Landsraad_Demo base.
+      - costs and upkeep empty in CDB; need population.
+
+
+  # ── ELITE MELEE ──────────────────────────────────────────
+  - id: LandsraadEnforcer
+    name: "Landsraad Enforcer"
+    role: elite_melee
+    unit_class: EliteInfantry
+    description: >
+      Encased in ceremonial battle armour and wielding shield-and-sword,
+      Enforcers are the unbreakable core of any Landsraad line.
+      Their presence inspires nearby soldiers to fight beyond their limits.
+
+    stats:
+      health: 2000
+      armor: 28
+      speed: 4.5
+      power: 70
+      squad_size: 3
+
+    combat:
+      primary_attack: "Ceremonial Blade"
+      attack_style: melee
+      secondary: "Tower Shield Bash"
+      damage_type: kinetic
+      notes: "High single-target melee DPS with interrupt on shield bash"
+
+    abilities:
+      - id: EnforcerAura
+        name: "Disciplined Presence"
+        description: >
+          Passive healing aura. Nearby friendly soldiers (within radius 8)
+          recover 1000 health instantly when the Enforcer enters the area,
+          then regenerate an additional +6 health per second while inside
+          the aura. Does not stack with multiple Enforcers.
+        type: passive_aura
+        range: 8
+        effect:
+          - Instant heal: 1000 HP on entry
+          - Regen: +6 HP/s while inside aura
+
+    traits:
+      - ShieldAndSword
+      - EliteUnit
+      - HealingAura
+
+    recruitment:
+      costs:
+        Solari: 280
+        Manpower: 25
+      upkeep:
+        Solari: 25
+        CommandPoint: 2
+
+    cdb_notes: >
+      - Healing aura → `unit@effects` with area regen effect. Reference
+        Atreides medic or Fremen healing units for existing aura mechanics.
+      - Enforce squad_size of 3 in `unit@stats`.
+
+
+  # ── DRONE / SUPPORT ──────────────────────────────────────
+  - id: AuditorDrone
+    name: "Auditor"
+    role: drone_support
+    unit_class: Drone
+    description: >
+      The Auditor drone hovers silently above Landsraad positions, broadcasting
+      Imperial authority. Its presence bolsters nearby units and locks down
+      strategic positions, denying enemies the ability to capture territory
+      under its gaze.
+
+    stats:
+      health: 400
+      armor: 5
+      speed: 7.0           # Fast — drone movement
+      power: 0             # No direct combat power
+      squad_size: 1
+      sight_range: 16      # Excellent vision
+
+    abilities:
+      - id: AuditorPresence
+        name: "Auditor Presence"
+        description: >
+          Passive aura. While active, the Auditor grants +5 Power and +5
+          experience gain rate to all nearby allied units (radius 10).
+        type: passive_aura
+        range: 10
+        effect:
+          - Power bonus: +5 to allied units in range
+          - Experience gain multiplier: +5% per cycle
+
+      - id: HoldArea
+        name: "Hold Area"
+        description: >
+          The Auditor locks down a zone (radius 12) defensively. Enemy units
+          entering the zone are slowed by 25% and cannot begin territory
+          capture actions while the Auditor is active in the zone.
+          Lasts until the Auditor is destroyed or moves.
+        type: active_toggle
+        range: 12
+        effect:
+          - Enemy movement speed: -25% in zone
+          - Blocks enemy territory capture actions in zone
+
+    traits:
+      - DroneUnit
+      - SupportOnly
+      - LowArmor
+
+    recruitment:
+      costs:
+        Solari: 120
+        Knowledge: 20
+      upkeep:
+        Solari: 10
+        CommandPoint: 1
+
+    cdb_notes: >
+      - Drone unit type; set appropriate `unit@props` drone flag.
+      - `HoldArea` zone control → reference existing zone-denial abilities
+        (e.g. any existing slow/capture-block mechanics in the base game).
+      - XP gain aura → `unit@effects` with experience multiplier type.
