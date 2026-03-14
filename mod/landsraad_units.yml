@@ -319,15 +319,18 @@ units:
       - costs and upkeep empty in CDB; need population.
 
 
-  # ── ELITE MELEE ──────────────────────────────────────────
-  - id: LandsraadEnforcer
-    name: "Landsraad Enforcer"
-    role: elite_melee
+  # ── ELITE MELEE (DESIGN CONCEPT — not yet in CDB) ──────
+  - id: LandsraadSentinel
+    name: "Landsraad Sentinel"
+    name_plural: "Landsraad Sentinels"
+    role: elite_melee_concept
     unit_class: EliteInfantry
     description: >
       Encased in ceremonial battle armour and wielding shield-and-sword,
-      Enforcers are the unbreakable core of any Landsraad line.
+      Sentinels are the unbreakable core of any Landsraad line.
       Their presence inspires nearby soldiers to fight beyond their limits.
+      (Design concept — not yet added to data.cdb. See LandsraadEnforcer
+      below for the CDB-based elite unit.)
 
     stats:
       health: 2000
@@ -374,6 +377,358 @@ units:
       - Healing aura → `unit@effects` with area regen effect. Reference
         Atreides medic or Fremen healing units for existing aura mechanics.
       - Enforce squad_size of 3 in `unit@stats`.
+
+
+  # ── ENFORCER (CDB: L_Elite — duplicate of A_Elite) ──────
+  - id: L_Elite
+    name: "Landsraad Enforcer"
+    name_plural: "Landsraad Enforcers"
+    role: elite_melee
+    unit_class: EliteInfantry
+    faction: LandsraadFaction
+    inherits: Elite
+    description: >
+      The Landsraad Enforcers are the faction's elite section. Equipped
+      with heavy-duty armor, shields and swords, they stand ready to
+      enforce the Landsraad's will on the battlefield.
+
+    stats:
+      health: 500
+      armor: 8
+      power: 16
+      range: 0                # melee (inherited from Elite)
+      squad_size: 4
+      squad_spacing: 1.5
+      radius: 5.5
+
+    combat:
+      attack_style: melee
+      attacks: {}              # inherited from Elite base
+
+    traits:
+      - A_Elite_Trait
+      - Warrior_Trait
+
+    gfx:
+      file: "UI/Faction/unitsSmall.png"
+      size: 80
+      x: 3
+      y: 0
+
+    images:
+      bigPortrait:
+        file: "UI/Faction/unit_military.png"
+        size: 250
+        x: 4
+        y: 0
+      smallPortrait:
+        file: "UI/Faction/unitsSmall.png"
+        size: 80
+        x: 3
+        y: 0
+      wheelPortrait:
+        file: "UI/console/wheel_units_atreides.png"
+        size: 358
+        x: 4
+        y: 0
+
+    model: A_Elite             # uses Atreides Warden model
+
+    sounds:
+      select: "Voice_A_Warden_Select"
+      move:   "Voice_A_Warden_Move"
+      attack: "Voice_A_Warden_Attack"
+      events:
+        - kind: 1              # move
+          sound: "Play_Shield_Move"
+        - kind: 24             # death
+          sound: "Common_Female_Death"
+
+    recruitment:
+      costs:
+        Solari: 100
+        Manpower: 50
+      upkeep:
+        Solari: 20
+        CommandPoint: 5
+
+    equipment:
+      - CoverTactics
+      - LastStandProtocols
+      - ParryingArmguards
+      - PranaBindu
+
+    flags: 0
+
+    cdb_notes: >
+      - Exact duplicate of A_Elite (Atreides Warden) with faction changed
+        to LandsraadFaction and texts updated.
+      - Inherits from Elite base template.
+      - Uses A_Elite model, Warden voice events, Warden death sounds.
+      - Images use Atreides sprite sheet positions (placeholder — update
+        when custom Landsraad elite sprites are available).
+      - Equipment refs (CoverTactics, LastStandProtocols, ParryingArmguards,
+        PranaBindu) are from A_Elite — verify these are faction-neutral.
+
+
+  # ── FRIGATE (CDB: L_Frigate — duplicate of A_Frigate) ───
+  - id: L_Frigate
+    name: "Landsraad Frigate"
+    name_plural: "Landsraad Frigates"
+    role: frigate
+    unit_class: Frigate
+    faction: LandsraadFaction
+    inherits: Frigate
+    description: >
+      This utility frigate serves the Landsraad with heavy shielding and
+      a large cabin area, providing transport and fire support for the
+      faction's military operations.
+
+    stats:
+      health: 2000
+      armor: 3
+      power: 16
+      range: 50
+      fly_altitude: 24
+      target_pitching: 0.2
+
+    combat:
+      attack_style: ranged_air
+      attacks:
+        - ref: A_Frigate_Attack
+
+    traits:
+      - A_Frigate_Trait
+      - Demo_Trait
+      - AirToGround_Trait
+
+    gfx:
+      file: "UI/Faction/unitsSmall.png"
+      size: 80
+      x: 12
+      y: 0
+
+    images:
+      bigPortrait:
+        file: "UI/Faction/unit_vehicles.png"
+        size: 250
+        x: 5
+        y: 0
+      smallPortrait:
+        file: "UI/Faction/unitsSmall.png"
+        size: 80
+        x: 12
+        y: 0
+      flag:
+        file: "UI/icons/unitFlagIcon.png"
+        size: 1
+        x: 224
+        y: 0
+        width: 28
+        height: 36
+      smallIcon:
+        file: "UI/icons/militiaClassIcon.png"
+        size: 40
+        x: 0
+        y: 17
+      symbol:
+        file: "UI/icons/icon_unit.png"
+        size: 64
+        x: 4
+        y: 2
+      wheelPortrait:
+        file: "UI/console/wheel_units_atreides.png"
+        size: 358
+        x: 5
+        y: 1
+
+    model: A_Frigate            # uses Atreides Kraken model
+
+    sounds:
+      select: "Voice_A_Kraken_Misc_Select"
+      move:   "Voice_A_Kraken_Misc_Move"
+      attack: "Voice_A_Kraken_Misc_Attack"
+      ability: "Voice_A_Kraken_Misc_Ability"
+      events:
+        - kind: 2              # spawn
+          fx: "Fx/Vehicle/Ships/Kraken/FX_Kraken_Spawn.fx"
+        - kind: 24             # death
+          fx: "Fx/Vehicle/Ships/Kraken/FX_Kraken_Death.fx"
+        - kind: 0              # idle
+          fx: "Fx/Vehicle/Ships/Kraken/FX_Kraken_Reactors.fx"
+        - kind: 37             # disembark
+          sound: "Kraken_Abilitydisembark"
+
+    recruitment:
+      costs:
+        GuildFavor: 100
+      upkeep:
+        Solari: 50
+        FuelCell: 10
+
+    flags: 0
+
+    cdb_notes: >
+      - Exact duplicate of A_Frigate (Atreides Kraken) with faction changed
+        to LandsraadFaction and texts updated.
+      - Inherits from Frigate base template.
+      - Uses A_Frigate model, Kraken voice/FX events.
+      - Images use Atreides sprite sheet positions (placeholder).
+      - Costs GuildFavor to recruit (100), Solari+FuelCell upkeep.
+      - Attack ref: A_Frigate_Attack — verify this is faction-neutral.
+
+
+  # ── FIGHTER (CDB: L_Ship — A_Ship stats + Renegade_Ship look/sound/attacks) ──
+  - id: L_Ship
+    name: "Landsraad Fighter"
+    name_plural: "Landsraad Fighters"
+    role: fighter_ship
+    unit_class: Ship
+    faction: LandsraadFaction
+    inherits: Ship
+    description: >
+      A fast combat craft employed by the Landsraad to patrol their
+      holdings and harass weakened enemies from the air.
+
+    stats:
+      health: 250
+      armor: 4
+      power: 8
+      range: 35
+      fly_altitude: 15
+      z_offset: 5
+
+    combat:
+      attack_style: ranged_air
+      attacks:
+        - ref: N_Renegade_Ship_Attack    # from Renegade_Ship
+
+    traits:
+      - A_Ship_Trait           # gameplay traits from A_Ship
+
+    gfx:
+      file: "UI/Faction/unitsSmall.png"
+      size: 80
+      x: 3
+      y: 5                    # Renegade_Ship sprite position
+
+    images:
+      bigPortrait:
+        file: "UI/Faction/unit_vehicles.png"
+        size: 250
+        x: 1
+        y: 5
+      smallPortrait:
+        file: "UI/Faction/unitsSmall.png"
+        size: 80
+        x: 3
+        y: 5
+
+    model: N_Renegade_Ship      # Renegade ship model (Ravager visual)
+
+    sounds:
+      # Renegade_Ship has no voice events — only FX
+      events:
+        - kind: 0              # idle reactors
+          fx: "Fx/Vehicle/Ships/Ravager/FX_Ravager_Reactors.fx"
+        - kind: 24             # death
+          fx: "Fx/Vehicle/Ships/Ravager/FX_Ravager_Death.fx"
+
+    recruitment:
+      costs:
+        GuildFavor: 9          # from A_Ship
+      upkeep:
+        Solari: 12
+        FuelCell: 3
+        CommandPoint: 3
+      regen_cost: 300
+
+    flags: 0
+
+    cdb_notes: >
+      - Hybrid unit: A_Ship structure (stats, inherits, costs, traits)
+        with Renegade_Ship visuals, sounds, and attacks.
+      - Model: N_Renegade_Ship (Ravager appearance).
+      - Attack: N_Renegade_Ship_Attack (Renegade combat style).
+      - FX: Ravager reactor and death effects.
+      - No voice events (Renegade_Ship has none).
+      - A_Ship_Trait kept for gameplay — verify it's faction-neutral.
+      - props: flyAltitude:15, zOffset:5 (from Renegade_Ship) for
+        correct visual flight height positioning.
+
+
+  # ── HERO (CDB: L_Hero_1 — A_Hero_1 stats + Renegades_Leader look/sound) ──
+  - id: L_Hero_1
+    name: "Karlin"
+    name_plural: "Karlins"
+    role: hero
+    unit_class: HeroUnit
+    faction: LandsraadFaction
+    inherits: Hero
+    description: >
+      A veteran enforcer of the Landsraad's will, Karlin has earned a
+      fearsome reputation across the Known Universe for his unwavering
+      loyalty and lethal precision.
+
+    stats:
+      health: 1000
+      armor: 6
+      power: 20
+      range: 0                # melee (from A_Hero_1)
+
+    combat:
+      attack_style: melee
+      attacks: {}              # inherited from Hero base
+
+    traits:
+      - A_Hero_1_Trait
+      - Warrior_Trait
+
+    gfx:
+      file: "UI/Faction/unitsSmall.png"
+      size: 80
+      x: 7
+      y: 5                    # Renegades_Leader sprite position
+
+    images:
+      bigPortrait:
+        file: "UI/Faction/unit_military.png"
+        size: 250
+        x: 3
+        y: 5
+      smallPortrait:
+        file: "UI/Faction/unitsSmall.png"
+        size: 80
+        x: 7
+        y: 5
+
+    model: N_Renegade_Leader    # Renegade Leader model
+
+    sounds:
+      events:
+        - kind: 1              # move/run
+          sound: "Move_Run_Renegadeleader"
+
+    recruitment:
+      costs: {}                # no recruit cost (from A_Hero_1)
+      upkeep: {}
+
+    equipment: []
+
+    flags: 0
+
+    cdb_notes: >
+      - Hybrid unit: A_Hero_1 structure (stats, inherits, costs, traits)
+        with Renegades_Leader visuals and sounds.
+      - Model: N_Renegade_Leader (Renegade Leader appearance).
+      - Sound: Move_Run_Renegadeleader (only event — Renegades_Leader
+        has minimal audio).
+      - props: character:"Duncan" (temporary placeholder linking to
+        the Duncan character entry). Replace with a proper Landsraad
+        character entry when one is created for Karlin.
+      - A_Hero_1_Trait + Warrior_Trait kept — verify faction-neutrality.
+      - Attacks: empty ({}) — inherits from Hero base, same as A_Hero_1.
+      - Named "Karlin" — ties to faction leader Karlin Mallenor.
 
 
   # ── DRONE / SUPPORT ──────────────────────────────────────
