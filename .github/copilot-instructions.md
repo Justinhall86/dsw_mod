@@ -72,3 +72,21 @@ Located in `mod/`:
 
 ## Helper Skills
 - **`/sync-unit-from-cdb`** — Reusable workflow to synchronize a unit entry in `mod/landsraad_units.yml` with its definition in `res/data.cdb`. Handles ID renaming, stat sync, inheritance chains, graphics, sounds, and documentation. Use when a YAML unit has a placeholder ID or stats that don't match CDB.
+
+## Modding Reference Guides
+
+Three how-to guides live in `docs/`. Read the relevant guide **before** generating any CDB JSON or
+modifying unit/faction/asset data. Do not guess CDB schema — look it up in the guide first.
+
+| Trigger phrase / intent | Read this guide first |
+|---|---|
+| "generate unit JSON" / "write CDB entry" / "add unit to data.cdb" | [docs/howto_castledb_workflow.md](../docs/howto_castledb_workflow.md) |
+| "add operation" / "add quest" / "write quest entry" | [docs/howto_castledb_workflow.md](../docs/howto_castledb_workflow.md) |
+| "how does X look" / "change unit appearance" / "kitbash" / "unit model" / "unit icon" | [docs/howto_visual_kitbashing.md](../docs/howto_visual_kitbashing.md) |
+| "stuck on a trait" / "how does vanilla implement X" / "reverse engineer" / "extract pak" / "study Minx mod" | [docs/howto_reverse_engineering.md](../docs/howto_reverse_engineering.md) |
+
+**Explicit trigger rules (MUST follow):**
+- Any request involving new CDB JSON → MUST open `docs/howto_castledb_workflow.md` first and confirm the Atreides template pattern is followed before writing any JSON.
+- Any request about faction visuals, unit portraits, model paths, or color masks → MUST open `docs/howto_visual_kitbashing.md` first.
+- Any request where the correct JSON structure is unknown → MUST open `docs/howto_reverse_engineering.md` and explain the extraction/compare workflow before writing any speculative JSON.
+- **If unsure which guide applies → check all three guides before responding.**
