@@ -1,26 +1,37 @@
-nwjs/locales/tr.pak
+# Node / JS artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build / runtime artifacts
+nwjs/
+res/res/
+res/backups/
+res/UI/
+
+# Generated/temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Editor tooling artifacts
+.vscode/
+
+# Scanner output
+docs/hidden_assets.txt
+hidden_assets_scanner.py
+
 libs/
 
-*.json
-*.css
-app.html
-cdb.less
-common.less
-Editor.lnk
-hide.cmd
-hide.js
-hide.js.map
-icons.css
-icons.less
-style.css
-style.less
-node_modules/
 *.js
-nwjs/
-*.dll
 *.jpg
-res/InterVariable-Italic.woff2
-res/Inter-LICENSE.txt
+
+res/TEST_ColorPalette.jpg
+res/brushes/default.jpg
+res/brushes/square.jpg
 res/icons/addSub.png
 res/icons/CapsuleLight.png
 res/icons/delete.png
@@ -34,16 +45,13 @@ res/icons/smooth.png
 res/icons/Sound.png
 res/icons/SpotLight.png
 res/icons/unknown.png
-res/cdb.ico
+*.less
 res/cdb.png
-res/hide.ico
-res/hide.png
+res/Inter-LICENSE.txt
+res/InterVariable-Italic.woff2
 res/InterVariable.woff2
 res/meshGeneratorArrow.fbx
-res/backups/
-res/backups/data_v1.0.0_20260312_205014.cdb
-res/backups/data_v1.0.0_20260313_190525.cdb
-res/backups/data_v1.0.0_20260313_192932.cdb
-res/backups/data_v1.0.0_20260313_193337.cdb
-res/res/data.cdb
-res/res.compressed1.pak
+res/hide.ico
+res/hide.png
+app.html
+cdb.css

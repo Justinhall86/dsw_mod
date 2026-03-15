@@ -55,6 +55,21 @@ There is already a stub entry `LandsraadFaction` in the sheet — our custom fac
 **Key units:** Karlin Mallenor (leader), Vane Torvver (hero), Landsraad Guard, Landsraad Legionnaire, Punisher, Landsraad Enforcer, Auditor drone  
 **Key operation:** Guild Transporters (instant troop deployment, 50 Intel or Influence)
 
+## Engine Visual Architecture — Critical Constraints
+
+The game engine does **NOT** support "Paper Doll" micro-kitbashing. Unit meshes have weapons,
+helmets, and heads **permanently baked in** — they cannot be swapped via JSON paths, equipment
+arrays, or attachment point references. When designing or describing unit visuals, use **only**
+the **Frankenstein Kitbash Strategy**'s 5 viable methods:
+
+1. **Full Mesh Swapping** — change the `prefab path` to swap in a completely different model
+2. **Animation Swapping** — assign a different `animCombo` (e.g. Sardaukar sword on a spearman mesh)
+3. **VFX and Projectile Swapping** — change attack data so a unit fires a different effect or projectile
+4. **Scale Manipulation** — set `scale` to `1.15`–`1.25` for heroes/elites; `1.0` for standard infantry
+5. **Color Masking** — rely on faction shader masks to apply Landsraad Gold and Purple to vanilla meshes
+
+Full documentation and examples → [docs/howto_visual_kitbashing.md](docs/howto_visual_kitbashing.md)
+
 ## Mod Design Documents (YAML master reference — do not generate CDB JSON until these are finalized)
 Located in `mod/`:
 - `mod/landsraad_faction.yml` — core faction identity, mechanics, visuals
