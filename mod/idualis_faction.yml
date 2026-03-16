@@ -1,0 +1,288 @@
+# ============================================================
+# House Idualis — Core Faction Identity
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+# CDB template source : faction "Fremen"  (full clone, then modified)
+# CDB target entry id : "Idualis"
+# CDB sheet          : faction
+# ============================================================
+
+faction:
+  id: Idualis
+  cdb_template: Fremen          # Clone this faction object exactly, then apply overrides below.
+
+  # ── Identity & Naming ────────────────────────────────────
+  name: "Fallen House Idualis"
+  long_name: "Fallen House|Idualis"
+  short_name: "Idualis"
+  plural_name: "House Idualis"
+  adjective: "Idualis"
+  city_info: "Fallen Citadel of the desert"
+
+  # ── CDB texts object (embedded — no separate localization sheet) ──
+  texts:
+    name: "House Idualis"
+    longName: "Fallen House|Idualis"
+    shortName: "Idualis"
+    adjective: "Idualis"
+    cityInfo: "Fallen Citadel of the desert"
+    desc: >
+      Once a minor noble house with holdings on Arrakis, House Idualis was
+      shattered by the great powers and declared renegade by the Landsraad.
+      Their survivors turned raider — fierce, fanatical, and utterly severed
+      from Imperial law. Now they claw back their destiny from the deep desert,
+      striking with the ferocity of those who have nothing left to lose.
+    plural:
+      name: "House Idualis"
+      longName: "Fallen House|Idualis"
+      shortName: "Idualis"
+
+  # ── Visual Style ─────────────────────────────────────────
+  visuals:
+    primary_color: "#B84200"       # Deep desert rust / ruined-house orange-red
+    color_int: 12075520            # 0xB84200 as decimal  (184*65536 + 66*256 + 0)
+    emblem_notes: >
+      Fractured noble seal on a burnt-orange field — cracked sigil indicating
+      a fallen house. Placeholder: recycle Fremen UI sprites until custom art
+      is available.
+    background_notes: "Bombed-out fortress hall lit by firelight, drifting sand"
+    banner_notes: "Burnt-orange banner with cracked heraldic icon"
+
+  # ── CDB gfx sprite reference (spritesheet row/column) ────
+  gfx:
+    file: "UI/Faction/factionButton00.png"
+    size: 64
+    x: 2          # PLACEHOLDER — reuses Fremen column; replace when custom sheet is ready
+    y: 0
+
+  # ── CDB images overrides ─────────────────────────────────
+  # The Fremen background / conquest art is reused as placeholder.
+  # Replace paths with Idualis-specific assets once available.
+  images:
+    emblem:
+      file: "UI/Faction/factionEmblem.png"
+      size: 64
+      x: 3           # PLACEHOLDER (Fremen emblem position)
+      y: 0
+    squareButton:
+      file: "UI/Faction/factionButton01.png"
+      size: 48
+      x: 2           # PLACEHOLDER
+      y: 0
+    background: "UI/backgrounds/FremenBG.jpg"                    # PLACEHOLDER
+    tradeBanner:
+      file: "UI/HUD/factionHeader.png"
+      size: 1
+      x: 0
+      y: 246
+      width: 430
+      height: 82
+    bannerSmall:
+      file: "UI/landsraad/faction_banners.png"
+      size: 1
+      x: 114         # PLACEHOLDER
+      y: 0
+      width: 38
+      height: 42
+    bannerBig: "UI/Faction/Menu/ic_fremen.png"                  # PLACEHOLDER
+    loading: "UI/backgrounds/FremenBG_Loading.jpg"              # PLACEHOLDER
+    conquest:
+      introLeft: "UI/ConquestMenu/Assets/Fremen/fremen_left.png"    # PLACEHOLDER
+      introRight: "UI/ConquestMenu/Assets/Fremen/fremen_right.png"  # PLACEHOLDER
+      victory: "UI/ConquestMenu/Assets/Fremen/fremenVictory.png"    # PLACEHOLDER
+      defeat: "UI/ConquestMenu/Assets/Fremen/fremenDefeat.png"      # PLACEHOLDER
+
+  # ── Faction House (1 = minor house, matches Fremen) ──────
+  house: 1
+
+  # ── Contract ─────────────────────────────────────────────
+  contract: SpacialGuildBribe       # Keep Fremen contract (cloned baseline)
+
+  # ── Starting Resources ───────────────────────────────────
+  # Mirrors Fremen starting resources as the mechanical baseline.
+  # Adjust values during balance tuning.
+  start_resources:
+    - res: Solari
+      qty: 1000
+    - res: Plascrete
+      qty: 500
+    - res: Manpower
+      qty: 160
+    - res: Authority
+      qty: 60
+    - res: Intel
+      qty: 50
+    - res: Standing
+      qty: 200
+    - res: Thumper
+      qty: 5
+    # Kanly mode overrides
+    - res: Solari
+      qty: 3000
+      gameMode: Kanly
+    - res: Plascrete
+      qty: 1500
+      gameMode: Kanly
+    - res: Manpower
+      qty: 250
+      gameMode: Kanly
+    - res: Influence
+      qty: 100
+      gameMode: Kanly
+    - res: Intel
+      qty: 50
+      gameMode: Kanly
+
+  # ── Base Production (per cycle) ──────────────────────────
+  # Mirrors Fremen production as the mechanical baseline.
+  base_production:
+    - res: Solari
+      qty: 80
+    - res: Plascrete
+      qty: 30
+    - res: Water
+      qty: 20
+    - res: Manpower
+      qty: 4
+    - res: Authority
+      qty: 4
+    - res: Knowledge
+      qty: 5
+    - res: Influence
+      qty: 2
+    - res: CouncilVote
+      qty: 0
+    - res: CommandPoint
+      qty: 40
+    - res: TrainingSlot
+      qty: 2
+    - res: Standing
+      qty: 0
+
+  # ── Difficulty Overrides ──────────────────────────────────
+  start_resources_by_difficulty:
+    - difficulty: 2
+      resources:
+        - qty: 200
+          res: Plascrete
+        - qty: 500
+          res: Solari
+      comment: "Hard"
+    - difficulty: 3
+      resources:
+        - qty: 400
+          res: Plascrete
+        - qty: 1000
+          res: Solari
+      comment: "Insane"
+
+  # ── Props ─────────────────────────────────────────────────
+  props:
+    initials: "I"
+    locked: false
+    infiltrationResource: "Fremen_Infiltration"   # Clone from Fremen; rename to Idualis_Infiltration if custom resource added later
+    canPillageSietch: false
+    spectatorRallyPoint: "Fx/Event/FX_Ping_Fremen_RallyPoint.fx"   # PLACEHOLDER
+
+    neverAccessToRes:
+      - res: Standing
+      - res: CouncilVote
+
+    startingTraits:
+      - trait: AllFactions_Basics
+        displayed: false
+      # NOTE: Fremen trait removed — Idualis has no Fremen-specific mechanics.
+      # Add Idualis-specific trait here once designed. Placeholder: leave empty.
+
+    aiType:
+      - proba: 1
+        type: Economy
+      - proba: 5
+        type: Military
+      - proba: 2
+        type: Expansion
+      - proba: 1
+        type: Statecraft
+
+    hegemonyBonuses:
+      - traitBonus: Fremen_HegemonyBonus1    # PLACEHOLDER — replace with Idualis bonuses when designed
+      - traitBonus: Fremen_HegemonyBonus2    # PLACEHOLDER
+
+    defaultDiplomaticStatus:
+      - faction: Atreides
+        diplomacy: War
+      - faction: Harkonnen
+        diplomacy: War
+      - faction: Smugglers
+        diplomacy: Neutral
+      - faction: Fremen
+        diplomacy: War
+      - faction: Corrino
+        diplomacy: War
+      - faction: Ecaz
+        diplomacy: War
+      - faction: Vernius
+        diplomacy: War
+
+    newGameMesh: "Character/Fremen/Leader/Leader_LietKynes_NewGame.l3d"   # PLACEHOLDER
+
+  # ── Landmarks (links faction entry to its map territory) ──
+  landmarks:
+    region: "SIdualis"                  # CDB structure entry for Idualis home region
+    city: "Idualis_HQ"                  # CDB structure entry — see idualis_hq.yml
+    conquestCity: "ConquestBase_Idualis"
+    conquestRegion: "ConquestBase_Idualis"
+
+  # ── Characters ───────────────────────────────────────────
+  # NOTE: The Fremen clone includes references to Fremen character IDs
+  # (Liet, Shimoom, Jamis, Ramallo, Stilgar). These WILL reference non-Idualis
+  # characters until custom Idualis characters are created. For the initial
+  # clone/playtest, reuse Fremen character IDs as placeholders. Replace in a
+  # future pass once custom councillors are designed.
+  characters:
+    leaders:
+      - id: Liet        # PLACEHOLDER — replace with Idualis leader character
+    councilors:
+      - id: Shimoom     # PLACEHOLDER
+      - id: Jamis       # PLACEHOLDER
+      - id: Ramallo     # PLACEHOLDER
+      - id: Stilgar     # PLACEHOLDER
+    speaker: Stilgar    # PLACEHOLDER
+
+  # ── Conquest ─────────────────────────────────────────────
+  # Conquest mode config — reuses Fremen assets as placeholders.
+  conquest:
+    mapPawn: "MapPawn_Fremen"                                        # PLACEHOLDER
+    introSpeech: "ConquestIntro_Fremen"                              # PLACEHOLDER
+    menuTable: "UI/ConquestMenu/ConquestMenu_Fremen.prefab"          # PLACEHOLDER
+    mapPawnFxs:
+      - fxPath: "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_ArrowFremen.fx"    # PLACEHOLDER
+    mapCityPawnFxs:
+      - fxPath: "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Fremen_MainBase.fx"  # PLACEHOLDER
+    mapCityPawnBonusFxs:
+      - fxPath: "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Fremen_MainBaseBonus.fx"  # PLACEHOLDER
+    fremenGauge: "CQ_FremenRelations_Fremen"                         # PLACEHOLDER
+
+  # ── Localization IDs (embedded in texts object, not a separate sheet) ────
+  localization_notes: >
+    Dune: Spice Wars stores faction text inline in the faction's `texts` object,
+    NOT in a separate localization sheet. The `name`, `desc`, `longName`,
+    `shortName`, `adjective`, and `cityInfo` fields are set directly in the
+    CDB faction entry. There is no `ui_faction_name_idualis` key system in
+    this game's CDB — add the localized string directly to `texts.name`.
+
+  # ── CDB Notes ────────────────────────────────────────────
+  cdb_notes: >
+    - Template: copy the 'Fremen' faction object in full; change id to "Idualis".
+    - Change color to 12075520 (0xB84200 — rust red).
+    - Change texts.name, texts.longName, texts.shortName, texts.adjective,
+      texts.desc, texts.cityInfo to Idualis values (see texts section above).
+    - Change landmarks.city to "Idualis_HQ", landmarks.region to "SIdualis",
+      landmarks.conquestCity and conquestRegion to "ConquestBase_Idualis".
+    - Change props.initials to "I".
+    - Remove startingTraits entry for "Fremen"; keep AllFactions_Basics.
+    - All other fields (startResources, baseProduction, hegemonyBonuses,
+      conquest, characters) start as Fremen clones.
+    - The unit roster is NOT stored in the faction object — it is determined
+      by the faction field on each unit entry in the unit sheet. All
+      Playable_I_* units must have faction: "Idualis" and valid costs.

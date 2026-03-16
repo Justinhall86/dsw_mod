@@ -1,0 +1,137 @@
+# ============================================================
+# House Idualis — Localization Reference
+# Master reference. Documents all text strings for House Idualis.
+# ============================================================
+# IMPORTANT ENGINE NOTE:
+# Dune: Spice Wars stores all display text INLINE within each CDB entity's
+# `texts` object. There is NO separate localization sheet or string ID key
+# system in this game's data.cdb. Text strings referenced here are embedded
+# directly in the `texts` fields of each faction, structure, or unit entry.
+#
+# The "ui_faction_name_idualis" ID pattern used in this document is a
+# DESIGN LABEL for our own documentation — it is NOT a CDB field name.
+# ============================================================
+
+# ── FACTION TEXTS ──────────────────────────────────────────
+#
+# CDB Location: faction sheet → entry "Idualis" → texts object
+#
+faction_texts:
+  # Design label       : ui_faction_name_idualis
+  # CDB path           : faction["Idualis"].texts.name
+  name: "House Idualis"
+
+  # Design label       : ui_faction_long_name_idualis
+  # CDB path           : faction["Idualis"].texts.longName
+  longName: "Fallen House|Idualis"
+
+  # CDB path           : faction["Idualis"].texts.shortName
+  shortName: "Idualis"
+
+  # CDB path           : faction["Idualis"].texts.adjective
+  adjective: "Idualis"
+
+  # CDB path           : faction["Idualis"].texts.cityInfo
+  cityInfo: "Fallen Citadel of the desert"
+
+  # CDB path           : faction["Idualis"].texts.desc
+  desc: >
+    Once a minor noble house with holdings on Arrakis, House Idualis was
+    shattered by the great powers and declared renegade by the Landsraad.
+    Their survivors turned raider — fierce, fanatical, and utterly severed
+    from Imperial law. Now they claw back their destiny from the deep desert,
+    striking with the ferocity of those who have nothing left to lose.
+
+  plural:
+    # CDB path         : faction["Idualis"].texts.plural.name
+    name: "House Idualis"
+    # CDB path         : faction["Idualis"].texts.plural.longName
+    longName: "Fallen House|Idualis"
+    # CDB path         : faction["Idualis"].texts.plural.shortName
+    shortName: "Idualis"
+
+
+# ── MAIN BASE / HQ TEXTS ───────────────────────────────────
+#
+# CDB Location: structure sheet → entry "Idualis_HQ" → texts object
+#
+hq_texts:
+  # Design label       : ui_hq_name_idualis
+  # CDB path           : structure["Idualis_HQ"].texts.name
+  name: "Fallen Citadel"
+
+  # CDB path           : structure["Idualis_HQ"].texts.plural.name
+  plural_name: "Fallen Citadel"
+
+  # CDB path           : structure["Idualis_HQ"].texts.desc
+  desc: >
+    Once a proud noble fortress overlooking the deep desert, the Citadel of
+    House Idualis now stands partially ruined, its great halls open to the
+    scouring wind. What remains is heavily fortified by its desperate
+    defenders, who have nowhere left to retreat.
+
+
+# ── REGION TEXTS ──────────────────────────────────────────
+#
+# CDB Location: structure sheet → entry "SIdualis" → texts object
+#
+region_texts:
+  # CDB path           : structure["SIdualis"].texts.name
+  name: "Idualis Heartland"
+  plural_name: "Idualis Heartland"
+  desc: >
+    The broken desert territory that once belonged to House Idualis.
+    Scorched and scarred, it is dominated by the ruins of the Fallen Citadel.
+
+
+# ── UNIT TEXTS ────────────────────────────────────────────
+#
+# CDB Location: unit sheet → respective unit entry → texts object
+#
+unit_texts:
+
+  Playable_I_Trooper:
+    # CDB path         : unit["Playable_I_Trooper"].texts.name
+    name: "Burned Ones"
+    plural_name: "Burned Ones"
+    desc: >
+      Idualis soldiers who have survived the fall of their house and chosen
+      vengeance over surrender. Armed and dangerous, they serve any Idualis
+      commander without question.
+
+  Playable_I_Elite:
+    # CDB path         : unit["Playable_I_Elite"].texts.name
+    name: "Rampagers"
+    plural_name: "Rampagers"
+    desc: >
+      The elite shock force of House Idualis. These warriors have survived the
+      worst the desert has thrown at them and returned to fight harder for it.
+
+  Playable_I_Demo:
+    # CDB path         : unit["Playable_I_Demo"].texts.name
+    name: "Destroyers"
+    plural_name: "Destroyers"
+    desc: >
+      Idualis demolitions specialists trained to collapse fortifications and
+      scatter armored formations with improvised grenades. The last sound
+      their enemies hear.
+
+
+# ── STRING SUMMARY TABLE ──────────────────────────────────
+# Quick reference for all display strings needed in CDB.
+#
+#  Entity              │ Field          │ English String
+#  ────────────────────┼────────────────┼─────────────────────────────────────
+#  Faction Idualis     │ name           │ "House Idualis"
+#  Faction Idualis     │ longName       │ "Fallen House|Idualis"
+#  Faction Idualis     │ shortName      │ "Idualis"
+#  Faction Idualis     │ adjective      │ "Idualis"
+#  Faction Idualis     │ cityInfo       │ "Fallen Citadel of the desert"
+#  Faction Idualis     │ desc           │ (see faction_texts.desc above)
+#  Structure Idualis_HQ│ name           │ "Fallen Citadel"
+#  Structure Idualis_HQ│ desc           │ (see hq_texts.desc above)
+#  Structure SIdualis  │ name           │ "Idualis Heartland"
+#  Unit Playable_I_T.  │ name           │ "Burned Ones"
+#  Unit Playable_I_E.  │ name           │ "Rampagers"
+#  Unit Playable_I_D.  │ name           │ "Destroyers"
+#

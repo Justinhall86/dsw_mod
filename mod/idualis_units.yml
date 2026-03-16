@@ -1,0 +1,360 @@
+# ============================================================
+# House Idualis — Playable Military Roster
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+# CDB sheet          : unit
+# Source NPC units   : I_Trooper, I_Elite, I_Demo  (faction: Locals, flags: 296)
+# Approach           : Clone each NPC unit, assign new ID with "Playable_" prefix,
+#                      change faction to "Idualis", remove NPC flags, add costs.
+# ============================================================
+#
+# Flag value 296 decoded:
+#   296 = 256 (NoSelect/unselectable by player)
+#       +  32 (NoClickable / no player UI interaction)
+#       +   8 (NPC-only spawn flag)
+#   Remove ALL of these flags → set flags: 0 for full player control.
+#
+# ============================================================
+
+units:
+
+  # ── UNIT 1: Playable_I_Trooper ───────────────────────────
+  - id: Playable_I_Trooper
+    cdb_source_npc: I_Trooper     # Clone this NPC entry; apply overrides below.
+    purpose: >
+      Core Idualis infantry. The "Burned Ones" — fanatical raiders who form the
+      backbone of the Idualis ground force. Available for recruitment from the
+      start. Best used as aggressive shock troops and village garrison.
+
+    # ── Key Overrides from I_Trooper ──────────────────────
+    id_change: "I_Trooper → Playable_I_Trooper"
+    faction: "Idualis"            # Was: "Locals"
+    flags: 0                      # Was: 296 (NPC-only). Remove to enable player control.
+
+    # ── Texts (keep NPC originals; may be retextured later) ─
+    texts:
+      name: "Burned Ones"
+      plural:
+        name: "Burned Ones"
+      desc: >
+        Idualis soldiers who have survived the fall of their house and chosen
+        vengeance over surrender. Armed and dangerous, they serve any Idualis
+        commander without question.
+
+    # ── Stats (unchanged from NPC source) ────────────────
+    stats:
+      health: 500
+      power: 11
+      armor: 0
+      speed: 4
+      maxSupply: 500
+      maxExpLevel: 0
+
+    # ── Unit Properties (unchanged from I_Trooper) ────────
+    props:
+      squadSize: 7
+      squadSpacing: 1.5
+      radius: 5
+      excessWeight: 20
+
+    # ── Inheritance (unchanged) ───────────────────────────
+    inherits: Flanker
+
+    # ── Traits (unchanged from I_Trooper) ────────────────
+    traits:
+      - ref: H_Trooper_Trait
+
+    # ── Combat Effects (unchanged — use NPC models) ───────
+    effects:
+      models:
+        - ref: I_Trooper1
+          flags: 0
+          count: 1
+        - ref: I_Trooper2
+          flags: 0
+          count: 1
+        - ref: I_Trooper3
+          flags: 0
+          count: 1
+        - ref: I_Trooper1
+          flags: 0
+          count: 1
+        - ref: I_Trooper3
+          flags: 0
+          count: 1
+        - ref: I_Trooper2
+          flags: 0
+          count: 1
+        - ref: I_Trooper3
+          flags: 0
+          count: 1
+      events:
+        - sound: "Play_Common_Move"
+          soundSource: 0
+          kind: 1
+          fxs: []
+        - kind: 4
+          soundSource: 0
+          fxs:
+            - fx: "Fx/Unit/FX_Common_AttackRange_Barracks.fx"
+              space: 0
+              flags: 0
+      sound:
+        voices:
+          - action: 2
+            event: "Voice_F_Warrior_Attack"
+          - action: 1
+            event: "Voice_F_Warrior_Move"
+          - action: 0
+            event: "Voice_F_Warrior_Select"
+
+    # ── Portrait Images (unchanged from I_Trooper) ────────
+    images:
+      bigPortrait:
+        file: "UI/Faction/unit_military.png"
+        size: 250
+        x: 0
+        y: 6
+      smallPortrait:
+        file: "UI/Faction/unitsSmall.png"
+        size: 80
+        x: 0
+        y: 6
+    gfx:
+      file: "UI/Faction/unitsSmall.png"
+      size: 80
+      x: 0
+      y: 6
+
+    # ── RECRUIT COSTS (NEW — NPC original had empty costs) ─
+    costs:
+      recruit:
+        - qty: 35
+          res: Manpower
+      upkeep:
+        - qty: 7
+          res: Solari
+        - qty: 3
+          res: CommandPoint
+
+    # ── CDB Notes ─────────────────────────────────────────
+    cdb_notes: >
+      - Copy the I_Trooper unit block from the unit sheet.
+      - Change id to "Playable_I_Trooper".
+      - Change faction to "Idualis".
+      - Change flags from 296 to 0.
+      - Add costs.recruit [35 Manpower] and costs.upkeep [7 Solari, 3 CP].
+      - All other fields (stats, models, inherits, traits, sounds) unchanged.
+      - texts.desc may be updated to Idualis lore; the NPC desc is placeholder.
+
+
+  # ── UNIT 2: Playable_I_Elite ─────────────────────────────
+  - id: Playable_I_Elite
+    cdb_source_npc: I_Elite       # Clone this NPC entry; apply overrides below.
+    purpose: >
+      Elite Idualis heavy melee fighter. The "Rampagers" — scarred veterans who
+      rush enemy formations with brutal close-range strikes. Use as hammer units
+      to break entrenched positions, or as HQ defenders.
+
+    # ── Key Overrides from I_Elite ────────────────────────
+    id_change: "I_Elite → Playable_I_Elite"
+    faction: "Idualis"            # Was: "Locals"
+    flags: 0                      # Was: 296 (NPC-only). Remove to enable player control.
+
+    # ── Texts ─────────────────────────────────────────────
+    texts:
+      name: "Rampagers"
+      plural:
+        name: "Rampagers"
+      desc: >
+        The elite shock force of House Idualis. These warriors have survived the
+        worst the desert has thrown at them and returned to fight harder for it.
+
+    # ── Stats (unchanged from NPC source) ────────────────
+    stats:
+      health: 400
+      power: 21
+      armor: 5
+      speed: 4
+      maxSupply: 500
+      maxExpLevel: 0
+
+    # ── Inheritance (unchanged) ───────────────────────────
+    inherits: Elite
+
+    # ── Traits (unchanged from I_Elite) ──────────────────
+    traits:
+      - ref: F_Elite_Trait
+      - ref: Warrior_Trait
+
+    # ── Attacks (unchanged from I_Elite — melee combo) ───
+    attacks:
+      combos:
+        - ref: F_Fedaykin_Melee
+
+    # ── RECRUIT COSTS (NEW — NPC original had empty costs) ─
+    costs:
+      recruit:
+        - qty: 80
+          res: Solari
+        - qty: 40
+          res: Manpower
+      upkeep:
+        - qty: 18
+          res: Solari
+        - qty: 5
+          res: CommandPoint
+
+    # ── Combat Effects (keep NPC models — Frankenstein kitbash) ─
+    effects:
+      models:
+        - ref: I_Elite
+          flags: 0
+      sound:
+        voices:
+          - action: 2
+            event: "Voice_F_Elite_Attack"     # Keep Fremen audio as placeholder
+          - action: 1
+            event: "Voice_F_Elite_Move"
+          - action: 0
+            event: "Voice_F_Elite_Select"
+
+    # ── CDB Notes ─────────────────────────────────────────
+    cdb_notes: >
+      - Copy the I_Elite unit block from the unit sheet.
+      - Change id to "Playable_I_Elite".
+      - Change faction to "Idualis".
+      - Change flags from 296 to 0.
+      - Add costs.recruit [80 Solari, 40 Manpower] and costs.upkeep [18 Solari, 5 CP].
+      - Keep all traits, attacks, stats, and model refs unchanged.
+      - Note: I_Elite uses the I_Elite model ref — color mask will auto-apply
+        Idualis faction colors via the engine's faction shader mask.
+
+
+  # ── UNIT 3: Playable_I_Demo ──────────────────────────────
+  - id: Playable_I_Demo
+    cdb_source_npc: I_Demo        # Clone this NPC entry; apply overrides below.
+    purpose: >
+      Idualis grenadier / demolitions unit. The "Destroyers" — ranged explosive
+      specialists who deal area-of-effect damage to clustered enemies and
+      structures. The strategic answer to fortified positions.
+
+    # ── Key Overrides from I_Demo ─────────────────────────
+    id_change: "I_Demo → Playable_I_Demo"
+    faction: "Idualis"            # Was: "Locals"
+    flags: 0                      # Was: 296 (NPC-only). Remove to enable player control.
+
+    # ── Texts ─────────────────────────────────────────────
+    texts:
+      name: "Destroyers"
+      plural:
+        name: "Destroyers"
+      desc: >
+        Idualis demolitions specialists trained to collapse fortifications and
+        scatter armored formations with improvised grenades. The last sound
+        their enemies hear.
+
+    # ── Stats (unchanged from NPC source) ────────────────
+    stats:
+      health: 300
+      power: 7
+      armor: 0
+      range: 25
+      speed: 4
+      maxSupply: 500
+      maxExpLevel: 0
+
+    # ── Unit Properties (unchanged from I_Demo) ───────────
+    props:
+      squadSize: 4
+      excessWeight: 10
+
+    # ── Inheritance (unchanged) ───────────────────────────
+    inherits: Grenadier
+
+    # ── Traits (unchanged from I_Demo) ───────────────────
+    traits:
+      - ref: F_Demo_Trait
+
+    # ── Combat Effects ────────────────────────────────────
+    effects:
+      models:
+        - ref: I_Demo
+          flags: 0
+      events:
+        - sound: "Play_Common_Move"
+          soundSource: 0
+          kind: 1
+          fxs: []
+        - soundSource: 0
+          sound: "Grenade_Impact"
+          kind: 16
+          fxs:
+            - fx: "Fx/Unit/FX_Grenade_Impact.fx"
+              space: 1
+              flags: 0
+      sound:
+        voices:
+          - action: 2
+            event: "Voice_F_Skirmisher_Attack"   # Keep Fremen audio as placeholder
+          - action: 1
+            event: "Voice_F_Skirmisher_Move"
+          - action: 0
+            event: "Voice_F_Skirmisher_Select"
+
+    # ── Portrait Images (unchanged from I_Demo) ───────────
+    images:
+      bigPortrait:
+        file: "UI/Faction/unit_military.png"
+        size: 250
+        x: 2
+        y: 6
+      smallPortrait:
+        file: "UI/Faction/unitsSmall.png"
+        size: 80
+        x: 1
+        y: 6
+    gfx:
+      file: "UI/Faction/unitsSmall.png"
+      size: 80
+      x: 1
+      y: 6
+
+    # ── RECRUIT COSTS (NEW — NPC original had empty costs) ─
+    costs:
+      recruit:
+        - qty: 30
+          res: Manpower
+      upkeep:
+        - qty: 8
+          res: Solari
+        - qty: 3
+          res: CommandPoint
+
+    # ── CDB Notes ─────────────────────────────────────────
+    cdb_notes: >
+      - Copy the I_Demo unit block from the unit sheet.
+      - Change id to "Playable_I_Demo".
+      - Change faction to "Idualis".
+      - Change flags from 296 to 0.
+      - Add costs.recruit [30 Manpower] and costs.upkeep [8 Solari, 3 CP].
+      - All other fields (stats, models, traits, inherits, sounds) unchanged.
+      - The Grenadier base provides the ranged/grenade attack profile via inheritance.
+
+
+# ── FACTION ROSTER NOTES ────────────────────────────────────
+# The unit roster for a faction in Dune: Spice Wars is NOT stored as an explicit
+# array in the faction object. A unit belongs to a faction when:
+#   1. The unit's "faction" field equals the faction's id (e.g., "Idualis")
+#   2. The unit has a non-empty "costs" object (enables the recruitment UI)
+# Therefore, adding Playable_I_Trooper / Playable_I_Elite / Playable_I_Demo
+# with faction: "Idualis" and valid costs is sufficient for them to appear
+# in the Idualis recruitment panel.
+#
+# ── MILITIA NOTES ───────────────────────────────────────────
+# Village/territory militia composition is set in the `structure@militia@composition`
+# sub-sheet on individual territory entries, NOT in the faction object.
+# The Idualis main base (Idualis_HQ) has an empty militia array initially.
+# For village annexes, vanilla compositions apply unless overridden per-structure.
+# To assign Playable_I_Trooper as militia: set structure "militia" array on
+# Idualis_HQ and/or village entry with composition [{unit: "Playable_I_Trooper"}].

@@ -1,0 +1,3473 @@
+════════════════════════════════════════════════════════════════════════════════
+  DUNE: SPICE WARS — TRUE ORPHAN & VIABLE UNIT CATALOG  (STRICT MODE)
+  Generated  : 2026-03-15  19:39:18
+  Scan root  : C:\dsw_mod\extr
+  CDB source : c:\dsw_mod\D4XEditor\res\data.cdb
+════════════════════════════════════════════════════════════════════════════════
+
+  STRICT MODE GUARANTEE
+  ─────────────────────────────────────────────────────────────────────────
+  Every string value in the entire data.cdb JSON tree was extracted and
+  joined into a searchable corpus.  A physical file is flagged as a TRUE
+  ORPHAN only when its filename (with extension) does NOT appear as a
+  substring of ANY CDB string — not in mesh paths, not in unit IDs, not
+  in NPC definitions, world events, or any other field.
+
+  CDB corpus strings (unique)   :   77,572
+  Physical .prefab / .fbx files :    1,915
+  True orphans (pass strict test):    1,670
+    of which .prefab              :       90
+    of which .fbx                 :    1,580
+  Viable unit candidates         :      396
+
+────────────────────────────────────────────────────────────────────────────────
+  VIABLE UNIT ORPHANS ONLY  (.prefab first, then .fbx)
+  Filter: path must contain Character | Unit | Vehicle | Drone |
+          Mercenary | Elite
+────────────────────────────────────────────────────────────────────────────────
+
+  [  1] Character/Common/Landsraad/Prefab_Sardaukar.prefab
+         Type : Prefab
+         Role : Imperial Elite / Sword-of-Justice
+
+  [  2] Character/Common/Ravager_Leader/Weapon/Prefab_RavagerLeaderSniper.prefab
+         Type : Prefab
+         Role : Hero / Commander
+
+  [  3] Character/Fremen/Unit/Feydakin/Prefab_Feydakin.prefab
+         Type : Prefab
+         Role : Fremen Elite Melee / Infiltrator
+
+  [  4] Character/Fremen/Unit/Proto_Canon.prefab
+         Type : Prefab
+         Role : Unknown / Needs Manual Review
+
+  [  5] Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard_Damaged.prefab
+         Type : Prefab
+         Role : Guard / Defensive Infantry
+
+  [  6] Character/Harkonnens_LineUp.prefab
+         Type : Prefab
+         Role : Unknown / Needs Manual Review
+
+  [  7] Character/Vernius/Prefab_AllChara.prefab
+         Type : Prefab
+         Role : Unknown / Needs Manual Review
+
+  [  8] Character/Vernius/Weapon/CtairSword/Prefab_CtairSword.prefab
+         Type : Prefab
+         Role : Unknown / Needs Manual Review
+
+  [  9] Character/Vernius/Weapon/EngineerSpear/Prefab_EngineerRifle.prefab
+         Type : Prefab
+         Role : Engineer / Support
+
+  [ 10] Character/Vernius/Weapon/EngineerSpear/Prefab_EngineerSpear.prefab
+         Type : Prefab
+         Role : Engineer / Support
+
+  [ 11] Character/Vernius/Weapon/NuwaRifle/Prefab_NuwaRifle.prefab
+         Type : Prefab
+         Role : Unknown / Needs Manual Review
+
+  [ 12] Character/Vernius/Weapon/SuboidWrench/Prefab_SuboidWrench.prefab
+         Type : Prefab
+         Role : Unknown / Needs Manual Review
+
+  [ 13] Structure/Buildings/Construction/prefab_GrueDrone.prefab
+         Type : Prefab
+         Role : Drone / Automaton
+
+  [ 14] Vehicle/Common/Ravager_Shuttle/Prefab_RavagerShuttle.prefab
+         Type : Prefab
+         Role : Air Vehicle
+
+  [ 15] Vehicle/Harkonnen/Overlord/Prefab_Overlord.prefab
+         Type : Prefab
+         Role : Hero / Commander
+
+  [ 16] Vehicle/Vernius/Prefab_AllVehicles.prefab
+         Type : Prefab
+         Role : Ground Vehicle / Armor
+
+  [ 17] Anim/DroneA/Anim_DroneA_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 18] Anim/DroneA/Anim_DroneA_Death01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 19] Anim/DroneA/Anim_DroneA_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 20] Anim/DroneA/Anim_DroneA_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 21] Anim/DroneA/Anim_DroneA_ReactorBlurAttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 22] Anim/DroneA/Anim_DroneA_ReactorBlur_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 23] Anim/DroneA/Anim_DroneA_ReactorBlur_Death01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 24] Anim/DroneA/Anim_DroneA_ReactorBlur_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 25] Anim/DroneA/Anim_DroneA_ReactorBlur_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 26] Anim/DroneA/Anim_DroneA_ReactorBlur_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 27] Anim/DroneA/Anim_DroneA_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 28] Anim/DroneC/Anim_DroneC_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 29] Anim/DroneC/Anim_DroneC_Closing.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 30] Anim/DroneC/Anim_DroneC_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 31] Anim/DroneC/Anim_DroneC_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 32] Anim/DroneC/Anim_DroneC_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 33] Anim/DroneC/Anim_DroneC_Opening.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 34] Anim/DroneC/Anim_DroneC_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 35] Anim/DroneE/Anim_DroneE_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 36] Anim/DroneE/Anim_DroneE_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 37] Anim/DroneE/Anim_DroneE_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 38] Anim/DroneE/Anim_DroneE_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 39] Anim/DroneE/Anim_DroneE_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 40] Anim/DroneFightEngineer/Anim_DroneFightEngineer_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 41] Anim/DroneFightEngineer/Anim_DroneFightEngineer_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 42] Anim/DroneFightEngineer/Anim_DroneFightEngineer_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 43] Anim/DroneFightEngineer/Anim_DroneFightEngineer_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 44] Anim/DroneFightEngineer/Anim_DroneFightEngineer_Skill_Loop.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 45] Anim/DroneFightEngineer/Anim_DroneFightEngineer_Skill_Off.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 46] Anim/DroneFightEngineer/Anim_DroneFightEngineer_Skill_On.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 47] Anim/DroneH/Anim_DroneHTorture_AttackMelee01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 48] Anim/DroneH/Anim_DroneHTorture_AttackMelee02.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 49] Anim/DroneH/Anim_DroneHTorture_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 50] Anim/DroneH/Anim_DroneHTorture_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 51] Anim/DroneH/Anim_DroneHTorture_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 52] Anim/DroneH/Anim_DroneH_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 53] Anim/DroneH/Anim_DroneH_Death01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 54] Anim/DroneH/Anim_DroneH_Death02.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 55] Anim/DroneH/Anim_DroneH_Death03.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 56] Anim/DroneH/Anim_DroneH_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 57] Anim/DroneH/Anim_DroneH_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 58] Anim/DroneH/Anim_DroneH_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 59] Anim/DroneNuwa/Anim_DroneNuwa_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 60] Anim/DroneNuwa/Anim_DroneNuwa_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 61] Anim/DroneNuwa/Anim_DroneNuwa_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 62] Anim/DroneNuwa/Anim_DroneNuwa_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 63] Anim/DroneNuwa/Anim_DroneNuwa_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 64] Anim/DroneNuwa/Anim_DroneNuwa_Skill_Loop.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 65] Anim/DroneNuwa/Anim_DroneNuwa_Skill_Off.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 66] Anim/DroneNuwa/Anim_DroneNuwa_Skill_On.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 67] Anim/DroneR/Anim_DroneR_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 68] Anim/DroneR/Anim_DroneR_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 69] Anim/DroneR/Anim_DroneR_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 70] Anim/DroneR/Anim_DroneR_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 71] Anim/DroneR/Anim_DroneR_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 72] Anim/DroneRailgun/Anim_DroneRailgun_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 73] Anim/DroneRailgun/Anim_DroneRailgun_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 74] Anim/DroneRailgun/Anim_DroneRailgun_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 75] Anim/DroneRailgun/Anim_DroneRailgun_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 76] Anim/DroneRailgun/Anim_DroneRailgun_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 77] Anim/DroneS/Anim_DroneS2_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 78] Anim/DroneS/Anim_DroneS2_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 79] Anim/DroneS/Anim_DroneS2_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 80] Anim/DroneS/Anim_DroneS2_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 81] Anim/DroneS/Anim_DroneS2_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 82] Anim/DroneS/Anim_DroneS_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 83] Anim/DroneS/Anim_DroneS_Death01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 84] Anim/DroneS/Anim_DroneS_Death02.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 85] Anim/DroneS/Anim_DroneS_Death03.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 86] Anim/DroneS/Anim_DroneS_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 87] Anim/DroneS/Anim_DroneS_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 88] Anim/DroneS/Anim_DroneS_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 89] Anim/DroneTesla/Anim_DroneTesla_AttackRange.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 90] Anim/DroneTesla/Anim_DroneTesla_Death.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 91] Anim/DroneTesla/Anim_DroneTesla_FightIdle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 92] Anim/DroneTesla/Anim_DroneTesla_Idle.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 93] Anim/DroneTesla/Anim_DroneTesla_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [ 94] Character/Atreide/Leader/Leto/Anim_Leto_Agreeing.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [ 95] Character/Atreide/Leader/Leto/Anim_Leto_IdleNeutral01.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [ 96] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [ 97] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [ 98] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [ 99] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [100] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [101] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [102] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [103] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_IdleBreak.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [104] Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [105] Character/Atreide/Leader/Leto/Leto.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [106] Character/Atreide/Unit/Duncan/Male01_AtreidesDuncan.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [107] Character/Atreide/Unit/Gurney/Male01_AtreidesGurney.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [108] Character/Atreide/Unit/HeavyWeaponSquad/Female01_SmugglersDrisq.fbx
+         Type : FBX Source
+         Role : Heavy Support / Anti-Armor
+
+  [109] Character/Atreide/Unit/HeavyWeaponSquad/Male01_HeavyWeaponSquad.fbx
+         Type : FBX Source
+         Role : Heavy Support / Anti-Armor
+
+  [110] Character/Atreide/Unit/HeavyWeaponSquad/Weapon_MissileLauncher.fbx
+         Type : FBX Source
+         Role : Heavy Support / Anti-Armor
+
+  [111] Character/Atreide/Unit/Ranger/Female01_AtreideRanger.fbx
+         Type : FBX Source
+         Role : Ranged Scout
+
+  [112] Character/Atreide/Unit/Ranger/Weapon_MaulaRiffle.fbx
+         Type : FBX Source
+         Role : Ranged Scout
+
+  [113] Character/Atreide/Unit/Soldier/Male01_AtreideSoldier.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [114] Character/Atreide/Unit/Warden/Female01_AtreideWarden.fbx
+         Type : FBX Source
+         Role : Combat Engineer / Field Guard
+
+  [115] Character/Atreide/Unit/Warden/Warden_Shield.fbx
+         Type : FBX Source
+         Role : Combat Engineer / Field Guard
+
+  [116] Character/Atreide/Unit/Weapons/Atreide_MaulaRifle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [117] Character/Atreide/Unit/Weapons/Atreide_Shield_01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [118] Character/Atreide/Unit/Weapons/Atreide_Sniper.fbx
+         Type : FBX Source
+         Role : Ranged / Marksman
+
+  [119] Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [120] Character/Atreide/Unit/Weapons/GurneySet_Javelin.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [121] Character/Atreide/Unit/Weapons/GurneySet_Shield.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [122] Character/Common/Commando/Male01_Commando.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [123] Character/Common/Dummy_Character.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [124] Character/Common/Landsraad/Male01_LandsraadGuard.fbx
+         Type : FBX Source
+         Role : Guard / Defensive Infantry
+
+  [125] Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [126] Character/Common/Marauder/Male01_Marauder.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [127] Character/Common/Marauder/Male01_MarauderDemo.fbx
+         Type : FBX Source
+         Role : Demolitionist / Siege
+
+  [128] Character/Common/Militia/Male01_Militia01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [129] Character/Common/Militia/Male01_Militia02.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [130] Character/Common/Militia/Male01_MilitiaDemo.fbx
+         Type : FBX Source
+         Role : Demolitionist / Siege
+
+  [131] Character/Common/Raider/Male01_Raider.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [132] Character/Common/Raider/Male01_RaiderDemo.fbx
+         Type : FBX Source
+         Role : Demolitionist / Siege
+
+  [133] Character/Common/Ravager/Ravager_Demo.fbx
+         Type : FBX Source
+         Role : Demolitionist / Siege
+
+  [134] Character/Common/Ravager/Ravager_Melee.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [135] Character/Common/Ravager/Weapon/MissileLauncher_Ravager.fbx
+         Type : FBX Source
+         Role : Anti-Armor / Siege
+
+  [136] Character/Common/Ravager_Leader/Ravager_Leader.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [137] Character/Common/Ravager_Leader/Weapon/RavagerLeaderSniper.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [138] Character/Common/Weapon/Gun/Gun.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [139] Character/Common/Weapon/Landsraad_halberd/Landsraad_Halberd.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [140] Character/Common/Weapon/Mercenary_MaulaRifle/Mercenary_MaulaRifle.fbx
+         Type : FBX Source
+         Role : Mercenary
+
+  [141] Character/Common/Weapon/Militia_Shield/Weapon_MilitiaShield.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [142] Character/Common/Weapon/Sniper/Sniper.fbx
+         Type : FBX Source
+         Role : Ranged / Marksman
+
+  [143] Character/Creatures/Sandworm/Anim_SandWorm_Arriving.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [144] Character/Creatures/Sandworm/Anim_SandWorm_Idle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [145] Character/Creatures/Sandworm/Anim_SandWorm_Leaving.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [146] Character/Creatures/Sandworm/Anim_Sandworm_HarvesterDestruction.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [147] Character/Creatures/Sandworm/Anim_Sandworm_UnitDestruction.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [148] Character/Creatures/Sandworm/Sandworm.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [149] Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [150] Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [151] Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [152] Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [153] Character/Ecaz/Leader/ArmandaEcaz.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [154] Character/Ecaz/Leader/ArmandaGlass.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [155] Character/Ecaz/Unit/Fencer/Female01_EcazFencer.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [156] Character/Ecaz/Unit/Ilesa/Female01_EcazIlesa.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [157] Character/Ecaz/Unit/Knight/Male01_Knight.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [158] Character/Ecaz/Unit/Musketeer/Female01_EcazMusketeer.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [159] Character/Ecaz/Unit/Squire/Male01_Squire.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [160] Character/Ecaz/Unit/WhitmoreBludd/Male01_WhitmoreBludd.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [161] Character/Ecaz/Weapon/FencerDoubleKnife/LittleSword.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [162] Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [163] Character/Ecaz/Weapon/GunIlesa/GunIlesa.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [164] Character/Ecaz/Weapon/MusketeerRifle/MusketeerRifle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [165] Character/Ecaz/Weapon/SpearSquire/SpearSquire.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [166] Character/Ecaz/Weapon/SwordKnight/SwordKnight.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [167] Character/Ecaz/Weapon/SwordWhitmore/SwordWhitmore.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [168] Character/Fremen/Leader/Anim_LietKynes_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [169] Character/Fremen/Leader/Anim_LietKynes_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [170] Character/Fremen/Leader/Anim_LietKynes_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [171] Character/Fremen/Leader/Anim_LietKynes_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [172] Character/Fremen/Leader/LietKynes.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [173] Character/Fremen/Unit/CaravanKulon/Female01_FremenKulonTrooper.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [174] Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_DeathRun.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [175] Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_Idle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [176] Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_Run.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [177] Character/Fremen/Unit/CaravanKulon/Kulon/KulonTrooper.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [178] Character/Fremen/Unit/Chani/Female01_FremenChani.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [179] Character/Fremen/Unit/Feydakin/Male01_Feydakin.fbx
+         Type : FBX Source
+         Role : Fremen Elite Melee / Infiltrator
+
+  [180] Character/Fremen/Unit/Feydakin/Male01_Feydakin_Rework.fbx
+         Type : FBX Source
+         Role : Fremen Elite Melee / Infiltrator
+
+  [181] Character/Fremen/Unit/Infiltrator/Female01_Infiltrator.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [182] Character/Fremen/Unit/Otheym/Male01_FremenOtheym.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [183] Character/Fremen/Unit/Soldier/Male01_FremenSoldier.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [184] Character/Fremen/Unit/Soldier/Soldier_Fremen_Bold.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [185] Character/Fremen/Unit/Watcher/Female01_Watcher.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [186] Character/Fremen/Weapon/Bazooka/Bazooka.fbx
+         Type : FBX Source
+         Role : Anti-Armor / Siege
+
+  [187] Character/Fremen/Weapon/Bazooka/Missile.fbx
+         Type : FBX Source
+         Role : Anti-Armor / Siege
+
+  [188] Character/Fremen/Weapon/Crysknife/Crysknife.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [189] Character/Gabarit_Test01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [190] Character/Gabarit_Test02.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [191] Character/Gabarit_Test03.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [192] Character/Harkonnen/Leader/Animations/Anim_Baron_Angry_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [193] Character/Harkonnen/Leader/Animations/Anim_Baron_Angry_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [194] Character/Harkonnen/Leader/Animations/Anim_Baron_Angry_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [195] Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [196] Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [197] Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [198] Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [199] Character/Harkonnen/Leader/Animations/Anim_Baron_LeaderSelection.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [200] Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [201] Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [202] Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [203] Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [204] Character/Harkonnen/Leader/Baron.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [205] Character/Harkonnen/Unit/Cerberus/Male01_Cerberus.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [206] Character/Harkonnen/Unit/Cerberus/Male01_CerberusDamage.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [207] Character/Harkonnen/Unit/Gunner/Female01_HarkonnenGunner.fbx
+         Type : FBX Source
+         Role : Ranged Infantry
+
+  [208] Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard.fbx
+         Type : FBX Source
+         Role : Guard / Defensive Infantry
+
+  [209] Character/Harkonnen/Unit/Nefud/Male01_HarkonnenNefud.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [210] Character/Harkonnen/Unit/Rabban/Male01_HarkonnenRabban.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [211] Character/Harkonnen/Unit/Soldier/Rig_Male_SoldierHarkonnen.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [212] Character/Harkonnen/Unit/Trooper/Male01_HarkonnenTrooper.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [213] Character/Harkonnen/Unit/Vanguard/Female01_HarkonnenVanguard.fbx
+         Type : FBX Source
+         Role : Guard / Defensive Infantry
+
+  [214] Character/Harkonnen/Weapon/Gatling/Anim_Gatling_AttackRange_Air.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [215] Character/Harkonnen/Weapon/Gatling/Gatling.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [216] Character/Harkonnen/Weapon/Harkonnen_Shield_01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [217] Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [218] Character/Harkonnen/Weapon/Knife/Knife01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [219] Character/Harkonnen/Weapon/Knife/Knife02.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [220] Character/Harkonnen/Weapon/MaulaRiffle_Harkonnen.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [221] Character/Harkonnen/Weapon/MissileLauncher.fbx
+         Type : FBX Source
+         Role : Anti-Armor / Siege
+
+  [222] Character/Harkonnen/Weapon/MissileLauncher_Harkonnen.fbx
+         Type : FBX Source
+         Role : Anti-Armor / Siege
+
+  [223] Character/Harkonnen/Weapon/NefudMace.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [224] Character/Harkonnen/Weapon/NefudShield.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [225] Character/Idualis/Demo/Male01_Idualis_Demo.fbx
+         Type : FBX Source
+         Role : Demolitionist / Siege
+
+  [226] Character/Idualis/Elite/Male01_Idualis_Elite - Copy.fbx
+         Type : FBX Source
+         Role : Elite Infantry
+
+  [227] Character/Idualis/Elite/Male01_Idualis_Elite.fbx
+         Type : FBX Source
+         Role : Elite Infantry
+
+  [228] Character/Idualis/Trooper/Male01_IdualisTrooper01.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [229] Character/Idualis/Trooper/Male01_IdualisTrooper02.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [230] Character/Idualis/Trooper/Male01_IdualisTrooper03.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [231] Character/Idualis/Weapon/Bolas.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [232] Character/Idualis/Weapon/Bolas_Ball.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [233] Character/Idualis/Weapon/DoubleKnife.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [234] Character/Idualis/Weapon/LongKnife.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [235] Character/Idualis/Weapon/MetalBar.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [236] Character/Idualis/Weapon/SandwormHook.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [237] Character/Imperial/Aramsham/Male01_ImperialAramsham.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [238] Character/Imperial/FlameThrower/Male01_ImperialFlameThrower.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [239] Character/Imperial/HouseGuard/Male01_HouseGuard.fbx
+         Type : FBX Source
+         Role : Guard / Defensive Infantry
+
+  [240] Character/Imperial/LazaTiger/Tiger_ImperialLazaTiger.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [241] Character/Imperial/Leader/Anim_Shaddam_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [242] Character/Imperial/Leader/Anim_Shaddam_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [243] Character/Imperial/Leader/Anim_Shaddam_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [244] Character/Imperial/Leader/Anim_Shaddam_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [245] Character/Imperial/Leader/Shaddam.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [246] Character/Imperial/Sardaukar/Male01_ImperialSardaukar.fbx
+         Type : FBX Source
+         Role : Imperial Elite / Sword-of-Justice
+
+  [247] Character/Imperial/Trooper/Male01_ImperialTrooper.fbx
+         Type : FBX Source
+         Role : Standard Infantry
+
+  [248] Character/Imperial/Weapon/AramshamSword/Aramsham_Sword.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [249] Character/Imperial/Weapon/CorrinoRifle/CorrinoRifle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [250] Character/Imperial/Weapon/SardaukarSword/SardaukarSword.fbx
+         Type : FBX Source
+         Role : Imperial Elite / Sword-of-Justice
+
+  [251] Character/Imperial/Weapon/SardaukarSword_02/SardaukarSword02.fbx
+         Type : FBX Source
+         Role : Imperial Elite / Sword-of-Justice
+
+  [252] Character/Imperial/Wensicia/Female01_ImperialWensicia.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [253] Character/Smuggler/Leader/Anim_Esmar_Angry_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [254] Character/Smuggler/Leader/Anim_Esmar_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [255] Character/Smuggler/Leader/Anim_Esmar_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [256] Character/Smuggler/Leader/Anim_Esmar_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [257] Character/Smuggler/Leader/Anim_Esmar_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [258] Character/Smuggler/Leader/Esmar.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [259] Character/Smuggler/Unit/Bannerjee/male01_SmugglerBannerjee.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [260] Character/Smuggler/Unit/Drisq/Female01_SmugglersDrisq.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [261] Character/Smuggler/Unit/FreeCompany/Female01_FreeCompany.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [262] Character/Smuggler/Unit/Mercenary/Male01_SmugglerMercenary.fbx
+         Type : FBX Source
+         Role : Mercenary
+
+  [263] Character/Smuggler/Unit/Scout/Male01_Scout.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [264] Character/Smuggler/Unit/Skirmisher/Female01_SmugglerSkirmisher.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [265] Character/Smuggler/Weapon/BannerjeeWeapon/Bannerjee_Weapon.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [266] Character/Smuggler/Weapon/Bazooka/Bazooka_Smuggler.fbx
+         Type : FBX Source
+         Role : Anti-Armor / Siege
+
+  [267] Character/Smuggler/Weapon/DrisqWeaponSet/Anim_DrisqDrone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [268] Character/Smuggler/Weapon/DrisqWeaponSet/DrisqDrone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [269] Character/Smuggler/Weapon/DrisqWeaponSet/DrisqSniper.fbx
+         Type : FBX Source
+         Role : Ranged / Marksman
+
+  [270] Character/Smuggler/Weapon/Gun/Gun_Smuggler.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [271] Character/Smuggler/Weapon/Smuggler_Gun.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [272] Character/Smuggler/Weapon/Smuggler_Sniper.fbx
+         Type : FBX Source
+         Role : Ranged / Marksman
+
+  [273] Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [274] Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [275] Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [276] Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [277] Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [278] Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [279] Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [280] Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [281] Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [282] Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [283] Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [284] Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [285] Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Agree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [286] Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Disagree.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [287] Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Idle.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [288] Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Welcome.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [289] Character/Vernius/Leader/Rhombur.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [290] Character/Vernius/Unit/Ctair/Male01_Ctair.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [291] Character/Vernius/Unit/Fight_Engineer/DroneFightEngineer/DroneFightEngineer.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [292] Character/Vernius/Unit/Fight_Engineer/Male01_FightEngineer.fbx
+         Type : FBX Source
+         Role : Engineer / Support
+
+  [293] Character/Vernius/Unit/FightingMek/FightingMek.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [294] Character/Vernius/Unit/Nuwa/DroneNuwa.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [295] Character/Vernius/Unit/Nuwa/Female01_Nuwa.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [296] Character/Vernius/Unit/Suboid/Male01_Suboid.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [297] Character/Vernius/Weapon/CtairSword/CtairSword.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [298] Character/Vernius/Weapon/EngineerSpear/EngineerRifle.fbx
+         Type : FBX Source
+         Role : Engineer / Support
+
+  [299] Character/Vernius/Weapon/EngineerSpear/EngineerSpear.fbx
+         Type : FBX Source
+         Role : Engineer / Support
+
+  [300] Character/Vernius/Weapon/NuwaRifle/NuwaRifle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [301] Character/Vernius/Weapon/SuboidWrench/SuboidWrench.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [302] Fx/Meshes_Common/Reactor_DroneS2_01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [303] Fx/Meshes_Common/Reactor_DroneS2_02.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [304] Fx/Structure/Arrakeen/SM_Character01.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [305] Fx/Structure/Arrakeen/SM_Drone01.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [306] Fx/Unit/Shield_triangle.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [307] Fx/Unit/SmokeMushroom.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [308] Fx/Unit/Torus.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [309] Fx/Unit/swarmMesh04.fbx
+         Type : FBX Source
+         Role : Unknown / Needs Manual Review
+
+  [310] Fx/Vehicle/CarryAll/FX_Mesh_ShieldEffect.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [311] Fx/Vehicle/CarryAll/FX_Mesh_ShieldEffect_2.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [312] Fx/Vehicle/CarryAll/FX_Mesh_ShieldEffect_3.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [313] Fx/Vehicle/Drones/ReactorHexagone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [314] Fx/Vehicle/Drones/ReactorHexagoneTube.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [315] Fx/Vehicle/Harvester/HarvestFrontMesh.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [316] Fx/Vehicle/Harvester/HarvestFrontMesh_2.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [317] Fx/Vehicle/Harvester/HarvestLightMesh.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [318] Fx/Vehicle/Harvester/HarvestWindMesh.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [319] Fx/Vehicle/Ornithopter/CylinderRay.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [320] Fx/Vehicle/Ornithopter/CylinderRay_large.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [321] Fx/Vehicle/Ornithopter/CylinderRay_large_02.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [322] Fx/Vehicle/Ornithopter/PlaneRay.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [323] Fx/Vehicle/Ornithopter/SpeedFloor.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [324] Fx/Vehicle/Ornithopter/SpeedWaves.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [325] Fx/Vehicle/Ornithopter/SpeedWaves_02.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [326] Fx/Vehicle/Ornithopter/SquareRay.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [327] Fx/Vehicle/Ornithopter/SquareRay02.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [328] Fx/Vehicle/Ornithopter/SquareRay03.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [329] Fx/Vehicle/Ornithopter/SquareRay04.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [330] Fx/Vehicle/Ornithopter/SquareRay05.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [331] Fx/Vehicle/Ornithopter/Vehicule_Ornithopter.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [332] Structure/Buildings/Construction/GrueDrone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [333] Vehicle/Atreide/CarryAll/CarryAll.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [334] Vehicle/Atreide/DroneA/DroneA.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [335] Vehicle/Atreide/DroneA/DroneA_ReactorBlur.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [336] Vehicle/Atreide/Harvester/Vehicule_Harvester.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [337] Vehicle/Atreide/Hawk/Hawk.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [338] Vehicle/Atreide/Hawk/Select.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [339] Vehicle/Atreide/Kraken/Kraken.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [340] Vehicle/Atreide/Ornithopter/AtreideOrnitopter.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [341] Vehicle/Atreide/Ornithopter/Ornithopter01.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [342] Vehicle/Atreide/Ornithopter/Ornithopter02.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [343] Vehicle/Atreide/Ornithopter/Ornithopter03.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [344] Vehicle/Atreide/Ornithopter/Ornithopter04.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [345] Vehicle/Atreide/Ornithopter/Ornithopter04b.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [346] Vehicle/Atreide/Ornithopter/Ornithopter05.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [347] Vehicle/Atreide/Ornithopter/Ornithopter06.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [348] Vehicle/Atreide/Ornithopter/Ornithopter_damage/Ornithopter_Scavenged.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [349] Vehicle/Atreide/Ornithopter/Vehicle_Ornithopter.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [350] Vehicle/Atreide/SpiceFreighterDrone/Anim_SpiceFreighterDrone_Run.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [351] Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighterDrone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [352] Vehicle/Atreide/Tank/Tank.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [353] Vehicle/Common/Ravager/Ravager.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [354] Vehicle/Common/Ravager_Drone/Ravager_Drone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [355] Vehicle/Common/Renegade_Frigate/Renegade_Frigate.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [356] Vehicle/Ecaz/DroneE/DroneE.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [357] Vehicle/Ecaz/Monument/Monument.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [358] Vehicle/Ecaz/Siren/Siren.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [359] Vehicle/Fremen/Altar/Altar.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [360] Vehicle/Fremen/Altar/Altar_AllFabric.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [361] Vehicle/Fremen/Altar/Altar_Balloon.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [362] Vehicle/Fremen/Altar/Altar_FabricStrips.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [363] Vehicle/Fremen/KulonTurret/Anim_KulonTurret_AttackRange.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [364] Vehicle/Fremen/KulonTurret/Anim_KulonTurret_Closing.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [365] Vehicle/Fremen/KulonTurret/Anim_KulonTurret_Death.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [366] Vehicle/Fremen/KulonTurret/Anim_KulonTurret_FightIdle.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [367] Vehicle/Fremen/KulonTurret/Anim_KulonTurret_Opening.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [368] Vehicle/Fremen/KulonTurret/KulonTurretBase.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [369] Vehicle/Fremen/KulonTurret/KulonTurretCannon.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [370] Vehicle/Fremen/KulonTurret_undeployed/KulonTurret_Undeployed.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [371] Vehicle/Fremen/OrnithopterF/Ornithopter_F.fbx
+         Type : FBX Source
+         Role : Air Vehicle
+
+  [372] Vehicle/Harkonnen/DroneH/DroneH.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [373] Vehicle/Harkonnen/DroneH_Melee/DroneH_Melee.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [374] Vehicle/Harkonnen/Harpy/Harpy.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [375] Vehicle/Harkonnen/Harpy/Select.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [376] Vehicle/Harkonnen/Overlord/Select.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [377] Vehicle/Harkonnen/Overlord/Sting.fbx
+         Type : FBX Source
+         Role : Hero / Commander
+
+  [378] Vehicle/Imperial/Chronos/Chronos.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [379] Vehicle/Imperial/Chronos/Select.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [380] Vehicle/Imperial/DroneI/ImperiumDroneBase.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [381] Vehicle/Imperial/DroneI/ImperiumDroneCanon.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [382] Vehicle/Imperial/Hammer/Hammer.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [383] Vehicle/Imperial/Hammer/Select.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [384] Vehicle/Imperial/Harvester/ImperialHarvester.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [385] Vehicle/Imperial/Harvester/ImperialHarvester2.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [386] Vehicle/Smuggler/Banshee/Banshee.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [387] Vehicle/Smuggler/Banshee/Select.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [388] Vehicle/Smuggler/DroneS/DroneS.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [389] Vehicle/Smuggler/StockDrone/StockDrone.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [390] Vehicle/Smuggler/Wraith/Wraith.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [391] Vehicle/Vernius/AutomatedMilitia/AutomatedMilitia.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [392] Vehicle/Vernius/DroneRailGun/DroneRailGun.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [393] Vehicle/Vernius/DroneTesla/DroneTesla.fbx
+         Type : FBX Source
+         Role : Drone / Automaton
+
+  [394] Vehicle/Vernius/FolderRelay/FolderRelay.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [395] Vehicle/Vernius/Harvester/Harvester.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+  [396] Vehicle/Vernius/Spirit/Spirit.fbx
+         Type : FBX Source
+         Role : Ground Vehicle / Armor
+
+────────────────────────────────────────────────────────────────────────────────
+  FULL TRUE-ORPHAN LIST (all viable+non-viable, prefab + fbx)
+────────────────────────────────────────────────────────────────────────────────
+
+── PREFAB (90 true orphans) ────────────────────────────────────────────────────
+  ✦ UNIT Character/Common/Landsraad/Prefab_Sardaukar.prefab
+  ✦ UNIT Character/Common/Ravager_Leader/Weapon/Prefab_RavagerLeaderSniper.prefab
+  ✦ UNIT Character/Fremen/Unit/Feydakin/Prefab_Feydakin.prefab
+  ✦ UNIT Character/Fremen/Unit/Proto_Canon.prefab
+  ✦ UNIT Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard_Damaged.prefab
+  ✦ UNIT Character/Harkonnens_LineUp.prefab
+  ✦ UNIT Character/Vernius/Prefab_AllChara.prefab
+  ✦ UNIT Character/Vernius/Weapon/CtairSword/Prefab_CtairSword.prefab
+  ✦ UNIT Character/Vernius/Weapon/EngineerSpear/Prefab_EngineerRifle.prefab
+  ✦ UNIT Character/Vernius/Weapon/EngineerSpear/Prefab_EngineerSpear.prefab
+  ✦ UNIT Character/Vernius/Weapon/NuwaRifle/Prefab_NuwaRifle.prefab
+  ✦ UNIT Character/Vernius/Weapon/SuboidWrench/Prefab_SuboidWrench.prefab
+      Environment/Asset/SpiceBlow/SpiceBlow.prefab
+      Fx/Environment/SandAmbient/sand.prefab
+      Fx/SandWorm/WormRide/wormRide.prefab
+      Fx/Wind/wind.prefab
+      SpaceShuttle_prefab.prefab
+      Structure/Base/Carthag/Prefab_BaseCarthag_02.prefab
+      Structure/Base/SietchTabr/Prefab_SietchTabr_02.prefab
+      Structure/Base/SietchTuek/Prefab_SietchTuek_02.prefab
+      Structure/Buildings/Airfield/Prefab_Airfield_Construction.prefab
+      Structure/Buildings/Ambassade/Prefab_Ambassade_Construction.prefab
+  ✦ UNIT Structure/Buildings/Construction/prefab_GrueDrone.prefab
+      Structure/Buildings/CraftWorkshop/Prefab_CraftWorkshop_Construction.prefab
+      Structure/Buildings/DataCenter/Prefab_DataCenter_Construction.prefab
+      Structure/Buildings/DewCollector/Prefab_DewCollector_Construction.prefab
+      Structure/Buildings/EcazSculptures/Prefab_Ecaz_Sculpture_Economy_Construction.prefab
+      Structure/Buildings/EcazSculptures/Prefab_Ecaz_Sculpture_Military_Construction.prefab
+      Structure/Buildings/EcazSculptures/Prefab_Ecaz_Sculpture_Politics_Construction.prefab
+      Structure/Buildings/Experimental/Prefab_Experimental_Building_Idle.prefab
+      Structure/Buildings/Experimental/Prefab_Experimental_Construction.prefab
+      Structure/Buildings/FuelCellFactory/Prefab_FuelCellFactory_Construction.prefab
+      Structure/Buildings/IndoctrinationCenter/Prefab_IndoctrinationCenter.prefab
+      Structure/Buildings/InterrogationCenter/Prefab_InterrogationCenter_Construction.prefab
+      Structure/Buildings/InvestmentOffice/Prefab_InvestmentOffice_Construction.prefab
+      Structure/Buildings/ListeningPost/Prefab_ListeningPost_Construction.prefab
+      Structure/Buildings/MarketPlace/Prefab_MarketPlace_Construction.prefab
+      Structure/Buildings/MilitaryBase/Prefab_MilitaryBase_Construction.prefab
+      Structure/Buildings/MissileBattery/Prefab_MissileBattery_Construction.prefab
+      Structure/Buildings/NeuralCore/Prefab_VerniusNeuralCore_Construction.prefab
+      Structure/Buildings/NukeSilo/Prefab_NukeSilo_Construction.prefab
+      Structure/Buildings/PlascreteFactory/Prefab_PlascreteFactory_Construction.prefab
+      Structure/Buildings/Prefab_AllBuildings_Smugglers.prefab
+      Structure/Buildings/ProcessingPlant/Prefab_ProcessingPlant_Construction.prefab
+      Structure/Buildings/PropagandaOffice/Prefab_PropagandaOffice_Construction.prefab
+      Structure/Buildings/RecruitmentOffice/Prefab_RecruitmentOffice_Construction.prefab
+      Structure/Buildings/Refinery/Prefab_Refinery_Construction.prefab
+      Structure/Buildings/ResearchHub/Prefab_ResearchHub_Construction.prefab
+      Structure/Buildings/ResearchStation/Prefab_ResearchCenter_Construction.prefab
+      Structure/Buildings/ShaiHulud/Prefab_ShaiHuludTemple_Construction.prefab
+      Structure/Buildings/SmugglingCenter/Prefab_SmugglingCenter_Construction.prefab
+      Structure/Buildings/SpacingGuildBranch/Prefab_SpacingGuildBranch_Construction.prefab
+      Structure/Buildings/SpiceCollector/Prefab_SpiceCollector_Construction.prefab
+      Structure/Buildings/SpiceSilo/Prefab_SpiceSilo_Construction.prefab
+      Structure/Buildings/StealthTent/Prefab_StealthTent_Construction.prefab
+      Structure/Buildings/SupplyDepot/Prefab_SupplyDepot_Construction.prefab
+      Structure/Buildings/SurveillanceFacility/Prefab_SurveillanceFacility_Construction.prefab
+      Structure/Buildings/WaterExtractor/Prefab_WaterExtractor_Construction.prefab
+      Structure/Buildings/WaterPlant/Prefab_WaterPlant_Construction.prefab
+      Structure/Buildings/WaterPlant/Prefab_WaterPlant_Idle.prefab
+      Structure/Buildings/WindTrap/Prefab_WindTrap_Construction.prefab
+      Structure/Point_Of_Interest/BeneGesseritChest/Prefab_BeneGesseritChest.prefab
+      Structure/Point_Of_Interest/Crashed_Shuttle/Prefab_Shuttle.prefab
+      Structure/Point_Of_Interest/Hiereg/Prefab_Hiereg.prefab
+      Structure/Point_Of_Interest/SpaceCruiserWreck/Prefab_Debris03.prefab
+      Structure/Point_Of_Interest/Stash_Smuggler/Prefab_StashSmuggler.prefab
+      Structure/Point_Of_Interest/Thumper/Prefab_ThumperFremen.prefab
+      Structure/Point_Of_Interest/TrafficHub/Prefab_TrafficHub.prefab
+      Structure/Resources/ConstructionShader.prefab
+      Structure/Resources/windcloth.prefab
+      Structure/Village/Common/FakeLightTemplate.prefab
+      Structure/Village/Common/Prefab_VillageMedium_01.prefab
+      Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab
+      Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab
+      Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab
+      UI/ConquestMenu/Assets/Fremen/Prefab_Pawn_Mainbase_Fremen.prefab
+      UI/ConquestMenu/Assets/Smugglers/Prefab_Pawn_Mainbase_Smugglers.prefab
+      UI/ConquestMenu/Assets/Vernius/Prefab_Pawn_Mainbase_Vernius.prefab
+      UI/ConquestMenu/ConquestMenu_template.prefab
+      UI/MainMenu/Scene_FactionChoice.prefab
+      UI/MainMenu/Scene_LoadGame.prefab
+      UI/MainMenu/Scene_Lobby.prefab
+      UI/MainMenu/Scene_LobbyList.prefab
+      UI/MainMenu/Scene_Lobby_Foreground.prefab
+      UI/MainMenu/Scene_MainMenu.prefab
+      UI/MainMenu/Scene_NewGame.prefab
+  ✦ UNIT Vehicle/Common/Ravager_Shuttle/Prefab_RavagerShuttle.prefab
+  ✦ UNIT Vehicle/Harkonnen/Overlord/Prefab_Overlord.prefab
+  ✦ UNIT Vehicle/Vernius/Prefab_AllVehicles.prefab
+      tools.prefab
+
+── FBX (1580 true orphans) ─────────────────────────────────────────────────────
+      Anim/Altar/Anim_Altar_Death.fbx
+      Anim/Altar/Anim_Altar_Idle.fbx
+      Anim/Altar/Anim_Altar_Run.fbx
+      Anim/AutomatedMilitia/Anim_AutomatedMilitia_AttackRange.fbx
+      Anim/AutomatedMilitia/Anim_AutomatedMilitia_Death.fbx
+      Anim/AutomatedMilitia/Anim_AutomatedMilitia_FightIdle.fbx
+      Anim/AutomatedMilitia/Anim_AutomatedMilitia_Idle.fbx
+      Anim/AutomatedMilitia/Anim_AutomatedMilitia_Run.fbx
+      Anim/Banshee/Anim_Banshee_AttackRange.fbx
+      Anim/Banshee/Anim_Banshee_Closing.fbx
+      Anim/Banshee/Anim_Banshee_Death.fbx
+      Anim/Banshee/Anim_Banshee_FightIdle.fbx
+      Anim/Banshee/Anim_Banshee_Idle.fbx
+      Anim/Banshee/Anim_Banshee_Opening.fbx
+      Anim/Banshee/Anim_Banshee_Run.fbx
+      Anim/Banshee/Anim_Banshee_Spawn.fbx
+      Anim/CarryAll/Anim_CarryAll_Arriving.fbx
+      Anim/CarryAll/Anim_CarryAll_Drop.fbx
+      Anim/CarryAll/Anim_CarryAll_Leaving.fbx
+      Anim/CarryAll/Anim_CarryAll_LoadedIdle.fbx
+      Anim/CarryAll/Anim_CarryAll_Pickup.fbx
+      Anim/Chronos/Anim_Chronos_AirfieldOff.fbx
+      Anim/Chronos/Anim_Chronos_AirfieldOn.fbx
+      Anim/Chronos/Anim_Chronos_AttackRange.fbx
+      Anim/Chronos/Anim_Chronos_Death.fbx
+      Anim/Chronos/Anim_Chronos_FightIdle.fbx
+      Anim/Chronos/Anim_Chronos_Idle.fbx
+      Anim/Chronos/Anim_Chronos_Idle_Airfield.fbx
+      Anim/Chronos/Anim_Chronos_Run.fbx
+      Anim/Chronos/Anim_Chronos_Spawn.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_AttackRange.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_Death01.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_FightIdle.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_Idle.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_ReactorBlurAttackRange.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_ReactorBlur_AttackRange.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_ReactorBlur_Death01.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_ReactorBlur_FightIdle.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_ReactorBlur_Idle.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_ReactorBlur_Run.fbx
+  ✦ UNIT Anim/DroneA/Anim_DroneA_Run.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_AttackRange.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_Closing.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_Death.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_FightIdle.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_Idle.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_Opening.fbx
+  ✦ UNIT Anim/DroneC/Anim_DroneC_Run.fbx
+  ✦ UNIT Anim/DroneE/Anim_DroneE_AttackRange.fbx
+  ✦ UNIT Anim/DroneE/Anim_DroneE_Death.fbx
+  ✦ UNIT Anim/DroneE/Anim_DroneE_FightIdle.fbx
+  ✦ UNIT Anim/DroneE/Anim_DroneE_Idle.fbx
+  ✦ UNIT Anim/DroneE/Anim_DroneE_Run.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_Death.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_FightIdle.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_Idle.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_Run.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_Skill_Loop.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_Skill_Off.fbx
+  ✦ UNIT Anim/DroneFightEngineer/Anim_DroneFightEngineer_Skill_On.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneHTorture_AttackMelee01.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneHTorture_AttackMelee02.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneHTorture_Death.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneHTorture_FightIdle.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneHTorture_Idle.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_AttackRange.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_Death01.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_Death02.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_Death03.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_FightIdle.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_Idle.fbx
+  ✦ UNIT Anim/DroneH/Anim_DroneH_Run.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_AttackRange.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_Death.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_FightIdle.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_Idle.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_Run.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_Skill_Loop.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_Skill_Off.fbx
+  ✦ UNIT Anim/DroneNuwa/Anim_DroneNuwa_Skill_On.fbx
+  ✦ UNIT Anim/DroneR/Anim_DroneR_AttackRange.fbx
+  ✦ UNIT Anim/DroneR/Anim_DroneR_Death.fbx
+  ✦ UNIT Anim/DroneR/Anim_DroneR_FightIdle.fbx
+  ✦ UNIT Anim/DroneR/Anim_DroneR_Idle.fbx
+  ✦ UNIT Anim/DroneR/Anim_DroneR_Run.fbx
+  ✦ UNIT Anim/DroneRailgun/Anim_DroneRailgun_AttackRange.fbx
+  ✦ UNIT Anim/DroneRailgun/Anim_DroneRailgun_Death.fbx
+  ✦ UNIT Anim/DroneRailgun/Anim_DroneRailgun_FightIdle.fbx
+  ✦ UNIT Anim/DroneRailgun/Anim_DroneRailgun_Idle.fbx
+  ✦ UNIT Anim/DroneRailgun/Anim_DroneRailgun_Run.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS2_AttackRange.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS2_Death.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS2_FightIdle.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS2_Idle.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS2_Run.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_AttackRange.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_Death01.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_Death02.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_Death03.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_FightIdle.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_Idle.fbx
+  ✦ UNIT Anim/DroneS/Anim_DroneS_Run.fbx
+  ✦ UNIT Anim/DroneTesla/Anim_DroneTesla_AttackRange.fbx
+  ✦ UNIT Anim/DroneTesla/Anim_DroneTesla_Death.fbx
+  ✦ UNIT Anim/DroneTesla/Anim_DroneTesla_FightIdle.fbx
+  ✦ UNIT Anim/DroneTesla/Anim_DroneTesla_Idle.fbx
+  ✦ UNIT Anim/DroneTesla/Anim_DroneTesla_Run.fbx
+      Anim/Female01/Anim_Female01_AttackLaunch.fbx
+      Anim/Female01/Anim_Female01_AttackMelee01.fbx
+      Anim/Female01/Anim_Female01_AttackMelee02.fbx
+      Anim/Female01/Anim_Female01_AttackMelee03.fbx
+      Anim/Female01/Anim_Female01_AttackRange.fbx
+      Anim/Female01/Anim_Female01_Death01.fbx
+      Anim/Female01/Anim_Female01_DeathExplosion.fbx
+      Anim/Female01/Anim_Female01_Deathworm01.fbx
+      Anim/Female01/Anim_Female01_Deathworm02.fbx
+      Anim/Female01/Anim_Female01_Deathworm03.fbx
+      Anim/Female01/Anim_Female01_FightDeath01.fbx
+      Anim/Female01/Anim_Female01_FightDeath02.fbx
+      Anim/Female01/Anim_Female01_FightDeath03.fbx
+      Anim/Female01/Anim_Female01_FightHitBack.fbx
+      Anim/Female01/Anim_Female01_FightHitFront - Copie.fbx
+      Anim/Female01/Anim_Female01_FightHitFront.fbx
+      Anim/Female01/Anim_Female01_FightHitLeft.fbx
+      Anim/Female01/Anim_Female01_FightHitRight.fbx
+      Anim/Female01/Anim_Female01_FightIdle.fbx
+      Anim/Female01/Anim_Female01_FightIdle_Air.fbx
+      Anim/Female01/Anim_Female01_FightIdle_Assassin.fbx
+      Anim/Female01/Anim_Female01_FightIdletoIdle.fbx
+      Anim/Female01/Anim_Female01_FightRun.fbx
+      Anim/Female01/Anim_Female01_Grenade_FightIdle.fbx
+      Anim/Female01/Anim_Female01_Idle.fbx
+      Anim/Female01/Anim_Female01_IdleToFightIdle.fbx
+      Anim/Female01/Anim_Female01_IdleVariant01.fbx
+      Anim/Female01/Anim_Female01_IdleVariant02.fbx
+      Anim/Female01/Anim_Female01_Run.fbx
+      Anim/Female01/Anim_Female01_RunToFightRun.fbx
+      Anim/Female01/Anim_Female01_SandWorm_JumpIn.fbx
+      Anim/Female01/Anim_Female01_SandWorm_JumpOut.fbx
+      Anim/Female01/Anim_Female01_VillageLooting01.fbx
+      Anim/Female01/Anim_Female01_VillageLooting02.fbx
+      Anim/Female01/Bazooka/Anim_Female01_Bazooka_AttackMelee.fbx
+      Anim/Female01/Bazooka/Anim_Female01_Bazooka_AttackRange.fbx
+      Anim/Female01/Bazooka/Anim_Female01_Bazooka_FightIdle.fbx
+      Anim/Female01/Bazooka/Anim_Female01_Bazooka_Idle.fbx
+      Anim/Female01/Bazooka/Anim_Female01_Bazooka_IdleStance.fbx
+      Anim/Female01/Bazooka/Anim_Female01_Bazooka_Run.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_AttackMelee01.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_AttackMelee02.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_Death.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_FightIdle.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_FightRun.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_Idle.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_IdleVariant01.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_Run.fbx
+      Anim/Female01/Chani/Anim_Female01_Chani_Skill.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_AttackMelee.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_AttackRange.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_AttackRange_Air.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_FightIdle.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_Idle.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_Run.fbx
+      Anim/Female01/Drisq/Anim_Female01_Drisq_Skill.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_AttackMelee01.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_AttackRange01.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_AttackRange_Air.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_FightIdle.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_Idle.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_IdleStance.fbx
+      Anim/Female01/DualGuns/Anim_Female01_DualGuns_Run.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_AttackMelee01.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_AttackMelee02.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_FightHit.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_FightIdle.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_FightRun.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_Idle.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_IdleStance.fbx
+      Anim/Female01/DualSwords/Anim_Female01_DualSwords_Run.fbx
+      Anim/Female01/Fencer/Anim_Female01_Fencer_AttackMelee01.fbx
+      Anim/Female01/Fencer/Anim_Female01_Fencer_FightIdle.fbx
+      Anim/Female01/Fencer/Anim_Female01_Fencer_Idle.fbx
+      Anim/Female01/Fencer/Anim_Female01_Fencer_Run.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_AttackMelee01.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_AttackRange01.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_AttackRange02.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_FightIdle.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_Idle.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_Run.fbx
+      Anim/Female01/Ilesa/Anim_Female01_Ilesa_Skill.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_Gatling_AttackRange.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_AttackMelee.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_AttackRange.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_FightDeath.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_FightHitFront.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_FightIdle.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_GatlingRange.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_GatlingRange_Air.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_Idle01.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_Idle02.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_IdleToFightIdle.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_IdleVariant01.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_IdleVariant02.fbx
+      Anim/Female01/MissileLauncher/Anim_Female01_MissileLauncher_Run.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_AttackRange.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_FightIdle.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_Idle.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_Run.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_Skill_Loop.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_Skill_Off.fbx
+      Anim/Female01/Nuwa/Anim_Female01_Nuwa_Skill_On.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_AttackLaunch.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_AttackMelee.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_AttackRange.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_Death.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_Death02.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_Death03.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_DeathWorm01.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_DeathWorm02.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_DeathWorm03.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_FightHitFront.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_FightIdle.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_FightRun.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_Idle.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_IdleVariant01.fbx
+      Anim/Female01/Pistol/Anim_Female01_Pistol_Run.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_AttackMelee.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_AttackRange.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_AttackRange_Air.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_Death01.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_Death02.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_Death03.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_DeathWorm01.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_DeathWorm02.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_DeathWorm03.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_FightHitFront.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_FightIdle.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_Idle.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_Idle01.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_IdleVariant01.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_IdleVariant02.fbx
+      Anim/Female01/Rifle/Anim_Female01_Rifle_Run.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_AttackMelee01.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_AttackMelee02.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_AttackMelee03.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_AttackRange.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_Death.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightDeath01.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightDeath02.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightDeath03.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightHit.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightHitFront.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightIdle.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightIdleToIdle.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_FightRun.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_Idle01.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_IdleToFightIdle.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_IdleVariant01.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_IdleVariant02.fbx
+      Anim/Female01/Shield/Anim_Female01_Shield_Run.fbx
+      Anim/Female01/Wensicia/Anim_Female01_Wensicia_AttackMelee.fbx
+      Anim/Female01/Wensicia/Anim_Female01_Wensicia_AttackRange.fbx
+      Anim/Female01/Wensicia/Anim_Female01_Wensicia_FightIdle.fbx
+      Anim/Female01/Wensicia/Anim_Female01_Wensicia_Idle.fbx
+      Anim/Female01/Wensicia/Anim_Female01_Wensicia_Run.fbx
+      Anim/Female01/Wensicia/Anim_Female01_Wensicia_Skill.fbx
+      Anim/FightingMek/Anim_FightingMek_AttackMelee01.fbx
+      Anim/FightingMek/Anim_FightingMek_AttackMelee02.fbx
+      Anim/FightingMek/Anim_FightingMek_Death.fbx
+      Anim/FightingMek/Anim_FightingMek_FightIdle.fbx
+      Anim/FightingMek/Anim_FightingMek_Idle.fbx
+      Anim/FightingMek/Anim_FightingMek_Run.fbx
+      Anim/FolderRelay/Anim_FolderRelay_AttackRange.fbx
+      Anim/FolderRelay/Anim_FolderRelay_Death.fbx
+      Anim/FolderRelay/Anim_FolderRelay_FightIdle.fbx
+      Anim/FolderRelay/Anim_FolderRelay_Idle.fbx
+      Anim/FolderRelay/Anim_FolderRelay_Run.fbx
+      Anim/FolderRelay/Anim_FolderRelay_Skill.fbx
+      Anim/FolderRelay/Anim_FolderRelay_SkillEnd.fbx
+      Anim/FolderRelay/Anim_FolderRelay_SkillStart.fbx
+      Anim/FolderRelay/Anim_FolderRelay_Spawn.fbx
+      Anim/Hammer/Anim_Hammer_AttackRange.fbx
+      Anim/Hammer/Anim_Hammer_Death.fbx
+      Anim/Hammer/Anim_Hammer_FightIdle.fbx
+      Anim/Hammer/Anim_Hammer_Idle.fbx
+      Anim/Hammer/Anim_Hammer_Run.fbx
+      Anim/Harpy/Anim_Harpy_AttackRange.fbx
+      Anim/Harpy/Anim_Harpy_Death.fbx
+      Anim/Harpy/Anim_Harpy_FightIdle.fbx
+      Anim/Harpy/Anim_Harpy_Idle.fbx
+      Anim/Harpy/Anim_Harpy_Run.fbx
+      Anim/Harpy/Anim_Harpy_Spawn.fbx
+      Anim/Harvester/Anim_Harvest_Upgrade.fbx
+      Anim/Harvester/Anim_Harvester_Arriving.fbx
+      Anim/Harvester/Anim_Harvester_Death.fbx
+      Anim/Harvester/Anim_Harvester_Drop.fbx
+      Anim/Harvester/Anim_Harvester_Harvest.fbx
+      Anim/Harvester/Anim_Harvester_Harvest_Upgrade.fbx
+      Anim/Harvester/Anim_Harvester_Leaving.fbx
+      Anim/Harvester/Anim_Harvester_LoadedIdle.fbx
+      Anim/Harvester/Anim_Harvester_Pickup.fbx
+      Anim/Harvester/Anim_Harvester_WormDestruction.fbx
+      Anim/Harvester/Anim_Harvester_WormDestruction_Death.fbx
+      Anim/Harvester/Anim_Harvester_WormDestruction_Stay.fbx
+      Anim/HarvesterVernius/Anim_HarvesterVernius_Arriving.fbx
+      Anim/HarvesterVernius/Anim_HarvesterVernius_Death.fbx
+      Anim/HarvesterVernius/Anim_HarvesterVernius_Harvest.fbx
+      Anim/HarvesterVernius/Anim_HarvesterVernius_Idle.fbx
+      Anim/HarvesterVernius/Anim_HarvesterVernius_Leaving.fbx
+      Anim/Hawk/Anim_Hawk_AttackRange.fbx
+      Anim/Hawk/Anim_Hawk_Death.fbx
+      Anim/Hawk/Anim_Hawk_FightIdle.fbx
+      Anim/Hawk/Anim_Hawk_Idle.fbx
+      Anim/Hawk/Anim_Hawk_Run.fbx
+      Anim/Kraken/Anim_Kraken_AttackRange.fbx
+      Anim/Kraken/Anim_Kraken_Death.fbx
+      Anim/Kraken/Anim_Kraken_FightIdle.fbx
+      Anim/Kraken/Anim_Kraken_Idle.fbx
+      Anim/Kraken/Anim_Kraken_Run.fbx
+      Anim/Kraken/Anim_Kraken_Spawn.fbx
+      Anim/Male01/Anim_Male01_AttackLaunch.fbx
+      Anim/Male01/Anim_Male01_AttackMelee01.fbx
+      Anim/Male01/Anim_Male01_AttackMelee02.fbx
+      Anim/Male01/Anim_Male01_AttackMelee03.fbx
+      Anim/Male01/Anim_Male01_AttackRange.fbx
+      Anim/Male01/Anim_Male01_Death01.fbx
+      Anim/Male01/Anim_Male01_DeathExplosion.fbx
+      Anim/Male01/Anim_Male01_Deathworm01.fbx
+      Anim/Male01/Anim_Male01_Deathworm02.fbx
+      Anim/Male01/Anim_Male01_Deathworm03.fbx
+      Anim/Male01/Anim_Male01_FightDeath01.fbx
+      Anim/Male01/Anim_Male01_FightDeath02.fbx
+      Anim/Male01/Anim_Male01_FightDeath03.fbx
+      Anim/Male01/Anim_Male01_FightHitBack.fbx
+      Anim/Male01/Anim_Male01_FightHitFront.fbx
+      Anim/Male01/Anim_Male01_FightHitLeft.fbx
+      Anim/Male01/Anim_Male01_FightHitRight.fbx
+      Anim/Male01/Anim_Male01_FightIdle.fbx
+      Anim/Male01/Anim_Male01_FightIdle_Air.fbx
+      Anim/Male01/Anim_Male01_FightIdletoIdle.fbx
+      Anim/Male01/Anim_Male01_FightRun.fbx
+      Anim/Male01/Anim_Male01_Idle.fbx
+      Anim/Male01/Anim_Male01_Idle01.fbx
+      Anim/Male01/Anim_Male01_IdleToFightIdle.fbx
+      Anim/Male01/Anim_Male01_IdleVariant01.fbx
+      Anim/Male01/Anim_Male01_IdleVariant02.fbx
+      Anim/Male01/Anim_Male01_Idle_Stance.fbx
+      Anim/Male01/Anim_Male01_Riding_SandWorm.fbx
+      Anim/Male01/Anim_Male01_Run.fbx
+      Anim/Male01/Anim_Male01_RunToFightRun.fbx
+      Anim/Male01/Anim_Male01_SandWorm_JumpIn.fbx
+      Anim/Male01/Anim_Male01_SandWorm_JumpOut.fbx
+      Anim/Male01/Anim_Male01_VillageLooting01.fbx
+      Anim/Male01/Anim_Male01_VillageLooting02.fbx
+      Anim/Male01/Anim_MissileBattery_AttackRange.fbx
+      Anim/Male01/Anim_Thumper.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_AttackMelee01.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_AttackMelee02.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_AttackRange.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_FightIdle.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_Idle.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_IdleVariant.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_Run.fbx
+      Anim/Male01/Aramsham/Anim_Male01_Aramsham_Skill.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_AttackMelee01.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_AttackMelee02.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_AttackRange.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_FightIdle.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_Idle.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_Run.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Bannerjee_Skill.fbx
+      Anim/Male01/Bannerjee/Anim_Male01_Barnerjee_Run.fbx
+      Anim/Male01/Bolas/Anim_Male01_Bolas_AttackMelee.fbx
+      Anim/Male01/Bolas/Anim_Male01_Bolas_AttackRange.fbx
+      Anim/Male01/Bolas/Anim_Male01_Bolas_FightIdle.fbx
+      Anim/Male01/Bolas/Anim_Male01_Bolas_FightRun.fbx
+      Anim/Male01/Bolas/Anim_Male01_Bolas_Idle.fbx
+      Anim/Male01/Bolas/Anim_Male01_Bolas_Run.fbx
+      Anim/Male01/Cerberus_2Swords/Anim_Male01_Cerberus_2Swords_AttackMelee01.fbx
+      Anim/Male01/Cerberus_2Swords/Anim_Male01_Cerberus_2Swords_AttackMelee02.fbx
+      Anim/Male01/Cerberus_2Swords/Anim_Male01_Cerberus_2Swords_FightIdle.fbx
+      Anim/Male01/Cerberus_2Swords/Anim_Male01_Cerberus_2Swords_Idle.fbx
+      Anim/Male01/Cerberus_2Swords/Anim_Male01_Cerberus_2Swords_IdleStance.fbx
+      Anim/Male01/Cerberus_2Swords/Anim_Male01_Cerberus_2Swords_Run.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_AttackMelee01.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_AttackMelee02.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_AttackMelee03.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_AttackMelee04.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_FightIdle.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_Idle.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_IdleStance.fbx
+      Anim/Male01/Claws/Anim_Male01_Claws_Run.fbx
+      Anim/Male01/Ctair/Anim_Male01_Ctair_AttackMelee01.fbx
+      Anim/Male01/Ctair/Anim_Male01_Ctair_AttackMelee02.fbx
+      Anim/Male01/Ctair/Anim_Male01_Ctair_FightIdle.fbx
+      Anim/Male01/Ctair/Anim_Male01_Ctair_Idle.fbx
+      Anim/Male01/Ctair/Anim_Male01_Ctair_Run.fbx
+      Anim/Male01/Ctair/Anim_Male01_Ctair_Skill.fbx
+      Anim/Male01/DoubleKnife/Anim_Male01_DoubleKnife_AttackMelee01.fbx
+      Anim/Male01/DoubleKnife/Anim_Male01_DoubleKnife_AttackMelee02.fbx
+      Anim/Male01/DoubleKnife/Anim_Male01_DoubleKnife_FightIdle.fbx
+      Anim/Male01/DoubleKnife/Anim_Male01_DoubleKnife_FightRun.fbx
+      Anim/Male01/DoubleKnife/Anim_Male01_DoubleKnife_Idle.fbx
+      Anim/Male01/DoubleKnife/Anim_Male01_DoubleKnife_Run.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_AttackMelee01.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_AttackMelee02.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_FightHit.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_FightIdle.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_FightRun.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_Idle.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_IdleStance.fbx
+      Anim/Male01/DualSwords/Anim_Male01_DualSwords_Run.fbx
+      Anim/Male01/Duncan/Anim_Male01_AltDuncan_AttackMelee01.fbx
+      Anim/Male01/Duncan/Anim_Male01_AltDuncan_AttackMelee02.fbx
+      Anim/Male01/Duncan/Anim_Male01_AltDuncan_FightIdle.fbx
+      Anim/Male01/Duncan/Anim_Male01_AltDuncan_Idle.fbx
+      Anim/Male01/Duncan/Anim_Male01_AltDuncan_Run.fbx
+      Anim/Male01/Duncan/Anim_Male01_AltDuncan_Skill.fbx
+      Anim/Male01/Duncan/Anim_Male01_Duncan_AttackMelee01.fbx
+      Anim/Male01/Duncan/Anim_Male01_Duncan_AttackMelee02.fbx
+      Anim/Male01/Duncan/Anim_Male01_Duncan_AttackRange.fbx
+      Anim/Male01/Duncan/Anim_Male01_Duncan_FightIdle.fbx
+      Anim/Male01/Duncan/Anim_Male01_Duncan_Run.fbx
+      Anim/Male01/Duncan/Anim_Male01_Duncan_Skill.fbx
+      Anim/Male01/Fedaykin/Anim_Male01_Fedaykin_AttackMelee01.fbx
+      Anim/Male01/Fedaykin/Anim_Male01_Fedaykin_AttackMelee02.fbx
+      Anim/Male01/FightEngineer/Anim_Male01_FightEngineer_Skill_Loop.fbx
+      Anim/Male01/FightEngineer/Anim_Male01_FightEngineer_Skill_Off.fbx
+      Anim/Male01/FightEngineer/Anim_Male01_FightEngineer_Skill_On.fbx
+      Anim/Male01/Gurney/Anim_Male01_Gurney_AttackMelee01.fbx
+      Anim/Male01/Gurney/Anim_Male01_Gurney_AttackMelee02.fbx
+      Anim/Male01/Gurney/Anim_Male01_Gurney_AttackRange.fbx
+      Anim/Male01/Gurney/Anim_Male01_Gurney_FightIdle.fbx
+      Anim/Male01/Gurney/Anim_Male01_Gurney_Run.fbx
+      Anim/Male01/Gurney/Anim_Male01_Gurney_Skill.fbx
+      Anim/Male01/Knight/Anim_Male01_Knight_AttackMelee01.fbx
+      Anim/Male01/Knight/Anim_Male01_Knight_FightIdle.fbx
+      Anim/Male01/Knight/Anim_Male01_Knight_Idle.fbx
+      Anim/Male01/Knight/Anim_Male01_Knight_Run.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_AttackMelee01.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_AttackMelee02.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_AttackMelee03.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_Deathworm01.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_Deathworm02.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_Deathworm03.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_FightDeath01.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_FightDeath02.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_FightDeath03.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_FightHitFront.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_FightIdle.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_Idle.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_IdleVariant01.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_Idle_Stance.fbx
+      Anim/Male01/LandsraadGuard/Anim_Male01_LandsraadGuard_Run.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_AttackMelee.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_AttackRange.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_FightIdle.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_Idle.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_IdleStance.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_IdleVariant.fbx
+      Anim/Male01/LandsraadGuard_Bazooka/Anim_Male01_LandsraadGuard_Bazooka_Run.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_AttackMelee.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_AttackRange.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_AttackRange_Air.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_FightIdle.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_Idle.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_IdleStance.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_Idle_Stance.fbx
+      Anim/Male01/LandsraadGuard_Gun/Anim_Male01_LandsraadGuard_Gun_Run.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_AttackMelee.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_AttackRange.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_AttackRange_Air.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_FightDeath.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_FightHitFront.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_FightIdle.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_Fire.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_Idle.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_Idle01.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_Idle02.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_IdleToFightIdle.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_IdleVariant01.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_IdleVariant02.fbx
+      Anim/Male01/MissileLauncher/Anim_Male01_MissileLauncher_Run.fbx
+      Anim/Male01/MissileLauncher/Anim_MissileLauncher_IdleStance.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_AttackMelee01.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_AttackMelee02.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_AttackRange.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_Death.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_FightIdle.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_Idle.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_Run.fbx
+      Anim/Male01/Nefud/Anim_Male01_Nefud_Skill.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_AttackMelee.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_AttackRange.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_AttackRange_Air.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_FightIdle.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_Idle.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_IdleVariant.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_Run.fbx
+      Anim/Male01/Otheym/Anim_Male01_Otheym_Skill.fbx
+      Anim/Male01/Otheym/Anim_Otheym_IdleVariant.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_AttackLaunch.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_AttackMelee.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_AttackRange.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_Death.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_Death02.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_Death03.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_DeathWorm01.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_DeathWorm02.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_DeathWorm03.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_FightIdle.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_FightRun.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_Idle.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_IdleVariant01.fbx
+      Anim/Male01/Pistol/Anim_Male01_Pistol_Run.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_AttackMelee01.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_AttackMelee02.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_AttackRange.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_FightIdle.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_Idle.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_Run.fbx
+      Anim/Male01/Rabban/Anim_Male01_Rabban_Skill.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_AttackMelee.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_AttackRange.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_AttackRange_Air.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_Death01.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_Death02.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_Death03.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_DeathWorm01.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_DeathWorm02.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_DeathWorm03.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_FightHitFront.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_FightIdle.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_Idle.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_Idle01.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_IdleVariant01.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_IdleVariant02.fbx
+      Anim/Male01/Rifle/Anim_Male01_Rifle_Run.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_AttackMelee01.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_AttackMelee02.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_AttackMelee03.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_FightDeath01.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_FightDeath02.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_FightDeath03.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_FightIdle.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_Idle.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_IdleStance.fbx
+      Anim/Male01/Sardaukar/Anim_Male01_Sardaukar_Run.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_AttackMelee01.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_AttackMelee02.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_AttackMelee03.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_AttackRange.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_Death.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_DeathExplosion.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_DeathWorm01.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightDeath01.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightDeath02.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightDeath03.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightHit.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightHitFront.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightIdle.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightIdleToIdle.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_FightRun.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_Idle01.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_IdleStance.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_IdleToFightIdle.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_IdleVariant01.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_IdleVariant02.fbx
+      Anim/Male01/Shield/Anim_Male01_Shield_Run.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_AttackMelee.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_AttackRange.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_AttackRange_Air.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_Death01.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_Death02.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_Death03.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_DeathWorm01.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_DeathWorm02.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_DeathWorm03.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_FightDeath.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_FightIdle.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_Idle.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_IdleStance.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_IdleVariant01.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_IdleVariant02.fbx
+      Anim/Male01/Sniper/Anim_Male01_Sniper_Run.fbx
+      Anim/Monument/Anim_Monument_AttackRange.fbx
+      Anim/Monument/Anim_Monument_Death.fbx
+      Anim/Monument/Anim_Monument_FightIdle.fbx
+      Anim/Monument/Anim_Monument_Idle.fbx
+      Anim/Monument/Anim_Monument_Run.fbx
+      Anim/Monument/Anim_Monument_Spawn.fbx
+      Anim/Ornithopter/Anim_OrnithopterFremen_AttackRange.fbx
+      Anim/Ornithopter/Anim_Ornithopter_Death.fbx
+      Anim/Ornithopter/Anim_Ornithopter_Death01.fbx
+      Anim/Ornithopter/Anim_Ornithopter_Idle.fbx
+      Anim/Ornithopter/Anim_Ornithopter_Landing.fbx
+      Anim/Ornithopter/Anim_Ornithopter_TakeOff.fbx
+      Anim/Overlord/Anim_Overlord_AttackRange.fbx
+      Anim/Overlord/Anim_Overlord_Death.fbx
+      Anim/Overlord/Anim_Overlord_FightIdle.fbx
+      Anim/Overlord/Anim_Overlord_Idle.fbx
+      Anim/Overlord/Anim_Overlord_Run.fbx
+      Anim/Overlord/Anim_Overlord_Spawn.fbx
+      Anim/Overlord/Anim_Sting_AttackRange.fbx
+      Anim/Overlord/Anim_Sting_Death.fbx
+      Anim/Overlord/Anim_Sting_Idle.fbx
+      Anim/Overlord/Anim_Sting_Run.fbx
+      Anim/Ravager/Anim_Ravager_AttackRange.fbx
+      Anim/Ravager/Anim_Ravager_Death.fbx
+      Anim/Ravager/Anim_Ravager_FightIdle.fbx
+      Anim/Ravager/Anim_Ravager_Idle.fbx
+      Anim/Ravager/Anim_Ravager_Run.fbx
+      Anim/RavagerShuttle/Anim_RavagerShuttle_Arriving.fbx
+      Anim/RavagerShuttle/Anim_RavagerShuttle_Idle.fbx
+      Anim/RavagerShuttle/Anim_RavagerShuttle_Leaving.fbx
+      Anim/RenegateFregate/Anim_RenegadeFrigate_Death.fbx
+      Anim/RenegateFregate/Anim_RenegadeFrigate_FightIdle.fbx
+      Anim/RenegateFregate/Anim_RenegadeFrigate_Idle.fbx
+      Anim/RenegateFregate/Anim_RenegadeFrigate_Run.fbx
+      Anim/Siren/Anim_Siren_AttackRange.fbx
+      Anim/Siren/Anim_Siren_Death.fbx
+      Anim/Siren/Anim_Siren_FightIdle.fbx
+      Anim/Siren/Anim_Siren_Idle.fbx
+      Anim/Siren/Anim_Siren_Run.fbx
+      Anim/SpaceShuttle/Anim_SpaceShuttle_Arriving.fbx
+      Anim/SpaceShuttle/Anim_SpaceShuttle_Death.fbx
+      Anim/SpaceShuttle/Anim_SpaceShuttle_Drop.fbx
+      Anim/SpaceShuttle/Anim_SpaceShuttle_Leaving.fbx
+      Anim/SpaceShuttle/Anim_SpaceShuttle_LoadedIdle.fbx
+      Anim/SpaceShuttle/Anim_SpaceShuttle_Pickup.fbx
+      Anim/Spirit/Anim_Spirit_AttackRange.fbx
+      Anim/Spirit/Anim_Spirit_Death.fbx
+      Anim/Spirit/Anim_Spirit_FightIDle.fbx
+      Anim/Spirit/Anim_Spirit_Idle.fbx
+      Anim/Spirit/Anim_Spirit_Run.fbx
+      Anim/Tiger/Anim_Tiger_AttackMelee01.fbx
+      Anim/Tiger/Anim_Tiger_AttackMelee02.fbx
+      Anim/Tiger/Anim_Tiger_Death.fbx
+      Anim/Tiger/Anim_Tiger_FightIdle.fbx
+      Anim/Tiger/Anim_Tiger_FightRun.fbx
+      Anim/Tiger/Anim_Tiger_Idle.fbx
+      Anim/Tiger/Anim_Tiger_Run.fbx
+      Anim/Wraith/Anim_Wraith_AttackRange.fbx
+      Anim/Wraith/Anim_Wraith_Death.fbx
+      Anim/Wraith/Anim_Wraith_FightIdle.fbx
+      Anim/Wraith/Anim_Wraith_Idle.fbx
+      Anim/Wraith/Anim_Wraith_Run.fbx
+      Anim/Wraith/Anim_Wraith_Spawn.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Anim_Leto_Agreeing.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Anim_Leto_IdleNeutral01.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Agree.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Disagree.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Idle.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Angry_Welcome.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Agree.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Disagree.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Idle.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_IdleBreak.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Animations/Anim_Leto_Neutral_Welcome.fbx
+  ✦ UNIT Character/Atreide/Leader/Leto/Leto.fbx
+  ✦ UNIT Character/Atreide/Unit/Duncan/Male01_AtreidesDuncan.fbx
+  ✦ UNIT Character/Atreide/Unit/Gurney/Male01_AtreidesGurney.fbx
+  ✦ UNIT Character/Atreide/Unit/HeavyWeaponSquad/Female01_SmugglersDrisq.fbx
+  ✦ UNIT Character/Atreide/Unit/HeavyWeaponSquad/Male01_HeavyWeaponSquad.fbx
+  ✦ UNIT Character/Atreide/Unit/HeavyWeaponSquad/Weapon_MissileLauncher.fbx
+  ✦ UNIT Character/Atreide/Unit/Ranger/Female01_AtreideRanger.fbx
+  ✦ UNIT Character/Atreide/Unit/Ranger/Weapon_MaulaRiffle.fbx
+  ✦ UNIT Character/Atreide/Unit/Soldier/Male01_AtreideSoldier.fbx
+  ✦ UNIT Character/Atreide/Unit/Warden/Female01_AtreideWarden.fbx
+  ✦ UNIT Character/Atreide/Unit/Warden/Warden_Shield.fbx
+  ✦ UNIT Character/Atreide/Unit/Weapons/Atreide_MaulaRifle.fbx
+  ✦ UNIT Character/Atreide/Unit/Weapons/Atreide_Shield_01.fbx
+  ✦ UNIT Character/Atreide/Unit/Weapons/Atreide_Sniper.fbx
+  ✦ UNIT Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx
+  ✦ UNIT Character/Atreide/Unit/Weapons/GurneySet_Javelin.fbx
+  ✦ UNIT Character/Atreide/Unit/Weapons/GurneySet_Shield.fbx
+  ✦ UNIT Character/Common/Commando/Male01_Commando.fbx
+  ✦ UNIT Character/Common/Dummy_Character.fbx
+  ✦ UNIT Character/Common/Landsraad/Male01_LandsraadGuard.fbx
+  ✦ UNIT Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx
+  ✦ UNIT Character/Common/Marauder/Male01_Marauder.fbx
+  ✦ UNIT Character/Common/Marauder/Male01_MarauderDemo.fbx
+  ✦ UNIT Character/Common/Militia/Male01_Militia01.fbx
+  ✦ UNIT Character/Common/Militia/Male01_Militia02.fbx
+  ✦ UNIT Character/Common/Militia/Male01_MilitiaDemo.fbx
+  ✦ UNIT Character/Common/Raider/Male01_Raider.fbx
+  ✦ UNIT Character/Common/Raider/Male01_RaiderDemo.fbx
+  ✦ UNIT Character/Common/Ravager/Ravager_Demo.fbx
+  ✦ UNIT Character/Common/Ravager/Ravager_Melee.fbx
+  ✦ UNIT Character/Common/Ravager/Weapon/MissileLauncher_Ravager.fbx
+  ✦ UNIT Character/Common/Ravager_Leader/Ravager_Leader.fbx
+  ✦ UNIT Character/Common/Ravager_Leader/Weapon/RavagerLeaderSniper.fbx
+  ✦ UNIT Character/Common/Weapon/Gun/Gun.fbx
+  ✦ UNIT Character/Common/Weapon/Landsraad_halberd/Landsraad_Halberd.fbx
+  ✦ UNIT Character/Common/Weapon/Mercenary_MaulaRifle/Mercenary_MaulaRifle.fbx
+  ✦ UNIT Character/Common/Weapon/Militia_Shield/Weapon_MilitiaShield.fbx
+  ✦ UNIT Character/Common/Weapon/Sniper/Sniper.fbx
+  ✦ UNIT Character/Creatures/Sandworm/Anim_SandWorm_Arriving.fbx
+  ✦ UNIT Character/Creatures/Sandworm/Anim_SandWorm_Idle.fbx
+  ✦ UNIT Character/Creatures/Sandworm/Anim_SandWorm_Leaving.fbx
+  ✦ UNIT Character/Creatures/Sandworm/Anim_Sandworm_HarvesterDestruction.fbx
+  ✦ UNIT Character/Creatures/Sandworm/Anim_Sandworm_UnitDestruction.fbx
+  ✦ UNIT Character/Creatures/Sandworm/Sandworm.fbx
+  ✦ UNIT Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Agree.fbx
+  ✦ UNIT Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Disagree.fbx
+  ✦ UNIT Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Idle.fbx
+  ✦ UNIT Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Welcome.fbx
+  ✦ UNIT Character/Ecaz/Leader/ArmandaEcaz.fbx
+  ✦ UNIT Character/Ecaz/Leader/ArmandaGlass.fbx
+  ✦ UNIT Character/Ecaz/Unit/Fencer/Female01_EcazFencer.fbx
+  ✦ UNIT Character/Ecaz/Unit/Ilesa/Female01_EcazIlesa.fbx
+  ✦ UNIT Character/Ecaz/Unit/Knight/Male01_Knight.fbx
+  ✦ UNIT Character/Ecaz/Unit/Musketeer/Female01_EcazMusketeer.fbx
+  ✦ UNIT Character/Ecaz/Unit/Squire/Male01_Squire.fbx
+  ✦ UNIT Character/Ecaz/Unit/WhitmoreBludd/Male01_WhitmoreBludd.fbx
+  ✦ UNIT Character/Ecaz/Weapon/FencerDoubleKnife/LittleSword.fbx
+  ✦ UNIT Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx
+  ✦ UNIT Character/Ecaz/Weapon/GunIlesa/GunIlesa.fbx
+  ✦ UNIT Character/Ecaz/Weapon/MusketeerRifle/MusketeerRifle.fbx
+  ✦ UNIT Character/Ecaz/Weapon/SpearSquire/SpearSquire.fbx
+  ✦ UNIT Character/Ecaz/Weapon/SwordKnight/SwordKnight.fbx
+  ✦ UNIT Character/Ecaz/Weapon/SwordWhitmore/SwordWhitmore.fbx
+  ✦ UNIT Character/Fremen/Leader/Anim_LietKynes_Neutral_Agree.fbx
+  ✦ UNIT Character/Fremen/Leader/Anim_LietKynes_Neutral_Disagree.fbx
+  ✦ UNIT Character/Fremen/Leader/Anim_LietKynes_Neutral_Idle.fbx
+  ✦ UNIT Character/Fremen/Leader/Anim_LietKynes_Neutral_Welcome.fbx
+  ✦ UNIT Character/Fremen/Leader/LietKynes.fbx
+  ✦ UNIT Character/Fremen/Unit/CaravanKulon/Female01_FremenKulonTrooper.fbx
+  ✦ UNIT Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_DeathRun.fbx
+  ✦ UNIT Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_Idle.fbx
+  ✦ UNIT Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_Run.fbx
+  ✦ UNIT Character/Fremen/Unit/CaravanKulon/Kulon/KulonTrooper.fbx
+  ✦ UNIT Character/Fremen/Unit/Chani/Female01_FremenChani.fbx
+  ✦ UNIT Character/Fremen/Unit/Feydakin/Male01_Feydakin.fbx
+  ✦ UNIT Character/Fremen/Unit/Feydakin/Male01_Feydakin_Rework.fbx
+  ✦ UNIT Character/Fremen/Unit/Infiltrator/Female01_Infiltrator.fbx
+  ✦ UNIT Character/Fremen/Unit/Otheym/Male01_FremenOtheym.fbx
+  ✦ UNIT Character/Fremen/Unit/Soldier/Male01_FremenSoldier.fbx
+  ✦ UNIT Character/Fremen/Unit/Soldier/Soldier_Fremen_Bold.fbx
+  ✦ UNIT Character/Fremen/Unit/Watcher/Female01_Watcher.fbx
+  ✦ UNIT Character/Fremen/Weapon/Bazooka/Bazooka.fbx
+  ✦ UNIT Character/Fremen/Weapon/Bazooka/Missile.fbx
+  ✦ UNIT Character/Fremen/Weapon/Crysknife/Crysknife.fbx
+  ✦ UNIT Character/Gabarit_Test01.fbx
+  ✦ UNIT Character/Gabarit_Test02.fbx
+  ✦ UNIT Character/Gabarit_Test03.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Angry_Disagree.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Angry_Idle.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Angry_Welcome.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Agree.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Disagree.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Idle.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Happy_Welcome.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_LeaderSelection.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Agree.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Disagree.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Idle.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Animations/Anim_Baron_Neutral_Welcome.fbx
+  ✦ UNIT Character/Harkonnen/Leader/Baron.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Cerberus/Male01_Cerberus.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Cerberus/Male01_CerberusDamage.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Gunner/Female01_HarkonnenGunner.fbx
+  ✦ UNIT Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Nefud/Male01_HarkonnenNefud.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Rabban/Male01_HarkonnenRabban.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Soldier/Rig_Male_SoldierHarkonnen.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Trooper/Male01_HarkonnenTrooper.fbx
+  ✦ UNIT Character/Harkonnen/Unit/Vanguard/Female01_HarkonnenVanguard.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/Gatling/Anim_Gatling_AttackRange_Air.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/Gatling/Gatling.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/Harkonnen_Shield_01.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/Knife/Knife01.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/Knife/Knife02.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/MaulaRiffle_Harkonnen.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/MissileLauncher.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/MissileLauncher_Harkonnen.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/NefudMace.fbx
+  ✦ UNIT Character/Harkonnen/Weapon/NefudShield.fbx
+  ✦ UNIT Character/Idualis/Demo/Male01_Idualis_Demo.fbx
+  ✦ UNIT Character/Idualis/Elite/Male01_Idualis_Elite - Copy.fbx
+  ✦ UNIT Character/Idualis/Elite/Male01_Idualis_Elite.fbx
+  ✦ UNIT Character/Idualis/Trooper/Male01_IdualisTrooper01.fbx
+  ✦ UNIT Character/Idualis/Trooper/Male01_IdualisTrooper02.fbx
+  ✦ UNIT Character/Idualis/Trooper/Male01_IdualisTrooper03.fbx
+  ✦ UNIT Character/Idualis/Weapon/Bolas.fbx
+  ✦ UNIT Character/Idualis/Weapon/Bolas_Ball.fbx
+  ✦ UNIT Character/Idualis/Weapon/DoubleKnife.fbx
+  ✦ UNIT Character/Idualis/Weapon/LongKnife.fbx
+  ✦ UNIT Character/Idualis/Weapon/MetalBar.fbx
+  ✦ UNIT Character/Idualis/Weapon/SandwormHook.fbx
+  ✦ UNIT Character/Imperial/Aramsham/Male01_ImperialAramsham.fbx
+  ✦ UNIT Character/Imperial/FlameThrower/Male01_ImperialFlameThrower.fbx
+  ✦ UNIT Character/Imperial/HouseGuard/Male01_HouseGuard.fbx
+  ✦ UNIT Character/Imperial/LazaTiger/Tiger_ImperialLazaTiger.fbx
+  ✦ UNIT Character/Imperial/Leader/Anim_Shaddam_Neutral_Agree.fbx
+  ✦ UNIT Character/Imperial/Leader/Anim_Shaddam_Neutral_Disagree.fbx
+  ✦ UNIT Character/Imperial/Leader/Anim_Shaddam_Neutral_Idle.fbx
+  ✦ UNIT Character/Imperial/Leader/Anim_Shaddam_Neutral_Welcome.fbx
+  ✦ UNIT Character/Imperial/Leader/Shaddam.fbx
+  ✦ UNIT Character/Imperial/Sardaukar/Male01_ImperialSardaukar.fbx
+  ✦ UNIT Character/Imperial/Trooper/Male01_ImperialTrooper.fbx
+  ✦ UNIT Character/Imperial/Weapon/AramshamSword/Aramsham_Sword.fbx
+  ✦ UNIT Character/Imperial/Weapon/CorrinoRifle/CorrinoRifle.fbx
+  ✦ UNIT Character/Imperial/Weapon/SardaukarSword/SardaukarSword.fbx
+  ✦ UNIT Character/Imperial/Weapon/SardaukarSword_02/SardaukarSword02.fbx
+  ✦ UNIT Character/Imperial/Wensicia/Female01_ImperialWensicia.fbx
+  ✦ UNIT Character/Smuggler/Leader/Anim_Esmar_Angry_Idle.fbx
+  ✦ UNIT Character/Smuggler/Leader/Anim_Esmar_Neutral_Agree.fbx
+  ✦ UNIT Character/Smuggler/Leader/Anim_Esmar_Neutral_Disagree.fbx
+  ✦ UNIT Character/Smuggler/Leader/Anim_Esmar_Neutral_Idle.fbx
+  ✦ UNIT Character/Smuggler/Leader/Anim_Esmar_Neutral_Welcome.fbx
+  ✦ UNIT Character/Smuggler/Leader/Esmar.fbx
+  ✦ UNIT Character/Smuggler/Unit/Bannerjee/male01_SmugglerBannerjee.fbx
+  ✦ UNIT Character/Smuggler/Unit/Drisq/Female01_SmugglersDrisq.fbx
+  ✦ UNIT Character/Smuggler/Unit/FreeCompany/Female01_FreeCompany.fbx
+  ✦ UNIT Character/Smuggler/Unit/Mercenary/Male01_SmugglerMercenary.fbx
+  ✦ UNIT Character/Smuggler/Unit/Scout/Male01_Scout.fbx
+  ✦ UNIT Character/Smuggler/Unit/Skirmisher/Female01_SmugglerSkirmisher.fbx
+  ✦ UNIT Character/Smuggler/Weapon/BannerjeeWeapon/Bannerjee_Weapon.fbx
+  ✦ UNIT Character/Smuggler/Weapon/Bazooka/Bazooka_Smuggler.fbx
+  ✦ UNIT Character/Smuggler/Weapon/DrisqWeaponSet/Anim_DrisqDrone.fbx
+  ✦ UNIT Character/Smuggler/Weapon/DrisqWeaponSet/DrisqDrone.fbx
+  ✦ UNIT Character/Smuggler/Weapon/DrisqWeaponSet/DrisqSniper.fbx
+  ✦ UNIT Character/Smuggler/Weapon/Gun/Gun_Smuggler.fbx
+  ✦ UNIT Character/Smuggler/Weapon/Smuggler_Gun.fbx
+  ✦ UNIT Character/Smuggler/Weapon/Smuggler_Sniper.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Agree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Disagree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Idle.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Welcome.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Agree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Disagree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Idle.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Welcome.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Agree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Disagree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Idle.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Welcome.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Agree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Disagree.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Idle.fbx
+  ✦ UNIT Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Welcome.fbx
+  ✦ UNIT Character/Vernius/Leader/Rhombur.fbx
+  ✦ UNIT Character/Vernius/Unit/Ctair/Male01_Ctair.fbx
+  ✦ UNIT Character/Vernius/Unit/Fight_Engineer/DroneFightEngineer/DroneFightEngineer.fbx
+  ✦ UNIT Character/Vernius/Unit/Fight_Engineer/Male01_FightEngineer.fbx
+  ✦ UNIT Character/Vernius/Unit/FightingMek/FightingMek.fbx
+  ✦ UNIT Character/Vernius/Unit/Nuwa/DroneNuwa.fbx
+  ✦ UNIT Character/Vernius/Unit/Nuwa/Female01_Nuwa.fbx
+  ✦ UNIT Character/Vernius/Unit/Suboid/Male01_Suboid.fbx
+  ✦ UNIT Character/Vernius/Weapon/CtairSword/CtairSword.fbx
+  ✦ UNIT Character/Vernius/Weapon/EngineerSpear/EngineerRifle.fbx
+  ✦ UNIT Character/Vernius/Weapon/EngineerSpear/EngineerSpear.fbx
+  ✦ UNIT Character/Vernius/Weapon/NuwaRifle/NuwaRifle.fbx
+  ✦ UNIT Character/Vernius/Weapon/SuboidWrench/SuboidWrench.fbx
+      Environment/Asset/Bush/Bush01.fbx
+      Environment/Asset/Bush/Bush02.fbx
+      Environment/Asset/Bush/Bush03.fbx
+      Environment/Asset/Bush/Bush04.fbx
+      Environment/Asset/Bush/Bush05.fbx
+      Environment/Asset/Chimney/Chimney_01.fbx
+      Environment/Asset/Chimney/Chimney_02.fbx
+      Environment/Asset/Cracks/Crack_01.fbx
+      Environment/Asset/Cracks/Crack_02.fbx
+      Environment/Asset/Materials/Materials.fbx
+      Environment/Asset/PreciousMaterial/PreciousMaterial_01.fbx
+      Environment/Asset/Rocks/Minerals/MineralArea.fbx
+      Environment/Asset/Rocks/Minerals/Minerals.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large02_01.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_01.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_02.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_03.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_04.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_05.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_06.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_07.fbx
+      Environment/Asset/Rocks/Rock_Large_01/Rock_Large_08.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_01.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_02.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_03.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_04.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_05.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_06.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_07.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_08_Red.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_09_Red.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_10_Red.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_11_Red.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_12_Red.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_13_Red.fbx
+      Environment/Asset/Rocks/Rock_Large_02/LargeRock02_14_Red.fbx
+      Environment/Asset/Sandfall/Sandfall.fbx
+      Environment/Asset/Sandfall/Sandfall_TerrainDeform.fbx
+      Environment/Asset/Test/BasicSietch.fbx
+      Environment/Asset/Test/Dune_01.fbx
+      Environment/Asset/Test/Terrain_01.fbx
+      Environment/Asset/Test/test bush.fbx
+      Environment/Asset/Test/test crater.fbx
+      Environment/Resource/Skymap/Planet_01.fbx
+      Environment/Resource/Skymap/SkyDome_01.fbx
+      Environment/Resource/Skymap/SkyDome_02.fbx
+      Fx/Alphas/SM_GodRayPlane01.fbx
+      Fx/Alphas/SM_GodRayPlane02.fbx
+      Fx/Alphas/SM_GodRayPlane03.fbx
+      Fx/Event/Swirl.fbx
+      Fx/Explosion/M_Ripples.fbx
+      Fx/Explosion/M_Ripples02.fbx
+      Fx/Explosion/M_debris.fbx
+      Fx/Meshes_Common/Altar_Balloon01.fbx
+      Fx/Meshes_Common/Altar_Balloon02.fbx
+      Fx/Meshes_Common/Arched_Plane.fbx
+      Fx/Meshes_Common/BendedCrossPlane.fbx
+      Fx/Meshes_Common/BendedCylinder.fbx
+      Fx/Meshes_Common/BendedPlane.fbx
+      Fx/Meshes_Common/ConquestMap_Dome.fbx
+      Fx/Meshes_Common/Cronos_Explo_01.fbx
+      Fx/Meshes_Common/Cronos_Explo_02.fbx
+      Fx/Meshes_Common/Cronos_Heal.fbx
+      Fx/Meshes_Common/Cronos_Lights.fbx
+      Fx/Meshes_Common/CrossPlanePivBot_NoVrtx.fbx
+      Fx/Meshes_Common/CrossPlanes.fbx
+      Fx/Meshes_Common/CrossPlanes_2.fbx
+      Fx/Meshes_Common/CrossTriPivTop_NoVrtx.fbx
+      Fx/Meshes_Common/CrossTri_NoVrtx.fbx
+      Fx/Meshes_Common/CubeNoVrtx.fbx
+      Fx/Meshes_Common/CubePyramid_PivBot.fbx
+      Fx/Meshes_Common/Cube_PivBot.fbx
+      Fx/Meshes_Common/CurvedPlan.fbx
+      Fx/Meshes_Common/CylinderCone.fbx
+      Fx/Meshes_Common/CylinderCone_BottomPiv.fbx
+      Fx/Meshes_Common/CylinderCone_BottomPiv01.fbx
+      Fx/Meshes_Common/CylinderCone_BottomPiv_LessVrtx.fbx
+      Fx/Meshes_Common/CylinderCone_Double.fbx
+      Fx/Meshes_Common/CylinderCone_Simple.fbx
+      Fx/Meshes_Common/CylinderCone_Small.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV_01.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV_01_Double_larger.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV_01_MoreVrtx.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV_01_larger.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV_02.fbx
+      Fx/Meshes_Common/CylinderCone_StraightUV_03.fbx
+      Fx/Meshes_Common/CylinderStraight.fbx
+      Fx/Meshes_Common/CylinderStraight_02.fbx
+      Fx/Meshes_Common/CylinderStraight_02_MoreVrtx.fbx
+      Fx/Meshes_Common/CylinderStraight_02_flared_MoreVrtx.fbx
+      Fx/Meshes_Common/CylinderStraight_MoreVrtx.fbx
+      Fx/Meshes_Common/DiskFlat.fbx
+      Fx/Meshes_Common/DiskFlatStraight01.fbx
+      Fx/Meshes_Common/DiskFlatStraight01_90.fbx
+      Fx/Meshes_Common/DiskFlatStraight01_MoreVrtx.fbx
+      Fx/Meshes_Common/Disk_SpiraleUV.fbx
+      Fx/Meshes_Common/Disk_SpiraleUV01.fbx
+      Fx/Meshes_Common/Disk_StraightUVs.fbx
+      Fx/Meshes_Common/Disk_Tunnel_SpiraleUV.fbx
+      Fx/Meshes_Common/Disk_Tunnel_StraightUV.fbx
+      Fx/Meshes_Common/EcazMB_Grass01.fbx
+      Fx/Meshes_Common/EcazMB_Grass02.fbx
+      Fx/Meshes_Common/EcazMB_Grass03.fbx
+      Fx/Meshes_Common/EcazMB_PawnLights.fbx
+      Fx/Meshes_Common/EcazMB_Windows.fbx
+      Fx/Meshes_Common/ElectricityCarthag.fbx
+      Fx/Meshes_Common/ElectricityCarthag02.fbx
+      Fx/Meshes_Common/Electricity_single.fbx
+      Fx/Meshes_Common/Electricity_single_BottomPiv.fbx
+      Fx/Meshes_Common/Electricity_single_small.fbx
+      Fx/Meshes_Common/FireTube_tapered.fbx
+      Fx/Meshes_Common/FireTube_tapered02.fbx
+      Fx/Meshes_Common/FireTube_tapered03.fbx
+      Fx/Meshes_Common/FloorElectricity.fbx
+      Fx/Meshes_Common/FloorElectricity02.fbx
+      Fx/Meshes_Common/FloorElectricity03.fbx
+      Fx/Meshes_Common/FloorElectricity04.fbx
+      Fx/Meshes_Common/FloorElectricity05.fbx
+      Fx/Meshes_Common/FloorFireMesh05.fbx
+      Fx/Meshes_Common/GurneyShield.fbx
+      Fx/Meshes_Common/HalfCylinder_BottomPiv.fbx
+      Fx/Meshes_Common/Hawk_Lights.fbx
+      Fx/Meshes_Common/Hawk_Lights02.fbx
+      Fx/Meshes_Common/HemiIcosphere.fbx
+      Fx/Meshes_Common/HemiIcosphere_LowPoly.fbx
+      Fx/Meshes_Common/Hemisphere.fbx
+      Fx/Meshes_Common/Impact01.fbx
+      Fx/Meshes_Common/Impact02.fbx
+      Fx/Meshes_Common/Impact03.fbx
+      Fx/Meshes_Common/Impact04.fbx
+      Fx/Meshes_Common/KrakenDrop_Cylinder.fbx
+      Fx/Meshes_Common/M_Disk_WaterfallRipples.fbx
+      Fx/Meshes_Common/M_Waterfall_Ripples01.fbx
+      Fx/Meshes_Common/M_Waterfall_Ripples02.fbx
+      Fx/Meshes_Common/M_Waterfall_Ripples03.fbx
+      Fx/Meshes_Common/Mesh_Wormsign_modified.fbx
+      Fx/Meshes_Common/Missile.fbx
+      Fx/Meshes_Common/Missile_LessVrtx.fbx
+      Fx/Meshes_Common/Nuke.fbx
+      Fx/Meshes_Common/NukeSilo_SmokeMesh01.fbx
+      Fx/Meshes_Common/Nuke_2.fbx
+      Fx/Meshes_Common/Nuke_3.fbx
+      Fx/Meshes_Common/Nuke_4.fbx
+      Fx/Meshes_Common/Nuke_5.fbx
+      Fx/Meshes_Common/Nuke_6.fbx
+      Fx/Meshes_Common/Nuke_Circle.fbx
+      Fx/Meshes_Common/Nuke_In.fbx
+      Fx/Meshes_Common/Nuke_In_2.fbx
+      Fx/Meshes_Common/Nuke_TorusDeformed.fbx
+      Fx/Meshes_Common/Nuke_TorusDeformed01.fbx
+      Fx/Meshes_Common/Nuke_TorusDeformed02.fbx
+      Fx/Meshes_Common/Overlord_Electricity_01.fbx
+      Fx/Meshes_Common/Overlord_Electricity_02.fbx
+      Fx/Meshes_Common/Plane.fbx
+      Fx/Meshes_Common/PlanePivBot_MoreVrtx.fbx
+      Fx/Meshes_Common/PlanePivBot_NoVrtx.fbx
+      Fx/Meshes_Common/PlanePivBot_NoVrtx_UVRotate.fbx
+      Fx/Meshes_Common/PlanePivCenter_NoVrtx.fbx
+      Fx/Meshes_Common/PlaneTwistedSmoke_01.fbx
+      Fx/Meshes_Common/Plane_50polys.fbx
+      Fx/Meshes_Common/PoisonGas_Mesh.fbx
+      Fx/Meshes_Common/QuarterSphere.fbx
+      Fx/Meshes_Common/Quarter_BendedCylinder.fbx
+      Fx/Meshes_Common/ReactorTriangle.fbx
+      Fx/Meshes_Common/ReactorTriangle_Tube.fbx
+  ✦ UNIT Fx/Meshes_Common/Reactor_DroneS2_01.fbx
+  ✦ UNIT Fx/Meshes_Common/Reactor_DroneS2_02.fbx
+      Fx/Meshes_Common/Reactor_Siren.fbx
+      Fx/Meshes_Common/Reactor_TaperedRectangle.fbx
+      Fx/Meshes_Common/Reactor_TaperedRectangle_bevel.fbx
+      Fx/Meshes_Common/Reactor_rectangle.fbx
+      Fx/Meshes_Common/ResarchStation_window.fbx
+      Fx/Meshes_Common/Ring.fbx
+      Fx/Meshes_Common/Ring_2.fbx
+      Fx/Meshes_Common/Ring_3.fbx
+      Fx/Meshes_Common/Ring_4.fbx
+      Fx/Meshes_Common/Ring_5.fbx
+      Fx/Meshes_Common/SM_Ring03_Cylinder.fbx
+      Fx/Meshes_Common/SandCloud_bottom.fbx
+      Fx/Meshes_Common/SandFall01.fbx
+      Fx/Meshes_Common/SandFall_single.fbx
+      Fx/Meshes_Common/SemiCone.fbx
+      Fx/Meshes_Common/SemiSphere.fbx
+      Fx/Meshes_Common/SemiSphere_2.fbx
+      Fx/Meshes_Common/Shield_Arrakeen.fbx
+      Fx/Meshes_Common/Shield_Arrakeen_StraightUV.fbx
+      Fx/Meshes_Common/Shield_Carthag.fbx
+      Fx/Meshes_Common/Shield_Carthag_straightUV.fbx
+      Fx/Meshes_Common/Shield_Corrino.fbx
+      Fx/Meshes_Common/Shield_Corrino_straightUV.fbx
+      Fx/Meshes_Common/Shield_Ecaz.fbx
+      Fx/Meshes_Common/Shield_Ecaz_StraightUV.fbx
+      Fx/Meshes_Common/Shield_MajorSietch.fbx
+      Fx/Meshes_Common/Shield_Outpost.fbx
+      Fx/Meshes_Common/Shield_Tabr.fbx
+      Fx/Meshes_Common/Shield_Tuek.fbx
+      Fx/Meshes_Common/Shield_Vernius.fbx
+      Fx/Meshes_Common/SmokePlane.fbx
+      Fx/Meshes_Common/Sphere.fbx
+      Fx/Meshes_Common/SphereIco.fbx
+      Fx/Meshes_Common/SphereIco_Opti.fbx
+      Fx/Meshes_Common/Sphere_InvNorm.fbx
+      Fx/Meshes_Common/Spirale.fbx
+      Fx/Meshes_Common/Spirale02.fbx
+      Fx/Meshes_Common/Spirale02_mirrorBig.fbx
+      Fx/Meshes_Common/Spirale03.fbx
+      Fx/Meshes_Common/SupplyBox.fbx
+      Fx/Meshes_Common/TESTRAILGUN.fbx
+      Fx/Meshes_Common/Tornado.fbx
+      Fx/Meshes_Common/Torus.fbx
+      Fx/Meshes_Common/TriangleTube.fbx
+      Fx/Meshes_Common/TriangularCylinder.fbx
+      Fx/Meshes_Common/Tube.fbx
+      Fx/Meshes_Common/TwistedCylinder.fbx
+      Fx/Meshes_Common/V_Prism01.fbx
+      Fx/Meshes_Common/V_PrismTriangle.fbx
+      Fx/Meshes_Common/V_PrismTriangle01.fbx
+      Fx/Meshes_Common/VerniusFregate_Lights.fbx
+      Fx/Meshes_Common/VerniusFregate_LightsPole.fbx
+      Fx/Meshes_Common/VerniusRailgun_Lights.fbx
+      Fx/Meshes_Common/VerniusRailgun_Lights01.fbx
+      Fx/Meshes_Common/VerniusRailgun_Lights02.fbx
+      Fx/Meshes_Common/VerniusRailgun_Lights02_StraightUV.fbx
+      Fx/Meshes_Common/VerniusRailgun_PlainMat.fbx
+      Fx/Meshes_Common/VerniusRailgun_Test.fbx
+      Fx/Meshes_Common/VerniusRailgun_Test01.fbx
+      Fx/Meshes_Common/VerniusRailgun_Test02.fbx
+      Fx/Meshes_Common/VerniusTesla_Lights.fbx
+      Fx/Meshes_Common/VerniusTesla_Torus.fbx
+      Fx/Meshes_Common/ViernusBaseLights.fbx
+      Fx/Meshes_Common/ViernusLights.fbx
+      Fx/Meshes_Common/ViernusLights01.fbx
+      Fx/Meshes_Common/ViernusLightsTower.fbx
+      Fx/Meshes_Common/Viernus_CentralTower.fbx
+      Fx/Meshes_Common/WavyDisk03.fbx
+      Fx/Meshes_Common/WayPointMesh.fbx
+      Fx/Meshes_Common/WayPointMesh02.fbx
+      Fx/Meshes_Common/Wraith_CylinderCones.fbx
+      Fx/Meshes_Common/Wraith_Light.fbx
+      Fx/Meshes_Common/Wraith_Light02.fbx
+      Fx/Meshes_Common/Wraith_Light03.fbx
+      Fx/Meshes_Common/swarmMesh04.fbx
+      Fx/Projectiles/Missile.fbx
+      Fx/SandStorm/FX_Mesh_Sandstorm.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_DomeWorm.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_PlaneSemiCircle.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_WormHole.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_WormRide.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_WormSand.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_WormSand_Planes.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_Wormsign.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_Wormsign_2.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_Wormsign_3.fbx
+      Fx/SandWorm/Mesh/FX_Mesh_Wormsign_4.fbx
+      Fx/SandWorm/Wormsign/SM_Plane_01_SubDiv.fbx
+      Fx/Stats/Mesh_BonusMalus.fbx
+  ✦ UNIT Fx/Structure/Arrakeen/SM_Character01.fbx
+  ✦ UNIT Fx/Structure/Arrakeen/SM_Drone01.fbx
+      Fx/Structure/CorrinoBase/Mesh_ElectricityBig.fbx
+      Fx/Structure/CorrinoBase/Mesh_ElectricityBig02.fbx
+      Fx/Structure/CorrinoBase/Mesh_sidescorrino.fbx
+      Fx/Structure/CorrinoBase/Mesh_sidescorrino_L.fbx
+      Fx/Structure/Fake_Spotlight/Arrakeen_DoorSpotlight.fbx
+      Fx/Structure/HeatWindDisto/Sphere_02.fbx
+      Fx/Structure/SietchTabr/M_Maindoor02.fbx
+      Fx/Structure/SietchTuek/M_MainDoor07.fbx
+      Fx/Test/Arrakeen_TubeSpotlight.fbx
+      Fx/Test/FX_Mesh_Disc.fbx
+      Fx/Test/PyramidScan.fbx
+      Fx/Test/ShockWave.fbx
+      Fx/Test/SideShockWave.fbx
+      Fx/Test/TriangleScan.fbx
+      Fx/UI/SM_GodRayPlane01.fbx
+      Fx/UI/SM_GodRayPlane02.fbx
+      Fx/UI/SM_GodRayPlane03.fbx
+      Fx/UI/SandSwoosh.fbx
+      Fx/UI/SandSwoosh01.fbx
+      Fx/UI/SandSwoosh02.fbx
+  ✦ UNIT Fx/Unit/Shield_triangle.fbx
+  ✦ UNIT Fx/Unit/SmokeMushroom.fbx
+  ✦ UNIT Fx/Unit/Torus.fbx
+  ✦ UNIT Fx/Unit/swarmMesh04.fbx
+  ✦ UNIT Fx/Vehicle/CarryAll/FX_Mesh_ShieldEffect.fbx
+  ✦ UNIT Fx/Vehicle/CarryAll/FX_Mesh_ShieldEffect_2.fbx
+  ✦ UNIT Fx/Vehicle/CarryAll/FX_Mesh_ShieldEffect_3.fbx
+  ✦ UNIT Fx/Vehicle/Drones/ReactorHexagone.fbx
+  ✦ UNIT Fx/Vehicle/Drones/ReactorHexagoneTube.fbx
+  ✦ UNIT Fx/Vehicle/Harvester/HarvestFrontMesh.fbx
+  ✦ UNIT Fx/Vehicle/Harvester/HarvestFrontMesh_2.fbx
+  ✦ UNIT Fx/Vehicle/Harvester/HarvestLightMesh.fbx
+  ✦ UNIT Fx/Vehicle/Harvester/HarvestWindMesh.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/CylinderRay.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/CylinderRay_large.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/CylinderRay_large_02.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/PlaneRay.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SpeedFloor.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SpeedWaves.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SpeedWaves_02.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SquareRay.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SquareRay02.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SquareRay03.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SquareRay04.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/SquareRay05.fbx
+  ✦ UNIT Fx/Vehicle/Ornithopter/Vehicule_Ornithopter.fbx
+      Structure/Base/Arrakeen/Anim_BaseArrakeen_Doors.fbx
+      Structure/Base/Arrakeen/Anim_BaseArrakeen_Ships.fbx
+      Structure/Base/Arrakeen/Arrakeen_District.fbx
+      Structure/Base/Arrakeen/AtreideCity01.fbx
+      Structure/Base/Arrakeen/BaseArrakeen.fbx
+      Structure/Base/Arrakeen/BaseArrakeen_Addon.fbx
+      Structure/Base/Arrakeen/BaseArrakeen_Destroyed.fbx
+      Structure/Base/Arrakeen/BaseArrakeen_District_Infrastructure.fbx
+      Structure/Base/Arrakeen/BaseArrakeen_District_Intelligence.fbx
+      Structure/Base/Arrakeen/BaseArrakeen_District_Military.fbx
+      Structure/Base/Arrakeen/BaseArrakeen_Select.fbx
+      Structure/Base/Arrakeen/Building01.fbx
+      Structure/Base/Arrakeen/District/District_1_1_1.fbx
+      Structure/Base/Arrakeen/District/District_1_1_2.fbx
+      Structure/Base/Arrakeen/District/District_1_2_1.fbx
+      Structure/Base/Arrakeen/District/District_1_2_2.fbx
+      Structure/Base/Arrakeen/District/District_1_3_1.fbx
+      Structure/Base/Arrakeen/District/District_2_1_1.fbx
+      Structure/Base/Arrakeen/District/District_2_1_2.fbx
+      Structure/Base/Arrakeen/District/District_2_2_1.fbx
+      Structure/Base/Arrakeen/District/District_2_2_2.fbx
+      Structure/Base/Arrakeen/District/District_3_1_1.fbx
+      Structure/Base/Arrakeen/District/District_3_1_2.fbx
+      Structure/Base/Arrakeen/District/District_3_1_3.fbx
+      Structure/Base/Arrakeen/RIG_BaseArrakeen_Doors.fbx
+      Structure/Base/Arrakeen/RIG_BaseArrakeen_Ships.fbx
+      Structure/Base/Carthag/Anim_BaseCarthag.fbx
+      Structure/Base/Carthag/BaseCarthag.fbx
+      Structure/Base/Carthag/BaseCarthag_RIG.fbx
+      Structure/Base/Carthag/District/CarthagDistrict.fbx
+      Structure/Base/Carthag/District/District_1_1.fbx
+      Structure/Base/Carthag/District/District_1_2.fbx
+      Structure/Base/Carthag/District/District_2_1.fbx
+      Structure/Base/Carthag/District/District_3_1.fbx
+      Structure/Base/Carthag/District/District_4_1.fbx
+      Structure/Base/Carthag/District/District_4_2.fbx
+      Structure/Base/Carthag/District/District_4_3.fbx
+      Structure/Base/Carthag/District/District_4_4.fbx
+      Structure/Base/Carthag/District/District_5_1.fbx
+      Structure/Base/Carthag/District/District_6_1.fbx
+      Structure/Base/ConquestOutpost/ConquestOutpost.fbx
+      Structure/Base/ConquestOutpost/TowerOutpostConquest/TowerConquestOutpost.fbx
+      Structure/Base/Corrino/Anim_CorrinoBase.fbx
+      Structure/Base/Corrino/CorrinoBase.fbx
+      Structure/Base/Corrino/CorrinoBase_District_01.fbx
+      Structure/Base/Corrino/CorrinoBase_District_02.fbx
+      Structure/Base/Corrino/CorrinoBase_District_03.fbx
+      Structure/Base/Ecaz/District/District_1_1.fbx
+      Structure/Base/Ecaz/District/District_2_1.fbx
+      Structure/Base/Ecaz/District/District_2_2.fbx
+      Structure/Base/Ecaz/District/District_2_3.fbx
+      Structure/Base/Ecaz/District/District_3_1.fbx
+      Structure/Base/Ecaz/District/District_3_2.fbx
+      Structure/Base/Ecaz/District/District_4_1.fbx
+      Structure/Base/Ecaz/District/District_4_2.fbx
+      Structure/Base/Ecaz/District/District_4_3.fbx
+      Structure/Base/Ecaz/District/District_5_1.fbx
+      Structure/Base/Ecaz/Ecaz_MainBase.fbx
+      Structure/Base/Ecaz/Ecaz_MainBase_Select.fbx
+      Structure/Base/SietchTabr/District/District_01.fbx
+      Structure/Base/SietchTabr/District/District_1_1.fbx
+      Structure/Base/SietchTabr/District/District_1_2.fbx
+      Structure/Base/SietchTabr/District/District_2_1.fbx
+      Structure/Base/SietchTabr/District/District_3_1.fbx
+      Structure/Base/SietchTabr/District/District_4_1.fbx
+      Structure/Base/SietchTabr/District/District_4_2.fbx
+      Structure/Base/SietchTabr/District/District_4_3.fbx
+      Structure/Base/SietchTabr/District/District_4_4.fbx
+      Structure/Base/SietchTabr/District/District_5_1.fbx
+      Structure/Base/SietchTabr/District/District_5_2.fbx
+      Structure/Base/SietchTabr/SietchTabr.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D01.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D02.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D03.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D04.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D05.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D06.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D07.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D08.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D09.fbx
+      Structure/Base/SietchTuek/Districts/SietchTuek_D10.fbx
+      Structure/Base/SietchTuek/SietchTuek.fbx
+      Structure/Base/Vernius/District/District_1_1.fbx
+      Structure/Base/Vernius/District/District_2_1.fbx
+      Structure/Base/Vernius/District/District_3_1.fbx
+      Structure/Base/Vernius/District/District_4_1.fbx
+      Structure/Base/Vernius/District/District_5_1.fbx
+      Structure/Base/Vernius/District/District_6_1.fbx
+      Structure/Base/Vernius/District/District_7_1.fbx
+      Structure/Base/Vernius/District/District_8_1.fbx
+      Structure/Base/Vernius/District/District_9_1.fbx
+      Structure/Base/Vernius/VerniusBase.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_01.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_02.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_03.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_04.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_05.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_06.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_07.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_08.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_09.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_10.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_11.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_12.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_13.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_14.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_15.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_16.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_17.fbx
+      Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_18.fbx
+      Structure/Base/Vernius/VerniusBase_PivotEffect.fbx
+      Structure/Base/Vernius/VerniusBase_Select.fbx
+      Structure/Buildings/Airfield.fbx
+      Structure/Buildings/Airfield/Airfield.fbx
+      Structure/Buildings/Airfield/Airfield_Addon.fbx
+      Structure/Buildings/Airfield/Airfield_Construction.fbx
+      Structure/Buildings/Ambassade/Ambassade.fbx
+      Structure/Buildings/Ambassade/Ambassade_Construction.fbx
+      Structure/Buildings/Anim_FuelCellFactory.fbx
+  ✦ UNIT Structure/Buildings/Construction/GrueDrone.fbx
+      Structure/Buildings/Construction/Set.fbx
+      Structure/Buildings/CraftWorkshop/CraftWorkshop.fbx
+      Structure/Buildings/CraftWorkshop/CraftWorkshop_Construction.fbx
+      Structure/Buildings/DataCenter/DataCenter.fbx
+      Structure/Buildings/DataCenter/DataCenter_Animation.fbx
+      Structure/Buildings/DataCenter/DataCenter_Construction.fbx
+      Structure/Buildings/DewCollector/DewCollector.fbx
+      Structure/Buildings/DewCollector/DewCollector_Construction.fbx
+      Structure/Buildings/EcazSculptures/EcazSculpture_Economy.fbx
+      Structure/Buildings/EcazSculptures/EcazSculpture_Economy_Construction.fbx
+      Structure/Buildings/EcazSculptures/EcazSculpture_Military.fbx
+      Structure/Buildings/EcazSculptures/EcazSculpture_Military_Construction.fbx
+      Structure/Buildings/EcazSculptures/EcazSculpture_Politics.fbx
+      Structure/Buildings/EcazSculptures/EcazSculpture_Politics_Construction.fbx
+      Structure/Buildings/Experimental/Anim_ExperimentalBuilding_Idle.fbx
+      Structure/Buildings/Experimental/Experimental_Building.fbx
+      Structure/Buildings/Experimental/Experimental_Construction.fbx
+      Structure/Buildings/FuelCellFactory.fbx
+      Structure/Buildings/FuelCellFactory/Anim_FuelCellFactory.fbx
+      Structure/Buildings/FuelCellFactory/FuelCellFactory.fbx
+      Structure/Buildings/FuelCellFactory/FuelCellFactory_Construction.fbx
+      Structure/Buildings/HarvestTent/HarvestTent.fbx
+      Structure/Buildings/IndoctrinationCenter/IndoctrinationCenter.fbx
+      Structure/Buildings/InterrogationCenter/InterrogationCenter.fbx
+      Structure/Buildings/InterrogationCenter/InterrogationCenter_Construction.fbx
+      Structure/Buildings/InvestmentOffice/InvestmentOffice.fbx
+      Structure/Buildings/InvestmentOffice/InvestmentOffice_Construction.fbx
+      Structure/Buildings/KulonTent/KulonTent.fbx
+      Structure/Buildings/ListeningPost/Anim_ListeningPost_Idle.fbx
+      Structure/Buildings/ListeningPost/ListeningPost.fbx
+      Structure/Buildings/ListeningPost/ListeningPost_Addon.fbx
+      Structure/Buildings/ListeningPost/ListeningPost_Construction.fbx
+      Structure/Buildings/MarketPlace/MarketPlace.fbx
+      Structure/Buildings/MarketPlace/MarketPlace_Construction.fbx
+      Structure/Buildings/MilitaryBase/Anim_MilitaryBase_Idle.fbx
+      Structure/Buildings/MilitaryBase/MilitaryBase.fbx
+      Structure/Buildings/MilitaryBase/MilitaryBase_Construction.fbx
+      Structure/Buildings/MissileBattery/Anim_MissileBattery_AttackRange.fbx
+      Structure/Buildings/MissileBattery/MissileBattery.fbx
+      Structure/Buildings/MissileBattery/MissileBattery_Construction.fbx
+      Structure/Buildings/MissileBattery/MissileBattery_Placeholder.fbx
+      Structure/Buildings/MissileBattery/MissileBattery_Socle.fbx
+      Structure/Buildings/MissileBattery/MissileBattery_pose.fbx
+      Structure/Buildings/NeuralCore/VerniusNeuralCore.fbx
+      Structure/Buildings/NeuralCore/VerniusNeuralCore_Construction.fbx
+      Structure/Buildings/NukeSilo/Anim_NukeSilo_FireReset.fbx
+      Structure/Buildings/NukeSilo/Anim_NukeSilo_Loading.fbx
+      Structure/Buildings/NukeSilo/Anim_NukeSilo_Opening.fbx
+      Structure/Buildings/NukeSilo/Anim_NukeSilo_Reset.fbx
+      Structure/Buildings/NukeSilo/Anim_NukeSilo_Waiting.fbx
+      Structure/Buildings/NukeSilo/Missile.fbx
+      Structure/Buildings/NukeSilo/NukeSilo.fbx
+      Structure/Buildings/NukeSilo/NukeSilo_Construction.fbx
+      Structure/Buildings/NukeSilo/NukeSilo_Loading.fbx
+      Structure/Buildings/NukeSilo/NukeSilo_Waiting.fbx
+      Structure/Buildings/PlascreteFactory/Anim_PlastcreteFactory_Idle.fbx
+      Structure/Buildings/PlascreteFactory/PlascreteFactory_Addon.fbx
+      Structure/Buildings/PlascreteFactory/PlastcreteFactory.fbx
+      Structure/Buildings/PlascreteFactory/PlastcreteFactory_Construction.fbx
+      Structure/Buildings/PlascreteFactory/PlastcreteFactory_Idle.fbx
+      Structure/Buildings/ProcessingPlant/ProcessingPlant.fbx
+      Structure/Buildings/ProcessingPlant/ProcessingPlant_Construction.fbx
+      Structure/Buildings/PropagandaOffice/PropagandaOffice.fbx
+      Structure/Buildings/PropagandaOffice/PropagandaOffice_Construction.fbx
+      Structure/Buildings/RecruitmentOffice/RecruitmentOffice.fbx
+      Structure/Buildings/RecruitmentOffice/RecruitmentOffice_Construction.fbx
+      Structure/Buildings/Refinery/Refinery.fbx
+      Structure/Buildings/Refinery/Refinery_Addon.fbx
+      Structure/Buildings/Refinery/Refinery_Construction.fbx
+      Structure/Buildings/Refinery/Refinery_Ground.fbx
+      Structure/Buildings/ResearchHub/Anim_ResearchHub.fbx
+      Structure/Buildings/ResearchHub/ResearchHub.fbx
+      Structure/Buildings/ResearchHub/ResearchHub_Addon.fbx
+      Structure/Buildings/ResearchHub/ResearchHub_Construction.fbx
+      Structure/Buildings/ResearchStation/Anim_ResearchCenter.fbx
+      Structure/Buildings/ResearchStation/ResearchCenter.fbx
+      Structure/Buildings/ResearchStation/ResearchCenter_Construction.fbx
+      Structure/Buildings/ShaiHulud/ShaiHulud.fbx
+      Structure/Buildings/ShaiHulud/ShaiHulud_Construction.fbx
+      Structure/Buildings/SmugglingCenter/SmugglingCenter.fbx
+      Structure/Buildings/SmugglingCenter/SmugglingCenter_Construction.fbx
+      Structure/Buildings/SpacingGuildBranch/SpaceGuildBranch_Construction.fbx
+      Structure/Buildings/SpacingGuildBranch/SpacingGuildBranch.fbx
+      Structure/Buildings/SpiceCollector/SpiceCollector.fbx
+      Structure/Buildings/SpiceCollector/SpiceCollector_Construction.fbx
+      Structure/Buildings/SpiceSilo/SpiceSilo.fbx
+      Structure/Buildings/SpiceSilo/SpiceSilo_Construction.fbx
+      Structure/Buildings/StealthTent/StealthTent.fbx
+      Structure/Buildings/StealthTent/StealthTent_Construction.fbx
+      Structure/Buildings/SupplyDepot/Anim_SupplyDepot.fbx
+      Structure/Buildings/SupplyDepot/SupplyDepot.fbx
+      Structure/Buildings/SupplyDepot/SupplyDepot_Addon.fbx
+      Structure/Buildings/SupplyDepot/SupplyDepot_Construction.fbx
+      Structure/Buildings/SurveillanceFacility/SurveillanceFacility.fbx
+      Structure/Buildings/SurveillanceFacility/SurveillanceFacility_Construction.fbx
+      Structure/Buildings/WaterExtractor/Anim_IceExtractor_Loop.fbx
+      Structure/Buildings/WaterExtractor/Model_IceExtractor.fbx
+      Structure/Buildings/WaterExtractor/WaterExtractor.fbx
+      Structure/Buildings/WaterExtractor/WaterExtractor_Addon.fbx
+      Structure/Buildings/WaterExtractor/WaterExtractor_Construction.fbx
+      Structure/Buildings/WaterPlant/Anim_WaterPlant_Idle.fbx
+      Structure/Buildings/WaterPlant/WaterPlant.fbx
+      Structure/Buildings/WaterPlant/WaterPlant_Construction.fbx
+      Structure/Buildings/WindTrap/WindTrap.fbx
+      Structure/Buildings/WindTrap/WindTrap_Addon.fbx
+      Structure/Buildings/WindTrap/WindTrap_Construction.fbx
+      Structure/Camp/Camp.fbx
+      Structure/ImperialStation/ImperialStation.fbx
+      Structure/NaturalStructure/Sandfall/Sandfall.fbx
+      Structure/Outpost/Outpost.fbx
+      Structure/Point_Of_Interest/AbandonnedFremenCamp/AbandonnedFremenCamp.fbx
+      Structure/Point_Of_Interest/AbandonnedImperialBase/AbandonnedImperialBase.fbx
+      Structure/Point_Of_Interest/BeneGesseritChest/BeneGesserit.fbx
+      Structure/Point_Of_Interest/BeneGesseritChest/BeneGesseritChest.fbx
+      Structure/Point_Of_Interest/BlackMarket/BlackMarket.fbx
+      Structure/Point_Of_Interest/CrashTech/CrashTech.fbx
+      Structure/Point_Of_Interest/CrashedOrnithopter/CrashedOrnithopter.fbx
+      Structure/Point_Of_Interest/Crashed_Shuttle/Crashed_shuttle.fbx
+      Structure/Point_Of_Interest/Donation/Donation.fbx
+      Structure/Point_Of_Interest/Donation/Forgotten_Donation.fbx
+      Structure/Point_Of_Interest/GhostMarket/GhostMarket.fbx
+      Structure/Point_Of_Interest/Hiereg/Anim_Hiereg_Idle.fbx
+      Structure/Point_Of_Interest/Hiereg/Hiereg.fbx
+      Structure/Point_Of_Interest/Hiereg/HieregCamp.fbx
+      Structure/Point_Of_Interest/LostWeatherStation/LostWeatherstation.fbx
+      Structure/Point_Of_Interest/MarauderCamp/MarauderCamp.fbx
+      Structure/Point_Of_Interest/SpaceCruiserWreck/Debris_01.fbx
+      Structure/Point_Of_Interest/SpaceCruiserWreck/Debris_02.fbx
+      Structure/Point_Of_Interest/SpaceCruiserWreck/Debris_03.fbx
+      Structure/Point_Of_Interest/SpaceCruiserWreck/SpaceCruiserWreck.fbx
+      Structure/Point_Of_Interest/SpaceCruiserWreck/SpaceCruiserWreck_02.fbx
+      Structure/Point_Of_Interest/Stash_Smuggler/Stash_Smuggler.fbx
+      Structure/Point_Of_Interest/Thumper/Anim_Thumper.fbx
+      Structure/Point_Of_Interest/Thumper/Thumper.fbx
+      Structure/Point_Of_Interest/TrafficHub/TrafficHub.fbx
+      Structure/Point_Of_Interest/VillageRuins/VillageRuins.fbx
+      Structure/Point_Of_Interest/WaterSellerCaravan/WaterSellerCaravanTent.fbx
+      Structure/Point_Of_Interest/Wrecked_Harvester/Wrecked_Harvester.fbx
+      Structure/Resources/Decals/DecalPlane.fbx
+      Structure/Resources/PLACEHOLDER_BlackTriangleSphere.fbx
+      Structure/Resources/PLACEHOLDER_TestSphere.fbx
+      Structure/Sietch/BasicSietch/BasicSietch.fbx
+      Structure/Sietch/BasicSietch/BasicSietch_01.fbx
+      Structure/Sietch/MajorSietch/MajorSietch_01/MajorSietch_01.fbx
+      Structure/Village/Common/VillageMedium_01.fbx
+      Structure/Village/Common/VillageMedium_02.fbx
+      Structure/Village/Common/VillageMedium_03.fbx
+      Structure/Village/FremenHiereg01/FremenHiereg01.fbx
+      Structure/Village/FremenVillage01/FremenVillage01.fbx
+      Structure/Village/Tiles/Model/Ground_01.fbx
+      Structure/Village/Tiles/Model/Ground_02.fbx
+      Structure/Village/Tiles/Model/Ground_03.fbx
+      Structure/Village/Tiles/Model/Ground_04.fbx
+      Structure/Village/Tiles/Model/Ground_05.fbx
+      Structure/Village/Tiles/Model/Ground_06.fbx
+      Structure/Village/Tiles/Model/Ground_07.fbx
+      Structure/Village/Tiles/Model/Hexagone_Ground.fbx
+      Structure/Village/Tiles/Model/Props/Anim_Antena_01.fbx
+      Structure/Village/Tiles/Model/Props/Anim_Antena_02.fbx
+      Structure/Village/Tiles/Model/Props/Anim_Antena_03.fbx
+      Structure/Village/Tiles/Model/Props/Antena_01.fbx
+      Structure/Village/Tiles/Model/Props/Antena_02.fbx
+      Structure/Village/Tiles/Model/Props/Antena_03.fbx
+      Structure/Village/Tiles/Model/Socket.fbx
+      Structure/Village/Tiles/Model/Tile_Field_01.fbx
+      Structure/Village/Tiles/Model/Tile_Field_02.fbx
+      Structure/Village/Tiles/Model/Tile_Village_01.fbx
+      Structure/Village/Tiles/Model/Tile_Village_02.fbx
+      Structure/Village/Tiles/Model/Tile_Village_03.fbx
+      Structure/Village/Tiles/Model/Tile_Village_04.fbx
+      Structure/Village/Tiles/Model/Tile_Village_05.fbx
+      Structure/Village/Tiles/Model/Tile_Village_06.fbx
+      Structure/Village/Tiles/Model/Tile_Village_07.fbx
+      Structure/Village/Tiles/Model/Tile_Village_08.fbx
+      Structure/Village/Tiles/Model/Tile_Village_09.fbx
+      Structure/Village/Tiles/Model/Tile_Village_10.fbx
+      Structure/Village/Tiles/Model/Tile_Village_11.fbx
+      Structure/Village/Tiles/Model/Tile_Village_12.fbx
+      Structure/Village/Tiles/Model/Tile_Village_13.fbx
+      Structure/Village/Tiles/Model/Tile_Village_14.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusNeuralCore.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_01.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_02.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_03.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_04.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_05.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_06.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_07.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_08.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_09.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_10.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_11.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_12.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_13.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_14.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_15.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_16.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_17.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_18.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_19.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_20.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_21.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_22.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipe_01.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPipe_02.fbx
+      Structure/Village/Tiles/Model/Vernius/VerniusPlaneTile.fbx
+      Structure/Village/Tiles/Model/Village_Large_01.fbx
+      Structure/Village/Tiles/Model/Village_Large_02.fbx
+      Structure/Village/Tiles/Model/Village_Medium_01.fbx
+      Structure/Village/Tiles/Model/Village_Medium_02.fbx
+      Structure/Village/Tiles/Model/Village_Small_01.fbx
+      Structure/Village/Tiles/Model/Village_Small_02.fbx
+      UI/ConquestMenu/Assets/Atreides/Pawn_Mainbase_Atreides.fbx
+      UI/ConquestMenu/Assets/Atreides/Table_Atreides.fbx
+      UI/ConquestMenu/Assets/Corrino/Pawn_Mainbase_Corrino.fbx
+      UI/ConquestMenu/Assets/Corrino/Table_Corrino.fbx
+      UI/ConquestMenu/Assets/Ecaz/Pawn_Mainbase_Ecaz.fbx
+      UI/ConquestMenu/Assets/Ecaz/Table_Ecaz.fbx
+      UI/ConquestMenu/Assets/Fremen/Pawn_MainBase_Fremen.fbx
+      UI/ConquestMenu/Assets/Fremen/Table_Fremen.fbx
+      UI/ConquestMenu/Assets/Harkonnen/Pawn_Mainbase_Harkonnen.fbx
+      UI/ConquestMenu/Assets/Harkonnen/Table_Harkonnen.fbx
+      UI/ConquestMenu/Assets/Pawn_01.fbx
+      UI/ConquestMenu/Assets/Smugglers/Table_Smugglers.fbx
+      UI/ConquestMenu/Assets/Table_Atreides.fbx
+      UI/ConquestMenu/Assets/Vernius/Table_Vernius.fbx
+      UI/MainMenu/Model/Arrakis.fbx
+      UI/MainMenu/Model/Arrakis_Bleed.fbx
+      UI/MainMenu/Model/BG.fbx
+      UI/MainMenu/Model/Cam_place.fbx
+      UI/MainMenu/Model/Line_Large.fbx
+      UI/MainMenu/Model/Line_Small.fbx
+      UI/MainMenu/Model/Lines.fbx
+      UI/MainMenu/Model/Moon_Large.fbx
+      UI/MainMenu/Model/Moon_Small.fbx
+      UI/MainMenu/Model/Scene_01.fbx
+  ✦ UNIT Vehicle/Atreide/CarryAll/CarryAll.fbx
+  ✦ UNIT Vehicle/Atreide/DroneA/DroneA.fbx
+  ✦ UNIT Vehicle/Atreide/DroneA/DroneA_ReactorBlur.fbx
+  ✦ UNIT Vehicle/Atreide/Harvester/Vehicule_Harvester.fbx
+  ✦ UNIT Vehicle/Atreide/Hawk/Hawk.fbx
+  ✦ UNIT Vehicle/Atreide/Hawk/Select.fbx
+  ✦ UNIT Vehicle/Atreide/Kraken/Kraken.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/AtreideOrnitopter.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter01.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter02.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter03.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter04.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter04b.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter05.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter06.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Ornithopter_damage/Ornithopter_Scavenged.fbx
+  ✦ UNIT Vehicle/Atreide/Ornithopter/Vehicle_Ornithopter.fbx
+  ✦ UNIT Vehicle/Atreide/SpiceFreighterDrone/Anim_SpiceFreighterDrone_Run.fbx
+  ✦ UNIT Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighterDrone.fbx
+  ✦ UNIT Vehicle/Atreide/Tank/Tank.fbx
+  ✦ UNIT Vehicle/Common/Ravager/Ravager.fbx
+  ✦ UNIT Vehicle/Common/Ravager_Drone/Ravager_Drone.fbx
+  ✦ UNIT Vehicle/Common/Renegade_Frigate/Renegade_Frigate.fbx
+  ✦ UNIT Vehicle/Ecaz/DroneE/DroneE.fbx
+  ✦ UNIT Vehicle/Ecaz/Monument/Monument.fbx
+  ✦ UNIT Vehicle/Ecaz/Siren/Siren.fbx
+  ✦ UNIT Vehicle/Fremen/Altar/Altar.fbx
+  ✦ UNIT Vehicle/Fremen/Altar/Altar_AllFabric.fbx
+  ✦ UNIT Vehicle/Fremen/Altar/Altar_Balloon.fbx
+  ✦ UNIT Vehicle/Fremen/Altar/Altar_FabricStrips.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/Anim_KulonTurret_AttackRange.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/Anim_KulonTurret_Closing.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/Anim_KulonTurret_Death.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/Anim_KulonTurret_FightIdle.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/Anim_KulonTurret_Opening.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/KulonTurretBase.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret/KulonTurretCannon.fbx
+  ✦ UNIT Vehicle/Fremen/KulonTurret_undeployed/KulonTurret_Undeployed.fbx
+  ✦ UNIT Vehicle/Fremen/OrnithopterF/Ornithopter_F.fbx
+  ✦ UNIT Vehicle/Harkonnen/DroneH/DroneH.fbx
+  ✦ UNIT Vehicle/Harkonnen/DroneH_Melee/DroneH_Melee.fbx
+  ✦ UNIT Vehicle/Harkonnen/Harpy/Harpy.fbx
+  ✦ UNIT Vehicle/Harkonnen/Harpy/Select.fbx
+  ✦ UNIT Vehicle/Harkonnen/Overlord/Select.fbx
+  ✦ UNIT Vehicle/Harkonnen/Overlord/Sting.fbx
+  ✦ UNIT Vehicle/Imperial/Chronos/Chronos.fbx
+  ✦ UNIT Vehicle/Imperial/Chronos/Select.fbx
+  ✦ UNIT Vehicle/Imperial/DroneI/ImperiumDroneBase.fbx
+  ✦ UNIT Vehicle/Imperial/DroneI/ImperiumDroneCanon.fbx
+  ✦ UNIT Vehicle/Imperial/Hammer/Hammer.fbx
+  ✦ UNIT Vehicle/Imperial/Hammer/Select.fbx
+  ✦ UNIT Vehicle/Imperial/Harvester/ImperialHarvester.fbx
+  ✦ UNIT Vehicle/Imperial/Harvester/ImperialHarvester2.fbx
+  ✦ UNIT Vehicle/Smuggler/Banshee/Banshee.fbx
+  ✦ UNIT Vehicle/Smuggler/Banshee/Select.fbx
+  ✦ UNIT Vehicle/Smuggler/DroneS/DroneS.fbx
+  ✦ UNIT Vehicle/Smuggler/StockDrone/StockDrone.fbx
+  ✦ UNIT Vehicle/Smuggler/Wraith/Wraith.fbx
+  ✦ UNIT Vehicle/Vernius/AutomatedMilitia/AutomatedMilitia.fbx
+  ✦ UNIT Vehicle/Vernius/DroneRailGun/DroneRailGun.fbx
+  ✦ UNIT Vehicle/Vernius/DroneTesla/DroneTesla.fbx
+  ✦ UNIT Vehicle/Vernius/FolderRelay/FolderRelay.fbx
+  ✦ UNIT Vehicle/Vernius/Harvester/Harvester.fbx
+  ✦ UNIT Vehicle/Vernius/Spirit/Spirit.fbx
+
+════════════════════════════════════════════════════════════════════════════════
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  STEP 4 — MODEL ZOO TESTING JSON                                           ║
+║  Source: docs/true_orphans_catalog.txt  |  Template: Atreides Gold Std.    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+IMPORTANT — Before injecting:
+  1. Validate JSON after edit:  Get-Content res/data.cdb | ConvertFrom-Json
+  2. Confirm 'LandsraadSoldiers_Faufreluches' exists in the unit sheet.
+  3. Confirm 'LandsraadFaction' exists in the faction sheet.
+  4. These are visual-test units only — remove before production.
+
+── BLOCK A: Add these entries to the 'model' sheet lines array ─────────────
+
+{
+  "id": "ZO_Sardaukar",
+  "scale": 1.2,
+  "radius": 1.5,
+  "height": 4,
+  "inherit": "MilitarySardaukar",
+  "mesh": [
+    {
+      "path": "Character/Common/Landsraad/Prefab_Sardaukar.prefab"
+    }
+  ],
+  "rigName": 0,
+  "props": {
+    "preload": {
+      "factions": [
+        {
+          "faction": "LandsraadFaction"
+        }
+      ]
+    }
+  },
+  "gfx": {
+    "file": "UI/icons/icon_unit.png",
+    "size": 64,
+    "x": 0,
+    "y": 0
+  },
+  "audio": {},
+  "anim": []
+}
+
+{
+  "id": "ZO_RavagerLeaderSniper",
+  "scale": 1.2,
+  "radius": 1.5,
+  "height": 4,
+  "inherit": "MilitaryCommon",
+  "mesh": [
+    {
+      "path": "Character/Common/Ravager_Leader/Weapon/Prefab_RavagerLeaderSniper.prefab"
+    }
+  ],
+  "rigName": 0,
+  "props": {
+    "preload": {
+      "factions": [
+        {
+          "faction": "LandsraadFaction"
+        }
+      ]
+    }
+  },
+  "gfx": {
+    "file": "UI/icons/icon_unit.png",
+    "size": 64,
+    "x": 0,
+    "y": 0
+  },
+  "audio": {},
+  "anim": []
+}
+
+{
+  "id": "ZO_Feydakin",
+  "scale": 1.2,
+  "radius": 1.5,
+  "height": 4,
+  "inherit": "Fedaykins",
+  "mesh": [
+    {
+      "path": "Character/Fremen/Unit/Feydakin/Prefab_Feydakin.prefab"
+    }
+  ],
+  "rigName": 0,
+  "props": {
+    "preload": {
+      "factions": [
+        {
+          "faction": "LandsraadFaction"
+        }
+      ]
+    }
+  },
+  "gfx": {
+    "file": "UI/icons/icon_unit.png",
+    "size": 64,
+    "x": 0,
+    "y": 0
+  },
+  "audio": {},
+  "anim": []
+}
+
+── BLOCK B: Add these entries to the 'unit' sheet lines array ──────────────
+
+{
+  "id": "ZO_Test_Sardaukar",
+  "faction": "LandsraadFaction",
+  "inherits": "LandsraadSoldiers_Faufreluches",
+  "texts": {
+    "name": "[TEST] Sardaukar",
+    "desc": "Visual zoo test unit \u2014 cut mesh: Prefab_Sardaukar.prefab. Role: Imperial Elite / Sword-of-Justice. Remove before shipping.",
+    "plural": {
+      "name": "[TEST] Sardaukars"
+    }
+  },
+  "effects": {
+    "models": [
+      {
+        "ref": "ZO_Sardaukar",
+        "flags": 0
+      }
+    ]
+  }
+}
+
+{
+  "id": "ZO_Test_RavagerLeaderSniper",
+  "faction": "LandsraadFaction",
+  "inherits": "LandsraadSoldiers_Faufreluches",
+  "texts": {
+    "name": "[TEST] RavagerLeaderSniper",
+    "desc": "Visual zoo test unit \u2014 cut mesh: Prefab_RavagerLeaderSniper.prefab. Role: Hero / Commander. Remove before shipping.",
+    "plural": {
+      "name": "[TEST] RavagerLeaderSnipers"
+    }
+  },
+  "effects": {
+    "models": [
+      {
+        "ref": "ZO_RavagerLeaderSniper",
+        "flags": 0
+      }
+    ]
+  }
+}
+
+{
+  "id": "ZO_Test_Feydakin",
+  "faction": "LandsraadFaction",
+  "inherits": "LandsraadSoldiers_Faufreluches",
+  "texts": {
+    "name": "[TEST] Feydakin",
+    "desc": "Visual zoo test unit \u2014 cut mesh: Prefab_Feydakin.prefab. Role: Fremen Elite Melee / Infiltrator. Remove before shipping.",
+    "plural": {
+      "name": "[TEST] Feydakins"
+    }
+  },
+  "effects": {
+    "models": [
+      {
+        "ref": "ZO_Feydakin",
+        "flags": 0
+      }
+    ]
+  }
+}
+
+── HOW TO INJECT ───────────────────────────────────────────────────────────
+  1. Search res/data.cdb for '"name": "model"' to locate the model sheet.
+  2. Append BLOCK A entries to the 'lines' array of the model sheet.
+  3. Search for '"name": "unit"' to locate the unit sheet.
+  4. Append BLOCK B entries to the 'lines' array of the unit sheet.
+  5. Validate JSON, launch the game, select LandsraadFaction, recruit [TEST]
+     units and compare visuals on the battlefield.
+────────────────────────────────────────────────────────────────────────────
+
+════════════════════════════════════════════════════════════════════════════════

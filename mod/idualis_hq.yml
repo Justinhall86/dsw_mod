@@ -1,0 +1,111 @@
+# ============================================================
+# House Idualis — Main Base (HQ) Structure
+# Master reference. Do NOT generate CDB JSON until finalized.
+# ============================================================
+# CDB sheet          : structure
+# Template source    : structure "Tabr"  (Fremen main base)
+# New entry id       : "Idualis_HQ"
+# Faction linkage    : faction "Idualis" → landmarks.city = "Idualis_HQ"
+# ============================================================
+
+hq:
+  id: Idualis_HQ
+  cdb_template: Tabr              # Clone this structure entry, then apply overrides.
+
+  # ── Faction Link ──────────────────────────────────────────
+  faction_link: >
+    The faction entry for "Idualis" (in the faction sheet) must have:
+      landmarks.city: "Idualis_HQ"
+      landmarks.region: "SIdualis"
+    This links the faction to this structure as its home base / capital.
+
+  # ── Texts ─────────────────────────────────────────────────
+  # Changed from Tabr's "Sietch Tabr" localization.
+  texts:
+    name: "Fallen Citadel"
+    plural:
+      name: "Fallen Citadel"
+    desc: >
+      Once a proud noble fortress overlooking the deep desert, the Citadel of
+      House Idualis now stands partially ruined, its great halls open to the
+      scouring wind. What remains is heavily fortified by its desperate
+      defenders, who have nowhere left to retreat.
+
+  # ── Stats (unchanged from Tabr baseline) ─────────────────
+  stats:
+    power: 80
+    range: 80
+    armor: 10
+    health: 40000
+
+  # ── Model Reference ──────────────────────────────────────
+  model: Tabr                     # PLACEHOLDER — uses Fremen sietch model until
+                                  # custom Idualis base art is available.
+
+  # ── Flags (unchanged from Tabr: 49158) ───────────────────
+  flags: 49158
+
+  # ── District Slots (unchanged from Tabr) ─────────────────
+  props:
+    districtSlots:
+      - nbSlots: 3
+      - nbSlots: 2
+      - nbSlots: 1
+    aiWeight: 30
+    startingTraits:
+      - trait: Main_Demo
+      - trait: Main_BaseTrait
+    attackCombos:
+      - ref: MainBase_Missiles
+    reconPriority: 0
+    cullingDistance: 0
+    tip:
+      allowed: true
+      padExpand: true
+      cat: MainBase
+
+  # ── Starting Units ────────────────────────────────────────
+  # Step 3.5: Replace Fremen starting unit (F_Ornithopter) with
+  # two instances of Playable_I_Trooper and one Playable_I_Elite.
+  startUnits:
+    - unit: Playable_I_Trooper
+    - unit: Playable_I_Trooper
+    - unit: Playable_I_Elite
+
+  # ── Militia ───────────────────────────────────────────────
+  # Set Playable_I_Trooper as the base garrison militia.
+  # In the CDB, this goes under structure@militia@composition.
+  militia:
+    composition:
+      - unit: Playable_I_Trooper
+
+  # ── Production ───────────────────────────────────────────
+  prod: []                        # No special production — matches Tabr baseline.
+
+  # ── CDB Notes ─────────────────────────────────────────────
+  cdb_notes: >
+    - Copy the 'Tabr' structure block from the structure sheet.
+    - Change id to "Idualis_HQ".
+    - Change texts.name to "Fallen Citadel"; update texts.desc and texts.plural.name.
+    - Change model to "Tabr" (keep as Fremen placeholder) — replace when
+      custom Idualis structure mesh is available.
+    - Change startUnits from [{unit: "F_Ornithopter"}] to:
+        [{unit: "Playable_I_Trooper"}, {unit: "Playable_I_Trooper"}, {unit: "Playable_I_Elite"}]
+    - Change militia composition to [{unit: "Playable_I_Trooper"}].
+    - All other fields (stats, flags, props, districtSlots) unchanged from Tabr.
+    - ALSO update the faction "Idualis" entry: set landmarks.city = "Idualis_HQ"
+      and landmarks.region = "SIdualis". The SIdualis region entry should also
+      be created as a clone of STabr (the Fremen home region structure).
+
+
+# ── REGION STRUCTURE NOTE ─────────────────────────────────────
+# The faction landmark `region` (landmarks.region: "SIdualis") requires a
+# structure entry with id "SIdualis" in the structure sheet.
+# This should be a clone of "STabr" (Fremen home region). Key overrides:
+#   - id: "SIdualis"
+#   - texts.name: "Fallen Heartland" (PLACEHOLDER)
+# The region structure determines the territory boundaries for the HQ region.
+# If SIdualis is not created, the faction will error on map generation.
+# For initial testing, clone STabr → SIdualis identically (texts can be updated
+# later). Full region structure definition is out of scope for this pass;
+# placeholder values suffice for initial CDB injection.
