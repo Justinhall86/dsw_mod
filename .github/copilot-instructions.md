@@ -83,6 +83,7 @@ Located in `mod/`:
 3. **Never edit `res/res/data.cdb`** — that is a packed asset, not the working file.
 4. **Preserve existing entries** — when adding to `data.cdb`, append new rows; do not overwrite existing faction rows.
 5. **Validate JSON** — after any edit to `data.cdb`, verify it is valid JSON before saving.
+   - Verify formatting/indentation; ensure no UTF-8 BOM is present; check for accidental trailing commas.
 6. **Use the existing faction schema** as a template (see the `Atreides` entry as the gold standard).
 
 ## Helper Skills

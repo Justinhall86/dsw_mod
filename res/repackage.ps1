@@ -66,7 +66,7 @@ Start-Sleep -Milliseconds 500
 #  STEP 3: Compile with Haxe
 # ============================================================
 Write-Step "3/5" "Compiling the mod builder..."
-Show-Spinner "Haxe is preparing..." {
+Show-Spinner "Mod is preparing..." {
     param($dir)
     Set-Location $dir
     & haxe -hl hxd.fmt.pak.Build.hl -lib heaps -main hxd.fmt.pak.Build 2>&1
@@ -89,6 +89,18 @@ Write-Step "5/5" "Deploying mod to Dune: Spice Wars..."
 Copy-Item -Path .\res.compressed1.pak -Destination "C:\Program Files (x86)\Steam\steamapps\common\D4X"
 Write-Fancy "        Mod shipped to the game folder!" DarkGray
 Start-Sleep -Milliseconds 500
+
+# ============================================================
+#  STEP 6: Launch the game
+# ============================================================
+$gameExe = "C:\Program Files (x86)\Steam\steamapps\common\D4X\D4X.exe"
+if (Test-Path $gameExe) {
+    Write-Step "6/6" "Launching Dune: Spice Wars..."
+    Start-Process -FilePath $gameExe -WorkingDirectory (Split-Path $gameExe)
+    Write-Fancy "        Game launched!" DarkGray
+} else {
+    Write-Fancy "        Could not find D4X.exe to launch. Check installation path." DarkRed
+}
 
 # ============================================================
 #  VICTORY SCREEN

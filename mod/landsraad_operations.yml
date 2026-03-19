@@ -9,6 +9,55 @@
 
 operations:
 
+  # ── EXISTING CDB OPERATION (already in data.cdb) ─────────
+  - id: MMaraudersRaid1
+    name: "Marauders Raid"
+    type: espionage_mission
+    category: military_sabotage
+    faction_exclusive: LandsraadFaction
+    tier: 1
+    status: IN_CDB   # quest entry + MaraudersRaid operation both exist as of 2026-03-18
+
+    description: >
+      The Landsraad dispatches corsairs and mercenaries to harass a target
+      faction's territory. The raiding force applies a debuff to the target
+      region: +10% supply drain for enemy armies, +10% unit speed (reflecting
+      mobile raider harassment), silent movement (zero worm-call vibration),
+      and all non-hostile actions in the region are blocked for the duration.
+
+    lore: >
+      "Corsairs and mercenaries have always been a part of warfare. Being able
+      to delegate military tasks to an outside entity is just more practical,
+      in many cases."
+
+    cost:
+      Intel: 50
+
+    spy_track_required: IChoam
+    spy_track_level: 1
+    can_be_detected: false
+    cooldown_cycles: 0   # no explicit cooldown; inherits mission reuse rules
+
+    effect:
+      operation_fired: MaraudersRaid
+      trait_applied: TMaraudersRaid
+      debuffs_on_target_region:
+        - Unit_Speed_ARatio: +10%        # raider harassment; units move faster
+        - Army_DailySupplyDrain_MRatio: +10%   # logistics disruption
+        - MilitaryUnits_VibrationGenerationInMovement_MRatio: 0   # silent raid
+        - NonHostileActions: blocked     # no economic/diplomatic actions in region
+
+    ai_weight: 0   # AI won't use it (LandsraadFaction is player-only)
+
+    implementation_notes: >
+      - `quest` entry id: MMaraudersRaid1 — confirmed in data.cdb.
+      - `operation` id: MaraudersRaid — `implemented` set to true on 2026-03-18.
+      - `onlyForFactions` already set to LandsraadFaction.
+      - Access requires IChoam infiltration track level 1. LandsraadFaction
+        must have an IChoam slot in their councillors or starting traits.
+        Jakob should provide this slot (see landsraad_councillors.yml).
+
+
   # ── PRIMARY SIGNATURE OPERATION ──────────────────────────
   - id: GuildTransporters
     name: "Guild Transporters"
@@ -150,6 +199,100 @@ operations:
         control operations for similar "disable action" effect types.
       - May require a `diplomacy` status reference to block war declarations.
       - `props@onlyForFactions` → ["LandsraadFaction"]
+
+
+  - id: TitheCollection
+    name: "Tithe Collection"
+    type: espionage_operation
+    category: economic_enforcement
+    faction_exclusive: LandsraadFaction
+    tier: 1
+
+    description: >
+      CHOAM auditors demand immediate payment of Imperial tithes from a target
+      faction. The target immediately loses 20% of their current Spice stockpile,
+      which is transferred directly to the Landsraad treasury as Solari
+      at market rate. This is not theft — it is Imperial tax law.
+
+    lore: >
+      The CHOAM charter grants tithe authority to any recognized Landsraad
+      representative. The paperwork is always in order.
+
+    cost:
+      Intel: 40
+      Influence: 20
+
+    cooldown_cycles: 50
+
+    effect:
+      - id: SpiceLevy
+        description: >
+          Target faction loses 20% of current Spice stockpile.
+          The Landsraad gains Solari equal to the confiscated Spice × 300
+          (current market rate conversion).
+        resource_taken: Spice
+        percent: 20
+        converted_to: Solari
+        conversion_rate: 300
+
+    balance_notes: >
+      - Scales with target's wealth: rich factions are punished more.
+      - Intel + Influence dual cost ensures this competes with other Intel sinks.
+      - 50-cycle cooldown means roughly one tithe per major game phase.
+
+    cdb_notes: >
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+      - Spice→Solari conversion mechanic: check if existing resource-steal
+        effects support conversion ratios, or implement as two separate effects
+        (steal spice, grant solari flat amount based on multiplier).
+
+
+  - id: AssetFreeze
+    name: "Asset Freeze"
+    type: espionage_operation
+    category: economic_sabotage
+    faction_exclusive: LandsraadFaction
+    tier: 2
+
+    description: >
+      The Landsraad orders CHOAM to freeze a target faction's financial assets.
+      For 12 cycles, the target cannot spend Solari on unit recruitment, building
+      construction, or any paid council ability. Existing units and buildings are
+      unaffected. An exceptional tool for disrupting a faction during a war.
+
+    lore: >
+      "We do not destroy what we may one day own. We simply make it temporarily
+      inaccessible." — Attributed to CHOAM Director Varren, 10188 AG
+
+    cost:
+      Intel: 60
+      Influence: 40
+
+    cooldown_cycles: 70
+
+    effect:
+      - id: SpendingBlock
+        description: >
+          Target faction cannot spend Solari on recruitment, construction,
+          or council abilities for 12 cycles.
+        blocks:
+          - unit_recruitment
+          - building_construction
+          - council_ability_spend
+        duration_cycles: 12
+
+    balance_notes: >
+      - Very powerful situational tool. The high dual cost (60 Intel + 40 Influence)
+        and long cooldown prevent abuse.
+      - Does not block passive income or existing army movement, so target can
+        still fight — just cannot reinforce.
+      - Pairs naturally with PunitiveExpedition: freeze first, then spawn troops.
+
+    cdb_notes: >
+      - `props@onlyForFactions` → ["LandsraadFaction"]
+      - "Disable spending" mechanic: check if existing sanction/freeze effects
+        in data.cdb support blocking specific spend categories. If not, implement
+        as a cost-increase multiplier of 9999 (effectively blocks spending).
 
 
   - id: GuildInformationBroker

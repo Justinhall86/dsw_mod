@@ -123,3 +123,66 @@ faction:
     - `traits` → `faction@props@startingTraits` list.
     - `global_mechanics` must be implemented as `condition`/`effect` pairs
       referenced from `faction@props` or dedicated `ability` entries.
+
+  # ── Infiltration Tracks ──────────────────────────────────
+  # Faction-exclusive espionage missions require the faction to have access
+  # to specific infiltration tracks (spy networks). This is granted via:
+  #   (a) Starting traits that include Agt_InfiltrationSlot_Flat effects, OR
+  #   (b) Councillor passive abilities that grant slots in a given track.
+  # Pattern: "requiredLevels": [{"level": 1, "category": "IChoam"}] in a quest
+  # entry means the player must have advanced that track to level 1 before the
+  # mission appears as available.
+  infiltration_tracks:
+    - track: IChoam
+      required_by:
+        - MMaraudersRaid1   # Marauders Raid — already in CDB, now implemented
+        - FinancialAudit    # (planned) financial sabotage operation
+        - TitheCollection   # (planned) CHOAM tithe enforcement
+        - AssetFreeze       # (planned) block target spending
+      how_to_grant: >
+        Jakob (Landsraad_Jakob, Economy domain) should provide 1 IChoam
+        infiltration slot via his passive ability or faction starting trait.
+        Without this, MMaraudersRaid1 will never appear as accessible despite
+        being correctly gated to LandsraadFaction.
+      gap_status: OPEN — no IChoam slot has been wired to the faction yet.
+                  Verify after playtesting whether IChoam is auto-accessible
+                  to all factions or requires explicit slot grants.
+
+    - track: IField
+      required_by: []     # No current Landsraad missions require IField
+      note: >
+        IField is the desert/military infiltration track (Fremen use it).
+        Landsraad may want IField access for future military-theatre operations.
+
+    - track: ILandsraad
+      required_by: []     # Landsraad standing/political missions
+      note: >
+        ILandsraad is the council/political track. Nier should grant access here
+        for future diplomatic missions (ImperialSummons, ImposeSanctions).
+
+    - track: IGuild
+      required_by:
+        - GuildTransporters   # (planned) requires Guild relationship
+      note: >
+        Jakob should also grant IGuild or ISpaceGuild slot given his backstory.
+
+  # ── Design Intent Notes ───────────────────────────────────
+  design_intents:
+    faction_archetype: Political Enforcer
+    core_identity: >
+      The Landsraad wins through economic dominance and punitive force, not
+      attrition warfare. They neutralize threats legally before deploying
+      military force as a last (or first) resort.
+    key_asymmetry: >
+      - Only faction that gets better as rivals get richer (Tithe Collection
+        scales with target wealth; MMaraudersRaid1 harasses supply lines).
+      - Leadership immunity means they cannot be decapitated, unlike all other
+        factions. This should be their most psychologically distinct trait.
+      - Guild access means deployment speed unlike any other faction.
+    balance_anchors: >
+      - Solari surplus must not trivialize the game; offset by above-average
+        upkeep on elite units.
+      - MMaraudersRaid1 (no detect) + Asset Freeze combo is powerful; ensure
+        the 50/70 cycle cooldowns are respected in CDB implementation.
+      - Jakob's GuildFavor income (+3/cycle) compounds over long games;
+        counter-balanced by high GuildFavor cost for GuildTransporters.

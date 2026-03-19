@@ -51,6 +51,13 @@ councillors:
       - Implement as `character` row with `ability` references.
       - Passive bonuses via `faction@props@startingTraits` or effect chain.
       - `GuildTransitContract` → new `ability` row with cost/cooldown props.
+      - CRITICAL: Jakob must grant 1 IChoam infiltration slot via a starting
+        trait or passive effect (Agt_InfiltrationSlot_Flat targeting IChoam).
+        Without this, MMaraudersRaid1 (IChoam level 1 required) will never
+        become accessible to the player. See infiltration_tracks in
+        landsraad_faction.yml for full track dependency map.
+      - Jakob should also grant 1 IGuild / ISpaceGuild slot given his backstory
+        as a Guild contract broker.
 
 
   # ── Councillor 2: Siora ──────────────────────────────────
@@ -107,6 +114,9 @@ councillors:
         `gameStat` event that checks standing thresholds.
       - `ImposeSanctions` → `ability` row; requires council vote mechanic
         (reference existing sanction/vote abilities in data.cdb for template).
+      - Siora should grant 1 IChoam infiltration slot as well (spy network
+        overlaps with CHOAM enforcement given her punitive focus).
+        Consider also granting IField for future military-covert operations.
 
 
   # ── Councillor 3: Herbert ─────────────────────────────────
@@ -218,3 +228,17 @@ councillors:
         status rows. Check existing forced-peace abilities for template.
       - Passive relationship gain likely a periodic `effect` checking
         current diplomatic status per faction pair.
+      - Nier should grant 1 ILandsraad infiltration slot. The political/council
+        track (ILandsraad) underpins future ImperialSummons and ImposeSanctions
+        missions. This makes her the entry point to the diplomatic mission tree.
+
+
+# ── COUNCILLOR SYNERGY MAP ────────────────────────────────
+# Jakob  → IChoam slot 1 + IGuild slot   → unlocks MMaraudersRaid1, GuildTransporters
+# Siora  → IChoam slot 2 (or IField)     → doubles down on military-covert track
+# Herbert → no infiltration slots; pure military/combat buffs
+# Nier   → ILandsraad slot               → unlocks future political missions
+#
+# Rationale: Two separate councillors (Jakob + Siora) contributing to IChoam
+# gives the faction redundancy in the CHOAM spy network. If the player replaces
+# Jakob with another choice, they don't lose IChoam entirely.
