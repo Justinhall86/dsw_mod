@@ -13,6 +13,12 @@ mod for Dune: Spice Wars.
 | [howto_visual_kitbashing.md](./howto_visual_kitbashing.md) | How to configure unit visuals without 3D software: model/prefab path swapping, faction color masks, GFX icon coords, scale parameters, VFX string substitution, and audio references. | Changing how a unit looks, its icon, its faction color, or its sound effects. |
 | [howto_reverse_engineering.md](./howto_reverse_engineering.md) | How to extract and compare `.pak` files from the vanilla game or community mods (e.g. Minx), use VS Code's Compare Files diff to inspect implementations, and translate findings to CDB JSON. | Stuck on how vanilla implements a mechanic; researching a community mod's approach; verifying a JSON structure before writing it. |
 
+## Specs
+
+| Spec | Description |
+|------|-------------|
+| [spec_duncan_head_swap.md](./spec_duncan_head_swap.md) | Put a donor model's head on Duncan's body and recolour it to Duncan's outfit green. Covers inputs, the mesh/skinning/recolour steps, the `data.cdb` hookup and acceptance checks. |
+
 ---
 
 ## Quick Decision Guide
