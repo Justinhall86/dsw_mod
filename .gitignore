@@ -1,57 +1,22 @@
-# Node / JS artifacts
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Build / runtime artifacts
-nwjs/
-res/res/
-res/backups/
-res/UI/
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
 
-# Generated/temporary files
-*.log
-*.tmp
-*.temp
-*.bak
+# Virtual environments
+.venv/
+venv/
+
+# Editor files
+.vscode/
 *.swp
 
-# Editor tooling artifacts
-.vscode/
-
-# Scanner output
-docs/hidden_assets.txt
-hidden_assets_scanner.py
-
-libs/
-
-*.js
-*.jpg
-
-res/TEST_ColorPalette.jpg
-res/brushes/default.jpg
-res/brushes/square.jpg
-res/icons/addSub.png
-res/icons/CapsuleLight.png
-res/icons/delete.png
-res/icons/DirLight.png
-res/icons/fileRef.png
-res/icons/icon-trails.png
-res/icons/paint.png
-res/icons/PointLight.png
-res/icons/set.png
-res/icons/smooth.png
-res/icons/Sound.png
-res/icons/SpotLight.png
-res/icons/unknown.png
-*.less
-res/cdb.png
-res/Inter-LICENSE.txt
-res/InterVariable-Italic.woff2
-res/InterVariable.woff2
-res/meshGeneratorArrow.fbx
-res/hide.ico
-res/hide.png
-app.html
-cdb.css
+!.vscode/
+.vscode/*
+!.vscode/mcp.json
+pak_archive/

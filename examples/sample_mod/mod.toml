@@ -1,0 +1,4 @@
+name = "Sample Dune Mod"
+version = "1.0.0"
+author = "ModAuthor"
+description = "A sample mod for demonstration"
