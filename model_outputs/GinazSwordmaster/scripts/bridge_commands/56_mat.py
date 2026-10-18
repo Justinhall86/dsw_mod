@@ -1,0 +1,5 @@
+run2(4)
+lo = bpy.data.objects['ginaz_lo']; bpy.data.objects['ginaz_hi'].hide_set(True); lo.hide_set(False)
+print(look2(rz=0, dist=2.0, name="56_front", shading='MATERIAL'))
+print(look2(rz=180, dist=2.0, name="56_back", shading='MATERIAL'))
+print(look2(rz=40, dist=1.2, loc=(0,0,1.45), name="56_head34", shading='MATERIAL'))

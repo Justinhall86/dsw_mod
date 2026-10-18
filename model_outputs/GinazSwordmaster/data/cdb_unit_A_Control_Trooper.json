@@ -1,0 +1,146 @@
+{
+	"sheet": "unit",
+	"line": {
+		"id": "A_Control_Trooper",
+		"stats": [
+			{
+				"health": 750,
+				"power": 14,
+				"armor": 6,
+				"trainingTime": 0.1,
+				"maxSupply": 5555
+			}
+		],
+		"props": {
+			"wheelPosition": {
+				"pos": 8,
+				"group": 1
+			}
+		},
+		"faction": "Atreides",
+		"gfx": {
+			"file": "UI/Faction/unitsSmall.png",
+			"size": 80,
+			"x": 0,
+			"y": 0
+		},
+		"inherits": "Trooper",
+		"traits": [
+			{
+				"ref": "A_Trooper_Trait"
+			}
+		],
+		"images": {
+			"bigPortrait": {
+				"file": "UI/Faction/unit_military.png",
+				"size": 250,
+				"x": 0,
+				"y": 0
+			},
+			"smallPortrait": {
+				"file": "UI/Faction/unitsSmall.png",
+				"size": 80,
+				"x": 0,
+				"y": 0
+			},
+			"wheelPortrait": {
+				"file": "UI/console/wheel_units_atreides.png",
+				"size": 358,
+				"x": 0,
+				"y": 0
+			}
+		},
+		"texts": {
+			"name": "Trooper (control)",
+			"desc": "Diagnostic copy of the Atreides Trooper with its vanilla model. Free and near-instant.",
+			"plural": {
+				"name": "Troopers (control)"
+			}
+		},
+		"aiWeights": [],
+		"effects": {
+			"models": [
+				{
+					"ref": "A_Trooper",
+					"flags": 0
+				}
+			],
+			"events": [
+				{
+					"fxs": [],
+					"sound": "Play_Common_Move",
+					"soundSource": 0,
+					"kind": 1
+				},
+				{
+					"kind": 4,
+					"fxs": [
+						{
+							"fx": "Fx/Unit/FX_Common_AttackRange_Barracks.fx",
+							"space": 0,
+							"flags": 128,
+							"attachTo": ""
+						}
+					],
+					"soundSource": 0
+				},
+				{
+					"kind": 24,
+					"fxs": [],
+					"soundSource": 0,
+					"fxTarget": 0,
+					"sound": "Common_Death"
+				}
+			],
+			"sound": {
+				"voices": [
+					{
+						"action": 0,
+						"event": "Voice_A_Trooper_Select"
+					},
+					{
+						"action": 1,
+						"event": "Voice_A_Trooper_Move"
+					},
+					{
+						"action": 2,
+						"event": "Voice_A_Trooper_Attack"
+					}
+				]
+			}
+		},
+		"costs": {
+			"recruit": [
+				{
+					"qty": 0,
+					"res": "Manpower"
+				}
+			],
+			"upkeep": [
+				{
+					"qty": 0,
+					"res": "Solari"
+				},
+				{
+					"qty": 0,
+					"res": "CommandPoint"
+				}
+			]
+		},
+		"equipment": [
+			{
+				"ref": "FrontLineTactics"
+			},
+			{
+				"ref": "OffensiveMindset"
+			},
+			{
+				"ref": "ParryingArmguards"
+			},
+			{
+				"ref": "PranaBindu"
+			}
+		],
+		"attacks": {}
+	}
+}
