@@ -1,0 +1,57 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ravager_Melee",
+			"source": "Character/Common/Ravager/Ravager_Melee.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Shield_01",
+			"source": "Character/Atreide/Unit/Weapons/Atreide_Shield_01.fbx",
+			"x": 0.00883,
+			"y": 0.15,
+			"z": -0.15,
+			"rotationX": -36.8,
+			"rotationY": 9.2,
+			"rotationZ": -17.2
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_01",
+			"source": "Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx",
+			"y": -0.12444,
+			"z": -0.00886,
+			"rotationX": -85.8
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Shield_01",
+			"target": "Ravager_Melee.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Sword_01",
+			"target": "Ravager_Melee.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "model",
+			"name": "Gun",
+			"source": "Character/Common/Weapon/Gun/Gun.fbx",
+			"z": -0.142,
+			"rotationX": -87.3,
+			"rotationY": 0.9,
+			"rotationZ": -0.2,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun",
+			"target": "Ravager_Melee.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		}
+	]
+}

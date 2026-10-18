@@ -1,0 +1,44 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_IdualisTrooper01",
+			"source": "Character/Idualis/Trooper/Male01_IdualisTrooper01.fbx"
+		},
+		{
+			"type": "model",
+			"name": "DoubleKnife_01",
+			"source": "Character/Idualis/Weapon/DoubleKnife.fbx",
+			"x": 0.10324,
+			"y": 0.04877,
+			"z": 0.04203,
+			"rotationX": 2.3,
+			"rotationY": -0.6,
+			"rotationZ": -141.5
+		},
+		{
+			"type": "model",
+			"name": "DoubleKnife_02",
+			"source": "Character/Idualis/Weapon/DoubleKnife.fbx",
+			"x": -0.0774,
+			"y": 0.03929,
+			"z": -0.09523,
+			"rotationX": -163.6,
+			"rotationY": -17.3,
+			"rotationZ": 24.7
+		},
+		{
+			"type": "constraint",
+			"name": "constraint_Knife_01",
+			"object": "DoubleKnife_01",
+			"target": "Male01_IdualisTrooper01.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint_Knife_02",
+			"object": "DoubleKnife_02",
+			"target": "Male01_IdualisTrooper01.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ"
+		}
+	]
+}
