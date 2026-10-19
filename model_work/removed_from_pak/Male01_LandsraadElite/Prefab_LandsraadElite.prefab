@@ -1,0 +1,23 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Landsraad_Halberd",
+			"source": "Character/Common/Weapon/Landsraad_halberd/Landsraad_Halberd.fbx",
+			"y": -0.2,
+			"rotationX": -90
+		},
+		{
+			"type": "model",
+			"name": "Male01_LandsraadElite",
+			"source": "CharMOD/Male01_LandsraadElite/Male01_LandsraadElite.hmd"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Landsraad_Halberd",
+			"target": "Male01_LandsraadElite.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

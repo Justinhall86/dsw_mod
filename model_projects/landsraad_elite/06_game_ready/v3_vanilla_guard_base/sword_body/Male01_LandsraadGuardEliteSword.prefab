@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_LandsraadGuardEliteSword",
+			"source": "CharMOD/Male01_LandsraadGuardEliteSword/Male01_LandsraadGuardEliteSword.hmd"
+		}
+	]
+}

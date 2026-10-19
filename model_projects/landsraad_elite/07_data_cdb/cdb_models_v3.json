@@ -1,0 +1,122 @@
+{
+ "N_LR_Guard": {
+  "id": "N_LR_Guard",
+  "radius": 2.4,
+  "height": 5.5,
+  "props": {},
+  "gfx": {
+   "file": "UI/Faction/unitsSmall_Common.png",
+   "size": 80,
+   "x": 0,
+   "y": 3
+  },
+  "mesh": [
+   {
+    "path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite.prefab"
+   }
+  ],
+  "inherit": "MilitaryLRGuard",
+  "rigName": 0,
+  "scale": 1.2,
+  "audio": {}
+ },
+ "N_LR_Guard_Helmet": {
+  "id": "N_LR_Guard_Helmet",
+  "radius": 2.4,
+  "height": 5.5,
+  "props": {},
+  "gfx": {
+   "file": "UI/Faction/unitsSmall_Common.png",
+   "size": 80,
+   "x": 0,
+   "y": 3
+  },
+  "mesh": [
+   {
+    "path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite.prefab"
+   }
+  ],
+  "inherit": "MilitaryLRGuard",
+  "rigName": 0,
+  "scale": 1.2,
+  "audio": {}
+ },
+ "N_LR_Guard_Gun": {
+  "id": "N_LR_Guard_Gun",
+  "radius": 2.4,
+  "height": 5.5,
+  "audio": {},
+  "props": {},
+  "gfx": {
+   "file": "UI/Faction/unitsSmall_Common.png",
+   "size": 80,
+   "x": 0,
+   "y": 3
+  },
+  "mesh": [
+   {
+    "path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite_Gun.prefab"
+   }
+  ],
+  "inherit": "MilitaryLRGuard_Gun",
+  "rigName": 0,
+  "scale": 1.2,
+  "anim": []
+ },
+ "N_LR_Guard_Bazooka": {
+  "id": "N_LR_Guard_Bazooka",
+  "radius": 2.4,
+  "height": 5.5,
+  "audio": {},
+  "props": {},
+  "gfx": {
+   "file": "UI/Faction/unitsSmall_Common.png",
+   "size": 80,
+   "x": 3,
+   "y": 3
+  },
+  "inherit": "MilitaryBazooka",
+  "rigName": 0,
+  "scale": 1.2,
+  "mesh": [
+   {
+    "path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite_Bazooka.prefab"
+   }
+  ]
+ },
+ "N_LR_Elite_Sword": {
+  "id": "N_LR_Elite_Sword",
+  "scale": 1.2,
+  "radius": 1.5,
+  "height": 4,
+  "inherit": "MilitaryCommon",
+  "mesh": [
+   {
+    "path": "CharMOD/Male01_LandsraadGuardEliteSword/Prefab_LandsraadGuardEliteSword.prefab"
+   }
+  ],
+  "rigName": 0,
+  "props": {
+   "dynObjects": [
+    {
+     "name": "Gun"
+    }
+   ],
+   "preload": {
+    "factions": [
+     {
+      "faction": "Atreides"
+     }
+    ]
+   }
+  },
+  "gfx": {
+   "file": "UI/Faction/unitsSmall.png",
+   "size": 80,
+   "x": 0,
+   "y": 0
+  },
+  "audio": {},
+  "anim": []
+ }
+}

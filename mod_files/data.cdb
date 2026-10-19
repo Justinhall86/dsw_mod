@@ -54850,6 +54850,41 @@
 					"anim": []
 				},
 				{
+					"id": "N_LR_Elite_Sword",
+					"scale": 1.2,
+					"radius": 1.5,
+					"height": 4,
+					"inherit": "MilitaryCommon",
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_LandsraadGuardEliteSword/Prefab_LandsraadGuardEliteSword.prefab"
+						}
+					],
+					"rigName": 0,
+					"props": {
+						"dynObjects": [
+							{
+								"name": "Gun"
+							}
+						],
+						"preload": {
+							"factions": [
+								{
+									"faction": "Atreides"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"audio": {},
+					"anim": []
+				},
+				{
 					"id": "A_Soldier",
 					"scale": 1,
 					"radius": 1.5,
@@ -56758,7 +56793,7 @@
 					},
 					"mesh": [
 						{
-							"path": "Character/Common/Landsraad/Prefab_LandsraadGuard.prefab"
+							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite.prefab"
 						}
 					],
 					"inherit": "MilitaryLRGuard",
@@ -56779,7 +56814,7 @@
 					},
 					"mesh": [
 						{
-							"path": "CharMOD/Male01_LandsraadGuardHelmet/Prefab_LandsraadGuardHelmet.prefab"
+							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite.prefab"
 						}
 					],
 					"inherit": "MilitaryLRGuard",
@@ -56804,7 +56839,7 @@
 					"scale": 1.2,
 					"mesh": [
 						{
-							"path": "Character/Common/Landsraad/Prefab_LandsraadGuard_Bazooka.prefab"
+							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite_Bazooka.prefab"
 						}
 					]
 				},
@@ -56822,7 +56857,7 @@
 					},
 					"mesh": [
 						{
-							"path": "Character/Common/Landsraad/Prefab_LandsraadGuard_Gun.prefab"
+							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite_Gun.prefab"
 						}
 					],
 					"inherit": "MilitaryLRGuard_Gun",
@@ -56971,41 +57006,6 @@
 						}
 					],
 					"inherit": "MilitarySardaukar",
-					"rigName": 0,
-					"scale": 1.15,
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 3,
-						"y": 4
-					},
-					"audio": {},
-					"anim": []
-				},
-				{
-					"id": "N_Ginaz_Swordmaster",
-					"radius": 2.4,
-					"height": 5.5,
-					"props": {
-						"preload": {
-							"factions": [
-								{
-									"faction": "Atreides"
-								}
-							]
-						},
-						"dynObjects": [
-							{
-								"name": "Gun"
-							}
-						]
-					},
-					"mesh": [
-						{
-							"path": "CharMOD/Male01_GinazSwordmaster/Prefab_GinazSwordmaster.prefab"
-						}
-					],
-					"inherit": "Duncan",
 					"rigName": 0,
 					"scale": 1.15,
 					"gfx": {
@@ -69829,7 +69829,16 @@
 							"unit": "A_Ornithopter"
 						},
 						{
-							"unit": "A_GinazSwordmaster"
+							"unit": "A_LandsraadGuard"
+						},
+						{
+							"unit": "A_LandsraadHalberd"
+						},
+						{
+							"unit": "A_LandsraadRanged"
+						},
+						{
+							"unit": "A_LandsraadDemo"
 						}
 					],
 					"model": "Arrakeen",
@@ -76711,23 +76720,23 @@
 					"attacks": {}
 				},
 				{
-					"id": "A_GinazSwordmaster",
+					"id": "A_LandsraadHalberd",
 					"stats": [
 						{
-							"health": 900,
-							"power": 20,
-							"armor": 10,
+							"health": 600,
+							"power": 18,
+							"armor": 6,
 							"trainingTime": 0.1,
 							"maxSupply": 5555
 						}
 					],
 					"props": {
 						"wheelPosition": {
-							"pos": 10,
-							"group": 1
+							"group": 1,
+							"pos": 11
 						},
-						"squadSize": 1,
-						"squadSpacing": 1
+						"squadSize": 3,
+						"squadSpacing": 2.0
 					},
 					"faction": "Atreides",
 					"gfx": {
@@ -76763,17 +76772,162 @@
 						}
 					},
 					"texts": {
-						"name": "Ginaz Swordmaster",
-						"desc": "Test unit: custom Ginaz Swordmaster model. Free and near-instant.",
+						"name": "Landsraad Guard",
+						"desc": "Troopers are fierce melee fighters. They become stronger when supported by specialized units.",
 						"plural": {
-							"name": "Ginaz Swordmasters"
+							"name": "Landsraad Guards"
 						}
 					},
 					"aiWeights": [],
 					"effects": {
 						"models": [
 							{
-								"ref": "N_Ginaz_Swordmaster",
+								"ref": "N_LR_Guard",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Common_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 4,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/FX_Common_AttackRange_Barracks.fx",
+										"space": 0,
+										"flags": 128,
+										"attachTo": ""
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"fxTarget": 0,
+								"sound": "Common_Death"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Trooper_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Trooper_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Trooper_Attack"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 0,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							},
+							{
+								"qty": 0,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "FrontLineTactics"
+						},
+						{
+							"ref": "OffensiveMindset"
+						},
+						{
+							"ref": "ParryingArmguards"
+						},
+						{
+							"ref": "PranaBindu"
+						}
+					],
+					"attacks": {}
+				},
+				{
+					"id": "A_LandsraadGuard",
+					"stats": [
+						{
+							"health": 600,
+							"power": 18,
+							"armor": 6,
+							"trainingTime": 0.1,
+							"maxSupply": 5555
+						}
+					],
+					"props": {
+						"wheelPosition": {
+							"group": 1,
+							"pos": 10
+						},
+						"squadSize": 3,
+						"squadSpacing": 2
+					},
+					"faction": "Atreides",
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"inherits": "Trooper",
+					"traits": [
+						{
+							"ref": "A_Trooper_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 0,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 0,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 0,
+							"y": 0
+						}
+					},
+					"texts": {
+						"name": "Landsraad Elite",
+						"desc": "Troopers are fierce melee fighters. They become stronger when supported by specialized units.",
+						"plural": {
+							"name": "Landsraad Elites"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "N_LR_Elite_Sword",
 								"flags": 0
 							}
 						],
@@ -76991,6 +77145,144 @@
 					"attacks": {}
 				},
 				{
+					"id": "A_LandsraadRanged",
+					"stats": [
+						{
+							"health": 400,
+							"power": 19,
+							"armor": 2,
+							"range": 35,
+							"trainingTime": 0.1,
+							"maxSupply": 5555
+						}
+					],
+					"props": {
+						"radius": 3.5,
+						"squadSize": 3,
+						"squadSpacing": 2.0,
+						"wheelPosition": {
+							"group": 0,
+							"pos": 0
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 1,
+						"y": 0
+					},
+					"faction": "Atreides",
+					"inherits": "Ranged",
+					"traits": [
+						{
+							"ref": "A_Soldier_Trait"
+						},
+						{
+							"ref": "A_Trooper_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 1,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 1,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 1,
+							"y": 0
+						}
+					},
+					"texts": {
+						"name": "Landsraad Rifleman",
+						"desc": "Armed with medium-range projectile weapons, rangers are best used alongside defensive units that can protect them.",
+						"plural": {
+							"name": "Landsraad Riflemen"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "N_LR_Guard_Gun",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Rifle_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"fxTarget": 0,
+								"sound": "Common_Female_Death"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Ranger_Select"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Ranger_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Ranger_Move"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 0,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							},
+							{
+								"qty": 0,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "FrontLineTactics"
+						},
+						{
+							"ref": "OffensiveMindset"
+						},
+						{
+							"ref": "ParryingArmguards"
+						},
+						{
+							"ref": "PranaBindu"
+						}
+					],
+					"attacks": {}
+				},
+				{
 					"id": "A_Demo",
 					"stats": [
 						{
@@ -77120,6 +77412,143 @@
 						},
 						{
 							"ref": "WarMemoir"
+						}
+					],
+					"attacks": {}
+				},
+				{
+					"id": "A_LandsraadDemo",
+					"stats": [
+						{
+							"health": 400,
+							"power": 25,
+							"armor": 2,
+							"range": 35,
+							"trainingTime": 0.1,
+							"maxSupply": 5555
+						}
+					],
+					"props": {
+						"squadSize": 3,
+						"squadSpacing": 1.8,
+						"wheelPosition": {
+							"group": 0,
+							"pos": 1
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 2,
+						"y": 0
+					},
+					"faction": "Atreides",
+					"inherits": "Demo",
+					"traits": [
+						{
+							"ref": "A_Demo_Trait"
+						},
+						{
+							"ref": "A_Trooper_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 2,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 2,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 2,
+							"y": 0
+						}
+					},
+					"texts": {
+						"name": "Landsraad Bazooka",
+						"desc": "Equipped with rocket launchers, these specialists can easily breach enemy defenses and open the way for other units.",
+						"plural": {
+							"name": "Landsraad Bazookas"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "N_LR_Guard_Bazooka",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Missilelauncher_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Common_Death",
+								"fxTarget": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Heavyweaponsquad_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Heavyweaponsquad_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Heavyweaponsquad_Select"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 0,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							},
+							{
+								"qty": 0,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "FrontLineTactics"
+						},
+						{
+							"ref": "OffensiveMindset"
+						},
+						{
+							"ref": "ParryingArmguards"
+						},
+						{
+							"ref": "PranaBindu"
 						}
 					],
 					"attacks": {}

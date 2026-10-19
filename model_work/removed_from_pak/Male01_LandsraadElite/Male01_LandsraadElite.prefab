@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_LandsraadElite",
+			"source": "CharMOD/Male01_LandsraadElite/Male01_LandsraadElite.hmd"
+		}
+	]
+}

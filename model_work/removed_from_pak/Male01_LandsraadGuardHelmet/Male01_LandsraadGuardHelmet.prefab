@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_LandsraadGuardHelmet",
+			"source": "CharMOD/Male01_LandsraadGuardHelmet/Male01_LandsraadGuardHelmet.hmd"
+		}
+	]
+}

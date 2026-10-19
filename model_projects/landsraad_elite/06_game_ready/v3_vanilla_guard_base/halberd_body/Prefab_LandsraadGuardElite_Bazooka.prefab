@@ -1,0 +1,30 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_LandsraadGuardElite",
+			"source": "CharMOD/Male01_LandsraadGuardElite/Male01_LandsraadGuardElite.hmd"
+		},
+		{
+			"type": "model",
+			"name": "Bazooka",
+			"source": "Character/Fremen/Weapon/Bazooka/Bazooka.fbx",
+			"rotationX": -90,
+			"children": [
+				{
+					"type": "object",
+					"name": "MuzzleA",
+					"y": -0.34407,
+					"rotationX": 90
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Bazooka",
+			"target": "Male01_LandsraadGuardElite.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		}
+	]
+}

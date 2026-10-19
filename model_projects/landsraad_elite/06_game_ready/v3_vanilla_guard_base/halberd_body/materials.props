@@ -1,0 +1,28 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_LandsraadGuard1": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1,
+				"alphaKill": false
+			},
+			"Mat_ElitePart": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1,
+				"alphaKill": false
+			}
+		}
+	}
+}
