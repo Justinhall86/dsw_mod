@@ -55130,6 +55130,48 @@
 					}
 				},
 				{
+					"id": "N_DuncanModified",
+					"radius": 1.5,
+					"height": 4,
+					"props": {
+						"animFxScale": 1.3,
+						"dynObjects": [
+							{
+								"name": "Gun"
+							}
+						],
+						"preload": {
+							"factions": [
+								{
+									"faction": "Atreides"
+								}
+							],
+							"excludableFx": [
+								{
+									"text": "Duncan"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 15,
+						"y": 0
+					},
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_DuncanModified/Prefab_DuncanModified.prefab"
+						}
+					],
+					"inherit": "Duncan",
+					"rigName": 0,
+					"scale": 1.4,
+					"audio": {
+						"remove": "Common_Remove"
+					}
+				},
+				{
 					"id": "A_Hero_2",
 					"radius": 2.4,
 					"height": 5.5,
@@ -69839,6 +69881,9 @@
 						},
 						{
 							"unit": "A_LandsraadDemo"
+						},
+						{
+							"unit": "A_DuncanModified"
 						}
 					],
 					"model": "Arrakeen",
@@ -78332,6 +78377,152 @@
 						}
 					},
 					"costs": {},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 8,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 15,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 8,
+							"y": 0
+						}
+					},
+					"id": "A_DuncanModified",
+					"texts": {
+						"name": "Duncan (Modified)",
+						"desc": "One of Leto's most trusted men and House Atreides' Swordmaster, Duncan was tasked with being Leto's ambassador to the Fremen upon their arrival on Arrakis.",
+						"plural": {
+							"name": "Duncan (Modified)"
+						}
+					},
+					"traits": [
+						{
+							"ref": "A_Hero_1_Trait"
+						},
+						{
+							"ref": "Warrior_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 2555,
+							"power": 20,
+							"armor": 6,
+							"maxSupply": 5555,
+							"trainingTime": 0.1
+						}
+					],
+					"props": {
+						"character": "Duncan",
+						"wheelPosition": {
+							"group": 1,
+							"pos": 12
+						},
+						"squadSize": 1,
+						"squadSpacing": 1
+					},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 15,
+						"y": 0
+					},
+					"inherits": "Hero",
+					"faction": "Atreides",
+					"effects": {
+						"models": [
+							{
+								"ref": "N_DuncanModified",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Move_Run_Duncan",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 3,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Duncan_Attackmelee"
+							},
+							{
+								"kind": 4,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Heroes_Pistolattackrange"
+							},
+							{
+								"kind": 37,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/SkillsHeroes/FX_Human_Duncan_Skill_cdb.fx",
+										"space": 0,
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"fxTarget": 1,
+								"sound": "Duncan_Ability"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Duncan_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Duncan_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Duncan_Select"
+								},
+								{
+									"action": 6,
+									"event": "Voice_A_Duncan_Abilityoff"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 0,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							},
+							{
+								"qty": 0,
+								"res": "CommandPoint"
+							}
+						]
+					},
 					"equipment": [],
 					"attacks": {}
 				},

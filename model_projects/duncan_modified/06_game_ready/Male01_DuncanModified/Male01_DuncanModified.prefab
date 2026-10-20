@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_DuncanModified",
+			"source": "CharMOD/Male01_DuncanModified/Male01_DuncanModified.hmd"
+		}
+	]
+}
