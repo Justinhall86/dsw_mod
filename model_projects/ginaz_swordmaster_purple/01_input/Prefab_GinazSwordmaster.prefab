@@ -1,0 +1,57 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_GinazSwordmaster",
+			"source": "CharMOD/Male01_GinazSwordmaster/Male01_GinazSwordmaster.hmd"
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_01",
+			"source": "Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx",
+			"y": -0.16362,
+			"z": 0.05084,
+			"rotationX": -90
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_02",
+			"source": "Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx",
+			"x": -0.16553,
+			"y": -0.03469,
+			"z": 0.26002,
+			"rotationY": -179.5,
+			"rotationZ": -84.8
+		},
+		{
+			"type": "constraint",
+			"name": "constraint01",
+			"object": "Atreide_Sword_01",
+			"target": "Male01_GinazSwordmaster.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint02",
+			"object": "Atreide_Sword_02",
+			"target": "Male01_GinazSwordmaster.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ"
+		},
+		{
+			"type": "model",
+			"name": "Gun",
+			"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+			"x": 0.38737,
+			"y": 0.07466,
+			"z": -0.04975,
+			"rotationX": 180,
+			"rotationZ": -79.1,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun",
+			"target": "Male01_GinazSwordmaster.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ"
+		}
+	]
+}

@@ -1,0 +1,5 @@
+run_section(5)
+bpy.data.objects['ginaz_hi'].hide_set(True)
+bpy.data.objects['ginaz_lo'].hide_set(False)
+print(look2(rz=0, dist=2.0, name="51_lo_front"))
+print(look2(rz=180, dist=2.0, name="51_lo_back"))

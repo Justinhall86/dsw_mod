@@ -1,0 +1,16 @@
+{
+	"sheet": "structure",
+	"line_id": "Arrakeen",
+	"field": "startUnits",
+	"value": [
+		{
+			"unit": "A_Ornithopter"
+		},
+		{
+			"unit": "A_GinazSwordmaster"
+		},
+		{
+			"unit": "A_Control_Trooper"
+		}
+	]
+}
