@@ -26,11 +26,15 @@ COLLARS = {   # key -> (donor unit, component ids from 06_collar_probe.py)
 COLLAR = args[args.index("--collar") + 1] if "--collar" in args else None
 CSCALE = float(args[args.index("--cscale") + 1]) if "--cscale" in args else 1.0
 CDROP = float(args[args.index("--cdrop") + 1]) if "--cdrop" in args else 0.0
-NAME = "Duncan_Commando" + ("_" + COLLAR if COLLAR else "")
+STRIP = "--strip" in args           # drop the silver thigh plates and the belt pouch
+PLATE_X = float(args[args.index("--plate-x") + 1]) if "--plate-x" in args else 0.215
+NAME = "Duncan_Commando" + ("_" + COLLAR if COLLAR else "") + ("_clean" if STRIP else "")
 PROJ = os.path.dirname(HERE)
 SHOTS = os.path.join(PROJ, "02_progress_photos", "05_duncan_commando")
 os.makedirs(SHOTS, exist_ok=True)
 PACK = [4, 5, 6, 7, 41, 42, 43, 44]   # Commando backpack comps (gallery ids)
+PLATE_Z = (0.52, 1.25)                # thigh plate height band
+POUCH = [24]                          # silver belt pouch at the hip (gallery id)
 
 
 def import_unit(key):
@@ -66,7 +70,19 @@ bs.reset_scene()
 base, rig = import_unit("Commando")
 base.name, base.data.name, rig.name = "CommandoBody", "CommandoBodyMesh", "Armature"
 comps = P.components(base)
-P.delete_verts(base, [i for k in PACK for i in comps[k]])
+trousers = set(comps[0])
+if STRIP:   # thigh plates are outer faces of the trouser component (root, gallery id 0): beyond |x| PLATE_X inside the PLATE_Z band
+    bm = bmesh.new(); bm.from_mesh(base.data); bm.verts.ensure_lookup_table(); bm.faces.ensure_lookup_table()
+    outer = [f for f in bm.faces if all(v.index in trousers for v in f.verts)
+             and abs(f.calc_center_median().x) > PLATE_X and PLATE_Z[0] < f.calc_center_median().z < PLATE_Z[1]]
+    print("thigh plate faces removed", len(outer))
+    gone = [bm.verts[i] for k in PACK + POUCH for i in comps[k]]     # indices are all from the ORIGINAL mesh
+    bmesh.ops.delete(bm, geom=outer, context="FACES")
+    bmesh.ops.delete(bm, geom=[v for v in gone if v.is_valid], context="VERTS")
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    bm.to_mesh(base.data); bm.free(); base.data.update()
+else:
+    P.delete_verts(base, [i for k in PACK for i in comps[k]])
 # cowl: top of the vest component
 big = [c for c in P.components(base) if len(c) > 300 and max(base.data.vertices[i].co.z for i in c) > 1.7][0]
 P.delete_verts(base, [i for i in big if base.data.vertices[i].co.z > CUT])
