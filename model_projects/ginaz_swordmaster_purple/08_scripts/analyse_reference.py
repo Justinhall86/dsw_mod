@@ -1,9 +1,15 @@
 """Analyse the purple concept art: segment the character, measure the silhouette,
 and write a cleaned reference (background removed) for the colour projection bake.
 
-The backdrop is a smooth warm-sand vertical gradient, horizontally uniform, so the
-background of each row is estimated from that row's outer 8% of columns and the
-character is whatever differs from it.
+The backdrop is a warm-sand gradient with a soft cast shadow at the bottom.  Two
+signals separate the figure from it:
+
+  * luminance ratio to the row's own background (the shadow keeps the row's
+    brightness, the figure is 3-5x darker);
+  * chromaticity distance (the figure's purple/brown is a different hue from sand).
+
+The row background is the 95th percentile of the outer 8% columns, so a hand or
+sleeve reaching the image edge cannot poison it.
 
 Run with the system python:  python analyse_reference.py
 """
@@ -22,26 +28,49 @@ os.makedirs(MID, exist_ok=True)
 im = Image.open(SRC).convert("RGB")
 a = np.asarray(im).astype(np.float32) / 255.0
 H, W = a.shape[:2]
-print("image", W, "x", H)
+lum = a @ np.array([0.30, 0.59, 0.11])
 
-# ---- background estimate: per row, the median of the outer columns
+# ---------------------------------------------------------------- background
 edge = max(3, int(W * 0.08))
-bg = np.empty_like(a)
-for y in range(H):
-    strip = np.concatenate([a[y, :edge], a[y, W - edge:]], axis=0)
-    bg[y] = np.median(strip, axis=0)
+strip = np.concatenate([a[:, :edge], a[:, W - edge:]], axis=1)
+bg_row = np.percentile(strip, 95, axis=1)        # (H, 3) row background
+bg = np.repeat(bg_row[:, None, :], W, axis=1)     # (H, W, 3)
+bg_lum = np.maximum(bg @ np.array([0.30, 0.59, 0.11]), 1e-4)   # (H, W)
+ratio = lum / bg_lum
 
+s = a.sum(2, keepdims=True)
+chroma = a / np.maximum(s, 1e-6)
+bg_chroma = (bg_row / np.maximum(bg_row.sum(1, keepdims=True), 1e-6))[:, None, :]
+chroma_d = np.abs(chroma - bg_chroma).sum(2)
 dist = np.sqrt(((a - bg) ** 2).sum(2))
-fg = dist > 0.10
-# drop isolated noise
-fg = fg & (dist > 0.13)
-print("fg pixels", int(fg.sum()), "of", H * W)
 
-# keep the largest connected blob (row/column flood fill, no scipy)
+fg = (dist > 0.075) & ((ratio < 0.85) | (chroma_d > 0.045))
+print("fg pixels", int(fg.sum()))
+
+
+def erode(mask, it=1):
+    m = mask
+    for _ in range(it):
+        p = np.pad(m, 1, constant_values=False)
+        m = (p[1:-1, 1:-1] & p[:-2, 1:-1] & p[2:, 1:-1] &
+             p[1:-1, :-2] & p[1:-1, 2:])
+    return m
+
+
+def dilate(mask, it=1):
+    m = mask
+    for _ in range(it):
+        p = np.pad(m, 1, constant_values=False)
+        m = (p[1:-1, 1:-1] | p[:-2, 1:-1] | p[2:, 1:-1] |
+             p[1:-1, :-2] | p[1:-1, 2:])
+    return m
+
+
+fg = dilate(erode(fg, 1), 1)          # morphological open
+
+# ---------------------------------------------------------------- largest blob
 lbl = np.zeros((H, W), np.int32)
-cur = 0
-best = (0, 0)
-stack = []
+cur, best = 0, (0, 0)
 for y in range(H):
     for x in range(W):
         if fg[y, x] and lbl[y, x] == 0:
@@ -62,8 +91,6 @@ for y in range(H):
 fg = lbl == best[1]
 print("largest blob", best[0], "px")
 
-# fill small vertical holes inside the silhouette (the background showing through
-# the gap between the coat's front panels is real, so holes are NOT filled)
 ys, xs = np.nonzero(fg)
 top, bottom = int(ys.min()), int(ys.max())
 left, right = int(xs.min()), int(xs.max())
@@ -74,60 +101,75 @@ rows = {}
 for y in range(top, bottom + 1):
     rx = np.nonzero(fg[y])[0]
     if len(rx):
-        rows[y] = (int(rx.min()), int(rx.max()), len(rx))
+        # list of runs (the gap between arm and body is real background)
+        runs = []
+        s0 = rx[0]
+        for i in range(1, len(rx)):
+            if rx[i] != rx[i - 1] + 1:
+                runs.append((int(s0), int(rx[i - 1])))
+                s0 = rx[i]
+        runs.append((int(s0), int(rx[-1])))
+        rows[y] = runs
 
 
 def row_at(frac):
     y = int(round(top + frac * height_px))
-    for yy in range(max(top, y - 3), min(bottom, y + 4)):
+    for yy in range(max(top, y - 4), min(bottom, y + 5)):
         if yy in rows:
-            return (yy,) + rows[yy]
+            return (yy, rows[yy])
     return None
 
 
 marks = {}
-for label, frac in (("head_top", 0.02), ("head_bottom", 0.115), ("shoulder", 0.185),
-                     ("chest", 0.28), ("belt", 0.45), ("waist", 0.42),
+for label, frac in (("head_top", 0.015), ("head_bottom", 0.115), ("collar", 0.145),
+                     ("shoulder", 0.185), ("chest", 0.28), ("belt", 0.45),
                      ("hip", 0.52), ("thigh", 0.62), ("knee", 0.72),
-                     ("shin", 0.82), ("ankle", 0.92), ("hem", 0.88)):
+                     ("shin", 0.82), ("hem", 0.885), ("ankle", 0.93)):
     marks[label] = row_at(frac)
 
 for k, v in marks.items():
     if v:
-        y, x0, x1, n = v
-        print("%-11s y=%4d (frac %.3f)  x %4d..%4d  width %4d  fill %d"
-              % (k, y, (y - top) / height_px, x0, x1, x1 - x0, n))
+        y, runs = v
+        print("%-11s y=%4d (frac %.3f)  runs %s" % (k, y, (y - top) / height_px, runs))
 
-low = [(y, *rows[y]) for y in rows if y > top + 0.40 * height_px]
-up = [(y, *rows[y]) for y in rows if y < top + 0.30 * height_px]
-hem = max(low, key=lambda r: r[2] - r[1])
-sh = max(up, key=lambda r: r[2] - r[1])
-print("widest lower row", hem, "frac", (hem[0] - top) / height_px)
-print("widest upper row", sh, "frac", (sh[0] - top) / height_px)
+# widest continuous run per region
+def widest_row(lo, hi):
+    cand = [(y, max((r[1] - r[0]) for r in runs)) for y, runs in rows.items() if lo <= (y - top) / height_px <= hi]
+    return max(cand, key=lambda t: t[1]) if cand else None
 
-# clean reference: character pixels kept, background -> white
+shoulder = widest_row(0.15, 0.30)
+hem = widest_row(0.75, 0.95)
+print("widest upper", shoulder, "frac", (shoulder[0] - top) / height_px)
+print("widest lower", hem, "frac", (hem[0] - top) / height_px)
+
+# ---------------------------------------------------------------- outputs
 clean = np.ones((H, W, 3), np.float32)
 clean[fg] = a[fg]
 Image.fromarray((clean * 255).astype(np.uint8)).save(os.path.join(OUT, "reference_cleaned.png"))
 
-# annotation overlay for visual verification
+# a white-filled silhouette (alpha) for the same purpose
+sil = np.zeros((H, W), np.float32)
+sil[fg] = 1.0
+Image.fromarray((sil * 255).astype(np.uint8)).save(os.path.join(OUT, "reference_silhouette.png"))
+
 ann = (a * 255).astype(np.uint8).copy()
-for y, x0, x1, _ in (sh, hem):
-    ann[y, x0:x1 + 1] = (255, 0, 0)
+for y, _ in (shoulder, hem):
+    ann[y, :] = (255, 0, 0)
 ann[top:bottom + 1, left] = (0, 255, 0)
 ann[top:bottom + 1, right] = (0, 255, 0)
 for k, v in marks.items():
     if v:
-        y, x0, x1, n = v
-        ann[max(0, y - 1):y + 2, x0:x1 + 1] = (0, 200, 255)
+        y, runs = v
+        for (x0, x1) in runs:
+            ann[max(0, y - 1):y + 2, x0:x1 + 1] = (0, 200, 255)
 Image.fromarray(ann).save(os.path.join(OUT, "reference_annotated.png"))
 
 out = {
     "width": W, "height": H,
     "char_top": top, "char_bottom": bottom, "char_height_px": height_px,
     "char_left": left, "char_right": right,
-    "hem_row": list(hem), "shoulder_row": list(sh),
-    "marks": {k: list(v) for k, v in marks.items() if v},
+    "shoulder_row": list(shoulder), "hem_row": list(hem),
+    "marks": {k: [v[0], v[1]] for k, v in marks.items() if v},
 }
 with open(os.path.join(MID, "reference_measurements.json"), "w") as f:
     json.dump(out, f, indent=1)

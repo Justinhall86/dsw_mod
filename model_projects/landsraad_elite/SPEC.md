@@ -64,3 +64,65 @@ Why: even at 20k tris / 2048px the full-body Elite looked soft next to vanilla u
 - data.cdb: `N_LR_Guard`, `N_LR_Guard_Helmet` -> halberd prefab; `N_LR_Guard_Gun` / `N_LR_Guard_Bazooka` -> gun / bazooka prefabs; `N_LR_Elite_Sword` -> sword prefab. So EVERY Landsraad guard in the game (Landsraad faction, Corrino test units, the four Atreides test units) now wears the new helmet + pauldrons. Units, costs, upgrades, spawn list unchanged. The v2 full-sculpt model folders were moved to `model_work/removed_from_pak/` (v2 files remain in this project under `06_game_ready/halberd_variant|sword_variant`). Pak 23.7 MB -> 11.8 MB.
 - Ginaz: no unit named Ginaz exists in the data (only conquest XP bonuses + the "Ginaz Swordmaster" quest, whose reward is a free Atreides Warden `A_Elite`).
 To check in game: seams/neck under the helmet, pauldron fit on shoulders, texture match between the vanilla body and the new parts (the parts carry baked shading from the reference render), animation of helmet/pauldrons in run and attack.
+
+## v5 "kitbash" (2026-10-23) - pauldrons settled, preview stage
+Why: the v1-v4 custom sculpt had to be re-rigged and baked (soft textures, colour mismatch). Every Male01 unit shares one skeleton, so
+real in-game parts can be grafted onto the VANILLA guard with their own weights, no re-rig and no baking.
+- Survey of 22 unit bodies -> `02_progress_photos/11_kitbash_survey/`; every upper-body part of the best donors rendered alone ->
+  `12_part_gallery/` (ids = component rank by vertex count).
+- Chosen part: **Imperial Sardaukar component 14** (left clavicle pauldron, grey + gold), mirrored to the right side (x flipped, faces
+  reversed, `B_l*`<->`B_r*` vertex groups swapped). HouseGuard parts were thin straps; Aramsham/Trooper were smaller/duller.
+- Guard changes: its two small shoulder pads (components 21/22) removed. The **hood/helmet stays untouched**: the "neck piece" is the
+  helmet's own flared hood (components 17/18), so it cannot be removed.
+- Placement (P1): scale 0.80 about (0.12, 0, 1.6), x -0.02, z -0.05 (v5_03 `R1`). Full size stood up around the helmet in the idle pose;
+  P2/P3 crowded the pauldrons together at the back.
+- Recolour: Sardaukar albedo repainted ONLY inside the pauldron's UV islands to the guard's lavender-grey and gold (hue/sat from the guard's
+  hood islands, value re-centred +0.09, shading kept) -> `04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png`.
+- Results: `03_blender/landsraad_elite_v5_{halberd,gun,bazooka}_preview.blend` (self-contained, animated, weapon in hand); renders
+  `02_progress_photos/13_graft_variants/final_sheet.png`; Run + AttackMelee01/03 stress test `14_anim_stress/` (no tearing; brief touch
+  against the hood at the extreme twist of AttackMelee03).
+- Scripts: `08_scripts/v5_01..06` (v5_03 = graft + variants, env vars WEAPON / FINAL / POSED / CLOSE; v5_04+05 = recolour; v5_06 = clip test).
+- Not done yet: game export (merge into one HMD with a second material, prefab/props, pak, data.cdb mapping), optional arm armour (variant
+  S2: white, needs the same recolour), in-game check.
+
+### v5 update (same day) - hood flare clipped, Sardaukar collar added (variant `E1`, current)
+- The guard's flared collar (components 17/18) is also the lower back shell of the helmet: clipping it alone (variants C1-C3) left the
+  helmet floating over a hollow neck. Fix, as the HouseGuard does it: clip the flare below z 1.70 AND graft a collar.
+- Collar: Sardaukar components 18/19 (its own gorget, made to meet its pauldron), scaled x1.12 about (0, 0, 1.55). HouseGuard collar
+  (14/15, variant D2) left the back open.
+- Pauldrons re-placed for the collar: scale 0.88 about (0.12, 0, 1.6), x -0.06, z -0.02.
+- Recolour mask now covers Sardaukar UV islands 14 + 18 + 19 (`v5_04` / `v5_05`), same output texture.
+- `03_blender/landsraad_elite_v5_{halberd,gun,bazooka}_preview.blend` rebuilt with E1; renders `13_graft_variants/final_sheet_E1.png`,
+  `E1_close_sheet.png`; clip test `14_anim_stress/anim_stress_sheet_E1.png` (no tearing). Study renders: `15_shoulder_study/`.
+
+### v5 round 3 (user feedback: Sardaukar pads stick out, off-style; collar is a keeper)
+- The collar (Sardaukar 18/19) is a separate part - kept. Pauldrons swapped (variants in `v5_03`, renders `13_graft_variants/G1_H1_sheet.png`):
+  - `G1`: Gurney pauldrons 17/18, recoloured (green stripe -> gold) by `v5_09` (UV dump) + `v5_10` (generic recolour).
+  - `H1`: HouseGuard pauldron = frame 20/21 + plates 30/31, 35/36 + studs 45-54 (16 components; most are < 50 verts so the
+    first gallery missed them), recoloured to the guard palette.
+- Track B, hand-built from the vanilla guard only (`v5_11_handrolled.py`, renders `17_handrolled/`): armour shells inflated along
+  normals (centre-seam vertices move only in y/z so the halves stay closed), hood flare widened x1.12 toward its bottom, the guard's own
+  shoulder pads enlarged and tilted 45 deg to cap the shoulder plus two extra fanned lames (`B4`). Same textures as the vanilla guard.
+- Comparison: `17_handrolled/compare_E1_G1_H1_B4.png`. No game export yet.
+
+### v5 round 4 - every path built out (2026-10-23)
+| Path | What | Preview .blends (03_blender/) |
+|---|---|---|
+| E1 | vanilla guard + Sardaukar collar + Sardaukar pads (rejected: pads stick out, off-style) | `landsraad_elite_v5_{weapon}_preview.blend` |
+| G1 | collar + Gurney pads (green -> gold) | `landsraad_elite_v5_G1_{weapon}_preview.blend` |
+| H1 | collar + HouseGuard studded pads | `landsraad_elite_v5_H1_{weapon}_preview.blend` |
+| B4 | hand-built: thick shells, own pads enlarged/tilted + 2 fanned lames, wider hood flare | `landsraad_elite_handrolled_B4_{weapon}.blend` |
+| BC | hand-built body (`B5`: pads pulled 5 cm in) + collar, hood flare clipped | `landsraad_elite_v5_BC_{weapon}_preview.blend` |
+Lineup `16_showcase/all_paths_lineup.png` (heroes per path/weapon in `16_showcase/`), clip test `14_anim_stress/all_paths_stress.png`.
+Finding: the big tilted hand-built pads (B4/BC) are weighted like the vanilla pad, so on raised-arm poses (rifle, bazooka) they swing up
+like wings; G1/H1 stay tight in every clip. Fix if B4/BC is chosen: shift those pads' weights toward the clavicle (as the grafted pads are).
+
+### v5 round 5 - hand-modelled pauldron, studless HouseGuard (2026-10-23)
+- B4/BC rejected (stacked copies of the vanilla pad read as fake). New: `v5_13_pauldron_dome.py` MODELS a pauldron per shoulder -
+  a thick ellipsoid shell over the top/outside of the shoulder joint (open toward the neck), flared lower edge, gold rim band +
+  gold centre ridge; UVs point at flat lavender / gold patches of the guard's own texture (`v5_12_pick_uv_patches.py`); weights
+  100% clavicle at the top -> 60/40 clavicle/shoulder at the rim, so it does not wing out on raised-arm poses.
+- `R2` (v5_11) = vanilla guard (shells inflated 1.2-1.5 cm, own pads removed) + the modelled pauldrons;
+  `R2C` (v5_03) = same + the Sardaukar collar; `H2` = H1 minus the 10 stud components.
+- Preview .blends: `landsraad_elite_handrolled_R2_{weapon}.blend`, `landsraad_elite_v5_{H2,R2C}_{weapon}_preview.blend`.
+  Lineup `16_showcase/round5_lineup.png`, clip test `14_anim_stress/round5_stress.png` (all hold).
