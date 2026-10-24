@@ -78,6 +78,12 @@ if STRIP:   # thigh plates are outer faces of the trouser component (root, galle
     print("thigh plate faces removed", len(outer))
     gone = [bm.verts[i] for k in PACK + POUCH for i in comps[k]]     # indices are all from the ORIGINAL mesh
     bmesh.ops.delete(bm, geom=outer, context="FACES")
+    for _ in range(8):   # the cut leaves sawtooth tips on the trouser leg: peel faces hanging by one edge or corner
+        bm.faces.ensure_lookup_table()
+        tips = [f for f in bm.faces if all(v.index in trousers for v in f.verts) and PLATE_Z[0] - 0.1 < f.calc_center_median().z < PLATE_Z[1] + 0.05
+                and abs(f.calc_center_median().x) > 0.08 and sum(e.is_boundary for e in f.edges) >= 2]
+        if not tips: break
+        bmesh.ops.delete(bm, geom=tips, context="FACES")
     bmesh.ops.delete(bm, geom=[v for v in gone if v.is_valid], context="VERTS")
     bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
     bm.to_mesh(base.data); bm.free(); base.data.update()
