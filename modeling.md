@@ -441,3 +441,34 @@ in `model_work/` (`ginaz_stage1/2/3.py`), progress images in `model_work/progres
       Some units also have `_Emissive` and `_MetallicGlossAOEmiss` variants.
 - [ ] Does repackaging `Male01_HouseGuard02` directly produce a working unit?
 - [ ] Does a Blender 5.2 export animate correctly in HIDE (not just pass `fbxfix`)?
+
+## 13. FreeCompany unarmed Blender preview (2026-10-22)
+
+- Source: `model_inputs/FreeCompany/Female01_FreeCompany.fbx` is an HMD v3 file
+  with a misleading `.fbx` extension. HMD Toolkit `hmd2fbx.py` converted it to
+  an editable FBX with **4,450 vertices, 6,508 triangles, and 51 joints**.
+- Built `model_projects/freecompany_unarmed/03_blender/FreeCompany_Unarmed.blend`
+  in Blender GUI from the body FBX only. The prefab's two swords and two guns
+  are separate objects, so none were imported; the saved scene contains one
+  mesh and no weapon objects.
+- The preview wires Albedo, MetallicGlossAO, Normal, and Emissive textures to
+  the material and packs them in the `.blend`. The saved blend passed
+  `08_verify_blend.py` with `PROBLEMS: none`.
+- Blender GUI screenshot and front, three-quarter, side, back, and back
+  close-up renders are under
+  `model_projects/freecompany_unarmed/02_progress_photos/04_showcase/`.
+- This was a preview-only deliverable; no game-facing files or pak were edited.
+
+## 14. Root-level Gabarit test meshes (2026-10-22)
+
+- The three `.fbx` files directly under `C:\dsw_mod\extr\Character` are HMD v3 files,
+  not binary FBX. `Gabarit_Test01` and `Gabarit_Test02` each contain one static mesh;
+  `Gabarit_Test03` contains three static meshes.
+- Converted them to Blender-readable FBX, explicitly mapped the existing UVs to the
+  referenced `Structure/Base/Arrakeen/ColorChart_Albedo.png`, and packed that texture
+  into each blend. Test 03 keeps all three components in one scene.
+- Blender projects, FBX exports, and preview renders are under
+  `model_projects/gabarit_test01/`, `model_projects/gabarit_test02/`, and
+  `model_projects/gabarit_test03/`.
+- These are unrigged static test meshes, not playable unit models; no game-facing CDB,
+  prefab, pak, or installation changes were made.
