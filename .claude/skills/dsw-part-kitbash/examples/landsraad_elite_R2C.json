@@ -1,0 +1,24 @@
+{
+  "name": "R2C",
+  "_comment": "Landsraad Elite R2C: vanilla guard, armour shells thickened, own pads removed, hood flare clipped, recoloured Sardaukar collar + a MODELLED pauldron shell per shoulder textured from flat patches of the guard's own texture.",
+  "base_blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_guard/03_blender/landsraad_guard_halberd_preview.blend",
+  "body": "LandsraadGuard",
+  "rig": "Male01_LandsraadGuard",
+  "out_dir": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/02_progress_photos/18_skill_smoke",
+  "inflate": [{"components": [11, 12, 23, 24], "dist": 0.015}, {"components": [5, 6], "dist": 0.012}],
+  "drop": [21, 22],
+  "cut": {"components": [17, 18], "below_z": 1.70},
+  "parts": [
+    {"blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
+     "object": "Imperial", "components": [18], "scale": 1.12, "pivot": [0, 0, 1.55],
+     "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"},
+    {"blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
+     "object": "Imperial", "components": [19], "scale": 1.12, "pivot": [0, 0, 1.55],
+     "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"}
+  ],
+  "shells": {
+    "patches": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/08_scripts/intermediate_data/v5_uv_patches.json",
+    "params": {"off": [0.035, 0.0, 0.06], "radii": [0.175, 0.16, 0.13], "phi": 105, "theta": [-48, 88], "seg": [18, 10],
+               "thick": 0.024, "flare": 0.22, "rim_rows": 1, "ridge": [6, 0.022], "w_shoulder_bottom": 0.4}
+  }
+}

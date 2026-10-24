@@ -80,3 +80,41 @@ When a full custom body keeps looking soft or rigs badly, KEEP THE VANILLA BODY 
 - Two materials in one HMD: slot 0 vanilla body with PLACEHOLDER images named like the vanilla textures, slot 1 new parts with the real baked images. `convert_model.py --vanilla-material Mat_Body=Character/.../Name --own-textures <dir with *_Albedo/_MetallicGlossAO/_Normal.png>` rewrites the body's paths to the game's files and restores the parts textures (the converter wires every material to the same canonical file names, so the last embedded image wins otherwise). Add a weapon the same way as a third material (`--vanilla-material Mat_Sword=...`, `--share-textures` for a second variant).
 - One body HMD can serve several prefabs: build them with `make_prefab.py --template <vanilla prefab with the weapon> --hmd <your hmd>` (halberd / gun / bazooka) and repoint each model entry's `mesh`. Free the exact material name first (`old_` rename) or Blender appends `.001`.
 - "Edit the vanilla model directly" = new files + repointing the model entries, so every vanilla unit that uses that model changes; do not overwrite vanilla paths in the pak.
+
+# Texture-wiring lessons (Commando TRUE_FBX, 2026-10-21)
+Asked to "add the colour design (albedo)" onto `model_inputs/Commando/Male01_Commando_TRUE_FBX.fbx`.
+It was **already wired** - inspect before rebuilding.
+
+- **The TRUE_FBX already carries the texture wiring.** The binary holds both an absolute
+  `FileName` (`Character/Common/Commando/Commando_Albedo.png`, a game path that does not exist
+  locally) and a bare `RelativeFilename` (`Commando_Albedo.png`). Blender tries the absolute path,
+  fails, then resolves the relative one next to the FBX - so dropping the 3 vanilla PNGs beside the
+  FBX is enough. Grep the FBX for ASCII runs matching `Albedo|Metallic|Normal|Mat_` (read bytes,
+  `Encoding.ASCII`, `[regex]::Matches($t,'[ -~]{8,}')`) to see the paths before opening Blender.
+- **Inspect the links, don't trust the node list:** import, then dump
+  `f"{l.from_node.name}.{l.from_socket.name} -> {l.to_node.name}.{l.to_socket.name}"`. Working
+  material = `Image Texture.Color -> Principled BSDF.Base Color`,
+  `Image Texture.001.Color -> Principled BSDF.Specular IOR Level`,
+  `Image Texture.002.Color -> Normal Map.Color`, `Normal Map.Normal -> ...Normal`. That is exactly
+  what `blender_export_fbx.py` and the HMD Toolkit map by, so a correct import = done.
+- Harmless red herrings on import: a **duplicate** albedo Image Texture node (colour space
+  Non-Color) linked to `Alpha` (alpha is 1.0 everywhere - fine); `image.has_data == False` on the
+  MetallicGlossAO/Normal images just means they are lazily loaded, not missing; `Mat_Commando` plus
+  stray `Material` / `Dots Stroke` materials with no mesh users.
+- **Self-contained textured FBX:** re-export the selected armature+mesh with the standard
+  `blender_export_fbx.py` settings (`path_mode="COPY"`, `embed_textures=True`) -> 290 KB becomes
+  1.37 MB and no `.fbm` folder is left beside it; the PNGs are embedded. Verify by file size and by
+  grepping the export log for the copy step. Original file left untouched; write
+  `Male01_..._textured.fbx` next to it.
+- **Blender 5.2 splash screen blocks every screenshot.** `bpy.ops.wm.splash_close` does not exist
+  and SendKeys `{ESC}` did not close it. What works: `user32.SetForegroundWindow` +
+  `Cursor.Position` to a point clearly left of the splash + `mouse_event` DOWN/UP
+  (`0x0002`/`0x0004`) - i.e. a real click outside the splash. Get the window rect first
+  (`GetWindowRect`) to compute a point outside it; the MCP screenshot is scaled, so map
+  screenshot coords through the real width. Then `view3d.view_axis(FRONT)` +
+  `view3d.view_selected()`, shading `MATERIAL`, overlays off.
+- `execute_blender_code` requires `result` to be a **dict**; a trailing `result = "ok"` raises after
+  the operators already ran - the scene is changed even though the call "failed".
+- Several texture variants exist (`Commando_Atreides/Corrino/Fremen/Harkonnen/Ecaz/Smugglers/
+  Vernius_Albedo.png` = hue replacements of the base). Ask which one with the question tool instead
+  of guessing; default to the base `Commando_Albedo.png`.

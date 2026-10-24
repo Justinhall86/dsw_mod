@@ -1,0 +1,21 @@
+{
+  "name": "G1",
+  "_comment": "Landsraad Elite G1: vanilla Landsraad Guard + recoloured Sardaukar collar + recoloured Gurney pauldrons. Guard's own shoulder pads (21/22) removed, the hood flare (17/18, the helmet's lower shell) clipped below z 1.70 so the collar replaces it.",
+  "base_blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_guard/03_blender/landsraad_guard_halberd_preview.blend",
+  "body": "LandsraadGuard",
+  "rig": "Male01_LandsraadGuard",
+  "out_dir": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/02_progress_photos/18_skill_smoke",
+  "drop": [21, 22],
+  "cut": {"components": [17, 18], "below_z": 1.70},
+  "parts": [
+    {"blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
+     "object": "Imperial", "components": [18], "scale": 1.12, "pivot": [0, 0, 1.55],
+     "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"},
+    {"blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
+     "object": "Imperial", "components": [19], "scale": 1.12, "pivot": [0, 0, 1.55],
+     "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"},
+    {"blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/gurney/03_blender/Male01_AtreidesGurney.blend",
+     "object": "Atreides_Gurney", "components": [17, 18],
+     "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/gurney_parts_landsraad_Albedo.png"}
+  ]
+}

@@ -56,6 +56,10 @@ Scripts are in `scripts/` next to this file. Run them with the system Python.
 ### 1. Model (Blender, GUI)
 - Start from a vanilla model on the same rig: `hmd2fbx.py` the HMD from `C:\dsw_mod\extr`, then
   `fbxfix.py`. Never edit the armature; animations drive bones by name (Male01 = 46 joints).
+- **Before "adding" textures to an existing FBX, check what it already has:** import it and dump the
+  material links - a TRUE_FBX usually already wires Albedo/MetallicGlossAO/Normal and resolves the
+  PNGs sitting next to it (see `references/lessons.md`, 2026-10-21). Drop the vanilla PNGs beside
+  the FBX if they are missing; that is often the whole job.
 - Max 3 bone influences per vertex. Models appear mirrored in Blender - that's normal.
 - Material wiring the toolkit understands: Albedo -> Base Color, MetallicGlossAO -> **Specular IOR
   Level**, Normal -> Normal Map node. MetallicGlossAO = R metallic, G gloss, B AO.
