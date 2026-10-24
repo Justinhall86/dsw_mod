@@ -391,18 +391,52 @@ def convert(hmd_path: str, fbx_path: str, verbose: bool = True,
         connect(skin_id, geo_id)
 
         # gather weights per bind slot
-        cluster_data = {}  # bind slot -> ([vertex indices], [weights])
+        # Vertex "indexes" are LOCAL to the skin split (material sub-group) the
+        # vertex belongs to: each split lists its own joint indices. A vertex
+        # on a seam belongs to two index groups; its weights are the same in
+        # both, so the first group that claims it wins.
+        # (Single-split models have split=None and use the global bind slots.)
+        split = skin.split
+        group_joints = []
+        if split:
+            for gi in range(len(index_groups)):
+                group_joints.append(split[gi].joints if gi < len(split) else None)
+        else:
+            group_joints = [None] * len(index_groups)
+
+        # vertex -> the index group that owns it (first group that lists it)
+        vertex_group = {}
+        for gi, idxs in enumerate(index_groups):
+            for vi in idxs:
+                vertex_group.setdefault(vi, gi)
+
+        cluster_data = {}  # global bind slot -> ([vertex indices], [weights])
         for vi, v in enumerate(verts):
             ws = list(v["weights"])
             bs = list(v["indexes"])[:bones_per_vertex]
-            if bones_per_vertex == 3 and len(ws) == 3:
-                pass  # 3 weights for 3 bones
+            gi = vertex_group.get(vi)
+            joints = group_joints[gi] if gi is not None else None
             for w, b in zip(ws, bs):
                 if w <= 0:
                     continue
-                cluster_data.setdefault(b, ([], []))
-                cluster_data[b][0].append(vi)
-                cluster_data[b][1].append(w)
+                if joints is None:
+                    slot = b
+                else:
+                    if b >= len(joints):
+                        raise ValueError(
+                            f"vertex {vi} references local bone slot {b} but its "
+                            f"skin split {gi} only lists {len(joints)} joints")
+                    # split lists skin JOINT indices; the global bind slot is
+                    # that joint's own bind index
+                    ji = joints[b]
+                    slot = skin.joints[ji].bind
+                    if slot < 0:
+                        raise ValueError(
+                            f"skin split {gi} references joint {ji} "
+                            f"({skin.joints[ji].name}) which has no bind slot")
+                cluster_data.setdefault(slot, ([], []))
+                cluster_data[slot][0].append(vi)
+                cluster_data[slot][1].append(w)
 
         unmapped = sorted(set(cluster_data) - set(bind_to_joint))
         if unmapped:
