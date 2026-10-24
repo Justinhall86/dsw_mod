@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_LandsraadGuard",
+			"source": "Character/Common/Landsraad/Male01_LandsraadGuard.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Gun_Landsraad",
+			"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun_Landsraad",
+			"target": "Male01_LandsraadGuard.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		}
+	]
+}

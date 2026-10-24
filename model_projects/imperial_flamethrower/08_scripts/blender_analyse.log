@@ -1,0 +1,1216 @@
+FBX version: 7400
+MODEL C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\01_input\Male01_ImperialFlameThrower_TRUE_FBX.fbx
+MESH verts 8830 tris 12106 vgroups 37
+RIG bones 53
+
+COMPONENTS: 241
+
+  id  verts   tris  bnd   bone                 x                y                z
+   0    225    368   80  B_lElbowJ           0.35.. 0.69  -0.08.. 0.16   1.10.. 1.43
+   1    225    368   80  B_rElbowJ          -0.69..-0.35  -0.08.. 0.16   1.10.. 1.43
+   2    165    282   46  B_lShoulderJ        0.19.. 0.56  -0.07.. 0.18   1.22.. 1.66
+   3    165    282   46  B_rShoulderJ       -0.56..-0.19  -0.07.. 0.18   1.22.. 1.66
+   4    165    271   57  B_lHipJ             0.00.. 0.28  -0.01.. 0.16   0.13.. 1.18
+   5    165    271   57  B_rHipJ            -0.28.. 0.00  -0.01.. 0.16   0.13.. 1.18
+   6    143    230   54  B_lHipJ             0.00.. 0.28  -0.15.. 0.10   0.13.. 1.16
+   7    143    230   54  B_rHipJ            -0.28.. 0.00  -0.15.. 0.10   0.13.. 1.16
+   8    140    221   57  B_lWristJ           0.58.. 0.86  -0.17.. 0.07   0.94.. 1.20
+   9    140    221   57  B_rWristJ          -0.86..-0.58  -0.17.. 0.07   0.94.. 1.20
+  10    130    178   80  B_Spine02J          0.06.. 0.24   0.20.. 0.45   1.31.. 1.79
+  11    130    178   80  B_Spine02J         -0.24..-0.06   0.20.. 0.45   1.31.. 1.79
+  12    127    202   50  B_lKneeJ            0.05.. 0.31  -0.10.. 0.07   0.07.. 0.58
+  13    127    202   50  B_rKneeJ           -0.31..-0.05  -0.10.. 0.07   0.07.. 0.58
+  14    120    198   40  B_lHipJ             0.04.. 0.40  -0.24.. 0.31   0.37.. 1.19
+  15    120    198   40  B_rHipJ            -0.40..-0.04  -0.24.. 0.31   0.37.. 1.19
+  16    113    176   48  B_lAnkleJ           0.11.. 0.29  -0.22.. 0.16  -0.00.. 0.16
+  17    113    176   48  B_rAnkleJ          -0.29..-0.11  -0.22.. 0.16  -0.00.. 0.16
+  18    102    160   42  B_Spine02J         -0.28..-0.14   0.23.. 0.37   1.27.. 1.42
+  19     97    139   53  B_lWristJ           0.58.. 0.85  -0.16.. 0.07   0.94.. 1.15
+  20     97    139   53  B_rWristJ          -0.85..-0.58  -0.16.. 0.07   0.94.. 1.15
+  21     95    140   48  B_Spine02J         -0.03.. 0.03   0.44.. 0.48   1.46.. 1.65
+  22     88    129   45  B_HeadJ             0.05.. 0.13  -0.11.. 0.10   1.73.. 1.87
+  23     88    129   45  B_HeadJ            -0.13..-0.05  -0.11.. 0.10   1.73.. 1.87
+  24     85    112   56  B_Gun              -0.58..-0.35  -0.51..-0.11   0.87.. 1.08
+  25     85    112   56  B_Gun              -0.42..-0.18  -0.45..-0.05   0.87.. 1.08
+  26     85    120   56  B_Gun              -0.30..-0.01  -1.38..-0.59   0.61.. 0.80
+  27     85    120   56  B_Gun              -0.38..-0.09  -1.41..-0.61   0.61.. 0.80
+  28     83    130   34  B_ROOTJ            -0.15.. 0.15  -0.17..-0.09   0.58.. 1.15
+  29     80    120   38  B_Gun              -0.37..-0.11  -0.98..-0.71   0.59.. 0.82
+  30     78    108   46  B_ROOTJ             0.11.. 0.28  -0.17.. 0.03   1.05.. 1.26
+  31     78    108   46  B_ROOTJ            -0.28..-0.11  -0.17.. 0.03   1.05.. 1.26
+  32     74     92   54  B_Gun              -0.19..-0.07  -0.63..-0.41   1.00.. 1.26
+  33     74    106   40  B_ROOTJ             0.00.. 0.12  -0.22..-0.13   1.05.. 1.25
+  34     74    106   40  B_ROOTJ            -0.12..-0.00  -0.22..-0.13   1.05.. 1.25
+  35     67     93   39  B_ROOTJ             0.00.. 0.13  -0.22..-0.13   1.05.. 1.24
+  36     66     93   37  B_ROOTJ            -0.13..-0.00  -0.22..-0.13   1.05.. 1.24
+  37     65     89   39  B_lClavicleJ        0.00.. 0.22   0.06.. 0.21   1.42.. 1.70
+  38     65     89   39  B_SpineTopJ        -0.22.. 0.00   0.06.. 0.21   1.42.. 1.70
+  39     64     98   28  B_Spine02J         -0.04.. 0.04   0.21.. 0.44   1.30.. 1.67
+  40     61     88   40  B_Gun              -0.29..-0.05  -1.37..-0.61   0.63.. 0.78
+  41     61     88   40  B_Gun              -0.33..-0.10  -1.38..-0.62   0.63.. 0.78
+  42     61     88   32  B_ROOTJ             0.11.. 0.25  -0.15.. 0.03   1.05.. 1.27
+  43     61     88   32  B_ROOTJ            -0.25..-0.11  -0.15.. 0.03   1.05.. 1.27
+  44     60     62   56  B_Spine02J          0.00.. 0.14   0.21.. 0.44   1.31.. 1.68
+  45     60     62   56  B_Spine02J         -0.14.. 0.00   0.21.. 0.44   1.31.. 1.68
+  46     60     88   30  B_ROOTJ             0.00.. 0.17  -0.16.. 0.13   1.14.. 1.25
+  47     60     88   30  B_ROOTJ            -0.17.. 0.00  -0.16.. 0.13   1.14.. 1.25
+  48     58     83   31  B_HeadJ             0.00.. 0.13  -0.13.. 0.11   1.58.. 1.78
+  49     58     83   31  B_HeadJ            -0.13.. 0.00  -0.13.. 0.11   1.58.. 1.78
+  50     57     78   34  B_lKneeJ            0.06.. 0.29  -0.07.. 0.07   0.07.. 0.58
+  51     57     78   34  B_rKneeJ           -0.29..-0.06  -0.07.. 0.07   0.07.. 0.58
+  52     57     83   29  B_Spine02J          0.12.. 0.25  -0.13.. 0.16   1.33.. 1.49
+  53     57     83   29  B_Spine02J         -0.25..-0.12  -0.13.. 0.16   1.33.. 1.49
+  54     53     76   28  B_lWristJ           0.64.. 0.76  -0.11.. 0.06   1.10.. 1.17
+  55     53     76   28  B_rWristJ          -0.76..-0.64  -0.11.. 0.06   1.10.. 1.17
+  56     49     80   16  B_Spine02J         -0.09.. 0.09   0.44.. 0.47   1.47.. 1.65
+  57     49     80   16  B_Spine02J         -0.28..-0.19   0.23.. 0.37   1.27.. 1.38
+  58     49     66   30  B_lClavicleJ        0.00.. 0.21  -0.16.. 0.02   1.46.. 1.67
+  59     49     66   30  B_rClavicleJ       -0.21.. 0.00  -0.16.. 0.02   1.46.. 1.67
+  60     48     72   24  B_Gun              -0.60..-0.24  -0.22..-0.11   0.61.. 0.94
+  61     46     56   34  B_Spine02J         -0.09.. 0.09   0.23.. 0.38   1.67.. 1.73
+  62     46     67   23  B_lAnkleJ           0.11.. 0.29  -0.22.. 0.15  -0.01.. 0.03
+  63     46     67   23  B_rAnkleJ          -0.29..-0.11  -0.22.. 0.15  -0.01.. 0.03
+  64     44     60   26  B_Gun              -0.52..-0.42  -0.10.. 0.11   0.85.. 1.06
+  65     44     61   25  B_Spine01J          0.07.. 0.18  -0.12.. 0.15   1.26.. 1.42
+  66     44     61   25  B_Spine01J         -0.18..-0.07  -0.12.. 0.15   1.26.. 1.42
+  67     43     52   32  B_Gun              -0.49..-0.40  -0.15.. 0.01   1.06.. 1.12
+  68     43     59   25  B_SpineTopJ         0.00.. 0.17  -0.07.. 0.17   1.64.. 1.79
+  69     43     59   25  B_SpineTopJ        -0.17.. 0.00  -0.07.. 0.17   1.64.. 1.79
+  70     42     60   22  B_HeadJ             0.00.. 0.10  -0.13.. 0.08   1.83.. 1.95
+  71     42     60   22  B_HeadJ            -0.10.. 0.00  -0.13.. 0.08   1.83.. 1.95
+  72     41     47   33  B_Gun              -0.34..-0.09  -0.82..-0.43   0.76.. 1.08
+  73     41     47   33  B_Gun              -0.50..-0.25  -0.86..-0.47   0.76.. 1.08
+  74     40     60   18  B_Gun              -0.66..-0.37   0.12.. 0.26   0.64.. 0.89
+  75     40     56   22  B_Gun              -0.10..-0.02  -1.38..-1.35   0.61.. 0.80
+  76     40     56   22  B_Gun              -0.17..-0.09  -1.41..-1.37   0.61.. 0.80
+  77     40     46   32  B_Gun              -0.58..-0.27  -0.78..-0.18   0.50.. 0.69
+  78     40     46   32  B_Gun              -0.42..-0.10  -0.74..-0.13   0.50.. 0.69
+  79     37     56   16  B_HeadJ             0.00.. 0.09  -0.17..-0.05   1.77.. 1.90
+  80     37     56   16  B_HeadJ            -0.09.. 0.00  -0.17..-0.05   1.77.. 1.90
+  81     36     44   26  B_Spine02J          0.05.. 0.09   0.41.. 0.45   1.30.. 1.33
+  82     36     44   26  B_Spine02J         -0.09..-0.05   0.41.. 0.45   1.30.. 1.33
+  83     36     44   26  B_Spine01J          0.05.. 0.09   0.20.. 0.25   1.30.. 1.33
+  84     36     44   26  B_Spine01J         -0.09..-0.05   0.20.. 0.25   1.30.. 1.33
+  85     36     48   24  B_Gun              -0.48..-0.11  -0.69..-0.58   0.61.. 0.94
+  86     36     45   25  B_HeadJ             0.00.. 0.09  -0.17..-0.04   1.68.. 1.77
+  87     36     45   25  B_HeadJ            -0.09.. 0.00  -0.17..-0.04   1.68.. 1.77
+  88     35     42   26  B_Spine02J          0.17.. 0.24   0.27.. 0.30   1.29.. 1.39
+  89     35     42   26  B_Spine02J         -0.18..-0.11   0.27.. 0.30   1.39.. 1.49
+  90     35     42   26  B_Spine02J          0.17.. 0.24   0.30.. 0.34   1.29.. 1.39
+  91     35     42   26  B_Spine02J         -0.18..-0.11   0.30.. 0.34   1.39.. 1.49
+  92     34     32   34  B_Spine02J         -0.09.. 0.09   0.41.. 0.44   1.47.. 1.65
+  93     34     32   34  B_Gun              -0.36..-0.21  -0.77..-0.56   0.63.. 0.82
+  94     33     40   24  B_Spine02J          0.00.. 0.24   0.20.. 0.45   1.31.. 1.31
+  95     33     40   24  B_Spine02J         -0.24.. 0.00   0.20.. 0.45   1.31.. 1.31
+  96     31     33   27  B_HeadJ             0.00.. 0.10  -0.16.. 0.08   1.68.. 1.78
+  97     31     33   27  B_HeadJ            -0.10.. 0.00  -0.16.. 0.08   1.68.. 1.78
+  98     30     52    6  B_Gun              -0.66..-0.40   0.16.. 0.26   0.65.. 0.88
+  99     29     37   19  B_lClavicleJ        0.13.. 0.22  -0.06.. 0.17   1.62.. 1.70
+  100     29     37   19  B_rClavicleJ       -0.22..-0.13  -0.06.. 0.17   1.62.. 1.70
+  101     28     30   24  B_Gun              -0.46..-0.42  -0.12..-0.06   1.03.. 1.07
+  102     28     35   19  B_Spine01J          0.00.. 0.16  -0.03.. 0.16   1.24.. 1.39
+  103     28     35   19  B_Spine01J         -0.16.. 0.00  -0.03.. 0.16   1.24.. 1.39
+  104     28     35   19  B_HeadJ             0.00.. 0.07   0.07.. 0.12   1.75.. 1.83
+  105     28     35   19  B_HeadJ            -0.07.. 0.00   0.07.. 0.12   1.75.. 1.83
+  106     27     32   20  B_Spine02J         -0.36..-0.22   0.26.. 0.36   1.22.. 1.35
+  107     27     32   20  B_Spine02J         -0.42..-0.30   0.29.. 0.42   1.14.. 1.29
+  108     27     32   20  B_Spine02J         -0.46..-0.36   0.35.. 0.49   1.07.. 1.22
+  109     27     32   20  B_Spine02J         -0.51..-0.40   0.41.. 0.52   0.98.. 1.14
+  110     27     32   20  B_Spine02J         -0.56..-0.45   0.41.. 0.52   0.88.. 1.04
+  111     27     32   20  B_Gun              -0.58..-0.49   0.35.. 0.49   0.80.. 0.94
+  112     27     32   20  B_Gun              -0.58..-0.49   0.24.. 0.38   0.76.. 0.87
+  113     27     32   20  B_Gun              -0.57..-0.46   0.12.. 0.25   0.74.. 0.84
+  114     27     35   17  B_Spine01J          0.00.. 0.16  -0.14..-0.02   1.22.. 1.43
+  115     27     35   17  B_Spine01J         -0.16.. 0.00  -0.14..-0.02   1.22.. 1.43
+  116     26     24   26  B_Gun              -0.35..-0.13  -0.97..-0.72   0.61.. 0.79
+  117     26     24   26  B_Gun              -0.63..-0.28  -0.26.. 0.19   0.65.. 0.88
+  118     26     24   26  B_Gun              -0.60..-0.11  -0.68..-0.12   0.61.. 0.94
+  119     26     24   26  B_Gun              -0.46..-0.15  -0.67..-0.54   0.64.. 0.91
+  120     25     34   14  B_Spine02J          0.00.. 0.13  -0.16..-0.11   1.36.. 1.50
+  121     25     25   23  B_lClavicleJ        0.18.. 0.21  -0.08.. 0.14   1.41.. 1.66
+  122     25     34   14  B_Spine02J         -0.13.. 0.00  -0.16..-0.11   1.36.. 1.50
+  123     25     25   23  B_rClavicleJ       -0.21..-0.18  -0.08.. 0.14   1.41.. 1.66
+  124     24     34   12  B_lWristJ           0.65.. 0.69  -0.04.. 0.04   1.17.. 1.21
+  125     24     34   12  B_rWristJ          -0.69..-0.65  -0.04.. 0.04   1.17.. 1.21
+  126     24     28   18  B_lClavicleJ        0.19.. 0.22  -0.08.. 0.16   1.40.. 1.54
+  127     24     28   18  B_rClavicleJ       -0.22..-0.19  -0.08.. 0.16   1.40.. 1.54
+  128     24     28   18  B_Spine01J          0.07.. 0.16  -0.12.. 0.15   1.26.. 1.36
+  129     24     28   18  B_Spine01J         -0.16..-0.07  -0.12.. 0.15   1.26.. 1.36
+  130     24     31   15  B_HeadJ             0.00.. 0.07   0.06.. 0.12   1.83.. 1.92
+  131     24     31   15  B_HeadJ            -0.07.. 0.00   0.06.. 0.12   1.83.. 1.92
+  132     22     20   22  B_Gun              -0.38..-0.15  -0.57..-0.43   1.20.. 1.25
+  133     22     24   18  B_SpineTopJ         0.00.. 0.12  -0.07.. 0.13   1.65.. 1.78
+  134     22     27   15  B_Spine02J          0.00.. 0.14   0.13.. 0.20   1.34.. 1.48
+  135     22     24   18  B_SpineTopJ        -0.12.. 0.00  -0.07.. 0.13   1.65.. 1.78
+  136     22     27   15  B_Spine02J         -0.14.. 0.00   0.13.. 0.20   1.34.. 1.48
+  137     22     30   12  B_HeadJ             0.05.. 0.09  -0.13..-0.08   1.72.. 1.77
+  138     22     30   12  B_HeadJ            -0.09..-0.05  -0.13..-0.08   1.72.. 1.77
+  139     20     23   15  B_Gun              -0.30..-0.22  -0.62..-0.59   0.61.. 0.80
+  140     20     23   15  B_Gun              -0.38..-0.29  -0.63..-0.61   0.61.. 0.80
+  141     20     18   20  B_lWristJ           0.56.. 0.66  -0.06.. 0.07   1.12.. 1.23
+  142     20     18   20  B_rWristJ          -0.66..-0.56  -0.06.. 0.07   1.12.. 1.23
+  143     19     20   16  B_lWristJ           0.64.. 0.75  -0.10.. 0.06   1.10.. 1.16
+  144     19     20   16  B_rWristJ          -0.75..-0.64  -0.10.. 0.06   1.10.. 1.16
+  145     16     18   12  B_Gun              -0.36..-0.15  -0.57..-0.47   1.20.. 1.25
+  146     15     16   12  B_SpineTopJ         0.00.. 0.10  -0.14..-0.04   1.58.. 1.68
+  147     15     16   12  B_SpineTopJ        -0.10.. 0.00  -0.14..-0.04   1.58.. 1.68
+  148     14     12   14  B_Gun              -0.45..-0.06  -1.45..-0.11   0.58.. 0.66
+  149     13     14   10  B_HeadJ             0.00.. 0.05  -0.16..-0.11   1.75.. 1.80
+  150     13     14   10  B_HeadJ            -0.05.. 0.00  -0.16..-0.11   1.75.. 1.80
+  151     12     10   12  B_Gun              -0.22..-0.14  -1.09..-1.01   0.56.. 0.62
+  152     12     10   12  B_Gun              -0.29..-0.21  -0.84..-0.76   0.56.. 0.62
+  153     12     10   12  B_Gun              -0.34..-0.12  -0.80..-0.44   0.76.. 1.05
+  154     12     10   12  B_Gun              -0.46..-0.25  -0.84..-0.47   0.76.. 1.05
+  155     12     10   12  B_Gun              -0.10..-0.06  -1.49..-1.44   0.58.. 0.62
+  156     12     10   12  B_Gun              -0.54..-0.35  -0.50..-0.12   0.88.. 1.05
+  157     12     10   12  B_Gun              -0.42..-0.22  -0.44..-0.06   0.88.. 1.05
+  158     12     10   12  B_Gun              -0.20..-0.09  -0.64..-0.55   1.01.. 1.06
+  159     12     10   12  B_Gun              -0.46..-0.16  -0.62..-0.54   0.64.. 0.91
+  160     12     10   12  B_Gun              -0.57..-0.27  -0.22..-0.14   0.64.. 0.91
+  161     11     10   10  B_lClavicleJ        0.19.. 0.22  -0.02.. 0.10   1.65.. 1.67
+  162     11     10   10  B_rClavicleJ       -0.22..-0.19  -0.02.. 0.10   1.65.. 1.67
+  163     11     11    9  B_HeadJ             0.00.. 0.03   0.09.. 0.11   1.82.. 1.85
+  164     11     11    9  B_HeadJ            -0.03.. 0.00   0.09.. 0.11   1.82.. 1.85
+  165     10      8   10  B_Spine02J          0.21.. 0.23   0.28.. 0.30   1.35.. 1.39
+  166     10      8   10  B_Spine02J         -0.17..-0.15   0.28.. 0.30   1.45.. 1.49
+  167     10      8   10  B_Spine02J          0.21.. 0.23   0.30.. 0.33   1.35.. 1.39
+  168     10      8   10  B_Spine02J         -0.17..-0.15   0.30.. 0.33   1.45.. 1.49
+  169     10      8   10  B_Spine02J         -0.01.. 0.01   0.44.. 0.47   1.63.. 1.65
+  170     10      8   10  B_Spine02J         -0.01.. 0.01   0.44.. 0.47   1.46.. 1.49
+  171      8      6    8  B_Gun              -0.13..-0.07  -1.35..-1.24   0.78.. 0.80
+  172      8      6    8  B_Gun              -0.14..-0.10  -1.35..-1.24   0.78.. 0.80
+  173      7      5    7  B_Gun              -0.10..-0.06  -1.27..-1.21   0.67.. 0.71
+  174      7      5    7  B_Gun              -0.12..-0.08  -1.18..-1.12   0.67.. 0.71
+  175      7      5    7  B_Gun              -0.20..-0.16  -1.30..-1.24   0.67.. 0.71
+  176      7      5    7  B_Gun              -0.22..-0.18  -1.21..-1.15   0.67.. 0.71
+  177      7      5    7  B_HeadJ             0.00.. 0.03   0.09.. 0.11   1.83.. 1.85
+  178      7      5    7  B_HeadJ            -0.03.. 0.00   0.09.. 0.11   1.83.. 1.85
+  179      6      4    6  B_Spine02J          0.23.. 0.23   0.24.. 0.37   1.31.. 1.40
+  180      6      4    6  B_Spine02J         -0.23..-0.23   0.24.. 0.37   1.31.. 1.40
+  181      6      4    6  B_Spine02J         -0.05.. 0.05   0.35.. 0.36   1.67.. 1.70
+  182      6      4    6  B_Spine02J         -0.05.. 0.05   0.25.. 0.25   1.67.. 1.70
+  183      6      4    6  B_Gun              -0.20..-0.14  -1.09..-1.07   0.56.. 0.61
+  184      6      4    6  B_Gun              -0.22..-0.16  -1.03..-1.01   0.56.. 0.62
+  185      6      4    6  B_Gun              -0.27..-0.21  -0.84..-0.82   0.56.. 0.61
+  186      6      4    6  B_Gun              -0.29..-0.23  -0.77..-0.76   0.56.. 0.6200:09.953  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_00.png'
+00:10.422  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_01.png'
+00:10.969  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_02.png'
+00:11.422  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_03.png'
+00:12.187  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_04.png'
+00:12.672  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_05.png'
+00:13.078  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_06.png'
+00:13.469  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_07.png'
+00:13.859  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_08.png'
+00:14.250  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_09.png'
+00:14.734  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_10.png'
+00:15.141  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_11.png'
+
+  187      6      4    6  B_Gun              -0.64..-0.38   0.12.. 0.19   0.65.. 0.88
+  188      6      4    6  B_Gun              -0.55..-0.27  -0.77..-0.19   0.53.. 0.69
+  189      6      4    6  B_Gun              -0.42..-0.13  -0.73..-0.15   0.53.. 0.69
+  190      6      5    5  B_HeadJ             0.00.. 0.02  -0.15..-0.13   1.88.. 1.91
+  191      6      4    6  B_HeadJ             0.00.. 0.02   0.09.. 0.10   1.83.. 1.85
+  192      6      5    5  B_HeadJ            -0.02.. 0.00  -0.15..-0.13   1.88.. 1.91
+  193      6      4    6  B_HeadJ            -0.02.. 0.00   0.09.. 0.10   1.83.. 1.85
+  194      5      3    5  B_Gun              -0.22..-0.20  -0.92..-0.81   0.78.. 0.80
+  195      5      3    5  B_Gun              -0.28..-0.24  -0.84..-0.82   0.78.. 0.80
+  196      5      3    5  B_SpineTopJ         0.00.. 0.05  -0.18..-0.15   1.44.. 1.53
+  197      5      3    5  B_SpineTopJ        -0.05.. 0.00  -0.18..-0.15   1.44.. 1.53
+  198      4      2    4  B_Gun              -0.11..-0.06  -1.45..-1.39   0.60.. 0.66
+  199      4      2    4  B_Gun              -0.09..-0.06  -1.32..-1.29   0.64.. 0.68
+  200      4      2    4  B_Gun              -0.13..-0.09  -1.20..-1.17   0.64.. 0.68
+  201      4      2    4  B_Gun              -0.12..-0.09  -1.23..-1.20   0.64.. 0.68
+  202      4      2    4  B_Gun              -0.11..-0.07  -1.29..-1.27   0.64.. 0.68
+  203      4      2    4  B_Gun              -0.11..-0.07  -1.32..-1.27   0.64.. 0.64
+  204      4      2    4  B_Gun              -0.09..-0.06  -1.27..-1.21   0.71.. 0.71
+  205      4      2    4  B_Gun              -0.12..-0.08  -1.18..-1.12   0.71.. 0.71
+  206      4      2    4  B_Gun              -0.13..-0.10  -1.23..-1.18   0.64.. 0.64
+  207      4      2    4  B_Gun              -0.24..-0.21  -0.82..-0.81   0.78.. 0.80
+  208      4      2    4  B_Gun              -0.17..-0.13  -1.34..-1.31   0.64.. 0.68
+  209      4      2    4  B_Gun              -0.19..-0.16  -1.22..-1.19   0.64.. 0.68
+  210      4      2    4  B_Gun              -0.28..-0.21  -0.92..-0.84   0.78.. 0.80
+  211      4      2    4  B_Gun              -0.19..-0.15  -1.25..-1.22   0.64.. 0.68
+  212      4      2    4  B_Gun              -0.17..-0.14  -1.31..-1.28   0.64.. 0.68
+  213      4      2    4  B_Gun              -0.16..-0.13  -1.34..-1.28   0.64.. 0.64
+  214      4      2    4  B_Gun              -0.20..-0.16  -1.30..-1.24   0.71.. 0.71
+  215      4      2    4  B_Gun              -0.23..-0.19  -1.20..-1.15   0.71.. 0.71
+  216      4      2    4  B_Gun              -0.18..-0.15  -1.24..-1.19   0.64.. 0.64
+  217      4      2    4  B_SpineTopJ         0.20.. 0.21   0.13.. 0.14   1.46.. 1.47
+  218      4      2    4  B_SpineTopJ        -0.21..-0.20   0.13.. 0.14   1.46.. 1.47
+  219      3      1    3  B_Gun              -0.09..-0.06  -1.29..-1.29   0.68.. 0.68
+  220      3      1    3  B_Gun              -0.08..-0.06  -1.27..-1.26   0.71.. 0.71
+  221      3      1    3  B_Gun              -0.11..-0.09  -1.20..-1.19   0.68.. 0.68
+  222      3      1    3  B_Gun              -0.10..-0.08  -1.18..-1.17   0.71.. 0.71
+  223      3      1    3  B_Gun              -0.13..-0.11  -1.18..-1.17   0.64.. 0.65
+  224      3      1    3  B_Gun              -0.12..-0.09  -1.12..-1.12   0.71.. 0.71
+  225      3      1    3  B_Gun              -0.09..-0.07  -1.32..-1.32   0.64.. 0.65
+  226      3      1    3  B_Gun              -0.12..-0.10  -1.23..-1.22   0.64.. 0.65
+  227      3      1    3  B_Gun              -0.21..-0.20  -0.82..-0.81   0.78.. 0.80
+  228      3      1    3  B_Gun              -0.11..-0.09  -1.27..-1.27   0.64.. 0.65
+  229      3      1    3  B_Gun              -0.09..-0.07  -1.22..-1.21   0.71.. 0.71
+  230      3      1    3  B_Gun              -0.17..-0.15  -1.32..-1.31   0.68.. 0.68
+  231      3      1    3  B_Gun              -0.19..-0.16  -1.30..-1.29   0.71.. 0.71
+  232      3      1    3  B_Gun              -0.19..-0.17  -1.23..-1.22   0.68.. 0.68
+  233      3      1    3  B_Gun              -0.21..-0.19  -1.21..-1.20   0.71.. 0.71
+  234      3      1    3  B_Gun              -0.18..-0.16  -1.19..-1.19   0.64.. 0.65
+  235      3      1    3  B_Gun              -0.23..-0.20  -1.16..-1.15   0.71.. 0.71
+  236      3      1    3  B_Gun              -0.14..-0.13  -1.34..-1.33   0.64.. 0.65
+  237      3      1    3  B_Gun              -0.17..-0.15  -1.25..-1.24   0.64.. 0.65
+  238      3      1    3  B_Gun              -0.28..-0.27  -0.84..-0.83   0.78.. 0.80
+  239      3      1    3  B_Gun              -0.16..-0.14  -1.29..-1.28   0.64.. 0.65
+  240      3      1    3  B_Gun              -0.20..-0.18  -1.25..-1.24   0.71.. 0.71
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_00.png 150073 bytes
+SHOT comp 00 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_00.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_01.png 158588 bytes
+SHOT comp 01 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_01.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_02.png 143896 bytes
+SHOT comp 02 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_02.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_03.png 141477 bytes
+SHOT comp 03 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_03.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_04.png 79458 bytes
+SHOT comp 04 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_04.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_05.png 79972 bytes
+SHOT comp 05 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_05.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_06.png 78602 bytes
+SHOT comp 06 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_06.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_07.png 78379 bytes
+SHOT comp 07 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_07.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_08.png 153231 bytes
+SHOT comp 08 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_08.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_09.png 150647 bytes
+SHOT comp 09 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_09.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_10.png 82781 bytes
+SHOT comp 10 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_10.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_11.png 83536 bytes
+SHOT comp 11 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_11.png00:15.516  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_12.png'
+00:15.906  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_13.png'
+00:16.297  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_14.png'
+00:16.656  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_15.png'
+00:17.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_16.png'
+00:17.375  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_17.png'
+00:17.781  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_18.png'
+00:18.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_19.png'
+00:18.641  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_20.png'
+00:19.031  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_21.png'
+00:19.391  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_22.png'
+00:19.766  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_23.png'
+00:20.172  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_24.png'
+00:20.672  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_25.png'
+00:21.234  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_26.png'
+00:21.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_27.png'
+00:22.328  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_28.png'
+00:22.953  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_29.png'
+00:23.562  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_30.png'
+00:24.109  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_31.png'
+00:24.687  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_32.png'
+00:25.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_33.png'
+00:25.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_34.png'
+00:26.125  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_35.png'
+00:26.516  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_36.png'
+00:26.937  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_37.png'
+00:27.359  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_38.png'
+00:27.906  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_39.png'
+
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_12.png 137623 bytes
+SHOT comp 12 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_12.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_13.png 138102 bytes
+SHOT comp 13 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_13.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_14.png 93470 bytes
+SHOT comp 14 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_14.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_15.png 94932 bytes
+SHOT comp 15 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_15.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_16.png 66690 bytes
+SHOT comp 16 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_16.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_17.png 67091 bytes
+SHOT comp 17 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_17.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_18.png 140464 bytes
+SHOT comp 18 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_18.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_19.png 111324 bytes
+SHOT comp 19 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_19.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_20.png 108630 bytes
+SHOT comp 20 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_20.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_21.png 84500 bytes
+SHOT comp 21 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_21.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_22.png 64548 bytes
+SHOT comp 22 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_22.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_23.png 64692 bytes
+SHOT comp 23 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_23.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_24.png 8828 bytes
+SHOT comp 24 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_24.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_25.png 8828 bytes
+SHOT comp 25 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_25.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_26.png 8828 bytes
+SHOT comp 26 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_26.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_27.png 8828 bytes
+SHOT comp 27 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_27.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_28.png 127715 bytes
+SHOT comp 28 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_28.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_29.png 8828 bytes
+SHOT comp 29 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_29.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_30.png 185615 bytes
+SHOT comp 30 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_30.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_31.png 183945 bytes
+SHOT comp 31 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_31.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_32.png 8828 bytes
+SHOT comp 32 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_32.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_33.png 149134 bytes
+SHOT comp 33 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_33.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_34.png 148574 bytes
+SHOT comp 34 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_34.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_35.png 155311 bytes
+SHOT comp 35 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_35.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_36.png 154797 bytes
+SHOT comp 36 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_36.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_37.png 206951 bytes
+SHOT comp 37 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_37.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_38.png 207453 bytes
+SHOT comp 38 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_38.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_39.png00:28.281  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_40.png'
+00:28.687  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_41.png'
+00:29.125  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_42.png'
+00:29.516  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_43.png'
+00:29.891  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_44.png'
+00:30.297  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_45.png'
+00:30.672  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_46.png'
+00:31.031  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_47.png'
+00:31.422  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_48.png'
+00:31.797  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_49.png'
+00:32.187  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_50.png'
+00:32.578  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_51.png'
+00:32.937  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_52.png'
+00:33.391  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_53.png'
+00:33.766  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_54.png'
+00:34.203  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_55.png'
+00:34.594  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_56.png'
+00:34.984  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_57.png'
+00:35.375  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_58.png'
+00:35.844  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_59.png'
+00:36.281  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_60.png'
+00:36.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_61.png'
+00:37.109  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_62.png'
+00:37.500  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_63.png'
+00:37.906  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_64.png'
+00:38.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_65.png'
+00:38.766  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_66.png'
+ 70490 bytes
+SHOT comp 39 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_39.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_40.png 8828 bytes
+SHOT comp 40 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_40.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_41.png 8828 bytes
+SHOT comp 41 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_41.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_42.png 157391 bytes
+SHOT comp 42 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_42.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_43.png 160428 bytes
+SHOT comp 43 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_43.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_44.png 98628 bytes
+SHOT comp 44 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_44.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_45.png 99305 bytes
+SHOT comp 45 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_45.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_46.png 77656 bytes
+SHOT comp 46 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_46.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_47.png 77614 bytes
+SHOT comp 47 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_47.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_48.png 103683 bytes
+SHOT comp 48 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_48.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_49.png 101755 bytes
+SHOT comp 49 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_49.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_50.png 111693 bytes
+SHOT comp 50 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_50.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_51.png 111772 bytes
+SHOT comp 51 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_51.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_52.png 76721 bytes
+SHOT comp 52 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_52.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_53.png 76338 bytes
+SHOT comp 53 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_53.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_54.png 63869 bytes
+SHOT comp 54 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_54.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_55.png 65447 bytes
+SHOT comp 55 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_55.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_56.png 231903 bytes
+SHOT comp 56 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_56.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_57.png 51183 bytes
+SHOT comp 57 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_57.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_58.png 177742 bytes
+SHOT comp 58 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_58.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_59.png 179427 bytes
+SHOT comp 59 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_59.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_60.png 8828 bytes
+SHOT comp 60 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_60.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_61.png 72173 bytes
+SHOT comp 61 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_61.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_62.png 20526 bytes
+SHOT comp 62 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_62.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_63.png 20634 bytes
+SHOT comp 63 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_63.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_64.png 8828 bytes
+SHOT comp 64 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_64.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_65.png 62527 bytes
+SHOT comp 65 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_65.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_66.png 61905 bytes
+SHOT comp 66 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_66.png00:39.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_67.png'
+00:39.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_68.png'
+00:40.250  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_69.png'
+00:40.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_70.png'
+00:41.203  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_71.png'
+00:41.656  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_72.png'
+00:42.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_73.png'
+00:42.781  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_74.png'
+00:43.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_75.png'
+00:43.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_76.png'
+00:44.125  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_77.png'
+00:44.547  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_78.png'
+00:45.031  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_79.png'
+00:45.687  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_80.png'
+00:46.516  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_81.png'
+00:47.516  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_82.png'
+00:48.453  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_83.png'
+00:49.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_84.png'
+00:49.969  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_85.png'
+00:50.797  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_86.png'
+00:52.375  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_87.png'
+00:53.562  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_88.png'
+00:54.281  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_89.png'
+00:55.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_90.png'
+00:55.797  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_91.png'
+00:56.422  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_92.png'
+00:57.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_93.png'
+00:57.625  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_94.png'
+
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_67.png 8828 bytes
+SHOT comp 67 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_67.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_68.png 84130 bytes
+SHOT comp 68 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_68.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_69.png 84255 bytes
+SHOT comp 69 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_69.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_70.png 46221 bytes
+SHOT comp 70 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_70.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_71.png 47722 bytes
+SHOT comp 71 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_71.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_72.png 8828 bytes
+SHOT comp 72 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_72.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_73.png 8828 bytes
+SHOT comp 73 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_73.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_74.png 8828 bytes
+SHOT comp 74 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_74.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_75.png 8828 bytes
+SHOT comp 75 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_75.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_76.png 8828 bytes
+SHOT comp 76 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_76.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_77.png 8828 bytes
+SHOT comp 77 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_77.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_78.png 8828 bytes
+SHOT comp 78 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_78.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_79.png 127671 bytes
+SHOT comp 79 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_79.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_80.png 128765 bytes
+SHOT comp 80 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_80.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_81.png 44972 bytes
+SHOT comp 81 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_81.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_82.png 44895 bytes
+SHOT comp 82 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_82.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_83.png 45740 bytes
+SHOT comp 83 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_83.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_84.png 45549 bytes
+SHOT comp 84 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_84.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_85.png 8828 bytes
+SHOT comp 85 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_85.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_86.png 97998 bytes
+SHOT comp 86 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_86.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_87.png 98337 bytes
+SHOT comp 87 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_87.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_88.png 106020 bytes
+SHOT comp 88 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_88.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_89.png 105353 bytes
+SHOT comp 89 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_89.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_90.png 104496 bytes
+SHOT comp 90 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_90.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_91.png 103960 bytes
+SHOT comp 91 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_91.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_92.png 8828 bytes
+SHOT comp 92 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_92.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_93.png 8828 bytes
+SHOT comp 93 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_93.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_94.png00:58.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_95.png'
+00:58.844  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_96.png'
+00:59.562  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_97.png'
+01:00.469  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_98.png'
+01:01.203  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_99.png'
+01:02.500  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_100.png'
+01:03.797  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_101.png'
+01:04.844  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_102.png'
+01:05.906  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_103.png'
+01:07.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_104.png'
+01:08.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_105.png'
+01:09.781  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_106.png'
+01:10.594  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_107.png'
+01:11.484  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_108.png'
+01:12.187  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_109.png'
+01:12.656  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_110.png'
+01:13.187  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_111.png'
+01:13.859  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_112.png'
+01:14.375  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_113.png'
+01:14.984  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_114.png'
+01:15.531  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_115.png'
+01:16.000  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_116.png'
+01:16.484  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_117.png'
+01:16.953  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_118.png'
+01:17.359  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_119.png'
+01:17.875  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_120.png'
+01:18.344  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_121.png'
+ 14182 bytes
+SHOT comp 94 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_94.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_95.png 14273 bytes
+SHOT comp 95 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_95.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_96.png 52335 bytes
+SHOT comp 96 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_96.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_97.png 50846 bytes
+SHOT comp 97 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_97.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_98.png 8828 bytes
+SHOT comp 98 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_98.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_99.png 46278 bytes
+SHOT comp 99 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_99.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_100.png 46667 bytes
+SHOT comp 100 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_100.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_101.png 8828 bytes
+SHOT comp 101 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_101.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_102.png 146213 bytes
+SHOT comp 102 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_102.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_103.png 147265 bytes
+SHOT comp 103 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_103.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_104.png 138211 bytes
+SHOT comp 104 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_104.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_105.png 137403 bytes
+SHOT comp 105 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_105.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_106.png 167631 bytes
+SHOT comp 106 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_106.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_107.png 120252 bytes
+SHOT comp 107 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_107.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_108.png 37992 bytes
+SHOT comp 108 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_108.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_109.png 8828 bytes
+SHOT comp 109 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_109.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_110.png 8828 bytes
+SHOT comp 110 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_110.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_111.png 8828 bytes
+SHOT comp 111 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_111.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_112.png 8828 bytes
+SHOT comp 112 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_112.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_113.png 8828 bytes
+SHOT comp 113 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_113.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_114.png 157922 bytes
+SHOT comp 114 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_114.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_115.png 157764 bytes
+SHOT comp 115 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_115.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_116.png 8828 bytes
+SHOT comp 116 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_116.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_117.png 8828 bytes
+SHOT comp 117 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_117.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_118.png 8828 bytes
+SHOT comp 118 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_118.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_119.png 8828 bytes
+SHOT comp 119 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_119.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_120.png 200537 bytes
+SHOT comp 120 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_120.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_121.png 21404 bytes
+SHOT comp 121 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_121.png01:18.812  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_122.png'
+01:19.297  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_123.png'
+01:19.797  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_124.png'
+01:20.437  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_125.png'
+01:21.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_126.png'
+01:22.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_127.png'
+01:23.047  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_128.png'
+01:24.094  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_129.png'
+01:25.156  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_130.png'
+01:25.734  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_131.png'
+01:26.328  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_132.png'
+01:27.547  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_133.png'
+01:28.594  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_134.png'
+01:29.656  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_135.png'
+01:32.141  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_136.png'
+01:33.531  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_137.png'
+01:34.406  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_138.png'
+01:35.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_139.png'
+01:36.922  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_140.png'
+01:38.172  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_141.png'
+01:38.953  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_142.png'
+01:39.672  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_143.png'
+01:40.281  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_144.png'
+01:41.156  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_145.png'
+01:41.969  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_146.png'
+01:42.625  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_147.png'
+01:43.266  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_148.png'
+
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_122.png 197760 bytes
+SHOT comp 122 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_122.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_123.png 21285 bytes
+SHOT comp 123 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_123.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_124.png 47935 bytes
+SHOT comp 124 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_124.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_125.png 49481 bytes
+SHOT comp 125 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_125.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_126.png 35673 bytes
+SHOT comp 126 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_126.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_127.png 35847 bytes
+SHOT comp 127 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_127.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_128.png 21061 bytes
+SHOT comp 128 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_128.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_129.png 21205 bytes
+SHOT comp 129 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_129.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_130.png 163531 bytes
+SHOT comp 130 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_130.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_131.png 165423 bytes
+SHOT comp 131 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_131.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_132.png 8828 bytes
+SHOT comp 132 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_132.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_133.png 91654 bytes
+SHOT comp 133 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_133.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_134.png 195716 bytes
+SHOT comp 134 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_134.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_135.png 92553 bytes
+SHOT comp 135 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_135.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_136.png 193287 bytes
+SHOT comp 136 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_136.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_137.png 59084 bytes
+SHOT comp 137 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_137.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_138.png 58936 bytes
+SHOT comp 138 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_138.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_139.png 8828 bytes
+SHOT comp 139 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_139.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_140.png 8828 bytes
+SHOT comp 140 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_140.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_141.png 114781 bytes
+SHOT comp 141 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_141.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_142.png 116698 bytes
+SHOT comp 142 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_142.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_143.png 53118 bytes
+SHOT comp 143 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_143.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_144.png 51858 bytes
+SHOT comp 144 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_144.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_145.png 8828 bytes
+SHOT comp 145 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_145.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_146.png 189068 bytes
+SHOT comp 146 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_146.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_147.png 185526 bytes
+SHOT comp 147 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_147.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_148.png 9899 bytes
+SHOT comp 148 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_148.png
+FBX version: 740001:44.047  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_149.png'
+01:44.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_150.png'
+01:45.453  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_151.png'
+01:46.359  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_152.png'
+01:46.953  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_153.png'
+01:47.453  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_154.png'
+01:47.984  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_155.png'
+01:48.422  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_156.png'
+01:48.922  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_157.png'
+01:49.422  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_158.png'
+01:49.891  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_159.png'
+01:50.484  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_160.png'
+01:51.062  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_161.png'
+01:51.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_162.png'
+01:52.391  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_163.png'
+01:53.203  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_164.png'
+01:53.984  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_165.png'
+01:54.609  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_166.png'
+01:55.141  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_167.png'
+01:55.844  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_168.png'
+01:56.781  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_169.png'
+01:57.469  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_170.png'
+01:58.156  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_171.png'
+01:58.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_172.png'
+01:59.250  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_173.png'
+01:59.797  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_174.png'
+02:00.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_175.png'
+02:00.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_176.png'
+
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_149.png 69169 bytes
+SHOT comp 149 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_149.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_150.png 70126 bytes
+SHOT comp 150 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_150.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_151.png 8828 bytes
+SHOT comp 151 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_151.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_152.png 8828 bytes
+SHOT comp 152 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_152.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_153.png 8828 bytes
+SHOT comp 153 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_153.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_154.png 8828 bytes
+SHOT comp 154 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_154.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_155.png 8828 bytes
+SHOT comp 155 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_155.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_156.png 8828 bytes
+SHOT comp 156 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_156.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_157.png 8828 bytes
+SHOT comp 157 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_157.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_158.png 8828 bytes
+SHOT comp 158 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_158.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_159.png 8828 bytes
+SHOT comp 159 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_159.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_160.png 8828 bytes
+SHOT comp 160 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_160.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_161.png 15628 bytes
+SHOT comp 161 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_161.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_162.png 15918 bytes
+SHOT comp 162 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_162.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_163.png 27777 bytes
+SHOT comp 163 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_163.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_164.png 27201 bytes
+SHOT comp 164 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_164.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_165.png 36463 bytes
+SHOT comp 165 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_165.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_166.png 37251 bytes
+SHOT comp 166 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_166.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_167.png 36387 bytes
+SHOT comp 167 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_167.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_168.png 37217 bytes
+SHOT comp 168 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_168.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_169.png 12695 bytes
+SHOT comp 169 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_169.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_170.png 13193 bytes
+SHOT comp 170 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_170.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_171.png 8828 bytes
+SHOT comp 171 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_171.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_172.png 8828 bytes
+SHOT comp 172 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_172.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_173.png 8828 bytes
+SHOT comp 173 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_173.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_174.png 8828 bytes
+SHOT comp 174 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_174.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_175.png 8828 bytes
+SHOT comp 175 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_175.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_176.png02:01.125  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_177.png'
+02:01.562  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_178.png'
+02:01.984  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_179.png'
+02:02.437  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_180.png'
+02:03.000  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_181.png'
+02:03.531  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_182.png'
+02:04.062  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_183.png'
+02:04.547  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_184.png'
+02:05.062  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_185.png'
+02:05.703  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_186.png'
+02:06.250  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_187.png'
+02:06.891  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_188.png'
+02:07.391  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_189.png'
+02:08.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_190.png'
+02:08.500  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_191.png'
+02:09.094  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_192.png'
+02:09.609  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_193.png'
+02:10.109  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_194.png'
+02:10.578  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_195.png'
+02:11.187  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_196.png'
+02:11.984  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_197.png'
+02:12.656  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_198.png'
+02:13.172  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_199.png'
+02:13.625  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_200.png'
+02:14.078  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_201.png'
+02:14.516  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_202.png'
+02:15.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_203.png'
+ 8828 bytes
+SHOT comp 176 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_176.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_177.png 12010 bytes
+SHOT comp 177 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_177.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_178.png 12025 bytes
+SHOT comp 178 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_178.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_179.png 8828 bytes
+SHOT comp 179 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_179.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_180.png 8828 bytes
+SHOT comp 180 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_180.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_181.png 68409 bytes
+SHOT comp 181 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_181.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_182.png 67480 bytes
+SHOT comp 182 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_182.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_183.png 8828 bytes
+SHOT comp 183 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_183.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_184.png 8828 bytes
+SHOT comp 184 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_184.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_185.png 8828 bytes
+SHOT comp 185 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_185.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_186.png 8828 bytes
+SHOT comp 186 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_186.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_187.png 8828 bytes
+SHOT comp 187 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_187.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_188.png 8828 bytes
+SHOT comp 188 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_188.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_189.png 8828 bytes
+SHOT comp 189 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_189.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_190.png 24518 bytes
+SHOT comp 190 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_190.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_191.png 21800 bytes
+SHOT comp 191 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_191.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_192.png 24300 bytes
+SHOT comp 192 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_192.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_193.png 21667 bytes
+SHOT comp 193 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_193.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_194.png 8828 bytes
+SHOT comp 194 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_194.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_195.png 8828 bytes
+SHOT comp 195 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_195.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_196.png 81551 bytes
+SHOT comp 196 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_196.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_197.png 80662 bytes
+SHOT comp 197 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_197.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_198.png 8828 bytes
+SHOT comp 198 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_198.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_199.png 8828 bytes
+SHOT comp 199 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_199.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_200.png 8828 bytes
+SHOT comp 200 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_200.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_201.png 8828 bytes
+SHOT comp 201 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_201.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_202.png 8828 bytes
+SHOT comp 202 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_202.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_203.png 8828 bytes
+SHOT comp 203 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_203.png02:15.437  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_204.png'
+02:15.875  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_205.png'
+02:16.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_206.png'
+02:16.734  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_207.png'
+02:17.219  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_208.png'
+02:17.750  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_209.png'
+02:18.281  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_210.png'
+02:18.844  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_211.png'
+02:19.406  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_212.png'
+02:20.172  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_213.png'
+02:20.875  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_214.png'
+02:21.625  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_215.png'
+02:22.234  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_216.png'
+02:22.828  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_217.png'
+02:23.453  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_218.png'
+02:24.031  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_219.png'
+02:24.656  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_220.png'
+02:25.359  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_221.png'
+02:26.031  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_222.png'
+02:26.719  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_223.png'
+02:27.250  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_224.png'
+02:27.781  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_225.png'
+02:28.266  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_226.png'
+02:28.734  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_227.png'
+02:29.312  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_228.png'
+02:30.016  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_229.png'
+02:30.672  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_230.png'
+02:31.359  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_231.png'
+
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_204.png 8828 bytes
+SHOT comp 204 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_204.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_205.png 8828 bytes
+SHOT comp 205 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_205.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_206.png 8828 bytes
+SHOT comp 206 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_206.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_207.png 8828 bytes
+SHOT comp 207 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_207.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_208.png 8828 bytes
+SHOT comp 208 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_208.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_209.png 8828 bytes
+SHOT comp 209 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_209.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_210.png 8828 bytes
+SHOT comp 210 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_210.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_211.png 8828 bytes
+SHOT comp 211 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_211.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_212.png 8828 bytes
+SHOT comp 212 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_212.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_213.png 8828 bytes
+SHOT comp 213 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_213.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_214.png 8828 bytes
+SHOT comp 214 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_214.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_215.png 8828 bytes
+SHOT comp 215 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_215.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_216.png 8828 bytes
+SHOT comp 216 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_216.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_217.png 13792 bytes
+SHOT comp 217 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_217.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_218.png 14349 bytes
+SHOT comp 218 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_218.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_219.png 8828 bytes
+SHOT comp 219 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_219.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_220.png 8828 bytes
+SHOT comp 220 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_220.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_221.png 8828 bytes
+SHOT comp 221 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_221.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_222.png 8828 bytes
+SHOT comp 222 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_222.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_223.png 8828 bytes
+SHOT comp 223 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_223.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_224.png 8828 bytes
+SHOT comp 224 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_224.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_225.png 8828 bytes
+SHOT comp 225 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_225.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_226.png 8828 bytes
+SHOT comp 226 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_226.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_227.png 8828 bytes
+SHOT comp 227 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_227.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_228.png 8828 bytes
+SHOT comp 228 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_228.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_229.png 8828 bytes
+SHOT comp 229 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_229.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_230.png 8828 bytes
+SHOT comp 230 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_230.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_231.png02:32.047  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_232.png'
+02:32.562  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_233.png'
+02:33.391  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_234.png'
+02:34.594  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_235.png'
+02:36.141  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_236.png'
+02:37.141  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_237.png'
+02:37.891  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_238.png'
+02:38.625  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_239.png'
+02:39.344  render           | Saved: 'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_240.png'
+ 8828 bytes
+SHOT comp 231 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_231.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_232.png 8828 bytes
+SHOT comp 232 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_232.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_233.png 8828 bytes
+SHOT comp 233 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_233.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_234.png 8828 bytes
+SHOT comp 234 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_234.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_235.png 8828 bytes
+SHOT comp 235 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_235.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_236.png 8828 bytes
+SHOT comp 236 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_236.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_237.png 8828 bytes
+SHOT comp 237 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_237.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_238.png 8828 bytes
+SHOT comp 238 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_238.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_239.png 8828 bytes
+SHOT comp 239 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_239.png
+FBX version: 7400
+RENDERED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_240.png 8828 bytes
+SHOT comp 240 -> C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\02_progress_photos\01_components\comp_240.png
+FBX version: 7400
+05:42.234  blend            | Saved session recovery to "C:\Users\justi\AppData\Local\Temp\quit.blend"
+
+Blender quit

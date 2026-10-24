@@ -1,0 +1,45 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_SmugglersDrisq",
+			"source": "Character/Smuggler/Unit/Drisq/Female01_SmugglersDrisq.fbx"
+		},
+		{
+			"type": "model",
+			"name": "DrisqSniper",
+			"source": "Character/Smuggler/Weapon/DrisqWeaponSet/DrisqSniper.fbx",
+			"rotationX": -90
+		},
+		{
+			"type": "model",
+			"name": "DrisqDrone",
+			"source": "Character/Smuggler/Weapon/DrisqWeaponSet/DrisqDrone.fbx",
+			"x": -0.40918,
+			"y": 0.40583,
+			"z": 2.11297,
+			"rotationZ": 90,
+			"animation": "Character/Smuggler/Weapon/DrisqWeaponSet/Anim_DrisqDrone.fbx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "DrisqSniper",
+			"target": "Female01_SmugglersDrisq.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Drisq_Drone",
+			"source": "Fx/Unit/FX_Drisq_Drone_Flare.fx",
+			"enabled": false,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Drisq_Drone",
+			"target": "DrisqDrone.A_DrisqDrone"
+		}
+	]
+}

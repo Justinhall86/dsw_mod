@@ -1,0 +1,28 @@
+FBX version: 7400
+WARNING: mesh 'Shaddam' had invalid material indices, those were reset to first material
+BODY C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_shaddam\01_input\Shaddam_TRUE_FBX.fbx  verts 16056 tris 27205
+RIG  bones 177
+   Base Color           <- Shaddam_Albedo.png
+   Specular IOR Level   <- Shaddam_MetallicGlossAO.png
+   Normal               <- MISSING
+   Base Color           <- Shaddam_Albedo.png
+   Specular IOR Level   <- Shaddam_MetallicGlossAO.png
+   Normal               <- MISSING
+   packed 10 images into the .blend
+Info: Saved as "Emperor_Shaddam.blend"
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_shaddam\03_blender\Emperor_Shaddam.blend (30.09 MB)
+   MATERIAL MAP Mat_Shaddam Base Color Shaddam_Albedo.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_shaddam\04_textures\Shaddam_Albedo.png
+   MATERIAL MAP Mat_Shaddam Specular IOR Level Shaddam_MetallicGlossAO.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_shaddam\04_textures\Shaddam_MetallicGlossAO.png
+   MATERIAL MAP Mat_Shaddam Normal Shaddam_Normal_raw.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_shaddam\04_textures\Shaddam_Normal_raw.png
+SCENE OBJECTS
+   OBJECT Armature ARMATURE tris 0 parent None
+   OBJECT Camera CAMERA tris 0 parent None
+   OBJECT Emperor MESH tris 27205 parent Armature
+   OBJECT Fill LIGHT tris 0 parent None
+   OBJECT Sun LIGHT tris 0 parent None
+Info: Saved as "Emperor_Shaddam.blend"
+FINAL SCENE OBJECTS 5
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_shaddam\03_blender\Emperor_Shaddam.blend 40131738
+00:24.735  reports          | ERROR Cannot change old file (file saved with @)
+
+Blender quit

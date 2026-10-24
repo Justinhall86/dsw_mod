@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_CommandoHouse",
+			"source": "CharMOD/Male01_CommandoHouse/Male01_CommandoHouse.hmd"
+		}
+	]
+}

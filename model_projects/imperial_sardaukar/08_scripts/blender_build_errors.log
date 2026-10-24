@@ -1,0 +1,4 @@
+C:\Users\justi\OneDrive\Python\dsw_mod\.claude\skills\dsw-model-workshop\scripts\07_build_blend.py:126: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not mat.use_nodes:
+C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_sardaukar\08_scripts\build_imperial.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not material or not material.use_nodes:

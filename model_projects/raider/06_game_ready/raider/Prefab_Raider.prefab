@@ -1,0 +1,33 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 1.49,
+			"scaleY": 1.49,
+			"scaleZ": 0.47,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"albedoStrength": 0.5,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "model",
+			"name": "Male01_Raider",
+			"source": "CharMOD/Male01_Raider/Male01_Raider.hmd"
+		},
+		{
+			"type": "model",
+			"name": "KindJal_Harkonnen",
+			"source": "Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx",
+			"y": -0.15,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "KindJal_Harkonnen",
+			"target": "Male01_Raider.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

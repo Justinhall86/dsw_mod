@@ -1,0 +1,30 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_ImperialWensicia",
+			"source": "Character/Imperial/Wensicia/Female01_ImperialWensicia.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Gun",
+			"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+			"x": -0.34386,
+			"y": -0.10058,
+			"z": 0.04317,
+			"scaleX": 0.8,
+			"scaleY": 0.8,
+			"scaleZ": 0.8,
+			"rotationX": -0.4,
+			"rotationY": -10.2,
+			"rotationZ": -70.8
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun",
+			"target": "Female01_ImperialWensicia.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ"
+		}
+	]
+}

@@ -1,0 +1,31 @@
+REMOVING components [24, 25, 26, 27, 29, 32, 40, 41, 60, 64, 67, 72, 73, 74, 75, 76, 77, 78, 85, 93, 98, 101, 111, 112, 113, 116, 117, 118, 119, 132, 139, 140, 145, 148, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 171, 172, 173, 174, 175, 176, 183, 184, 185, 186, 187, 188, 189, 194, 195, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240] from C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\01_input\Male01_ImperialFlameThrower_TRUE_FBX.fbx
+FBX version: 7400
+BEFORE  verts 8830 tris 12106  components 241
+AFTER   verts 7034 tris 10036  (2070 faces removed, 1796 loose verts dropped)
+
+PROOF 1  boundary edges, per SURVIVING component (an unchanged count means no hole was opened)
+          241 components before, 141 after
+          every surviving component's boundary-edge count is unchanged -> PASS
+          total boundary edges 5108 -> 3750
+
+PROOF 2  rays from behind over the removed area: 46 hits, 5 inside-facing -> FAIL
+
+PROOF 3  component list after the removal (largest first):
+        comp  0  verts  225  boundary edges 80
+        comp  1  verts  225  boundary edges 80
+        comp  2  verts  165  boundary edges 46
+        comp  3  verts  165  boundary edges 46
+        comp  4  verts  165  boundary edges 57
+        comp  5  verts  165  boundary edges 57
+        comp  6  verts  143  boundary edges 54
+        comp  7  verts  143  boundary edges 54
+        (render with --shots to see which component the newly exposed panel belongs to - if it is the body, the removed part was merely COVERING it)
+        socket Base Color         linked
+        socket Specular IOR Level linked
+        socket Normal             linked
+
+FBX export starting... 'C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\imperial_flamethrower\\05_fbx_export\\Male01_ImperialFlameThrower_unarmed.fbx'
+(bpy.data.armatures['Armature'], 'POSE')
+export finished in 0.0810 sec.
+
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\05_fbx_export\Male01_ImperialFlameThrower_unarmed.fbx 2622844 bytes

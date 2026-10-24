@@ -1,0 +1,79 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_AtreidesGurney",
+			"source": "CharMOD/Male01_AtreidesGurney/Male01_AtreidesGurney.hmd"
+		},
+		{
+			"type": "model",
+			"name": "GurneySet_Javelin",
+			"source": "Character/Atreide/Unit/Weapons/GurneySet_Javelin.fbx",
+			"rotationX": -90,
+			"rotationY": 90
+		},
+		{
+			"type": "model",
+			"name": "GurneySet_Shield",
+			"source": "Character/Atreide/Unit/Weapons/GurneySet_Shield.fbx",
+			"y": -0.04091,
+			"z": 0.01254,
+			"rotationX": -98.2,
+			"rotationY": -2.3,
+			"rotationZ": 0.3,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "AfterTonemapping",
+							"blend": "Add",
+							"shadows": true,
+							"culling": "None",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"materialName": "Mat_GurneyWeaponSet_Emiss",
+					"color": [
+						0,
+						0.6274509803921569,
+						0.45098039215686275,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint_Javelin",
+			"object": "GurneySet_Javelin",
+			"target": "Male01_AtreidesGurney.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint_Shield",
+			"object": "GurneySet_Shield",
+			"target": "Male01_AtreidesGurney.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_Shield"
+		},
+		{
+			"type": "model",
+			"name": "Gun",
+			"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+			"x": -0.01058,
+			"y": 0.06254,
+			"z": 0.1224,
+			"rotationX": -96.8,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun",
+			"target": "Male01_AtreidesGurney.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		}
+	]
+}

@@ -1,0 +1,88 @@
+{
+ "palette": {
+  "landsraad_gold": [
+   212,
+   175,
+   55
+  ],
+  "landsraad_gold_dark": [
+   140,
+   110,
+   30
+  ],
+  "landsraad_purple": [
+   88,
+   28,
+   112
+  ],
+  "landsraad_purple_dark": [
+   44,
+   14,
+   56
+  ],
+  "landsraad_purple_plate": [
+   68,
+   22,
+   88
+  ],
+  "leather": [
+   92,
+   48,
+   38
+  ],
+  "skin": [
+   150,
+   104,
+   84
+  ]
+ },
+ "recipe": {
+  "1": [
+   "skin",
+   0.0
+  ],
+  "2": [
+   "landsraad_purple_dark",
+   0.0
+  ],
+  "3": [
+   "leather",
+   0.15
+  ],
+  "4": [
+   "landsraad_purple",
+   0.0
+  ],
+  "5": [
+   "landsraad_purple_plate",
+   0.0
+  ],
+  "6": [
+   "landsraad_gold",
+   0.0
+  ]
+ },
+ "metallic": {
+  "2": [
+   0.6,
+   0.0
+  ],
+  "3": [
+   0.7,
+   0.0
+  ],
+  "4": [
+   0.3,
+   0.0
+  ],
+  "5": [
+   0.55,
+   0.0
+  ],
+  "6": [
+   1.0,
+   60.0
+  ]
+ },
+ "residual_snap": 18.0
+}

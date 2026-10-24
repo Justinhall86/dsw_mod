@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_CommandoNoPack",
+			"source": "CharMOD/Male01_CommandoNoPack/Male01_CommandoNoPack.hmd"
+		}
+	]
+}

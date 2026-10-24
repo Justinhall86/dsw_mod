@@ -1,0 +1,21 @@
+FBX version: 7400
+BODY model_projects\imperial_trooper\01_input\Male01_ImperialTrooper_TRUE_FBX.fbx  verts 3621 tris 5710
+RIG  bones 53
+   Base Color           <- ImperialTrooper_Albedo.png
+   Specular IOR Level   <- ImperialTrooper_MetallicGlossAO.png
+   Normal               <- ImperialTrooper_Normal.png
+   packed 8 images into the .blend
+Info: Saved as "Imperial_Trooper.blend"
+SAVED model_projects\imperial_trooper\03_blender\Imperial_Trooper.blend (0.82 MB)
+SCENE OBJECTS
+   OBJECT Armature ARMATURE tris 0 parent None
+   OBJECT Camera CAMERA tris 0 parent None
+   OBJECT Fill LIGHT tris 0 parent None
+   OBJECT Imperial MESH tris 5710 parent Armature
+   OBJECT Sun LIGHT tris 0 parent None
+Info: Saved as "Imperial_Trooper.blend"
+FINAL SCENE OBJECTS 5
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_trooper\03_blender\Imperial_Trooper.blend 821039
+00:41.687  blend            | Saved session recovery to "C:\Users\justi\AppData\Local\Temp\quit.blend"
+
+Blender quit

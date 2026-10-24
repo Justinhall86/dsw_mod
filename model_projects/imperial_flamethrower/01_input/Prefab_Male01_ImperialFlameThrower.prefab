@@ -1,0 +1,26 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_ImperialFlameThrower",
+			"source": "Character/Imperial/FlameThrower/Male01_ImperialFlameThrower.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 12.728378575176379,
+			"y": 2.821642093670957,
+			"z": 3.7436553952616274,
+			"scaleX": 0.9999999999999999,
+			"scaleY": 0.9999999999999999,
+			"scaleZ": 0.9999999999999999,
+			"rotationY": 11.862955215268563,
+			"rotationZ": -167.55314306012204,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_ImperialTrooper",
+			"source": "Character/Imperial/Trooper/Male01_ImperialTrooper.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_01",
+			"source": "Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx",
+			"y": -0.08228,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Sword_01",
+			"target": "Male01_ImperialTrooper.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

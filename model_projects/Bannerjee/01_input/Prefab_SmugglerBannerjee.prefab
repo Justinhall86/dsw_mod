@@ -1,0 +1,45 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "male01_SmugglerBannerjee",
+			"source": "Character/Smuggler/Unit/Bannerjee/male01_SmugglerBannerjee.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Bannerjee_Weapon",
+			"source": "Character/Smuggler/Weapon/BannerjeeWeapon/Bannerjee_Weapon.fbx",
+			"rotationX": -90,
+			"rotationY": 180
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Bannerjee_Weapon",
+			"target": "male01_SmugglerBannerjee.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "object",
+			"name": "Handgun",
+			"children": [
+				{
+					"type": "model",
+					"name": "Gun",
+					"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+					"x": -0.01058,
+					"y": 0.06254,
+					"z": 0.1224,
+					"rotationX": -96.8,
+					"visible": false
+				},
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "Handgun.Gun",
+					"target": "male01_SmugglerBannerjee.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+				}
+			]
+		}
+	]
+}

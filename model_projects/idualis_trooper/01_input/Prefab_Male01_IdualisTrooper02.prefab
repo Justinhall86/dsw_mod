@@ -1,0 +1,27 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_IdualisTrooper02",
+			"source": "Character/Idualis/Trooper/Male01_IdualisTrooper02.fbx"
+		},
+		{
+			"type": "model",
+			"name": "LongKnife",
+			"source": "Character/Idualis/Weapon/LongKnife.fbx",
+			"x": 0.04075,
+			"y": 0.27258,
+			"z": 0.08887,
+			"rotationX": 34.6,
+			"rotationY": 55.8,
+			"rotationZ": 122.4
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "LongKnife",
+			"target": "Male01_IdualisTrooper02.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

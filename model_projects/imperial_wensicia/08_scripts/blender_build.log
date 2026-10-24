@@ -1,0 +1,24 @@
+FBX version: 7400
+BODY model_projects\imperial_wensicia\01_input\Female01_ImperialWensicia_TRUE_FBX.fbx  verts 5121 tris 8343
+RIG  bones 41
+   Base Color           <- Wensicia_Albedo.png
+   Specular IOR Level   <- Wensicia_MetallicGlossAO.png
+   Normal               <- Wensicia_Normal.png
+   packed 8 images into the .blend
+Info: Saved as "Imperial_Wensicia.blend"
+SAVED model_projects\imperial_wensicia\03_blender\Imperial_Wensicia.blend (1.03 MB)
+   MATERIAL MAP Mat_Wensicia Base Color Wensicia_Albedo.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_wensicia\04_textures\Wensicia_Albedo.png
+   MATERIAL MAP Mat_Wensicia Specular IOR Level Wensicia_MetallicGlossAO.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_wensicia\04_textures\Wensicia_MetallicGlossAO.png
+   MATERIAL MAP Mat_Wensicia Normal Wensicia_Normal.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_wensicia\04_textures\Wensicia_Normal.png
+SCENE OBJECTS
+   OBJECT Armature ARMATURE tris 0 parent None
+   OBJECT Camera CAMERA tris 0 parent None
+   OBJECT Fill LIGHT tris 0 parent None
+   OBJECT Imperial MESH tris 8343 parent Armature
+   OBJECT Sun LIGHT tris 0 parent None
+Info: Saved as "Imperial_Wensicia.blend"
+FINAL SCENE OBJECTS 5
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_wensicia\03_blender\Imperial_Wensicia.blend 1035284
+18:41.766  blend            | Saved session recovery to "C:\Users\justi\AppData\Local\Temp\quit.blend"
+
+Blender quit

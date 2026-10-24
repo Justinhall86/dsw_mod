@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Shaddam_Neutral_Welcome.fbx": {
+			"events": [
+				{
+					"frame": 45,
+					"data": "Play"
+				}
+			]
+		}
+	}
+}

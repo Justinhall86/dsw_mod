@@ -1,0 +1,36 @@
+00:18.547  image.gpu        | WARNING DDS image '' failed to load data from file
+00:18.562  image.gpu        | WARNING DDS image '' falling back to uncompressed
+00:18.609  image.gpu        | WARNING DDS image '' failed to load data from file
+00:18.625  image.gpu        | WARNING DDS image '' falling back to uncompressed
+FBX version: 7400
+BODY C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\01_input\Male01_ImperialFlameThrower_TRUE_FBX.fbx  verts 8830 tris 12106
+RIG  bones 53
+   Base Color           <- FlameThrower_Unit_Albedo.png
+   Specular IOR Level   <- MISSING
+   Normal               <- FlameThrower_Unit_Normal.png
+   Base Color           <- FlameThrower_Unit_Albedo.png
+   Specular IOR Level   <- MISSING
+   Normal               <- FlameThrower_Unit_Normal.png
+   packed 13 images into the .blend
+Info: Saved as "Imperial_FlameThrower.blend"
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\03_blender\Imperial_FlameThrower.blend (1.51 MB)
+   MATERIAL MAP Mat_FlameThrower_Weapon Base Color FlameThrower_Weapon_Albedo.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\04_textures\FlameThrower_Weapon_Albedo.png
+   MATERIAL MAP Mat_FlameThrower_Weapon Specular IOR Level FlameThrower_Weapon_MetallicGlossAOEmiss.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\04_textures\FlameThrower_Weapon_MetallicGlossAOEmiss.png
+   MATERIAL MAP Mat_FlameThrower_Weapon Normal FlameThrower_Weapon_Normal.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\04_textures\FlameThrower_Weapon_Normal.png
+   EMISSIVE Mat_FlameThrower_Weapon FlameThrower_Weapon_Emissive.png
+   MATERIAL MAP Mat_FlameThrower_Unit Base Color FlameThrower_Unit_Albedo.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\04_textures\FlameThrower_Unit_Albedo.png
+   MATERIAL MAP Mat_FlameThrower_Unit Specular IOR Level FlameThrower_Unit_MetallicGlossAOEmiss.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\04_textures\FlameThrower_Unit_MetallicGlossAOEmiss.png
+   MATERIAL MAP Mat_FlameThrower_Unit Normal FlameThrower_Unit_Normal.png C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\04_textures\FlameThrower_Unit_Normal.png
+   EMISSIVE Mat_FlameThrower_Unit FlameThrower_Unit_Emissive.png
+SCENE OBJECTS
+   OBJECT Armature ARMATURE tris 0 parent None
+   OBJECT Camera CAMERA tris 0 parent None
+   OBJECT Fill LIGHT tris 0 parent None
+   OBJECT Imperial MESH tris 12106 parent Armature
+   OBJECT Sun LIGHT tris 0 parent None
+Info: Saved as "Imperial_FlameThrower.blend"
+FINAL SCENE OBJECTS 5
+SAVED C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\imperial_flamethrower\03_blender\Imperial_FlameThrower.blend 1496294
+00:20.359  blend            | Saved session recovery to "C:\Users\justi\AppData\Local\Temp\quit.blend"
+
+Blender quit

@@ -1,0 +1,86 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_ImperialSardaukar",
+			"source": "Character/Imperial/Sardaukar/Male01_ImperialSardaukar.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 1
+						}
+					},
+					"diffuseMap": "Character/Imperial/Sardaukar/Blood_Level/Sardaukar_LVL2_Albedo.png",
+					"normalMap": "Character/Imperial/Sardaukar/Blood_Level/Sardaukar_LVL2_Normal.png",
+					"specularMap": "Character/Imperial/Sardaukar/Blood_Level/Sardaukar_LVL2_MetallicGlossAO.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "SardaukarSword",
+			"source": "Character/Imperial/Weapon/SardaukarSword/SardaukarSword.fbx",
+			"y": -0.1107,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95,
+			"rotationX": -90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 1
+						}
+					},
+					"diffuseMap": "Character/Imperial/Weapon/SardaukarSword/Blood_Level/SardaukarSword_LVL2_Albedo.png",
+					"normalMap": "Character/Imperial/Weapon/SardaukarSword/Blood_Level/SardaukarSword_LVL2_Normal.png",
+					"specularMap": "Character/Imperial/Weapon/SardaukarSword/Blood_Level/SardaukarSword_LVL2_MetallicGlossAO.png",
+					"materialName": "Mat_SardaukarSword"
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "SardaukarSword",
+			"target": "Male01_ImperialSardaukar.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "model",
+			"name": "SardaukarSword02",
+			"source": "Character/Imperial/Weapon/SardaukarSword_02/SardaukarSword02.fbx",
+			"y": -0.1107,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95,
+			"rotationX": -90,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "SardaukarSword02",
+			"target": "Male01_ImperialSardaukar.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}
