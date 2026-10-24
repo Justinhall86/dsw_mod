@@ -1,0 +1,15 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_Cornea": {
+				"mode": "Forward",
+				"blend": "Add",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}

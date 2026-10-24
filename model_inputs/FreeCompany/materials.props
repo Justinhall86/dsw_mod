@@ -1,0 +1,17 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_FreeCompany": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1,
+				"alphaKill": true
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_Scout": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1,
+				"alphaKill": true
+			}
+		}
+	}
+}

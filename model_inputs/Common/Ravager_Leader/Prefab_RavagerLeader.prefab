@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ravager_Leader",
+			"source": "Character/Common/Ravager_Leader/Ravager_Leader.fbx"
+		},
+		{
+			"type": "model",
+			"name": "DrisqSniper",
+			"source": "Character/Common/Ravager_Leader/Weapon/RavagerLeaderSniper.fbx",
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "DrisqSniper",
+			"target": "Ravager_Leader.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Tiger_ImperialLazaTiger",
+			"source": "Character/Imperial/LazaTiger/Tiger_ImperialLazaTiger.fbx",
+			"rotationZ": 90
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"MAT_RavagerLeaderSniper": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 5.91
+			}
+		}
+	}
+}

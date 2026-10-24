@@ -1,0 +1,63 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_HeavyWeaponSquad",
+			"source": "Character/Atreide/Unit/HeavyWeaponSquad/Male01_HeavyWeaponSquad.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Weapon_MissileLauncher",
+			"source": "Character/Atreide/Unit/HeavyWeaponSquad/Weapon_MissileLauncher.fbx",
+			"rotationX": -90,
+			"children": [
+				{
+					"type": "object",
+					"name": "Projectile_Socket",
+					"y": -0.8
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Weapon_MissileLauncher",
+			"target": "Male01_HeavyWeaponSquad.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -1,
+			"scaleX": 1.49,
+			"scaleY": 1.49,
+			"scaleZ": 1.3,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"albedoStrength": 0.35,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "tdecal",
+			"target": "Male01_HeavyWeaponSquad.B_ROOTJ",
+			"positionOnly": true
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 11.991663136334921,
+			"y": 2.659032969265872,
+			"z": 3.7995764192332557,
+			"scaleX": 0.9999999999999999,
+			"scaleY": 0.9999999999999999,
+			"rotationX": 2.036509388273933e-16,
+			"rotationY": 12.550504569425515,
+			"rotationZ": -167.55314306012204,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

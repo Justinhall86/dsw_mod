@@ -1,0 +1,315 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Hide",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"threshold": 1,
+					"intensity": 0.02,
+					"blur": 13.33
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Character/Atreide/Leader/Leto/LetoLUT_raw.png"
+				},
+				{
+					"type": "rfx.temporalFiltering",
+					"name": "temporalFiltering",
+					"enabled": false,
+					"amount": 0.9,
+					"jitterPattern": "Halton_2_3_x8",
+					"jitterScale": 0.4
+				}
+			]
+		},
+		{
+			"type": "light",
+			"name": "Main_Light",
+			"x": -0.25438,
+			"y": 1.05436,
+			"z": 2.36782,
+			"rotationX": 3.2,
+			"rotationY": 23.9,
+			"rotationZ": -81.6,
+			"kind": "Spot",
+			"color": 16772306,
+			"power": 1.75,
+			"range": 6,
+			"zNear": 0.02,
+			"angle": 62.36,
+			"fallOff": 1,
+			"debugDisplay": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 1.67,
+				"quality": 1,
+				"bias": 0.001,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "RimLight",
+			"x": -1.24,
+			"y": -0.3,
+			"z": 1.85,
+			"rotationX": 0.1,
+			"rotationY": -0.9,
+			"rotationZ": 29.4,
+			"kind": "Spot",
+			"color": 16769983,
+			"power": 2.35,
+			"range": 3,
+			"zNear": 0.02,
+			"angle": 54.94,
+			"fallOff": 1,
+			"debugDisplay": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 2,
+				"quality": 1,
+				"bias": 0.003,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "RimLight_0",
+			"x": -0.1,
+			"y": -1.26,
+			"z": 1.86,
+			"rotationX": 10.4,
+			"rotationY": 35.5,
+			"rotationZ": 74.4,
+			"kind": "Spot",
+			"color": 16762486,
+			"power": 1.44,
+			"range": 3.02,
+			"zNear": 0.02,
+			"angle": 77.19,
+			"fallOff": 27.97,
+			"debugDisplay": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0.76,
+				"quality": 1,
+				"bias": 0.003,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 1.6499999999999915,
+			"y": 2.740000000000009,
+			"z": 1.599999999999999,
+			"scaleX": 0.9999999999999999,
+			"scaleZ": 0.9999999999999999,
+			"rotationX": -9.942640474140988e-17,
+			"rotationY": 1.4999999999999993,
+			"rotationZ": -122.49999999999999,
+			"fovY": 20,
+			"zFar": 37.88
+		},
+		{
+			"type": "model",
+			"name": "Keep",
+			"source": "Fx/Meshes_Common/Sphere.fbx",
+			"x": -0.04,
+			"y": 0.23,
+			"z": -0.36,
+			"scaleX": 0.55,
+			"scaleY": 0.55,
+			"scaleZ": 0.55,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Shaddam",
+			"source": "Character/Imperial/Leader/Shaddam.fbx",
+			"scaleX": 0.93,
+			"scaleY": 0.93,
+			"scaleZ": 0.93,
+			"rotationZ": 152,
+			"children": [
+				{
+					"type": "material",
+					"name": "material_Body",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Imperial/Leader/Shaddam_Albedo.png",
+					"normalMap": "Character/Imperial/Leader/Shaddam_Normal_raw.png",
+					"specularMap": "Character/Imperial/Leader/Shaddam_MetallicGlossAO.png",
+					"materialName": "Mat_Shaddam",
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 1,
+							"specularTint": 0.87
+						},
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"intensity": 0.42,
+							"direction": 81.82,
+							"noiseIntensityPath": "Character/Imperial/Leader/Shaddam_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Imperial/Leader/Shaddam_AnisoAngle.png"
+						},
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"intensity": 0.4,
+							"maxAmountPerLight": 0.05,
+							"translucencyTexture": "Character/Imperial/Leader/Shaddam_SSS.png"
+						}
+					]
+				},
+				{
+					"type": "material",
+					"name": "material_Cornea",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"materialName": "Mat_Cornea",
+					"color": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				{
+					"type": "material",
+					"name": "material_Hair",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"alphaKill": false
+						}
+					},
+					"diffuseMap": "Character/Imperial/Leader/Shaddam_Albedo.png",
+					"normalMap": "Character/Imperial/Leader/Shaddam_Normal_raw.png",
+					"specularMap": "Character/Imperial/Leader/Shaddam_MetallicGlossAO.png",
+					"materialName": "Mat_Hair",
+					"children": [
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"intensity": 0.73,
+							"direction": 201.82,
+							"intensityFactor": 0.7,
+							"noiseIntensityPath": "Character/Imperial/Leader/Shaddam_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Imperial/Leader/Shaddam_AnisoAngle.png",
+							"rotationOffset": 207.27
+						},
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"mainColor": 4203040,
+							"nearColor": 11711412,
+							"intensity": 0.51,
+							"maxAmountPerLight": 0.05
+						},
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 2,
+							"specularTint": 1,
+							"specularColorCustomValue": 16752997,
+							"mode": "Flat"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"hdrMax": 1,
+			"rotation": 223.64,
+			"diffSize": 32,
+			"specSize": 16,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/aircraft_workshop_01_1k.hdr"
+		},
+		{
+			"type": "reference",
+			"name": "FX_UI_ShaddamScene",
+			"source": "Fx/UI/FX_UI_ShaddamScene.fx"
+		}
+	]
+}

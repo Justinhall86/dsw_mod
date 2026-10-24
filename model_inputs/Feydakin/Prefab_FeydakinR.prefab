@@ -1,0 +1,23 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_Feydakin_Rework",
+			"source": "Character/Fremen/Unit/Feydakin/Male01_Feydakin_Rework.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Crysknife",
+			"source": "Character/Fremen/Weapon/Crysknife/Crysknife.fbx",
+			"y": -0.08,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Crysknife",
+			"target": "Male01_Feydakin_Rework.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

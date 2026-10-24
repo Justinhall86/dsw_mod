@@ -1,0 +1,79 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_ImperialSardaukar",
+			"source": "Character/Imperial/Sardaukar/Male01_ImperialSardaukar.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 1
+						}
+					},
+					"diffuseMap": "Character/Imperial/Sardaukar/Sardaukar_Albedo_03.png",
+					"normalMap": "Character/Imperial/Sardaukar/Sardaukar_Normal.png",
+					"specularMap": "Character/Imperial/Sardaukar/Sardaukar_MetallicGlossAO_03.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "SardaukarSword",
+			"source": "Character/Imperial/Weapon/SardaukarSword/SardaukarSword.fbx",
+			"y": -0.1107,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "SardaukarSword",
+			"target": "Male01_ImperialSardaukar.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 11.559072553811575,
+			"y": 3.199485798005488,
+			"z": 5.46693763626207,
+			"scaleY": 0.9999999999999999,
+			"rotationX": -1.2674099811724751e-15,
+			"rotationY": 19.769772788073553,
+			"rotationZ": -164.5846487235492,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		},
+		{
+			"type": "model",
+			"name": "SardaukarSword02",
+			"source": "Character/Imperial/Weapon/SardaukarSword_02/SardaukarSword02.fbx",
+			"y": -0.1107,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95,
+			"rotationX": -90,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "SardaukarSword02",
+			"target": "Male01_ImperialSardaukar.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

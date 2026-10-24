@@ -1,0 +1,345 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Hide",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 0.58,
+					"threshold": 0.94,
+					"intensity": 0.2,
+					"blur": 20,
+					"saturation": 1
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Character/Smuggler/Leader/EsmarLUT_raw.png"
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.7,
+			"rotation": 174.55,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/museum_of_ethnography_1k.hdr"
+		},
+		{
+			"type": "light",
+			"name": "Main_Light",
+			"x": -0.64054,
+			"y": -2.07961,
+			"z": 2.08493,
+			"scaleX": 4.45,
+			"scaleY": 2.516663680991616,
+			"scaleZ": 2.5166636809916154,
+			"rotationX": -23.2,
+			"rotationY": 10.8,
+			"rotationZ": 78.9,
+			"kind": "Spot",
+			"power": 1.6,
+			"range": 4.74,
+			"zNear": 0.02,
+			"angle": 32.02,
+			"fallOff": 1,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0,
+				"quality": 1,
+				"bias": 0.001,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": -0.4,
+			"y": -3.48,
+			"z": 1.59,
+			"rotationY": 1.5,
+			"rotationZ": 82.5,
+			"fovY": 20,
+			"zFar": 37.88
+		},
+		{
+			"type": "light",
+			"name": "RimLight_0",
+			"x": 0.82458,
+			"y": 0.70856,
+			"z": 1.80334,
+			"scaleX": 1.58,
+			"scaleY": 0.9308768576333822,
+			"scaleZ": 0.9308768576333821,
+			"rotationX": 2.6,
+			"rotationY": -10.2,
+			"rotationZ": -133.7,
+			"kind": "Spot",
+			"color": 16751749,
+			"power": 2.42,
+			"range": 2.58,
+			"zNear": 0.02,
+			"fallOff": 1,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 5.45,
+				"quality": 1,
+				"bias": 0.01,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "model",
+			"name": "Esmar",
+			"source": "Character/Smuggler/Leader/Esmar.fbx",
+			"x": -0.04675,
+			"y": -0.00825,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95,
+			"rotationZ": 10,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"drawOrder": "100"
+						}
+					},
+					"diffuseMap": "Character/Atreide/Leader/Leto/Leto_Cornea_Albedo.png",
+					"specularMap": "Character/Atreide/Leader/Leto/Leto_Cornea_MetallicGlossAO.png",
+					"materialName": "Mat_Cornea",
+					"color": [
+						0,
+						0,
+						0,
+						1
+					],
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 0.11
+						}
+					]
+				},
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"materialName": "Mat_Hair",
+					"children": [
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"noiseIntensity": 0,
+							"intensityFactor": 0.71,
+							"noiseIntensityPath": "Character/Smuggler/Leader/Esmar_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Smuggler/Leader/Esmar_AnisoAngle.png",
+							"rotationOffset": 46.36
+						},
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 1,
+							"specularTint": 1,
+							"specularColorPath": "Character/Smuggler/Leader/Esmar_SpecularColor.png",
+							"specularColorCustomValue": 16711680,
+							"mode": "Texture"
+						}
+					]
+				},
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"alphaKill": true
+						}
+					},
+					"materialName": "Mat_Esmar",
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 0.56,
+							"specularTint": 1,
+							"specularColorPath": "Character/Smuggler/Leader/Esmar_SpecularColor.png",
+							"specularColorCustomValue": 16711680,
+							"mode": "Texture"
+						},
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"intensity": 0.05,
+							"maxAmountPerLight": 0.05,
+							"translucencyTexture": "Character/Smuggler/Leader/Esmar_sss.png"
+						},
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"intensity": 0.06,
+							"direction": 92.73,
+							"intensityFactor": 0.58,
+							"noiseIntensityPath": "Character/Smuggler/Leader/Esmar_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Smuggler/Leader/Esmar_AnisoAngle.png",
+							"rotationOffset": 76.36
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "polygon",
+			"name": "EyeGlow01",
+			"x": -0.0612,
+			"y": -0.10774,
+			"z": -0.03668,
+			"scaleX": 0.03,
+			"scaleY": 0.04,
+			"rotationX": 115.7,
+			"rotationY": -0.2,
+			"rotationZ": 0.7,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "AfterTonemapping",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Fremen/Leader/EyeGlow.png",
+					"color": [
+						0.023529411764705882,
+						0.08235294117647059,
+						0.16862745098039217,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "polygon",
+			"name": "EyeGlow02",
+			"x": -0.06006,
+			"y": -0.10836,
+			"z": 0.03399,
+			"scaleX": 0.03,
+			"scaleY": 0.04,
+			"rotationX": 79.1,
+			"rotationZ": 8.2,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "AfterTonemapping",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Fremen/Leader/EyeGlow.png",
+					"color": [
+						0.023529411764705882,
+						0.08235294117647059,
+						0.16862745098039217,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "EyeGlow01",
+			"target": "Esmar.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_Neck01J.B_HeadJ"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint02",
+			"object": "EyeGlow02",
+			"target": "Esmar.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_Neck01J.B_HeadJ"
+		},
+		{
+			"type": "reference",
+			"name": "FX_UI_EsmarScene",
+			"source": "Fx/UI/FX_UI_EsmarScene.fx",
+			"rotationZ": 180
+		}
+	]
+}
