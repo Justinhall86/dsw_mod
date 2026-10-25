@@ -1,0 +1,14 @@
+{
+  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_graft_v1_droneS_fin.blend",
+  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\graft_v1_renders",
+  "n_frames": 16, "res": 480,
+  "grafts": [
+    {"name": "droneS_fin",
+     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\DroneS_real.fbx",
+     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\normal.png",
+     "extract": {"x": [0.09, 1.0], "y": [-1.0, 1.0], "z": [0.1, 0.9]},
+     "mount_frac": [0.0, 0.0, 1.0], "embed": 0.2, "rot_deg": [0, 0, 0]}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_kitbash_v4_twin_wings.blend",
+  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\kb_v4_renders",
+  "n_frames": 16, "res": 480,
+  "mounts": [
+    {"name": "wing_scout_port",
+     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\DroneS_real.fbx",
+     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\normal.png",
+     "frac": [0.0, 0.68, 0.18], "margin": 0.01, "scale_frac": 0.14, "rot_deg": [0,0,20]},
+    {"name": "wing_scout_starboard",
+     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\DroneS_real.fbx",
+     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\normal.png",
+     "frac": [0.0, -0.68, 0.18], "margin": 0.01, "scale_frac": 0.14, "rot_deg": [0,0,-20]}
+  ]
+}

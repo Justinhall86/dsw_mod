@@ -1,0 +1,13 @@
+{
+  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_kitbash_v10_shuttle_pod.blend",
+  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\kb_v10_renders",
+  "n_frames": 16, "res": 480,
+  "mounts": [
+    {"name": "shuttle_pod",
+     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager_Shuttle\\preview_textures\\Ravager_Shuttle_real.fbx",
+     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager_Shuttle\\preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager_Shuttle\\preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager_Shuttle\\preview_textures\\normal.png",
+     "frac": [0.0, -0.68, 0.3], "margin": 0.02, "scale_frac": 0.28, "rot_deg": [0,0,0]}
+  ]
+}

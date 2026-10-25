@@ -1,0 +1,13 @@
+{
+  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_kitbash_v6_hammer_fin.blend",
+  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\kb_v6_renders",
+  "n_frames": 16, "res": 480,
+  "mounts": [
+    {"name": "hammer_fin",
+     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Imperial\\Hammer\\preview_textures\\Hammer_real.fbx",
+     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Imperial\\Hammer\\preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Imperial\\Hammer\\preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Imperial\\Hammer\\preview_textures\\normal.png",
+     "frac": [0.0, 0.0, 1.0], "margin": 0.1, "scale_frac": 0.34, "rot_deg": [90,0,0]}
+  ]
+}
