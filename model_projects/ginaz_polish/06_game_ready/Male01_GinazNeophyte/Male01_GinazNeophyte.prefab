@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_GinazNeophyte",
+			"source": "CharMOD/Male01_GinazNeophyte/Male01_GinazNeophyte.hmd"
+		}
+	]
+}
