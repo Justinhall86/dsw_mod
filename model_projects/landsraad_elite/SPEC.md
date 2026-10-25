@@ -126,3 +126,59 @@ like wings; G1/H1 stay tight in every clip. Fix if B4/BC is chosen: shift those 
   `R2C` (v5_03) = same + the Sardaukar collar; `H2` = H1 minus the 10 stud components.
 - Preview .blends: `landsraad_elite_handrolled_R2_{weapon}.blend`, `landsraad_elite_v5_{H2,R2C}_{weapon}_preview.blend`.
   Lineup `16_showcase/round5_lineup.png`, clip test `14_anim_stress/round5_stress.png` (all hold).
+
+## v6 - G1 in the game (2026-10-23, installed, NOT yet confirmed in game)
+- Model `CharMOD/Male01_LandsraadEliteG1/` (copy in `06_game_ready/v6_G1/`): vanilla Landsraad Guard body (own pads 21/22 removed, hood
+  flare 17/18 clipped below z 1.70) + recoloured Sardaukar collar (x1.12) + recoloured Gurney pauldrons; 4,164 verts / 6,198 tris, one HMD,
+  three materials: `Mat_LandsraadGuard1` -> vanilla `Character/Common/Landsraad/LandsraadGuard_*`, `Mat_EliteCollar` -> `EliteCollar_*`,
+  `Mat_ElitePads` -> `ElitePads_*` (recoloured albedo + the game's own Sardaukar / Gurney gloss + normal maps). `materials.props`
+  has all three (PBR, culling None, emissive 0.1). check_hmd: normals OK, 46 joints, every texture resolves.
+- Built by: dsw-part-kitbash `build_variant.py --spec examples/landsraad_elite_G1.json --mode rest --save 03_blender/v6_G1_export_base.blend`,
+  `08_scripts/v6_01_export_G1.py` (join + placeholder materials + FBX), `convert_model.py ... --prefab-template
+  Character/Common/Landsraad/Prefab_LandsraadGuard.prefab --vanilla-material Mat_LandsraadGuard1=Character/Common/Landsraad/LandsraadGuard
+  --vanilla-material Mat_EliteCollar=CharMOD/Male01_LandsraadEliteG1/EliteCollar --vanilla-material Mat_ElitePads=CharMOD/Male01_LandsraadEliteG1/ElitePads`.
+  Rifle / bazooka prefabs = the vanilla `Prefab_LandsraadGuard_{Gun,Bazooka}.prefab` with the body swapped.
+- data.cdb (`cdb_tools.py set-mesh`, new command): `N_LR_Guard`, `N_LR_Guard_Helmet` -> `Prefab_LandsraadEliteG1.prefab`,
+  `N_LR_Guard_Gun` -> `..._Gun.prefab`, `N_LR_Guard_Bazooka` -> `..._Bazooka.prefab` (were the v3 prefabs). So every Landsraad guard
+  (Landsraad faction + the Atreides test units A_LandsraadHalberd / A_LandsraadRanged / A_LandsraadDemo) now uses G1.
+  `N_LR_Elite_Sword` (A_LandsraadGuard) still uses the v3 sword model; v3 folders stay in the pak (the sword model shares their textures).
+- Pak 27.9 MB installed to the Steam path (byte-verified, 2 paks). To check in game: new game as Atreides, the three Landsraad test
+  units beside Arrakeen; `game.log` must contain `[DataCache] Modified data.cdb`.
+
+## v6b - Landsraad Elite sword unit -> G1 + TallSword (2026-10-24, installed + game launched)
+- Weapon survey (every blade/polearm, same scale): `02_progress_photos/19_weapon_survey/weapon_survey_sheet.png`
+  (`08_scripts/v6_02_weapon_prep.py`, `v6_03_weapon_render.py`). User picked TallSword (Ecaz Fencer, 1.67 m).
+- Placement (`08_scripts/v6_04_sword_preview.py`, renders `20_tallsword/`): on `B_Weapon` with the Atreides-sword transform from
+  Duncan's prefab (y -0.16362, z 0.05084, rotX -90) - single-axis, so no engine rotation-order ambiguity; hilt sits in the fist, blade
+  forward in the Trooper (MilitaryCommon) FightIdle/attack clips. The Fencer's own 3-axis transform is order-dependent (one order points
+  the blade backwards). Preview: `03_blender/landsraad_elite_v6_G1_tallsword_preview.blend`.
+- `CharMOD/Male01_LandsraadEliteG1/Prefab_LandsraadEliteG1_Sword.prefab` = G1 body + TallSword (vanilla
+  `Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx`) + the old sword prefab's terrain decal and hidden `Gun` dyn-object.
+- data.cdb: `N_LR_Elite_Sword` -> that prefab (was the v3 `Male01_LandsraadGuardEliteSword`). All five Landsraad guard models now use G1.
+- Pak 27.9 MB installed (byte-verified, 2 paks) and the game launched. Check: new game, A_LandsraadGuard ("Landsraad Elite") at
+  Arrakeen holds the TallSword; game.log `[DataCache] Modified data.cdb`.
+
+## v6c - data.cdb rebased on the 2026-10-22 game update (2026-10-24, installed)
+- The game would not start with our pak: the Steam update of 10-22 added a sheet (909 -> 910 sheets, new `faction@props@palette`
+  etc.), so the old-based data.cdb broke startup. The old working file (all earlier test units and stat edits) is kept in
+  `mod_files/backups/data_old_base_with_all_edits_*.cdb`.
+- New working `mod_files/data.cdb` = the current vanilla (`mod_files/data_vanilla_2026-10-22.cdb`, extracted from
+  res.compressed.pak with `pak_extract_one.py`, SHA-1 c030f442 = the one in the new hlboot.dat) + exactly three changed lines:
+  model `N_LR_Guard`, `N_LR_Guard_Gun`, `N_LR_Guard_Bazooka` mesh -> the G1 prefabs. `cdb_validate.py`: no new problems.
+- Dropped for now (they only existed as added entries): the Atreides Landsraad test units, `N_LR_Guard_Helmet`, `N_LR_Elite_Sword`
+  (TallSword unit). The TallSword prefab stays staged in CharMOD/Male01_LandsraadEliteG1 for later.
+- v6d (same day): Landsraad Elite re-added minimally on top of that: model `N_LR_Elite_Sword` (G1 + TallSword, MilitaryCommon) and unit
+  `A_LandsraadGuard` ("Landsraad Elite", A_Trooper clone, free, wheel group 1 / pos 10) copied verbatim from the old file (unit/model/
+  structure sheets unchanged by the update), plus `A_LandsraadGuard` in Arrakeen.startUnits. Diff vs vanilla: 6 entries; cdb_validate clean.
+- v6d (same day): Landsraad Elite re-added minimally on top of that: model `N_LR_Elite_Sword` (G1 + TallSword, MilitaryCommon) and unit
+  `A_LandsraadGuard` ("Landsraad Elite", A_Trooper clone, free, wheel group 1 / pos 10) copied verbatim from the old file (unit/model/
+  structure sheets unchanged by the update), plus `A_LandsraadGuard` in Arrakeen.startUnits. Diff vs vanilla: 6 entries; cdb_validate clean.
+
+## v6e - Gurney badge removed from the pads (2026-10-24, installed)
+- The gold shield badge on the Gurney pauldrons was painted out of ALL three pad maps (`08_scripts/v6_07_remove_badge.py`: mask from the gold
+  badge blob + stray dot, OpenCV inpaint from the surrounding plate; the albedo alone would have left the embossed bevel in the normal map and
+  the outline in the gloss/AO map). Result `04_textures/v6_pads_nobadge/ElitePads_*.png`, staged to CharMOD/Male01_LandsraadEliteG1 and
+  `06_game_ready/v6_G1/`; pak rebuilt + installed (model/HMD unchanged, data.cdb unchanged).
+- dsw-part-kitbash gained `dsw_parts.set_textures` (swap albedo + normal + mgao) and spec keys `normal` / `mgao`.
+- G1 previews (`landsraad_elite_v5_G1_{halberd,gun,bazooka}_preview.blend`, `landsraad_elite_v6_G1_tallsword_preview.blend`) rebuilt with the
+  new textures; all six GIFs in `02_progress_photos/21_gifs/` re-rendered. Before/after: `22_badge/`.

@@ -26,7 +26,11 @@ COLLARS = {   # key -> (donor unit, component ids from 06_collar_probe.py)
 COLLAR = args[args.index("--collar") + 1] if "--collar" in args else None
 CSCALE = float(args[args.index("--cscale") + 1]) if "--cscale" in args else 1.0
 CDROP = float(args[args.index("--cdrop") + 1]) if "--cdrop" in args else 0.0
-NAME = "Duncan_Commando" + ("_" + COLLAR if COLLAR else "")
+ARM = args[args.index("--arm") + 1] if "--arm" in args else None     # strip | <donor unit>
+LEG = args[args.index("--leg") + 1] if "--leg" in args else None     # <donor unit>
+HEAD = args[args.index("--head") + 1] if "--head" in args else "Duncan"
+ALBEDO = args[args.index("--albedo") + 1] if "--albedo" in args else None
+NAME = args[args.index("--name") + 1] if "--name" in args else HEAD + "_Commando" + ("_" + COLLAR if COLLAR else "")
 PROJ = os.path.dirname(HERE)
 SHOTS = os.path.join(PROJ, "02_progress_photos", "05_duncan_commando")
 os.makedirs(SHOTS, exist_ok=True)
@@ -65,8 +69,66 @@ def keep_faces(obj, pred):
 bs.reset_scene()
 base, rig = import_unit("Commando")
 base.name, base.data.name, rig.name = "CommandoBody", "CommandoBodyMesh", "Armature"
+if ALBEDO:   # repainted vest back (08_paint_vest_back.py)
+    for m in base.data.materials:
+        if m and m.use_nodes:
+            bs.wire_textures(m, {"Base Color": os.path.abspath(ALBEDO)})
 comps = P.components(base)
 P.delete_verts(base, [i for k in PACK for i in comps[k]])
+
+HAND_BONES = ("Wrist", "Finger", "Thumb", "Forearm")
+
+
+def is_hand(inf, xmin=0.55):
+    """Gloves, cuffs, knuckle plates and studs: wrist/finger/forearm-weighted pieces out at the hands."""
+    b = inf["bones"][0][0] if inf["bones"] else ""
+    return abs(inf["centre"][0]) > xmin and inf["centre"][2] > 0.85 and any(k in b for k in HAND_BONES)
+
+
+def is_lower_leg(inf):
+    return inf["hi"][2] < 0.72 and inf["centre"][2] < 0.45 and abs(inf["centre"][0]) < 0.4
+
+
+def graft(donor, pred, name, min_verts=8, max_verts=420):
+    obj, drig = import_unit(donor)
+    cs = P.components(obj)
+    keep = [c for c in cs if min_verts <= len(c) <= max_verts and pred(P.comp_info(obj, c))]
+    P.delete_verts(obj, [i for c in keep for i in c], invert=True)
+    obj.name, obj.data.name = name, name + "Mesh"
+    obj.parent = rig
+    for m in obj.modifiers:
+        if m.type == "ARMATURE": m.object = rig
+    bpy.data.objects.remove(drig, do_unlink=True)
+    print("GRAFT", name, "comps", len(keep), "tris", len(obj.data.polygons))
+    return obj
+
+
+def drop_comps(pred, label):
+    gone = [i for c in P.components(base) if pred(P.comp_info(base, c), c) for i in c]
+    P.delete_verts(base, gone)
+    print("REMOVED", label, len(gone), "verts")
+
+
+limbs = []
+if ARM:
+    # the bulky gauntlet: silver forearm plates (elbow-weighted, 57v each) + knuckle guards + studs
+    drop_comps(lambda inf, c: len(c) < 80 and abs(inf["centre"][0]) > 0.45 and inf["bones"]
+               and inf["bones"][0][0].endswith("ElbowJ"), "forearm plates")
+    if ARM == "strip":
+        drop_comps(lambda inf, c: len(c) <= 50 and is_hand(inf), "knuckle guards + studs")
+    else:
+        drop_comps(lambda inf, c: len(c) < 200 and is_hand(inf), "commando hands")
+        limbs.append(graft(ARM, lambda inf: is_hand(inf, 0.5), ARM + "Hands"))
+if LEG:
+    boots = graft(LEG, is_lower_leg, LEG + "Boots", min_verts=15)
+    top = max((boots.matrix_world @ v.co).z for v in boots.data.vertices)
+    legcut = top - float(args[args.index('--tuck') + 1]) if '--tuck' in args else top - 0.05   # pants tuck into the boot
+    pants = max(P.components(base), key=lambda c: len(c) if min(base.data.vertices[i].co.z for i in c) < 0.05 else 0)
+    P.delete_verts(base, [i for i in pants if base.data.vertices[i].co.z < legcut])
+    drop_comps(lambda inf, c: is_lower_leg(inf) or (inf["hi"][2] < 0.7 and abs(inf["centre"][0]) < 0.4 and inf["centre"][2] < 0.62
+               and inf["bones"] and "Knee" in inf["bones"][0][0]), "knee pads + soles")
+    print("LEG cut pants below z %.2f" % legcut)
+    limbs.append(boots)
 # cowl: top of the vest component
 big = [c for c in P.components(base) if len(c) > 300 and max(base.data.vertices[i].co.z for i in c) > 1.7][0]
 P.delete_verts(base, [i for i in big if base.data.vertices[i].co.z > CUT])
@@ -79,8 +141,8 @@ for c in P.components(base):
         ring += c
 print("neck ring verts removed", len(ring))
 P.delete_verts(base, ring)
-head, hrig = import_unit("Duncan")
-head.name, head.data.name = "DuncanHead", "DuncanHeadMesh"
+head, hrig = import_unit(HEAD)
+head.name, head.data.name = HEAD + "Head", HEAD + "HeadMesh"
 keep_faces(head, lambda ds: all(d == "B_HeadJ" for d in ds) or "B_Neck01J" in ds)   # head + Duncan's own neck ring
 DROP = float(args[args.index("--drop") + 1]) if "--drop" in args else 0.065
 for v in head.data.vertices:      # seat the neck in the vest opening (rest pose, weights unchanged)
@@ -111,8 +173,8 @@ bs.setup_world(strength=1.8, color=(0.55, 0.58, 0.64)); bs.setup_lights(sun_ener
 for img in list(bpy.data.images):
     if img.users == 0: bpy.data.images.remove(img)
 bs.pack_all_images()
-lo, hi = bs.model_bounds(base); hlo, hhi = bs.model_bounds(head)
-top = max(hi.z, hhi.z); centre = Vector((0, 0, (lo.z + top) / 2)); scale = (top - lo.z) * 1.1
+bb = [bs.model_bounds(o) for o in bpy.data.objects if o.type == 'MESH']
+lo = Vector((0, 0, min(b[0].z for b in bb))); top = max(b[1].z for b in bb); centre = Vector((0, 0, (lo.z + top) / 2)); scale = (top - lo.z) * 1.1
 
 
 def shot(tag, d, target=None, ortho=None, size=(600, 800)):
@@ -125,6 +187,10 @@ def shot(tag, d, target=None, ortho=None, size=(600, 800)):
 for tag, d in (("front", (0, -1, 0)), ("tq", (0.7, -0.7, 0)), ("back", (0, 1, 0))):
     shot(tag, d)
 nk = Vector((0, 0, 1.68))
+for tag, d in (("arm", (0, -1, 0)), ("arm_top", (0.3, -0.3, 1))):
+    shot(tag, d, target=Vector((0.6, 0, 1.12)), ortho=0.65, size=(500, 500))
+for tag, d in (("legs", (0, -1, 0)), ("legs_side", (1, -0.3, 0)), ("legs_back", (0, 1, 0))):
+    shot(tag, d, target=Vector((0, 0, 0.42)), ortho=0.95, size=(500, 500))
 for tag, d in (("neck_front", (0, -1, 0)), ("neck_tq", (0.7, -0.7, 0.1)), ("neck_side", (1, 0, 0.05)), ("neck_back", (0, 1, 0))):
     shot(tag, d, target=nk, ortho=0.7, size=(500, 500))
 shot("start", (0.7, -0.7, 0), size=(1000, 1300))
