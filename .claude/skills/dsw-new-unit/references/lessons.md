@@ -41,3 +41,22 @@
 - Takeover changes every recruit of that unit, including name/squad size; tell the user (they accepted it for the Warden).
 - Textures: RGBA, alpha 255, per-material file names, `materials.props` entry per material (emissive 0.1 without an emissive map).
 - Nothing has been seen in-game by the assistant (cannot see the screen) - always ask the user for the visual verdict.
+
+## Lessons from the Neophyte and Master (2026-10-24 night)
+- **Paint by 3D position, not by UV.** `rasterise()` in `21_neophyte_textures.py` / `30_master_textures.py` writes each triangle's UV footprint into per-texel
+  arrays of rest-pose position + region id. Patterns (chest frogging bars = world-z bands, wrist wraps = distance to the wrist bone, hem filigree, cape hem) then
+  land correctly on ANY donor UV layout. Tag regions on the base mesh in the recipe (`regions=` -> vertex attribute `reg`) BEFORE islands are deleted (ids shift).
+- **Donor textures are low-res (256-512 px): fine patterns alias into noise.** Use thick, coarse lines (period >= 6 cm); a silver "speckle" in hair/beard looked
+  like noise - use clean bands by position instead.
+- **A long neck is cheapest to fix by lowering the head** (`head_shift_z`, vertices of head + neck tube in rest pose, ~4 cm) plus a short collar, not by
+  scaling. Move any hand-modelled top-knot with it.
+- **Glowing blue "eyeball" meshes** (Idualis heads, islands 33/34) are separate objects; delete them (`head_exclude`) rather than recolouring.
+- **Hand-modelled cloth strip (sash tail)**: weight top 100 % pelvis fading to 55/45 pelvis/thigh at the hem so it follows the leg in Run; model both sides (own
+  verts) so culling never hides it; point UV at an existing recoloured texel.
+- **The Raider's "cowl" is its face mask** (islands 17/18), not a collar. Build collars by hand (`build_collar`, `COLLAR_N` for a short one).
+- **The Mercenary's cape islands (13, 16) animate with the clips** (bones `B_Cape01-03`): a free cape for a hero; give them a `cape` region (dominant bone name contains Cape).
+- **When told not to delete files**: `14_make_game_package.py` MOVES the converter's stray textures to `<project>/06_game_ready/<Model>_converter_strays/`.
+- **New units should be ADDITIVE** (clone A_Trooper via cdb_tools `add-model`/`add-unit`), tested on a temp copy of data.cdb (`15_new_units_cdb.py` dry run). Taking over an
+  existing slot (the Captain/Warden) is only right when the user wants the vanilla unit replaced. A cloned Trooper model entry carries `dynObjects: [Gun]`; drop it when the
+  prefab has no Gun child. A single hero-like unit may need another wheel slot (cdb_tools picked pos 12; sectors are 0-11: check).
+- **Shell quoting**: long Python heredocs containing triple quotes break the bash tool; write scripts with the Write tool and run them.

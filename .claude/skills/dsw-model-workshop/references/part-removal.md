@@ -108,3 +108,33 @@ Two things are worth knowing before shipping:
 - The right shoulder/armpit area has a small gap where the pack used to clip
   the arm. It is present in the vanilla model too (the natural arm-torso
   separation) - the removal just makes it more visible.
+
+## When the closure proof doesn't apply: unwelded hard-surface meshes
+
+The proofs above assume a **welded, continuous skin** - a humanoid body where
+a closed component has zero boundary edges and a real hole changes that
+count. Some hard-surface vehicle models aren't built that way.
+
+Case in point: `Renegade_Frigate` (`model_projects/sentinal/`). Its hull has
+**194 disconnected mesh islands** under a single bone, and the largest is
+only 38 vertices out of 2109 total - every individual panel is its own
+unwelded island by construction, not because it's a separable "part." On a
+mesh like this:
+
+- There is no component ID that means "the wingtip nacelle" or "the dorsal
+  spine" - `01_analyse_mesh.py`'s per-component shots render nothing useful
+  (the pieces are too small and too numerous to identify one at a time), and
+  its own camera framing (tuned for character-scale props) may render blank
+  at a much larger vehicle's scale.
+- Proof 1 (boundary-edge parity) is meaningless: nearly every island already
+  has boundary edges before you touch anything, so an unchanged count proves
+  nothing.
+
+**What works instead:** treat the cut as **spatial**, not component-ID based.
+Pick a world-space box the way `--probe` already describes one, delete every
+face whose centroid falls inside it (same bmesh approach as above, just
+gated by position instead of a doomed-vertex id set), and verify by
+**before/after render from a fixed camera angle** rather than the closure
+proof. This is lower-assurance than the welded-mesh proofs, so call it out
+as such in the project's SPEC.md rather than claiming it passed verification
+it didn't run.

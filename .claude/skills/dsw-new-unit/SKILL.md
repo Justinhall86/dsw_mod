@@ -81,3 +81,11 @@ thing -> render", expect 10-30 loops on the neck/collar-type work.
 
 Sibling skills this one calls: `dsw-model-modding` (convert/cdb/pak/install), `dsw-part-kitbash` (part grafting library
 `dsw_parts.py`, `anim_stress.py`), `dsw-model-workshop` (recolour method), `dsw-preview-blend` (preview with weapon).
+
+
+## Updates (2026-10-24 night): more units made with this process
+Two more units were built with the same pipeline, with new reusable pieces (see `references/lessons.md`, `references/catalog.md`, `examples/ginaz_neophyte`, `examples/ginaz_master`):
+- position-based texture painting (`23_neophyte_v2_textures.py`, `30_master_textures.py`), hand-modelled top-knot, sash tail, short collar, head lowering;
+- generalised export `12b_assemble_export.py` and one-command game package `14_make_game_package.py` (does not touch data.cdb or paks);
+- additive new units: `15_new_units_cdb.py` (dry run on a temp copy, `--apply` to write). `scripts/03_variants_v2.py` holds the newest builder (regions tagging, sash tail, bun,
+  head shift) with the Neophyte and Master recipes; `03_variants.py` keeps the original Captain recipes.

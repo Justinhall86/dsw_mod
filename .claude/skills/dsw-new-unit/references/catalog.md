@@ -45,3 +45,12 @@ Atreides unit/model ids: `A_Trooper`, `A_Elite` (Warden, taken over), `A_Hero_1`
 Heavy-weapon squad without belts (needs region cut), Commando without belt/holsters (UV-region cut), gold braiding + coat edging for the Ginaz
 captain (texture paint), longer coat to mid-shin, removing the front pouch/back holster, a short scarf drape to hide the armpit fold, other
 houses' palettes (Harkonnen, Corrino, Ecaz...), female-body captains, a second weapon variant (dual swords with the `DualSwords` set).
+
+## Added 2026-10-24 night
+- **Ginaz Neophyte** (`model_projects/ginaz_neophyte`): Captain legs/boots + Raider jacket (islands 1, 4, 9, 10, 13-16, 21, 22) + Idualis02 head (exclude islands 5, 8, 21, 22, 25, 26, 33, 34),
+  short collar, hand-modelled top-knot and sash tail. Recipes `N2_Neophyte`, `N3_NeophyteV2` in `scripts/03_variants_v2.py`; textures `23_neophyte_v2_textures.py`.
+- **Master of Ginaz** (`model_projects/ginaz_master`): Captain recipe + Mercenary cape islands 13, 16 kept; recipe `M1_Master`; textures `30_master_textures.py`.
+- **Roster sheet** (`house_ginaz/images/unit_roster.jpg`) lists six units: Neophyte (done), Swordmaster (~the Captain), Sentinel (hood, pouches, knee pads), Guardian (big scarf),
+  Skirmisher (face mask, bolero with tassels, cape), Commander (embroidered long coat, bandolier, pouches). Sentinel, Guardian, Skirmisher and Commander are the next candidates.
+- New scripts: `12b_assemble_export.py` (generalised export), `14_make_game_package.py` (textures + convert + materials.props + check), `15_new_units_cdb.py` (additive units),
+  `22_anim_clips.py` (clips, no weapon), `30_master_textures.py` (embroidery by position).

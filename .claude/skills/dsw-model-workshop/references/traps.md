@@ -197,6 +197,132 @@ rig.data.bones.active = rig.data.bones["B_Gun"]
 bpy.ops.object.parent_set(type="BONE", keep_transform=True)
 ```
 
+## Kitbashing (grafting a whole donor object on)
+
+### Reparenting only the donor's MESH leaves its armature behind
+
+Importing a donor FBX and reparenting `[o for o in new_objects if o.type ==
+"MESH"]` under a new empty looks complete but isn't: if the donor has its own
+armature (most HMD-derived FBX exports do, even static-looking vehicles),
+the mesh's parent is that armature, not the scene root - `m.parent is None`
+is false, so the mesh is silently skipped. The armature itself stays
+unparented at the world origin, dragging the (unscaled) mesh along with it.
+Result: the grafted part renders at full size, buried inside the host, miles
+from the intended mount point - and nothing errors.
+
+Fix: snapshot the object set **before** the import, then reparent every
+object the import created that has no parent (`o.parent is None`), not just
+the meshes:
+
+```python
+pre_existing = set(bpy.context.scene.objects)
+bpy.ops.import_scene.fbx(filepath=donor_fbx)
+donor_new = [o for o in bpy.context.scene.objects if o not in pre_existing]
+for o in donor_new:
+    if o.parent is None:
+        o.parent = donor_root        # catches the armature too
+```
+
+### Placing a grafted part: world-space mount point, parent-local `.location`
+
+`obj.location` is always in the **parent's local space**, not world space.
+If the host root itself has a nonzero translation (e.g. it was recentred to
+the origin by setting `host_root.location = -host_center`), computing a
+mount point in world coordinates and assigning it straight to
+`donor_root.location` is off by the host root's own offset - the donor lands
+near the right place but shifted, which on a thin hull reads as "half
+buried in the surface" rather than obviously wrong.
+
+Fix: subtract the parent's own translation before assigning:
+
+```python
+local_mount = world_mount - host_root.location   # host_root is parent of donor_root
+donor_root.location = local_mount - Vector(donor_center) * scale
+```
+
+Both of these were hit (and fixed) grafting a `DroneA` drone onto the
+`Renegade_Frigate` hull as a sensor pod - see `model_projects/sentinal/SPEC.md`.
+
+### A whole donor mounted on top reads as a toy glued to a toy
+
+Grafting a complete, lightly-scaled-down donor ship onto a host (the
+technique above) works mechanically but looks wrong for hard-surface
+kitbashing: a miniature second vehicle perched on the hull reads as a prop
+placement, not a built-in part. Real kitbashing cuts a CHUNK out of the
+donor (a wing, a turret-top, a hatch) and embeds it into the host surface so
+only the donor's clean outer face shows and the ragged cut edge is buried
+inside the host. See "Cutting a real chunk out of a donor" below.
+
+### Cutting a real chunk out of a donor: normalise scale FIRST, then box-cut
+
+To cut a kitbash-quality chunk (not a toy-scale accessory):
+
+1. Scale the WHOLE donor to the HOST's own size (`host_size / donor_size`),
+   not to some small decorative fraction - a chunk cut from a normalised
+   donor already reads at the host's own panel density.
+2. THEN box-select and keep only the faces inside a fractional region of the
+   normalised donor's half-extent (same spatial technique as the unwelded-
+   mesh removal note in `part-removal.md`, just KEEP-inside instead of
+   delete-inside).
+3. Place the result by pushing the mount point INTO the host surface by a
+   fraction of the chunk's own size ("embed"), not hovering it above with a
+   gap - the raw cut face ends up hidden inside the host, and the result
+   reads like a glued model-kit part (overlapping mass, no attempt at a
+   seam), which is exactly how real kitbashing looks.
+
+Iterate the box bounds by rendering the chunk ALONE from a few angles before
+committing to a full host+graft render - guessing the bounds blind wastes
+far more time than a 4-angle test render costs. A clean cut has no floating
+disconnected debris and no hollow cross-section facing the "front" camera
+angle; both are signs the box needs to move or shrink.
+
+### A donor's BASE mesh data can be in bind-pose space, not its visual shape
+
+Per-face operations (the box-cut above) read `obj.data.vertices` /
+`bmesh.from_mesh(obj.data)` directly - and for an HMD-converted mesh with an
+Armature modifier, that can be **completely wrong**, even for a "static"
+vehicle prop that never animates. Confirmed on a `DroneS` donor: raw
+`mesh.data.vertices` y-range was `1.88..3.32`, while the SAME mesh's
+`object.bound_box` / evaluated-mesh range was `-0.84..0.84` - not merely
+offset, unusable. The Armature modifier only deforms the base (bind-pose)
+data into the correct shape at evaluation/render time.
+
+This never breaks whole-object placement (which only ever reads
+`object.bound_box`, already correct), so it was invisible through all of the
+work above - it only shows up the first time something reads individual
+face positions. Fix: bake the evaluated mesh into the base mesh before any
+per-face read, then drop the Armature modifier (or it deforms the
+now-already-correct data a second time):
+
+```python
+dg = bpy.context.evaluated_depsgraph_get()
+eval_mesh = obj.evaluated_get(dg).to_mesh()
+for i, v in enumerate(obj.data.vertices):
+    v.co = eval_mesh.vertices[i].co
+obj.evaluated_get(dg).to_mesh_clear()
+for mod in list(obj.modifiers):
+    if mod.type == 'ARMATURE':
+        obj.modifiers.remove(mod)
+```
+
+**Re-parent to where the armature WAS parented, not to `None`.** The mesh's
+parent is the Armature; clearing `obj.parent` outright detaches it from
+whatever root empty the armature itself was attached to, so the root's
+later `.scale` silently stops reaching the mesh at all - normalising "the
+whole donor" to the host's size becomes a no-op, and every downstream
+measurement reports the pre-normalise numbers with no error raised. This
+cost two misleading symptoms in a row (`CHUNK size 0.0`, then correctly-
+proportioned-looking half-extents that turned out to be unscaled) before the
+root cause showed up as a re-parenting bug, not a math bug:
+
+```python
+if obj.parent is not None and obj.parent.type == 'ARMATURE':
+    new_parent = obj.parent.parent        # wherever the armature was attached
+    if new_parent is not None:
+        obj.matrix_parent_inverse = new_parent.matrix_world.inverted()
+    obj.parent = new_parent
+```
+
 ## Textures
 
 ### Game textures are DDS files with a `.png` extension
