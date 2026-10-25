@@ -1,0 +1,11 @@
+===== GS_ShowYourWorth
+texts: {"name": "Demonstrate your might"}
+conditions: [{"vals": [{"val": 8, "valMods": {}}], "target": {}, "target2": {}, "ref": "Me_Track_MilitiaKills", "subject": 0}]
+effects: [{"ref": "TUnitType_SpawnMB", "vals": [{"val": 1, "valMods": {}}], "desc": "Recruit ::value:: [$my(Elite)] at no cost", "props": {}, "target": {"unit": "Elite"}, "target2": {}}, {"vals": [{"val": 300, "valMods": {}}], "ref": "THegemony_Gain", "displayed": false, "props": {}, "target": {"hegemony": "QuestsCompleted"}, "target2": {}}]
+other keys: {'props': {}, 'weight': 0}
+===== GS_TrainSoldiers
+texts: {"name": "Give them a taste of Arrakis"}
+conditions: [{"vals": [{"val": 3, "valMods": {}}], "target": {}, "target2": {}, "ref": "Me_Track_CompleteDiscoveries_OutsideTerritory_WithUnitInvestigation", "subject": 0}]
+effects: [{"ref": "TUnitType_SpawnMB", "vals": [{"val": 1, "valMods": {}}], "desc": "Recruit ::value:: [$my(Elite)] at no cost", "props": {}, "target": {"unit": "Elite"}, "target2": {}}, {"vals": [{"val": 300, "valMods": {}}], "ref": "THegemony_Gain", "displayed": false, "props": {}, "target": {"hegemony": "QuestsCompleted"}, "target2": {}}]
+other keys: {'props': {}, 'weight': 0}
+[]

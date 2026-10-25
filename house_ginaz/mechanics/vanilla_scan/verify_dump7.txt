@@ -1,0 +1,16 @@
+== Plot_Assassination_1 Lurking Threat props {'type': 6}
+  trait CBP_Assassination1 [{"target": {"resource": "Agent"}, "ref": "TRes_Prod_MRatio", "val": 0.5, "target2": {}}] | desc: 
+  effects []
+== Plot_Assassination_2 Ominous Threat props {'type': 6}
+  trait CBP_Assassination2 [{"target": {"resource": "Agent"}, "ref": "TRes_Prod_MRatio", "val": 0.25, "target2": {}}] | desc: 
+  effects []
+== Harkonnen_FactionBonus9 Assassin School props {'onlyForFactions': [{'ref': 'Harkonnen'}], 'rarity': 2, 'type': 0, 'lowDifficulty': True}
+  trait CB_Harkonnen_FactionBonus9 [{"target": {"unit": "Assassin"}, "ref": "Faction_DailySpawn_TUnit_Flat", "val": 1, "desc": "Recruit ::value:: free [Assassin] every day, if none are present", "target2": {}}] | desc: 
+  effects []
+H_Elite_Trait raw attrs: [{"target": {"trait": "H_Elite_Buff"}, "ref": "DeathAtTRange2_InCombat_GainTTrait", "target2": {"range": "Short_Range"}, "desc": "While in combat, any unit death at [Short_Range] grants [H_Elite_Buff] (x::target_stacking_limit:: max): ::target_effects_list::"}]
+Warrior_Trait holders: ['A_Elite', 'A_Hero_1', 'A_Hero_2', 'H_Elite', 'H_Hero_1', 'H_Hero_2', 'F_Elite', 'S_Hero_2', 'C_Hero_2', 'E_Elite', 'E_Hero_1', 'V_Trooper', 'Militia_Sietch_Elite', 'I_Elite', 'Militia_Melee', 'Militia_Heavy', 'Trooper', 'Sardaukar', 'Landsraad_Soldier']
+Entity_DamageReceived_FromTarget_MRatio | ::s_percent:: damage received from target
+Entity_DamageReceived_InMelee_MRatio | ::s_percent:: damage received in melee
+Army_ExperienceGain_ARatio | ::s_percent_value:: [Experience] gains
+Army_XPLevel_Effects_ARatio | ::s_percent_value:: [Experience] level effects
+Entity_KnightInTRange2_GainTTrait | Gain [::target::] if at least 1 [E_Elite] is in [::target2::]

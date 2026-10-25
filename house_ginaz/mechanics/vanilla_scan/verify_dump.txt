@@ -1,0 +1,1516 @@
+=== ability EcazChampion ===
+{
+ "id": "EcazChampion",
+ "flags": 98560,
+ "cooldowns": {
+  "localCooldown": false,
+  "onEnd": 20
+ },
+ "traits": [
+  {
+   "trait": "TEcazChampion_Fake",
+   "apply": 5,
+   "comments": "",
+   "props": {
+    "hideApplyTarget": true
+   }
+  },
+  {
+   "trait": "TEcazChampion",
+   "apply": 0,
+   "comments": "",
+   "props": {
+    "hideApplyTarget": true
+   }
+  }
+ ],
+ "otherEffects": [],
+ "display": {
+  "where": 8,
+  "alignment": 1,
+  "filters": 60
+ },
+ "apply": {
+  "need": 6,
+  "alignment": 1
+ },
+ "props": {
+  "onlyForFactions": [
+   {
+    "faction": "Ecaz"
+   }
+  ],
+  "cost": [
+   {
+    "qty": 1000,
+    "res": "Solari"
+   }
+  ],
+  "canceledBy": 0,
+  "tip": {
+   "allowed": true,
+   "padExpand": true,
+   "cat": "UnitAbility"
+  },
+  "ai": {
+   "state": 1
+  }
+ },
+ "implemented": true,
+ "gfx": {
+  "file": "UI/icons/actionIcons.png",
+  "size": 40,
+  "x": 33,
+  "y": 0
+ },
+ "name": "Champion",
+ "desc": "Name this unit Champion."
+}
+=== ability LastStandProtocols ===
+{
+ "id": "LastStandProtocols",
+ "flags": 4224,
+ "cooldowns": {},
+ "traits": [
+  {
+   "trait": "TLastStandProtocols_Buff",
+   "apply": 1,
+   "comments": "",
+   "props": {
+    "hideApplyTarget": true
+   }
+  }
+ ],
+ "otherEffects": [],
+ "display": {
+  "where": 8,
+  "alignment": 1,
+  "whereUnit": "A_Elite"
+ },
+ "apply": {
+  "need": 6
+ },
+ "props": {
+  "tip": {
+   "cat": "UnitSkill",
+   "padExpand": true,
+   "allowed": true
+  },
+  "unlockedBy": 2,
+  "canceledBy": 2,
+  "cannotCancelBy": 1,
+  "ai": {
+   "state": 2
+  }
+ },
+ "implemented": true,
+ "gfx": {
+  "file": "UI/icons/actionIcons02.png",
+  "size": 40,
+  "x": 0,
+  "y": 0
+ },
+ "name": "Last Stand"
+}
+=== trait TEcazChampion ===
+{
+ "id": "TEcazChampion",
+ "desc": "[Ecaz-longname] has declared this unit as Champion. Their prestige and popularity are now linked.",
+ "props": {
+  "fx": [
+   {
+    "fx": "Fx/Unit/FX_LeaderUnit.fx",
+    "space": 0,
+    "flags": 0,
+    "scale": 0.6,
+    "attachTo": "B_Spine02J",
+    "vfxPath": "Fx/Abilities/FX_EcazChampion.fx",
+    "attachOnWorld": false,
+    "playOnApplication": false,
+    "isUIFx": false,
+    "attachSpecs": {},
+    "followPosOnly": false,
+    "targetPlayers": 0
+   },
+   {
+    "attachOnWorld": false,
+    "playOnApplication": true,
+    "isUIFx": false,
+    "attachSpecs": {},
+    "sfx": "UI_Ecazchampion",
+    "followPosOnly": false,
+    "flags": 0,
+    "targetPlayers": 0
+   }
+  ],
+  "tip": {
+   "cat": "UnitInspiration"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Life_MRatio",
+   "val": 1.2
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Power_MRatio",
+   "val": 1.2
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Armor_Flat",
+   "val": 2
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_ExecuteImmune"
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Unit_EcazChampion",
+   "displayed": false
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Army_Scale_ARatio",
+   "displayed": false,
+   "val": 0.05
+  },
+  {
+   "target": {
+    "trait": "TEcazChampion_Buff_Stack"
+   },
+   "target2": {},
+   "ref": "Army_OnEliminateFactionUnit_GainTTrait",
+   "desc": "Every unit from another faction killed gives ::target_effects:: until the Champion dies"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/missionsTraits.png",
+  "size": 32,
+  "x": 41,
+  "y": 0
+ },
+ "name": "Champion"
+}
+=== trait TEcazChampion_Buff_Stack ===
+{
+ "id": "TEcazChampion_Buff_Stack",
+ "desc": "The Champion's military success are impressive.",
+ "props": {
+  "stackingLimit": 500,
+  "tip": {
+   "cat": "UnitInspiration"
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "hegemony": "EcazChampion"
+   },
+   "target2": {},
+   "ref": "Unit_THegemonyProd_Flat",
+   "val": 100
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 47,
+  "y": 1
+ },
+ "name": "Champion's Trophy"
+}
+=== trait TParryingArmguards ===
+{
+ "id": "TParryingArmguards",
+ "desc": "When you cannot rely on shields anymore, older parrying apparatus come back in fashion.",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_DamageReceived_InMelee_MRatio",
+   "val": 0.9
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "name": "Parrying Armguards",
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 32,
+  "y": 0
+ }
+}
+=== trait TSoberingMedication ===
+{
+ "id": "TSoberingMedication",
+ "desc": "A proper [!E_Trooper] should never allow himself to get too excited. He must always keep his head cool in the face of duty.",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_TurnDamageModifierIntoDamageReduction",
+   "val": 0.5,
+   "desc": "::percent_value:: of damage bonuses are turned into damage reduction"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 47,
+  "y": 0
+ },
+ "name": "Sobering Medication"
+}
+=== trait TVowOfBravery ===
+{
+ "id": "TVowOfBravery",
+ "desc": "I will never let fear stop my arm!",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Attacks_IgnoreArmor_MRatio",
+   "val": 0.5,
+   "desc": "Ignores half of the enemy armor"
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Armor_Flat",
+   "val": -2
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "name": "Vow of Bravery",
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 21,
+  "y": 0
+ }
+}
+=== trait TVowOfFervor ===
+{
+ "id": "TVowOfFervor",
+ "desc": "I will always dedicate my entire being to my goals!",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Unit_Damage_ARatio",
+   "val": 0.2
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Army_Life_Flat",
+   "val": -100,
+   "desc": "::s_value:: [Life]"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 22,
+  "y": 0
+ },
+ "name": "Vow of Fervor"
+}
+=== trait TVowOfHeroism ===
+{
+ "id": "TVowOfHeroism",
+ "desc": "I will surpass myself, to reach my full potential!",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Power_Flat",
+   "val": 15
+  },
+  {
+   "target": {
+    "resource": "CommandPoint"
+   },
+   "target2": {},
+   "ref": "TRes_Upkeep_Flat",
+   "val": 3,
+   "desc": "Requires ::s_value:: [CommandPoint]"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 23,
+  "y": 0
+ },
+ "name": "Vow of Heroism"
+}
+=== trait TVowOfHonor ===
+{
+ "id": "TVowOfHonor",
+ "desc": "I will never belittle the people I serve!",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  },
+  "range": "Short_Range"
+ },
+ "attributes": [
+  {
+   "target": {
+    "unit": "E_Trooper"
+   },
+   "target2": {
+    "trait": "TVowOfHonor_Buff"
+   },
+   "ref": "NearbyAllyTUnit_GainTTrait2",
+   "desc": "[E_Trooper]s at [Short_Range] gain ::target_effects2::"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 24,
+  "y": 0
+ },
+ "name": "Vow of Honor"
+}
+=== trait TVowOfHonor_Buff ===
+{
+ "id": "TVowOfHonor_Buff",
+ "desc": "This [!E_Trooper] is honored by the presence of a [E_Elite].",
+ "props": {
+  "tip": {
+   "cat": "UnitInspiration"
+  },
+  "stackingLimit": 1
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Power_Flat",
+   "val": 1
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 24,
+  "y": 1
+ },
+ "name": "Vow of Honor"
+}
+=== trait TLastStandProtocols ===
+{
+ "id": "TLastStandProtocols",
+ "desc": "When the battle seems lost, you can still slow the enemies as much as possible by refusing to die.",
+ "props": {
+  "tip": {
+   "cat": "Gear"
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "ability": "LastStandProtocols"
+   },
+   "target2": {},
+   "ref": "Unlock_TAbility",
+   "displayed": false
+  },
+  {
+   "target": {
+    "trait": "TLastStandProtocols_Buff"
+   },
+   "target2": {},
+   "ref": "CustomProperty",
+   "desc": "Allows using the [LastStandProtocols] ability: ::target_effects_list::"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "name": "Last Stand Protocols",
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 39,
+  "y": 0
+ }
+}
+=== trait TLastStandProtocols_Buff ===
+{
+ "id": "TLastStandProtocols_Buff",
+ "desc": "This [!A_Elite] is fighting defensively.",
+ "props": {
+  "tip": {
+   "cat": "UnitInspiration"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Speed_MRatio",
+   "val": 0.5
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Armor_Flat",
+   "val": 5
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Unit_Block_ArmiesBonuses",
+   "desc": "Ignore allied buffs"
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "CustomProperty",
+   "desc": "Cannot be turned off while engaged in melee"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits_02.png",
+  "size": 64,
+  "x": 39,
+  "y": 1
+ },
+ "name": "Last Stand"
+}
+=== trait Warrior_Trait ===
+{
+ "id": "Warrior_Trait",
+ "desc": "A [!Warrior_Trait] generally remains on the front line, either to break the enemy front line or to protect the back line.",
+ "props": {
+  "tip": {
+   "cat": "UnitTrait"
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "Warrior_Trait_Debuff"
+   },
+   "target2": {
+    "range": "Melee_Strict"
+   },
+   "ref": "Entity_GiveTTrait_GroundUnitAtWar_AtTRange2",
+   "desc": "::target_effects:: to enemy units in [Melee_Strict]"
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 0,
+  "y": 0
+ },
+ "name": "Trooper"
+}
+=== trait Warrior_Trait_Debuff ===
+{
+ "id": "Warrior_Trait_Debuff",
+ "desc": "This unit is in close combat with a [!Warrior_Trait].",
+ "props": {
+  "tip": {
+   "cat": "UnitAffliction"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Speed_MRatio",
+   "val": 0.9
+  }
+ ],
+ "type": 2,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 0,
+  "y": 2
+ },
+ "name": "Close Combat"
+}
+=== trait E_Hero_1_Trait ===
+{
+ "id": "E_Hero_1_Trait",
+ "desc": "",
+ "props": {
+  "tip": {
+   "cat": "UnitTrait"
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "E_Hero_1_FactionBuff"
+   },
+   "target2": {},
+   "ref": "Entity_FactionOwner_GainTTrait",
+   "desc": "Can name a second [!EcazChampion] of a different type"
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "CustomProperty",
+   "desc": "[!E_Hero_1] is a [!EcazChampion]"
+  },
+  {
+   "target": {
+    "trait": "E_Hero_1_ChampionBuff_PerTrophy"
+   },
+   "target2": {},
+   "ref": "CustomProperty",
+   "desc": "Every [!EcazChampion] gains ::target_effects:: per [TEcazChampion_Buff_Stack]"
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 0
+ },
+ "name": "Legendary Swordmaster"
+}
+=== trait E_Hero_1_FactionBuff ===
+{
+ "id": "E_Hero_1_FactionBuff",
+ "desc": "",
+ "props": {},
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Faction_ExtraEcazChampion_Flat",
+   "val": 2,
+   "displayed": false
+  },
+  {
+   "target": {
+    "trait": "TEcazChampion"
+   },
+   "target2": {
+    "trait": "E_Hero_1_ChampionBuff"
+   },
+   "ref": "Unit_HasTTrait_GainTTrait2",
+   "displayed": false
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 1
+ },
+ "name": "Legendary Swordmaster"
+}
+=== trait E_Hero_1_ChampionBuff ===
+{
+ "id": "E_Hero_1_ChampionBuff",
+ "desc": "This [!TEcazChampion] has taken part in [!E_Hero_1]'s exclusive training sessions.",
+ "props": {},
+ "attributes": [
+  {
+   "target": {
+    "trait": "E_Hero_1_ChampionBuff_PerTrophy"
+   },
+   "target2": {
+    "trait": "TEcazChampion_Buff_Stack"
+   },
+   "ref": "Entity_SetStacksTTrait_PerTTrait2Stacks",
+   "desc": "::target_effects:: per [TEcazChampion_Buff_Stack]"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 1
+ },
+ "name": "Whitmore's Training"
+}
+=== trait E_Hero_1_Skill ===
+{
+ "id": "E_Hero_1_Skill",
+ "desc": "Honor only gets you so far. Sometimes [!E_Hero_1] can surprise his enemies with dishonorable tactics.",
+ "props": {
+  "tip": {
+   "cat": "UnitTrait"
+  },
+  "fx": [
+   {
+    "attachOnWorld": false,
+    "followPosOnly": false,
+    "targetPlayers": 0,
+    "playOnApplication": false,
+    "isUIFx": false,
+    "attachSpecs": {
+     "bone": "B_SpineTopJ"
+    },
+    "flags": 0,
+    "vfxPath": "Fx/Unit/SkillsHeroes/FX_Human_AltDuncan_Skill_Constraint.fx"
+   }
+  ]
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "E_Hero_1_SkillBuff"
+   },
+   "target2": {
+    "trait": "TEcazChampion_Buff_Stack"
+   },
+   "ref": "Entity_SetStacksTTrait_PerTTrait2Stacks",
+   "desc": "For each [TEcazChampion_Buff_Stack], gain: ::target_effects_list::"
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "CustomProperty_Inverted",
+   "desc": "Consume ::value:: [TEcazChampion_Buff_Stack] every 4 seconds",
+   "val": 1
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 0
+ },
+ "name": "Frightful Champion"
+}
+=== trait CB_Ecaz_FactionBonus2 ===
+{
+ "id": "CB_Ecaz_FactionBonus2",
+ "desc": "",
+ "props": {
+  "tip": {
+   "cat": "ConquestMajorBonus"
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "CB_Ecaz_FactionBonus2_Effect"
+   },
+   "target2": {},
+   "ref": "Faction_EcazChampion_GainTTrait",
+   "desc": "Upon killing a unit from an enemy faction, the [TEcazChampion] produces: ::target_effects_list::"
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 47,
+  "y": 0
+ },
+ "name": "Political Duel"
+}
+=== trait CB_Ecaz_FactionBonus2_Effect ===
+{
+ "id": "CB_Ecaz_FactionBonus2_Effect",
+ "desc": "",
+ "props": {
+  "tip": {
+   "cat": "UnitInspiration"
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "resource": "Standing"
+   },
+   "target2": {},
+   "ref": "Army_OnEliminateFactionUnit_GainTRes",
+   "val": 3,
+   "desc": "::value:: [Standing]"
+  },
+  {
+   "target": {
+    "resource": "Influence"
+   },
+   "target2": {},
+   "ref": "Army_OnEliminateFactionUnit_GainTRes",
+   "val": 10,
+   "desc": "::value:: [Influence]"
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 47,
+  "y": 1
+ },
+ "name": "Political Duel"
+}
+=== trait Corrino_HegemonyBonus2_WarSource ===
+{
+ "id": "Corrino_HegemonyBonus2_WarSource",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Corrino",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "Corrino_WarEnemy"
+   },
+   "target2": {},
+   "ref": "Faction_GiveTTrait_AtWarSinceDays",
+   "val": 50,
+   "displayed": false
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 4,
+  "y": 0
+ }
+}
+=== trait Corrino_WarEnemy ===
+{
+ "id": "Corrino_WarEnemy",
+ "desc": "",
+ "props": {
+  "padExpand": false,
+  "allowed": false,
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "Corrino_WarEnemy_MainBase"
+   },
+   "target2": {},
+   "ref": "MainBase_GainTTrait",
+   "desc": "The main base gains [Corrino_WarEnemy_MainBase]",
+   "displayed": false
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 4,
+  "y": 0
+ },
+ "name": ""
+}
+=== trait Corrino_WarEnemy_MainBase ===
+{
+ "id": "Corrino_WarEnemy_MainBase",
+ "desc": "",
+ "props": {
+  "padExpand": false,
+  "allowed": false,
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "faction": "Corrino"
+   },
+   "target2": {
+    "trait": "Corrino_HegemonyBonus2_DestroyedMB"
+   },
+   "ref": "MainBase_OnDeathByTFaction_GiveTTrait2",
+   "desc": "Getting destroyed by [Corrino-longname] gives them a second use of [DeployMainBase]"
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 25,
+  "y": 2
+ },
+ "name": ""
+}
+=== trait V_Hero_2_Trait_Buff_Execute ===
+{
+ "id": "V_Hero_2_Trait_Buff_Execute",
+ "desc": "[!V_Hero_2] is an expert at disappearing without a trace in tight situations.",
+ "props": {
+  "tip": {
+   "cat": "UnitInspiration"
+  },
+  "stackingLimit": 1,
+  "duration": 30
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "CustomProperty",
+   "desc": "The next attack executes, and removes [!V_Hero_2] from combat"
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_ExecuteTarget_HealthRatio_Flat",
+   "val": 1,
+   "displayed": false
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_OnAttack_Purge_LeaveCombat",
+   "displayed": false
+  },
+  {
+   "target": {
+    "trait": "V_Hero_2_Trait_Buff_Execute"
+   },
+   "target2": {},
+   "ref": "Entity_OnAttack_LoseTTrait",
+   "displayed": false
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 1
+ },
+ "name": "Evasion"
+}
+=== trait C_Elite_Trait ===
+{
+ "id": "C_Elite_Trait",
+ "desc": "",
+ "props": {
+  "tip": {
+   "cat": "UnitTrait"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "ref": "Entity_ExecuteTarget_HealthRatio_Flat",
+   "val": 0.05,
+   "target2": {}
+  },
+  {
+   "target": {
+    "trait": "C_Elite_Buff"
+   },
+   "ref": "Army_SetTTrait_PerAllyArmyAtTRange2",
+   "target2": {
+    "range": "Medium_Range"
+   },
+   "desc": "::target_effects:: per ally unit at [Medium_Range] (x::target_stacking_limit:: max)"
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 4,
+  "y": 0
+ },
+ "name": "Executioner"
+}
+=== trait Atreides_NegativeResolution ===
+{
+ "id": "Atreides_NegativeResolution",
+ "desc": "The Landsraad's disapproval inflames the troops of [Atreides-longname].",
+ "props": {
+  "stackingLimit": 3,
+  "tip": {
+   "cat": "FactionBonus"
+  }
+ },
+ "attributes": [
+  {
+   "target": {},
+   "ref": "Army_Power_ARatio",
+   "val": 0.1,
+   "target2": {}
+  }
+ ],
+ "type": 0,
+ "displayed": true,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 5,
+  "y": 1
+ },
+ "name": "Allied Military Support"
+}
+=== equipment VowOfBravery ===
+{
+ "id": "VowOfBravery",
+ "name": "Vow of Bravery",
+ "desc": "I will never let fear stop my arm!",
+ "traits": [
+  {
+   "ref": "TVowOfBravery",
+   "showAsClassTrait": false
+  }
+ ],
+ "props": {
+  "cost": [
+   {
+    "res": "Solari",
+    "qty": 500
+   }
+  ]
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/icons/equipments_02.png",
+  "size": 64,
+  "x": 21,
+  "y": 0
+ }
+}
+=== equipment VowOfFervor ===
+{
+ "id": "VowOfFervor",
+ "name": "Vow of Fervor",
+ "desc": "I will always dedicate my entire being to my goals!",
+ "traits": [
+  {
+   "ref": "TVowOfFervor",
+   "showAsClassTrait": false
+  }
+ ],
+ "props": {
+  "cost": [
+   {
+    "res": "Solari",
+    "qty": 500
+   }
+  ]
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/icons/equipments_02.png",
+  "size": 64,
+  "x": 22,
+  "y": 0
+ }
+}
+=== equipment VowOfHeroism ===
+{
+ "id": "VowOfHeroism",
+ "name": "Vow of Heroism",
+ "desc": "I will surpass myself, to reach my full potential!",
+ "traits": [
+  {
+   "ref": "TVowOfHeroism",
+   "showAsClassTrait": false
+  }
+ ],
+ "props": {
+  "cost": [
+   {
+    "res": "Solari",
+    "qty": 500
+   }
+  ]
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/icons/equipments_02.png",
+  "size": 64,
+  "x": 23,
+  "y": 0
+ }
+}
+=== equipment VowOfHonor ===
+{
+ "id": "VowOfHonor",
+ "name": "Vow of Honor",
+ "desc": "I will never belittle the people I serve!",
+ "traits": [
+  {
+   "ref": "TVowOfHonor",
+   "showAsClassTrait": false
+  }
+ ],
+ "props": {
+  "cost": [
+   {
+    "res": "Solari",
+    "qty": 500
+   }
+  ]
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/icons/equipments_02.png",
+  "size": 64,
+  "x": 24,
+  "y": 0
+ }
+}
+=== unit E_Elite ===
+{
+ "images": {
+  "bigPortrait": {
+   "file": "UI/Faction/unit_military.png",
+   "size": 250,
+   "x": 4,
+   "y": 7
+  },
+  "smallPortrait": {
+   "file": "UI/Faction/unitsSmall.png",
+   "size": 80,
+   "x": 3,
+   "y": 7
+  },
+  "wheelPortrait": {
+   "file": "UI/console/wheel_units_ecaz.png",
+   "size": 358,
+   "x": 4,
+   "y": 0
+  }
+ },
+ "id": "E_Elite",
+ "texts": {
+  "name": "Knight",
+  "plural": {
+   "name": "Knights"
+  },
+  "desc": "Ecazi nobility prides itself on its bravery and martial prowess. It is customary for young nobles to follow the path of the knight, to demonstrate in the fray that they indeed possess such qualities."
+ },
+ "traits": [
+  {
+   "ref": "E_Elite_Trait"
+  },
+  {
+   "ref": "Warrior_Trait"
+  }
+ ],
+ "stats": [
+  {
+   "health": 250,
+   "power": 25,
+   "armor": 2
+  }
+ ],
+ "attacks": {},
+ "equipment": [
+  {
+   "ref": "VowOfBravery"
+  },
+  {
+   "ref": "VowOfFervor"
+  },
+  {
+   "ref": "VowOfHeroism"
+  },
+  {
+   "ref": "VowOfHonor"
+  }
+ ],
+ "effects": {
+  "models": [
+   {
+    "ref": "E_Elite",
+    "flags": 0
+   }
+  ],
+  "events": [
+   {
+    "fxs": [],
+    "sound": "Knights_Move",
+    "soundSource": 0,
+    "kind": 1
+   },
+   {
+    "kind": 24,
+    "fxs": [],
+    "soundSource": 0,
+    "fxTarget": 0,
+    "sound": "Common_Death"
+   }
+  ],
+  "sound": {
+   "voices": [
+    {
+     "action": 2,
+     "event": "Voice_E_Knight_Attack"
+    },
+    {
+     "action": 1,
+     "event": "Voice_E_Knight_Move"
+    },
+    {
+     "action": 0,
+     "event": "Voice_E_Knight_Select"
+    }
+   ]
+  }
+ },
+ "costs": {
+  "recruit": [
+   {
+    "res": "Solari",
+    "qty": 100
+   },
+   {
+    "qty": 50,
+    "res": "Manpower"
+   }
+  ],
+  "upkeep": [
+   {
+    "qty": 20,
+    "res": "Solari"
+   },
+   {
+    "qty": 5,
+    "res": "CommandPoint"
+   }
+  ]
+ },
+ "props": {
+  "squadSize": 2
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/Faction/unitsSmall.png",
+  "size": 80,
+  "x": 3,
+  "y": 7
+ },
+ "inherits": "Elite",
+ "faction": "Ecaz"
+}
+=== unit E_Hero_1 ===
+{
+ "images": {
+  "bigPortrait": {
+   "file": "UI/Faction/unit_military.png",
+   "size": 250,
+   "x": 8,
+   "y": 7
+  },
+  "smallPortrait": {
+   "file": "UI/Faction/unitsSmall.png",
+   "size": 80,
+   "x": 15,
+   "y": 7
+  },
+  "wheelPortrait": {
+   "file": "UI/console/wheel_units_ecaz.png",
+   "size": 358,
+   "x": 8,
+   "y": 0
+  }
+ },
+ "id": "E_Hero_1",
+ "texts": {
+  "name": "Whitmore",
+  "plural": {
+   "name": "Whitmore"
+  },
+  "desc": "Whitmore Bludd was a renowned instructor at the Ginaz swordmaster school. After the fall of Ginaz, he entered the service of House Ecaz, first as Ilesa's bodyguard, and then as warmaster."
+ },
+ "traits": [
+  {
+   "ref": "E_Hero_1_Trait"
+  },
+  {
+   "ref": "Warrior_Trait"
+  },
+  {
+   "ref": "TEcazChampion"
+  }
+ ],
+ "stats": [
+  {
+   "health": 1000,
+   "power": 20,
+   "armor": 6
+  }
+ ],
+ "attacks": {},
+ "equipment": [],
+ "effects": {
+  "models": [
+   {
+    "ref": "E_Hero_1",
+    "count": 1,
+    "flags": 0
+   }
+  ],
+  "events": [
+   {
+    "fxs": [],
+    "sound": "Move_Run_Whitmorbludd",
+    "soundSource": 0,
+    "kind": 1
+   },
+   {
+    "kind": 3,
+    "fxs": [],
+    "soundSource": 0,
+    "sound": "Whitmore_Attackmelee"
+   },
+   {
+    "kind": 37,
+    "fxs": [],
+    "soundSource": 0,
+    "sound": "Whitmore_Ability"
+   }
+  ],
+  "sound": {
+   "voices": [
+    {
+     "action": 2,
+     "event": "Voice_E_Whitmorebludd_Attack"
+    },
+    {
+     "action": 1,
+     "event": "Voice_E_Whitmorebludd_Move"
+    },
+    {
+     "action": 0,
+     "event": "Voice_E_Whitmorebludd_Select"
+    },
+    {
+     "action": 6,
+     "event": "Voice_E_Whitmorebudd_Abilityon"
+    }
+   ]
+  }
+ },
+ "costs": {},
+ "props": {
+  "character": "Whitmore"
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/Faction/unitsSmall.png",
+  "size": 80,
+  "x": 15,
+  "y": 7
+ },
+ "inherits": "Hero",
+ "faction": "Ecaz"
+}
+=== bonus Ecaz_FactionBonus2 ===
+{
+ "id": "Ecaz_FactionBonus2",
+ "name": "Political Duel",
+ "desc": "",
+ "traits": [
+  {
+   "ref": "CB_Ecaz_FactionBonus2"
+  }
+ ],
+ "effects": [],
+ "props": {
+  "onlyForFactions": [
+   {
+    "ref": "Ecaz"
+   }
+  ],
+  "rarity": 2,
+  "type": 0,
+  "lowDifficulty": false
+ },
+ "gfx": {
+  "file": "UI/conquest/bonusFaction.png",
+  "size": 100,
+  "x": 13,
+  "y": 0
+ },
+ "illustration": {
+  "file": "UI/conquest/bonusFaction_illustrations_ecaz02.png",
+  "size": 1,
+  "x": 2400,
+  "y": 0,
+  "width": 600,
+  "height": 400
+ },
+ "implemented": true,
+ "conditions": []
+}
+=== bonus Corrino_HegemonyBonus2 ===
+NOT FOUND
+
+=== who grants TParryingArmguards / TSoberingMedication ===
+equipment ParryingArmguards -> TParryingArmguards
+equipment SoberingMedication -> TSoberingMedication
+unit E_Hero_1 -> TEcazChampion
+ability EcazChampion -> TEcazChampion
+bonus Ecaz_FactionBonus4 -> TEcazChampion
+trait Corrino_HegemonyBonus2_WarSource -> Corrino_WarEnemy
+trait Corrino_WarEnemy -> Corrino_WarEnemy
+trait E_Hero_1_FactionBuff -> TEcazChampion
+trait TEcazChampion -> TEcazChampion
+
+=== faction props keys, Ecaz ===
+{
+ "startingTraits": [
+  {
+   "trait": "Ecaz"
+  },
+  {
+   "trait": "AllFactions_Basics",
+   "displayed": false
+  }
+ ],
+ "aiType": [
+  {
+   "proba": 1,
+   "type": "Economy"
+  },
+  {
+   "proba": 1,
+   "type": "Military"
+  },
+  {
+   "proba": 5,
+   "type": "Statecraft"
+  },
+  {
+   "proba": 5,
+   "type": "Expansion"
+  }
+ ],
+ "hegemonyBonuses": [
+  {
+   "traitBonus": "Ecaz_HegemonyBonus1"
+  },
+  {
+   "traitBonus": "Ecaz_HegemonyBonus2"
+  }
+ ],
+ "initials": "E",
+ "defaultDiplomaticStatus": [
+  {
+   "faction": "Atreides",
+   "diplomacy": "War"
+  },
+  {
+   "faction": "Harkonnen",
+   "diplomacy": "War"
+  },
+  {
+   "faction": "Smugglers",
+   "diplomacy": "War"
+  },
+  {
+   "faction": "Fremen",
+   "diplomacy": "War"
+  },
+  {
+   "faction": "Corrino",
+   "diplomacy": "War"
+  },
+  {
+   "faction": "Vernius",
+   "diplomacy": "War"
+  }
+ ],
+ "newGameMesh": "Character/Ecaz/Leader/Leader_ArmandaEcaz_NewGame.l3d",
+ "locked": false,
+ "infiltrationResource": "Ecaz_Infiltration",
+ "spectatorRallyPoint": "Fx/Event/FX_Ping_Ecaz_RallyPoint.fx",
+ "flags": 1,
+ "overrideTreasonTraits": {
+  "traitor": "Traitor_Ecaz",
+  "betrayed": "Betrayed_Ecaz"
+ },
+ "palette": {
+  "cqTerritory": "Territory_Ecaz",
+  "occupation": "Occupation_Ecaz"
+ }
+}

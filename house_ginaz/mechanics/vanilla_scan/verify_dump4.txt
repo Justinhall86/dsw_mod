@@ -1,0 +1,206 @@
+- E_Special_Trait [Deadly Dance] 
+    Entity_DamageReceived_FromTarget_MRatio = 0.6 tgt={} tgt2={} | X% damage received from target
+- E_Elite_Trait_Buff [E_Elite_Trait_Buff] 
+    Entity_Armor_Flat = 1 tgt={} tgt2={} | X Armor
+    props: {'stackingLimit': 10}
+- E_Trooper_Debuff [Crushed] A E_Trooper reduces the Armor of this unit.
+    Entity_Armor_Flat = -2 tgt={} tgt2={} | X Armor
+    props: {'stackingLimit': 1}
+- S_Elite_Buff [Easy Target] This unit's target has barely any Armor.
+    Entity_Power_MRatio = 1.5 tgt={} tgt2={} | X% Power
+- A_Hero_2_UnitsBuff_1_Melee [Gurney's Lesson] A_Hero_2 has made this unit stronger.
+    Entity_Armor_Flat = 1 tgt={} tgt2={} | X Armor
+    props: {'stackingLimit': 10}
+- A_Hero_2_UnitsBuff_1_Range [Gurney's Lesson] A_Hero_2 has made this unit stronger.
+    Army_AttackSpeed_ARatio = 0.05 tgt={} tgt2={} | X% attack speed
+    props: {'stackingLimit': 10}
+- A_Hero_2_UnitsBuff_2 [Exemplar Teacher] 
+    Army_ExperienceGain_ARatio = 0.5 tgt={} tgt2={} | X% Experience
+    props: {'stackingLimit': 1}
+- H_Hero_2_UnitDeath_Buff [Bloodthirsty] H_Hero_2 is exalted by death and blood.
+    Entity_Power_Flat = 1 tgt={} tgt2={} | X Power
+    Entity_Armor_Flat = 0.5 tgt={} tgt2={} | X Armor
+    props: {'stackingLimit': 20}
+- Atreides_PositiveResolution [Benefits of Reputation] The Landsraad's approval generates support for the Atreides economy.
+    TRes_Prod_ARatio = 0.1 tgt={'resource': 'Solari'} tgt2={} | X% Solari production
+    props: {'stackingLimit': 3}
+- TKnightlyProtector_Buff [Knightly Protector] 
+    Entity_Armor_Flat = 1 tgt={} tgt2={} | X Armor
+    props: {'stackingLimit': 1}
+- TFrontLineTactics_Buff [Front Line Tactics] This unit is supported by a close ally.
+    Entity_Armor_Flat = 1 tgt={} tgt2={} | X Armor
+- CB_Ecaz_FactionBonus3 [Virtuous Standing] 
+    Faction_SetTTraitStacks_PerAnyVillageWithTTrait2 = - tgt={'trait': 'CB_Ecaz_FactionBonus3_Effect'} tgt2={'trait': 'Ecaz_Sanctuary'} | Every X provides: X
+- CB_Ecaz_FactionBonus5 [Lonely Quest] 
+    Faction_EcazChampion_GainTTrait = - tgt={'trait': 'CB_Ecaz_FactionBonus5_Effect'} tgt2={} | Champions gain X
+    CustomProperty = - tgt={'trait': 'CB_Ecaz_FactionBonus5_EffectStack_Fake'} tgt2={} | Upon resolving any discovery outside of Ecaz-adjective territory, the TEcazChampion gains: X
+- CB_Ecaz_FactionBonus6 [Helpful Entourage] 
+    Faction_EcazChampion_GainTTrait = - tgt={'trait': 'CB_Ecaz_FactionBonus6_Effect'} tgt2={} | Champions gain X
+    CustomProperty = 4 tgt={'unit': 'E_HelpfulEntourage'} tgt2={} | The TEcazChampion is supported by X Xs
+- CB_Ecaz_MissionReward4 [Tourney Culture] 
+    Faction_EcazChampion_GainTTrait = - tgt={'trait': 'CB_Ecaz_MissionReward4_Effect'} tgt2={} | The TEcazChampion gets: X
+- CB_Atreides_FactionBonus2 [Ginaz Swordmasters] 
+    Army_ExperienceGain_ARatio = 1 tgt={} tgt2={} | X% Experience gain and level effects
+    Army_XPLevel_Effects_ARatio = 1 tgt={} tgt2={} | X% Experience level effects
+    Army_XPLevel_AdditionalEffects_ARatio = 1 tgt={} tgt2={} | X% Experience level additional effects
+- Hero_Trait [Hero] Some exceptionnal individuals shape the lives of everyone around them, for good and bad.
+    Entity_ExecuteImmune = - tgt={} tgt2={} | Cannot be Executed
+    CustomProperty = - tgt={} tgt2={} | Does not occupy a training slot during recruitment
+- C_Elite_Buff [Executioner] This C_Elite is supported by allied units.
+    Entity_ExecuteTarget_HealthRatio_Flat = 0.02 tgt={} tgt2={} | Executing threshold is raised by X%
+    props: {'stackingLimit': 20}
+- E_Hero_2_Trait [Thorny Rose] 
+    Entity_FactionOwner_GainTTrait = - tgt={'trait': 'E_Hero_2_FactionBuff'} tgt2={} | X
+    Army_OnDeathInOwnTerritory_KillerFaction_TResLoss_Flat = 50 tgt={'resource': 'Standing'} tgt2={} | Killing E_Hero_2 on Ecaz-adjective territory costs X Standing
+    Entity_GiveTTrait_ATRange2_SelfUnits = - tgt={'trait': 'E_Hero_2_UnitBuff'} tgt2={'range': 'Long_Range'} | Gives X owned units at X
+    CustomProperty = 0.03 tgt={} tgt2={} | Ecaz-adjective units at Long_Range deal X% damage per Masterpiece in neighboring Villages
+- ArmorPenetration_Trait [Armor Penetration] Some units are specialized in taking down heavily armored units.
+    Entity_Attacks_IgnoreArmor_MRatio = 0.5 tgt={} tgt2={} | Ignores half of the enemy armor
+- TSardaukarCleaver [Sardaukar's Cleaver] Swords can be optimized for cutting through bones and flesh.
+    Entity_ExecuteTarget_HealthRatio_Flat = 0.1 tgt={} tgt2={} | Executes enemy units under X% Life
+    Object_TTrait_AdditionalStackingLimit = -5 tgt={'trait': 'C_Elite_Buff'} tgt2={} | X maximum stacks of X
+    CustomProperty = 0.1 tgt={} tgt2={} | Raises the execution threshold by X% as if there were <good>5</good> more units around the C_Elite
+- F_Hero_1_EnemyDebuff [Ghost Army] 
+    Unit_OnDeath_TResInstigatorGain_Flat = 5 tgt={'resource': 'Intel'} tgt2={} | X Intel
+    props: {'stackingLimit': 1}
+- F_Hero_1_UnitBuff [Chani's Silent Walk] 
+    Army_Ground_NoMilitia_GainTTrait = - tgt={'trait': 'F_Hero_1_UnitBuff1'} tgt2={} | Ground units (except militia) gain X
+    props: {'stackingLimit': 1}
+
+--- Fencer kit
+equip JumpingBoot Jumping Boot | A boot reinforcing the calf muscles of its wearer would permit jumps of incredible length. | cost [{'res': 'Solari', 'qty': 500}]
+    - TJumpingBoot [Jumping Boot] A boot reinforcing the calf muscles of its wearer would permit jumps of incredible length.
+        TargetDeath_InCombat_GainTTrait = - tgt={'trait': 'TJumpingBoot_Buff'} tgt2={} | X for X seconds after the target died
+equip PersonalMantlet Personal Mantlet | Technology has evolved, but the basic need of protecting oneself while advancing towards combat has remained the same. | cost [{'res': 'Solari', 'qty': 500}]
+    - TPersonalMantlet [Personal Mantlet] Technology has evolved, but the basic need of protecting oneself while advancing towards combat has remained the same.
+        NoCombat_UntilAttack_GainTTrait = - tgt={'trait': 'TPersonalMantlet_Buff'} tgt2={} | X until first attack dealt in combat
+equip ChasingStance Chasing Stance | When pursuing an enemy, tiring them down is easier than being fast. | cost [{'res': 'Solari', 'qty': 500}]
+    - TChasingStance [Chasing Stance] When pursuing an enemy, tiring them down is easier than being fast.
+        Unit_CurrentTarget_OnDamageUnit_ApplyTTrait = - tgt={'trait': 'TChasingStance_Debuff'} tgt2={} | Current target suffer X (xX max)
+E_Special full desc: Fencers trained all day, every day to be the best duelist in the universe. On the battlefield, they often take the heat off of their lesser peers.
+E_Special attacks: {}
+E_Elite attacks: {}
+
+--- every record mentioning Ginaz / swordmaster / duel (id, sheet, snippet)
+constant:Game_Victory_GovernorDuration ..l": 30, "comment": "Default game"}, {"val": 25, "comment": "Kanly"}], "comment": "How many successive Days does a Faction have to be Governor in order to win.", "props": ..
+constant:Kanly_Max_Players ..{"id": "Kanly_Max_Players", "values": [], "props": {}, "value": 2, "comment": "How many players can a Kanly game be cr..
+constant:Sietch_Count ..pe": "S_GroseValen"}, {"val": 4, "comment": "", "mapType": "Kanly"}, {"val": 4, "comment": "", "mapType": "K_NarrowPass"}, {"val": 0, "comment": "", "mapType": "MapTuto"}..
+constant:AI_DiplomaticTarget_Kanly_Weight ..{"id": "AI_DiplomaticTarget_Kanly_Weight", "values": [{"val": 10, "comment": "Easy"}, {"val": 10, "comment": "Medium"}, {"val": 10, "comme..
+hegemony:ControlledRegions .. 600, "mapType": "S_GroseValen"}, {"val": 1500, "mapType": "Kanly"}, {"val": 1500, "mapType": "K_NarrowPass"}, {"val": 1430, "mapType": "C_FuneralPlain"}, {"val": 910, "m..
+hegemony:Kanly ..{"id": "Kanly", "amount": [{"val": 0}], "values": [], "flags": 10, "props": {"group": 5}, "desc": "", "onlyForFactions..
+achievement:KanlyWin ..{"id": "KanlyWin", "name": "Duelist", "desc": "Win a Kanly", "platforms": {}, "flags": 80, "icon": {"file": "Achieveme..
+achievement:AmtalRule ..Rule", "name": "The Amtal Rule", "desc": "Win a multiplayer Kanly against a player who has this achievement", "platforms": {}, "flags": 0, "icon": {"file": "Achievements/..
+faction:Atreides .. "GuildFavor"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+faction:Harkonnen .. "GuildFavor"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+faction:Smugglers .. "GuildFavor"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+faction:Fremen ..s": "Thumper"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+faction:Corrino .. "GuildFavor"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+faction:Ecaz .. "GuildFavor"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+faction:Vernius .. "GuildFavor"}, {"qty": 4000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 180, "res": "Manpower", "gameMode": "..
+faction:TEST .. "GuildFavor"}, {"qty": 3000, "res": "Solari", "gameMode": "Kanly"}, {"qty": 1500, "res": "Plascrete", "gameMode": "Kanly"}, {"qty": 250, "res": "Manpower", "gameMode": "..
+quest:GinazSwordmasters ..{"id": "GinazSwordmasters", "texts": {"name": "Ginaz Swordmaster", "desc": "A renowned swordmaster from Ginaz is visit..
+character:Thufir .."}], "props": {}, "flags": 0, "desc": "Thufir is an elderly Mentat - a human computer - and House Atreides' Master of Assassins. Renowned in the Landsraad for being both ..
+character:Duncan .."desc": "One of Leto's most trusted men and House Atreides' Swordmaster, Duncan was tasked with being Leto's ambassador to the Fremen upon their arrival on Arrakis.", "im..
+character:Feyd ..takes to uphold his family's sadistic culture. An unmatched duelist and charismatic leader, he is the chosen na-Baron of House Harkonnen, destined to take over his uncle'..
+character:Piter ..on"}], "props": {}, "flags": 0, "desc": "Piter is a twisted Mentat; that is a human computer, but bred on planet Tleilax with much less ethical constraints in mind than t..
+character:Fenring ..y the Bene Gesserit because of a genetic defect. Serving as mentat and assassin for Shaddam IV, he is also His closest friend.", "images": {"menuGfx": {"file": "UI/Factio..
+character:Whitmore ..0, "desc": "Whitmore Bludd was a renowned instructor at the Ginaz swordmaster school. After the fall of Ginaz, he entered the service of House Ecaz, first as Ilesa's body..
+character:Rivvy ..5, "y": 5}, "desc": "Rivvy was a renowned instructor at the Ginaz swordmaster school. After the fall of Ginaz, he entered the service of House Ecaz as Armanda's personal ..
+model:A_Elite ..faction": "Atreides"}]}}, "mesh": [{"path": "CharMOD/Male01_GinazCaptain/Prefab_GinazCaptain.prefab"}], "inherit": "MilitaryCommon", "rigName": 0, "scale": 1.1, "gfx": {"..
+structure:GeothermalEnergyArea ..mapSize": "S_GroseValen"}, {"min": 3, "max": 3, "mapSize": "Kanly"}, {"min": 3, "max": 3, "mapSize": "K_NarrowPass"}, {"min": 0, "max": 0, "mapSize": "MapTuto"}, {"min": ..
+structure:MineralArea ..mapSize": "S_GroseValen"}, {"min": 3, "max": 3, "mapSize": "Kanly"}, {"min": 3, "max": 3, "mapSize": "K_NarrowPass"}, {"min": 0, "max": 0, "mapSize": "MapTuto"}, {"min": ..
+structure:PreciousMetalsArea ..mapSize": "S_GroseValen"}, {"min": 2, "max": 3, "mapSize": "Kanly"}, {"min": 2, "max": 3, "mapSize": "K_NarrowPass"}, {"min": 0, "max": 0, "mapSize": "MapTuto"}, {"min": ..
+structure:ResearchArea ..mapSize": "S_GroseValen"}, {"min": 2, "max": 2, "mapSize": "Kanly"}, {"min": 2, "max": 2, "mapSize": "K_NarrowPass"}, {"min": 0, "max": 0, "mapSize": "MapTuto"}, {"min": ..
+unit:A_Elite ..des.png", "size": 358, "x": 4, "y": 0}}, "texts": {"name": "Ginaz Captain", "desc": "Captains of House Ginaz, trained in the way of the blade. They fight in long wine-red..
+unit:A_Hero_1 .."desc": "One of Leto's most trusted men and House Atreides' Swordmaster, Duncan was tasked with being Leto's ambassador to the Fremen upon their arrival on Arrakis.", "pl..
+unit:E_Special .. "desc": "Fencers trained all day, every day to be the best duelist in the universe. On the battlefield, they often take the heat off of their lesser peers."}, "traits": ..
+unit:E_Hero_1 ..}, "desc": "Whitmore Bludd was a renowned instructor at the Ginaz swordmaster school. After the fall of Ginaz, he entered the service of House Ecaz, first as Ilesa's body..
+trait:Kanly_Global ..{"id": "Kanly_Global", "desc": "", "props": {"tip": {"padExpand": false, "allowed": false}}, "attributes": [{"target":..
+trait:Kanly_MainBase ..{"id": "Kanly_MainBase", "desc": "", "props": {"tip": {"padExpand": false, "allowed": false}}, "attributes": [{"target..
+trait:E_Hero_1_Trait ..aits.png", "size": 64, "x": 44, "y": 0}, "name": "Legendary Swordmaster"}..
+trait:E_Hero_1_FactionBuff ..aits.png", "size": 64, "x": 44, "y": 1}, "name": "Legendary Swordmaster"}..
+trait:Mentat ..{"id": "Mentat", "name": "Mentat", "desc": "", "props": {"rarity": 1, "group": 1, "tip": {"cat": "AgentTrait"}}, "attr..
+trait:WhitmorePassive ..": 32, "x": 12, "y": 20, "width": 4, "height": 4}, "name": "Swordmaster Teacher"}..
+trait:RivvyPassive ..ouncillors_all.png", "size": 128, "x": 5, "y": 5}, "name": "Swordmaster Teacher"}..
+trait:RivvyPassive_Buff ..ouncillors_all.png", "size": 128, "x": 5, "y": 5}, "name": "Swordmaster Teacher"}..
+trait:CB_Atreides_FactionBonus2 ..ns/unitsTraits.png", "size": 64, "x": 21, "y": 0}, "name": "Ginaz Swordmasters"}..
+trait:CB_Atreides_MissionReward1 ..ns/unitsTraits.png", "size": 64, "x": 21, "y": 0}, "name": "Ginaz Schools"}..
+trait:CB_Ecaz_FactionBonus2 ..aits.png", "size": 64, "x": 47, "y": 0}, "name": "Political Duel"}..
+trait:CB_Ecaz_FactionBonus2_Effect ..aits.png", "size": 64, "x": 47, "y": 1}, "name": "Political Duel"}..
+landsraadPhase:Closed ..firmation": false, "usesCouncilTime": false, "announceChangementAt": 0.9500000000000001, "ignorePause": false, "classname": "closed"}, "allowedActions": [], "texts": {"de..
+landsraadPhase:Recap ..firmation": false, "usesCouncilTime": false, "announceChangementAt": 0.9500000000000001, "ignorePause": false, "classname": "result"}, "allowedActions": [], "texts": {"de..
+agent:A1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 0, "y": 0}}], "id"..
+agent:A2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 1, "y": 0}}], "id"..
+agent:A3 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 2, "y": 0}}], "id"..
+agent:A4 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 0, "y": 1}}], "id"..
+agent:A5 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 1, "y": 1}}], "id"..
+agent:A6 ..r.png", "size": 240, "x": 2, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 2, "y": 1}}], "nee..
+agent:A7 ..r.png", "size": 240, "x": 3, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 3, "y": 0}}], "nee..
+agent:A8 ..r.png", "size": 240, "x": 4, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 4, "y": 0}}], "nee..
+agent:A9 ..r.png", "size": 240, "x": 4, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_atreides_mentat.png", "size": 240, "x": 4, "y": 1}}], "nee..
+agent:H1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 0, "y": 0}}], "gf..
+agent:H2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 1, "y": 0}}], "gf..
+agent:H3 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 0, "y": 1}}], "gf..
+agent:H4 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 1, "y": 1}}], "gf..
+agent:H5 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 2, "y": 0}}], "ne..
+agent:H6 ..r.png", "size": 240, "x": 2, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 2, "y": 1}}], "ne..
+agent:H7 ..r.png", "size": 240, "x": 3, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 3, "y": 0}}], "ne..
+agent:H8 ..r.png", "size": 240, "x": 3, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_harkonnen_mentat.png", "size": 240, "x": 3, "y": 1}}], "ne..
+agent:F1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_fremen_mentat.png", "size": 240, "x": 0, "y": 0}}], "gfx":..
+agent:F2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_fremen_mentat.png", "size": 240, "x": 1, "y": 0}}], "gfx":..
+agent:F3 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_fremen_mentat.png", "size": 240, "x": 0, "y": 1}}], "gfx":..
+agent:F4 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_fremen_mentat.png", "size": 240, "x": 1, "y": 1}}], "gfx":..
+agent:F5 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_fremen_mentat.png", "size": 240, "x": 2, "y": 0}}], "need"..
+agent:F6 ..r.png", "size": 240, "x": 2, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_fremen_mentat.png", "size": 240, "x": 2, "y": 1}}], "need"..
+agent:S1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 0, "y": 0}}], "gf..
+agent:S2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 1, "y": 0}}], "gf..
+agent:S3 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 0, "y": 1}}], "gf..
+agent:S4 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 1, "y": 1}}], "gf..
+agent:S5 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 2, "y": 0}}], "ne..
+agent:S6 ..r.png", "size": 240, "x": 3, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 3, "y": 0}}], "ne..
+agent:S7 ..r.png", "size": 240, "x": 2, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 2, "y": 1}}], "ne..
+agent:S8 ..r.png", "size": 240, "x": 3, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_smugglers_mentat.png", "size": 240, "x": 3, "y": 1}}], "ne..
+agent:C1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 0, "y": 0}}, {"tra..
+agent:C2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 1, "y": 0}}, {"tra..
+agent:C3 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 0, "y": 1}}, {"tra..
+agent:C4 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 1, "y": 1}}, {"tra..
+agent:C5 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 2, "y": 0}}, {"tra..
+agent:C6 ..r.png", "size": 240, "x": 2, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 2, "y": 1}}, {"tra..
+agent:C7 ..r.png", "size": 240, "x": 3, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 3, "y": 1}}, {"tra..
+agent:C8 ..r.png", "size": 240, "x": 3, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 3, "y": 0}}, {"tra..
+agent:C9 ..r.png", "size": 240, "x": 4, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 4, "y": 0}}, {"tra..
+agent:C10 ..r.png", "size": 240, "x": 4, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_imperium_mentat.png", "size": 240, "x": 4, "y": 1}}, {"tra..
+agent:E1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_ecaz_mentat.png", "size": 240, "x": 0, "y": 0}}], "need": ..
+agent:E2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_ecaz_mentat.png", "size": 240, "x": 1, "y": 0}}], "need": ..
+agent:E3 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_ecaz_mentat.png", "size": 240, "x": 0, "y": 1}}], "need": ..
+agent:E4 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_ecaz_mentat.png", "size": 240, "x": 1, "y": 1}}], "need": ..
+agent:E5 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_ecaz_mentat.png", "size": 240, "x": 2, "y": 0}}], "need": ..
+agent:E6 ..r.png", "size": 240, "x": 2, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_ecaz_mentat.png", "size": 240, "x": 2, "y": 1}}], "need": ..
+agent:V1 ..r.png", "size": 240, "x": 0, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 0, "y": 0}}], "need..
+agent:V2 ..r.png", "size": 240, "x": 1, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 1, "y": 0}}], "need..
+agent:V3 ..r.png", "size": 240, "x": 2, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 2, "y": 0}}], "need..
+agent:V4 ..r.png", "size": 240, "x": 0, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 0, "y": 1}}], "need..
+agent:V5 ..r.png", "size": 240, "x": 1, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 1, "y": 1}}], "need..
+agent:V6 ..r.png", "size": 240, "x": 3, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 3, "y": 0}}], "need..
+agent:V7 ..r.png", "size": 240, "x": 4, "y": 0}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 4, "y": 0}}], "need..
+agent:V8 ..r.png", "size": 240, "x": 3, "y": 1}}, {"traits": [{"ref": "Mentat"}], "gfx": {"file": "UI/spying/agents/agents_vernius_mentat.png", "size": 240, "x": 3, "y": 1}}], "need..
+mapType:Kanly ..{"id": "Kanly", "props": {"numCells": 60, "minDistBetweenBases": 4, "hasPole": true, "mergeCellsMax": 2, "basesAlwaysD..
+creditsGroup:BetaTesters ..tName": "Gorgots", "lastName": ""}, {"firstName": "GuerrillaMentat", "lastName": ""}, {"firstName": "Hartman", "lastName": ""}, {"firstName": "heRn", "lastName": ""}, {"f..
+parameter:MapSize .. "props": {"disableFor": 2}, "constOverrides": []}, {"id": "Kanly", "name": "Standard Kanly", "desc": "The standard map for a duel in the northern hemisphere.", "props": ..
+parameter:SkirmishBattle .., "desc": "Play a specific mission.", "type": 0, "props": {"kanlyEditable": true, "hide": 256, "disableFor": 64, "ingameEditable": false}, "choices": [{"id": "None", "nam..
+parameter:WormActivity .."}]}], "props": {"ingameEditable": true, "disableFor": 64, "kanlyEditable": true, "hide": 128}}..
+parameter:StormActivity .."}]}], "props": {"ingameEditable": true, "disableFor": 64, "kanlyEditable": true, "hide": 128}}..
+parameter:PVEDifficulty .."}]}], "props": {"ingameEditable": true, "disableFor": 64, "kanlyEditable": true, "hide": 128}}..
+parameter:ContractCost ..e": 0, "props": {"disableFor": 64, "ingameEditable": true, "kanlyEditable": true, "hide": 128}, "choices": [{"name": "Low", "desc": "All Spice contracts will be 30% less ..
+parameter:Landsraad ..e": 0, "props": {"disableFor": 64, "ingameEditable": true, "kanlyEditable": true, "hide": 129}, "choices": [{"id": "Slow", "name": "Slow", "desc": "Gives everyone the tim..
+parameter:Victories .. []}], "props": {"ingameEditable": true, "disableFor": 64, "kanlyEditable": true, "hide": 384}}..
+parameter:Difficulty ..ortunity.", "props": {}, "constOverrides": []}], "props": {"kanlyEditable": true, "disableFor": 64, "hide": 640}}..
+parameter:AiPlayers ..led by the computer.", "type": 2, "choices": [], "props": {"kanlyEditable": true, "disableFor": 6}}..
+parameter:Speed ..s": {}, "constOverrides": []}], "props": {"disableFor": 1, "kanlyEditable": true, "hide": 128}}..
+parameter:Pause ..: []}], "props": {"disableFor": 1, "ingameEditable": true, "kanlyEditable": true, "hide": 384}}..
+gameMode:Kanly ..{"id": "Kanly", "texts": {"name": "Kanly Duel", "menuButton": "Kanly Duel", "desc": "A fast and thrilling duel for rev..
+speech:TheFortress_Start ..fortress in Arrakis. Truly, I'm shocked. No self-respecting Mentat would advise their lord to do something so foolish. But you're already here, so there's no point going ..
+objective:Conquest_HiredHelp ..fectObject": {"faction": {"type": 3}}}], "goToStep": "BeforeDuel"}, "props": {}, "gfx": {"file": "UI/icons/alertIcons2.png", "size": 40, "x": 8, "y": 2}, "desc": "Liberat..
+bonus:Atreides_FactionBonus2 ..{"id": "Atreides_FactionBonus2", "name": "Ginaz Swordmasters", "traits": [{"ref": "CB_Atreides_FactionBonus2"}], "effects": [], "props": {"onlyForFactio..
+bonus:Atreides_MissionReward1 ..{"id": "Atreides_MissionReward1", "name": "Ginaz Schools", "traits": [{"ref": "CB_Atreides_MissionReward1"}], "effects": [], "props": {"onlyForFactions":..
+bonus:Ecaz_FactionBonus2 ..{"id": "Ecaz_FactionBonus2", "name": "Political Duel", "desc": "", "traits": [{"ref": "CB_Ecaz_FactionBonus2"}], "effects": [], "props": {"onlyForFactions": [..

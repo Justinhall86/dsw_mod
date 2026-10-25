@@ -1,0 +1,308 @@
+##### CLAIM CHECKS
+- Harkonnen_HegemonyBonus_1 [Hegemony Bonus 5k] 
+    Pillage_TResPostGain_Flat = 50 [target: resource=Intel]  -- Gain X X by pillaging a Village
+    Faction_OnInfantryKill_OtherFactionUnit_SpawnTTraitAgent = 20 [target: trait=Brainwashed]  -- Each X enemy non-mechanical unit killed, receive an Agent with X trait
+    props: {'onlyForFaction': 'Harkonnen'}
+- Atreides_HegemonyBonus_1 [Hegemony Bonus 5k] 
+    Resolution_Positive_GainTTrait = - [target: trait=Atreides_PositiveResolution]  -- While under the effect of a positive Resolution, gain X
+    Resolution_Negative_GainTTrait = - [target: trait=Atreides_NegativeResolution]  -- While under the effect of a negative Resolution, gain X
+    props: {'onlyForFaction': 'Atreides'}
+- H_Elite_Trait [Bloodthirsty] 
+    DeathAtTRange2_InCombat_GainTTrait = - [target: trait=H_Elite_Buff]  -- Gain X when any unit dies at X range while in combat
+- H_Elite_Buff [Bloodthirsty] Exalted by death and blood.
+    Entity_Power_Flat = 1  -- X Power
+    props: {'stackingLimit': 20}
+- H_Hero_2_Trait [Survival of The Fittest] 
+    Unit_OnBeforeDeath_ConsumeSelfInfantryHealth_TRange = - [target: range=Short_Range]  -- When Iakin reach 0 Life, he steals all the Life of a owned human unit in X
+    Entity_GiveTTrait_Unit_AtTRange2 = - [target: trait=H_Hero_2_UnitDeath]  -- Give X to unit in X
+    CustomProperty = - [target: trait=H_Hero_2_UnitDeath_Buff]  -- Description of a game mechanic not specific to an ATB
+- H_Hero_2_UnitDeath [Drugged] 
+    Unit_OnDeath_Instigator_InCombat_GainTTraitStack = - [target: trait=H_Hero_2_UnitDeath_Buff]  -- Instigator gain stack of X per unit dying
+    props: {'stackingLimit': 1}
+- S_Elite_Trait [Easy Target] 
+    Entity_FightTarget_ArmorUnderEqual_GainTTrait = 3 [target: trait=S_Elite_Buff]  -- X while target having at most X Armor
+- F_Elite_Trait [Heavy Hitter] 
+    CustomProperty = -  -- Description of a game mechanic not specific to an ATB
+    Entity_Attacks_IgnoreArmor_MRatio = 0.5  -- This unit's attacks ignore X% enemy Armor
+- A_Hero_2_Trait [Exemplar Teacher] 
+    Entity_FactionOwner_GainTTrait = - [target: trait=A_Hero_2_FactionBuff]  -- Faction gains X
+    CustomProperty = - [target: trait=A_Hero_2_UnitsBuff_1_Melee]  -- Description of a game mechanic not specific to an ATB
+    CustomProperty = - [target: trait=A_Hero_2_UnitsBuff_1_Range]  -- Description of a game mechanic not specific to an ATB
+    Entity_GiveTTrait_ATRange2_SelfUnits = - [target: trait=A_Hero_2_UnitsBuff_2]  -- Gives X owned units at X
+- A_Hero_2_FactionBuff [Gurney's Lesson] 
+    MilitaryUnit_XPLevel_GainTTraitStack = - [target: trait=A_Hero_2_UnitsBuff_1]  -- Each XP level grants a stack of X
+    props: {'stackingLimit': 1}
+- A_Hero_2_UnitsBuff_1 [Gurney's Lesson] A_Hero_2 has made this unit stronger.
+    TUnit_GainTTrait2 = 0 [target: unit=A_Trooper]  -- Xs gain X
+    TUnit_GainTTrait2 = 0 [target: unit=A_Elite]  -- Xs gain X
+    TUnit_GainTTrait2 = 0 [target: unit=A_Soldier]  -- Xs gain X
+    TUnit_GainTTrait2 = 0 [target: unit=A_Demo]  -- Xs gain X
+    props: {'stackingLimit': 10}
+- A_Hero_1_Trait [Heroic Figure] 
+    Army_AffectedByAllyUnitBonus_GainStackTTrait = - [target: trait=A_Hero_1_Heroism]  -- Gain X stack per bonus effect of allied unit
+    Unit_SetTTraitStacks_PerUnitKindDeath = - [target: trait=A_Hero_1_GholaWisdom]  -- Gain X per previous death
+- A_Hero_1_Heroism [Heroism] A nearby unit inspires A_Hero_1 to transcend himself.
+    Entity_Power_Flat = 2  -- X Power
+    Entity_Armor_Flat = 1  -- X Armor
+    props: {'stackingLimit': 10}
+- A_Hero_1_GholaWisdom [Ghola Wisdom] A_Hero_1 has come back from the dead with a few little improvements.
+    Entity_Power_Flat = 3  -- X Power
+    Army_Life_Flat = 150  -- X unit Life
+- F_Hero_1_Trait [Ghost Army] 
+    Entity_FactionOwner_GainTTrait = - [target: trait=F_Hero_1_UnitBuff]  -- Faction gains X
+    CustomProperty = 0.4  -- Description of a game mechanic not specific to an ATB
+    Entity_Cloaked = -  -- Cannot be seen outside of combat
+    Entity_GiveTTrait_Enemy_ATRange2 = - [target: trait=F_Hero_1_EnemyDebuff]  -- Gives X to X humans
+- TBattlefieldFrenzy [Battlefield Frenzy] Sardaukars' sense of duty shines brighter on major battlefront, when they are surrounded by many supporting levies.
+    Army_AttackSpeed_PerAllyUnit_AtTRange_ARatio = 0.01 [target: range=Medium_Range]  -- X% attack speed per allied unit at X
+- Brainwashed [Brainwashed] 
+    AgtAtb_SlotAllProd_ARatio = -0.1  -- This agent produces X% of every resource
+- WhitmorePassive [Swordmaster Teacher] 
+    Faction_ExtraEcazChampion_Flat = 1  -- Can apply EcazChampion on X more units
+    Army_SpawnExperienceLevel_Flat = 1  -- Military Units start with X more Experience level
+- E_Elite_Trait [Nobility] 
+    Unit_SetTTraitStacks_PerNearbyInfantryAlly_ExceptTUnit2 = - [target: trait=E_Elite_Trait_Buff]  -- Gain X per other non-mechanical allied unit nearby that is not X
+- E_Trooper_Trait [Crusher] 
+    Unit_CurrentTarget_OnDamageUnit_ApplyTTrait = - [target: trait=E_Trooper_Debuff]  -- The target is X (xX max): X
+- TPricklySpear [Prickly Spear] Sometimes, the only way to fulfill the protector's duty is to make him a target.
+    Unit_FightTarget_OnDamageUnit_ApplyTTrait = - [target: trait=TPricklySpear_Debuff]  -- Dealing damage to an enemy unit applies X until the end of combat
+- TPricklySpear_Debuff [Prickly Spear] A E_Trooper is bothering this unit.
+    Unit_DamageVsNoTUnit_MRatio = 0.8 [target: unit=E_Trooper]  -- X% damage against non X
+    props: {'stackingLimit': 1}
+- TKnightlyProtector [Knightly Protector] The squire's first duty is to protect any noble E_Elite in the vicinity.
+    Entity_KnightInTRange2_GainTTrait = - [target: trait=TKnightlyProtector_Buff]  -- Gain X if at least 1 E_Elite is in X
+    CustomProperty = 1 [target: trait=TKnightlyProtector_Buff]  -- Description of a game mechanic not specific to an ATB
+- TFrontLineTactics [Front Line Tactics] Supporting your brother-in-arms on the front line is key to surviving many fights.
+    Entity_GiveTTrait_AllyUnit_AtTRange2 = - [target: trait=TFrontLineTactics_Buff]  -- Give X to ally unit in X
+    Entity_Power_Flat = -1  -- X Power
+- Ecaz_PerfectRecruit [Perfected] This unit has been through a thorough formation process, making them a perfect representant of Ecaz art of warfare.
+    Entity_Life_MRatio = 1.2  -- X% max Life
+    Entity_Power_MRatio = 1.2  -- X% Power
+    Army_Scale_ARatio = 0.05  -- These unit is X% taller
+    Infantry_SafeRegenCost_MRatio = 2  -- X% non-mechanical units regeneration costs
+    Mechanical_SafeRegenCost_MRatio = 2  -- X% mechanical units regeneration costs
+- Harkonnen_FactionBonus9: (trait not found)
+
+-- Jessica / councilor passive
+Jessica Jessica passive: JessicaPassive
+  - JessicaPassive [The Voice] 
+      Allow_PeaceForce = -  -- Can impose ImproveRelations upon other factions at the cost of Influence
+      Treaty_BothFaction_NoUpkeep = -  -- You and other factions lose no Authority from Treatys
+      Treaty_EnemyBreak_TResLoss_Flat = -50 [target: resource=Standing]  -- Other factions lose X more X when breaking a Treaty with you
+
+-- Equipment names on Ecaz units
+E_Ornithopter Ornithopter stats [] equip [] traits [] squad None
+E_Ornithopter_Scavenged Scavenged Ornithopter stats [{'speed': 15, 'health': 100, 'safeRegen': 0, 'armor': 0}] equip [] traits ['NoHealthRegen'] squad None
+E_Ornithopter_Prototype Experimental Ornithopter stats [{'speed': 30, 'health': 800, 'armor': 10}] equip [] traits [] squad None
+E_Ornithopter_Lab Labthopter stats [{'speed': 15, 'health': 400, 'armor': 4}] equip [] traits ['Orni_Lab_Trait'] squad None
+E_Harvester Harvester stats [] equip [] traits [] squad None
+E_Trooper Squire stats [{'health': 450, 'power': 10, 'armor': 7}] equip ['FrontLineTactics', 'KnightlyProtector', 'SoberingMedication', 'PricklySpear'] traits ['E_Trooper_Trait'] squad None
+E_Soldier Musketeer stats [{'health': 300, 'power': 21, 'armor': 0, 'range': 35}] equip ['ShadowScan', 'HeavyLoads', 'BarrelCleaner', 'BirdSlayer'] traits ['E_Soldier_Trait'] squad None
+E_Special Fencer stats [{'health': 300, 'power': 11, 'armor': 1}] equip ['JumpingBoot', 'PersonalMantlet', 'ParryingArmguards', 'ChasingStance'] traits ['E_Special_Trait'] squad None
+E_Drone War Banner stats [{'health': 300, 'power': 16, 'armor': 3, 'maxSupply': 200, 'range': 25}] equip ['DistractingLights', 'MarchingColors', 'PropagandaMachine', 'BigBanner'] traits ['E_Drone_Trait', 'Demo_Trait'] squad 1
+E_Elite Knight stats [{'health': 250, 'power': 25, 'armor': 2}] equip ['VowOfBravery', 'VowOfFervor', 'VowOfHeroism', 'VowOfHonor'] traits ['E_Elite_Trait', 'Warrior_Trait'] squad 2
+E_Ship Siren stats [{'power': 10, 'armor': 4, 'health': 230, 'range': 35}] equip [] traits ['E_Ship_Trait'] squad None
+E_Frigate Monument stats [{'power': 12, 'armor': 6, 'range': 50, 'health': 2000}] equip [] traits ['E_Frigate_Trait', 'AirToGround_Trait', 'E_Frigate_WarAnthem', 'E_Frigate_Lullaby_Fake'] squad None
+E_Hero_1 Whitmore stats [{'health': 1000, 'power': 20, 'armor': 6}] equip [] traits ['E_Hero_1_Trait', 'Warrior_Trait', 'TEcazChampion'] squad None
+E_Hero_2 Ilesa stats [{'health': 600, 'power': 20, 'armor': 2, 'range': 35}] equip [] traits ['E_Hero_2_Trait', 'ArmorPenetration_Trait'] squad None
+E_HelpfulEntourage Follower stats [{'health': 200, 'power': 10, 'armor': 4}] equip [] traits ['E_HelpfulEntourage_Trait'] squad 1
+equip KnightlyProtector Knightly Protector | The squire's first duty is to protect any noble E_Elite in the vicinity. | ['TKnightlyProtector']
+    - TKnightlyProtector [Knightly Protector] The squire's first duty is to protect any noble E_Elite in the vicinity.
+        Entity_KnightInTRange2_GainTTrait = - [target: trait=TKnightlyProtector_Buff]  -- Gain X if at least 1 E_Elite is in X
+        CustomProperty = 1 [target: trait=TKnightlyProtector_Buff]  -- Description of a game mechanic not specific to an ATB
+equip FrontLineTactics Front Line Tactics | Supporting your brother-in-arms on the front line is key to surviving many fights. | ['TFrontLineTactics']
+    - TFrontLineTactics [Front Line Tactics] Supporting your brother-in-arms on the front line is key to surviving many fights.
+        Entity_GiveTTrait_AllyUnit_AtTRange2 = - [target: trait=TFrontLineTactics_Buff]  -- Give X to ally unit in X
+        Entity_Power_Flat = -1  -- X Power
+equip PricklySpear Prickly Spear | Sometimes, the only way to fulfill the protector's duty is to make him a target. | ['TPricklySpear']
+    - TPricklySpear [Prickly Spear] Sometimes, the only way to fulfill the protector's duty is to make him a target.
+        Unit_FightTarget_OnDamageUnit_ApplyTTrait = - [target: trait=TPricklySpear_Debuff]  -- Dealing damage to an enemy unit applies X until the end of combat
+equip OffensiveMindset Offensive Mindset | Developing a healthy competitive spirit towards the opponents can lead to some excess, but it helps when hacking each other to bits is in or | ['TOffensiveMindset']
+    - TOffensiveMindset [Offensive Mindset] Developing a healthy competitive spirit towards the opponents can lead to some excess, but it helps when hacking each other to bits is in order.
+        Army_Power_Flat = 2  -- X Power
+        Entity_DamageReceived_ARatio = 0.15  -- X% damage received
+equip CoverTactics Cover Tactics | Protecting each other during retreat and maneuvering saves lives and helps to get reinforcements sooner. | ['TCoverTactics']
+    - TCoverTactics [Cover Tactics] Protecting each other during retreat and maneuvering saves lives and helps to get reinforcements sooner.
+        Army_InCombat_GiveTTrait_AlliesNoTarget_AtTRange2 = - [target: trait=TCoverTactics_Buff]  -- While in combat, give X to allies with no target at X
+equip PranaBindu Prana Bindu Initiation | Even a short initiation to prana bindu training improves healing and pain resistance over time. | ['TPranaBindu']
+    - TPranaBindu [Prana Bindu Initiation] Even a short initiation to prana bindu training improves healing and pain resistance over time.
+        MilitaryUnit_XPLevel_GainTTraitStack = - [target: trait=TPranaBindu_Buff]  -- Each XP level grants a stack of X
+
+##### WIDENED SCAN: all Conquest bonuses (name, factions, one-line effects)
+Arrakeen | Arrakeen | facs=[] | type=0 rarity=None | Center of the Atreides power on Arrakis
+Atreides_FactionBonus1 | Legitimate Claim | facs=['Atreides'] | type=0 rarity=2 | TAbility_TRes2Cost_MRatio=0.2 X% Influence cost for PeacefullyAnnex
+Atreides_FactionBonus2 | Ginaz Swordmasters | facs=['Atreides'] | type=0 rarity=2 | Army_ExperienceGain_ARatio=1 X% Experience gain and level effects ; Army_XPLevel_Effects_ARatio=1 X% Experience level effects ; Army_XPLevel_AdditionalEffects_ARatio=1 X% Experience level additional effects
+Atreides_FactionBonus3 | Free Real-Estate | facs=['Atreides'] | type=0 rarity=2 | OnPeacefulAnnex_GainTTraitStacks=2 The X first Building_Villages are free in Villages annexed through PeacefullyAnnex
+Atreides_FactionBonus4 | Military Prestige | facs=['Atreides'] | type=0 rarity=2 | Army_OnReachMaxXPLevel_GainTRes=20 Gain X Standing when any unit reaches max level
+Atreides_FactionBonus5 | Wounded Protection | facs=['Atreides'] | type=0 rarity=2 | Army_GainTTrait_AtHealthRatio=0.3 Under X% Life, military units gain X
+Atreides_FactionBonus6 | Friendly Reputation | facs=['Atreides'] | type=0 rarity=2 | OnPeacefulAnnex_GainTRes=20 Annexing a Village with PeacefullyAnnex gives X Standing
+Atreides_FactionBonus7 | Radiance of the Paragon | facs=['Atreides'] | type=0 rarity=2 | CustomProperty=0.5 Military Units gain X max Life per point of Standing ; Army_Life_PerTRes=0.5 X Military Unit Life per X
+Atreides_FactionBonus8 | Respect from the Houses | facs=['Atreides'] | type=0 rarity=2 | CustomProperty=50 X CouncilVotes in Standing_High ; CustomProperty=100 X CouncilVotes as a Standing_VeryHigh ; Faction_TRes_Has_GainTTrait2=300 Gain X while having at least X X ; Faction_TRes_Has_GainTTrait2=400 Gain X while having at least X X
+Atreides_FactionBonus9 | Landsraad Network | facs=['Atreides'] | type=0 rarity=2 | Start every game with a random Charter
+Atreides_MissionReward1 | Ginaz Schools | facs=['Atreides'] | type=1 rarity=1 | Army_Daily_GainExperience_Flat=2 Military Units gain X Experience every day
+Atreides_MissionReward2 | Benevolent Propaganda | facs=['Atreides'] | type=1 rarity=1 | CustomProperty=0.9 X% Authority cost and duration of PeacefullyAnnex ; TAbility_TRes2Cost_MRatio=0.9 X% X X cost ; Capture_Duration_MRatio=0.9 X% duration of PeacefullyAnnex
+Atreides_MissionReward3 | Healthy Rations | facs=['Atreides'] | type=1 rarity=1 | Army_Life_ARatio=0.1 X% Military Unit Life
+Atreides_MissionReward4 | Subvention for Peace | facs=['Atreides'] | type=1 rarity=1 | OnPeacefulAnnex_GainTRes=100 Gain X Solari on a succesful PeacefullyAnnex
+Atreides_MissionReward5 | Political Model | facs=['Atreides'] | type=1 rarity=1 | Faction_PerCharter_SetTTraitStacks= X per awarded Charter
+Atreides_MissionReward6 | Wealth of the Paragon | facs=['Atreides'] | type=1 rarity=1 | TRes_ProdPerStandingAbove200_Flat=0.5 X Solari production per Standing above 200
+Harkonnen_FactionBonus1 | Painful Lessons | facs=['Harkonnen'] | type=0 rarity=2 | Army_OnSelfHealthDecay_GainXP=0.01 Effects that hurt owned units' Life also grant them <good>1</good> Experience per X% Life lost
+Harkonnen_FactionBonus2 | Pragmatic Sacrifice | facs=['Harkonnen'] | type=0 rarity=2 | Army_IsTemporary_GainTTrait= Upon death, non-permanent units explode and deal high damage to enemies in a small area ; Unit_HasTTrait_GainTTrait2= Units with X gain: X
+Harkonnen_FactionBonus3 | Omnipresent Fanaticism | facs=['Harkonnen'] | type=0 rarity=2 | Entity_NoTempNoHireling_OverLifeRatio_StartCombat_GainTTrait=0.5 Permanent non-mechanical Harkonnen-adjective unit spawn a H_Sleeper when they get below X% Life in combat
+Harkonnen_FactionBonus4 | Educational Example | facs=['Harkonnen'] | type=0 rarity=2 | Village_HasNoTTrait_SetTTrait2Stacks_PerAllyVillageWithTTrait= For each Village under Oppression, every Village that is not gains X
+Harkonnen_FactionBonus5 | Virtual Tyranny | facs=['Harkonnen'] | type=0 rarity=2 | TAbility_Cost_MRatio=0.5 X% Oppression cost ; TBuilding_StockUpkeep_MRatio=0.5 X% OppressionHeadquarter Upkeep
+Harkonnen_FactionBonus6 | Alternative Facts | facs=['Harkonnen'] | type=0 rarity=2 | Village_HasTTrait_GainTTrait2= X
+Harkonnen_FactionBonus7 | Frightening Tools | facs=['Harkonnen'] | type=0 rarity=2 | Operation_OnUsed_SpawnTUnit_Flat=2 Launching an operation spawns X H_Drone_Torture_Conquests in the targeted region
+Harkonnen_FactionBonus8 | Thetical Opportunism | facs=['Harkonnen'] | type=0 rarity=2 | Operation_OnUsed_GetLowerDifficultyOperation_Flat=1 Every operation used immediately readies a random operation of lower level
+Harkonnen_FactionBonus9 | Assassin School | facs=['Harkonnen'] | type=0 rarity=2 | Faction_DailySpawn_TUnit_Flat=1 Recruit X free Assassin every day, if none are present
+Harkonnen_MissionReward1 | Sick Gambling | facs=['Harkonnen'] | type=1 rarity=1 | Unit_OnDeath_TResGain_Flat=10 Gain X Solari upon any Harkonnen-adjective unit's death
+Harkonnen_MissionReward2 | Minor Martyrdom | facs=['Harkonnen'] | type=1 rarity=1 | CustomProperty=2 Gain X Influence and X Authority upon any Harkonnen-adjective unit's death ; Unit_OnDeath_TResGain_Flat=2 Gain X X upon death in combat ; Unit_OnDeath_TResGain_Flat=2 Gain X X upon death in combat
+Harkonnen_MissionReward3 | Talkative Survivors | facs=['Harkonnen'] | type=1 rarity=1 | Faction_WhileOneOutpostTTraitActive_GainTTrait2= While at least one Village is under TOppression: X
+Harkonnen_MissionReward4 | Show of Strength | facs=['Harkonnen'] | type=1 rarity=1 | Entity_KillRebelsLoot_TRes_Flat=5 Gain X Influence upon killing Rebels ; Entity_KillRebelsLoot_TRes_Flat=5 Gain X Intel upon killing Rebels ; TUnit_GainTTrait2= Xs gain X
+Harkonnen_MissionReward5 | Agent School | facs=['Harkonnen'] | type=1 rarity=1 | TRes_Prod_ARatio=1 X% X
+Harkonnen_MissionReward6 | Secret Cabal | facs=['Harkonnen'] | type=1 rarity=1 | Start every game with X Brainwashed Agents
+Corrino_FactionBonus1 | Spare Freighter | facs=['Corrino'] | type=0 rarity=2 | Faction_MaxMainBase_Flat=1 Can deploy X more ImpBase
+Corrino_FactionBonus2 | Space Optimization | facs=['Corrino'] | type=0 rarity=2 | AllDistrict_ExtraBonus=1 Bonuses for completed districts are doubled in every ImpBase
+Corrino_FactionBonus3 | Administrative Redundancy | facs=['Corrino'] | type=0 rarity=2 | MBBuilding_Limit_Flat=1 Every Main Base Building_MB can be built a second time in a different ImpBase
+Corrino_FactionBonus4 | Mentorship Program | facs=['Corrino'] | type=0 rarity=2 | Army_OnRecruit_NonMechNonHero_TUnitSpawn=1 A temporary C_Soldier_Conquest appears with every non-mechanical units recruited.
+Corrino_FactionBonus5 | Strength in Numbers | facs=['Corrino'] | type=0 rarity=2 | Army_Power_PerOwnedFactionArmies_ARatio=0.005 X% Military Units Power per $my(faction)-adjective unit on the map
+Corrino_FactionBonus6 | Mandatory Levies | facs=['Corrino'] | type=0 rarity=2 | Faction_HasInferiorConscriptCount_GainTTrait=10 X when less than X permanent conscripts are on the field
+Corrino_FactionBonus7 | Profitable Delegation | facs=['Corrino'] | type=0 rarity=2 | FactionResolution_TRes_PerVotes_Others=20 Gain X Solari for each vote cast on another faction during the Landsraad ; Charter_TRes_PerVotes_Others=20 Gain X Solari per CouncilVote or Influence spent on someone else on a Charter
+Corrino_FactionBonus8 | Political Appropriation | facs=['Corrino'] | type=0 rarity=2 | TRes_OnCouncilVoteEnd_PerOtherFactionsSpentInfluence=0.2 After every Landsraad, gain X% of Influence spent by every other faction
+Corrino_FactionBonus9 | Imperial Gigantism | facs=['Corrino'] | type=0 rarity=2 | Faction_AllFactions_GainTTrait= Every faction gains X ; TRes_ProdPerOtherFactionProd_ARatio=0.1 Corrino receives X% of every other faction Solari production
+Corrino_MissionReward1 | Iron Umbrella | facs=['Corrino'] | type=1 rarity=1 | CustomProperty=0.2 ImpBases get X% more Power and range ; MainBase_Power_ARatio=0.2 X% Power to your Main Bases ; MainBase_Missile_Range_ARatio=0.2 $my(MainBase) attack from X% further
+Corrino_MissionReward2 | Structural Optimization | facs=['Corrino'] | type=1 rarity=1 | MainBase_GainTTrait= X
+Corrino_MissionReward3 | Assault Formations | facs=['Corrino'] | type=1 rarity=1 | Army_Power_Flat=1 X Power to every Military Units
+Corrino_MissionReward4 | Imperial Logistic | facs=['Corrino'] | type=1 rarity=1 | Army_StockUpkeep_MRatio=0.9 X% Military Unit Upkeep
+Corrino_MissionReward5 | Administrative Fees | facs=['Corrino'] | type=1 rarity=1 | TRes_ProdPerOtherFactionsTRes2Conso_ARatio=0.05 Gain X% of every other faction Solari Upkeep
+Corrino_MissionReward6 | Expansion Taxes | facs=['Corrino'] | type=1 rarity=1 | TRes_OnCouncilVoteEnd_PerEnemyVillage_Flat=3 Gain X Authority per Village controlled by an other faction after every Council
+Ecaz_FactionBonus1 | Favorite Candidate | facs=['Ecaz'] | type=0 rarity=2 | FreeVotes_EligibleCharter_Flat=100 The first X votes placed on a charter for which Ecaz-longname is eligible are free
+Ecaz_FactionBonus2 | Political Duel | facs=['Ecaz'] | type=0 rarity=2 | Faction_EcazChampion_GainTTrait= Upon killing a unit from an enemy faction, the TEcazChampion produces: X
+Ecaz_FactionBonus3 | Virtuous Standing | facs=['Ecaz'] | type=0 rarity=2 | Faction_SetTTraitStacks_PerAnyVillageWithTTrait2= Every X provides: X
+Ecaz_FactionBonus4 | The Knight of the Windmill | facs=['Ecaz'] | type=0 rarity=2 | Start every game with a Ecaz_PerfectRecruit TEcazChampion X at max level ; TBBUnits_GainTTrait2 ; TBBUnits_GainTTrait2 ; TBBUnits_SetXpLevel ; Start every game with a X
+Ecaz_FactionBonus5 | Lonely Quest | facs=['Ecaz'] | type=0 rarity=2 | Faction_EcazChampion_GainTTrait= Champions gain X ; CustomProperty= Upon resolving any discovery outside of Ecaz-adjective territory, the TEcazChampion gains: X
+Ecaz_FactionBonus6 | Helpful Entourage | facs=['Ecaz'] | type=0 rarity=2 | Faction_EcazChampion_GainTTrait= Champions gain X ; CustomProperty=4 The TEcazChampion is supported by X Xs
+Ecaz_FactionBonus7 | Fascinating Works | facs=['Ecaz'] | type=0 rarity=2 | Outpost_CostPerNearbyMasterpieces_MRatio=0.95 X% Authority cost to Annex a Village per Masterpiece in the region and its neighbors
+Ecaz_FactionBonus8 | Artful Display | facs=['Ecaz'] | type=0 rarity=2 | OnMasterpieceBuilt_ResourceGains_ARatio=1 X% resource gained upon building a Masterpiece
+Ecaz_FactionBonus9 | Artistic Freedom | facs=['Ecaz'] | type=0 rarity=2 | Village_HasMasterpiece_GainTTrait= Owned Villages with a Masterpiece gain X
+Ecaz_MissionReward1 | Luxury Garden | facs=['Ecaz'] | type=1 rarity=1 | Village_HasTTrait_GainTTrait2= The TEcazPride gains: X
+Ecaz_MissionReward2 | Resourcing Retreat | facs=['Ecaz'] | type=1 rarity=1 | Faction_SetTTraitStacks_PerAnyVillageWithTTrait2= X per Ecaz_Sanctuary
+Ecaz_MissionReward3 | Chivalry Culture | facs=['Ecaz'] | type=1 rarity=1 | TUnit_Power_Flat=1 Xs get X Power
+Ecaz_MissionReward4 | Tourney Culture | facs=['Ecaz'] | type=1 rarity=1 | Faction_EcazChampion_GainTTrait= The TEcazChampion gets: X
+Ecaz_MissionReward5 | Defender of the Arts | facs=['Ecaz'] | type=1 rarity=1 | Army_ZoneHasMasterpiece_GainTTrait= Military Units in a region with any Masterpiece gain X
+Ecaz_MissionReward6 | The Arrakis Gallery | facs=['Ecaz'] | type=1 rarity=1 | THegemony_BaseGain_Flat=50 Ecaz-adjective Masterpieces are worth X Hegemony ; TBuilding_THegemony2= X provide Hegemony ; TBuilding_THegemony2= X provide Hegemony ; TBuilding_THegemony2= X provide Hegemony
+Vernius_FactionBonus1 | Randomized Trials | facs=['Vernius'] | type=0 rarity=2 | Start every mission with a random development from each tree ; Dev_RandomTDomain_Gain ; Dev_RandomTDomain_Gain ; Dev_RandomTDomain_Gain
+Vernius_FactionBonus2 | Serendipitous Research | facs=['Vernius'] | type=0 rarity=2 | Development_OnCompletionGainOtherDomainDevelopment_Tier=3 Upon completing a development from the fourth level, immediately gain another free development from the fourth
+Vernius_FactionBonus3 | Exponential Growth | facs=['Vernius'] | type=0 rarity=2 | TRes_Prod_PerDevelopment_Flat=0.5 X Knowledge per researched development
+Vernius_FactionBonus4 | Parallel Processing | facs=['Vernius'] | type=0 rarity=2 | Outpost_TResProdInNeuralNetwork_Flat=0.5 X Knowledge in Villages with a connected NeuralNode
+Vernius_FactionBonus5 | Sequential Trade | facs=['Vernius'] | type=0 rarity=2 | CustomProperty= Each node on the longest path of the Nodal Network gives <good>+10</good> Solari production and <good>+1</good ; TRes_ProdPerNeuralNode_InMaxLengthPath_Flat=10 X X per NeuralNode in longest network path ; TRes_ProdPerNeuralNode_InMaxLengthPath_Flat=1 X X per NeuralNode in longest network path
+Vernius_FactionBonus6 | Intuitive Network | facs=['Vernius'] | type=0 rarity=2 | Outpost_InNeuralNetwork_HasAdjacentEnemy_GainTTrait= Every Village with a connected NeuralNode neighboring an enemy region produce: X
+Vernius_FactionBonus7 | Inducement Awards | facs=['Vernius'] | type=0 rarity=2 | TRes_ConstGain_OnKnowledgeThreshold=50 Reaching X Knowledge for the first time gives X Solari immediately ; TRes_ConstGain_OnKnowledgeThreshold=100 Reaching X Knowledge for the first time gives X Solari immediately
+Vernius_FactionBonus8 | Recycled City | facs=['Vernius'] | type=0 rarity=2 | Start every mission with X random Building_MBs in ConquestBase_Vernius ; Unlock_MainBaseConstruction= Allows building in $my(mainbase) from the start of the game
+Vernius_FactionBonus9 | Assisted Workforce | facs=['Vernius'] | type=0 rarity=2 | Outpost_InNeuralNetwork_GainTTrait= Every Village with a connected NeuralNode gain: X
+Vernius_MissionReward1 | Culture of Curiosity | facs=['Vernius'] | type=1 rarity=1 | TRes_Prod_Flat=2 X Knowledge
+Vernius_MissionReward2 | Research Grant | facs=['Vernius'] | type=1 rarity=1 | Development_TResGainOnCompletionRetroactive_Flat=50 Gain X Solari upon completing a development research
+Vernius_MissionReward3 | Serial Assembly | facs=['Vernius'] | type=1 rarity=1 | TBuilding_TRes2Cost_MRatio=0.2 X% X X construction costs ; TBuilding_ConstructionSpeed_ARatio=0.8 NeuralNodes cost X% less Plascrete and are build X% faster
+Vernius_MissionReward4 | Motivating Medium | facs=['Vernius'] | type=1 rarity=1 | Outpost_ProdInNeuralNetwork_ARatio=0.05 Connected Villages produce X% resources ; TBuilding_Values_InNeuralNetwork_ARatio=0.05 X% X resource production in connected Villages
+Vernius_MissionReward5 | Harmless Prototype | facs=['Vernius'] | type=1 rarity=1 | Start every mission with X free DataAnalysisUnit
+Vernius_MissionReward6 | Maintenance Protocols | facs=['Vernius'] | type=1 rarity=1 | Unit_WithTTrait_TRes2Upkeep_MRatio=0.8 X% Solari Upkeep on Tethered units
+Smugglers_FactionBonus1 | One-Armed Bandit | facs=['Smugglers'] | type=0 rarity=2 | Start every game with a X ; TRes_Prod_Flat=5 Start every game with X FuelCell and a S_Drone ; TUnit_GainTTrait2= X
+Smugglers_FactionBonus2 | Early Birds | facs=['Smugglers'] | type=0 rarity=2 | Faction_BypassDevastated=10 Can attack Devastated Villages X days earlier
+Smugglers_FactionBonus3 | Well-Traveled | facs=['Smugglers'] | type=0 rarity=2 | CustomProperty= The first time it is pillaged, every Village gives: X ; Pillage_TResPostGainWithoutTTrait2_Flat=20 Gain X X by pillaging a Village without X ; Pillage_THegemonyPostGainWithoutTTrait2_Flat=100 Gain X X by pillaging a Village without X ; Pillage_ApplyTTrait= Pillaging a village applies gives it: X
+Smugglers_FactionBonus4 | Gigantic Water Tanks | facs=['Smugglers'] | type=0 rarity=2 | At the start of every game, gains: X
+Smugglers_FactionBonus5 | Vanguard Outposts | facs=['Smugglers'] | type=0 rarity=2 | CustomProperty=3 Annexing a Village at at least X regions from any controlled region gives it: X ; Faction_OnDistantAnnex_ApplyTTrait=2 Annexing a Village at at least X regions from any controlled region gives it: X
+Smugglers_FactionBonus6 | Grocer Network | facs=['Smugglers'] | type=0 rarity=2 | CustomProperty=1 Marketplace Building_Villages and BootlegMarket Building_UWHQs produce X Solari and Intel ; TBuilding_TRes2Prod_Flat=1 X X per X in the area ; TBuilding_TRes2Prod_Flat=1 X X per X in the area ; TBuilding_TRes2Prod_Flat=1 X X per X in the area ; TBuilding_TRes2Prod_Flat=1 X X per X in the area
+Smugglers_FactionBonus7 | Street-Smart | facs=['Smugglers'] | type=0 rarity=2 | Development_TDomainStepMultiplier_PerUHExtension_MRatio=0.95 Every UWHeadquarters Building_UWHQ reduces the cost of developments of the same type by X%
+Smugglers_FactionBonus8 | Rotten From the Inside | facs=['Smugglers'] | type=0 rarity=2 | CustomProperty=7 With at least X UWHeadquarters in a faction, gain: X ; Faction_OwnsUHInFaction_ApplyTTrait=7 Apply X when owning X headquarters in a faction ; Agt_AssignedToFactionWithTTrait_GainTTrait2= Each Agent assigned to a faction with X, gains X
+Smugglers_FactionBonus9 | Another Man's Treasure | facs=['Smugglers'] | type=0 rarity=2 | CustomProperty= Building an UWHeadquarters gives: X ; UH_OnConstruct_GainTRes_Flat=30 Building an UWHeadquarters gives X X ; UH_OnConstruct_GainTRes_Flat=100 Building an UWHeadquarters gives X X
+Smugglers_MissionReward1 | Hit and Run | facs=['Smugglers'] | type=1 rarity=1 | CustomProperty=0.9 X% Pillage duration ; TSiegeAction_NeutralVillage_Duration_MRatio=0.9 X% X action duration on neutral villages ; TSiegeAction_NeutralVillage_Duration_MRatio=0.9 X% X action duration on neutral villages ; TSiegeAction_EnemyVillage_Duration_MRatio=0.9 X% X action duration on enemy villages ; TSiegeAction_EnemyVillage_Duration_MRatio=0.9 X% X action duration on enemy villages
+Smugglers_MissionReward2 | Dangerous Job | facs=['Smugglers'] | type=1 rarity=1 | Pillage_Gain_FactionVillage_ARatio=0.2 X% resources from pillaging an enemy Village
+Smugglers_MissionReward3 | Synergetic Advertising | facs=['Smugglers'] | type=1 rarity=1 | Outpost_PerAdjacentUWHQ_AnnexCost_MRatio=0.9 Villages cost X% Authority to annex for each neighboring UWHeadquarters
+Smugglers_MissionReward4 | Distant Profits | facs=['Smugglers'] | type=1 rarity=1 | Outpost_TResProd_PerDistanceFromMainBase_Flat=1 Villages produce X Solari per region separating them from the ConquestBase_Smugglers
+Smugglers_MissionReward5 | Underworld Roots | facs=['Smugglers'] | type=1 rarity=1 | UH_TRes_Cost_MRatio=0.85 X% UWHeadquarters installation costs ; UH_TRes_Cost_MRatio=0.85 X% UWHeadquarters X cost
+Smugglers_MissionReward6 | Underworld Society | facs=['Smugglers'] | type=1 rarity=1 | UH_Prod_ARatio=0.1 X% UWHeadquarters resource production
+Fremen_FactionBonus1 | Wind from the South | facs=['Fremen'] | type=0 rarity=2 | Outpost_MapBorder_AnnexCost_Flat=-20 Annexing a Village on the border of the map costs X Authority ; Faction_OnBorderAnnex_ApplyTTrait= Owned Village on the border of the map apply their SpecificityVillage one more time
+Fremen_FactionBonus2 | Drawing the Faithful | facs=['Fremen'] | type=0 rarity=2 | TBuilding_Limit_Flat=1 The ShaiHuludTemple can be build a second time and allows placing a rally point ; TBuilding_Rallypoint=80 Generate a small Rallypoint range
+Fremen_FactionBonus3 | Cleanup Crew | facs=['Fremen'] | type=0 rarity=2 | CustomProperty= Resolving a discovery with a Military Unit gives: X ; Unit_OnInvestigatedWorldEvent_GainTRes_Flat=20 Upon finishing investigating any Discovery, gains X X ; Unit_OnInvestigatedWorldEvent_GainSupplyRatio=0.5 Upon finishing investigating any Discovery, recover X% Supply
+Fremen_FactionBonus4 | Little Drops | facs=['Fremen'] | type=0 rarity=2 | Outpost_TRes2ProdPositive_TResProd_Flat=0.5 X Authority production in every Villages that produces more Water than it consumes
+Fremen_FactionBonus5 | Deep Reserve | facs=['Fremen'] | type=0 rarity=2 | CustomProperty= Trade Water for Authority and Authority for Water in the top bar ; Convert_Water_To_Authority=200 Ability to convert Water to Authority ; Convert_Authority_To_Water=10 Ability to convert Authority to Water
+Fremen_FactionBonus6 | Shared Purpose | facs=['Fremen'] | type=0 rarity=2 | TRes_Max_Flat=1500 X max Authority ; Faction_SetTTraitStacks_PerTRes2_Flat=100 For every X Authority in stock, gain: X
+Fremen_FactionBonus7 | Meaningful Symbols | facs=['Fremen'] | type=0 rarity=2 | TRes_ProdPerSpecialRegionOwned_Flat=1 X Authority production per controlled SpecialRegion
+Fremen_FactionBonus8 | Manifest Legitimacy | facs=['Fremen'] | type=0 rarity=2 | Faction_MostTRes2Prod_GainTTrait= When in the lead in Hegemony, gain: X
+Fremen_FactionBonus9 | The Land Provides | facs=['Fremen'] | type=0 rarity=2 | Natural resources are reconned at the start of the game ; CustomProperty= Building_Villages exploiting a natural resource costs no Upkeep and requires no Water ; TBuilding_TRes2_OnNaturalResource_Upkeep_MRatio=0 X% X X Upkeep on natural resource ; TBuilding_TRes2_OnNaturalResource_Upkeep_MRatio=0 X% X X Upkeep on natural resource ; TBuilding_TRes2_OnNaturalResource_Upkeep_MRatio=0 X% X X Upkeep on natural resource ; 
+Fremen_MissionReward1 | Maker's Favor | facs=['Fremen'] | type=1 rarity=1 | TRes_Prod_ARatio=0.3 X% Thumper production
+Fremen_MissionReward2 | Spirit of Temperance | facs=['Fremen'] | type=1 rarity=1 | Faction_AdditionalSupplyPerWater_Flat=1 Every unit has X Supply per Water
+Fremen_MissionReward3 | Holy Purpose | facs=['Fremen'] | type=1 rarity=1 | TRes_Prod_PerNetTRes2Prod_ARatio=0.005 X% Authority production per Water
+Fremen_MissionReward4 | Millenial Project | facs=['Fremen'] | type=1 rarity=1 | THegemony_BaseAmount_Override=20 X Hegemony per Water
+Fremen_MissionReward5 | Early Reclaim | facs=['Fremen'] | type=1 rarity=1 | X Authority at the start of the game
+Fremen_MissionReward6 | Rebellious Momentum | facs=['Fremen'] | type=1 rarity=1 | CustomProperty= Every controlled Village gives X ; TRes_ProdPerVillageOwned_ARatio=0.01 X% X per controlled Village ; TRes_ProdPerVillageOwned_ARatio=0.01 X% X per controlled Village
+Generic_MissionReward1 | Spying Initiative | facs=[] | type=1 rarity=0 | TRes_Prod_ARatio=0.5 X% X ; AgtMax_Flat=2 X max Agents
+Generic_MissionReward2 | Plundering Mindset | facs=[] | type=1 rarity=0 | Pillage_TResGain_ARatio=0.1 X% Solari from pillaging a Village
+Generic_MissionReward3 | Friendly Ambassadors | facs=[] | type=1 rarity=0 | TRes_Gain_ARatio=0.1 X% Standing gains
+Generic_MissionReward4 | Propaganda Network | facs=[] | type=1 rarity=0 | TRes_Prod_ARatio=0.1 X% Authority production
+Generic_MissionReward5 | Wordy Diplomats | facs=[] | type=1 rarity=0 | TRes_Prod_ARatio=0.1 X% Influence production
+Generic_MissionReward6 | Attentive Ears | facs=[] | type=1 rarity=0 | TRes_Prod_ARatio=0.1 X% Intel production
+Generic_MissionReward7 | Intelligence Support | facs=[] | type=1 rarity=1 | Army_PowerPerFreeAgent_ARatio=0.02 X% Power per Agent
+Generic_MissionReward8 | Recruit Formation | facs=[] | type=1 rarity=1 | Army_SpawnExperienceLevel_Flat=1 Military Units start with X more Experience level
+Generic_MissionReward9 | Sapper's Brigade | facs=[] | type=1 rarity=1 | Agt_PerAssigned_IFaction_ApplyTTrait=0.1 X% damage to enemy units and structures per Agent assigned to their faction
+Generic_MissionReward11 | Ship Escort | facs=[] | type=1 rarity=1 | Start with X X ; Unlock_TUnit= Can build A_Ship from the start of the game ; Unlock_TUnit= Can build H_Ship from the start of the game ; Unlock_TUnit= Can build C_Ship from the start of the game ; Unlock_TUnit= Can build E_Ship from the start of the game ; Unlock_TUnit= Can build V_Ship from the start of the game ; Unlock_TUnit= Can build S_Ship from the start of the game
+Generic_MissionReward11_Fremen | Ship Escort | facs=['Fremen'] | type=1 rarity=1 | Start with X X ; Unlock_TUnit= Can build F_Ship from the start of the game
+Generic_MissionReward12 | Spying Vanguard | facs=[] | type=1 rarity=1 | Start with X Agent
+Generic_MissionReward13 | Guild Fiefdom | facs=[] | type=1 rarity=1 | TRes_Prod_Flat=1 X GuildFavor production ; Unlock_TBuilding= Can build the SpacingGuildBranch from the start of the game
+Generic_MissionReward13_Fremen | Sand Sifters | facs=['Fremen'] | type=1 rarity=1 | TRes_Prod_Flat=1 X Scraps production ; Unlock_TBuilding= Can build the RecyclingPlant from the start of the game
+Generic_MissionReward14 | Elimination Network | facs=[] | type=1 rarity=1 | Operation_OnUsed_SpawnTUnit_Flat=1 Using an operation spawns X Assassin_Conquest in the target zone
+Generic_MissionReward15 | Formation Template | facs=[] | type=1 rarity=1 | CustomProperty=0.8 X% A_Trooper and Militia recruitment costs and recruitment time ; Militia_TrainDuration_MRatio=0.8 X% Militia training time ; Militia_TrainCost_MRatio=0.8 X% Militia training cost ; TUnit_ImportCost_MRatio=0.8 X% A_Trooper recruitment costs ; TUnit_ImportTime_MRatio=0.8 X% A_Trooper training time ; CustomProperty=0.8 X% H_Trooper and Militia recruitment costs and recruitment time ; Militia_TrainDur
+Generic_MissionReward16 | Head start | facs=[] | type=1 rarity=0 | Start every mission with the first development of each tree ; TDev_Gain ; TDev_Gain ; TDev_Gain
+Generic_MissionReward17 | Economic Developments | facs=[] | type=1 rarity=1 | Start every mission with two developments from the second Economy level ; TDev_Gain
+Generic_MissionReward18 | Military Developments | facs=[] | type=1 rarity=1 | Start every mission with two developments from the second Military level ; TDev_Gain
+Generic_MissionReward19 | Statecraft Developments | facs=[] | type=1 rarity=1 | Start every mission with two developments from the second Statecraft level ; TDev_Gain
+Generic_MissionReward20 | Expansion Developments | facs=[] | type=1 rarity=1 | Start every mission with two developments from the second Expansion level ; TDev_Gain
+Fremen_RelationBonus1 | Fremen Tolerance | facs=[] | type=3 rarity=2 | Start every game with X Xs ; OnStart_NearestSietches_MakeVisible=1 Start every game with the nearest Sietch revealed
+Fremen_RelationBonus2 | Fremen Respect | facs=[] | type=3 rarity=2 | Faction_AI_BlockTotalWar ; Start every game with X Xs ; TStruct_MakeReconned= Reveals the position of all SpiceAreas
+Fremen_RelationBonus3 | Fremen Friendship | facs=[] | type=3 rarity=2 | Start every game with XX at max level ; TBBUnits_GainTTrait2 ; TBBUnits_SetXpLevel ; Unlock_TBuilding_Force= Allows for the construction of WindTrap
+Fremen_RelationBonus4 | Fremen Alliance | facs=[] | type=3 rarity=2 | TRes_Gain ; AlliedSietch_BuildLocalSietch= Allows to build Main Base Building_MB in allied Sietch ; Unlock_TBuilding_Force= Allows for the construction of SandCaches ; Wormriding_Unlock= Can use Thumpers to perform Wormriding. ; TRes_Prod_Flat=0.03 X X ; Wormriding_Range_Bonus= Thumpers attract larger Sandworm that can travel farther
+Renegade1 | Twenty Second Generic | facs=[] | type=4 rarity=2 | Unit_AerialSpeed_ARatio=0.2 X% flying unit Speed ; Pillage_Gain_ARatio=0.2 X% resources from pillaging Villages and Sietchs
+Renegade2 | Twenty Second Generic | facs=[] | type=4 rarity=2 | Aerial_Life_ARatio=0.2 X% flying units Life ; Unlock_TUnit_Authorize= Allows the training of Renegade_Ships
+Renegade3 | Twenty Second Generic | facs=[] | type=4 rarity=2 | TBuilding_OutpostLimit_Flat=1 X MissileBattery limit ; Unlock_TUnit_Authorize= Allows the training of Renegades_Leaders
+Renegade4 | Twenty Second Generic | facs=[] | type=4 rarity=2 | TRes_Prod_Flat=1 X GuildFavor production ; Unlock_TUnit_Authorize= Allows the training of Renegades_Drones
+BlockRenegade | Spacing Guild & Renegades | facs=[] | type=4 rarity=2 | Unvailable_TBuilding= SpacingGuildBranch is unvailable ; Unvailable_TBuilding= RecyclingPlant is unvailable ; TRes_Block= No access to GuildFavor ; TRes_Block= No access to Scraps ; Block_RenegadesSpawn= No renegades ; TUnit_Unbuyable= Cannot buy Frigate ; TUnit_Unbuyable= Cannot buy Ship
+Faufreluches_RelationBonus1 | Faufreluche Contacts | facs=[] | type=10 rarity=2 | Start every game with X Xs ; Infiltration_GreatFaction_MinLevel=1 Great Houses Infiltration levels cannot be lower than X
+Faufreluches_RelationBonus2 | Faufreluche Fraud | facs=[] | type=10 rarity=2 | Start every game with X Xs ; Faction_OnContractSuccessfullyPaid_GainSharesFromMinorHouse_ARatio=0.1 Upon successfully paying the $my(contract), get X% of MinorHouses CHOAMShares
+Faufreluches_RelationBonus3 | Faufreluche Perversion | facs=[] | type=10 rarity=2 | Start every game with X LandsraadSoldiers_Faufreluchess and LandsraadRanged_Faufreluchess ; TUnit_SpawnMB_WithTTrait2 ; TUnit_SpawnMB_WithTTrait2 ; EnemyFactions_GainTTrait ; CustomProperty_Inverted=-100 Great Houses have X CouncilVote
+Faufreluches_RelationBonus4 | Faufreluche Puppeteer | facs=[] | type=10 rarity=2 | Conquest_OnAttackMainBase_TUnit_SpawnMB_WithTTrait2 ; Infiltration_GreatFaction_MinLevel=1 Great Houses Infiltration levels cannot be lower than X ; CustomProperty=2 Great Houses Infiltration levels cannot be lower than X ; Charters_IgnoreStandingCondition= Ignore Standing prerequisites of Charters ; Block_TMission= Disables the X mission
+Unity_RelationBonus1 | Hopeful Followers | facs=[] | type=9 rarity=2 | Start every game with X Xs ; TRes_Gain ; TRes_Max_Flat=2 X max Thumper
+Unity_RelationBonus2 | Collective Dream | facs=[] | type=9 rarity=2 | TRes_Prod_Flat=3 X Manpower production ; TRes_Prod_Flat=3 X Authority production
+Unity_RelationBonus3 | Organised Front | facs=[] | type=9 rarity=2 | Start every game with XX at max level ; TBBUnits_GainTTrait2 ; TBBUnits_SetXpLevel ; LS_Sietch_Slots_Flat=1 Add a second Building_MB slot in each ally Sietch
+Unity_RelationBonus4 | United Brotherhood | facs=[] | type=9 rarity=2 | Start every game with the operations MSandCloak, MHiddenThumpers, and MAwakePeople ready to use ; TOperation_Ready ; TOperation_Ready ; TRes_Prod_MRatio=3 X% Thumper production ; Block_HostileSietch= No Hostile sietches
+Bonus_NorthPole | North Pole | facs=[] | type=2 rarity=2 | TRes_Prod_Flat=20 X Water
+Bonus_ImperialBasin | Populous Basin | facs=[] | type=2 rarity=2 | TRes_Prod_MRatio=1.25 X% Manpower production
+Bonus_HaggaBasin | Populous Basin | facs=[] | type=2 rarity=2 | TRes_Prod_MRatio=1.25 X% Manpower production
+Bonus_MountIdaho | Mount Idaho Range | facs=[] | type=2 rarity=2 | TRes_Prod_MRatio=1.25 X% Plascrete production
+Bonus_BrokenLand | Broken Land | facs=[] | type=2 rarity=2 | TRes_Prod_MRatio=1.25 X% Intel production
+Bonus_PastyMesa | Pasty Mesa | facs=[] | type=2 rarity=2 | TRes_Prod_Flat=2 X Authority production
+Bonus_Volcano | Volcanic Range | facs=[] | type=2 rarity=2 | TRes_Prod_Flat=20 X FuelCell
+Bonus_SpiceField | Spice Field | facs=[] | type=2 rarity=2 | TRes_Prod_Flat=5 X Spice production
+Bonus_GreaterSpiceField | Greater Spice Field | facs=[] | type=2 rarity=2 | TRes_Prod_Flat=10 X Spice production
+Improvement_FuelCell | Fuel Cell Facilities | facs=[] | type=5 rarity=2 | TRes_Prod_Flat=3 X FuelCell
+Improvement_Manpower | Recruitment Complex | facs=[] | type=5 rarity=2 | TRes_Prod_Flat=1 X Manpower production
+Improvement_Plascrete | Plascrete Facilities | facs=[] | type=5 rarity=2 | TRes_Prod_Flat=5 X Plascrete production
+Improvement_Solari | Trade Complex | facs=[] | type=5 rarity=2 | TRes_Prod_Flat=10 X Solari production
+Improvement_Water | Wind Farms | facs=[] | type=5 rarity=2 | TRes_Prod_Flat=3 X Water
+Improvement_Standing | Landsraad Embassy | facs=[] | type=5 rarity=2 | Start every mission with X Standing
+Stratagems_Preparation | Desert Preparation | facs=[] | type=8 rarity=2 | TRes_Prod_Flat=20 X Water ; Outpost_DistanceCost_MRatio=0.5 The penalty Authority cost to Annex a Village caused by distance from ConquestBase_Fremen is reduced by X%
+Stratagems_SupriseStrike | Surprise Strike | facs=[] | type=8 rarity=2 | Army_OnLeaveStealth_GainTTrait= After leaving stealth, military units ignore Armor for X days
+Stratagems_Weather | Shielding Weather | facs=[] | type=8 rarity=2 | Army_Ground_NoMilitia_GainTTrait= Ground military units gain: X
+Stratagems_Gathering | Massive Gathering | facs=[] | type=8 rarity=2 | TRes_Prod_Flat=10 X CommandPoint ; Army_TResUpkeep_MRatio=0.9 X% Military Unit Solari Upkeep
+Stratagems_Readiness | Settlement Readiness | facs=[] | type=8 rarity=2 | Outpost_AllDomains_GainTTrait=1 Villages with at least one Building_Village of each type gain: X
+Stratagems_Rebellious | Rebellious Propaganda | facs=[] | type=8 rarity=2 | CustomProperty= Rebellions are twice as numerous and Liberate their Village ; Double_Rebellion_Composition= All rebelion composition are doubled ; Rebellion_Liberate= All rebelion can liberate Villages
+Plot_Assassination_1 | Lurking Threat | facs=[] | type=6 rarity=None | TRes_Prod_MRatio=0.5 X% X
+Plot_Assassination_2 | Ominous Threat | facs=[] | type=6 rarity=None | TRes_Prod_MRatio=0.25 X% X
+Plot_Bankruptcy_1 | Raising Boycott | facs=[] | type=6 rarity=None | TRes_Gain_MRatio=0.9 X% Solari gains
+Plot_Bankruptcy_2 | Full Embargo | facs=[] | type=6 rarity=None | TRes_Gain_MRatio=0.7 X% Solari gains
+Plot_Defamation_2 | Complete Infamy | facs=[] | type=6 rarity=None | Start every mission with X Standing less
+Plot_Defamation_1 | Shameful Reputation | facs=[] | type=6 rarity=None | Start every mission with X Standing less
+Plot_Pressure | Mounting Pressure | facs=[] | type=6 rarity=None | CustomProperty= Increased chances of getting attacked
+Plot_Pressure_Fremen | Mounting Pressure | facs=[] | type=6 rarity=None | CustomProperty= Increased chances of getting attacked
+Plot_Pressure_Defeat | Defeat | facs=[] | type=6 rarity=None | CustomProperty= The conquest is lost
+Fremen_InitialBonus | Initial Bonus | facs=[] | type=7 rarity=2 | Negative value so scores gives peace
+Fremen_LessAggro | Initial Bonus | facs=['Fremen'] | type=7 rarity=2 | 
+CB_Smuggler_BaseBonus | BaseBonus | facs=['Smugglers'] | type=7 rarity=None | Unlock_TMission= Unlocks the CB_MFraufrelucheBribe Mission

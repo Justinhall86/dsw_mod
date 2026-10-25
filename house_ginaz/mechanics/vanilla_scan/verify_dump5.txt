@@ -1,0 +1,125 @@
+- TJumpingBoot_Buff [Jumping] This E_Special is jumping to her next target.
+    Entity_Speed_ARatio = 1 tgt={} tgt2={} | X% Speed
+    props: {'duration': 2}
+- TPersonalMantlet_Buff [Personal Mantlet] This E_Special still has her mantlet.
+    Entity_Armor_Flat = 5 tgt={} tgt2={} | X Armor
+    props: {}
+- TChasingStance_Debuff [Chased] This unit is chased by an attacker.
+    Entity_Speed_MRatio = 0.8 tgt={} tgt2={} | X% Speed
+    props: {'stackingLimit': 1}
+- RivvyPassive [Swordmaster Teacher] 
+    Army_MaxLevel_GainTTrait = 1 tgt={'trait': 'RivvyPassive_Buff'} tgt2={} | Military units at max level have no Solari upkeep
+    Army_SpawnExperienceLevel_Flat = 1 tgt={} tgt2={} | Military Units start with X more Experience level
+    props: {}
+- RivvyPassive_Buff [Swordmaster Teacher] 
+    TRes_Upkeep_MRatio = 0 tgt={'resource': 'Solari'} tgt2={} | No Solari Upkeep
+    props: {}
+- Kanly_Global [Kanly] 
+    TRes_Prod_MRatio = 2 tgt={'resource': 'Authority'} tgt2={} | X% X
+    TSiegeAction_NeutralVillage_Duration_MRatio = 0.5 tgt={'siegeAction': 'Annex'} tgt2={} | X% X action duration on neutral villages
+    Capture_Duration_MRatio = 0.5 tgt={} tgt2={} | X% duration of PeacefullyAnnex
+    Sietch_RevealScore_Gains_ARatio = 1 tgt={} tgt2={} | X% Sietch detection speed
+    Sietch_RelationGains_ARatio = 1 tgt={} tgt2={} | X% relation gain with Sietch
+    TRes_Prod_MRatio = 2 tgt={'resource': 'Agent'} tgt2={} | X% X
+    Agt_EscapeChance_MRatio = 2 tgt={} tgt2={} | X% chances for your agent to escape while imprisoned by an enemy faction
+    TRes_Prod_MRatio = 1.5 tgt={'resource': 'Plascrete'} tgt2={} | X% X
+    Infiltration_IncreaseSpeed_MRatio = 2 tgt={} tgt2={} | X% Infiltration level increase speed
+    Infiltration_DecreaseSpeed_MRatio = 2 tgt={} tgt2={} | X% Infiltration level decrease speed
+    Mission_PreparationTime_MRatio = 0.5 tgt={} tgt2={} | X% mission preparation time
+    Charters_AvailabilityVal_MRatio = 0.5 tgt={} tgt2={} | X% charter availability conditions
+    Army_ExperienceGain_MRatio = 1.5 tgt={} tgt2={} | X% Experience gains
+    TRes_Gain_MRatio = 1.5 tgt={'resource': 'Standing'} tgt2={} | X% X gains
+    TRes_Loss_MRatio = 1.5 tgt={'resource': 'Standing'} tgt2={} | X% X losses
+    TRes_Gain_MRatio = 1.5 tgt={'resource': 'Thumper'} tgt2={} | X% X gains
+    TRes_Prod_MRatio = 2 tgt={'resource': 'Knowledge'} tgt2={} | X% X
+    Building_ConstructionSpeed_MRatio = 2 tgt={} tgt2={} | X% Building_Villages construction speed
+    Contract_CostMultiplier_Pow = 1.5 tgt={} tgt2={} | X% $my(contract) demand growth speed
+    MainBase_GainTTrait = - tgt={'trait': 'Kanly_MainBase'} tgt2={} | The main base gains X
+    Unit_ImportTime_MRatio = 0.5 tgt={} tgt2={} | X% units recruitment time
+    props: {}
+- Kanly_MainBase [Kanly] 
+    Entity_Armor_MRatio = 1 tgt={} tgt2={} | X% Armor
+    Entity_Life_MRatio = 0.5 tgt={} tgt2={} | X% max Life
+    Building_ConstructionSpeed_MRatio = 1.5 tgt={} tgt2={} | X% Building_Villages construction speed
+    props: {}
+- E_Hero_2_FactionBuff [Thorny Rose] 
+    TRes_OnMasterpieceBuilt_Flat = 20 tgt={'resource': 'Manpower'} tgt2={} | Gain X Manpower upon building a Masterpiece
+    props: {}
+{
+ "id": "GinazSwordmasters",
+ "texts": {
+  "name": "Ginaz Swordmaster",
+  "desc": "A renowned swordmaster from Ginaz is visiting your palace. You could try to convince them to join your service."
+ },
+ "subquests": [
+  {
+   "ref": "GS_ShowYourWorth"
+  },
+  {
+   "ref": "GS_TrainSoldiers"
+  }
+ ],
+ "conditions": [
+  {
+   "vals": [
+    {
+     "val": 0,
+     "valMods": {}
+    }
+   ],
+   "target": {},
+   "target2": {},
+   "ref": "Game_QuestCyclesPassed",
+   "subject": 0
+  }
+ ],
+ "effects": [],
+ "props": {},
+ "gfx": {
+  "file": "UI/Quests/ic_quete.png",
+  "size": 60,
+  "x": 5,
+  "y": 1
+ },
+ "background": {
+  "file": "UI/Quests/box_quetes_test.png",
+  "size": 1,
+  "x": 0,
+  "y": 0,
+  "width": 104,
+  "height": 130
+ },
+ "illustration": {
+  "file": "UI/Quests/img_3.png",
+  "size": 1,
+  "x": 0,
+  "y": 0,
+  "width": 1472,
+  "height": 220
+ },
+ "duration": 40,
+ "cooldown": 8,
+ "type": 0,
+ "weight": 1
+}
+Rivvy: {'title': None, 'passiveTrait': 'RivvyPassive', 'faction': None, 'role': None} Rivvy was a renowned instructor at the Ginaz swordmaster school. After the fall of Ginaz, he entered the service of House Ecaz as Armanda's personal bodyguard.
+{
+ "id": "Kanly",
+ "texts": {
+  "name": "Kanly Duel",
+  "menuButton": "Kanly Duel",
+  "desc": "A fast and thrilling duel for revenge and power. Two factions enter the fray. Only one can leave with their head held high."
+ },
+ "gfx": {
+  "file": "UI/icons/icon_mode_jeu.png",
+  "size": 74,
+  "x": 1,
+  "y": 0
+ },
+ "props": {
+  "baseFactionXp": 50,
+  "shortGameDays": 30
+ },
+ "flags": 0,
+ "comment": ""
+}

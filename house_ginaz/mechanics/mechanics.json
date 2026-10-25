@@ -1,0 +1,372 @@
+{
+  "_about": "Machine-readable copy of MECHANICS.md. Values are design values, not tested. Attribute ids checked against mod_files/data.cdb on 2026-10-24.",
+  "faction": "House Ginaz",
+  "status_keys": [
+    "BUILDABLE",
+    "APPROX",
+    "BLOCKED",
+    "DECIDE"
+  ],
+  "mechanics": [
+    {
+      "id": "G-01",
+      "name": "No shields, no firearms",
+      "group": "identity",
+      "status": "APPROX",
+      "values": {},
+      "attributes": [],
+      "notes": "Never give Ginaz units shield or firearm equipment; remove those slots on takeover units."
+    },
+    {
+      "id": "G-02",
+      "name": "Throwers allowed (daggers are not firearms)",
+      "group": "identity",
+      "status": "DECIDE",
+      "values": {},
+      "attributes": [],
+      "notes": "Rule text should say no firearms and no shields, not no ranged."
+    },
+    {
+      "id": "G-03",
+      "name": "School of the Sword: movement speed",
+      "group": "core",
+      "status": "BUILDABLE",
+      "values": {
+        "move_speed_percent": 10
+      },
+      "attributes": [
+        "Unit_Speed_MRatio"
+      ],
+      "notes": "Melee infantry. Evasion half is G-04."
+    },
+    {
+      "id": "G-04",
+      "name": "Evasion (School of the Sword)",
+      "group": "core",
+      "status": "APPROX",
+      "values": {
+        "evasion_percent": 20
+      },
+      "attributes": [
+        "Entity_Armor_MRatio",
+        "Entity_ArmorByMissingHealth_Flat"
+      ],
+      "notes": "No evasion attribute exists. Stand-in is extra armour; in-game text must say so."
+    },
+    {
+      "id": "G-05",
+      "name": "Martial Honor: parry",
+      "group": "core",
+      "status": "APPROX",
+      "values": {
+        "parry_chance_percent": 15
+      },
+      "attributes": [
+        "Entity_TurnDamageModifierIntoDamageReduction"
+      ],
+      "notes": "No parry attribute exists. A parry negates the hit; stand-in is damage reduction."
+    },
+    {
+      "id": "G-06",
+      "name": "Riposte stacks",
+      "group": "core",
+      "status": "DECIDE",
+      "values": {
+        "attack_speed_percent_per_stack": 5,
+        "damage_percent_per_stack": 5,
+        "max_stacks": 5
+      },
+      "attributes": [
+        "Unit_FightTarget_OnDamageUnit_GainTTraitStacks",
+        "Entity_AttackSpeed_MRatio",
+        "Unit_MeleeAttacks_Damage_MRatio"
+      ],
+      "notes": "Buildable if stacks are fed by hits (v1). Parry-fed (v2) is APPROX. Decide which."
+    },
+    {
+      "id": "G-07",
+      "name": "Swordmaster Discipline: upkeep",
+      "group": "core",
+      "status": "BUILDABLE",
+      "values": {
+        "upkeep_multiplier": 0.8
+      },
+      "attributes": [
+        "Army_StockUpkeep_MRatio"
+      ],
+      "notes": "Exact. Value convention confirmed: an MRatio trait value is a multiplier (vanilla TDesertCommand uses 0.8 on this attribute)."
+    },
+    {
+      "id": "G-08",
+      "name": "Swordmaster Discipline: Deep Desert supply",
+      "group": "core",
+      "status": "BUILDABLE",
+      "values": {
+        "supply_drain_multiplier_in_deep_desert": 0.5,
+        "condition": "unit inside a DeepDesert region (built in, no custom condition needed)"
+      },
+      "attributes": [
+        "Army_DeepDesertDailySupplyDrain_MRatio",
+        "Army_InDeepDesert_GainTTrait"
+      ],
+      "notes": "Army_DeepDesertDailySupplyDrain_MRatio is '% daily supply drain in DeepDesert'. The location test is built in. Closest vanilla reference: trait DesertMastery. Multiplier 0.5 = -50 %."
+    },
+    {
+      "id": "G-09",
+      "name": "Kanly Retribution",
+      "group": "core",
+      "status": "APPROX",
+      "values": {
+        "melee_damage_percent_vs_rivals": 30,
+        "rival_stand_in": "faction at War with the Ginaz unit"
+      },
+      "attributes": [
+        "Armies_AtTRange2_AtWar_GainTTrait",
+        "Entity_GiveTTrait_UnitAtWar_AtTRange2",
+        "Faction_GiveTTrait_AtWar",
+        "Unit_MeleeAttacks_Damage_MRatio"
+      ],
+      "notes": "No Kanly rival state exists. The closest state is War (Me_IsAtWarWith_Amount, Me_Track_StartWar). Traits can be given to units at war and per war to a faction, but no melee attribute is conditioned on the target being at war, so the +30 % must go through a unit-in-war trait (approximation)."
+    },
+    {
+      "id": "G-10",
+      "name": "Combat Experience power",
+      "group": "v3",
+      "status": "BUILDABLE",
+      "values": {
+        "power_percent": 15
+      },
+      "attributes": [
+        "Army_XPLevel_Effects_ARatio",
+        "Army_ExperienceGain_ARatio"
+      ],
+      "notes": "From draft v3."
+    },
+    {
+      "id": "G-11",
+      "name": "Benefits more from high Standing",
+      "group": "v3",
+      "status": "BUILDABLE",
+      "values": {},
+      "attributes": [
+        "Standing_BetterHighTraits"
+      ],
+      "notes": "From draft v3."
+    },
+    {
+      "id": "G-12",
+      "name": "Cannot pillage neutral villages",
+      "group": "v3",
+      "status": "BUILDABLE",
+      "values": {},
+      "attributes": [
+        "Pillage_NeutralVillage_Block"
+      ],
+      "notes": "From draft v3. A drawback."
+    },
+    {
+      "id": "G-13",
+      "name": "5K Hegemony milestone",
+      "group": "milestone",
+      "status": "DECIDE",
+      "options": {
+        "A": {
+          "name": "Solari under positive Resolution",
+          "values": {
+            "solari_percent": 10
+          },
+          "status": "BUILDABLE",
+          "attributes": [
+            "Resolution_Positive_GainTTrait"
+          ],
+          "pattern": "Atreides_HegemonyBonus_1"
+        },
+        "B": {
+          "name": "Master Dueling and Assassin Contracts",
+          "values": {
+            "hegemony_per_melee_kill": 5,
+            "hegemony_per_contract": 200
+          },
+          "status": "BLOCKED",
+          "attributes": [
+            "Unit_THegemonyProd_Flat"
+          ],
+          "notes": "Needs kill and operation triggers."
+        }
+      }
+    },
+    {
+      "id": "G-14",
+      "name": "10K Hegemony milestone",
+      "group": "milestone",
+      "status": "DECIDE",
+      "options": {
+        "A": {
+          "name": "Unit power and training speed",
+          "values": {
+            "training_speed_percent": "see attribute"
+          },
+          "status": "BUILDABLE",
+          "attributes": [
+            "MilitaryUnits_TrainingSpeed_ARatio"
+          ]
+        },
+        "B": {
+          "name": "Sword-School Master's Aura",
+          "values": {
+            "radius_m": 10,
+            "evasion_percent": 10,
+            "parry_percent": 10
+          },
+          "status": "APPROX",
+          "attributes": [
+            "Army_AttackSpeed_PerAllyUnit_AtTRange_ARatio",
+            "Entity_FactionOwner_GainTTrait"
+          ]
+        }
+      }
+    },
+    {
+      "id": "G-15",
+      "name": "Name Champion",
+      "group": "ability",
+      "status": "BUILDABLE",
+      "values": {
+        "health_percent": 15
+      },
+      "attributes": [
+        "Entity_ExecuteTarget_HealthRatio_Flat",
+        "Unit_EcazChampion",
+        "Faction_EcazChampion_GainTTrait"
+      ],
+      "notes": "Copy the Ecaz Champion system. Health attribute still to be found. Part of the reconciled 5K proposal (Appointment of a Duelist)."
+    },
+    {
+      "id": "G-16",
+      "name": "Ritual Duel",
+      "group": "ability",
+      "status": "BLOCKED",
+      "values": {
+        "power_percent_vs_target": 20,
+        "duration_s": 15,
+        "specials_disabled_s": 5
+      },
+      "attributes": [],
+      "notes": "Needs an ability that applies a trait to one target. Also Jool's active and Cassian's Dueling Glove."
+    },
+    {
+      "id": "G-17",
+      "name": "Master Dueling (kill Hegemony)",
+      "group": "milestone",
+      "status": "BLOCKED",
+      "values": {
+        "hegemony_per_melee_kill": 5
+      },
+      "attributes": [
+        "Unit_THegemonyProd_Flat"
+      ],
+      "notes": "Needs a kill trigger. Option B of G-13."
+    },
+    {
+      "id": "G-18",
+      "name": "Declare Kanly",
+      "group": "action",
+      "status": "APPROX",
+      "values": {
+        "truce_halved_by": "Commander Jool"
+      },
+      "attributes": [
+        "Me_Track_StartWar",
+        "DeclareWar_Cost_ARatio"
+      ],
+      "notes": "'Kanly' exists only as a game mode (Kanly Duel: two factions, 30 days, with Kanly_Global and Kanly_MainBase traits). A Kanly against one faction does not exist. Stand-in: declare War as the feud."
+    },
+    {
+      "id": "G-19",
+      "name": "Assassin Contracts",
+      "group": "action",
+      "status": "BLOCKED",
+      "values": {
+        "hegemony_per_operation": 200,
+        "operations": [
+          "Kill",
+          "Harass"
+        ]
+      },
+      "attributes": [
+        "Unit_THegemonyProd_Flat"
+      ],
+      "notes": "Needs an operation-complete trigger. Option B of G-13."
+    },
+    {
+      "id": "G-20",
+      "name": "Sword-School Aura (10 m)",
+      "group": "ability",
+      "status": "APPROX",
+      "values": {
+        "radius_m": 10,
+        "evasion_percent": 10,
+        "parry_percent": 10,
+        "stacking": true
+      },
+      "attributes": [
+        "Army_AttackSpeed_PerAllyUnit_AtTRange_ARatio",
+        "Entity_FactionOwner_GainTTrait"
+      ],
+      "notes": "Radius auras need a real in-game test. Stand-ins: attack speed and armour."
+    },
+    {
+      "id": "G-21",
+      "name": "Avoidance cap",
+      "group": "balance",
+      "status": "DECIDE",
+      "values": {
+        "max_avoidance_percent": 50
+      },
+      "attributes": [],
+      "notes": "Caps evasion plus parry. Confirm before coding G-04, G-05 and G-20."
+    }
+  ],
+  "open_questions": [
+    "Can a trait condition test 'in the Deep Desert' (G-08)?",
+    "Can a trait condition test 'target faction has an active Kanly' (G-09)?",
+    "Is there an attribute that negates damage by chance (G-05)?",
+    "Which equipment definitions give shields or ranged weapons to Atreides units (G-01)?",
+    "What does the Kanly game mode do, and can Ginaz reuse it (G-18)?",
+    "Which ability entries apply a trait to one target (G-16)?"
+  ],
+  "engine_findings": [
+    {
+      "topic": "Kanly",
+      "date": "2026-10-24",
+      "findings": [
+        "gameMode 'Kanly' = 'Kanly Duel': two factions, shortGameDays 30, baseFactionXp 50. A whole-game format, not a feud between two factions.",
+        "Traits Kanly_Global (Authority +100 %, agent production +100 %, Plascrete +50 %, mission prep -50 %, and more) and Kanly_MainBase (armour +1, life x0.5, construction +50 %) exist. No sheet references them; the engine probably applies them in that mode (unverified).",
+        "mapType 'Kanly': 60 cells, one desert region, two mountain regions, 4-5 specials, base slots.",
+        "Factions start with Solari 3000 and Plascrete 1500 in Kanly (Vernius Solari 4000).",
+        "Constants: Kanly_Max_Players = 2; AI_DiplomaticTarget_Kanly_Weight = 10 on all difficulties; Game_Victory_GovernorDuration = 25 in Kanly (30 default).",
+        "Achievements: KanlyWin ('Duelist', win a Kanly); AmtalRule (win a multiplayer Kanly against a player with this achievement).",
+        "No condition, attribute or trait tests 'target faction has an active Kanly' or 'rival'. G-09 and G-18 cannot use a Kanly state.",
+        "Closest diplomatic states: War and Peace (Me_IsAtWarWith_Amount, Me_Track_StartWar, Me_Track_MakePeace, DeclareWar_Cost_ARatio, Faction_GiveTTrait_AtWar, Entity_GiveTTrait_UnitAtWar_AtTRange2, Armies_AtTRange2_AtWar_GainTTrait)."
+      ]
+    },
+    {
+      "topic": "Deep Desert",
+      "date": "2026-10-24",
+      "findings": [
+        "Army_DeepDesertDailySupplyDrain_MRatio: '% daily supply drain in DeepDesert' (exact for G-08).",
+        "Army_InDeepDesert_GainTTrait and Army_Ground_InDeepDesert_GainTTrait: units in a DeepDesert gain a trait (location test built in).",
+        "Unit_DD_NoSpeedLoss and Unit_DD_GroundSpeed_MRatio exist (vanilla desert movement).",
+        "Vanilla reference: trait DesertMastery (Army_DailySupplyDrain_ARatio -2, Unit_DD_NoSpeedLoss)."
+      ]
+    },
+    {
+      "topic": "Value convention",
+      "date": "2026-10-24",
+      "findings": [
+        "*_MRatio attributes: trait value is a multiplier (1 = no change). NoUpkeep = 0, TDesertCommand = 0.8, CBattle_Assault = 0.5 on Army_StockUpkeep_MRatio.",
+        "*_ARatio attributes: additive (DesertMastery -2 on Army_DailySupplyDrain_ARatio)."
+      ]
+    }
+  ]
+}

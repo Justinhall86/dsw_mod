@@ -1,0 +1,777 @@
+sheet names: ['ability', 'ability@apply', 'ability@apply@validDiplomaticStatuses', 'ability@cooldowns', 'ability@display', 'ability@otherEffects', 'ability@otherEffects@props', 'ability@otherEffects@props@fxs', 'ability@otherEffects@props@resAmount', 'ability@otherEffects@props@traits', 'ability@otherEffects@props@units', 'ability@otherEffects@props@vals', 'ability@props', 'ability@props@ai', 'ability@props@cost', 'ability@props@givenResources', 'ability@props@notForFactions', 'ability@props@onlyForFactions', 'ability@props@tip', 'ability@props@upkeep', 'ability@traits', 'ability@traits@props', 'achievement', 'achievement@conditions', 'achievement@conditions@target', 'achievement@conditions@target2', 'achievement@conditions@vals', 'achievement@platforms', 'action', 'action@satisfies', 'agent', 'agent@need', 'agent@need@factions', 'agent@need@traits', 'agent@overlays', 'agent@overlays@traits', 'alert', 'alert@props', 'alert@props@blinkCondition', 'alert@props@glowCondition', 'alert@props@hegemonyThresholds', 'alert@props@shareRatioThresholds', 'alert@props@supplyThresholds', 'alert@props@wiggleCondition', 'attribute', 'attribute@props', 'attribute@props@dependencyProd', 'attribute@props@dependencyProd@flat', 'attribute@props@dependencyProd@penaltyAdditiveRatio', 'baseAction', 'baseAction@audio', 'baseAction@props', 'baseAction@props@costs', 'baseAction@props@targetBuilding', 'baseAction@props@targetStructures', 'baseAction@props@targetUnits', 'baseAction@values', 'battle', 'battle@factions', 'battle@factions@forceCouncilors', 'battle@images', 'battle@modifiers', 'battle@modifiers@aiTypes', 'battle@modifiers@blackListDiscoveries', 'battle@modifiers@blackListResolutions', 'battle@modifiers@blackListSietchTrades', 'battle@modifiers@constOverrides', 'battle@modifiers@constOverrides@values', 'battle@modifiers@heroes', 'battle@modifiers@heroes@whitelist', 'battle@modifiers@heroes@whitelist@list', 'battle@modifiers@traits', 'battle@objectives', 'battle@props', 'battle@props@blockedTerritoryOwners', 'battle@props@cqBlackList', 'battle@props@cqWhiteList', 'battle@props@milestoneFactions', 'battle@props@outroSpeechOverrides', 'battle@props@pawnFxs']
+
+--- Hegemony bonuses per faction (traitBonus) ---
+Atreides ['Atreides_HegemonyBonus_1', 'Atreides_HegemonyBonus_2']
+Harkonnen ['Harkonnen_HegemonyBonus_1', 'Harkonnen_HegemonyBonus_2']
+Smugglers ['Smugglers_HegemonyBonus1', 'Smugglers_HegemonyBonus2']
+Fremen ['Fremen_HegemonyBonus1', 'Fremen_HegemonyBonus2']
+Corrino ['Corrino_HegemonyBonus1', 'Corrino_HegemonyBonus2']
+Ecaz ['Ecaz_HegemonyBonus1', 'Ecaz_HegemonyBonus2']
+Vernius ['Vernius_HegemonyBonus1', 'Vernius_HegemonyBonus2']
+TEST ['TEST', 'TEST']
+=== trait Ecaz_HegemonyBonus1 ===
+{
+ "id": "Ecaz_HegemonyBonus1",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Ecaz",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "ability": "EcazPride"
+   },
+   "ref": "Unlock_TAbility",
+   "target2": {},
+   "desc": "A single [Ecaz-adjective] [!Village] can be turned into a [::target::]."
+  },
+  {
+   "target": {
+    "ability": "EcazChampion"
+   },
+   "ref": "Unlock_TAbility",
+   "target2": {},
+   "desc": "A single [Ecaz-adjective] non-mechanical unit can be named [::target::], who raises [Hegemony] by killing other factions' units."
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 13,
+  "y": 0
+ },
+ "name": "Hegemony Bonus 5k"
+}
+=== trait Ecaz_HegemonyBonus2 ===
+{
+ "id": "Ecaz_HegemonyBonus2",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Ecaz",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "resource": "Solari"
+   },
+   "ref": "TRes_ProdPerTRes2Stocks_ARatio",
+   "target2": {
+    "resource": "Hegemony"
+   },
+   "val": 0.002,
+   "desc": "Turn ::percent_value:: of your [Hegemony] into [Solari] production."
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "FreeVotes_Resolution_Flat",
+   "val": 30,
+   "desc": "The first ::value:: votes placed on each resolution are free."
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 13,
+  "y": 0
+ },
+ "name": "Hegemony Bonus 10k"
+}
+=== trait Corrino_HegemonyBonus1 ===
+{
+ "id": "Corrino_HegemonyBonus1",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Corrino",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "ability": "DeployMainBase"
+   },
+   "ref": "Unlock_TAbility",
+   "desc": "Can use [DeployMainBase] on [Corrino-adjective] and neutral [!Village]s once.",
+   "target2": {}
+  },
+  {
+   "target": {
+    "treaty": "ImperialMandate"
+   },
+   "ref": "Unlock_TTreaty",
+   "desc": "Can offer [ImperialMandate], giving [Sardaukar]s to another faction, as part of a trade.",
+   "target2": {}
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 4,
+  "y": 0
+ },
+ "name": "Hegemony Bonus 5k"
+}
+=== trait Corrino_HegemonyBonus2 ===
+{
+ "id": "Corrino_HegemonyBonus2",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Corrino",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "Corrino_HegemonyBonus2_DestroyedMB"
+   },
+   "target2": {},
+   "ref": "CustomProperty",
+   "val": 50,
+   "desc": "Destroying the main base of a faction in [War] with [Corrino-longname] for more than ::value:: days gives a second use of [DeployMainBase]."
+  },
+  {
+   "target": {
+    "trait": "Corrino_HegemonyBonus2_WarSource"
+   },
+   "target2": {},
+   "ref": "Entity_SetTTraitStacks",
+   "val": 1,
+   "displayed": false
+  },
+  {
+   "target": {
+    "resource": "Influence"
+   },
+   "target2": {},
+   "ref": "Entity_KillTruceTerritoryLoot_TRes_Flat",
+   "val": 15,
+   "desc": "Every kill on the territory of a faction in [Peace] gives ::value:: [Influence]."
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 4,
+  "y": 0
+ },
+ "name": "Hegemony Bonus 10k"
+}
+=== trait Corrino_HegemonyBonus2_DestroyedMB ===
+{
+ "id": "Corrino_HegemonyBonus2_DestroyedMB",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Corrino",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  },
+  "stackingLimit": 1
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Faction_MaxMainBase_Flat",
+   "val": 1,
+   "displayed": false
+  },
+  {
+   "target": {
+    "trait": "Corrino_HegemonyBonus2_WarSource"
+   },
+   "target2": {},
+   "ref": "TTrait_Block",
+   "displayed": false
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  "size": 64,
+  "x": 4,
+  "y": 0
+ },
+ "name": ""
+}
+=== trait Atreides_HegemonyBonus1 ===
+NOT FOUND
+=== trait Atreides_HegemonyBonus2 ===
+NOT FOUND
+=== trait E_Hero_1_ChampionBuff_PerTrophy ===
+{
+ "id": "E_Hero_1_ChampionBuff_PerTrophy",
+ "desc": "",
+ "props": {
+  "ignoreStackWarning": true
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Life_ARatio",
+   "val": 0.01
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 1
+ },
+ "name": "Whitmore's Training"
+}
+=== trait E_Hero_1_SkillBuff ===
+{
+ "id": "E_Hero_1_SkillBuff",
+ "desc": "",
+ "props": {
+  "tip": {
+   "cat": "UnitInspiration"
+  },
+  "ignoreStackWarning": true,
+  "fx": []
+ },
+ "attributes": [
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Power_Flat",
+   "val": 1
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "Entity_Armor_Flat",
+   "val": 0.5
+  }
+ ],
+ "type": 0,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/icons/unitsTraits.png",
+  "size": 64,
+  "x": 44,
+  "y": 1
+ },
+ "name": "Frightful Champion"
+}
+=== trait Ecaz ===
+{
+ "id": "Ecaz",
+ "desc": "",
+ "props": {
+  "onlyForFaction": "Ecaz",
+  "tip": {
+   "padExpand": false,
+   "allowed": false
+  }
+ },
+ "attributes": [
+  {
+   "target": {
+    "trait": "Ecaz_SanctuaryEligibility"
+   },
+   "target2": {},
+   "ref": "Faction_NeutralVillages_GainTTrait",
+   "displayed": true,
+   "desc": "Surrounded neutral [!Village]s become [Ecaz_Sanctuary], that cannot be attacked by other factions."
+  },
+  {
+   "target": {
+    "resource": "Authority"
+   },
+   "target2": {
+    "trait": "Ecaz_Sanctuary"
+   },
+   "ref": "TRes_ProdPerNeutralVillageWithTTrait_Flat",
+   "val": 1,
+   "desc": "Gain ::value:: [::target::] production per [Ecaz_Sanctuary]."
+  },
+  {
+   "target": {
+    "trait": "Ecaz_Sanctuary_Neighbors"
+   },
+   "target2": {},
+   "ref": "CustomProperty",
+   "desc": "[!Village]s get their quirks applied ::value:: more time per neighboring [Ecaz_Sanctuary].",
+   "val": 1
+  },
+  {
+   "target": {
+    "resource": "Standing"
+   },
+   "target2": {},
+   "ref": "Treaty_Break_TResLoss_MRatio",
+   "val": 2,
+   "displayed": false
+  },
+  {
+   "target": {},
+   "ref": "Allow_Landsraad",
+   "displayed": false,
+   "target2": {}
+  },
+  {
+   "target": {},
+   "ref": "ClosestSietch_RevealScorePerDay_Flat",
+   "val": 0,
+   "displayed": false,
+   "target2": {}
+  },
+  {
+   "target": {
+    "trait": "OrniSupport_Harv"
+   },
+   "ref": "FollowingOrni_Harvester_GainTTrait",
+   "displayed": false,
+   "target2": {}
+  },
+  {
+   "target": {
+    "resource": "Scraps"
+   },
+   "ref": "TRes_Block",
+   "displayed": false,
+   "target2": {}
+  },
+  {
+   "target": {
+    "trait": "NeighoringTheEnemy"
+   },
+   "ref": "AdjacentTerritoryEnemyVillages_GainTTrait",
+   "displayed": false,
+   "target2": {}
+  },
+  {
+   "target": {
+    "trait": "NeighboringRevealedSietch"
+   },
+   "ref": "Faction_AllSietches_Revealed_AdjacentFactionVillages_GainTTrait",
+   "displayed": false,
+   "target2": {}
+  },
+  {
+   "target": {},
+   "target2": {},
+   "ref": "CustomProperty_Inverted",
+   "desc": "Get no damage bonus and lose <bad>+100%</bad> [Standing] when betraying a [Peace]",
+   "displayed": true,
+   "val": 1
+  }
+ ],
+ "type": 1,
+ "displayed": false,
+ "gfx": {
+  "file": "UI/Faction/factionButton00.png",
+  
+
+--- referencing ids ---
+Faction_ExtraEcazChampion_Flat -> ['attribute:Faction_ExtraEcazChampion_Flat', 'trait:E_Hero_1_FactionBuff', 'trait:WhitmorePassive']
+Entity_ExecuteTarget_HealthRatio_Flat -> ['attribute:Entity_ExecuteTarget_HealthRatio_Flat', 'trait:C_Elite_Trait', 'trait:C_Elite_Buff', 'trait:V_Hero_2_Trait_Buff_Execute', 'trait:TSardaukarCleaver', 'trait:TSardaukarCleaver_Old']
+Faction_GiveTTrait_AtWarSinceDays -> ['attribute:Faction_GiveTTrait_AtWarSinceDays', 'trait:Corrino_HegemonyBonus2_WarSource']
+Faction_EcazChampion_GainTTrait -> ['attribute:Faction_EcazChampion_GainTTrait', 'trait:CB_Ecaz_FactionBonus2', 'trait:CB_Ecaz_FactionBonus5', 'trait:CB_Ecaz_FactionBonus6', 'trait:CB_Ecaz_MissionReward4']
+Entity_Attacks_IgnoreArmor_MRatio -> ['attribute:Entity_Attacks_IgnoreArmor_MRatio', 'trait:F_Elite_Trait', 'trait:ArmorPenetration_Trait', 'trait:Demo_Trait', 'trait:HeavyDemo_Trait', 'trait:Ship_Demo_Trait', 'trait:TConcentratedExplosives', 'trait:TExperimentalCombustibles', 'trait:TVowOfBravery', 'trait:TSharpenTools', 'trait:TTortureTools', 'trait:TMountedExplosives_DeathBuff', 'trait:Main_Demo', 'trait:T_MissileBattery', 'trait:T_NeuralNodeAttack']
+TLastStandProtocols" -> ['equipment:LastStandProtocols', 'trait:TLastStandProtocols']
+Atreides_NegativeResolution -> ['trait:Atreides_HegemonyBonus_1', 'trait:Atreides_NegativeResolution']
+Entity_TurnDamageModifierIntoDamageReduction -> ['attribute:Entity_TurnDamageModifierIntoDamageReduction', 'trait:TSoberingMedication']
+Entity_GiveTTrait_GroundUnitAtWar_AtTRange2 -> ['attribute:Entity_GiveTTrait_GroundUnitAtWar_AtTRange2', 'trait:Warrior_Trait', 'trait:A_Hero_1_Skill_Buff_1']
+Unit_EcazChampion -> ['attribute:Unit_EcazChampion', 'trait:TEcazChampion']
+Entity_ExecuteImmune -> ['attribute:Entity_ExecuteImmune', 'trait:Hero_Trait', 'trait:TEcazChampion']
+Faction_OnInfantryKill_OtherFactionUnit_SpawnTTraitAgent -> ['attribute:Faction_OnInfantryKill_OtherFactionUnit_SpawnTTraitAgent', 'trait:Harkonnen_HegemonyBonus_1']
+=== attribute Faction_ExtraEcazChampion_Flat ===
+{
+ "id": "Faction_ExtraEcazChampion_Flat",
+ "desc": "Can apply [!EcazChampion] on ::value:: more units",
+ "props": {
+  "allowStackSquashing": true
+ },
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 1,
+  "y": 0
+ },
+ "implemented": true,
+ "__ignoreLoc__": true
+}
+=== attribute Entity_ExecuteTarget_HealthRatio_Flat ===
+{
+ "id": "Entity_ExecuteTarget_HealthRatio_Flat",
+ "desc": "Executes enemy units under ::percent_value:: [Life]",
+ "props": {
+  "allowStackSquashing": true
+ },
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 1,
+  "y": 0
+ },
+ "val": 0.2,
+ "implemented": true
+}
+=== attribute Unit_EcazChampion ===
+{
+ "id": "Unit_EcazChampion",
+ "desc": "",
+ "props": {
+  "allowStackSquashing": true
+ },
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 1,
+  "y": 0
+ },
+ "implemented": true,
+ "__ignoreLoc__": true
+}
+=== attribute Faction_EcazChampion_GainTTrait ===
+{
+ "id": "Faction_EcazChampion_GainTTrait",
+ "desc": "Champions gain ::target_effects::",
+ "props": {},
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 10,
+  "y": 0
+ },
+ "target": 4,
+ "implemented": true,
+ "__ignoreLoc__": true
+}
+=== attribute Faction_GiveTTrait_AtWarSinceDays ===
+{
+ "id": "Faction_GiveTTrait_AtWarSinceDays",
+ "desc": "Being in [War] with [$my(faction)] for ::value:: days gives ::target_effects:: to the Faction.",
+ "props": {},
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 10,
+  "y": 0
+ },
+ "target": 4,
+ "implemented": true,
+ "__ignoreLoc__": true
+}
+=== attribute Entity_GiveTTrait_GroundUnitAtWar_AtTRange2 ===
+{
+ "id": "Entity_GiveTTrait_GroundUnitAtWar_AtTRange2",
+ "desc": "Give [::target::] to ground unit in [War] in [::target2::]",
+ "props": {},
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 1,
+  "y": 0
+ },
+ "target": 4,
+ "target2": 28,
+ "implemented": true,
+ "__ignoreLoc__": true
+}
+=== attribute Army_OnEliminateFactionUnit_GainTRes ===
+{
+ "id": "Army_OnEliminateFactionUnit_GainTRes",
+ "desc": "Gain ::value:: [::target::] upon participating in a kill",
+ "props": {},
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 4,
+  "y": 0
+ },
+ "val": 2,
+ "target": 2,
+ "implemented": true,
+ "__ignoreLoc__": true
+}
+=== attribute Entity_ExecuteImmune ===
+{
+ "id": "Entity_ExecuteImmune",
+ "desc": "Cannot be Executed",
+ "props": {
+  "allowStackSquashing": true
+ },
+ "gfx": {
+  "file": "UI/icons/attribute_icons.png",
+  "size": 32,
+  "x": 1,
+  "y": 0
+ },
+ "implemented": true
+}
+
+--- bonus sheet shape ---
+bonus count 177 by props.type {0: 64, 1: 63, 3: 4, 4: 5, 10: 4, 9: 4, 2: 9, 5: 6, 8: 6, 6: 9, 7: 3}
+Arrakeen None []
+Atreides_FactionBonus1 [{'ref': 'Atreides'}] [{'ref': 'CB_Atreides_FactionBonus1'}]
+Atreides_FactionBonus2 [{'ref': 'Atreides'}] [{'ref': 'CB_Atreides_FactionBonus2'}]
+Atreides_FactionBonus3 [{'ref': 'Atreides'}] [{'ref': 'CB_Atreides_FactionBonus3'}]
+Atreides_FactionBonus4 [{'ref': 'Atreides'}] [{'ref': 'CB_Atreides_FactionBonus4'}]
+Atreides_FactionBonus5 [{'ref': 'Atreides'}] [{'ref': 'CB_Atreides_FactionBonus5'}]
+Ecaz bonuses: ['Ecaz_FactionBonus1', 'Ecaz_FactionBonus2', 'Ecaz_FactionBonus3', 'Ecaz_FactionBonus4', 'Ecaz_FactionBonus5', 'Ecaz_FactionBonus6', 'Ecaz_FactionBonus7', 'Ecaz_FactionBonus8', 'Ecaz_FactionBonus9', 'Ecaz_MissionReward1', 'Ecaz_MissionReward2', 'Ecaz_MissionReward3', 'Ecaz_MissionReward4', 'Ecaz_MissionReward5', 'Ecaz_MissionReward6']
+=== bonus Ecaz_FactionBonus4 ===
+{
+ "id": "Ecaz_FactionBonus4",
+ "name": "The Knight of the Windmill",
+ "desc": "",
+ "traits": [],
+ "effects": [
+  {
+   "vals": [
+    {
+     "val": 1
+    }
+   ],
+   "target": {
+    "unit": "E_Elite"
+   },
+   "target2": {
+    "blackboard": "SpawnedUnits"
+   },
+   "ref": "TUnit_SpawnMB_InTBlackboard2",
+   "trigger": 0,
+   "desc": "Start every game with a [!Ecaz_PerfectRecruit] [!TEcazChampion] [::target::] at max level"
+  },
+  {
+   "vals": [],
+   "target": {
+    "blackboard": "SpawnedUnits"
+   },
+   "target2": {
+    "trait": "TEcazChampion"
+   },
+   "ref": "TBBUnits_GainTTrait2",
+   "trigger": 0,
+   "displayed": false
+  },
+  {
+   "vals": [],
+   "target": {
+    "blackboard": "SpawnedUnits"
+   },
+   "target2": {
+    "trait": "Ecaz_PerfectRecruit"
+   },
+   "ref": "TBBUnits_GainTTrait2",
+   "trigger": 0,
+   "displayed": false
+  },
+  {
+   "vals": [
+    {
+     "val": 3
+    }
+   ],
+   "target": {
+    "blackboard": "SpawnedUnits"
+   },
+   "target2": {},
+   "ref": "TBBUnits_SetXpLevel",
+   "trigger": 0,
+   "displayed": false
+  },
+  {
+   "vals": [
+    {
+     "val": 1
+    },
+    {
+     "val": 0
+    }
+   ],
+   "target": {
+    "unit": "E_Trooper"
+   },
+   "target2": {},
+   "ref": "TUnit_SpawnMB_XpLevel",
+   "trigger": 0,
+   "desc": "Start every game with a [::target::]"
+  }
+ ],
+ "props": {
+  "onlyForFactions": [
+   {
+    "ref": "Ecaz"
+   }
+  ],
+  "rarity": 2,
+  "type": 0,
+  "lowDifficulty": true
+ },
+ "gfx": {
+  "file": "UI/conquest/bonusFaction.png",
+  "size": 100,
+  "x": 14,
+  "y": 0
+ },
+ "
+=== bonus Ecaz_FactionBonus1 ===
+{
+ "id": "Ecaz_FactionBonus1",
+ "name": "Favorite Candidate",
+ "desc": "",
+ "traits": [
+  {
+   "ref": "CB_Ecaz_FactionBonus1"
+  }
+ ],
+ "effects": [],
+ "props": {
+  "onlyForFactions": [
+   {
+    "ref": "Ecaz"
+   }
+  ],
+  "rarity": 2,
+  "type": 0,
+  "lowDifficulty": false
+ },
+ "gfx": {
+  "file": "UI/conquest/bonusFaction.png",
+  "size": 100,
+  "x": 13,
+  "y": 0
+ },
+ "illustration": {
+  "file": "UI/conquest/bonusFaction_illustrations_ecaz.png",
+  "size": 1,
+  "x": 3600,
+  "y": 0,
+  "width": 600,
+  "height": 400
+ },
+ "conditions": [],
+ "implemented": true
+}
+=== bonus Ecaz_FactionBonus3 ===
+{
+ "id": "Ecaz_FactionBonus3",
+ "name": "Virtuous Standing",
+ "desc": "",
+ "traits": [
+  {
+   "ref": "CB_Ecaz_FactionBonus3"
+  }
+ ],
+ "effects": [],
+ "props": {
+  "onlyForFactions": [
+   {
+    "ref": "Ecaz"
+   }
+  ],
+  "rarity": 2,
+  "type": 0,
+  "lowDifficulty": true
+ },
+ "gfx": {
+  "file": "UI/conquest/bonusFaction.png",
+  "size": 100,
+  "x": 13,
+  "y": 0
+ },
+ "illustration": {
+  "file": "UI/conquest/bonusFaction_illustrations_ecaz.png",
+  "size": 1,
+  "x": 1200,
+  "y": 0,
+  "width": 600,
+  "height": 400
+ },
+ "implemented": true,
+ "conditions": []
+}
+
+--- equipment holders ---
+ParryingArmguards ['unit:A_Trooper', 'unit:A_LandsraadGuard', 'unit:A_Elite', 'unit:H_Elite', 'unit:C_Trooper', 'unit:C_Elite', 'unit:E_Special', 'equipment:ParryingArmguards']
+SoberingMedication ['unit:E_Trooper', 'equipment:SoberingMedication']
+LastStandProtocols ['ability:LastStandProtocols', 'unit:A_Elite', 'equipment:LastStandProtocols']
+VowOfBravery ['unit:E_Elite', 'equipment:VowOfBravery']
+=== equipment ParryingArmguards ===
+{
+ "id": "ParryingArmguards",
+ "name": "Parrying Armguards",
+ "desc": "When you cannot rely on shields anymore, older parrying apparatus come back in fashion.",
+ "traits": [
+  {
+   "ref": "TParryingArmguards",
+   "showAsClassTrait": false
+  }
+ ],
+ "props": {
+  "cost": [
+   {
+    "res": "Solari",
+    "qty": 500
+   }
+  ]
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/icons/equipments_02.png",
+  "size": 64,
+  "x": 32,
+  "y": 0
+ }
+}
+=== equipment SoberingMedication ===
+{
+ "id": "SoberingMedication",
+ "name": "Sobering Medication",
+ "desc": "A proper [!E_Trooper] should never allow himself to get too excited. He must always keep his head cool in the face of duty.",
+ "traits": [
+  {
+   "ref": "TSoberingMedication",
+   "showAsClassTrait": false
+  }
+ ],
+ "props": {
+  "cost": [
+   {
+    "res": "Solari",
+    "qty": 500
+   }
+  ]
+ },
+ "aiWeights": [],
+ "gfx": {
+  "file": "UI/icons/equipments_02.png",
+  "size": 64,
+  "x": 47,
+  "y": 0
+ }
+}
+equip with LastStand: ['LastStandProtocols']
+E_Trooper traits ['E_Trooper_Trait'] equip ['FrontLineTactics', 'KnightlyProtector', 'SoberingMedication', 'PricklySpear'] stats [{'health': 450, 'power': 10, 'armor': 7}] squad None
+A_Elite traits ['A_Elite_Trait', 'Warrior_Trait'] equip ['CoverTactics', 'LastStandProtocols', 'ParryingArmguards', 'PranaBindu'] stats [{'health': 500, 'power': 16, 'armor': 8}] squad 5
+A_Trooper traits ['A_Trooper_Trait'] equip ['FrontLineTactics', 'OffensiveMindset', 'ParryingArmguards', 'PranaBindu'] stats [{'health': 500, 'power': 14, 'armor': 6}] squad None

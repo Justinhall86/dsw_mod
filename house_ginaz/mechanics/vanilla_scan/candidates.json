@@ -1,0 +1,611 @@
+{
+ "_about": "Revision 2 (2026-10-25): corrected after re-verifying against data.cdb and diffing vs data_vanilla_2026-10-22.cdb; see VANILLA_MECHANICS_FOR_GINAZ.md corrections table.",
+ "candidates": [
+  {
+   "n": 1,
+   "name": "Champion system (Ecaz)",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "ability": "EcazChampion",
+    "trait": "TEcazChampion",
+    "attribute": "Unit_EcazChampion",
+    "unlock": "Ecaz_HegemonyBonus1 (5K)"
+   },
+   "values": {
+    "cost_solari": 1000,
+    "life_mratio": 1.2,
+    "power_mratio": 1.2,
+    "armor_flat": 2,
+    "execute_immune": true,
+    "height_aratio": 0.05
+   },
+   "growth": "Army_OnEliminateFactionUnit_GainTTrait -> TEcazChampion_Buff_Stack (Hegemony 100 per stack, EcazChampion track)",
+   "ginaz_use": "Name Champion (G-15) at 5K. Decide execute: vanilla champions are immune.",
+   "build": "data copy",
+   "correction": "Ability gated onlyForFactions=Ecaz and uses Ecaz-named hooks (Unit_EcazChampion, Faction_EcazChampion_GainTTrait). Untested for other factions."
+  },
+  {
+   "n": 2,
+   "name": "Political Duel (Ecaz faction bonus)",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "bonus": "Ecaz_FactionBonus2",
+    "trait": "CB_Ecaz_FactionBonus2",
+    "effect_trait": "CB_Ecaz_FactionBonus2_Effect",
+    "attribute": "Army_OnEliminateFactionUnit_GainTRes"
+   },
+   "values": {
+    "per_kill_standing": 3,
+    "per_kill_influence": 10,
+    "applies_to": "EcazChampion (via Faction_EcazChampion_GainTTrait)"
+   },
+   "ginaz_use": "Duel kill reward for champions",
+   "build": "data",
+   "conquest_only": true
+  },
+  {
+   "n": 3,
+   "name": "Whitmore, Legendary Swordmaster (hero)",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "unit": "E_Hero_1",
+    "trait": "E_Hero_1_Trait",
+    "skill": "E_Hero_1_Skill",
+    "skill_buff": "E_Hero_1_SkillBuff"
+   },
+   "values": {
+    "life": 1000,
+    "power": 20,
+    "armor": 6,
+    "extra_champions": 2,
+    "training_life_per_trophy_pct": 1,
+    "frightful_champion_per_stack": {
+     "power": 1,
+     "armor": 0.5
+    }
+   },
+   "ginaz_use": "Master of Ginaz hero template; Frightful Champion as the Grandmaster signature",
+   "build": "hero record + 3 traits",
+   "correction": "Skill also consumes 1 Trophy stack every 4 s. Extra champions stated as 2 (attribute), 'a second' (UI text) and +1 (WhitmorePassive). Rivvy (RivvyPassive) added."
+  },
+  {
+   "n": 4,
+   "name": "Vows (Ecaz Elite oath equipment)",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "unit": "E_Elite",
+    "equipment": [
+     "VowOfBravery",
+     "VowOfFervor",
+     "VowOfHeroism",
+     "VowOfHonor"
+    ],
+    "traits": [
+     "TVowOfBravery",
+     "TVowOfFervor",
+     "TVowOfHeroism",
+     "TVowOfHonor"
+    ]
+   },
+   "values": {
+    "cost_solari_each": 500,
+    "bravery": {
+     "ignore_armor_mratio": 0.5,
+     "armor_flat": -2
+    },
+    "fervor": {
+     "damage_aratio": 0.2,
+     "unit_life_flat": -100
+    },
+    "heroism": {
+     "power_flat": 15,
+     "upkeep_command_points": 3
+    },
+    "honor": {
+     "nearby_trooper_gains": "TVowOfHonor_Buff (+1 power)"
+    }
+   },
+   "ginaz_use": "Four Ginaz oaths on the Captain/Elite line, each a trade-off",
+   "build": "4 equipment records reusing traits",
+   "caveat": "per-unit choice inferred; check armory",
+   "correction": "Vow of Honor targets unit id E_Trooper only; retarget for a Ginaz trooper."
+  },
+  {
+   "n": 5,
+   "name": "Parrying Armguards + Sobering Medication",
+   "tier": 1,
+   "identity_fit": 4,
+   "source": {
+    "trait": "TParryingArmguards",
+    "equipment": "TSoberingMedication (equipment SoberingMedication)"
+   },
+   "values": {
+    "melee_damage_received_mratio": 0.9,
+    "damage_modifier_to_reduction": 0.5
+   },
+   "ginaz_use": "Parry stand-ins (G-05)",
+   "build": "data",
+   "caveat": "source item of TParryingArmguards not traced",
+   "correction": "Caveat resolved: ParryingArmguards equipment on A_Trooper, A_LandsraadGuard, A_Elite, H_Elite, C_Trooper, C_Elite, E_Special; SoberingMedication on E_Trooper only."
+  },
+  {
+   "n": 6,
+   "name": "Days-at-war timer (Corrino) - NOT a grudge",
+   "tier": 1,
+   "identity_fit": 2,
+   "source": {
+    "bonus_trait": "Corrino_HegemonyBonus2",
+    "traits": [
+     "Corrino_HegemonyBonus2_WarSource",
+     "Corrino_WarEnemy",
+     "Corrino_WarEnemy_MainBase",
+     "Corrino_HegemonyBonus2_DestroyedMB"
+    ],
+    "attribute": "Faction_GiveTTrait_AtWarSinceDays"
+   },
+   "values": {
+    "days_at_war": 50,
+    "kill_in_truce_influence": 15,
+    "max_main_bases_extra": 1
+   },
+   "ginaz_use": "Vendetta trait for Kanly (G-09, G-18)",
+   "build": "trait + days-at-war rule",
+   "correction": "Rev1 had direction backwards: the reward goes to Corrino (second DeployMainBase use) when Corrino destroys the marked main base. Only the 50-day timer attribute is reusable."
+  },
+  {
+   "n": 7,
+   "name": "Treaty-break penalties (Ecaz, Jessica)",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "faction": "Ecaz",
+    "councilor_trait": "JessicaPassive",
+    "attributes": [
+     "Treaty_Break_TResLoss_MRatio",
+     "Treaty_EnemyBreak_TResLoss_Flat"
+    ]
+   },
+   "values": {
+    "ecaz_own_treaty_break_standing_mratio": 2,
+    "enemy_treaty_break_standing_flat": -50
+   },
+   "ginaz_use": "Honour as a resource",
+   "build": "data"
+  },
+  {
+   "n": 8,
+   "name": "Kill counter to agents (Harkonnen)",
+   "tier": 2,
+   "identity_fit": 3,
+   "source": {
+    "bonus": "Harkonnen_HegemonyBonus_1",
+    "attribute": "Faction_OnInfantryKill_OtherFactionUnit_SpawnTTraitAgent",
+    "trait": "Brainwashed"
+   },
+   "values": {
+    "kills_per_agent": 20,
+    "agent_resource_mratio_penalty": -0.1
+   },
+   "ginaz_use": "Kill counter pattern for Master Dueling (G-17)",
+   "build": "data"
+  },
+  {
+   "n": 9,
+   "name": "Bloodthirsty (kill stacks, Harkonnen)",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "elite_trait": "H_Elite_Trait",
+    "elite_buff": "H_Elite_Buff",
+    "hero": "H_Hero_2",
+    "hero_trait": "H_Hero_2_Trait",
+    "hero_buff": "H_Hero_2_UnitDeath_Buff"
+   },
+   "values": {
+    "elite_power_flat_per_death": 1,
+    "hero_power_flat_per_stack": 1,
+    "hero_armor_flat_per_stack": 0.5,
+    "hero_steal_life_at_zero": true
+   },
+   "ginaz_use": "Kill-fed stacks (G-06 alternative)",
+   "build": "data",
+   "correction": "Range is Short_Range (death near the elite), not ranged units. Stack cap 20."
+  },
+  {
+   "n": 10,
+   "name": "Last Stand Protocols",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "ability": "LastStandProtocols",
+    "trait": "TLastStandProtocols",
+    "buff": "TLastStandProtocols_Buff"
+   },
+   "values": {
+    "speed_mratio": 0.5,
+    "armor_flat": 5,
+    "blocks_military_bonuses": true
+   },
+   "ginaz_use": "Refuse to die: the Discipline Cross last stand",
+   "build": "ability + buff",
+   "correction": "Does not stop death or rout. A_Elite equipment: Speed x0.5, +5 Armor, ignores allied buffs, cannot be turned off in melee."
+  },
+  {
+   "n": 11,
+   "name": "Warrior close-combat slow",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "trait": "Warrior_Trait",
+    "debuff": "Warrior_Trait_Debuff",
+    "attribute": "Entity_GiveTTrait_GroundUnitAtWar_AtTRange2"
+   },
+   "values": {
+    "enemy_speed_mratio_in_melee": 0.9
+   },
+   "ginaz_use": "Duel lock; precedent for war-state melee traits (G-09)",
+   "build": "data"
+  },
+  {
+   "n": 12,
+   "name": "Easy Target and Heavy Hitter (armour answers)",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "smugglers_elite": "S_Elite_Trait",
+    "fremen_elite": "F_Elite_Trait"
+   },
+   "values": {
+    "easy_target_armor_max": 3,
+    "easy_target_power_mratio": 1.5,
+    "heavy_hitter_ignore_armor_mratio": 0.5
+   },
+   "ginaz_use": "Cassian anti-armour; light-target bonus. Pick one per unit",
+   "build": "data",
+   "caveat": "uses other factions' units"
+  },
+  {
+   "n": 13,
+   "name": "Evasion finisher (Vernius hero Ctair)",
+   "tier": 2,
+   "identity_fit": 3,
+   "source": {
+    "hero": "V_Hero_2",
+    "trait": "V_Hero_2_Trait_Buff_Execute"
+   },
+   "values": {
+    "execute_ratio": 1,
+    "duration_s": 30,
+    "stack_limit": 1
+   },
+   "ginaz_use": "Risky final thrust",
+   "build": "data",
+   "correction": "Rev1 said executes under 1%. Value 1 = 100%: the next attack executes any non-immune unit; 30s; 1 stack; leaves combat."
+  },
+  {
+   "n": 14,
+   "name": "Adversity power (Atreides negative resolution)",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "trait": "Atreides_NegativeResolution",
+    "hegemony_bonus": "Atreides_HegemonyBonus_1"
+   },
+   "values": {
+    "army_power_aratio_under_negative_resolution": 0.1,
+    "positive_resolution_solari_aratio": 0.1
+   },
+   "ginaz_use": "Martial Honor under Landsraad disapproval; alternative 5K milestone",
+   "build": "copy pattern"
+  },
+  {
+   "n": 15,
+   "name": "Teacher aura (Gurney)",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "hero": "A_Hero_2",
+    "trait": "A_Hero_2_Trait",
+    "faction_buff": "A_Hero_2_FactionBuff",
+    "units_buff": "A_Hero_2_UnitsBuff_1",
+    "melee": "A_Hero_2_UnitsBuff_1_Melee",
+    "range": "A_Hero_2_UnitsBuff_1_Range",
+    "xp": "A_Hero_2_UnitsBuff_2"
+   },
+   "values": {
+    "melee_armor_flat_per_xp_level": 1,
+    "ranged_attack_speed_aratio": 0.05,
+    "xp_gain_aratio_in_range": 0.5
+   },
+   "ginaz_use": "Grandmaster teacher aura (Corin)",
+   "build": "data",
+   "caveat": "Atreides hero; copy the mechanic, not the model"
+  },
+  {
+   "n": 16,
+   "name": "Vow of Honor as squad aura",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "equipment": "VowOfHonor",
+    "trait": "TVowOfHonor",
+    "buff": "TVowOfHonor_Buff"
+   },
+   "values": {
+    "nearby_trooper_power_flat": 1
+   },
+   "ginaz_use": "Elite squad aura",
+   "build": "data (covered by n4)"
+  },
+  {
+   "n": 17,
+   "name": "Plots (threat meters)",
+   "tier": 3,
+   "identity_fit": 3,
+   "source": {
+    "plots": [
+     "Murder",
+     "Bankruptcy",
+     "Defamation",
+     "Pressure"
+    ],
+    "effects": [
+     "Conquest_PlotProgress",
+     "Conquest_PlotRegress"
+    ]
+   },
+   "values": {
+    "trigger_values": "not traced"
+   },
+   "ginaz_use": "Rival threat meter (Kanly)",
+   "build": "medium",
+   "conquest_only": true
+  },
+  {
+   "n": 18,
+   "name": "Assassin School and assassination bonuses (Harkonnen, plots)",
+   "tier": 3,
+   "identity_fit": 2,
+   "source": {
+    "bonus": "Harkonnen_FactionBonus9",
+    "trait": "CB_Harkonnen_FactionBonus9",
+    "bonuses": [
+     "Plot_Assassination_1",
+     "Plot_Assassination_2"
+    ],
+    "traits": [
+     "CBP_Assassination1",
+     "CBP_Assassination2"
+    ],
+    "attribute": "Faction_DailySpawn_TUnit_Flat"
+   },
+   "values": {
+    "assassins_per_day": 1,
+    "lurking_threat_agent_prod_mratio": 0.5,
+    "ominous_threat_agent_prod_mratio": 0.25
+   },
+   "ginaz_use": "Assassin contract (G-19); weak identity fit",
+   "build": "data",
+   "correction": "Plot_Assassination_1/2 (CBP_Assassination1/2) set Agent TRes_Prod_MRatio to 0.5/0.25: a Conquest PENALTY, not a +50%/+25% buff. Assassin School is a Conquest bonus.",
+   "conquest_only": true
+  },
+  {
+   "n": 19,
+   "name": "Heroism and Ghola Wisdom (Duncan)",
+   "tier": 3,
+   "identity_fit": 3,
+   "source": {
+    "hero": "A_Hero_1",
+    "trait": "A_Hero_1_Trait",
+    "heroism": "A_Hero_1_Heroism",
+    "ghola": "A_Hero_1_GholaWisdom"
+   },
+   "values": {
+    "heroism_power_flat": 2,
+    "heroism_armor_flat": 1,
+    "ghola_power_flat_per_death": 3,
+    "ghola_life_flat_per_death": 150
+   },
+   "ginaz_use": "Master grows from losses or allied buffs",
+   "build": "data",
+   "flag": "Duncan source: confirm the no-Duncan rule covers mechanics"
+  },
+  {
+   "n": 20,
+   "name": "Cloaking outside combat (Chani, Ctair)",
+   "tier": 3,
+   "identity_fit": 2,
+   "source": {
+    "hero_fremen": "F_Hero_1",
+    "trait_fremen": "F_Hero_1_Trait",
+    "hero_vernius": "V_Hero_2",
+    "attribute": "Entity_Cloaked"
+   },
+   "values": {
+    "cloaked_outside_combat": true
+   },
+   "ginaz_use": "Scout ambush (careful: identity says not a shadow House)",
+   "build": "data"
+  },
+  {
+   "n": 21,
+   "name": "Battlefield Frenzy and Executioner (Corrino/Sardaukar)",
+   "tier": 3,
+   "identity_fit": 2,
+   "source": {
+    "trait": "TBattlefieldFrenzy",
+    "elite_trait": "C_Elite_Trait"
+   },
+   "values": {
+    "attack_speed_per_ally_medium_range_aratio": 0.01,
+    "execute_under_percent_life": 0.05
+   },
+   "ginaz_use": "Mechanic ideas only (Imperial source, flagged)",
+   "build": "data",
+   "flag": "Sardaukar-styled",
+   "correction": "Executioner: 5% base +2% per ally at Medium_Range, up to 20 stacks (max 45%). TSardaukarCleaver adds 10%."
+  },
+  {
+   "n": 22,
+   "name": "The Fencer (E_Special) - Deadly Dance",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "unit": "E_Special",
+    "trait": "E_Special_Trait",
+    "equipment": [
+     "JumpingBoot",
+     "PersonalMantlet",
+     "ChasingStance",
+     "ParryingArmguards"
+    ]
+   },
+   "values": {
+    "life": 300,
+    "power": 11,
+    "armor": 1,
+    "damage_received_from_target_mratio": 0.6,
+    "jump_speed_aratio": 1,
+    "jump_duration_s": 2,
+    "mantlet_armor": 5,
+    "chased_speed_mratio": 0.8,
+    "equipment_cost_solari": 500
+   },
+   "ginaz_use": "Neophyte/Captain chassis: take 40% less damage from the current target; four-item loadout.",
+   "build": "data copy (unit traits + 4 equipment)",
+   "new_in_rev2": true
+  },
+  {
+   "n": 23,
+   "name": "The Squire protects the Knight (E_Trooper)",
+   "tier": 2,
+   "identity_fit": 4,
+   "source": {
+    "unit": "E_Trooper",
+    "traits": [
+     "E_Trooper_Trait",
+     "TPricklySpear",
+     "TKnightlyProtector",
+     "TFrontLineTactics",
+     "TSoberingMedication"
+    ]
+   },
+   "values": {
+    "life": 450,
+    "power": 10,
+    "armor": 7,
+    "crushed_armor": -2,
+    "prickly_spear_target_damage_vs_non_squire_mratio": 0.8
+   },
+   "ginaz_use": "Neophyte as taunt + armour-strip support.",
+   "build": "data only",
+   "new_in_rev2": true
+  },
+  {
+   "n": 24,
+   "name": "XP as the House currency (Ginaz Swordmasters / Schools / quest / Rivvy)",
+   "tier": 1,
+   "identity_fit": 5,
+   "source": {
+    "conquest_bonus": [
+     "Atreides_FactionBonus2",
+     "Atreides_MissionReward1"
+    ],
+    "quest": "GinazSwordmasters",
+    "subquests": [
+     "GS_ShowYourWorth",
+     "GS_TrainSoldiers"
+    ],
+    "traits": [
+     "RivvyPassive",
+     "WhitmorePassive"
+    ]
+   },
+   "values": {
+    "xp_gain_aratio": 1,
+    "xp_level_effects_aratio": 1,
+    "daily_xp": 2,
+    "max_level_no_solari_upkeep": true,
+    "start_xp_level": 1,
+    "quest_reward": "1 free Elite + 300 QuestsCompleted hegemony each"
+   },
+   "ginaz_use": "Veteran-making identity; earn a Captain via quest.",
+   "build": "data only (traits); quest straight copy",
+   "new_in_rev2": true
+  },
+  {
+   "n": 25,
+   "name": "Kanly Duel game mode (reference only)",
+   "tier": 3,
+   "identity_fit": 2,
+   "source": {
+    "gameMode": "Kanly",
+    "traits": [
+     "Kanly_Global",
+     "Kanly_MainBase"
+    ]
+   },
+   "values": {
+    "xp_gain_mratio": 1.5,
+    "standing_gain_mratio": 1.5,
+    "standing_loss_mratio": 1.5,
+    "unit_import_time_mratio": 0.5,
+    "main_base_life_mratio": 0.5
+   },
+   "ginaz_use": "Confirms Kanly is a mode; shows designers' duel multipliers.",
+   "build": "not borrowable",
+   "new_in_rev2": true
+  },
+  {
+   "n": 26,
+   "name": "Where vanilla keeps 'Ginaz' (note)",
+   "tier": 3,
+   "identity_fit": 0,
+   "source": {
+    "unit": "A_Elite (our edit)",
+    "quest": "GinazSwordmasters",
+    "bonus": [
+     "Atreides_FactionBonus2",
+     "Atreides_MissionReward1"
+    ],
+    "characters": [
+     "Whitmore",
+     "Rivvy"
+    ]
+   },
+   "ginaz_use": "Only instructors/quest/bonuses; no faction, leader or hegemony track. No conflict with a new faction.",
+   "build": "n/a",
+   "new_in_rev2": true
+  }
+ ],
+ "bundles": {
+  "A_fencer_house": [
+   22,
+   5,
+   4,
+   23
+  ],
+  "B_champion_line": [
+   1,
+   2,
+   3,
+   24
+  ],
+  "C_cold_steel": [
+   11,
+   12,
+   10,
+   9
+  ],
+  "D_honour_and_teaching": [
+   7,
+   14,
+   15,
+   24
+  ]
+ }
+}

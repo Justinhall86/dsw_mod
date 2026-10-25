@@ -1,0 +1,317 @@
+# Game systems (vanilla): Landsraad resolutions, treaties, bonuses, interactions
+
+## Landsraad resolutions
+- **Controlled Markets** (`ControlledMarkets`) 
+- **Economic Investigations** (`EconomicInvestigation`) 
+- **Portfolio Scrutiny** (`PortfolioScrutiny`) 
+- **Infrastructure Control** (`InfrastructureValidations`) 
+- **Sale Incentive** (`SaleIncentive`) 
+- **Tax Negotiations** (`TaxNegociations`) 
+- **CHOAM Contracts** (`CHOAMContracts`) 
+- **CHOAM Dilution** (`CHOAMDilution`) 
+- **Imperial Missionaries** (`CHOAMNegotiations`) 
+- **Research Investments** (`IndustrialRegulations`) 
+- **CHOAM Subsidies** (`CHOAMSubsidies`) 
+- **Water Regulation** (`WaterRegulation`) 
+- **Land Sales** (`LandSales`) 
+- **Architectural Surveys** (`ArchitecturalSurveys`) 
+- **Territory Contest** (`TerritoryContest`) 
+- **Water Subsidies** (`WaterSubsidies`) 
+- **Gear Regulations** (`VehicleRegulation`) 
+- **Foreign Recruitment** (`MilitaryService`) 
+- **Landsraad Support** (`ImperialSupport`) 
+- **Spacing Guild Resources** (`SpacingGuildRessources`) 
+- **Labor Rights** (`LaborRights`) 
+- **Landsraad Witnesses** (`LandsraadWitnesses`) 
+- **Military Investigations** (`MilitaryInvestigations`) 
+- **Scientific Congress** (`ScientificCongress`) 
+- **Private Mandate** (`TroopInventories`) 
+- **Diplomatic Congresses** (`DiplomaticCongresses`) 
+- **Sisterhood Involvement** (`SisterhoodInvolvement`) 
+- **Imperial Audit** (`ImperialAudit`) 
+- **Imperial Propaganda** (`ImperialPropaganda`) 
+- **War of Assassins** (`WarOfAssassins`) 
+- **Imperium Summit** (`Deescalation`) 
+- **Diplomatic Committee** (`SurveillanceCommittee`) 
+- **Statecraft Investigations** (`StatecraftInvestigations`) 
+- **Agenda Contracts** (`AgendaContracts`) 
+- **Imperial Intelligence** (`ImperialIntelligence`) 
+- **Landsraad Investigation** (`LandsraadInvestigation`) 
+- **Loss of Rights** (`LossOfRights`) 
+- **Trial of the Great Houses** (`TrialoftheGreatHouses`) 
+- **Landsraad Examination** (`LandsraadExamination`) 
+- **Speaker of the Council** (`CouncilSpeaker`) 
+- **Judge of the Council** (`CouncilJudge`) 
+- **Dune Governorship** (`DuneGovernor`) 
+- **@X Consul** (`DuneGovernorConquest`) 
+- **Council Representative** (`LandsraadRepresentative`) 
+- **Water Seller's Union** (`WaterSellerUnion`) 
+- **Eye of the Council** (`CouncilEye`) 
+
+## Treaties
+- **Research Agreement** (`ResearchAgreement`) 
+- **Trade Agreement** (`TradeAgreement`) 
+- **Political Agreement** (`PoliticalAgreement`) 
+- **Non-aggression Pact** (`ImproveRelations`) - Cost to propose decreases the longer the War lingers.
+- **Imperial Mandate** (`ImperialMandate`) 
+- **TTreaty** (`TTreaty`) 
+- **Guarantee of safety** (`AssassinationTreaty`) - End the assassination attempt
+- **Harmless Gadget** (`HarmlessGadget`) 
+- **Water Gift** (`WaterGift_Easy`) 
+- **Water Gift** (`WaterGift_Normal`) 
+- **Water Gift** (`WaterGift_Hard`) 
+- **Water Gift** (`WaterGift_Insane`) 
+- **Land Agreement** (`OpenBordersAgreement`) 
+- **Imperial Favor** (`ImperialHonor`) 
+- **Tributary** (`MilitaryPressure`) - Allows the use of threats to extort resources.
+
+## Bonuses (`bonus` sheet, with descriptions)
+- **Legitimate Claim** (`Atreides_FactionBonus1`) 
+- **Ginaz Swordmasters** (`Atreides_FactionBonus2`) 
+- **Free Real-Estate** (`Atreides_FactionBonus3`) 
+- **Military Prestige** (`Atreides_FactionBonus4`) 
+- **Wounded Protection** (`Atreides_FactionBonus5`) 
+- **Friendly Reputation** (`Atreides_FactionBonus6`) 
+- **Radiance of the Paragon** (`Atreides_FactionBonus7`) 
+- **Respect from the Houses** (`Atreides_FactionBonus8`) 
+- **Landsraad Network** (`Atreides_FactionBonus9`) 
+- **Ginaz Schools** (`Atreides_MissionReward1`) 
+- **Benevolent Propaganda** (`Atreides_MissionReward2`) 
+- **Healthy Rations** (`Atreides_MissionReward3`) 
+- **Subvention for Peace** (`Atreides_MissionReward4`) 
+- **Political Model** (`Atreides_MissionReward5`) 
+- **Wealth of the Paragon** (`Atreides_MissionReward6`) 
+- **Painful Lessons** (`Harkonnen_FactionBonus1`) 
+- **Pragmatic Sacrifice** (`Harkonnen_FactionBonus2`) 
+- **Omnipresent Fanaticism** (`Harkonnen_FactionBonus3`) 
+- **Educational Example** (`Harkonnen_FactionBonus4`) 
+- **Virtual Tyranny** (`Harkonnen_FactionBonus5`) 
+- **Alternative Facts** (`Harkonnen_FactionBonus6`) 
+- **Frightening Tools** (`Harkonnen_FactionBonus7`) 
+- **Thetical Opportunism** (`Harkonnen_FactionBonus8`) 
+- **Assassin School** (`Harkonnen_FactionBonus9`) 
+- **Sick Gambling** (`Harkonnen_MissionReward1`) 
+- **Minor Martyrdom** (`Harkonnen_MissionReward2`) 
+- **Talkative Survivors** (`Harkonnen_MissionReward3`) 
+- **Show of Strength** (`Harkonnen_MissionReward4`) 
+- **Agent School** (`Harkonnen_MissionReward5`) 
+- **Secret Cabal** (`Harkonnen_MissionReward6`) 
+- **Spare Freighter** (`Corrino_FactionBonus1`) 
+- **Space Optimization** (`Corrino_FactionBonus2`) 
+- **Administrative Redundancy** (`Corrino_FactionBonus3`) 
+- **Mentorship Program** (`Corrino_FactionBonus4`) 
+- **Strength in Numbers** (`Corrino_FactionBonus5`) 
+- **Mandatory Levies** (`Corrino_FactionBonus6`) 
+- **Profitable Delegation** (`Corrino_FactionBonus7`) 
+- **Political Appropriation** (`Corrino_FactionBonus8`) 
+- **Imperial Gigantism** (`Corrino_FactionBonus9`) 
+- **Iron Umbrella** (`Corrino_MissionReward1`) 
+- **Structural Optimization** (`Corrino_MissionReward2`) 
+- **Assault Formations** (`Corrino_MissionReward3`) 
+- **Imperial Logistic** (`Corrino_MissionReward4`) 
+- **Administrative Fees** (`Corrino_MissionReward5`) 
+- **Expansion Taxes** (`Corrino_MissionReward6`) 
+- **Favorite Candidate** (`Ecaz_FactionBonus1`) 
+- **Political Duel** (`Ecaz_FactionBonus2`) 
+- **Virtuous Standing** (`Ecaz_FactionBonus3`) 
+- **The Knight of the Windmill** (`Ecaz_FactionBonus4`) 
+- **Lonely Quest** (`Ecaz_FactionBonus5`) 
+- **Helpful Entourage** (`Ecaz_FactionBonus6`) 
+- **Fascinating Works** (`Ecaz_FactionBonus7`) 
+- **Artful Display** (`Ecaz_FactionBonus8`) 
+- **Artistic Freedom** (`Ecaz_FactionBonus9`) 
+- **Luxury Garden** (`Ecaz_MissionReward1`) 
+- **Resourcing Retreat** (`Ecaz_MissionReward2`) 
+- **Chivalry Culture** (`Ecaz_MissionReward3`) 
+- **Tourney Culture** (`Ecaz_MissionReward4`) 
+- **Defender of the Arts** (`Ecaz_MissionReward5`) 
+- **The Arrakis Gallery** (`Ecaz_MissionReward6`) 
+- **Randomized Trials** (`Vernius_FactionBonus1`) 
+- **Serendipitous Research** (`Vernius_FactionBonus2`) 
+- **Exponential Growth** (`Vernius_FactionBonus3`) 
+- **Parallel Processing** (`Vernius_FactionBonus4`) 
+- **Sequential Trade** (`Vernius_FactionBonus5`) 
+- **Intuitive Network** (`Vernius_FactionBonus6`) 
+- **Inducement Awards** (`Vernius_FactionBonus7`) 
+- **Recycled City** (`Vernius_FactionBonus8`) 
+- **Assisted Workforce** (`Vernius_FactionBonus9`) 
+- **Culture of Curiosity** (`Vernius_MissionReward1`) 
+- **Research Grant** (`Vernius_MissionReward2`) 
+- **Serial Assembly** (`Vernius_MissionReward3`) 
+- **Motivating Medium** (`Vernius_MissionReward4`) 
+- **Harmless Prototype** (`Vernius_MissionReward5`) 
+- **Maintenance Protocols** (`Vernius_MissionReward6`) 
+- **One-Armed Bandit** (`Smugglers_FactionBonus1`) 
+- **Early Birds** (`Smugglers_FactionBonus2`) 
+- **Well-Traveled** (`Smugglers_FactionBonus3`) 
+- **Gigantic Water Tanks** (`Smugglers_FactionBonus4`) 
+- **Vanguard Outposts** (`Smugglers_FactionBonus5`) 
+- **Grocer Network** (`Smugglers_FactionBonus6`) 
+- **Street-Smart** (`Smugglers_FactionBonus7`) 
+- **Rotten From the Inside** (`Smugglers_FactionBonus8`) 
+- **Another Man's Treasure** (`Smugglers_FactionBonus9`) 
+- **Hit and Run** (`Smugglers_MissionReward1`) 
+- **Dangerous Job** (`Smugglers_MissionReward2`) 
+- **Synergetic Advertising** (`Smugglers_MissionReward3`) 
+- **Distant Profits** (`Smugglers_MissionReward4`) 
+- **Underworld Roots** (`Smugglers_MissionReward5`) 
+- **Underworld Society** (`Smugglers_MissionReward6`) 
+- **Wind from the South** (`Fremen_FactionBonus1`) 
+- **Drawing the Faithful** (`Fremen_FactionBonus2`) 
+- **Cleanup Crew** (`Fremen_FactionBonus3`) 
+- **Little Drops** (`Fremen_FactionBonus4`) 
+- **Deep Reserve** (`Fremen_FactionBonus5`) 
+- **Shared Purpose** (`Fremen_FactionBonus6`) 
+- **Meaningful Symbols** (`Fremen_FactionBonus7`) 
+- **Manifest Legitimacy** (`Fremen_FactionBonus8`) 
+- **The Land Provides** (`Fremen_FactionBonus9`) 
+- **Maker's Favor** (`Fremen_MissionReward1`) 
+- **Spirit of Temperance** (`Fremen_MissionReward2`) 
+- **Holy Purpose** (`Fremen_MissionReward3`) 
+- **Millenial Project** (`Fremen_MissionReward4`) 
+- **Early Reclaim** (`Fremen_MissionReward5`) 
+- **Rebellious Momentum** (`Fremen_MissionReward6`) 
+- **Spying Initiative** (`Generic_MissionReward1`) 
+- **Plundering Mindset** (`Generic_MissionReward2`) 
+- **Friendly Ambassadors** (`Generic_MissionReward3`) 
+- **Propaganda Network** (`Generic_MissionReward4`) 
+- **Wordy Diplomats** (`Generic_MissionReward5`) 
+- **Attentive Ears** (`Generic_MissionReward6`) 
+- **Intelligence Support** (`Generic_MissionReward7`) 
+- **Recruit Formation** (`Generic_MissionReward8`) 
+- **Sapper's Brigade** (`Generic_MissionReward9`) 
+- **Ship Escort** (`Generic_MissionReward11`) 
+- **Ship Escort** (`Generic_MissionReward11_Fremen`) 
+- **Spying Vanguard** (`Generic_MissionReward12`) 
+- **Guild Fiefdom** (`Generic_MissionReward13`) 
+- **Sand Sifters** (`Generic_MissionReward13_Fremen`) 
+- **Elimination Network** (`Generic_MissionReward14`) 
+- **Formation Template** (`Generic_MissionReward15`) 
+- **Head start** (`Generic_MissionReward16`) 
+- **Economic Developments** (`Generic_MissionReward17`) 
+- **Military Developments** (`Generic_MissionReward18`) 
+- **Statecraft Developments** (`Generic_MissionReward19`) 
+- **Expansion Developments** (`Generic_MissionReward20`) 
+- **Fremen Tolerance** (`Fremen_RelationBonus1`) 
+- **Fremen Respect** (`Fremen_RelationBonus2`) 
+- **Fremen Friendship** (`Fremen_RelationBonus3`) 
+- **Fremen Alliance** (`Fremen_RelationBonus4`) 
+- **Twenty Second Generic** (`Renegade1`) 
+- **Twenty Second Generic** (`Renegade2`) 
+- **Twenty Second Generic** (`Renegade3`) 
+- **Twenty Second Generic** (`Renegade4`) 
+- **Spacing Guild & Renegades** (`BlockRenegade`) SpacingGuild & Renegades aren't on Arrakis
+- **Faufreluche Contacts** (`Faufreluches_RelationBonus1`) 
+- **Faufreluche Fraud** (`Faufreluches_RelationBonus2`) 
+- **Faufreluche Perversion** (`Faufreluches_RelationBonus3`) 
+- **Faufreluche Puppeteer** (`Faufreluches_RelationBonus4`) 
+- **Hopeful Followers** (`Unity_RelationBonus1`) 
+- **Collective Dream** (`Unity_RelationBonus2`) 
+- **Organised Front** (`Unity_RelationBonus3`) 
+- **United Brotherhood** (`Unity_RelationBonus4`) 
+- **North Pole** (`Bonus_NorthPole`) 
+- **Populous Basin** (`Bonus_ImperialBasin`) 
+- **Populous Basin** (`Bonus_HaggaBasin`) 
+- **Mount Idaho Range** (`Bonus_MountIdaho`) 
+- **Broken Land** (`Bonus_BrokenLand`) 
+- **Pasty Mesa** (`Bonus_PastyMesa`) 
+- **Volcanic Range** (`Bonus_Volcano`) 
+- **Spice Field** (`Bonus_SpiceField`) 
+- **Greater Spice Field** (`Bonus_GreaterSpiceField`) 
+- **Fuel Cell Facilities** (`Improvement_FuelCell`) 
+- **Recruitment Complex** (`Improvement_Manpower`) 
+- **Plascrete Facilities** (`Improvement_Plascrete`) 
+- **Trade Complex** (`Improvement_Solari`) 
+- **Wind Farms** (`Improvement_Water`) 
+- **Landsraad Embassy** (`Improvement_Standing`) 
+- **Desert Preparation** (`Stratagems_Preparation`) 
+- **Surprise Strike** (`Stratagems_SupriseStrike`) 
+- **Shielding Weather** (`Stratagems_Weather`) 
+- **Massive Gathering** (`Stratagems_Gathering`) 
+- **Settlement Readiness** (`Stratagems_Readiness`) 
+- **Rebellious Propaganda** (`Stratagems_Rebellious`) 
+- **Lurking Threat** (`Plot_Assassination_1`) 
+- **Ominous Threat** (`Plot_Assassination_2`) 
+- **Raising Boycott** (`Plot_Bankruptcy_1`) 
+- **Full Embargo** (`Plot_Bankruptcy_2`) 
+- **Complete Infamy** (`Plot_Defamation_2`) 
+- **Shameful Reputation** (`Plot_Defamation_1`) 
+- **Mounting Pressure** (`Plot_Pressure`) 
+- **Mounting Pressure** (`Plot_Pressure_Fremen`) 
+- **Defeat** (`Plot_Pressure_Defeat`) 
+- **Initial Bonus** (`Fremen_InitialBonus`) 
+- **Initial Bonus** (`Fremen_LessAggro`) 
+- **BaseBonus** (`CB_Smuggler_BaseBonus`) 
+
+## Interactions (operations and agent actions)
+- `PlayerLessVillages`: 
+- `PlayerMoreVillages`: 
+- `AdjacentPlayerTerritory`: 
+- `AdjacentBonifiedPlayerTerritory`: 
+- `PlayerAdjacentBonifiedTerritory`: 
+- `AdjacentPlayerPoleRegion`: 
+- `PoleVillage`: 
+- `RebellionPlayerVillage`: 
+- `AdjacentPlayerRefineries`: 
+- `AdjacentPlayerMilitaryBases`: 
+- `PlayerAdjacentAIMilitaryBases`: 
+- `AdjacentAirfields`: 
+- `PlayerAdjacentAirfields`: 
+- `PlayerOrniInTerritory`: 
+- `OrniInPlayerTerritory`: 
+- `PoIResolution`: 
+- `SietchTrade`: 
+- `SietchAttack`: 
+- `AIMoreSpiceProduction`: 
+- `AILessSpiceProduction`: 
+- `InsufficientSpiceImperilTax`: 
+- `SpiceOverflow`: 
+- `ImperialTaxNotPaid`: 
+- `FremenBribeNotPaid`: 
+- `SmugglerBribeNotPaid`: 
+- `WaterDeficit`: 
+- `SolariDeficit`: 
+- `FuelCellDeficit`: 
+- `ManpowerDeficit`: 
+- `AIAdjacentPlayerArmies`: 
+- `PlayerArmyInVillageZone`: 
+- `AIArmyAdjacentPlayerTerritory`: 
+- `AIArmyInPlayerVillageZone`: 
+- `PlayerLessArmies`: 
+- `PlayerMoreArmies`: 
+- `PlayerSpiceCollectorEaten`: 
+- `PlayerHarvesterEaten`: 
+- `AIUnitsEatenOnPlayerTerritory`: 
+- `PlayerUnitsEatenOnAITerritory`: 
+- `PlayerOperationOnAI`: 
+- `AIOperationOnPlayer`: 
+- `AIAttackOnPlayer`: 
+- `PlayerAttackOnAI`: 
+- `PlayerInfiltrationLevel`: 
+- `AIInfiltrationLevel`: 
+- `HighPlayerStanding`: 
+- `LowPlayerStanding`: 
+- `GoodRelationship`: 
+- `BadRelationship`: 
+- `VoteSameResolution`: 
+- `PlayerVoteForAI`: 
+- `AIVoteForPlayer`: 
+- `PlayerVoteAgainstAI`: 
+- `AIVoteAgainstPlayer`: 
+- `PlayerCharter`: 
+- `AICharter`: 
+- `PlayerMoreHegemony`: 
+- `PlayerLessHegemony`: 
+- `UWHQInPlayerVillage`: 
+- `UWHQInAIVillage`: 
+- `UWHQDiscovered`: 
+- `VillageOppression`: 
+- `MainBaseDestroyed`: 
+- `LeaderAssassinated`: 
+- `GoodPromise`: 
+- `Comforting`: 
+- `Neutral`: 
+- `Aggressive`: 
+- `Threat`: 
+- `PoliticalUnderstanding`: 
+- `PoliticalFeud`: 
