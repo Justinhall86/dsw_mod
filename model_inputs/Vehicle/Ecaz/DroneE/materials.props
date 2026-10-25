@@ -1,0 +1,18 @@
+{
+	"materials": {
+		"PBR": {
+			"MAT_EcazDrone": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1,
+				"alphaKill": false,
+				"parallax": 0
+			}
+		}
+	}
+}

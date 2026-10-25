@@ -1,0 +1,27 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_SpaceShuttle": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			},
+			"Mat_Reactor": {
+				"mode": "BeforeTonemapping",
+				"blend": "Add",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": false,
+				"emissive": 1
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "AutomatedMilitia",
+			"source": "Vehicle/Vernius/AutomatedMilitia/AutomatedMilitia.fbx",
+			"rotationZ": 90
+		}
+	]
+}

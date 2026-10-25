@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "RavagerShuttle",
+			"source": "Vehicle/Common/Ravager_Shuttle/RavagerShuttle.fbx"
+		}
+	]
+}

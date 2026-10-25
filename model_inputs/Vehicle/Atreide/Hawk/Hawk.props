@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Hawk_Death.fbx": {
+			"events": [
+				{
+					"frame": 38,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

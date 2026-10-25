@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "CarryAll",
+			"source": "Vehicle/Atreide/CarryAll/CarryAll.fbx"
+		}
+	]
+}

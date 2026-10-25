@@ -1,0 +1,32 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Monument",
+			"source": "Vehicle/Ecaz/Monument/Monument.fbx",
+			"x": -0.17203,
+			"y": 0.74246,
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"rotationX": 90,
+							"rotationZ": 20
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Monument.Muzzles",
+			"target": "Monument.root.B_ROOT"
+		}
+	]
+}

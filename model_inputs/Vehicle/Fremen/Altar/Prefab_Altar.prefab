@@ -1,0 +1,66 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Altar",
+			"source": "Vehicle/Fremen/Altar/Altar.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "model",
+			"name": "Altar_AllFabric",
+			"source": "Vehicle/Fremen/Altar/Altar_AllFabric.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Muzzles",
+			"target": "Altar_AllFabric.B_RootJ.B_MainJ"
+		},
+		{
+			"type": "object",
+			"name": "Muzzles",
+			"x": 1.1,
+			"z": 1.7,
+			"children": [
+				{
+					"type": "object",
+					"name": "MuzzleA1",
+					"x": 0.4,
+					"y": 0.9,
+					"rotationX": -5,
+					"rotationY": 120
+				},
+				{
+					"type": "object",
+					"name": "MuzzleA2",
+					"y": 1.3,
+					"rotationX": -30,
+					"rotationY": 120
+				},
+				{
+					"type": "object",
+					"name": "MuzzleB1",
+					"x": 0.4,
+					"y": -0.9,
+					"rotationX": 5,
+					"rotationY": 120
+				},
+				{
+					"type": "object",
+					"name": "MuzzleB2",
+					"y": -1.3,
+					"rotationX": 30,
+					"rotationY": 120
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Attach",
+			"rotationZ": 90
+		}
+	]
+}

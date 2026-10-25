@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ravager_Drone",
+			"source": "Vehicle/Common/Ravager_Drone/Ravager_Drone.fbx"
+		}
+	]
+}

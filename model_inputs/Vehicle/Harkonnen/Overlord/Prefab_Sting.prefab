@@ -1,0 +1,33 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Sting",
+			"source": "Vehicle/Harkonnen/Overlord/Sting.fbx",
+			"rotationZ": -90
+		},
+		{
+			"type": "object",
+			"name": "MuzzleA",
+			"z": 0.2,
+			"scaleX": 0.19,
+			"scaleY": 0.19,
+			"scaleZ": 0.64,
+			"rotationY": 180,
+			"children": [
+				{
+					"type": "box",
+					"name": "box",
+					"editorOnly": true
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "MuzzleA",
+			"target": "Sting.B_ROOT.B_Sting"
+		}
+	]
+}

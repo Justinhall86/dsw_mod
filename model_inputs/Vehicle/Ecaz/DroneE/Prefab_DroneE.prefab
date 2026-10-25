@@ -1,0 +1,38 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "DroneE",
+			"source": "Vehicle/Ecaz/DroneE/DroneE.fbx",
+			"type": "model",
+			"children": [
+				{
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 3,
+						"amount": 1.97,
+						"zamount": 2.97,
+						"freq": 6.83
+					},
+					"targetMaterial": "MAT_EcazDrone_Wind",
+					"recursiveApply": false,
+					"type": "shader"
+				}
+			]
+		},
+		{
+			"name": "camera",
+			"x": 2.045126426738217,
+			"y": 1.1044515234351002,
+			"z": 1.091177390287866,
+			"rotationX": -4.0008049685533093e-16,
+			"rotationY": 6.42286358192493,
+			"rotationZ": -152.52740501285285,
+			"fovY": 60,
+			"zFar": 1000,
+			"zNear": 0.1,
+			"type": "camera"
+		}
+	]
+}

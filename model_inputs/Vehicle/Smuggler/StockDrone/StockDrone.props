@@ -1,0 +1,16 @@
+{
+	"animations": {
+		"Anim_DroneS2_Death.fbx": {
+			"events": [
+				{
+					"frame": 4,
+					"data": "startFall"
+				},
+				{
+					"frame": 30,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

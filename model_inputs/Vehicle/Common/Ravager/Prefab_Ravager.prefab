@@ -1,0 +1,45 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ravager",
+			"source": "Vehicle/Common/Ravager/Ravager.fbx",
+			"z": -0.3
+		},
+		{
+			"type": "object",
+			"name": "Muzzles",
+			"children": [
+				{
+					"type": "object",
+					"name": "MuzzleA",
+					"y": -0.1,
+					"z": 0.3,
+					"rotationY": 45
+				},
+				{
+					"type": "object",
+					"name": "MuzzleB",
+					"y": -0.1,
+					"z": -0.3,
+					"rotationY": 135
+				},
+				{
+					"type": "object",
+					"name": "MuzzleC",
+					"x": 0.7,
+					"y": -0.5,
+					"rotationX": 45,
+					"rotationY": 90
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Muzzles",
+			"target": "Ravager.B_ROOT.B_Body"
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Harvester",
+			"source": "Vehicle/Vernius/Harvester/Harvester.fbx",
+			"z": 1.6,
+			"rotationZ": 90
+		},
+		{
+			"type": "object",
+			"name": "tracks",
+			"enabled": false,
+			"children": [
+				{
+					"type": "reference",
+					"name": "Harvest",
+					"source": "Fx/Vehicle/Harvester/Harvester_HeadHarvest.fx",
+					"x": 1,
+					"y": 0.1,
+					"scaleX": 1.6,
+					"scaleY": 1.6,
+					"scaleZ": 1.6,
+					"rotationZ": 90
+				}
+			]
+		}
+	]
+}

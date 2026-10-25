@@ -1,0 +1,25 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "DroneH",
+			"source": "Vehicle/Harkonnen/DroneH/DroneH.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 19.954490434896975,
+			"y": 6.508506247806151,
+			"z": 4.659432497684394,
+			"scaleX": 0.9999999999999999,
+			"rotationX": 2.0262678761965406e-16,
+			"rotationY": 11.175405861111534,
+			"rotationZ": -162.0063386454605,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

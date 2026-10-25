@@ -1,0 +1,20 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "FolderRelay",
+			"source": "Vehicle/Vernius/FolderRelay/FolderRelay.fbx"
+		},
+		{
+			"type": "object",
+			"name": "MuzzleA"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "MuzzleA",
+			"target": "FolderRelay.JNT_Root.B_Weapon_Muzzle"
+		}
+	]
+}

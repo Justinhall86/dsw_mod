@@ -1,0 +1,159 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Vehicule_Harvester",
+			"source": "Vehicle/Atreide/Harvester/Vehicule_Harvester.fbx"
+		},
+		{
+			"type": "object",
+			"name": "tracks",
+			"children": [
+				{
+					"type": "reference",
+					"name": "TrackEmitter",
+					"source": "Fx/Vehicle/Harvester/TrackEmitter.fx",
+					"x": -0.57,
+					"y": 0.03254,
+					"scaleX": 1.6,
+					"scaleY": 1.6,
+					"scaleZ": 1.6,
+					"rotationZ": 90
+				},
+				{
+					"type": "reference",
+					"name": "TrackEmitter",
+					"source": "Fx/Vehicle/Harvester/TrackEmitter.fx",
+					"enabled": false,
+					"x": -0.59,
+					"y": 0.81
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 2.37,
+			"y": 0.42,
+			"scaleX": 1.3,
+			"scaleY": 1.7,
+			"scaleZ": 0.5,
+			"rotationZ": 89.99999999999999,
+			"albedoMap": "Fx/Gradients/z_FillWhite.jpg",
+			"renderMode": "BeforeTonemapping",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Alpha",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "LessEqual",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 2
+						}
+					},
+					"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+				},
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": false,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 0.1,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Alphas/T_LightCar.png",
+						"onDecal": false
+					}
+				},
+				{
+					"type": "shader",
+					"name": "ColorSet",
+					"source": "shaders/ColorSet.hx",
+					"props": {
+						"amount": 1,
+						"color": [
+							1,
+							0.8274509803921568,
+							0.7058823529411764
+						]
+					}
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 2.37,
+			"y": -0.42,
+			"scaleX": 1.3,
+			"scaleY": 1.7,
+			"scaleZ": 0.5,
+			"rotationZ": 89.99999999999999,
+			"albedoMap": "Fx/Gradients/z_FillWhite.jpg",
+			"renderMode": "BeforeTonemapping",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Alpha",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "LessEqual",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 2
+						}
+					},
+					"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+				},
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": false,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 0.1,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Alphas/T_LightCar.png",
+						"onDecal": false
+					}
+				},
+				{
+					"type": "shader",
+					"name": "ColorSet",
+					"source": "shaders/ColorSet.hx",
+					"props": {
+						"amount": 1,
+						"color": [
+							1,
+							0.8274509803921568,
+							0.7058823529411764
+						]
+					}
+				}
+			]
+		}
+	]
+}

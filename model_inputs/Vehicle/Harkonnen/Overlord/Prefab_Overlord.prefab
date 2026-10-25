@@ -1,0 +1,16 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Overlord",
+			"source": "Vehicle/Harkonnen/Overlord/Overlord.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Harkonnen/Overlord/Select.fbx",
+			"visible": false
+		}
+	]
+}

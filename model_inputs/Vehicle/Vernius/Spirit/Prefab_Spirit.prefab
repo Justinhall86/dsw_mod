@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Spirit",
+			"source": "Vehicle/Vernius/Spirit/Spirit.fbx"
+		}
+	]
+}

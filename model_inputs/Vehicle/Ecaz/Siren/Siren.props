@@ -1,0 +1,12 @@
+ {
+	"animations": {
+		"Anim_Siren_Death.fbx": {
+			"events": [
+				{
+					"frame": 60,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

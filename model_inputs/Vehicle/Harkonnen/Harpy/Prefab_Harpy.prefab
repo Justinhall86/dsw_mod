@@ -1,0 +1,65 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Harpy",
+			"source": "Vehicle/Harkonnen/Harpy/Harpy.fbx",
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"y": -0.56988,
+					"z": 0.0726,
+					"rotationX": -90,
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"x": 0.1,
+							"z": 0.06,
+							"rotationY": 80,
+							"rotationZ": -80
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB",
+							"x": -0.1,
+							"z": 0.06,
+							"rotationY": 80,
+							"rotationZ": -100
+						},
+						{
+							"type": "object",
+							"name": "MuzzleC",
+							"x": -0.1,
+							"z": -0.075,
+							"rotationY": 100,
+							"rotationZ": -100
+						},
+						{
+							"type": "object",
+							"name": "MuzzleD",
+							"x": 0.1,
+							"z": -0.075,
+							"rotationY": 100,
+							"rotationZ": -80
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Harpy.Muzzles",
+			"target": "Harpy.root.B_ROOT.B_Body"
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Harkonnen/Harpy/Select.fbx",
+			"visible": false
+		}
+	]
+}

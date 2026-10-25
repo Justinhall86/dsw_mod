@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ornithopter_Scavenged",
+			"source": "Vehicle/Atreide/Ornithopter/Ornithopter_damage/Ornithopter_Scavenged.fbx"
+		}
+	]
+}

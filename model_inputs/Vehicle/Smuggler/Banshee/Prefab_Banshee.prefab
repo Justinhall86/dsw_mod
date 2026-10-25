@@ -1,0 +1,35 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Banshee",
+			"source": "Vehicle/Smuggler/Banshee/Banshee.fbx",
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"z": 0.92095,
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Banshee.Muzzles",
+			"target": "Banshee.B_ROOT.B_Body.B_Canon"
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Smuggler/Banshee/Select.fbx",
+			"visible": false
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Hawk",
+			"source": "Vehicle/Atreide/Hawk/Hawk.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Atreide/Hawk/Select.fbx",
+			"visible": false
+		}
+	]
+}

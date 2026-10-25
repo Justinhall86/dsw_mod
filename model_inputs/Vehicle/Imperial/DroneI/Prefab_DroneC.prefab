@@ -1,0 +1,73 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ImperiumDroneCanon",
+			"source": "Vehicle/Imperial/DroneI/ImperiumDroneCanon.fbx"
+		},
+		{
+			"type": "model",
+			"name": "ImperiumDroneBase",
+			"source": "Vehicle/Imperial/DroneI/ImperiumDroneBase.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 12.799108484330928,
+			"y": 8.499955308787259,
+			"z": 8.46642127242463,
+			"scaleY": 0.9999999999999999,
+			"rotationY": 26.473378991104145,
+			"rotationZ": -145.67704148423203,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		},
+		{
+			"type": "object",
+			"name": "MuzzleA",
+			"z": 0.1,
+			"children": [
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "MuzzleA",
+					"target": "ImperiumDroneCanon.B_Root.B_Main.B_GearCanon_Base.B_GearCanon_Mid.B_GearCanon.B_CanonR.B_CanonR_Shoot"
+				},
+				{
+					"type": "box",
+					"name": "box",
+					"editorOnly": true,
+					"z": 0.25,
+					"scaleX": 0.2,
+					"scaleY": 0.2,
+					"scaleZ": 0.5
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "MuzzleB",
+			"z": 0.1,
+			"children": [
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "MuzzleB",
+					"target": "ImperiumDroneCanon.B_Root.B_Main.B_GearCanon_Base.B_GearCanon_Mid.B_GearCanon.B_CanonL.B_CanonL_Shoot"
+				},
+				{
+					"type": "box",
+					"name": "box",
+					"editorOnly": true,
+					"z": 0.25,
+					"scaleX": 0.2,
+					"scaleY": 0.2,
+					"scaleZ": 0.5
+				}
+			]
+		}
+	]
+}

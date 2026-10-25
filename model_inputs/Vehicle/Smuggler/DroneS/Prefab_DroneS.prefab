@@ -1,0 +1,24 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "DroneS",
+			"source": "Vehicle/Smuggler/DroneS/DroneS.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 13.78820920360233,
+			"y": 8.819147529773856,
+			"z": 5.7203905603131,
+			"rotationX": -8.315568611029594e-16,
+			"rotationY": 17.019575371445733,
+			"rotationZ": -147.7607406528241,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

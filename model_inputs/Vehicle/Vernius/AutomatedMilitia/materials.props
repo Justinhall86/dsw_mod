@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"AutomatedMilitia": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 2.73
+			}
+		}
+	}
+}

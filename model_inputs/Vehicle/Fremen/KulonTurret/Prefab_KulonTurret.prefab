@@ -1,0 +1,47 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "KulonTurretBase",
+			"source": "Vehicle/Fremen/KulonTurret/KulonTurretBase.fbx"
+		},
+		{
+			"type": "model",
+			"name": "KulonTurretCannon",
+			"source": "Vehicle/Fremen/KulonTurret/KulonTurretCannon.fbx"
+		},
+		{
+			"type": "object",
+			"name": "Muzzles",
+			"rotationX": 90,
+			"rotationZ": -25,
+			"children": [
+				{
+					"type": "object",
+					"name": "MuzzleA"
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Muzzles",
+			"target": "KulonTurretCannon.B_Root.B_Main.B_MainArm_01J.B_MainArm_02J.B_MainArm_03J.B_MainArm_04J.B_HeadJ.B_CannonJ"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 22.962741979433453,
+			"y": 7.933387623384142,
+			"z": 6.994849885910599,
+			"rotationX": 4.081361280695891e-16,
+			"rotationY": 13.066166585043133,
+			"rotationZ": -160.69097577202172,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

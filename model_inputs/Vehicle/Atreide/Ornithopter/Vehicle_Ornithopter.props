@@ -1,0 +1,20 @@
+{
+	"animations": {
+		"Anim_Ornithopter_Death01.fbx": {
+			"events": [
+				{
+					"frame": 96,
+					"data": "endFall"
+				}
+			]
+		},
+		"Anim_Ornithopter_Death.fbx": {
+			"events": [
+				{
+					"frame": 24,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ornithopter_F",
+			"source": "Vehicle/Fremen/OrnithopterF/Ornithopter_F.fbx"
+		}
+	]
+}

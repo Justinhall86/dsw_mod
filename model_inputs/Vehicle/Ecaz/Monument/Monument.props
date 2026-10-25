@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Monument_Death.fbx": {
+			"events": [
+				{
+					"frame": 120,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_LandsraadEliteG1",
+			"source": "CharMOD/Male01_LandsraadEliteG1/Male01_LandsraadEliteG1.hmd"
+		},
+		{
+			"type": "model",
+			"name": "TallSword",
+			"source": "Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx",
+			"y": -0.16362,
+			"z": 0.05084,
+			"rotationX": -90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -1,
+			"scaleX": 1.6,
+			"scaleY": 1.6,
+			"scaleZ": 1.3,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "tdecal",
+			"target": "Male01_LandsraadEliteG1.B_ROOTJ",
+			"positionOnly": true
+		},
+		{
+			"type": "model",
+			"name": "Gun",
+			"source": "Character/Common/Weapon/Gun/Gun.fbx",
+			"y": -0.01867,
+			"z": -0.13208,
+			"rotationX": -90,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun",
+			"target": "Male01_LandsraadEliteG1.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		},
+		{
+			"type": "constraint",
+			"name": "Constraint_Sword",
+			"object": "TallSword",
+			"target": "Male01_LandsraadEliteG1.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

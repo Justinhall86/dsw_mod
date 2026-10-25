@@ -1,0 +1,16 @@
+{
+	"animations": {
+		"Anim_Wraith_Death.fbx": {
+			"events": [
+				{
+					"frame": 11,
+					"data": "startFall"
+				},
+				{
+					"frame": 91,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

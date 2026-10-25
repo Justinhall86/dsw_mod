@@ -1,0 +1,16 @@
+{
+	"animations": {
+		"Anim_Altar_Death.fbx": {
+			"events": [
+				{
+					"frame": 80,
+					"data": "startFall"
+				},
+				{
+					"frame": 130,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "DroneH_Melee",
+			"source": "Vehicle/Harkonnen/DroneH_Melee/DroneH_Melee.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 21.6116,
+			"y": 7.04673,
+			"z": 4.5746,
+			"scaleX": 0.9999999999999999,
+			"rotationX": 2.0262678761965406e-16,
+			"rotationY": 11.175405861111534,
+			"rotationZ": -162.0063386454605,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

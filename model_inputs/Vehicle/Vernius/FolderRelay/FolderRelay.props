@@ -1,0 +1,24 @@
+{
+	"animations": {
+		"Anim_FolderRelay_Death.fbx": {
+			"events": [
+				{
+					"frame": 121,
+					"data": "endFall"
+				}
+			]
+		},
+		"Anim_FolderRelay_AttackRange.fbx": {
+			"events": [
+				{
+					"frame": 9,
+					"data": "Charge"
+				},
+				{
+					"frame": 29,
+					"data": "Shot"
+				}
+			]
+		}
+	}
+}

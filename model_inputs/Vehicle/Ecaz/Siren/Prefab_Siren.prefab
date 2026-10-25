@@ -1,0 +1,40 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "Root",
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "model",
+					"name": "Siren",
+					"source": "Vehicle/Ecaz/Siren/Siren.fbx",
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"children": [
+						{
+							"type": "object",
+							"name": "Muzzles",
+							"children": [
+								{
+									"type": "object",
+									"name": "MuzzleA",
+									"y": -1.8,
+									"z": 0.3,
+									"rotationX": 90
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Root.Siren.Muzzles",
+			"target": "Root.Siren"
+		}
+	]
+}

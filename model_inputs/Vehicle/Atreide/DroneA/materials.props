@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"Reactors_mat": {
+				"mode": "BeforeTonemapping",
+				"blend": "Add",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": false
+			},
+			"CombatDrone_Atreide_mat": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

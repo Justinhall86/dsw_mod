@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"KulonTurret_undeployed:Mat_KulonTurret_Undeployed": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

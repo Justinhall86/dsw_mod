@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_AutomatedMilitia_Death.fbx": {
+			"events": [
+				{
+					"frame": 36,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

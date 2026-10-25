@@ -1,0 +1,20 @@
+{
+	"animations": {
+		"Anim_Spirit_AttackRange.fbx": {
+			"events": [
+				{
+					"frame": 0,
+					"data": "Charge"
+				},
+				{
+					"frame": 2,
+					"data": "Shot"
+				},
+				{
+					"frame": 56,
+					"data": "Shot"
+				}
+			]
+		}
+	}
+}

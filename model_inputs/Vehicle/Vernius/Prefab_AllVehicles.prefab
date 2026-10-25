@@ -1,0 +1,106 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "Prefab_CarryAll",
+			"source": "Vehicle/Atreide/CarryAll/Prefab_CarryAll.prefab",
+			"x": 0.02777,
+			"y": -2.38699
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Ornithopter",
+			"source": "Vehicle/Atreide/Ornithopter/Prefab_Ornithopter.prefab",
+			"x": 1.2,
+			"y": -5.51379
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Ornithopter_Damage",
+			"source": "Vehicle/Atreide/Ornithopter/Ornithopter_damage/Prefab_Ornithopter_Damage.prefab",
+			"x": 1.20111,
+			"y": -6.5828
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Ornithopter_Experimental",
+			"source": "Vehicle/Atreide/Ornithopter/Ornithopter_experimental/Prefab_Ornithopter_Experimental.prefab",
+			"x": 1.11979,
+			"y": -7.7303
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_SpiceFreighterDrone",
+			"source": "Vehicle/Atreide/SpiceFreighterDrone/Prefab_SpiceFreighterDrone.prefab",
+			"x": 1.24606,
+			"y": -9.72479
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_AutomatedMilitia",
+			"source": "Vehicle/Vernius/AutomatedMilitia/Prefab_AutomatedMilitia.prefab",
+			"x": 0.4,
+			"y": -11.95057,
+			"z": 0.67769,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5
+		},
+		{
+			"type": "reference",
+			"name": "DroneRailGun_Prefab",
+			"source": "Vehicle/Vernius/DroneRailGun/DroneRailGun_Prefab.prefab",
+			"x": 6.05931,
+			"y": -9.23138,
+			"z": 1.28459,
+			"scaleX": 0.8,
+			"scaleY": 0.8,
+			"scaleZ": 0.8
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_DroneTesla",
+			"source": "Vehicle/Vernius/DroneTesla/Prefab_DroneTesla.prefab",
+			"x": 5.91693,
+			"y": -12.90215,
+			"z": 0.70691,
+			"scaleX": 0.44,
+			"scaleY": 0.44,
+			"scaleZ": 0.44
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_FolderRelay",
+			"source": "Vehicle/Vernius/FolderRelay/Prefab_FolderRelay.prefab",
+			"x": 6.09476,
+			"y": -16.78623,
+			"scaleX": 0.54,
+			"scaleY": 0.54,
+			"scaleZ": 0.54
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Harvester",
+			"source": "Vehicle/Vernius/Harvester/Prefab_Harvester.prefab",
+			"x": 6.51054,
+			"y": -5.81294,
+			"z": -0.1,
+			"scaleX": 0.88,
+			"scaleY": 0.88,
+			"scaleZ": 0.88
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Spirit",
+			"source": "Vehicle/Vernius/Spirit/Prefab_Spirit.prefab",
+			"x": 6.30669,
+			"y": -2.19395,
+			"z": 0.96267,
+			"scaleX": 0.43,
+			"scaleY": 0.43,
+			"scaleZ": 0.43,
+			"rotationZ": 90
+		}
+	]
+}

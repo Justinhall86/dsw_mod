@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "KulonTurret_Undeployed",
+			"source": "Vehicle/Fremen/KulonTurret_undeployed/KulonTurret_Undeployed.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 13.519752155041827,
+			"y": -12.997862336885863,
+			"z": 11.019304028619434,
+			"rotationY": 28.199999999999996,
+			"rotationZ": 135.2,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

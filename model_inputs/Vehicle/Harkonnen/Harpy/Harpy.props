@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Harpy_Death.fbx": {
+			"events": [
+				{
+					"frame": 25,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

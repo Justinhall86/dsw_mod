@@ -1,0 +1,38 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "DroneTesla",
+			"source": "Vehicle/Vernius/DroneTesla/DroneTesla.fbx",
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "camera",
+					"name": "camera",
+					"x": 13.286038019620973,
+					"y": -18.319994937931863,
+					"z": 11.961476291276323,
+					"scaleX": 0.9999999999999999,
+					"scaleZ": 0.9999999999999999,
+					"rotationX": -1.7433251933505275e-15,
+					"rotationY": 24.18754068517932,
+					"rotationZ": 127.87662008472377,
+					"fovY": 25,
+					"zFar": 3174.6201894051237,
+					"zNear": 0.31746201894051235
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "MuzzleA"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "MuzzleA",
+			"target": "DroneTesla.root.JNT_Root.B_Weapon_Muzzle"
+		}
+	]
+}

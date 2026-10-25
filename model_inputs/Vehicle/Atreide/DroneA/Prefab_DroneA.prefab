@@ -1,0 +1,122 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "DroneA_ReactorBlur_L",
+			"source": "Vehicle/Atreide/DroneA/DroneA_ReactorBlur.fbx",
+			"x": -0.25,
+			"z": 0.05,
+			"rotationX": -90,
+			"rotationY": 27.27,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Add",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "DroneA_ReactorBlur_R",
+			"source": "Vehicle/Atreide/DroneA/DroneA_ReactorBlur.fbx",
+			"x": 0.25,
+			"z": -0.05,
+			"rotationX": 90,
+			"rotationY": 5.45,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Add",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_DroneA_Idle",
+			"source": "Fx/Vehicle/Drones/FX_DroneA_IdlePrefab.fx",
+			"z": -0.44097,
+			"scaleX": 0.4,
+			"scaleY": 0.4,
+			"scaleZ": 0.4
+		},
+		{
+			"type": "model",
+			"name": "DroneA",
+			"source": "Vehicle/Atreide/DroneA/DroneA.fbx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "DroneA_ReactorBlur_L",
+			"target": "DroneA.B_Root.B_Main.B_BodyDrone.B_ReactorL"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "DroneA_ReactorBlur_R",
+			"target": "DroneA.B_Main.B_BodyDrone.B_ReactorR"
+		},
+		{
+			"type": "reference",
+			"name": "FX_DroneExagonL",
+			"source": "Fx/Vehicle/Drones/FX_DroneExagonL.fx",
+			"scaleY": 1.7
+		},
+		{
+			"type": "reference",
+			"name": "FX_DroneExagonR",
+			"source": "Fx/Vehicle/Drones/FX_DroneExagonR.fx",
+			"scaleY": 1.7
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_DroneExagonL",
+			"target": "DroneA.B_Root.B_Main.B_BodyDrone.B_ReactorL"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_DroneExagonR",
+			"target": "DroneA.B_Root.B_Main.B_BodyDrone.B_ReactorR"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 9.777421931688506,
+			"y": 3.978812022382905,
+			"z": 6.7426191721908895,
+			"scaleZ": 0.9999999999999999,
+			"rotationX": -9.254161004432866e-16,
+			"rotationY": 30.77056245458522,
+			"rotationZ": -157.53726784344008,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

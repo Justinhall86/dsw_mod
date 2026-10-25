@@ -1,0 +1,330 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SpiceFreighterDrone",
+			"source": "Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighterDrone.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "SpiceFreighter_Light",
+			"source": "Fx/Vehicle/SpiceFreighter/SpiceFreighter_Light.fx",
+			"x": -0.25748,
+			"z": 0.95779,
+			"scaleX": 0.15,
+			"scaleY": 0.2,
+			"scaleZ": 0.05,
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "SpiceFreighter_Light_2",
+			"source": "Fx/Vehicle/SpiceFreighter/SpiceFreighter_Light.fx",
+			"x": 0.27121,
+			"z": 0.77121,
+			"scaleX": 0.12,
+			"scaleY": 0.12,
+			"scaleZ": 0.05,
+			"rotationX": 177.3,
+			"rotationY": 84.8
+		},
+		{
+			"type": "reference",
+			"name": "SpiceFreighter_Light_3",
+			"source": "Fx/Vehicle/SpiceFreighter/SpiceFreighter_Light.fx",
+			"x": -0.44545,
+			"z": 0.83136,
+			"scaleX": 0.15,
+			"scaleY": 0.12,
+			"scaleZ": 0.05,
+			"rotationX": 90,
+			"rotationZ": -90
+		},
+		{
+			"type": "object",
+			"name": "FXRoot",
+			"x": -0.00887,
+			"y": -0.03201,
+			"z": 0.65567,
+			"scaleX": 0.45,
+			"scaleY": 0.45,
+			"scaleZ": 0.63,
+			"rotationX": 90,
+			"children": [
+				{
+					"type": "object",
+					"name": "-------------------------------------Reactor",
+					"x": -0.61617,
+					"y": -0.07485,
+					"z": -0.04203,
+					"rotationX": 1.5,
+					"children": [
+						{
+							"type": "trail",
+							"name": "trail",
+							"enabled": false,
+							"x": -0.3400022868510807,
+							"y": -0.11243867575575428,
+							"z": -1.066828736037512,
+							"scaleX": 0.9999999999999941,
+							"scaleY": 0.9998202225032454,
+							"scaleZ": 1.0036971139237392,
+							"rotationX": -5.704111493075192,
+							"rotationY": 0.000009542917136522417,
+							"rotationZ": 0.00012308595219283022,
+							"data": {
+								"duration": 0.3,
+								"angle": 0,
+								"sizeStart": 0.07,
+								"sizeEnd": 0.02,
+								"texture": "Fx/noise/causticTexture_03-3.png",
+								"movementMin": 0.01,
+								"movementMax": 50,
+								"smoothness": 10,
+								"material": {
+									"PBR": {
+										"mode": "BeforeTonemapping",
+										"blend": "Add",
+										"shadows": false,
+										"culling": "None",
+										"depthTest": "LessEqual",
+										"colorMask": 15,
+										"enableStencil": false,
+										"alphaKill": false,
+										"parallax": 0
+									}
+								}
+							},
+							"children": [
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0,
+											0.30196078431372547,
+											0.45098039215686275
+										]
+									}
+								},
+								{
+									"type": "lookAt",
+									"name": "lookAt",
+									"target": "camera",
+									"lockAxis": [
+										0,
+										0,
+										0
+									]
+								}
+							]
+						},
+						{
+							"type": "model",
+							"name": "Reactor_Big",
+							"source": "Fx/Meshes_Common/CylinderCone_BottomPiv.fbx",
+							"scaleX": 0.3,
+							"scaleY": 0.3,
+							"rotationX": 90,
+							"rotationY": -83.6,
+							"rotationZ": -90,
+							"children": [
+								{
+									"type": "material",
+									"name": "material",
+									"props": {
+										"PBR": {
+											"mode": "BeforeTonemapping",
+											"blend": "Add",
+											"shadows": false,
+											"culling": "None",
+											"colorMask": 255,
+											"depthTest": "LessEqual",
+											"emissive": 0.5
+										}
+									},
+									"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.2,
+										"saturation": 1,
+										"width": 0.2,
+										"uvScaleX": 0.7,
+										"uvScaleY": 0.7,
+										"texture": "Fx/noise/T_Noise_Voronoi_01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											1.5,
+											1
+										],
+										"uvScaleSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.32,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": -1,
+										"texture": "Fx/Gradients/Gradient_Spotlight.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											2,
+											0
+										],
+										"uvScaleSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.00784313725490196,
+											0.2,
+											0.5568627450980392
+										]
+									}
+								},
+								{
+									"type": "object",
+									"name": "group"
+								}
+							]
+						},
+						{
+							"type": "model",
+							"name": "Reactor_Little",
+							"source": "Fx/Meshes_Common/CylinderCone_BottomPiv.fbx",
+							"scaleX": 0.18,
+							"scaleY": 0.18,
+							"scaleZ": 0.68,
+							"rotationX": 90,
+							"rotationY": -87.5,
+							"rotationZ": -90,
+							"children": [
+								{
+									"type": "material",
+									"name": "material",
+									"props": {
+										"PBR": {
+											"mode": "BeforeTonemapping",
+											"blend": "Add",
+											"shadows": false,
+											"culling": "None",
+											"colorMask": 255,
+											"depthTest": "LessEqual",
+											"emissive": 1.8
+										}
+									},
+									"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.2,
+										"saturation": 1,
+										"width": 0.2,
+										"uvScaleX": 0.7,
+										"uvScaleY": 0.7,
+										"texture": "Fx/noise/T_Noise_Voronoi_01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											3,
+											2
+										],
+										"uvScaleSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.32,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": -1,
+										"texture": "Fx/Gradients/Gradient_Spotlight.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											2,
+											0
+										],
+										"uvScaleSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0,
+											0.3529411764705882,
+											0.9921568627450981
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

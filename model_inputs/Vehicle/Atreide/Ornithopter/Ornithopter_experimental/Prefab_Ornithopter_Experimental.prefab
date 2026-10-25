@@ -1,0 +1,29 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Vehicule_Ornithopter",
+			"source": "Vehicle/Atreide/Ornithopter/Vehicle_Ornithopter.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Vehicle/Atreide/Ornithopter/Ornithopter_experimental/OrnithopterExperimental_Albedo.png",
+					"specularMap": "Vehicle/Atreide/Ornithopter/Ornithopter_experimental/OrnithopterExperimental_MetallicGlossAO.png"
+				}
+			]
+		}
+	]
+}

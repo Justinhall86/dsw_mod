@@ -1,0 +1,24 @@
+{
+	"animations": {
+		"Anim_DroneTesla_Death.fbx": {
+			"events": [
+				{
+					"frame": 22,
+					"data": "endFall"
+				}
+			]
+		},
+		"Anim_DroneTesla_AttackRange.fbx": {
+			"events": [
+				{
+					"frame": 1,
+					"data": "Charge"
+				},
+				{
+					"frame": 26,
+					"data": "Shot"
+				}
+			]
+		}
+	}
+}

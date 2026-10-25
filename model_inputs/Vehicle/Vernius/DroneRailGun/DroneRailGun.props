@@ -1,0 +1,24 @@
+{
+	"animations": {
+		"Anim_DroneRailgun_Death.fbx": {
+			"events": [
+				{
+					"frame": 24,
+					"data": "endFall"
+				}
+			]
+		},
+		"Anim_DroneRailgun_AttackRange.fbx": {
+			"events": [
+				{
+					"frame": 1,
+					"data": "Charge"
+				},
+				{
+					"frame": 38,
+					"data": "Shot"
+				}
+			]
+		}
+	}
+}

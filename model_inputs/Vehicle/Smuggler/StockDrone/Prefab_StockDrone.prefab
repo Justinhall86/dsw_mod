@@ -1,0 +1,23 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "StockDrone",
+			"source": "Vehicle/Smuggler/StockDrone/StockDrone.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 4.050044214640081,
+			"y": 0.9079955770254059,
+			"z": 2.1008855012161107,
+			"rotationY": 23.703006173859716,
+			"rotationZ": -166.07860295037787,
+			"visible": false,
+			"fovY": 60,
+			"zFar": 612.9899120063097,
+			"zNear": 0.061298991200630974
+		}
+	]
+}

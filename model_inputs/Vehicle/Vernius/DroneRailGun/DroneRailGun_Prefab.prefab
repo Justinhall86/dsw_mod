@@ -1,0 +1,25 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "DroneRailGun",
+			"source": "Vehicle/Vernius/DroneRailGun/DroneRailGun.fbx",
+			"rotationZ": 90,
+			"type": "model",
+			"children": [
+				{
+					"name": "camera",
+					"x": 6.9679569354217845,
+					"y": -8.910960912549188,
+					"z": 6.080207337476672,
+					"rotationY": 27.13711478261697,
+					"rotationZ": 128.3592604942227,
+					"fovY": 25,
+					"zFar": 1773.3077240244913,
+					"zNear": 0.17733077240244913,
+					"type": "camera"
+				}
+			]
+		}
+	]
+}

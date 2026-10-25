@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Banshee_Death.fbx": {
+			"events": [
+				{
+					"frame": 50,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

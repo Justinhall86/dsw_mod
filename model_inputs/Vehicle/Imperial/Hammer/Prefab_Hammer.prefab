@@ -1,0 +1,85 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Hammer",
+			"source": "Vehicle/Imperial/Hammer/Hammer.fbx",
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"y": -0.55,
+					"z": 1,
+					"rotationX": 90,
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"x": -0.4,
+							"y": -0.1,
+							"z": 0.05,
+							"rotationX": -90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA2",
+							"x": -1.1,
+							"y": -1,
+							"z": -0.3,
+							"rotationX": -90,
+							"rotationZ": 25
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA3",
+							"x": -1.7,
+							"y": -1.5,
+							"z": -0.3,
+							"rotationX": -90,
+							"rotationZ": 50
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB",
+							"x": 0.4,
+							"y": -0.1,
+							"z": 0.05,
+							"rotationX": -90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB2",
+							"x": 1.1,
+							"y": -1,
+							"z": -0.3,
+							"rotationX": -90,
+							"rotationZ": -25
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB3",
+							"x": 1.7,
+							"y": -1.5,
+							"z": -0.3,
+							"rotationX": -90,
+							"rotationZ": -50
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Hammer.Muzzles",
+			"target": "Hammer.root.B_ROOT.B_Body"
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Imperial/Hammer/Select.fbx",
+			"visible": false
+		}
+	]
+}

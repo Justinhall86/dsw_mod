@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_HarvesterVernius_Death.fbx": {
+			"events": [
+				{
+					"frame": 42,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}

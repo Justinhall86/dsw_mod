@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_DroneE_Death.fbx": {
+			"events": [
+				{
+					"frame": 45,
+					"data": "endFall"
+				}
+			]
+		}
+	}
+}
