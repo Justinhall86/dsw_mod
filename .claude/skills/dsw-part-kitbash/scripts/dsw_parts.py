@@ -138,19 +138,33 @@ def import_donor(blend_path, object_name):
     return ob
 
 
-def set_albedo(obj, image_path):
-    """Point every albedo texture node of obj's materials at a (recoloured) image, packed into the .blend.
-    Materials are copied first so the donor's other users are not affected."""
-    img = bpy.data.images.load(image_path, check_existing=True)
-    img.pack()
+def set_textures(obj, albedo=None, normal=None, mgao=None):
+    """Point obj's material texture nodes at replacement images (packed into the .blend). Matches nodes by image name
+    (albedo / normal / metallic). Materials are copied first so the donor's other users are not affected.
+    Replace ALL maps that carry a feature you remove: a badge painted out of the albedo is still visible as a bump
+    in the normal map and as an outline in the gloss/AO map."""
+    want = {"albedo": albedo, "normal": normal, "metallic": mgao}
+    imgs = {}
+    for key, path in want.items():
+        if path:
+            imgs[key] = bpy.data.images.load(path, check_existing=True)
+            imgs[key].pack()
     for slot in obj.material_slots:
         if slot.material is None:
             continue
         mat = slot.material.copy()
         slot.material = mat
         for nd in mat.node_tree.nodes:
-            if nd.type == "TEX_IMAGE" and nd.image and "albedo" in nd.image.name.lower():
-                nd.image = img
+            if nd.type == "TEX_IMAGE" and nd.image:
+                nm = nd.image.name.lower()
+                for key, img in imgs.items():
+                    if key in nm:
+                        nd.image = img
+                        break
+
+
+def set_albedo(obj, image_path):
+    set_textures(obj, albedo=image_path)
 
 
 def attach_to_rig(obj, rig, world_matrix=None):

@@ -39,6 +39,8 @@ for clip in a.clips:
     action = next(o for o in new if o.type == "ARMATURE").animation_data.action
     rig.animation_data_create()
     rig.animation_data.action = action
+    if getattr(action, "slots", None):  # Blender 5 layered actions: without a slot the rig stays in rest pose
+        rig.animation_data.action_slot = action.slots[0]
     for o in new:
         bpy.data.objects.remove(o, do_unlink=True)
     P.setup_scene(sc, res=600)

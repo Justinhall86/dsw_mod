@@ -15,6 +15,7 @@ Usage (default --cdb is the working copy, <project>/mod_files/data.cdb - see dsw
   python cdb_tools.py start-unit --faction Atreides --unit A_My          # appears next to the HQ at game start
   python cdb_tools.py start-unit --faction Atreides --unit A_My --remove
   python cdb_tools.py remove --sheet unit --id C_Old
+  python cdb_tools.py set-mesh --ids N_LR_Guard N_LR_Guard_Helmet --mesh CharMOD/Male01_X/Prefab_X.prefab
 
 Close/reload the editor first: if it still has an older data.cdb open, its next save overwrites this.
 """
@@ -214,6 +215,19 @@ def set_start_unit(data, faction, unit_id, remove=False):
     return hq["id"], su
 
 
+def set_mesh(data, model_ids, mesh):
+    """Point existing model entries at another prefab (only model.mesh changes). -> {id: old mesh path}."""
+    models = by_id(sheets(data)["model"])
+    old = {}
+    for mid in model_ids:
+        m = models.get(mid)
+        if not m:
+            sys.exit(f"model.{mid} not found")
+        old[mid] = [x.get("path") for x in m.get("mesh", [])]
+        m["mesh"] = [{"path": mesh}]
+    return old
+
+
 def remove_entry(data, sheet, id_):
     S = sheets(data)[sheet]
     ln = by_id(S).get(id_)
@@ -252,6 +266,8 @@ def main():
     s = sub.add_parser("start-unit", help="spawn the unit beside the faction HQ at game start")
     s.add_argument("--faction", required=True); s.add_argument("--unit", required=True); s.add_argument("--remove", action="store_true")
     s = sub.add_parser("remove"); s.add_argument("--sheet", required=True); s.add_argument("--id", required=True)
+    s = sub.add_parser("set-mesh", help="point existing model entries at another prefab (re-skin units that use them)")
+    s.add_argument("--ids", nargs="+", required=True); s.add_argument("--mesh", required=True)
     a = p.parse_args()
 
     data, exact = load(a.cdb)
@@ -275,6 +291,10 @@ def main():
         sid, su = set_start_unit(data, a.faction, a.unit, a.remove)
         label = ("remove_start_" if a.remove else "start_unit_") + a.unit
         print(f"structure {sid}.startUnits = {su}")
+    elif a.cmd == "set-mesh":
+        for mid, was in set_mesh(data, a.ids, a.mesh).items():
+            print(f"model {mid}: {was} -> {a.mesh}")
+        label = "set_mesh_" + a.ids[0]
     elif a.cmd == "remove":
         remove_entry(data, a.sheet, a.id)
         label = "remove_" + a.id

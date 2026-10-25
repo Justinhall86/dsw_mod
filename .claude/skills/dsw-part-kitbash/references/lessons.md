@@ -55,3 +55,15 @@
 - Bone-parented child sits on the bone TAIL: use `matrix_parent_inverse = T(0, -bone_length, 0)`.
 - The imported weapon object carries its HMD model-node transform; apply the prefab transform on top:
   `basis = prefab @ imported_basis`. No handedness conjugation.
+
+## Lessons from Mercenary V5e (removal kitbash, 2026-10-23)
+- **anim_stress.py was silently testing the REST POSE in Blender 5**: layered actions need
+  `rig.animation_data.action_slot = action.slots[0]` (now fixed in the script). Any stress sheet where every frame
+  looks identical is this bug.
+- Removing a chest plate can remove the torso surface itself - always render a flat-colour-per-object pass and a
+  back-face-culled pass; the game culls back faces, Blender's render does not.
+- Fill poke-through: push fill verts under the base surface along rays from the spine axis (BVH), then give the
+  fill the UNCUT base's weights (Data Transfer) - geometry that matches at rest still tears if it is weighted differently.
+- Do not strip arm weights from a torso fill: it then stops following the mantle and pokes through it.
+- Donor heads: a "neck ring" island can be the nape cover and a flare at once - pick neck islands by measured bbox,
+  never by guess; plane-bisect collars instead of deleting faces (no sawtooth/slivers).

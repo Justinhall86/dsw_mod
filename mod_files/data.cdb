@@ -609,6 +609,20 @@
 					"value": 8
 				},
 				{
+					"id": "Multi_LeaveGames_ExpireDelay",
+					"values": [],
+					"props": {},
+					"value": 720,
+					"comment": "In real-time minutes"
+				},
+				{
+					"id": "Multi_LeaveGames_Count",
+					"values": [],
+					"props": {},
+					"value": 3,
+					"comment": "Leaving this many games within Multi_LeaveGames_ExpireDelay will make it visible on the player card in the lobby"
+				},
+				{
 					"id": "Selection_Offset_X",
 					"values": [],
 					"value": 20,
@@ -14528,6 +14542,21 @@
 						"size": 40,
 						"x": 6,
 						"y": 2,
+						"width": 2,
+						"height": 2
+					}
+				},
+				{
+					"id": "LeaverInfo",
+					"texts": {
+						"name": ""
+					},
+					"props": {},
+					"gfx": {
+						"file": "UI/console/padAction01.png",
+						"size": 40,
+						"x": 6,
+						"y": 0,
 						"width": 2,
 						"height": 2
 					}
@@ -34711,7 +34740,11 @@
 						"infiltrationResource": "Atreides_Infiltration",
 						"noFreighters": true,
 						"spectatorRallyPoint": "Fx/Event/FX_Ping_Atreides_RallyPoint.fx",
-						"flags": 1
+						"flags": 1,
+						"palette": {
+							"cqTerritory": "Territory_Atreides",
+							"occupation": "Occupation_Atreides"
+						}
 					},
 					"contract": "ImperialTax",
 					"texts": {
@@ -34773,7 +34806,7 @@
 						],
 						"councilors": [
 							{
-								"id": "Gurney"
+								"id": "Thufir"
 							},
 							{
 								"id": "Yueh"
@@ -34785,7 +34818,7 @@
 								"id": "Paul"
 							}
 						],
-						"speaker": "Gurney"
+						"speaker": "Thufir"
 					},
 					"conquest": {
 						"mapPawn": "MapPawn_Atreides",
@@ -35034,7 +35067,11 @@
 						"locked": false,
 						"infiltrationResource": "Harkonnen_Infiltration",
 						"spectatorRallyPoint": "Fx/Event/FX_Ping_Harkonnen_RallyPoint.fx",
-						"flags": 1
+						"flags": 1,
+						"palette": {
+							"cqTerritory": "Territory_Harkonnen",
+							"occupation": "Occupation_Harkonnen"
+						}
 					},
 					"contract": "ImperialTax",
 					"texts": {
@@ -35351,7 +35388,11 @@
 						],
 						"newGameMesh": "Character/Smuggler/Leader/Leader_Esmar_NewGame.l3d",
 						"infiltrationResource": "Smugglers_Infiltration",
-						"spectatorRallyPoint": "Fx/Event/FX_Ping_Smugglers_RallyPoint.fx"
+						"spectatorRallyPoint": "Fx/Event/FX_Ping_Smugglers_RallyPoint.fx",
+						"palette": {
+							"cqTerritory": "Territory_Smugglers",
+							"occupation": "Occupation_Smugglers"
+						}
 					},
 					"contract": "ImperialBribe",
 					"texts": {
@@ -35419,10 +35460,10 @@
 								"id": "Lingar"
 							},
 							{
-								"id": "Drisq"
+								"id": "Intelbroker"
 							},
 							{
-								"id": "Bannerjee"
+								"id": "Operative"
 							}
 						],
 						"speaker": "Staban"
@@ -35673,7 +35714,11 @@
 							}
 						],
 						"canPillageSietch": false,
-						"spectatorRallyPoint": "Fx/Event/FX_Ping_Fremen_RallyPoint.fx"
+						"spectatorRallyPoint": "Fx/Event/FX_Ping_Fremen_RallyPoint.fx",
+						"palette": {
+							"cqTerritory": "Territory_Fremen",
+							"occupation": "Occupation_Fremen"
+						}
 					},
 					"contract": "SpacialGuildBribe",
 					"texts": {
@@ -35734,13 +35779,13 @@
 						],
 						"councilors": [
 							{
-								"id": "Otheym"
+								"id": "Shimoom"
 							},
 							{
 								"id": "Jamis"
 							},
 							{
-								"id": "Chani"
+								"id": "Ramallo"
 							},
 							{
 								"id": "Stilgar"
@@ -35997,7 +36042,11 @@
 						"infiltrationResource": "Corrino_Infiltration",
 						"spectatorRallyPoint": "Fx/Event/FX_Ping_Corrino_RallyPoint.fx",
 						"canPillageSietch": true,
-						"flags": 1
+						"flags": 1,
+						"palette": {
+							"occupation": "Occupation_Corrino",
+							"cqTerritory": "Territory_Corrino"
+						}
 					},
 					"texts": {
 						"name": "House Corrino",
@@ -36361,6 +36410,10 @@
 						"overrideTreasonTraits": {
 							"traitor": "Traitor_Ecaz",
 							"betrayed": "Betrayed_Ecaz"
+						},
+						"palette": {
+							"cqTerritory": "Territory_Ecaz",
+							"occupation": "Occupation_Ecaz"
 						}
 					},
 					"gfx": {
@@ -36716,7 +36769,11 @@
 						"locked": false,
 						"infiltrationResource": "Vernius_Infiltration",
 						"spectatorRallyPoint": "Fx/Event/FX_Ping_Vernius_RallyPoint.fx",
-						"flags": 1
+						"flags": 1,
+						"palette": {
+							"cqTerritory": "Territory_Vernius",
+							"occupation": "Occupation_Vernius"
+						}
 					},
 					"gfx": {
 						"file": "UI/Faction/factionButton00.png",
@@ -38507,6 +38564,11 @@
 					"name": "overrideTreasonTraits",
 					"opt": true,
 					"kind": null
+				},
+				{
+					"typeStr": "17",
+					"name": "palette",
+					"opt": true
 				}
 			]
 		},
@@ -38629,6 +38691,27 @@
 					"name": "betrayed",
 					"opt": true,
 					"kind": null
+				}
+			]
+		},
+		{
+			"name": "faction@props@palette",
+			"props": {
+				"hide": true,
+				"isProps": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:color",
+					"name": "cqTerritory",
+					"opt": true
+				},
+				{
+					"typeStr": "6:color",
+					"name": "occupation",
+					"opt": true
 				}
 			]
 		},
@@ -54850,41 +54933,6 @@
 					"anim": []
 				},
 				{
-					"id": "N_LR_Elite_Sword",
-					"scale": 1.2,
-					"radius": 1.5,
-					"height": 4,
-					"inherit": "MilitaryCommon",
-					"mesh": [
-						{
-							"path": "CharMOD/Male01_LandsraadGuardEliteSword/Prefab_LandsraadGuardEliteSword.prefab"
-						}
-					],
-					"rigName": 0,
-					"props": {
-						"dynObjects": [
-							{
-								"name": "Gun"
-							}
-						],
-						"preload": {
-							"factions": [
-								{
-									"faction": "Atreides"
-								}
-							]
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 0,
-						"y": 0
-					},
-					"audio": {},
-					"anim": []
-				},
-				{
 					"id": "A_Soldier",
 					"scale": 1,
 					"radius": 1.5,
@@ -54996,12 +55044,12 @@
 					},
 					"mesh": [
 						{
-							"path": "Character/Atreide/Unit/Warden/Prefab_Female01_Warden.prefab"
+							"path": "CharMOD/Male01_GinazCaptain/Prefab_GinazCaptain.prefab"
 						}
 					],
-					"inherit": "MilitaryShield",
-					"rigName": 1,
-					"scale": 1.2,
+					"inherit": "MilitaryCommon",
+					"rigName": 0,
+					"scale": 1.1,
 					"gfx": {
 						"file": "UI/Faction/unitsSmall.png",
 						"size": 80,
@@ -55120,48 +55168,6 @@
 					"mesh": [
 						{
 							"path": "Character/Atreide/Unit/Duncan/Prefab_AtreidesDuncan.prefab"
-						}
-					],
-					"inherit": "Duncan",
-					"rigName": 0,
-					"scale": 1.4,
-					"audio": {
-						"remove": "Common_Remove"
-					}
-				},
-				{
-					"id": "N_DuncanModified",
-					"radius": 1.5,
-					"height": 4,
-					"props": {
-						"animFxScale": 1.3,
-						"dynObjects": [
-							{
-								"name": "Gun"
-							}
-						],
-						"preload": {
-							"factions": [
-								{
-									"faction": "Atreides"
-								}
-							],
-							"excludableFx": [
-								{
-									"text": "Duncan"
-								}
-							]
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 15,
-						"y": 0
-					},
-					"mesh": [
-						{
-							"path": "CharMOD/Male01_DuncanModified/Prefab_DuncanModified.prefab"
 						}
 					],
 					"inherit": "Duncan",
@@ -56835,28 +56841,7 @@
 					},
 					"mesh": [
 						{
-							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite.prefab"
-						}
-					],
-					"inherit": "MilitaryLRGuard",
-					"rigName": 0,
-					"scale": 1.2,
-					"audio": {}
-				},
-				{
-					"id": "N_LR_Guard_Helmet",
-					"radius": 2.4,
-					"height": 5.5,
-					"props": {},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall_Common.png",
-						"size": 80,
-						"x": 0,
-						"y": 3
-					},
-					"mesh": [
-						{
-							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite.prefab"
+							"path": "CharMOD/Male01_LandsraadEliteG1/Prefab_LandsraadEliteG1.prefab"
 						}
 					],
 					"inherit": "MilitaryLRGuard",
@@ -56881,7 +56866,7 @@
 					"scale": 1.2,
 					"mesh": [
 						{
-							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite_Bazooka.prefab"
+							"path": "CharMOD/Male01_LandsraadEliteG1/Prefab_LandsraadEliteG1_Bazooka.prefab"
 						}
 					]
 				},
@@ -56899,12 +56884,47 @@
 					},
 					"mesh": [
 						{
-							"path": "CharMOD/Male01_LandsraadGuardElite/Prefab_LandsraadGuardElite_Gun.prefab"
+							"path": "CharMOD/Male01_LandsraadEliteG1/Prefab_LandsraadEliteG1_Gun.prefab"
 						}
 					],
 					"inherit": "MilitaryLRGuard_Gun",
 					"rigName": 0,
 					"scale": 1.2,
+					"anim": []
+				},
+				{
+					"id": "N_LR_Elite_Sword",
+					"scale": 1.2,
+					"radius": 1.5,
+					"height": 4,
+					"inherit": "MilitaryCommon",
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_LandsraadEliteG1/Prefab_LandsraadEliteG1_Sword.prefab"
+						}
+					],
+					"rigName": 0,
+					"props": {
+						"dynObjects": [
+							{
+								"name": "Gun"
+							}
+						],
+						"preload": {
+							"factions": [
+								{
+									"faction": "Atreides"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"audio": {},
 					"anim": []
 				},
 				{
@@ -69874,16 +69894,7 @@
 							"unit": "A_LandsraadGuard"
 						},
 						{
-							"unit": "A_LandsraadHalberd"
-						},
-						{
-							"unit": "A_LandsraadRanged"
-						},
-						{
-							"unit": "A_LandsraadDemo"
-						},
-						{
-							"unit": "A_DuncanModified"
+							"unit": "A_Elite"
 						}
 					],
 					"model": "Arrakeen",
@@ -70082,9 +70093,6 @@
 					"startUnits": [
 						{
 							"unit": "F_Ornithopter"
-						},
-						{
-							"unit": "F_Hero_2"
 						}
 					],
 					"model": "Tabr",
@@ -70747,10 +70755,13 @@
 					"props": {
 						"districtSlots": [
 							{
+								"nbSlots": 3
+							},
+							{
 								"nbSlots": 2
 							},
 							{
-								"nbSlots": 3
+								"nbSlots": 1
 							}
 						],
 						"aiWeight": 30,
@@ -76625,11 +76636,9 @@
 					"id": "A_Trooper",
 					"stats": [
 						{
-							"health": 750,
+							"health": 500,
 							"power": 14,
-							"armor": 6,
-							"trainingTime": 0,
-							"maxSupply": 5555
+							"armor": 6
 						}
 					],
 					"props": {
@@ -76733,162 +76742,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 10,
 								"res": "Solari"
 							},
 							{
-								"qty": 3,
-								"res": "CommandPoint"
-							}
-						]
-					},
-					"equipment": [
-						{
-							"ref": "FrontLineTactics"
-						},
-						{
-							"ref": "OffensiveMindset"
-						},
-						{
-							"ref": "ParryingArmguards"
-						},
-						{
-							"ref": "PranaBindu"
-						}
-					],
-					"attacks": {}
-				},
-				{
-					"id": "A_LandsraadHalberd",
-					"stats": [
-						{
-							"health": 600,
-							"power": 18,
-							"armor": 6,
-							"trainingTime": 0.1,
-							"maxSupply": 5555
-						}
-					],
-					"props": {
-						"wheelPosition": {
-							"group": 1,
-							"pos": 11
-						},
-						"squadSize": 3,
-						"squadSpacing": 2.0
-					},
-					"faction": "Atreides",
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 0,
-						"y": 0
-					},
-					"inherits": "Trooper",
-					"traits": [
-						{
-							"ref": "A_Trooper_Trait"
-						}
-					],
-					"images": {
-						"bigPortrait": {
-							"file": "UI/Faction/unit_military.png",
-							"size": 250,
-							"x": 0,
-							"y": 0
-						},
-						"smallPortrait": {
-							"file": "UI/Faction/unitsSmall.png",
-							"size": 80,
-							"x": 0,
-							"y": 0
-						},
-						"wheelPortrait": {
-							"file": "UI/console/wheel_units_atreides.png",
-							"size": 358,
-							"x": 0,
-							"y": 0
-						}
-					},
-					"texts": {
-						"name": "Landsraad Guard",
-						"desc": "Troopers are fierce melee fighters. They become stronger when supported by specialized units.",
-						"plural": {
-							"name": "Landsraad Guards"
-						}
-					},
-					"aiWeights": [],
-					"effects": {
-						"models": [
-							{
-								"ref": "N_LR_Guard",
-								"flags": 0
-							}
-						],
-						"events": [
-							{
-								"fxs": [],
-								"sound": "Play_Common_Move",
-								"soundSource": 0,
-								"kind": 1
-							},
-							{
-								"kind": 4,
-								"fxs": [
-									{
-										"fx": "Fx/Unit/FX_Common_AttackRange_Barracks.fx",
-										"space": 0,
-										"flags": 128,
-										"attachTo": ""
-									}
-								],
-								"soundSource": 0
-							},
-							{
-								"kind": 24,
-								"fxs": [],
-								"soundSource": 0,
-								"fxTarget": 0,
-								"sound": "Common_Death"
-							}
-						],
-						"sound": {
-							"voices": [
-								{
-									"action": 0,
-									"event": "Voice_A_Trooper_Select"
-								},
-								{
-									"action": 1,
-									"event": "Voice_A_Trooper_Move"
-								},
-								{
-									"action": 2,
-									"event": "Voice_A_Trooper_Attack"
-								}
-							]
-						}
-					},
-					"costs": {
-						"recruit": [
-							{
-								"qty": 0,
-								"res": "Manpower"
-							}
-						],
-						"upkeep": [
-							{
-								"qty": 0,
-								"res": "Solari"
-							},
-							{
-								"qty": 0,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -77058,12 +76922,10 @@
 					"id": "A_Soldier",
 					"stats": [
 						{
-							"health": 650,
+							"health": 400,
 							"power": 17,
 							"armor": 0,
-							"range": 35,
-							"trainingTime": 0,
-							"maxSupply": 5555
+							"range": 35
 						}
 					],
 					"props": {
@@ -77158,17 +77020,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 40,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 8,
 								"res": "Solari"
 							},
 							{
-								"qty": 3,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						]
@@ -77190,153 +77052,13 @@
 					"attacks": {}
 				},
 				{
-					"id": "A_LandsraadRanged",
-					"stats": [
-						{
-							"health": 400,
-							"power": 19,
-							"armor": 2,
-							"range": 35,
-							"trainingTime": 0.1,
-							"maxSupply": 5555
-						}
-					],
-					"props": {
-						"radius": 3.5,
-						"squadSize": 3,
-						"squadSpacing": 2.0,
-						"wheelPosition": {
-							"group": 0,
-							"pos": 0
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 1,
-						"y": 0
-					},
-					"faction": "Atreides",
-					"inherits": "Ranged",
-					"traits": [
-						{
-							"ref": "A_Soldier_Trait"
-						},
-						{
-							"ref": "A_Trooper_Trait"
-						}
-					],
-					"images": {
-						"bigPortrait": {
-							"file": "UI/Faction/unit_military.png",
-							"size": 250,
-							"x": 1,
-							"y": 0
-						},
-						"smallPortrait": {
-							"file": "UI/Faction/unitsSmall.png",
-							"size": 80,
-							"x": 1,
-							"y": 0
-						},
-						"wheelPortrait": {
-							"file": "UI/console/wheel_units_atreides.png",
-							"size": 358,
-							"x": 1,
-							"y": 0
-						}
-					},
-					"texts": {
-						"name": "Landsraad Rifleman",
-						"desc": "Armed with medium-range projectile weapons, rangers are best used alongside defensive units that can protect them.",
-						"plural": {
-							"name": "Landsraad Riflemen"
-						}
-					},
-					"aiWeights": [],
-					"effects": {
-						"models": [
-							{
-								"ref": "N_LR_Guard_Gun",
-								"flags": 0
-							}
-						],
-						"events": [
-							{
-								"fxs": [],
-								"sound": "Play_Rifle_Move",
-								"soundSource": 0,
-								"kind": 1
-							},
-							{
-								"kind": 24,
-								"fxs": [],
-								"soundSource": 0,
-								"fxTarget": 0,
-								"sound": "Common_Female_Death"
-							}
-						],
-						"sound": {
-							"voices": [
-								{
-									"action": 0,
-									"event": "Voice_A_Ranger_Select"
-								},
-								{
-									"action": 2,
-									"event": "Voice_A_Ranger_Attack"
-								},
-								{
-									"action": 1,
-									"event": "Voice_A_Ranger_Move"
-								}
-							]
-						}
-					},
-					"costs": {
-						"recruit": [
-							{
-								"qty": 0,
-								"res": "Manpower"
-							}
-						],
-						"upkeep": [
-							{
-								"qty": 0,
-								"res": "Solari"
-							},
-							{
-								"qty": 0,
-								"res": "CommandPoint"
-							}
-						]
-					},
-					"equipment": [
-						{
-							"ref": "FrontLineTactics"
-						},
-						{
-							"ref": "OffensiveMindset"
-						},
-						{
-							"ref": "ParryingArmguards"
-						},
-						{
-							"ref": "PranaBindu"
-						}
-					],
-					"attacks": {}
-				},
-				{
 					"id": "A_Demo",
 					"stats": [
 						{
-							"health": 650,
+							"health": 400,
 							"power": 23,
 							"armor": 0,
-							"range": 35,
-							"trainingTime": 0,
-							"maxSupply": 5555
+							"range": 35
 						}
 					],
 					"props": {
@@ -77430,17 +77152,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 40,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 8,
 								"res": "Solari"
 							},
 							{
-								"qty": 3,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						]
@@ -77462,151 +77184,13 @@
 					"attacks": {}
 				},
 				{
-					"id": "A_LandsraadDemo",
-					"stats": [
-						{
-							"health": 400,
-							"power": 25,
-							"armor": 2,
-							"range": 35,
-							"trainingTime": 0.1,
-							"maxSupply": 5555
-						}
-					],
-					"props": {
-						"squadSize": 3,
-						"squadSpacing": 1.8,
-						"wheelPosition": {
-							"group": 0,
-							"pos": 1
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 2,
-						"y": 0
-					},
-					"faction": "Atreides",
-					"inherits": "Demo",
-					"traits": [
-						{
-							"ref": "A_Demo_Trait"
-						},
-						{
-							"ref": "A_Trooper_Trait"
-						}
-					],
-					"images": {
-						"bigPortrait": {
-							"file": "UI/Faction/unit_military.png",
-							"size": 250,
-							"x": 2,
-							"y": 0
-						},
-						"smallPortrait": {
-							"file": "UI/Faction/unitsSmall.png",
-							"size": 80,
-							"x": 2,
-							"y": 0
-						},
-						"wheelPortrait": {
-							"file": "UI/console/wheel_units_atreides.png",
-							"size": 358,
-							"x": 2,
-							"y": 0
-						}
-					},
-					"texts": {
-						"name": "Landsraad Bazooka",
-						"desc": "Equipped with rocket launchers, these specialists can easily breach enemy defenses and open the way for other units.",
-						"plural": {
-							"name": "Landsraad Bazookas"
-						}
-					},
-					"aiWeights": [],
-					"effects": {
-						"models": [
-							{
-								"ref": "N_LR_Guard_Bazooka",
-								"flags": 0
-							}
-						],
-						"events": [
-							{
-								"fxs": [],
-								"sound": "Play_Missilelauncher_Move",
-								"soundSource": 0,
-								"kind": 1
-							},
-							{
-								"kind": 24,
-								"fxs": [],
-								"soundSource": 0,
-								"sound": "Common_Death",
-								"fxTarget": 0
-							}
-						],
-						"sound": {
-							"voices": [
-								{
-									"action": 2,
-									"event": "Voice_A_Heavyweaponsquad_Attack"
-								},
-								{
-									"action": 1,
-									"event": "Voice_A_Heavyweaponsquad_Move"
-								},
-								{
-									"action": 0,
-									"event": "Voice_A_Heavyweaponsquad_Select"
-								}
-							]
-						}
-					},
-					"costs": {
-						"recruit": [
-							{
-								"qty": 0,
-								"res": "Manpower"
-							}
-						],
-						"upkeep": [
-							{
-								"qty": 0,
-								"res": "Solari"
-							},
-							{
-								"qty": 0,
-								"res": "CommandPoint"
-							}
-						]
-					},
-					"equipment": [
-						{
-							"ref": "FrontLineTactics"
-						},
-						{
-							"ref": "OffensiveMindset"
-						},
-						{
-							"ref": "ParryingArmguards"
-						},
-						{
-							"ref": "PranaBindu"
-						}
-					],
-					"attacks": {}
-				},
-				{
 					"id": "A_Drone",
 					"stats": [
 						{
-							"health": 650,
+							"health": 300,
 							"power": 14,
 							"armor": 4,
-							"range": 25,
-							"trainingTime": 0
+							"range": 25
 						}
 					],
 					"props": {
@@ -77707,13 +77291,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 300,
 								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 12,
 								"res": "Solari"
 							},
 							{
@@ -77746,15 +77330,13 @@
 					"id": "A_Elite",
 					"stats": [
 						{
-							"health": 950,
+							"health": 500,
 							"power": 16,
-							"armor": 8,
-							"trainingTime": 0,
-							"maxSupply": 5555
+							"armor": 8
 						}
 					],
 					"props": {
-						"squadSize": 4,
+						"squadSize": 5,
 						"squadSpacing": 1.5,
 						"radius": 5.5
 					},
@@ -77795,10 +77377,10 @@
 						}
 					},
 					"texts": {
-						"name": "Warden",
-						"desc": "The Wardens are the Atreides' elite section. Equipped with heavy-duty armor, shields and swords, they are ready to give their lives to defend their allies.",
+						"name": "Ginaz Captain",
+						"desc": "Captains of House Ginaz, trained in the way of the blade. They fight in long wine-red coats with a tall rapier, and the Atreides hold a small company of them in reserve.",
 						"plural": {
-							"name": "Wardens"
+							"name": "Ginaz Captains"
 						}
 					},
 					"aiWeights": [],
@@ -77812,7 +77394,7 @@
 						"events": [
 							{
 								"fxs": [],
-								"sound": "Play_Shield_Move",
+								"sound": "Play_Common_Move",
 								"soundSource": 0,
 								"kind": 1
 							},
@@ -77820,7 +77402,7 @@
 								"kind": 24,
 								"fxs": [],
 								"soundSource": 0,
-								"sound": "Common_Female_Death",
+								"sound": "Common_Death",
 								"fxTarget": 0
 							}
 						],
@@ -77828,15 +77410,15 @@
 							"voices": [
 								{
 									"action": 2,
-									"event": "Voice_A_Warden_Attack"
+									"event": "Voice_A_Trooper_Attack"
 								},
 								{
 									"action": 1,
-									"event": "Voice_A_Warden_Move"
+									"event": "Voice_A_Trooper_Move"
 								},
 								{
 									"action": 0,
-									"event": "Voice_A_Warden_Select"
+									"event": "Voice_A_Trooper_Select"
 								}
 							]
 						},
@@ -77848,20 +77430,20 @@
 						"recruit": [
 							{
 								"res": "Solari",
-								"qty": 0
+								"qty": 100
 							},
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Solari"
 							},
 							{
-								"qty": 3,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -78030,18 +77612,18 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 5,
+								"qty": 9,
 								"res": "GuildFavor"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 12,
 								"res": "Solari"
 							},
 							{
 								"res": "FuelCell",
-								"qty": 0
+								"qty": 3
 							},
 							{
 								"qty": 3,
@@ -78234,13 +77816,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 70,
+								"qty": 100,
 								"res": "GuildFavor"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Solari"
 							},
 							{
@@ -78297,10 +77879,9 @@
 					],
 					"stats": [
 						{
-							"health": 2555,
+							"health": 1000,
 							"power": 20,
-							"armor": 6,
-							"maxSupply": 5555
+							"armor": 6
 						}
 					],
 					"props": {
@@ -78385,152 +77966,6 @@
 						"bigPortrait": {
 							"file": "UI/Faction/unit_military.png",
 							"size": 250,
-							"x": 8,
-							"y": 0
-						},
-						"smallPortrait": {
-							"file": "UI/Faction/unitsSmall.png",
-							"size": 80,
-							"x": 15,
-							"y": 0
-						},
-						"wheelPortrait": {
-							"file": "UI/console/wheel_units_atreides.png",
-							"size": 358,
-							"x": 8,
-							"y": 0
-						}
-					},
-					"id": "A_DuncanModified",
-					"texts": {
-						"name": "Duncan (Modified)",
-						"desc": "One of Leto's most trusted men and House Atreides' Swordmaster, Duncan was tasked with being Leto's ambassador to the Fremen upon their arrival on Arrakis.",
-						"plural": {
-							"name": "Duncan (Modified)"
-						}
-					},
-					"traits": [
-						{
-							"ref": "A_Hero_1_Trait"
-						},
-						{
-							"ref": "Warrior_Trait"
-						}
-					],
-					"stats": [
-						{
-							"health": 2555,
-							"power": 20,
-							"armor": 6,
-							"maxSupply": 5555,
-							"trainingTime": 0.1
-						}
-					],
-					"props": {
-						"character": "Duncan",
-						"wheelPosition": {
-							"group": 1,
-							"pos": 12
-						},
-						"squadSize": 1,
-						"squadSpacing": 1
-					},
-					"aiWeights": [],
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 15,
-						"y": 0
-					},
-					"inherits": "Hero",
-					"faction": "Atreides",
-					"effects": {
-						"models": [
-							{
-								"ref": "N_DuncanModified",
-								"flags": 0
-							}
-						],
-						"events": [
-							{
-								"fxs": [],
-								"sound": "Move_Run_Duncan",
-								"soundSource": 0,
-								"kind": 1
-							},
-							{
-								"kind": 3,
-								"fxs": [],
-								"soundSource": 0,
-								"sound": "Duncan_Attackmelee"
-							},
-							{
-								"kind": 4,
-								"fxs": [],
-								"soundSource": 0,
-								"sound": "Heroes_Pistolattackrange"
-							},
-							{
-								"kind": 37,
-								"fxs": [
-									{
-										"fx": "Fx/Unit/SkillsHeroes/FX_Human_Duncan_Skill_cdb.fx",
-										"space": 0,
-										"flags": 0
-									}
-								],
-								"soundSource": 0,
-								"fxTarget": 1,
-								"sound": "Duncan_Ability"
-							}
-						],
-						"sound": {
-							"voices": [
-								{
-									"action": 2,
-									"event": "Voice_A_Duncan_Attack"
-								},
-								{
-									"action": 1,
-									"event": "Voice_A_Duncan_Move"
-								},
-								{
-									"action": 0,
-									"event": "Voice_A_Duncan_Select"
-								},
-								{
-									"action": 6,
-									"event": "Voice_A_Duncan_Abilityoff"
-								}
-							]
-						}
-					},
-					"costs": {
-						"recruit": [
-							{
-								"qty": 0,
-								"res": "Manpower"
-							}
-						],
-						"upkeep": [
-							{
-								"qty": 0,
-								"res": "Solari"
-							},
-							{
-								"qty": 0,
-								"res": "CommandPoint"
-							}
-						]
-					},
-					"equipment": [],
-					"attacks": {}
-				},
-				{
-					"images": {
-						"bigPortrait": {
-							"file": "UI/Faction/unit_military.png",
-							"size": 250,
 							"x": 9,
 							"y": 0
 						},
@@ -78565,10 +78000,9 @@
 					],
 					"stats": [
 						{
-							"health": 3555,
+							"health": 1000,
 							"power": 18,
-							"armor": 8,
-							"maxSupply": 5555
+							"armor": 8
 						}
 					],
 					"props": {
@@ -82036,10 +81470,9 @@
 					"id": "F_Trooper",
 					"stats": [
 						{
-							"health": 550,
+							"health": 400,
 							"power": 15,
-							"armor": 4,
-							"trainingTime": 0
+							"armor": 4
 						}
 					],
 					"props": {
@@ -82063,9 +81496,6 @@
 					"traits": [
 						{
 							"ref": "F_Trooper_Trait"
-						},
-						{
-							"ref": "TStealthGear"
 						}
 					],
 					"images": {
@@ -82154,17 +81584,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 40,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 8,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						]
@@ -82189,11 +81619,10 @@
 					"id": "F_Demo",
 					"stats": [
 						{
-							"health": 550,
+							"health": 300,
 							"power": 5,
 							"armor": 0,
-							"range": 25,
-							"trainingTime": 0
+							"range": 25
 						}
 					],
 					"props": {
@@ -82215,9 +81644,6 @@
 					"traits": [
 						{
 							"ref": "F_Demo_Trait"
-						},
-						{
-							"ref": "TStealthGear"
 						}
 					],
 					"images": {
@@ -82319,17 +81745,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 30,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 3,
 								"res": "CommandPoint"
 							}
 						]
@@ -82354,10 +81780,9 @@
 					"id": "F_Sneak",
 					"stats": [
 						{
-							"health": 550,
+							"health": 300,
 							"power": 11,
-							"armor": 0,
-							"trainingTime": 0
+							"armor": 0
 						}
 					],
 					"props": {
@@ -82473,17 +81898,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 30,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 3,
 								"res": "CommandPoint"
 							}
 						]
@@ -82508,12 +81933,12 @@
 					"id": "F_Special",
 					"stats": [
 						{
-							"health": 550,
+							"health": 400,
 							"power": 18,
 							"armor": 0,
 							"range": 35,
 							"engageSpeed": 1,
-							"trainingTime": 0,
+							"trainingTime": 3,
 							"safeRegen": 0.5,
 							"maxExpLevel": 3
 						}
@@ -82629,20 +82054,20 @@
 						"recruit": [
 							{
 								"res": "Solari",
-								"qty": 0
+								"qty": 100
 							},
 							{
-								"qty": 0,
+								"qty": 40,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 8,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						]
@@ -82702,12 +82127,12 @@
 					"stats": [
 						{
 							"speed": 0,
-							"health": 550,
+							"health": 400,
 							"range": 80,
 							"engageSpeed": 0,
 							"armor": 0,
 							"power": 30,
-							"trainingTime": 0,
+							"trainingTime": 3,
 							"safeRegen": 0.5,
 							"maxExpLevel": 3
 						}
@@ -82803,20 +82228,20 @@
 						"recruit": [
 							{
 								"res": "Solari",
-								"qty": 0
+								"qty": 100
 							},
 							{
-								"qty": 0,
+								"qty": 40,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 8,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						]
@@ -82834,10 +82259,9 @@
 					"id": "F_Elite",
 					"stats": [
 						{
-							"health": 550,
+							"health": 400,
 							"power": 22,
-							"armor": 5,
-							"trainingTime": 0
+							"armor": 5
 						}
 					],
 					"props": {
@@ -82859,9 +82283,6 @@
 						},
 						{
 							"ref": "Warrior_Trait"
-						},
-						{
-							"ref": "Sneak_Trait"
 						}
 					],
 					"images": {
@@ -82938,20 +82359,20 @@
 						"recruit": [
 							{
 								"res": "Solari",
-								"qty": 0
+								"qty": 100
 							},
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -83016,9 +82437,8 @@
 						{
 							"power": 9,
 							"armor": 3,
-							"health": 550,
-							"range": 35,
-							"trainingTime": 0
+							"health": 150,
+							"range": 35
 						}
 					],
 					"props": {
@@ -83126,17 +82546,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 1,
+								"qty": 6,
 								"res": "Scraps"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 9,
 								"res": "Solari"
 							},
 							{
-								"qty": 1,
+								"qty": 2,
 								"res": "CommandPoint"
 							}
 						],
@@ -83196,8 +82616,7 @@
 							"power": 22,
 							"armor": 4,
 							"range": 50,
-							"health": 1600,
-							"trainingTime": 0
+							"health": 1600
 						}
 					],
 					"props": {},
@@ -83294,13 +82713,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 10,
+								"qty": 100,
 								"res": "Scraps"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Solari"
 							}
 						]
@@ -83378,10 +82797,9 @@
 					],
 					"stats": [
 						{
-							"health": 1550,
+							"health": 600,
 							"power": 18,
-							"armor": 4,
-							"trainingTime": 0
+							"armor": 4
 						}
 					],
 					"props": {
@@ -83448,17 +82866,17 @@
 					"costs": {
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Solari"
 							}
 						],
 						"secondRecruit": [
 							{
-								"qty": 0,
+								"qty": 1000,
 								"res": "Solari"
 							},
 							{
-								"qty": 0,
+								"qty": 150,
 								"res": "Authority"
 							}
 						]
@@ -83511,11 +82929,10 @@
 					],
 					"stats": [
 						{
-							"health": 550,
+							"health": 600,
 							"power": 36,
 							"armor": 3,
-							"range": 35,
-							"trainingTime": 0
+							"range": 35
 						}
 					],
 					"props": {
@@ -83588,17 +83005,17 @@
 					"costs": {
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Solari"
 							}
 						],
 						"secondRecruit": [
 							{
-								"qty": 0,
+								"qty": 1000,
 								"res": "Solari"
 							},
 							{
-								"qty": 0,
+								"qty": 150,
 								"res": "Authority"
 							}
 						]
@@ -84080,10 +83497,9 @@
 					"id": "S_Trooper",
 					"stats": [
 						{
-							"health": 650,
+							"health": 400,
 							"power": 15,
-							"armor": 2,
-							"trainingTime": 0
+							"armor": 2
 						}
 					],
 					"props": {
@@ -84175,17 +83591,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 40,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 8,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						]
@@ -84210,11 +83626,10 @@
 					"id": "S_Demo",
 					"stats": [
 						{
-							"health": 650,
+							"health": 300,
 							"power": 8,
 							"armor": 0,
-							"range": 25,
-							"trainingTime": 0
+							"range": 25
 						}
 					],
 					"props": {
@@ -84374,17 +83789,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 30,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 3,
 								"res": "CommandPoint"
 							}
 						]
@@ -84409,11 +83824,10 @@
 					"id": "S_Sneak",
 					"stats": [
 						{
-							"health": 650,
+							"health": 250,
 							"power": 21,
 							"armor": 0,
-							"range": 50,
-							"trainingTime": 0
+							"range": 50
 						}
 					],
 					"props": {
@@ -84528,17 +83942,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 30,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 3,
 								"res": "CommandPoint"
 							}
 						]
@@ -84563,12 +83977,11 @@
 					"id": "S_Drone",
 					"stats": [
 						{
-							"health": 650,
+							"health": 500,
 							"power": 16,
 							"armor": 5,
 							"maxSupply": 200,
-							"range": 25,
-							"trainingTime": 0
+							"range": 25
 						}
 					],
 					"props": {
@@ -84673,21 +84086,21 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 500,
 								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 10,
 								"res": "Solari"
 							},
 							{
 								"res": "FuelCell",
-								"qty": 0
+								"qty": 5
 							},
 							{
-								"qty": 2,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -84712,10 +84125,9 @@
 					"id": "S_Elite",
 					"stats": [
 						{
-							"health": 856,
+							"health": 500,
 							"power": 14,
-							"armor": 2,
-							"trainingTime": 0
+							"armor": 2
 						}
 					],
 					"props": {
@@ -84810,20 +84222,20 @@
 						"recruit": [
 							{
 								"res": "Solari",
-								"qty": 0
+								"qty": 100
 							},
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -84978,7 +84390,7 @@
 								"qty": 5
 							},
 							{
-								"qty": 2,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						],
@@ -85185,12 +84597,12 @@
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Solari"
 							},
 							{
 								"res": "FuelCell",
-								"qty": 5
+								"qty": 10
 							}
 						]
 					},
@@ -85380,7 +84792,7 @@
 					],
 					"stats": [
 						{
-							"health": 1600,
+							"health": 1000,
 							"power": 20,
 							"armor": 5
 						}
@@ -86457,10 +85869,9 @@
 					],
 					"stats": [
 						{
-							"health": 650,
+							"health": 300,
 							"power": 13,
-							"armor": 65,
-							"trainingTime": 0
+							"armor": 3
 						}
 					],
 					"props": {
@@ -86532,17 +85943,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 30,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 3,
 								"res": "CommandPoint"
 							}
 						]
@@ -86595,9 +86006,9 @@
 					"traits": [],
 					"stats": [
 						{
-							"health": 650,
+							"health": 300,
 							"power": 14,
-							"armor": 65,
+							"armor": 4,
 							"trainingTime": 2
 						}
 					],
@@ -86727,9 +86138,9 @@
 					],
 					"stats": [
 						{
-							"health": 650,
+							"health": 300,
 							"power": 14,
-							"armor": 20,
+							"armor": 0,
 							"range": 35
 						}
 					],
@@ -86885,9 +86296,9 @@
 					"traits": [],
 					"stats": [
 						{
-							"health": 650,
+							"health": 300,
 							"power": 14,
-							"armor": 14,
+							"armor": 4,
 							"range": 35,
 							"trainingTime": 2
 						}
@@ -86951,13 +86362,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 4,
 								"res": "Solari"
 							},
 							{
@@ -87102,17 +86513,17 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 10,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -87131,218 +86542,6 @@
 							"ref": "TerrifyingMask"
 						}
 					],
-					"attacks": {}
-				},
-				{
-					"id": "C_LandsraadGuard",
-					"traits": [
-						{
-							"ref": "NoHealthRegen"
-						}
-					],
-					"stats": [
-						{
-							"health": 400,
-							"power": 16,
-							"armor": 6,
-							"trainingTime": 0.1,
-							"maxExpLevel": 0
-						}
-					],
-					"props": {
-						"wheelPosition": {
-							"group": 1,
-							"pos": 7
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall_Common.png",
-						"size": 80,
-						"x": 0,
-						"y": 3
-					},
-					"inherits": "Landsraad_Soldier",
-					"images": {
-						"wheelPortrait": {
-							"file": "UI/console/wheel_units_misc.png",
-							"size": 358,
-							"x": 7,
-							"y": 0
-						}
-					},
-					"texts": {
-						"name": "Landsraad Guard (Helmet)",
-						"desc": "Test unit: Landsraad Guard with a custom crested helmet.",
-						"plural": {
-							"name": "Landsraad Guards (Helmet)"
-						}
-					},
-					"aiWeights": [],
-					"faction": "Corrino",
-					"effects": {
-						"models": [
-							{
-								"ref": "N_LR_Guard_Helmet",
-								"flags": 0
-							}
-						],
-						"sound": {
-							"voices": [
-								{
-									"action": 2,
-									"event": "Voice_O_Landsraadguard_Attack"
-								},
-								{
-									"action": 1,
-									"event": "Voice_O_Landsraadguard_Move"
-								},
-								{
-									"action": 0,
-									"event": "Voice_O_Landsraadguard_Select"
-								}
-							]
-						},
-						"events": [
-							{
-								"kind": 24,
-								"fxs": [],
-								"soundSource": 0,
-								"fxTarget": 0,
-								"sound": "Common_Death"
-							},
-							{
-								"kind": 1,
-								"fxs": [],
-								"soundSource": 0,
-								"sound": "Play_Common_Move"
-							}
-						]
-					},
-					"costs": {
-						"recruit": [
-							{
-								"qty": 20,
-								"res": "Manpower"
-							}
-						],
-						"upkeep": [
-							{
-								"qty": 4,
-								"res": "Solari"
-							},
-							{
-								"qty": 2,
-								"res": "CommandPoint"
-							}
-						]
-					},
-					"equipment": [],
-					"attacks": {}
-				},
-				{
-					"id": "C_LandsraadGuard_Regular",
-					"traits": [
-						{
-							"ref": "NoHealthRegen"
-						}
-					],
-					"stats": [
-						{
-							"health": 400,
-							"power": 16,
-							"armor": 6,
-							"trainingTime": 0.1,
-							"maxExpLevel": 0
-						}
-					],
-					"props": {
-						"wheelPosition": {
-							"group": 1,
-							"pos": 8
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall_Common.png",
-						"size": 80,
-						"x": 0,
-						"y": 3
-					},
-					"inherits": "Landsraad_Soldier",
-					"images": {
-						"wheelPortrait": {
-							"file": "UI/console/wheel_units_misc.png",
-							"size": 358,
-							"x": 7,
-							"y": 0
-						}
-					},
-					"texts": {
-						"name": "Landsraad Guard",
-						"desc": "Test unit: regular Landsraad Guard, buildable by Corrino.",
-						"plural": {
-							"name": "Landsraad Guards"
-						}
-					},
-					"aiWeights": [],
-					"faction": "Corrino",
-					"effects": {
-						"models": [
-							{
-								"ref": "N_LR_Guard",
-								"flags": 0
-							}
-						],
-						"sound": {
-							"voices": [
-								{
-									"action": 2,
-									"event": "Voice_O_Landsraadguard_Attack"
-								},
-								{
-									"action": 1,
-									"event": "Voice_O_Landsraadguard_Move"
-								},
-								{
-									"action": 0,
-									"event": "Voice_O_Landsraadguard_Select"
-								}
-							]
-						},
-						"events": [
-							{
-								"kind": 24,
-								"fxs": [],
-								"soundSource": 0,
-								"fxTarget": 0,
-								"sound": "Common_Death"
-							},
-							{
-								"kind": 1,
-								"fxs": [],
-								"soundSource": 0,
-								"sound": "Play_Common_Move"
-							}
-						]
-					},
-					"costs": {
-						"recruit": [
-							{
-								"qty": 20,
-								"res": "Manpower"
-							}
-						],
-						"upkeep": [
-							{
-								"qty": 4,
-								"res": "Solari"
-							},
-							{
-								"qty": 2,
-								"res": "CommandPoint"
-							}
-						]
-					},
-					"equipment": [],
 					"attacks": {}
 				},
 				{
@@ -87470,17 +86669,21 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 500,
 								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"res": "FuelCell",
+								"qty": 5
+							},
+							{
+								"qty": 20,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -87716,20 +86919,20 @@
 						"recruit": [
 							{
 								"res": "Solari",
-								"qty": 0
+								"qty": 100
 							},
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 20,
 								"res": "Solari"
 							},
 							{
-								"qty": 2,
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -87878,21 +87081,21 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 6,
+								"qty": 12,
 								"res": "GuildFavor"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 8,
+								"qty": 16,
 								"res": "Solari"
 							},
 							{
 								"res": "FuelCell",
-								"qty": 2
+								"qty": 4
 							},
 							{
-								"qty": 2,
+								"qty": 4,
 								"res": "CommandPoint"
 							}
 						],
@@ -88085,18 +87288,18 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 50,
+								"qty": 100,
 								"res": "GuildFavor"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 25,
+								"qty": 50,
 								"res": "Solari"
 							},
 							{
 								"res": "FuelCell",
-								"qty": 5
+								"qty": 10
 							}
 						]
 					},
@@ -88285,18 +87488,18 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 50,
+								"qty": 100,
 								"res": "GuildFavor"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 25,
+								"qty": 50,
 								"res": "Solari"
 							},
 							{
 								"res": "FuelCell",
-								"qty": 5
+								"qty": 10
 							}
 						]
 					},
@@ -88318,7 +87521,7 @@
 					},
 					"inherits": "Frigate",
 					"faction": "Corrino",
-					"flags": 4210881
+					"flags": 4210976
 				},
 				{
 					"images": {
@@ -88359,7 +87562,7 @@
 					],
 					"stats": [
 						{
-							"health": 3650,
+							"health": 500,
 							"power": 16,
 							"armor": 2,
 							"range": 35
@@ -88512,12 +87715,11 @@
 					],
 					"stats": [
 						{
-							"health": 650,
+							"health": 200,
 							"power": 10,
 							"armor": 2,
 							"speed": 8,
-							"engageSpeed": 10,
-							"trainingTime": 0
+							"engageSpeed": 10
 						}
 					],
 					"attacks": {
@@ -88621,7 +87823,7 @@
 					],
 					"stats": [
 						{
-							"health": 2650,
+							"health": 1000,
 							"power": 20,
 							"armor": 5
 						}
@@ -273893,6 +273095,27 @@
 					}
 				},
 				{
+					"id": "SkirmishBattle",
+					"name": "Mission",
+					"desc": "Play a specific mission.",
+					"type": 0,
+					"props": {
+						"kanlyEditable": true,
+						"hide": 256,
+						"disableFor": 64,
+						"ingameEditable": false
+					},
+					"choices": [
+						{
+							"id": "None",
+							"name": "Standard",
+							"desc": "No specific mission, just standard A medium game with up to four factions, battling and scheming for the control of the northern hemisphere of Arrakis.",
+							"props": {},
+							"constOverrides": []
+						}
+					]
+				},
+				{
 					"id": "WormActivity",
 					"name": "Sandworms",
 					"desc": "Change the aggressiveness of [Sandworm]s, that will attack units and harvesters in the sand.",
@@ -290726,7 +289949,7 @@
 				{
 					"typeStr": "8",
 					"name": "factions",
-					"kind": null
+					"documentation": "Only for conquest"
 				},
 				{
 					"typeStr": "8",
@@ -290743,9 +289966,9 @@
 					"name": "results"
 				},
 				{
-					"typeStr": "5:Tuto,Milestone,Defense,Rivalry,Stability,Imperial,Fremen",
+					"typeStr": "5:Tuto,Milestone,Defense,Rivalry,Stability,Imperial,Fremen,SkirmishBattle",
 					"name": "category",
-					"kind": null
+					"documentation": "SkirmishBattle: Will be selectable from game parameters on start (use at your own risk !)"
 				},
 				{
 					"typeStr": "3",
@@ -335740,7 +334963,8 @@
 							{
 								"ref": "Conquest_Fremen_SietchRelation"
 							}
-						]
+						],
+						"cityPawn": "CityPawn_Atreides"
 					},
 					"type": 3,
 					"impCount": 0,
@@ -335766,7 +334990,8 @@
 							{
 								"ref": "Conquest_Fremen_SietchRelation"
 							}
-						]
+						],
+						"cityPawn": "CityPawn_Harkonnen"
 					},
 					"type": 3,
 					"impCount": 0,
@@ -335791,7 +335016,8 @@
 							{
 								"ref": "Conquest_Fremen_SietchRelation"
 							}
-						]
+						],
+						"cityPawn": "CityPawn_Corrino"
 					},
 					"type": 3,
 					"impCount": 0,
@@ -335820,7 +335046,8 @@
 								"ref": "Conquest_Fremen_SietchRelation"
 							}
 						],
-						"signatureRegion": "Foliage"
+						"signatureRegion": "Foliage",
+						"cityPawn": "CityPawn_Ecaz"
 					},
 					"mapProps": {
 						"height": 50
@@ -335846,7 +335073,8 @@
 								"ref": "Conquest_Fremen_SietchRelation"
 							}
 						],
-						"signatureRegion": "IxianCore"
+						"signatureRegion": "IxianCore",
+						"cityPawn": "CityPawn_Vernius"
 					},
 					"mapProps": {
 						"height": 50
@@ -335872,7 +335100,8 @@
 								"ref": "Conquest_Fremen_SietchRelation"
 							}
 						],
-						"signatureRegion": "STuek"
+						"signatureRegion": "STuek",
+						"cityPawn": "CityPawn_Smugglers"
 					},
 					"mapProps": {
 						"height": 50
@@ -337754,6 +336983,11 @@
 					"name": "cqValidStart",
 					"opt": true,
 					"kind": null
+				},
+				{
+					"typeStr": "6:model",
+					"name": "cityPawn",
+					"opt": true
 				}
 			]
 		},
@@ -338633,9 +337867,8 @@
 			"lines": [],
 			"columns": [
 				{
-					"typeStr": "5:Tuto,Milestone,Defense,Rivalry,Stability,Imperial,Fremen",
-					"name": "category",
-					"kind": null
+					"typeStr": "5:Tuto,Milestone,Defense,Rivalry,Stability,Imperial,Fremen,SkirmishBattle",
+					"name": "category"
 				},
 				{
 					"typeStr": "4",

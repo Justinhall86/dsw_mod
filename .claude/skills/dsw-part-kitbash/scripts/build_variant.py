@@ -20,7 +20,8 @@ Spec (all keys optional except base_blend/body/rig/out_dir/name):
     {"blend": ".../Imperial_Sardaukar.blend", "object": "Imperial", "components": [14],
      "mirror": true,                       # also add a mirrored copy (for one-sided parts)
      "scale": 0.88, "pivot": [0.12, 0, 1.6], "offset": [-0.06, 0, -0.02], "rot_y": 0,
-     "albedo": ".../recoloured_Albedo.png"}                              # from recolour_parts.py
+     "albedo": ".../recoloured_Albedo.png",                              # from recolour_parts.py
+     "normal": ".../Normal.png", "mgao": ".../MetallicGlossAO.png"}      # optional: swap those maps too
   ],
   "shells": {"patches": ".../uv_patches.json", "params": {...build_shell params...}}   # modelled pauldrons
 }
@@ -72,8 +73,8 @@ for part in S.get("parts", []):
     if any(k in part for k in ("scale", "pivot", "offset", "rot_y")):
         P.nudge(dob, part.get("scale", 1.0), part.get("pivot", (0, 0, 0)), part.get("offset", (0, 0, 0)),
                 part.get("rot_y", 0.0))
-    if part.get("albedo"):
-        P.set_albedo(dob, part["albedo"])
+    if part.get("albedo") or part.get("normal") or part.get("mgao"):
+        P.set_textures(dob, part.get("albedo"), part.get("normal"), part.get("mgao"))
     wm = dob.matrix_world.copy()
     group = [dob] + ([P.mirror_object(dob)] if part.get("mirror") else [])
     for g in group:
