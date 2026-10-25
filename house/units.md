@@ -28,6 +28,36 @@ No pick made yet — flag a favorite and I'll lock it in across these files.
 - **Game slot idea:** the heavy air/gunship slot (compare Harkonnen's Harpy, Imperial's Hammer, Smuggler's Banshee for where this sits
   in the vanilla air-unit tier).
 
+### Modding options (worked out in `model_projects/sentinal/`)
+
+Full detail and two rendered examples are in `model_projects/sentinal/SPEC.md`. Short version:
+
+- **Recolour** - works cleanly, done. A renegade/salvager palette (dark gunmetal hull, rust-bronze
+  plates, amber trim) replaces the vanilla Smuggler blue-grey. `sentinal_recolour_v1.blend` / `.gif`.
+- **Kitbash (graft a part on)** - two generations of this were tried; only the second is recommended.
+  The first (`sentinal_kitbash_v1`-`v10`) mounted whole miniature donor ships on top of the hull -
+  functional but reads as a toy glued to a toy. The second (`sentinal_graft_v1`-`v7`, all in
+  `model_projects/sentinal/`) does it properly: each donor is scaled to match the Frigate's OWN size
+  first, then a real chunk (a wing, a turret-top, a hatch cap) is cut out of it and embedded into the
+  hull surface so the join disappears into shared mass - the actual hard-surface kitbash technique,
+  not a prop placement. **`graft_v7_hero_combo`** is the recommendation: a Ravager_Shuttle hatch cap
+  (reads as a bridge module), a Hammer wingtip wedge (a bow blade), and a Hawk wing (a wingtip
+  extension) combined on one hull, spaced so nothing collides. `graft_v1_droneS_fin` keeps the tie to
+  this house's own Drone unit (`DroneS`) if that connection matters more than the strongest single
+  look. Full technique writeup, the donor chunk table, and a third coordinate bug this uncovered
+  (HMD-converted meshes store bind-pose, not visual-pose, data - see `dsw-model-workshop`'s
+  `references/traps.md`) are in `model_projects/sentinal/SPEC.md`.
+- **Removal (cut hull detail)** - possible but the mesh needs a different approach than the
+  `dsw-model-workshop` part-removal tool: the hull is 194 disconnected, unwelded panel islands (the
+  largest is 38 verts), so there's no component ID that means "the wingtip nacelle" and the
+  closed-shell closure proof doesn't mean anything here. A **spatial** cut (delete everything in a
+  world-space box, verify by before/after render instead of the boundary-edge proof) is the way in -
+  a concrete candidate (the wingtip nacelle caps) is scoped out with coordinates in the SPEC but not
+  yet cut.
+
+Recommendation: ship the recolour as the house identity regardless of what else happens; the kitbash
+pod and/or the wingtip cut are optional silhouette changes on top of it.
+
 ## Fighter — options to source
 No model picked yet. Likely donors already in `model_inputs/Vehicle/`:
 

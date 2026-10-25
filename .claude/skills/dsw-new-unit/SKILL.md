@@ -89,3 +89,9 @@ Two more units were built with the same pipeline, with new reusable pieces (see 
 - generalised export `12b_assemble_export.py` and one-command game package `14_make_game_package.py` (does not touch data.cdb or paks);
 - additive new units: `15_new_units_cdb.py` (dry run on a temp copy, `--apply` to write). `scripts/03_variants_v2.py` holds the newest builder (regions tagging, sash tail, bun,
   head shift) with the Neophyte and Master recipes; `03_variants.py` keeps the original Captain recipes.
+
+
+## Polish pass (2026-10-25): quality upgrade stage
+After a unit works, run the polish stage (see `references/lessons.md` "Polish pass" and `examples/polish_pass`): `hardware.py` (real gold hardware in `Mat_GinazGold`), `polish_lib.py`
+(x2 textures, anti-aliased painting, relief/normal, metal flags), `41_polish_textures.py` / `43_polish_neophyte.py`, preview with `render_views.py --gamelike`, then export/package as before.
+`scripts/03_variants_v3.py` has the polished recipes (`C2_Captain`, `M2_Master`, `N4_Neophyte`) and the `hardware` recipe key.

@@ -33,3 +33,11 @@ Animation GIFs are not duplicated here: `model_projects/kitbash_explore/02_progr
 ## Adding an image
 Give it a descriptive file name (`art_*` for concept art, `councilors_*`, `grandmasters_*`, `ginaz_captain_*` for our renders), add a row above,
 and say whether it is canon. If it contradicts the canon decisions in [art_direction.md](art_direction.md), note the contradiction in the Canon column.
+| `ginaz_neophyte_vs_concept.png` | Ours | Neophyte (v2 neck fix) next to the roster concept | built | [units](units.md) |
+| `ginaz_neophyte_v2_clips.png` | Ours | Neophyte v2 in run/attack/hit clips | built | [units](units.md) |
+| `ginaz_master_vs_concept.png` | Ours | Master of Ginaz next to the filigree concept | built | [units](units.md) |
+| `ginaz_master_clips.png` | Ours | Master in run/attack/hit clips (cape, rapier) | built | [units](units.md) |
+| `ginaz_captain_polish_before_after.png` | Ours | Captain before (left of each pair) and after the polish pass | built | [units](units.md) |
+| `ginaz_master_polish_before_after.png` | Ours | Master before / after | built | [units](units.md) |
+| `ginaz_neophyte_polish_before_after.png` | Ours | Neophyte before / after | built | [units](units.md) |
+| `ginaz_polish_detail_crops.png` | Ours | Master chest, hem, cape back; Captain chest | built | [units](units.md) |

@@ -60,3 +60,17 @@
   existing slot (the Captain/Warden) is only right when the user wants the vanilla unit replaced. A cloned Trooper model entry carries `dynObjects: [Gun]`; drop it when the
   prefab has no Gun child. A single hero-like unit may need another wheel slot (cdb_tools picked pos 12; sectors are 0-11: check).
 - **Shell quoting**: long Python heredocs containing triple quotes break the bash tool; write scripts with the Write tool and run them.
+
+## Polish pass lessons (2026-10-25)
+- **bpy image colour space**: set `image.colorspace_settings.name = "Non-Color"` BEFORE writing pixels; setting it afterwards clears the buffer (the maps came out all black and the
+  chest lost its sheen).  `polish_lib.array_to_img` does it in the right order.
+- **Judge in a GAME-STYLE preview**, not the FBX importer wiring: MetallicGlossAO colour -> Specular IOR Level is not what the game does.  `render_views.py --gamelike` / `preview_wiring.py`
+  wires R metallic, G gloss (rough = 1-G), B AO.  Donor MG PNGs with low alpha (0.14) make that preview look dark; the shipped textures use alpha 255 (what we export).
+  Do NOT save the game-style wiring into an export blend (the toolkit looks for the importer wiring): render from a copy.
+- **Real gold = geometry + its own material**, not paint: buttons/toggles/rim in one `GinazHardware` object, `Mat_GinazGold` (64x16 textures: radial gradient albedo so a dome gets a highlight
+  via UV u = distance from the centre; R 0.91 metallic, G 0.75 gloss).  Skin weights copied from the nearest surface vertex (`hardware.Surface`).
+- **Anti-aliased painting**: coverage = clip((halfwidth - dist)/texel_footprint + 0.5); get the texel footprint from the rasterised position array (`polish_lib.footprint`).
+- **Interlaced chain filigree** = two opposite-phase wave lines (`chain()` in 41): reads as embroidered scrollwork, far better than parallel waves at 512-1024 px.
+- **Donor tan trim recoloured to gold becomes blotchy**: detect gold-hued texels in the region and recolour them to the base cloth before painting clean cords/piping.
+- **Pak size**: the res tree is packed wholesale; unreferenced model folders still add to the pak (+16-19 MB each at 2048 Raider textures).
+- **Overwriting a live unit's folder in the editor res tree changes what the NEXT repackage installs**; back the old folder up first (`_previous_installed`) and say so.

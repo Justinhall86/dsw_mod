@@ -83,3 +83,8 @@ Everything above is texture or small mesh work; none of it touches the skeleton,
 - Data: `model_projects/kitbash_explore/07_data_cdb/data_BEFORE_ginaz_captain.cdb` (also under `mod_files/backups/`).
 - Pak: `pak_archive/res.compressed1_20261024_143757.pak`.
 - Details: `model_projects/kitbash_explore/SPEC.md`.
+
+## Polish pass 2026-10-25
+The Captain was rebuilt with real gold buttons (three pairs) and a rolled gold collar rim (metallic material), x2 textures, gold piping down the chest panel and along the coat opening and
+hem, cleaned donor trim, twill weave and detail normals.  The upgraded files are STAGED (editor resource tree + `model_projects/ginaz_polish/06_game_ready/Male01_GinazCaptain`), NOT yet in the live game:
+the version in the game is still the earlier one.  Install: `repackage.py --quiet --no-launch`; roll back from `model_projects/ginaz_polish/06_game_ready/_previous_installed/`.
