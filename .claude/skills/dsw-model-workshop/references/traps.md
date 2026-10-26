@@ -421,3 +421,57 @@ the user can rotate the object by accident. Use an ortho camera and
 Keep the original mesh in the scene between iterations and the renders lie to
 you. `reset_scene()` (`read_factory_settings(use_empty=True)`) before each
 one.
+
+## Cached transforms: measure and parent only after an update
+
+`Object.bound_box` and `Object.matrix_world` are **cached**. Right after you
+edit mesh data or create an object they still return the *pre-edit* values,
+and there is no exception - you just get confident, wrong numbers. Two ways
+this bit:
+
+* **A bounding box that never changed.** After squashing a hull to half its
+  span the reported bbox was still the stock 10.2 x 9.35 x 2.59, so the
+  camera framed the wrong size and two variants rendered cropped. Fix: wrap
+  every measurement in
+  `bpy.context.view_layer.update()` + `dg = evaluated_depsgraph_get(); dg.update()`
+  and read from `obj.evaluated_get(dg).bound_box` / `.matrix_world`.
+* **A new part silently teleported to the origin.** `finish_parts()` copied
+  `ob.matrix_world` (still identity - stale) *after* setting `ob.location`
+  and `ob.rotation_euler`, then wrote that identity back: the location and
+  the 90-degree axis rotation were both erased, and a sensor boom that was
+  supposed to lie along the wing ended up a 3.4 m mast in the middle of the
+  ship. Fix: `view_layer.update()` **before** reading `matrix_world`, or
+  simply re-assign `location`/`rotation_euler`/`scale` instead of the matrix.
+
+Rule: any time a script reads a transform to copy it, or reads bounds to
+frame a shot, force an update on the line above. Renderers re-evaluate
+themselves, so renders looked correct while every *measurement* was stale -
+which is exactly the trap.
+
+## Framing a contact sheet by the CURRENT box
+
+When variants are deliberately longer/wider/shorter than the source model,
+a camera framed on the original size will crop the big ones and shrink the
+small ones. Frame the turntable and the per-variant views by the **current**
+world bbox (and aim at its centre, since a one-sided shear moves it); only
+the comparison contact sheet should keep one fixed camera for everything.
+
+## No Pillow inside Blender
+
+Blender's bundled python has **no PIL/Pillow** (`import PIL` fails), while
+the system python usually does. Keep the image work in a separate script
+that Blender shells out to with `subprocess.run([shutil.which("python"), ...])`
+- masks travel as `.npy` files and the op list as JSON, so the child
+process needs no `bpy`. Trying to `from PIL import Image` inside a
+`--background --python` script dies at the *first* texture op, after the
+model has already loaded, which looks like a texture bug rather than a
+missing module.
+
+## Purge the FBX's own textures before saving
+
+An FBX import leaves its `*_Albedo.png` image datablocks behind even after
+you rewire the material to your own packed textures. They keep a dangling
+external path in the .blend ("missing file" warnings for anyone else who
+opens it). Before `save_as_mainfile`, loop 2-3 times over
+`bpy.data.images` / `materials` / `meshes` and remove anything with
+`users == 0` (skip `Render Result`).

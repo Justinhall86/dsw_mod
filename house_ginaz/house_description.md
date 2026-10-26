@@ -15,8 +15,8 @@ This is the one-page overview. The detail lives in the other files (index in [RE
 | **Playstyle** | small elite melee squads; evasion and parry; stacking buffs; supply-efficient; honour (Kanly, duels) as a resource |
 | **Leader choice** | Grandmasters: Cassian Vos, Lord Corin Ginaz, Selene Zohar, Mei Ling |
 | **Councilors (pick two)** | Master Chirox, Commander Jool, Lady Aya, Adjutant Ran |
-| **Units** | Scout, Troopers, Throwers, Elite Swordmaster, Master of Ginaz |
-| **In the game today** | the **Ginaz Captain** (the Troopers' look), over the Atreides Warden slot, squad 5, one squad spawned at game start |
+| **Units** | Scout, Troopers, Throwers, Elite Swordmaster, Master of Ginaz (plus the Neophyte from the roster sheet) |
+| **In the game data** | **Ginaz Captain** (squad 5, one squad at the start), **Ginaz Swordmaster**, **Ginaz Neophyte** and **Master of Ginaz**, in a `Ginaz` faction cloned from Atreides; installed, not yet launched. Specs: [unit_specs.md](unit_specs.md) |
 
 ![Design reference](images/swordmaster_reference.jpg)
 
@@ -27,6 +27,7 @@ This is the one-page overview. The detail lives in the other files (index in [RE
 | Faction bonuses (two drafts), reconciled proposal, balance notes, faction actions | [faction_design.md](faction_design.md) |
 | Grandmasters, abilities, proposed kits for Cassian and Corin, Councilors, synergies | [leaders_and_councilors.md](leaders_and_councilors.md) |
 | The five unit lines: role, look, donor models, stat sketch, build order | [units.md](units.md) |
+| Every unit in one table: data id, squad, stats, weapon, fight style, costs, gaps | [unit_specs.md](unit_specs.md) |
 | The built Captain: recipe, in-game values, checklist, upgrade backlog, revert | [ginaz_captain.md](ginaz_captain.md) |
 | Palette (hex), emblem rules, costume tiers, AI-art corrections, texture to-do | [art_direction.md](art_direction.md) |
 | Game data facts, per-bonus attribute mapping, gaps, three integration paths, phases | [implementation_roadmap.md](implementation_roadmap.md) |
@@ -37,16 +38,17 @@ This is the one-page overview. The detail lives in the other files (index in [RE
 ![Units](images/units_concept_roster.jpg)
 
 ## Current status and next steps
-- **Done:** the Captain is built, installed and confirmed working; design documents cover identity, faction, leaders, units, art and the game-data plan.
+- **Done:** the Captain, Swordmaster, Neophyte and Master are built and in the game data (the Captain was confirmed working on 2026-10-24); design documents cover identity, faction, leaders, units, art and the game-data plan.
 - **Next (suggested):** Captain texture upgrades from the officer portrait (brown mantle, gold buttons/piping/hem discs); then Elite Swordmaster and Master of Ginaz;
   then a testbed of the faction traits (see [implementation_roadmap.md](implementation_roadmap.md)).
 - **Decisions needed from the user:** full faction or units only (the screens say "Great House", which suggests a full faction); a new name for **Lord Corin Ginaz** (candidates in
   [leaders_and_councilors.md](leaders_and_councilors.md): Severin, Evander, Tavian, Marek, Dorian, Aurelian); which Grandmaster design is canon (Cassian has two looks);
-  whether the Captain stays in the Warden slot; the Cassian and leader ability kits (proposals in the same file); and whether to start with the "buildable now" bonus set (see [faction_design.md](faction_design.md)).
+  the Cassian and leader ability kits (proposals in the same file); and whether to start with the "buildable now" bonus set (see [faction_design.md](faction_design.md)).
 
 ## Design rules we follow
 - No shields, no firearms on Ginaz units; duellists in coats with rapiers.
 - Never use Sardaukar parts for new units (standing rule from the user).
+- The **Landsraad Elite** soldier (`model_projects/landsraad_elite`) is a separate project: it has no place in House Ginaz, in its data, units or docs.
 - New units are made by kitbashing game models, removing parts (backpacks, belts, scarves, metal plates) so they are not simply blends,
   hand-modelling what is missing, recolouring to the House palette, then installing. The process is saved as the `dsw-new-unit` skill
   (`.claude/skills/dsw-new-unit/`).

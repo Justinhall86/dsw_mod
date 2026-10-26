@@ -1,7 +1,7 @@
 # The Ginaz Captain (built and in the game)
 
 The first House Ginaz unit: a duelist officer in a long wine coat with a tall gold-rimmed stand-up collar, black hair and beard, and a
-tall rapier. In the concept roster it corresponds to the **Troopers**. Built 2026-10-23/24, installed 2026-10-24, confirmed working in game by the user.
+tall rapier. In the concept roster it corresponds to the **Troopers**. Built 2026-10-23/24, installed 2026-10-24, confirmed working in game by the user (then as the Atreides Warden). Since 2026-10-25 it is `G_Elite` in the `Ginaz` faction (not yet launched). Project files: `model_projects/ginaz_captain/` (moved from `ginaz_swordmaster`). All units: [unit_specs.md](unit_specs.md).
 
 ![Close-ups](images/ginaz_captain_closeups.png)
 ![Turnaround](images/ginaz_captain_turnaround.png)
@@ -32,18 +32,18 @@ tunic gives a fabric chest, which the user preferred over a bare chest.
 ## In game
 | Item | Value |
 |---|---|
-| Unit / model id | `A_Elite` (the Atreides **Warden** slot, taken over) |
+| Unit / model id | `G_Elite` in the `Ginaz` faction (until 2026-10-24 it was the Atreides **Warden** slot, `A_Elite`, taken over; that slot is vanilla again) |
 | Name | Ginaz Captain / Ginaz Captains |
 | Squad | 5 (was 4) |
-| Start of game | one squad of 5 spawns beside Arrakeen (`structure.Arrakeen.startUnits`) with the existing Ornithopter and the Landsraad guard |
+| Start of game | one squad of 5 spawns at the Ginaz Sword-School (`GinazKeep.startUnits`) with an Ornithopter and a squad of Swordmasters |
 | Stats | unchanged Warden: 500 health, 16 power, 8 armor |
 | Cost / upkeep | 100 Solari + 50 Manpower; upkeep 20 Solari + 5 Command Points |
 | Animations | `MilitaryCommon` set (idle, run, melee attacks, hit, death); rig `Male01` (`rigName` 0); scale 1.1 |
 | Sounds | `Play_Common_Move`, `Common_Death`, `Voice_A_Trooper_*` (was shield move, female death, Warden voices) |
 | Model files | `CharMOD/Male01_GinazCaptain/`: 1 mesh, 6 materials, ~7.3k tris, 53 joints (Male01 plus 7 whip joints, same as the vanilla Mercenary) |
 
-Side effect: **every Warden the Atreides recruit is now a Ginaz Captain** (that is what taking over the slot means). Other custom units
-(the Landsraad guard) were not touched.
+Weapon and fight style: tall rapier baked into the mesh, melee duellist on the `MilitaryCommon` set (details and the weapon options under review in [unit_specs.md](unit_specs.md)).
+The old takeover side effect (every Atreides Warden became a Captain) ended with the faction install.
 
 ## Preview checks done
 - 6 angles textured and flat-colour per object; back-face-culled view; close-up strips of the shoulders and neck.
@@ -58,7 +58,7 @@ Side effect: **every Warden the Atreides recruit is now a Ginaz Captain** (that 
 - [ ] sword stays in the hand when idle, running, attacking and being hit
 - [ ] recruiting a Warden from the wheel gives the same unit, name and icon text
 - [ ] voices/sounds are male trooper ones
-- [ ] the original Landsraad guard still spawns and works
+- [ ] the start company at the Ginaz Sword-School: an Ornithopter, a Swordmaster squad and a Captain squad (no Landsraad unit)
 
 ## Upgrade backlog (from the officer portrait and the main reference)
 Compare `images/art_officer_portrait.png` and `images/swordmaster_reference.jpg` with the build:
@@ -86,5 +86,5 @@ Everything above is texture or small mesh work; none of it touches the skeleton,
 
 ## Polish pass 2026-10-25
 The Captain was rebuilt with real gold buttons (three pairs) and a rolled gold collar rim (metallic material), x2 textures, gold piping down the chest panel and along the coat opening and
-hem, cleaned donor trim, twill weave and detail normals.  The upgraded files are STAGED (editor resource tree + `model_projects/ginaz_polish/06_game_ready/Male01_GinazCaptain`), NOT yet in the live game:
-the version in the game is still the earlier one.  Install: `repackage.py --quiet --no-launch`; roll back from `model_projects/ginaz_polish/06_game_ready/_previous_installed/`.
+hem, cleaned donor trim, twill weave and detail normals.  The upgraded files were STAGED in the editor resource tree (and `model_projects/ginaz_captain/06_game_ready/Male01_GinazCaptain`); the 2026-10-25 faction install repackaged that tree, so the polished model is probably in the pak now (unconfirmed).
+Install: `repackage.py --quiet --no-launch`; roll back from `model_projects/ginaz_captain/06_game_ready/_previous_installed/`.

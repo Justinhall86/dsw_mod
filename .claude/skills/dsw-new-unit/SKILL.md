@@ -95,3 +95,5 @@ Two more units were built with the same pipeline, with new reusable pieces (see 
 After a unit works, run the polish stage (see `references/lessons.md` "Polish pass" and `examples/polish_pass`): `hardware.py` (real gold hardware in `Mat_GinazGold`), `polish_lib.py`
 (x2 textures, anti-aliased painting, relief/normal, metal flags), `41_polish_textures.py` / `43_polish_neophyte.py`, preview with `render_views.py --gamelike`, then export/package as before.
 `scripts/03_variants_v3.py` has the polished recipes (`C2_Captain`, `M2_Master`, `N4_Neophyte`) and the `hardware` recipe key.
+
+For upscaling an existing unit (sharper textures, more triangles, the "film" preview problem), use the dedicated skill `dsw-unit-upscale` (audit, upscale_textures, add_geometry, compare_audits).
