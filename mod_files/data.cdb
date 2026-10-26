@@ -17606,6 +17606,9 @@
 									},
 									{
 										"faction": "Corrino"
+									},
+									{
+										"faction": "Ginaz"
 									}
 								]
 							}
@@ -19416,6 +19419,39 @@
 						"desc": "Spying field relative to [Atreides-longname].",
 						"plural": {
 							"name": "Atreides Information"
+						}
+					},
+					"aiRelatedBuildings": [],
+					"prodGoals": []
+				},
+				{
+					"id": "Ginaz_Infiltration",
+					"stats": [
+						{
+							"baseStock": 1000
+						}
+					],
+					"props": {
+						"associatedFaction": "Ginaz",
+						"tip": {
+							"cat": "InfiltrationField",
+							"allowed": true,
+							"padExpand": true
+						}
+					},
+					"gfx": {
+						"file": "UI/icons/resourceInfiltrationIcons.png",
+						"size": 32,
+						"x": 4,
+						"y": 0
+					},
+					"color": 10716415,
+					"flags": 516,
+					"texts": {
+						"name": "Ginaz Information",
+						"desc": "Spying field relative to [Ginaz-longname].",
+						"plural": {
+							"name": "Ginaz Information"
 						}
 					},
 					"aiRelatedBuildings": [],
@@ -21650,6 +21686,9 @@
 						},
 						{
 							"ref": "Corrino"
+						},
+						{
+							"ref": "Ginaz"
 						}
 					],
 					"amount": [
@@ -21699,6 +21738,9 @@
 						},
 						{
 							"ref": "Corrino"
+						},
+						{
+							"ref": "Ginaz"
 						}
 					],
 					"amount": [
@@ -21959,6 +22001,9 @@
 										},
 										{
 											"ref": "Vernius"
+										},
+										{
+											"ref": "Ginaz"
 										}
 									]
 								},
@@ -22044,6 +22089,9 @@
 										},
 										{
 											"ref": "Vernius"
+										},
+										{
+											"ref": "Ginaz"
 										}
 									]
 								},
@@ -34733,6 +34781,10 @@
 							{
 								"faction": "Vernius",
 								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
+								"diplomacy": "War"
 							}
 						],
 						"newGameMesh": "Character/Atreide/Leader/Leto/Leader_Leto_NewGame.l3d",
@@ -34819,6 +34871,337 @@
 							}
 						],
 						"speaker": "Thufir"
+					},
+					"conquest": {
+						"mapPawn": "MapPawn_Atreides",
+						"mapPawnFxs": [
+							{
+								"fxPath": "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_ArrowAtreides.fx"
+							}
+						],
+						"mapCityPawnFxs": [
+							{
+								"fxPath": "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Atreides_MainBase.fx"
+							}
+						],
+						"mapCityPawnBonusFxs": [
+							{
+								"fxPath": "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Atreides_MainBaseBonus.fx"
+							}
+						],
+						"menuTable": "UI/ConquestMenu/ConquestMenu_Atreides.prefab",
+						"introSpeech": "ConquestIntro_Atreides"
+					},
+					"house": 0
+				},
+				{
+					"id": "Ginaz",
+					"color": 8003389,
+					"startResources": [
+						{
+							"res": "Solari",
+							"qty": 1000
+						},
+						{
+							"res": "Plascrete",
+							"qty": 500
+						},
+						{
+							"res": "Manpower",
+							"qty": 160
+						},
+						{
+							"res": "Authority",
+							"qty": 60
+						},
+						{
+							"qty": 50,
+							"res": "Influence"
+						},
+						{
+							"qty": 50,
+							"res": "Intel"
+						},
+						{
+							"res": "Standing",
+							"qty": 210
+						},
+						{
+							"qty": 10,
+							"res": "CHOAMShare"
+						},
+						{
+							"qty": 40,
+							"res": "GuildFavor"
+						},
+						{
+							"qty": 3000,
+							"res": "Solari",
+							"gameMode": "Kanly"
+						},
+						{
+							"qty": 1500,
+							"res": "Plascrete",
+							"gameMode": "Kanly"
+						},
+						{
+							"qty": 250,
+							"res": "Manpower",
+							"gameMode": "Kanly"
+						},
+						{
+							"qty": 100,
+							"res": "Influence",
+							"gameMode": "Kanly"
+						},
+						{
+							"qty": 50,
+							"res": "Intel",
+							"gameMode": "Kanly"
+						}
+					],
+					"baseProduction": [
+						{
+							"res": "Solari",
+							"qty": 80
+						},
+						{
+							"res": "Plascrete",
+							"qty": 30
+						},
+						{
+							"qty": 20,
+							"res": "Water"
+						},
+						{
+							"res": "Manpower",
+							"qty": 4
+						},
+						{
+							"res": "Authority",
+							"qty": 4
+						},
+						{
+							"res": "Knowledge",
+							"qty": 5
+						},
+						{
+							"res": "Influence",
+							"qty": 2
+						},
+						{
+							"qty": 100,
+							"res": "CouncilVote"
+						},
+						{
+							"qty": 40,
+							"res": "CommandPoint"
+						},
+						{
+							"qty": 2,
+							"res": "TrainingSlot"
+						},
+						{
+							"res": "Standing",
+							"qty": 0
+						}
+					],
+					"gfx": {
+						"file": "UI/Faction/factionButton00.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					},
+					"images": {
+						"emblem": {
+							"file": "UI/Faction/factionEmblem.png",
+							"size": 64,
+							"x": 1,
+							"y": 0
+						},
+						"squareButton": {
+							"file": "UI/Faction/factionButton01.png",
+							"size": 48,
+							"x": 0,
+							"y": 0
+						},
+						"background": "UI/backgrounds/AtreidesBG.jpg",
+						"tradeBanner": {
+							"file": "UI/HUD/factionHeader.png",
+							"size": 1,
+							"x": 0,
+							"y": 82,
+							"width": 430,
+							"height": 82
+						},
+						"bannerSmall": {
+							"file": "UI/landsraad/faction_banners.png",
+							"size": 1,
+							"x": 38,
+							"y": 0,
+							"width": 38,
+							"height": 42
+						},
+						"bannerBig": "UI/Faction/Menu/ic_atreides.png",
+						"loading": "UI/backgrounds/Atreides_Loading.jpg",
+						"conquest": {
+							"introLeft": "UI/ConquestMenu/Assets/Atreides/atreides_left.png",
+							"introRight": "UI/ConquestMenu/Assets/Atreides/atreides_right.png",
+							"victory": "UI/ConquestMenu/Assets/Atreides/AtreidesVictoryFlag.png",
+							"defeat": "UI/ConquestMenu/Assets/Atreides/AtreidesDefeatFlag.png"
+						}
+					},
+					"props": {
+						"startingTraits": [
+							{
+								"trait": "Ginaz"
+							},
+							{
+								"trait": "AllFactions_Basics",
+								"displayed": false
+							}
+						],
+						"aiType": [
+							{
+								"proba": 5,
+								"type": "Economy"
+							},
+							{
+								"proba": 1,
+								"type": "Military"
+							},
+							{
+								"proba": 5,
+								"type": "Statecraft"
+							},
+							{
+								"proba": 1,
+								"type": "Expansion"
+							}
+						],
+						"hegemonyBonuses": [
+							{
+								"traitBonus": "Ginaz_HegemonyBonus_1"
+							},
+							{
+								"traitBonus": "Ginaz_HegemonyBonus_2"
+							}
+						],
+						"initials": "G",
+						"defaultDiplomaticStatus": [
+							{
+								"faction": "Harkonnen",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Smugglers",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Fremen",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Corrino",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Ecaz",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Vernius",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Atreides",
+								"diplomacy": "War"
+							}
+						],
+						"newGameMesh": "Character/Atreide/Leader/Leto/Leader_Leto_NewGame.l3d",
+						"locked": false,
+						"infiltrationResource": "Ginaz_Infiltration",
+						"noFreighters": true,
+						"spectatorRallyPoint": "Fx/Event/FX_Ping_Atreides_RallyPoint.fx",
+						"flags": 1,
+						"palette": {
+							"cqTerritory": "Territory_Atreides",
+							"occupation": "Occupation_Atreides"
+						}
+					},
+					"contract": "ImperialTax",
+					"texts": {
+						"desc": "Having risen to become a storied Great House, House Ginaz comes to Arrakis to prove the supremacy of its martial school. Its sword-masters are the most feared duelling force in the galaxy, bound by ancient honor and intense rivalries.",
+						"name": "House Ginaz",
+						"longName": "House|Ginaz",
+						"shortName": "Ginaz",
+						"plural": {
+							"name": "House Ginaz",
+							"shortName": "Ginaz",
+							"longName": "House|Ginaz"
+						},
+						"adjective": "Ginaz",
+						"cityInfo": "Fortified school and seat of the Ginaz sword-masters on Arrakis"
+					},
+					"startResourcesByDifficulty": [
+						{
+							"difficulty": 2,
+							"resources": [
+								{
+									"qty": 200,
+									"res": "Plascrete"
+								},
+								{
+									"qty": 500,
+									"res": "Solari"
+								}
+							],
+							"comment": "Hard"
+						},
+						{
+							"difficulty": 3,
+							"resources": [
+								{
+									"qty": 400,
+									"res": "Plascrete"
+								},
+								{
+									"qty": 1000,
+									"res": "Solari"
+								}
+							],
+							"comment": "Insane"
+						}
+					],
+					"baseProductionsByDifficulty": [],
+					"landmarks": {
+						"region": "GinazBase",
+						"territory": "PlainsOfGinaz",
+						"city": "GinazKeep",
+						"conquestCity": "ConquestBase_Atreides",
+						"conquestRegion": "ConquestBase_Atreides"
+					},
+					"characters": {
+						"leaders": [
+							{
+								"id": "Severin"
+							}
+						],
+						"councilors": [
+							{
+								"id": "Chirox"
+							},
+							{
+								"id": "Jool"
+							},
+							{
+								"id": "Aya"
+							},
+							{
+								"id": "Ran"
+							}
+						],
+						"speaker": "Chirox"
 					},
 					"conquest": {
 						"mapPawn": "MapPawn_Atreides",
@@ -35060,6 +35443,10 @@
 							},
 							{
 								"faction": "Vernius",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
 								"diplomacy": "War"
 							}
 						],
@@ -35384,6 +35771,10 @@
 							{
 								"faction": "Vernius",
 								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
+								"diplomacy": "War"
 							}
 						],
 						"newGameMesh": "Character/Smuggler/Leader/Leader_Esmar_NewGame.l3d",
@@ -35700,6 +36091,10 @@
 							},
 							{
 								"faction": "Vernius",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
 								"diplomacy": "War"
 							}
 						],
@@ -36034,6 +36429,10 @@
 							},
 							{
 								"faction": "Vernius",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
 								"diplomacy": "War"
 							}
 						],
@@ -36400,6 +36799,10 @@
 							{
 								"faction": "Vernius",
 								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
+								"diplomacy": "War"
 							}
 						],
 						"newGameMesh": "Character/Ecaz/Leader/Leader_ArmandaEcaz_NewGame.l3d",
@@ -36763,6 +37166,10 @@
 							{
 								"faction": "Ecaz",
 								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
+								"diplomacy": "War"
 							}
 						],
 						"newGameMesh": "Character/Vernius/Leader/Leader_Rhombur_NewGame.l3d",
@@ -37083,6 +37490,10 @@
 							{
 								"faction": "Vernius",
 								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
+								"diplomacy": "War"
 							}
 						],
 						"newGameMesh": "Character/Fremen/Leader/Leader_LietKynes_NewGame.l3d",
@@ -37139,6 +37550,10 @@
 							},
 							{
 								"faction": "Smugglers",
+								"diplomacy": "War"
+							},
+							{
+								"faction": "Ginaz",
 								"diplomacy": "War"
 							}
 						]
@@ -45248,6 +45663,52 @@
 					"gender": 0
 				},
 				{
+					"id": "Severin",
+					"firstname": "Severin",
+					"lastname": "Ginaz",
+					"color": 1168998,
+					"gfx": {
+						"file": "UI/HUD/leaderBanner4k.png",
+						"size": 1,
+						"x": 128,
+						"y": 0,
+						"width": 128,
+						"height": 206
+					},
+					"model": "Leto",
+					"aiTypes": [],
+					"props": {},
+					"complexity": 0,
+					"flags": 0,
+					"title": "Lord",
+					"desc": "Lord Severin Ginaz, Grandmaster of the Sword-School, brought the full weight of the Ginaz schools to Arrakis. His presence instils a discipline that rejects fear and demands perfection and honour.",
+					"images": {
+						"menuGfx": {
+							"file": "UI/HUD/leaderBanner.png",
+							"size": 1,
+							"x": 64,
+							"y": 0,
+							"width": 64,
+							"height": 103
+						},
+						"tutoGfx": {
+							"file": "UI/HUD/leaderBanner.png",
+							"size": 1,
+							"x": 64,
+							"y": 0,
+							"width": 64,
+							"height": 103
+						},
+						"wheelGfx": {
+							"file": "UI/console/wheel_leaders.png",
+							"size": 358,
+							"x": 0,
+							"y": 0
+						}
+					},
+					"gender": 0
+				},
+				{
 					"id": "Thufir",
 					"firstname": "Thufir",
 					"lastname": "Hawat",
@@ -45289,6 +45750,50 @@
 						"wheelGfx": null
 					},
 					"gender": 0
+				},
+				{
+					"id": "Chirox",
+					"firstname": "Chirox",
+					"lastname": "",
+					"color": 1168998,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 128,
+						"x": 2,
+						"y": 0
+					},
+					"passiveTrait": "ChiroxPassive",
+					"complexity": 2,
+					"aiTypes": [
+						{
+							"domain": "Economy"
+						}
+					],
+					"props": {},
+					"flags": 0,
+					"desc": "Master Chirox, Sword Master Tactician: a grey-haired veteran of a hundred duels who teaches the school's discipline to every squad.",
+					"title": "Master",
+					"images": {
+						"menuGfx": {
+							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"size": 1,
+							"x": 336,
+							"y": 0,
+							"width": 336,
+							"height": 624
+						},
+						"tutoGfx": {
+							"file": "UI/Faction/Menu/councillorsAtreides.png",
+							"size": 1,
+							"x": 360,
+							"y": 0,
+							"width": 180,
+							"height": 320
+						},
+						"wheelGfx": null
+					},
+					"gender": 0,
+					"model": null
 				},
 				{
 					"id": "Gurney",
@@ -45334,6 +45839,51 @@
 					"gender": 0
 				},
 				{
+					"id": "Dorian",
+					"firstname": "Dorian",
+					"lastname": "Vale",
+					"color": 1168998,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 128,
+						"x": 1,
+						"y": 0
+					},
+					"passiveTrait": "DorianPasssive",
+					"complexity": 0,
+					"aiTypes": [
+						{
+							"domain": "Military"
+						}
+					],
+					"props": {
+						"heroUnit": "G_Hero_2"
+					},
+					"flags": 1,
+					"desc": "Dorian Vale, a seasoned warmaster of the Ginaz schools and a loyal blade of the House. (placeholder hero, replace)",
+					"images": {
+						"menuGfx": {
+							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"size": 1,
+							"x": 0,
+							"y": 0,
+							"width": 336,
+							"height": 624
+						},
+						"tutoGfx": {
+							"file": "UI/Faction/Menu/councillorsAtreides.png",
+							"size": 1,
+							"x": 540,
+							"y": 0,
+							"width": 180,
+							"height": 320
+						}
+					},
+					"gender": 0,
+					"title": "Warmaster",
+					"model": null
+				},
+				{
 					"id": "Jessica",
 					"firstname": "Jessica",
 					"lastname": "",
@@ -45374,6 +45924,49 @@
 					},
 					"gender": 1,
 					"title": "Lady"
+				},
+				{
+					"id": "Aya",
+					"firstname": "Aya",
+					"lastname": "",
+					"color": 1168998,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 128,
+						"x": 3,
+						"y": 0
+					},
+					"passiveTrait": "AyaPassive",
+					"complexity": 2,
+					"aiTypes": [
+						{
+							"domain": "Statecraft"
+						}
+					],
+					"props": {},
+					"flags": 0,
+					"desc": "Lady Aya, Diplomat of Honor: she keeps the Code Duel and turns every feud into a ledger of standing.",
+					"images": {
+						"menuGfx": {
+							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"size": 1,
+							"x": 672,
+							"y": 0,
+							"width": 336,
+							"height": 624
+						},
+						"tutoGfx": {
+							"file": "UI/Faction/Menu/councillorsAtreides.png",
+							"size": 1,
+							"x": 180,
+							"y": 0,
+							"width": 180,
+							"height": 320
+						}
+					},
+					"gender": 1,
+					"title": "Lady",
+					"model": null
 				},
 				{
 					"id": "Duncan",
@@ -45417,6 +46010,51 @@
 						}
 					},
 					"gender": 0
+				},
+				{
+					"id": "Cassian",
+					"firstname": "Cassian",
+					"lastname": "Vos",
+					"color": 1168998,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 128,
+						"x": 0,
+						"y": 0
+					},
+					"passiveTrait": "CassianPassive",
+					"complexity": 0,
+					"aiTypes": [
+						{
+							"domain": "Expansion"
+						}
+					],
+					"props": {
+						"heroUnit": "G_Hero_1"
+					},
+					"flags": 1,
+					"desc": "Cassian Vos, the Unyielding Blade: a living embodiment of Ginaz doctrine who has survived countless duels and slips past defences that would stop a lasgun bolt.",
+					"images": {
+						"menuGfx": {
+							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"size": 1,
+							"x": 1008,
+							"y": 0,
+							"width": 336,
+							"height": 624
+						},
+						"tutoGfx": {
+							"file": "UI/Faction/Menu/councillorsAtreides.png",
+							"size": 1,
+							"x": 0,
+							"y": 0,
+							"width": 180,
+							"height": 320
+						}
+					},
+					"gender": 0,
+					"title": "Master",
+					"model": null
 				},
 				{
 					"images": {
@@ -45465,6 +46103,49 @@
 						"menuGfx": {
 							"file": "UI/Faction/Menu/menuCouncilors.png",
 							"size": 1,
+							"x": 1344,
+							"y": 0,
+							"width": 336,
+							"height": 624
+						},
+						"tutoGfx": {
+							"file": "UI/Faction/Menu/councillorsAtreides.png",
+							"size": 1,
+							"x": 720,
+							"y": 0,
+							"width": 180,
+							"height": 320
+						}
+					},
+					"id": "Ran",
+					"firstname": "Ran",
+					"lastname": "",
+					"gender": 0,
+					"aiTypes": [
+						{
+							"domain": "Expansion"
+						}
+					],
+					"props": {},
+					"flags": 1,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 128,
+						"x": 4,
+						"y": 0
+					},
+					"desc": "Adjutant Ran, logistics and intelligence: he keeps swordmasters supplied in the deep desert and scouts ahead of them.",
+					"color": 1168998,
+					"complexity": 0,
+					"passiveTrait": "RanPassive",
+					"title": "Adjutant",
+					"model": null
+				},
+				{
+					"images": {
+						"menuGfx": {
+							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"size": 1,
 							"x": 1680,
 							"y": 0,
 							"width": 336,
@@ -45501,6 +46182,49 @@
 					"complexity": 0,
 					"passiveTrait": "YuehPassive",
 					"title": "Dr."
+				},
+				{
+					"images": {
+						"menuGfx": {
+							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"size": 1,
+							"x": 1680,
+							"y": 0,
+							"width": 336,
+							"height": 624
+						},
+						"tutoGfx": {
+							"file": "UI/Faction/Menu/councillorsAtreides.png",
+							"size": 1,
+							"x": 900,
+							"y": 0,
+							"width": 180,
+							"height": 320
+						}
+					},
+					"id": "Jool",
+					"firstname": "Jool",
+					"lastname": "",
+					"gender": 0,
+					"aiTypes": [
+						{
+							"domain": "Military"
+						}
+					],
+					"props": {},
+					"flags": 1,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 128,
+						"x": 5,
+						"y": 0
+					},
+					"desc": "Commander Jool, Battlefield Warden: the school's arbiter in disputes of honour, quick to challenge and slow to forgive.",
+					"color": 1168998,
+					"complexity": 0,
+					"passiveTrait": "JoolPassive",
+					"title": "Commander",
+					"model": null
 				},
 				{
 					"id": "Vladimir",
@@ -47791,6 +48515,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"cancelRefundRatio": 1,
@@ -48011,6 +48738,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"tip": {
@@ -48073,6 +48803,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"tip": {
@@ -48140,6 +48873,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"tip": {
@@ -49557,6 +50293,76 @@
 					"desc": "At the height of the battle, [!A_Hero_1] tap into deep reserve of strength coming from his loyalty to [Atreides-longname]."
 				},
 				{
+					"id": "G_Hero_1_Skill",
+					"flags": 4224,
+					"cooldowns": {},
+					"traits": [
+						{
+							"trait": "G_Hero_1_Skill_Buff_1",
+							"apply": 1,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"otherEffects": [
+						{
+							"props": {
+								"unitQuote": 6
+							},
+							"id": "UPlayQuote"
+						},
+						{
+							"props": {
+								"unitEvent": 37
+							},
+							"id": "UFireEvent"
+						},
+						{
+							"props": {},
+							"id": "UPlaySkill"
+						},
+						{
+							"props": {
+								"val": 1.8
+							},
+							"id": "USkillLock",
+							"comments": "Time the unit will be locked in its ability state and anim"
+						}
+					],
+					"display": {
+						"where": 8,
+						"alignment": 1,
+						"whereUnit": "G_Hero_1"
+					},
+					"apply": {
+						"need": 6,
+						"alignment": 1
+					},
+					"props": {
+						"tip": {
+							"allowed": true,
+							"cat": "UnitSkill",
+							"padExpand": true
+						},
+						"canceledBy": 2,
+						"ai": {
+							"state": 2
+						},
+						"cannotCancelBy": 1
+					},
+					"implemented": true,
+					"gfx": {
+						"file": "UI/icons/actionIcons02.png",
+						"size": 40,
+						"x": 22,
+						"y": 0
+					},
+					"name": "Cassian's Last Stand",
+					"desc": "At the height of the battle, [!G_Hero_1] tap into deep reserve of strength coming from his loyalty to [Ginaz-longname]."
+				},
+				{
 					"id": "A_Hero_2_Skill",
 					"flags": 4096,
 					"cooldowns": {
@@ -49634,6 +50440,83 @@
 					"desc": "[!A_Hero_2]'s songs remind everyone of the sweetness of life, even when it is tough."
 				},
 				{
+					"id": "G_Hero_2_Skill",
+					"flags": 4096,
+					"cooldowns": {
+						"onStartGame": 0.1,
+						"localCooldown": true,
+						"onEnd": 3
+					},
+					"traits": [
+						{
+							"trait": "G_Hero_2_Skill",
+							"apply": 2,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"otherEffects": [
+						{
+							"props": {
+								"unitQuote": 6
+							},
+							"id": "UPlayQuote"
+						},
+						{
+							"props": {
+								"unitEvent": 37
+							},
+							"id": "UFireEvent"
+						},
+						{
+							"props": {},
+							"id": "UPlaySkill"
+						},
+						{
+							"props": {
+								"val": 1.8
+							},
+							"id": "USkillLock",
+							"comments": "Time the unit will be locked in its ability state and anim"
+						}
+					],
+					"display": {
+						"where": 8,
+						"alignment": 1,
+						"whereUnit": "G_Hero_2",
+						"showActivatedWithToggle": true,
+						"replaceActivatedVisualWith": "G_Hero_2_Skill_Cancel"
+					},
+					"apply": {
+						"need": 6,
+						"alignment": 1
+					},
+					"props": {
+						"tip": {
+							"allowed": true,
+							"cat": "UnitSkill",
+							"padExpand": true
+						},
+						"ai": {
+							"state": 56,
+							"cooldown": 5,
+							"cancelStateOverride": "G_Hero_2_Skill_Cancel"
+						}
+					},
+					"implemented": true,
+					"gfx": {
+						"file": "UI/icons/actionIcons02.png",
+						"size": 40,
+						"x": 1,
+						"y": 0
+					},
+					"name": "Forced March",
+					"duration": 2,
+					"desc": "[!G_Hero_2]'s songs remind everyone of the sweetness of life, even when it is tough."
+				},
+				{
 					"id": "A_Hero_2_Skill_Cancel",
 					"flags": 0,
 					"cooldowns": {
@@ -49705,6 +50588,79 @@
 					},
 					"name": "Stop Forced March",
 					"desc": "[!A_Hero_2]'s songs remind everyone of the sweetness of life, even when it is tough."
+				},
+				{
+					"id": "G_Hero_2_Skill_Cancel",
+					"flags": 0,
+					"cooldowns": {
+						"onStartGame": 0,
+						"onEndDuration": 0,
+						"localCooldown": true
+					},
+					"traits": [
+						{
+							"trait": "G_Hero_2_SkillOff_Fake",
+							"apply": 5,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"otherEffects": [
+						{
+							"props": {
+								"unitQuote": 6
+							},
+							"id": "UPlayQuote"
+						},
+						{
+							"props": {
+								"unitEvent": 37
+							},
+							"id": "UFireEvent"
+						},
+						{
+							"props": {},
+							"id": "UPlaySkill"
+						},
+						{
+							"props": {
+								"val": 1.8
+							},
+							"id": "USkillLock",
+							"comments": "Time the unit will be locked in its ability state and anim"
+						}
+					],
+					"display": {
+						"where": 8,
+						"alignment": 1,
+						"whereUnit": "G_Hero_2",
+						"autoDisplay": false
+					},
+					"apply": {
+						"need": 6,
+						"alignment": 1
+					},
+					"props": {
+						"tip": {
+							"allowed": true,
+							"cat": "UnitSkill",
+							"padExpand": true
+						},
+						"ai": {
+							"state": 132
+						}
+					},
+					"implemented": true,
+					"gfx": {
+						"file": "UI/icons/actionIcons02.png",
+						"size": 40,
+						"x": 2,
+						"y": 0
+					},
+					"name": "Stop Forced March",
+					"desc": "[!G_Hero_2]'s songs remind everyone of the sweetness of life, even when it is tough."
 				},
 				{
 					"id": "H_Hero_1_Skill",
@@ -53799,6 +54755,9 @@
 							},
 							{
 								"faction": "Vernius"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -54933,6 +55892,66 @@
 					"anim": []
 				},
 				{
+					"id": "G_Trooper",
+					"scale": 1.05,
+					"radius": 1.5,
+					"height": 4,
+					"inherit": "MilitaryCommon",
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_GinazCaptain/Prefab_GinazCaptain.prefab"
+						}
+					],
+					"rigName": 0,
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"audio": {},
+					"anim": []
+				},
+				{
+					"id": "N_Ginaz_Neophyte",
+					"scale": 1.0,
+					"radius": 1.5,
+					"height": 4,
+					"inherit": "MilitaryCommon",
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_GinazNeophyte/Prefab_GinazNeophyte.prefab"
+						}
+					],
+					"rigName": 0,
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"audio": {},
+					"anim": []
+				},
+				{
 					"id": "A_Soldier",
 					"scale": 1,
 					"radius": 1.5,
@@ -54970,6 +55989,35 @@
 							"factions": [
 								{
 									"faction": "Atreides"
+								}
+							]
+						}
+					},
+					"mesh": [
+						{
+							"path": "Character/Atreide/Unit/HeavyWeaponSquad/Prefab_HeavyWeaponSquad.prefab"
+						}
+					],
+					"inherit": "MilitaryMissileLauncher",
+					"rigName": 0,
+					"scale": 1,
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 2,
+						"y": 0
+					},
+					"audio": {}
+				},
+				{
+					"id": "G_Demo",
+					"radius": 1.5,
+					"height": 4,
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
 								}
 							]
 						}
@@ -55030,6 +56078,45 @@
 					"audio": {}
 				},
 				{
+					"id": "G_Drone",
+					"radius": 3,
+					"height": 3,
+					"props": {
+						"equipmentHide": [
+							{
+								"obj": "FX_DroneA_Idle"
+							}
+						],
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							],
+							"excludableFx": [
+								{
+									"text": "DroneA"
+								}
+							]
+						}
+					},
+					"mesh": [
+						{
+							"path": "Vehicle/Atreide/DroneA/Prefab_DroneA.prefab"
+						}
+					],
+					"inherit": "DroneCommon",
+					"rigName": 7,
+					"scale": 2.4,
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 4,
+						"y": 0
+					},
+					"audio": {}
+				},
+				{
 					"id": "A_Elite",
 					"radius": 2.4,
 					"height": 5.5,
@@ -55038,6 +56125,35 @@
 							"factions": [
 								{
 									"faction": "Atreides"
+								}
+							]
+						}
+					},
+					"mesh": [
+						{
+							"path": "Character/Atreide/Unit/Warden/Prefab_Female01_Warden.prefab"
+						}
+					],
+					"inherit": "MilitaryShield",
+					"rigName": 1,
+					"scale": 1.2,
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 3,
+						"y": 0
+					},
+					"audio": {}
+				},
+				{
+					"id": "G_Elite",
+					"radius": 2.4,
+					"height": 5.5,
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
 								}
 							]
 						}
@@ -55097,6 +56213,44 @@
 					"anim": []
 				},
 				{
+					"id": "G_Ship",
+					"radius": 3,
+					"height": 3,
+					"audio": {
+						"select": "A_Hawk_Select",
+						"start": "Hawk_Idle"
+					},
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							],
+							"excludableFx": [
+								{
+									"text": "Hawk"
+								}
+							]
+						}
+					},
+					"mesh": [
+						{
+							"path": "Vehicle/Atreide/Hawk/Prefab_Hawk.prefab"
+						}
+					],
+					"inherit": "Hawk",
+					"rigName": 14,
+					"scale": 1.8,
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 11,
+						"y": 0
+					},
+					"anim": []
+				},
+				{
 					"id": "A_Frigate",
 					"radius": 10,
 					"height": 6,
@@ -55110,6 +56264,45 @@
 							"factions": [
 								{
 									"faction": "Atreides"
+								}
+							],
+							"excludableFx": [
+								{
+									"text": "Kraken"
+								}
+							]
+						}
+					},
+					"rigName": 15,
+					"inherit": "Kraken",
+					"mesh": [
+						{
+							"path": "Vehicle/Atreide/Kraken/Prefab_Kraken.prefab"
+						}
+					],
+					"scale": 1.6,
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 12,
+						"y": 0
+					},
+					"anim": []
+				},
+				{
+					"id": "G_Frigate",
+					"radius": 10,
+					"height": 6,
+					"audio": {
+						"select": "A_Kraken_Select",
+						"start": "Kraken_Idle"
+					},
+					"props": {
+						"impactsBorder": -10,
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
 								}
 							],
 							"excludableFx": [
@@ -55178,6 +56371,79 @@
 					}
 				},
 				{
+					"id": "G_Hero_1",
+					"radius": 1.5,
+					"height": 4,
+					"props": {
+						"animFxScale": 1.3,
+						"dynObjects": [
+							{
+								"name": "Gun"
+							}
+						],
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							],
+							"excludableFx": [
+								{
+									"text": "Cassian"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 15,
+						"y": 0
+					},
+					"mesh": [
+						{
+							"path": "Character/Atreide/Unit/Duncan/Prefab_AtreidesDuncan.prefab"
+						}
+					],
+					"inherit": "Duncan",
+					"rigName": 0,
+					"scale": 1.4,
+					"audio": {
+						"remove": "Common_Remove"
+					}
+				},
+				{
+					"id": "N_Ginaz_Master",
+					"radius": 1.5,
+					"height": 4,
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 15,
+						"y": 0
+					},
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_GinazMaster/Prefab_GinazMaster.prefab"
+						}
+					],
+					"inherit": "MilitaryCommon",
+					"rigName": 0,
+					"scale": 1.15,
+					"audio": {
+						"remove": "Common_Remove"
+					}
+				},
+				{
 					"id": "A_Hero_2",
 					"radius": 2.4,
 					"height": 5.5,
@@ -55197,6 +56463,48 @@
 							"excludableFx": [
 								{
 									"text": "Gurney"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 16,
+						"y": 0
+					},
+					"mesh": [
+						{
+							"path": "Character/Atreide/Unit/Gurney/Prefab_AtreidesGurney.prefab"
+						}
+					],
+					"inherit": "Gurney",
+					"rigName": 0,
+					"scale": 1.4,
+					"audio": {
+						"remove": "Shield_Remove"
+					}
+				},
+				{
+					"id": "G_Hero_2",
+					"radius": 2.4,
+					"height": 5.5,
+					"props": {
+						"animFxScale": 1.4,
+						"dynObjects": [
+							{
+								"name": "Gun"
+							}
+						],
+						"preload": {
+							"factions": [
+								{
+									"faction": "Ginaz"
+								}
+							],
+							"excludableFx": [
+								{
+									"text": "Dorian"
 								}
 							]
 						}
@@ -56890,41 +58198,6 @@
 					"inherit": "MilitaryLRGuard_Gun",
 					"rigName": 0,
 					"scale": 1.2,
-					"anim": []
-				},
-				{
-					"id": "N_LR_Elite_Sword",
-					"scale": 1.2,
-					"radius": 1.5,
-					"height": 4,
-					"inherit": "MilitaryCommon",
-					"mesh": [
-						{
-							"path": "CharMOD/Male01_LandsraadEliteG1/Prefab_LandsraadEliteG1_Sword.prefab"
-						}
-					],
-					"rigName": 0,
-					"props": {
-						"dynObjects": [
-							{
-								"name": "Gun"
-							}
-						],
-						"preload": {
-							"factions": [
-								{
-									"faction": "Atreides"
-								}
-							]
-						}
-					},
-					"gfx": {
-						"file": "UI/Faction/unitsSmall.png",
-						"size": 80,
-						"x": 0,
-						"y": 0
-					},
-					"audio": {},
 					"anim": []
 				},
 				{
@@ -58646,6 +59919,9 @@
 							"factions": [
 								{
 									"faction": "Atreides"
+								},
+								{
+									"faction": "Ginaz"
 								}
 							]
 						}
@@ -65698,6 +66974,9 @@
 							"factions": [
 								{
 									"faction": "Atreides"
+								},
+								{
+									"faction": "Ginaz"
 								}
 							]
 						}
@@ -69889,12 +71168,6 @@
 					"startUnits": [
 						{
 							"unit": "A_Ornithopter"
-						},
-						{
-							"unit": "A_LandsraadGuard"
-						},
-						{
-							"unit": "A_Elite"
 						}
 					],
 					"model": "Arrakeen",
@@ -69912,6 +71185,82 @@
 						"desc": "An ancient city, one of the largest and most beautiful on Arrakis, Arrakeen is largely built on bedrock, which is sure to keep it safe from [Sandworm]. The palace is now the home of Duke Leto and headquarters of the Atreides, but used to be inhabited by the Emperor's right-hand man, Count Hasimir Fenring.",
 						"plural": {
 							"name": "Arrakeen"
+						}
+					}
+				},
+				{
+					"id": "GinazKeep",
+					"props": {
+						"districtSlots": [
+							{
+								"nbSlots": 1
+							},
+							{
+								"nbSlots": 2
+							},
+							{
+								"nbSlots": 3
+							},
+							{
+								"nbSlots": 2
+							},
+							{
+								"nbSlots": 1
+							},
+							{
+								"nbSlots": 1
+							}
+						],
+						"aiWeight": 30,
+						"airfieldRange": 80,
+						"startingTraits": [
+							{
+								"trait": "Main_Demo"
+							},
+							{
+								"trait": "Main_BaseTrait"
+							}
+						],
+						"attackCombos": [
+							{
+								"ref": "MainBase_Missiles"
+							}
+						],
+						"reconPriority": 0,
+						"cullingDistance": 0,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "MainBase"
+						}
+					},
+					"flags": 49158,
+					"startUnits": [
+						{
+							"unit": "G_Ornithopter"
+						},
+						{
+							"unit": "G_Trooper"
+						},
+						{
+							"unit": "G_Elite"
+						}
+					],
+					"model": "Arrakeen",
+					"militia": [],
+					"stats": [
+						{
+							"power": 80,
+							"range": 80,
+							"armor": 10,
+							"health": 40000
+						}
+					],
+					"texts": {
+						"name": "Ginaz Sword-School",
+						"desc": "The Sword-School of House Ginaz on Arrakis: duelling courts, training yards and the quarters of the swordmasters, behind the bedrock walls that once guarded a city.",
+						"plural": {
+							"name": "Ginaz Sword-School"
 						}
 					}
 				},
@@ -73313,6 +74662,11 @@
 												"unit": "A_Ornithopter_Scavenged",
 												"factionUnit": true,
 												"nb": 1
+											},
+											{
+												"unit": "G_Ornithopter_Scavenged",
+												"factionUnit": true,
+												"nb": 1
 											}
 										]
 									},
@@ -74516,6 +75870,10 @@
 										{
 											"value": 10,
 											"faction": "Atreides"
+										},
+										{
+											"value": 10,
+											"faction": "Ginaz"
 										}
 									]
 								},
@@ -74624,6 +75982,10 @@
 										{
 											"value": 10,
 											"faction": "Atreides"
+										},
+										{
+											"value": 10,
+											"faction": "Ginaz"
 										}
 									]
 								},
@@ -76311,6 +77673,69 @@
 					"attacks": {}
 				},
 				{
+					"id": "G_Ornithopter",
+					"stats": [],
+					"props": {},
+					"faction": "Ginaz",
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 0
+					},
+					"inherits": "Ornithopter",
+					"traits": [],
+					"images": {
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 5,
+							"y": 0
+						},
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 1,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 1,
+							"y": 1
+						}
+					},
+					"texts": {
+						"name": "Ornithopter",
+						"desc": "A very common type of transport vessel, the ornithopter is a jet-propelled vehicle whose articulated wings help to improve maneuvrability and ensure stability. They are primarily used as reconnaissance vehicles.",
+						"plural": {
+							"name": "Ornithopters"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Ornithopter_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Ornithopter_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Ornithopter_Move"
+								}
+							]
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
 					"images": {
 						"smallPortrait": {
 							"file": "UI/Faction/unitsSmall.png",
@@ -76356,6 +77781,95 @@
 					},
 					"inherits": "Ornithopter",
 					"faction": "Atreides",
+					"texts": {
+						"name": "Scavenged Ornithopter",
+						"plural": {
+							"name": "Scavenged Ornithopters"
+						},
+						"desc": "This ornithopter has seen better days. The wings are bent and the engine is barely functionning. Hopefully, you can still get just a little bit of mileage from its old carcass."
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "Ornithopter_Scavenged",
+								"flags": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Ornithopter_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Ornithopter_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Ornithopter_Move"
+								}
+							]
+						}
+					},
+					"costs": {
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							}
+						]
+					},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 8,
+							"y": 0
+						},
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 3,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 3,
+							"y": 1
+						}
+					},
+					"id": "G_Ornithopter_Scavenged",
+					"traits": [
+						{
+							"ref": "NoHealthRegen"
+						}
+					],
+					"stats": [
+						{
+							"speed": 15,
+							"health": 100,
+							"armor": 0,
+							"safeRegen": 0
+						}
+					],
+					"props": {
+						"baseUnit": "G_Ornithopter"
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 8,
+						"y": 0
+					},
+					"inherits": "Ornithopter",
+					"faction": "Ginaz",
 					"texts": {
 						"name": "Scavenged Ornithopter",
 						"plural": {
@@ -76497,6 +78011,83 @@
 							"y": 1
 						}
 					},
+					"id": "G_Ornithopter_Prototype",
+					"texts": {
+						"name": "Experimental Ornithopter",
+						"plural": {
+							"name": "Experimental Ornithopters"
+						},
+						"desc": "The Ixians have used their craft to create this cutting-edge ornithopter. It flies faster, quieter, and farther than a traditionnal one, using only the power of the sun, a resource in abundance on Arrakis. It will be years before we can mass-product such a vehicle."
+					},
+					"traits": [],
+					"stats": [
+						{
+							"speed": 30,
+							"health": 800,
+							"armor": 10
+						}
+					],
+					"props": {
+						"baseUnit": "G_Ornithopter"
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 7,
+						"y": 0
+					},
+					"inherits": "Ornithopter",
+					"faction": "Ginaz",
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "Ornithopter_Exp",
+								"flags": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Ornithopter_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Ornithopter_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Ornithopter_Move"
+								}
+							]
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 7,
+							"y": 0
+						},
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 2,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 2,
+							"y": 1
+						}
+					},
 					"id": "A_Ornithopter_Lab",
 					"texts": {
 						"name": "Labthopter",
@@ -76569,6 +78160,94 @@
 						"smallPortrait": {
 							"file": "UI/Faction/unitsSmall.png",
 							"size": 80,
+							"x": 7,
+							"y": 0
+						},
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 2,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 2,
+							"y": 1
+						}
+					},
+					"id": "G_Ornithopter_Lab",
+					"texts": {
+						"name": "Labthopter",
+						"plural": {
+							"name": "Labthopters"
+						},
+						"desc": "The Ixians have stuffed this ornithopter with all kind of captors and data collecting devices to study the effect of Arrakis on its cability. It's a bit slower, and cannot really operate properly, but they are confident that the collected data will be valuable."
+					},
+					"traits": [
+						{
+							"ref": "Orni_Lab_Trait"
+						}
+					],
+					"stats": [
+						{
+							"speed": 15,
+							"health": 400,
+							"armor": 4
+						}
+					],
+					"attacks": {},
+					"equipment": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "Ornithopter_Lab",
+								"flags": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_C_Ornithopter_Move"
+								},
+								{
+									"action": 1,
+									"event": "Voice_C_Ornithopter_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_C_Ornithopter_Select"
+								}
+							]
+						}
+					},
+					"costs": {
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							}
+						]
+					},
+					"props": {
+						"baseUnit": "G_Ornithopter"
+					},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 7,
+						"y": 0
+					},
+					"inherits": "Ornithopter",
+					"faction": "Ginaz"
+				},
+				{
+					"images": {
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
 							"x": 6,
 							"y": 0
 						},
@@ -76597,6 +78276,74 @@
 					},
 					"inherits": "Harvester",
 					"faction": "Atreides",
+					"texts": {
+						"name": "Harvester",
+						"desc": "A bulky, mobile factory-like building that harvests Spice Melange from Spice fields. Due to their structure and functionality, harvesters generate a great deal of vibrations which are bound to attract [Sandworm].",
+						"plural": {
+							"name": "Harvesters"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Harvester_Select"
+								},
+								{
+									"action": 3,
+									"event": "Voice_A_Harvester_Deploy"
+								},
+								{
+									"action": 4,
+									"event": "Voice_A_Harvester_Recall"
+								},
+								{
+									"action": 5,
+									"event": "Voice_A_Harvester_Cancel"
+								}
+							]
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"flags": 8
+				},
+				{
+					"images": {
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 6,
+							"y": 0
+						},
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 0,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 0,
+							"y": 1
+						}
+					},
+					"id": "G_Harvester",
+					"traits": [],
+					"stats": [],
+					"props": {},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 6,
+						"y": 0
+					},
+					"inherits": "Harvester",
+					"faction": "Ginaz",
 					"texts": {
 						"name": "Harvester",
 						"desc": "A bulky, mobile factory-like building that harvests Spice Melange from Spice fields. Due to their structure and functionality, harvesters generate a great deal of vibrations which are bound to attract [Sandworm].",
@@ -76774,25 +78521,21 @@
 					"attacks": {}
 				},
 				{
-					"id": "A_LandsraadGuard",
+					"id": "G_Trooper",
 					"stats": [
 						{
-							"health": 600,
-							"power": 18,
-							"armor": 6,
-							"trainingTime": 0.1,
-							"maxSupply": 5555
+							"health": 500,
+							"power": 14,
+							"armor": 6
 						}
 					],
 					"props": {
 						"wheelPosition": {
-							"group": 1,
-							"pos": 10
-						},
-						"squadSize": 3,
-						"squadSpacing": 2
+							"pos": 4,
+							"group": 1
+						}
 					},
-					"faction": "Atreides",
+					"faction": "Ginaz",
 					"gfx": {
 						"file": "UI/Faction/unitsSmall.png",
 						"size": 80,
@@ -76802,7 +78545,7 @@
 					"inherits": "Trooper",
 					"traits": [
 						{
-							"ref": "A_Trooper_Trait"
+							"ref": "G_Trooper_Trait"
 						}
 					],
 					"images": {
@@ -76826,17 +78569,17 @@
 						}
 					},
 					"texts": {
-						"name": "Landsraad Elite",
-						"desc": "Troopers are fierce melee fighters. They become stronger when supported by specialized units.",
+						"name": "Ginaz Swordmaster",
+						"desc": "Swordmasters of House Ginaz: the backbone of the sword-school's armies. Fierce duellists in long wine-red coats with a tall rapier, stronger when supported by specialized units.",
 						"plural": {
-							"name": "Landsraad Elites"
+							"name": "Ginaz Swordmasters"
 						}
 					},
 					"aiWeights": [],
 					"effects": {
 						"models": [
 							{
-								"ref": "N_LR_Elite_Sword",
+								"ref": "G_Trooper",
 								"flags": 0
 							}
 						],
@@ -76887,17 +78630,160 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 0,
+								"qty": 50,
 								"res": "Manpower"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 0,
+								"qty": 10,
 								"res": "Solari"
 							},
 							{
-								"qty": 0,
+								"qty": 5,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "FrontLineTactics"
+						},
+						{
+							"ref": "OffensiveMindset"
+						},
+						{
+							"ref": "ParryingArmguards"
+						},
+						{
+							"ref": "PranaBindu"
+						}
+					],
+					"attacks": {}
+				},
+				{
+					"id": "G_GinazNeophyte",
+					"stats": [
+						{
+							"health": 250,
+							"power": 8,
+							"armor": 2,
+							"trainingTime": 0.1
+						}
+					],
+					"props": {
+						"wheelPosition": {
+							"group": 1,
+							"pos": 5
+						},
+						"squadSize": 5
+					},
+					"faction": "Ginaz",
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"inherits": "Trooper",
+					"traits": [
+						{
+							"ref": "G_Trooper_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 0,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 0,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 0,
+							"y": 0
+						}
+					},
+					"texts": {
+						"name": "Ginaz Neophyte",
+						"desc": "Novices of the Ginaz Sword-School: lightly dressed, unarmed trainees who fight with fast footwork while they earn the right to carry a blade.",
+						"plural": {
+							"name": "Ginaz Neophytes"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "N_Ginaz_Neophyte",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Common_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 4,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/FX_Common_AttackRange_Barracks.fx",
+										"space": 0,
+										"flags": 128,
+										"attachTo": ""
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"fxTarget": 0,
+								"sound": "Common_Death"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Trooper_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Trooper_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Trooper_Attack"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 50,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 10,
+								"res": "Solari"
+							},
+							{
+								"qty": 5,
 								"res": "CommandPoint"
 							}
 						]
@@ -77184,6 +79070,138 @@
 					"attacks": {}
 				},
 				{
+					"id": "G_Demo",
+					"stats": [
+						{
+							"health": 400,
+							"power": 23,
+							"armor": 0,
+							"range": 35
+						}
+					],
+					"props": {
+						"squadSize": 3,
+						"squadSpacing": 1.3,
+						"wheelPosition": {
+							"pos": 6,
+							"group": 1
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 2,
+						"y": 0
+					},
+					"faction": "Ginaz",
+					"inherits": "Demo",
+					"traits": [
+						{
+							"ref": "G_Demo_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 2,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 2,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 2,
+							"y": 0
+						}
+					},
+					"texts": {
+						"name": "Heavy Weapon Squad",
+						"desc": "Equipped with rocket launchers, these specialists can easily breach enemy defenses and open the way for other units.",
+						"plural": {
+							"name": "Heavy Weapon Squads"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "G_Demo",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Missilelauncher_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Common_Death",
+								"fxTarget": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Heavyweaponsquad_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Heavyweaponsquad_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Heavyweaponsquad_Select"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 40,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 8,
+								"res": "Solari"
+							},
+							{
+								"qty": 4,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "DistractingFlashes"
+						},
+						{
+							"ref": "HeavyLoads"
+						},
+						{
+							"ref": "WhistlingAmmo"
+						},
+						{
+							"ref": "WarMemoir"
+						}
+					],
+					"attacks": {}
+				},
+				{
 					"id": "A_Drone",
 					"stats": [
 						{
@@ -77327,6 +79345,149 @@
 					"attacks": {}
 				},
 				{
+					"id": "G_Drone",
+					"stats": [
+						{
+							"health": 300,
+							"power": 14,
+							"armor": 4,
+							"range": 25
+						}
+					],
+					"props": {
+						"squadSpacing": 1,
+						"squadSize": 1,
+						"zOffset": 4,
+						"aiPrio": 1,
+						"rotationSpeed": 2,
+						"rotatingTilt": -30,
+						"rotationAcceleration": 2,
+						"rotationDamping": 1.5
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 4,
+						"y": 0
+					},
+					"faction": "Ginaz",
+					"inherits": "Drone",
+					"traits": [
+						{
+							"ref": "G_Drone_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 3,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 4,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 3,
+							"y": 0
+						}
+					},
+					"texts": {
+						"name": "Support Drone",
+						"desc": "This heavy, remote-controlled drone is well suited for combat, but its primary purpose is to provide field support to nearby units.",
+						"plural": {
+							"name": "Support Drones"
+						}
+					},
+					"aiWeights": [],
+					"flags": 0,
+					"effects": {
+						"models": [
+							{
+								"ref": "G_Drone",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Drones/FX_DroneA_Reactors.fx",
+										"space": 0,
+										"attachTo": "B_BodyDrone",
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"kind": 0
+							},
+							{
+								"kind": 16,
+								"fxs": [],
+								"soundSource": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Units_Radio_Select"
+								},
+								{
+									"action": 1,
+									"event": "Units_Radio_Move"
+								},
+								{
+									"action": 2,
+									"event": "Units_Radio_Attack"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 300,
+								"res": "Solari"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 12,
+								"res": "Solari"
+							},
+							{
+								"res": "FuelCell",
+								"qty": 3
+							},
+							{
+								"qty": 3,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "KrakenProtocols"
+						},
+						{
+							"ref": "SupportingField"
+						},
+						{
+							"ref": "EvasionBooster"
+						},
+						{
+							"ref": "OptmizedBedArrangement"
+						}
+					],
+					"attacks": {}
+				},
+				{
 					"id": "A_Elite",
 					"stats": [
 						{
@@ -77336,7 +79497,7 @@
 						}
 					],
 					"props": {
-						"squadSize": 5,
+						"squadSize": 4,
 						"squadSpacing": 1.5,
 						"radius": 5.5
 					},
@@ -77377,8 +79538,146 @@
 						}
 					},
 					"texts": {
+						"name": "Warden",
+						"desc": "The Wardens are the Atreides' elite section. Equipped with heavy-duty armor, shields and swords, they are ready to give their lives to defend their allies.",
+						"plural": {
+							"name": "Wardens"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "A_Elite",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Shield_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Common_Female_Death",
+								"fxTarget": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Warden_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Warden_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Warden_Select"
+								}
+							]
+						},
+						"equipment": {
+							"idle": "FightIdle"
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"res": "Solari",
+								"qty": 100
+							},
+							{
+								"qty": 50,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 20,
+								"res": "Solari"
+							},
+							{
+								"qty": 5,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "CoverTactics"
+						},
+						{
+							"ref": "LastStandProtocols"
+						},
+						{
+							"ref": "ParryingArmguards"
+						},
+						{
+							"ref": "PranaBindu"
+						}
+					],
+					"attacks": {}
+				},
+				{
+					"id": "G_Elite",
+					"stats": [
+						{
+							"health": 500,
+							"power": 16,
+							"armor": 8
+						}
+					],
+					"props": {
+						"squadSize": 5,
+						"squadSpacing": 1.5,
+						"radius": 5.5
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 3,
+						"y": 0
+					},
+					"faction": "Ginaz",
+					"inherits": "Elite",
+					"traits": [
+						{
+							"ref": "G_Elite_Trait"
+						},
+						{
+							"ref": "Warrior_Trait"
+						}
+					],
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 4,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 3,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 4,
+							"y": 0
+						}
+					},
+					"texts": {
 						"name": "Ginaz Captain",
-						"desc": "Captains of House Ginaz, trained in the way of the blade. They fight in long wine-red coats with a tall rapier, and the Atreides hold a small company of them in reserve.",
+						"desc": "Captains of House Ginaz, trained in the way of the blade. They fight in long wine-red coats with a tall rapier, and the House holds a small company of them at its Sword-School from the first day.",
 						"plural": {
 							"name": "Ginaz Captains"
 						}
@@ -77387,7 +79686,7 @@
 					"effects": {
 						"models": [
 							{
-								"ref": "A_Elite",
+								"ref": "G_Elite",
 								"flags": 0
 							}
 						],
@@ -77646,6 +79945,183 @@
 						"bigPortrait": {
 							"file": "UI/Faction/unit_vehicles.png",
 							"size": 250,
+							"x": 4,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 11,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 4,
+							"y": 1
+						}
+					},
+					"id": "G_Ship",
+					"texts": {
+						"name": "Hawk",
+						"plural": {
+							"name": "Hawks"
+						},
+						"desc": "Fashioned after the heraldic bird of House Ginaz, the Hawk harasses weakened enemies with its two machine guns."
+					},
+					"traits": [
+						{
+							"ref": "G_Ship_Trait"
+						}
+					],
+					"stats": [
+						{
+							"power": 8,
+							"health": 250,
+							"armor": 4,
+							"range": 35
+						}
+					],
+					"props": {},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 11,
+						"y": 0
+					},
+					"inherits": "Ship",
+					"faction": "Ginaz",
+					"effects": {
+						"models": [
+							{
+								"ref": "G_Ship",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"kind": 4,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Hawk/FX_Hawk_AttackRange_Muzzle.fx",
+										"space": 0,
+										"attachTo": "B_Body",
+										"flags": 128
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 16,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/ImpactDistance.fx",
+										"space": 0,
+										"attachTo": "",
+										"flags": 0
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 0,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Hawk/FX_Hawk_Reactors.fx",
+										"space": 0,
+										"attachTo": "B_Body",
+										"flags": 0
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Hawk/FX_Hawk_Death.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "B_Body"
+									},
+									{
+										"fx": "Fx/Vehicle/Ships/Hawk/FX_Hawk_Death_Floor.fx",
+										"space": 0,
+										"flags": 2,
+										"attachTo": ""
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 0,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Hawk/FX_Hawk_SandFloor.fx",
+										"space": 0,
+										"flags": 2,
+										"scale": 1
+									}
+								],
+								"soundSource": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_A_Hawk_F30b_Select"
+								},
+								{
+									"action": 2,
+									"event": "Voice_A_Hawk_F30b_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Hawk_F30b_Move"
+								}
+							]
+						},
+						"scrapLoot": 6
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 9,
+								"res": "GuildFavor"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 12,
+								"res": "Solari"
+							},
+							{
+								"res": "FuelCell",
+								"qty": 3
+							},
+							{
+								"qty": 3,
+								"res": "CommandPoint"
+							}
+						],
+						"regenCost": 300
+					},
+					"equipment": [],
+					"attacks": {
+						"combos": [
+							{
+								"ref": "G_Ship_Attack"
+							}
+						]
+					}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
 							"x": 5,
 							"y": 0
 						},
@@ -77843,6 +80319,205 @@
 				{
 					"images": {
 						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 5,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 12,
+							"y": 0
+						},
+						"flag": {
+							"file": "UI/icons/unitFlagIcon.png",
+							"size": 1,
+							"x": 224,
+							"y": 0,
+							"width": 28,
+							"height": 36
+						},
+						"smallIcon": {
+							"file": "UI/icons/militiaClassIcon.png",
+							"size": 40,
+							"x": 0,
+							"y": 17
+						},
+						"symbol": {
+							"file": "UI/icons/icon_unit.png",
+							"size": 64,
+							"x": 4,
+							"y": 2
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 5,
+							"y": 1
+						}
+					},
+					"id": "G_Frigate",
+					"texts": {
+						"name": "Kraken",
+						"desc": "This utility frigate has heavy shielding and a large cabin area to keep wounded troops out of harms way. They will live to fight another day.",
+						"plural": {
+							"name": "Krakens"
+						}
+					},
+					"traits": [
+						{
+							"ref": "G_Frigate_Trait"
+						},
+						{
+							"ref": "Demo_Trait"
+						},
+						{
+							"ref": "AirToGround_Trait"
+						}
+					],
+					"stats": [
+						{
+							"power": 16,
+							"armor": 3,
+							"range": 50,
+							"health": 2000
+						}
+					],
+					"props": {
+						"flyAltitude": 24,
+						"targetPitching": 0.2
+					},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 12,
+						"y": 0
+					},
+					"inherits": "Frigate",
+					"faction": "Ginaz",
+					"effects": {
+						"models": [
+							{
+								"ref": "G_Frigate",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"kind": 2,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Kraken/FX_Kraken_Spawn.fx",
+										"space": 0,
+										"flags": 2
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Kraken/FX_Kraken_Death.fx",
+										"space": 0,
+										"attachTo": "B_Body",
+										"flags": 0
+									},
+									{
+										"fx": "Fx/Vehicle/Ships/Kraken/FX_Kraken_Death_Floor.fx",
+										"space": 0,
+										"flags": 2,
+										"attachTo": ""
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 0,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Kraken/FX_Kraken_SandFloor.fx",
+										"space": 0,
+										"flags": 2,
+										"scale": 1
+									},
+									{
+										"fx": "Fx/Vehicle/Ships/Kraken/FX_Kraken_Reactors.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "B_Body"
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 37,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Kraken/FX_Kraken_Disembark.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "B_Body"
+									}
+								],
+								"soundSource": 0,
+								"fxTarget": 1,
+								"sound": "Kraken_Abilitydisembark"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Kraken_Misc_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Kraken_Misc_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Kraken_Misc_Select"
+								},
+								{
+									"action": 6,
+									"event": "Voice_A_Kraken_Misc_Ability"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 100,
+								"res": "GuildFavor"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 50,
+								"res": "Solari"
+							},
+							{
+								"res": "FuelCell",
+								"qty": 10
+							}
+						]
+					},
+					"equipment": [],
+					"attacks": {
+						"combos": [
+							{
+								"ref": "G_Frigate_Attack"
+							}
+						]
+					}
+				},
+				{
+					"images": {
+						"bigPortrait": {
 							"file": "UI/Faction/unit_military.png",
 							"size": 250,
 							"x": 8,
@@ -77966,6 +80641,254 @@
 						"bigPortrait": {
 							"file": "UI/Faction/unit_military.png",
 							"size": 250,
+							"x": 8,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 15,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 8,
+							"y": 0
+						}
+					},
+					"id": "G_Hero_1",
+					"texts": {
+						"name": "Cassian",
+						"desc": "One of Severin's most trusted men and House Ginaz' Swordmaster, Cassian was tasked with being Severin's ambassador to the Fremen upon their arrival on Arrakis.",
+						"plural": {
+							"name": "Duncans"
+						}
+					},
+					"traits": [
+						{
+							"ref": "G_Hero_1_Trait"
+						},
+						{
+							"ref": "Warrior_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 1000,
+							"power": 20,
+							"armor": 6
+						}
+					],
+					"props": {
+						"character": "Cassian"
+					},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 15,
+						"y": 0
+					},
+					"inherits": "Hero",
+					"faction": "Ginaz",
+					"effects": {
+						"models": [
+							{
+								"ref": "G_Hero_1",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Move_Run_Duncan",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 3,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Duncan_Attackmelee"
+							},
+							{
+								"kind": 4,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Heroes_Pistolattackrange"
+							},
+							{
+								"kind": 37,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/SkillsHeroes/FX_Human_Duncan_Skill_cdb.fx",
+										"space": 0,
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"fxTarget": 1,
+								"sound": "Duncan_Ability"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Duncan_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Duncan_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Duncan_Select"
+								},
+								{
+									"action": 6,
+									"event": "Voice_A_Duncan_Abilityoff"
+								}
+							]
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 8,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 15,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 8,
+							"y": 0
+						}
+					},
+					"id": "G_GinazMaster",
+					"texts": {
+						"name": "Master of Ginaz",
+						"desc": "A grey-streaked master of the Ginaz Sword-School in a gold-embroidered wine coat and cape, wielding a tall rapier.",
+						"plural": {
+							"name": "Master of Ginazs"
+						}
+					},
+					"traits": [
+						{
+							"ref": "G_Hero_1_Trait"
+						},
+						{
+							"ref": "Warrior_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 900,
+							"power": 28,
+							"armor": 6,
+							"trainingTime": 0.1
+						}
+					],
+					"props": {
+						"wheelPosition": {
+							"group": 0,
+							"pos": 0
+						},
+						"squadSize": 1,
+						"squadSpacing": 1
+					},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 15,
+						"y": 0
+					},
+					"inherits": "Hero",
+					"faction": "Ginaz",
+					"effects": {
+						"models": [
+							{
+								"ref": "N_Ginaz_Master",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Move_Run_Duncan",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 3,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Duncan_Attackmelee"
+							},
+							{
+								"kind": 4,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Heroes_Pistolattackrange"
+							},
+							{
+								"kind": 37,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/SkillsHeroes/FX_Human_Duncan_Skill_cdb.fx",
+										"space": 0,
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"fxTarget": 1,
+								"sound": "Duncan_Ability"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Duncan_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Duncan_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Duncan_Select"
+								},
+								{
+									"action": 6,
+									"event": "Voice_A_Duncan_Abilityoff"
+								}
+							]
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
 							"x": 9,
 							"y": 0
 						},
@@ -78021,6 +80944,120 @@
 						"models": [
 							{
 								"ref": "A_Hero_2",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Move_Run_Gurney",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 3,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Gurney_Attackmelee"
+							},
+							{
+								"kind": 4,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Heroes_Pistolattackrange"
+							},
+							{
+								"kind": 37,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Gurney_Ability"
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 2,
+									"event": "Voice_A_Gurneyhalleck_Attack"
+								},
+								{
+									"action": 1,
+									"event": "Voice_A_Gurneyhalleck_Move"
+								},
+								{
+									"action": 0,
+									"event": "Voice_A_Gurneyhalleck_Select"
+								},
+								{
+									"action": 6,
+									"event": "Voice_A_Gurneyhalleck_Abilityon"
+								}
+							]
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 9,
+							"y": 0
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 16,
+							"y": 0
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_atreides.png",
+							"size": 358,
+							"x": 9,
+							"y": 0
+						}
+					},
+					"id": "G_Hero_2",
+					"texts": {
+						"name": "Dorian",
+						"desc": "Warmaster and poet, Dorian's indefectible loyalty and long service to House Ginaz earned him the status of valued friend and confident. While not exactly a handsome man, his combined abilities to sing and fight without missing a note make him both a charismatic and fearsome figure.",
+						"plural": {
+							"name": "Dorian"
+						}
+					},
+					"traits": [
+						{
+							"ref": "G_Hero_2_Trait"
+						},
+						{
+							"ref": "Warrior_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 1000,
+							"power": 18,
+							"armor": 8
+						}
+					],
+					"props": {
+						"character": "Dorian"
+					},
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 16,
+						"y": 0
+					},
+					"inherits": "Hero",
+					"faction": "Ginaz",
+					"effects": {
+						"models": [
+							{
+								"ref": "G_Hero_2",
 								"flags": 0
 							}
 						],
@@ -100813,6 +103850,34 @@
 					"flags": 0
 				},
 				{
+					"id": "G_Ship_Attack",
+					"sequences": [
+						{
+							"dmgProfile": {
+								"hitType": 1
+							},
+							"duration": 0.5,
+							"animProfile": {
+								"animType": 1
+							},
+							"lockEnd": 0,
+							"lockStart": 0,
+							"windUp": 0,
+							"flags": 0
+						}
+					],
+					"type": 1,
+					"plane": 0,
+					"minRange": 0,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 5,
+						"y": 2
+					},
+					"flags": 0
+				},
+				{
 					"id": "A_Frigate_Attack",
 					"sequences": [
 						{
@@ -100828,6 +103893,76 @@
 							},
 							"projectileProfile": {
 								"ref": "A_Frigate_Missile",
+								"count": 8,
+								"muzzleNames": [
+									{
+										"boneName": "MuzzleA_4"
+									},
+									{
+										"boneName": "MuzzleB_4"
+									},
+									{
+										"boneName": "MuzzleA_3"
+									},
+									{
+										"boneName": "MuzzleB_3"
+									},
+									{
+										"boneName": "MuzzleA_2"
+									},
+									{
+										"boneName": "MuzzleB_2"
+									},
+									{
+										"boneName": "MuzzleA"
+									},
+									{
+										"boneName": "MuzzleB"
+									}
+								],
+								"muzzleMode": 0,
+								"cycleSpawnDelay": 0.07,
+								"landingCircleOffset": 1,
+								"landingRandOffset": 4,
+								"scale": 0.7
+							},
+							"duration": 2,
+							"animProfile": {
+								"maxDelay": 0,
+								"animType": 1
+							},
+							"lockEnd": 1,
+							"lockStart": 0,
+							"flags": 0
+						}
+					],
+					"minRange": 0,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 4,
+						"y": 2
+					},
+					"plane": 1,
+					"type": 1,
+					"flags": 0
+				},
+				{
+					"id": "G_Frigate_Attack",
+					"sequences": [
+						{
+							"windUp": 0.1,
+							"dmgProfile": {
+								"hitType": 2,
+								"areaLevels": [
+									{
+										"distance": 7,
+										"attackEffects": true
+									}
+								]
+							},
+							"projectileProfile": {
+								"ref": "G_Frigate_Missile",
 								"count": 8,
 								"muzzleNames": [
 									{
@@ -104421,6 +107556,10 @@
 							{
 								"unit": "A_Drone",
 								"isValid": false
+							},
+							{
+								"unit": "G_Drone",
+								"isValid": false
 							}
 						]
 					},
@@ -106457,6 +109596,49 @@
 				},
 				{
 					"id": "A_Frigate_Missile",
+					"fx": [
+						{
+							"on": 0,
+							"flags": 0,
+							"path": "Fx/Vehicle/Ships/FX_MissileLaunch_Ship.fx",
+							"sound": "Kraken_Attack"
+						},
+						{
+							"on": 1,
+							"path": "Fx/Projectiles/FX_Smoke_ProjectileTravel.fx",
+							"flags": 0
+						},
+						{
+							"on": 5,
+							"flags": 0,
+							"path": "Fx/Projectiles/FX_ProjectileTravel.fx"
+						},
+						{
+							"on": 2,
+							"flags": 0,
+							"path": "Fx/Projectiles/FX_MissileImpact.fx",
+							"sound": "Kraken_Missileimpact"
+						},
+						{
+							"on": 3,
+							"flags": 0,
+							"path": "Fx/Vehicle/Ships/FX_Explosion_MidAir_Small.fx",
+							"sound": "Banshee_Missileimpact"
+						}
+					],
+					"trajectory": {
+						"thrustForce": 30,
+						"attractionForce": 800,
+						"forceFallOff": 10,
+						"fireForce": 1000,
+						"distanceForceFallOff": 50,
+						"lifetimeForceFallOff": 10
+					},
+					"speed": 50,
+					"dmgApp": {}
+				},
+				{
+					"id": "G_Frigate_Missile",
 					"fx": [
 						{
 							"on": 0,
@@ -111632,6 +114814,10 @@
 						{
 							"value": -10,
 							"unit": "H_Drone"
+						},
+						{
+							"value": 15,
+							"unit": "G_Drone"
 						}
 					]
 				}
@@ -140840,6 +144026,120 @@
 					}
 				},
 				{
+					"id": "Ginaz",
+					"name": "Ginaz",
+					"desc": "",
+					"props": {
+						"onlyForFaction": "Ginaz",
+						"tip": {
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"ability": "PeacefullyAnnex"
+							},
+							"ref": "Unlock_TAbility",
+							"desc": "Can use [PeacefullyAnnex] on neutral [!Village]s.",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "[Ginaz-adjective] [!Village]s cost ::s_percent_value:: [Authority] to [Annex] and are ::us_percent_value:: longer to [Liberate].",
+							"val": 0.1
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Outpost_OwnedByFaction_AnnexCost_ARatio",
+							"val": 0.1,
+							"displayed": false
+						},
+						{
+							"target": {
+								"siegeAction": "Liberate"
+							},
+							"target2": {},
+							"ref": "TSiegeAction_SelfVillage_Duration_ARatio",
+							"val": 0.1,
+							"displayed": false
+						},
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_Upkeep_MRatio",
+							"val": 0.9,
+							"target2": {},
+							"desc": "All [Solari] upkeeps are reduced by ::us_percent::."
+						},
+						{
+							"target": {},
+							"ref": "Pillage_NeutralVillage_Block",
+							"val": -1,
+							"desc": "Cannot pillage neutral [!Village]s.",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"ref": "Allow_Landsraad",
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {},
+							"ref": "ClosestSietch_RevealScorePerDay_Flat",
+							"val": 0,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "OrniSupport_Harv"
+							},
+							"ref": "FollowingOrni_Harvester_GainTTrait",
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Scraps"
+							},
+							"ref": "TRes_Block",
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "NeighoringTheEnemy"
+							},
+							"ref": "AdjacentTerritoryEnemyVillages_GainTTrait",
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "NeighboringRevealedSietch"
+							},
+							"target2": {},
+							"ref": "Faction_AllSietches_Revealed_AdjacentFactionVillages_GainTTrait",
+							"displayed": false
+						}
+					],
+					"type": 1,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/factionButton00.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
 					"id": "Atreides_HegemonyBonus_1",
 					"desc": "",
 					"props": {
@@ -140861,6 +144161,44 @@
 						{
 							"target": {
 								"trait": "Atreides_NegativeResolution"
+							},
+							"ref": "Resolution_Negative_GainTTrait",
+							"desc": "Gains ::target_effects:: while under the effect of a negative targeted Resolution.",
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/factionButton00.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					},
+					"name": "Hegemony Bonus 5k"
+				},
+				{
+					"id": "Ginaz_HegemonyBonus_1",
+					"desc": "",
+					"props": {
+						"onlyForFaction": "Ginaz",
+						"tip": {
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "Ginaz_PositiveResolution"
+							},
+							"ref": "Resolution_Positive_GainTTrait",
+							"desc": "Gains ::target_effects:: while under the effect of a positive targeted Resolution.",
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "Ginaz_NegativeResolution"
 							},
 							"ref": "Resolution_Negative_GainTTrait",
 							"desc": "Gains ::target_effects:: while under the effect of a negative targeted Resolution.",
@@ -140914,8 +144252,74 @@
 					"name": "Hegemony Bonus 10k"
 				},
 				{
+					"id": "Ginaz_HegemonyBonus_2",
+					"desc": "",
+					"props": {
+						"onlyForFaction": "Ginaz",
+						"tip": {
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Charters_OnlyStandingCondition",
+							"desc": "Ignores all [Charter]s prerequisites except for [Standing].",
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "Ginaz_PositiveResolutionPerm"
+							},
+							"ref": "Resolution_Positive_GainPermanentTrait",
+							"desc": "Permanently gains ::target_effects:: upon being elected for a positive Resolution (x::target_stacking_limit:: max).",
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/factionButton00.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					},
+					"name": "Hegemony Bonus 10k"
+				},
+				{
 					"id": "Atreides_PositiveResolution",
 					"desc": "The Landsraad's approval generates support for the [Atreides] economy.",
+					"props": {
+						"stackingLimit": 3,
+						"tip": {
+							"cat": "FactionBonus"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.1,
+							"desc": "::s_percent_value:: [Solari] production",
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 20,
+						"y": 1
+					},
+					"name": "Benefits of Reputation"
+				},
+				{
+					"id": "Ginaz_PositiveResolution",
+					"desc": "The Landsraad's approval generates support for the [Ginaz] economy.",
 					"props": {
 						"stackingLimit": 3,
 						"tip": {
@@ -140971,8 +144375,163 @@
 					"name": "Allied Military Support"
 				},
 				{
+					"id": "Ginaz_NegativeResolution",
+					"desc": "The Landsraad's disapproval inflames the troops of [Ginaz-longname].",
+					"props": {
+						"stackingLimit": 3,
+						"tip": {
+							"cat": "FactionBonus"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Army_Power_ARatio",
+							"val": 0.1,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 5,
+						"y": 1
+					},
+					"name": "Allied Military Support"
+				},
+				{
 					"id": "Atreides_PositiveResolutionPerm",
 					"desc": "The brightest minds of the Empire are looking to join  [Atreides-longame] as it is now considered a Beacon of virtue. Economic power is due to increase with this influx of competent people.",
+					"props": {
+						"stackingLimit": 20,
+						"tip": {
+							"cat": "FactionBonus"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "CustomProperty",
+							"desc": "::s_percent_value:: resource production",
+							"val": 0.02,
+							"displayed": true,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Spice"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Plascrete"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Manpower"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "FuelCell"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Water"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Authority"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Knowledge"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Influence"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Intel"
+							},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "GuildFavor"
+							},
+							"target2": {},
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.02,
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Soft Power"
+				},
+				{
+					"id": "Ginaz_PositiveResolutionPerm",
+					"desc": "The brightest minds of the Empire are looking to join  [Ginaz-longame] as it is now considered a Beacon of virtue. Economic power is due to increase with this influx of competent people.",
 					"props": {
 						"stackingLimit": 20,
 						"tip": {
@@ -143073,6 +146632,15 @@
 							"ref": "Unlock_TUnit",
 							"desc": "Unlocks the [V_Elite] unit",
 							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "G_Elite"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit",
+							"desc": "Unlocks the [G_Elite] unit",
+							"displayed": false
 						}
 					],
 					"type": 0,
@@ -143253,6 +146821,26 @@
 						{
 							"target": {
 								"unit": "V_Hero_2"
+							},
+							"target2": {
+								"trait": "General_HegemonyBonus_2_HeroInRecruitement"
+							},
+							"ref": "Faction_OngoingRecruitement_TUnit_GainTTrait2",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "G_Hero_1"
+							},
+							"target2": {
+								"trait": "General_HegemonyBonus_2_HeroInRecruitement"
+							},
+							"ref": "Faction_OngoingRecruitement_TUnit_GainTTrait2",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "G_Hero_2"
 							},
 							"target2": {
 								"trait": "General_HegemonyBonus_2_HeroInRecruitement"
@@ -144471,6 +148059,34 @@
 						"y": 1
 					},
 					"name": "Atreides Foremen"
+				},
+				{
+					"id": "TGinazForemen_Buff",
+					"desc": "An experienced crew works faster for an increased yield of [Spice].",
+					"props": {
+						"stackingLimit": 3,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Harvester_Prod_MRatio",
+							"val": 1.15,
+							"desc": "::s_percent:: gathering rate"
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 12,
+						"y": 1
+					},
+					"name": "Ginaz Foremen"
 				},
 				{
 					"id": "TSavageCleansing_Buff",
@@ -146283,8 +149899,59 @@
 					}
 				},
 				{
+					"id": "G_Trooper_Trait",
+					"name": "Coordination",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Army_AffectedByAllyUnitBonus_Power_Flat",
+							"target2": {},
+							"desc": "",
+							"val": 3
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
 					"id": "A_Trooper_Buff",
 					"desc": "This [!A_Trooper] is supported by an ally.",
+					"props": {
+						"stackingLimit": 1
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Power_Flat",
+							"val": 2
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 0,
+						"y": 1
+					},
+					"name": "Coordination"
+				},
+				{
+					"id": "G_Trooper_Buff",
+					"desc": "This [!G_Trooper] is supported by an ally.",
 					"props": {
 						"stackingLimit": 1
 					},
@@ -146397,6 +150064,33 @@
 					"name": "Suppressed"
 				},
 				{
+					"id": "G_Soldier_Debuff",
+					"desc": "This unit is under suppressive fire from a [G_Soldier].",
+					"props": {
+						"stackingLimit": 1,
+						"expandTip": true
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Unit_Damage_MRatio",
+							"val": 0.9,
+							"displayed": true,
+							"desc": "Attacks deal ::percent:: damage"
+						}
+					],
+					"type": 2,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 53,
+						"y": 2
+					},
+					"name": "Suppressed"
+				},
+				{
 					"id": "A_Demo_Trait",
 					"name": "Disruption",
 					"desc": "",
@@ -146425,9 +150119,64 @@
 					}
 				},
 				{
+					"id": "G_Demo_Trait",
+					"name": "Disruption",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Demo_Debuff"
+							},
+							"ref": "Unit_CurrentTarget_OnDamageUnit_ApplyTTrait",
+							"target2": {},
+							"desc": "The target is [G_Demo_Debuff] (x::target_stacking_limit:: max): ::target_effects_list::"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
 					"id": "A_Demo_Debuff",
 					"name": "Disrupted",
 					"desc": "Sustains extra damage in combat because of the disruption of a [A_Demo].",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitAffliction"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_Armor_Flat",
+							"val": -2,
+							"target2": {}
+						}
+					],
+					"type": 2,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 2,
+						"y": 2
+					}
+				},
+				{
+					"id": "G_Demo_Debuff",
+					"name": "Disrupted",
+					"desc": "Sustains extra damage in combat because of the disruption of a [G_Demo].",
 					"props": {
 						"stackingLimit": 1,
 						"tip": {
@@ -146507,9 +150256,113 @@
 					}
 				},
 				{
+					"id": "G_Drone_Trait",
+					"name": "Life Pods",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						},
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"followPosOnly": false,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"attachSpecs": {},
+								"flags": 0,
+								"vfxPath": "Fx/Vehicle/Drones/FX_DroneA_Effect.fx",
+								"targetPlayers": 0
+							}
+						]
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_CarryCapacity_Flat",
+							"target2": {},
+							"val": 2,
+							"desc": "Up to ::value:: [Ginaz-adjective] non-mechanical units at [Long_Range] are saved inside the [G_Drone] instead of dying"
+						},
+						{
+							"target": {
+								"trait": "G_Drone_Buff"
+							},
+							"target2": {},
+							"ref": "Entity_Carried_GainTTrait",
+							"displayed": false
+						},
+						{
+							"target": {
+								"range": "Long_Range"
+							},
+							"target2": {},
+							"ref": "Army_CarryDeadAtTRange_SelfHumans",
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 6,
+						"y": 0
+					}
+				},
+				{
 					"id": "A_Drone_Buff",
 					"name": "Medical Dispenser",
 					"desc": "A nearby [A_Drone] helps with [Life] recovery.",
+					"props": {
+						"stackingLimit": 1,
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"playOnApplication": false,
+								"vfxPath": "Fx/Unit/FX_Unit_Common_Healing.fx",
+								"isUIFx": false,
+								"attachSpecs": {},
+								"followPosOnly": false,
+								"flags": 0,
+								"targetPlayers": 0
+							}
+						],
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_IgnoreDamages",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Unit_BlockDeath"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "SafeRegen_MRatio",
+							"val": 0
+						}
+					],
+					"type": 1,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 6,
+						"y": 1
+					}
+				},
+				{
+					"id": "G_Drone_Buff",
+					"name": "Medical Dispenser",
+					"desc": "A nearby [G_Drone] helps with [Life] recovery.",
 					"props": {
 						"stackingLimit": 1,
 						"fx": [
@@ -146598,9 +150451,78 @@
 					}
 				},
 				{
+					"id": "G_Elite_Trait",
+					"name": "Bulwark",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						},
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"followPosOnly": false,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"attachSpecs": {},
+								"flags": 0,
+								"vfxPath": "Fx/Vehicle/Drones/FX_Warden_Effect.fx",
+								"targetPlayers": 0
+							}
+						]
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Elite_Buff"
+							},
+							"ref": "AllyArmies_AtTRange2_GainTTrait",
+							"target2": {
+								"range": "Short_Range"
+							},
+							"desc": "Other ally Military Units at [Short_Range] gain ::target_effects:: (x::target_stacking_limit:: max)"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 4,
+						"y": 0
+					}
+				},
+				{
 					"id": "A_Elite_Buff",
 					"name": "Bulwark",
 					"desc": "Protected by a nearby [A_Elite].",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 2,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 4,
+						"y": 1
+					}
+				},
+				{
+					"id": "G_Elite_Buff",
+					"name": "Bulwark",
+					"desc": "Protected by a nearby [G_Elite].",
 					"props": {
 						"stackingLimit": 1,
 						"tip": {
@@ -146652,7 +150574,71 @@
 					"name": "Shimmering Decoy"
 				},
 				{
+					"id": "G_Ship_Trait",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_DamageReceived_FromGroundArmies_MRatio",
+							"val": 0.7,
+							"desc": "",
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 34,
+						"y": 0
+					},
+					"name": "Shimmering Decoy"
+				},
+				{
 					"id": "A_Ship_Buff",
+					"desc": "Moves faster without its armor.",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Unit_Speed_ARatio",
+							"val": 0.5,
+							"desc": "::s_percent_value:: [Speed]",
+							"target2": {},
+							"displayed": false
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Armor_MRatio",
+							"val": 0,
+							"desc": "Lose all armor",
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 34,
+						"y": 1
+					},
+					"name": "Weight Shedding"
+				},
+				{
+					"id": "G_Ship_Buff",
 					"desc": "Moves faster without its armor.",
 					"props": {
 						"stackingLimit": 1,
@@ -146730,7 +150716,80 @@
 					"name": "Troop Carrier"
 				},
 				{
+					"id": "G_Frigate_Trait",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_CarryCapacity_Flat",
+							"val": 10,
+							"target2": {},
+							"desc": "Can carry up to ::value:: ally ground Military Units and use [Disembark]"
+						},
+						{
+							"target": {
+								"trait": "G_Frigate_Trait_Buff"
+							},
+							"target2": {},
+							"ref": "Entity_SetTTrait_PerCarried",
+							"desc": "Each carried unit gives ::target_effects:: to the [!G_Frigate]"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Immune_Deficit",
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 33,
+						"y": 0
+					},
+					"name": "Troop Carrier"
+				},
+				{
 					"id": "A_Frigate_Trait_Buff",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 1
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Power_Flat",
+							"val": -1
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Troop Carrier",
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 33,
+						"y": 1
+					}
+				},
+				{
+					"id": "G_Frigate_Trait_Buff",
 					"desc": "",
 					"props": {
 						"tip": {
@@ -152565,6 +156624,33 @@
 					"name": "Veteran Militia"
 				},
 				{
+					"id": "TGinazOfficer",
+					"desc": "Protected inside [Ginaz-adjective] borders.",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_DamageReceived_MRatio",
+							"val": 0.85,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Veteran Militia"
+				},
+				{
 					"id": "AtreideCohesion_Buff",
 					"desc": "Protected by the presence of a nearby [Atreides-adjective] unit.",
 					"props": {
@@ -152798,6 +156884,44 @@
 					"name": "Heroic Figure"
 				},
 				{
+					"id": "G_Hero_1_Trait",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Hero_1_Heroism"
+							},
+							"ref": "Army_AffectedByAllyUnitBonus_GainStackTTrait",
+							"target2": {
+								"range": "Short_Range"
+							},
+							"desc": "For each allied unit bonus, gain [G_Hero_1_Heroism]"
+						},
+						{
+							"target": {
+								"trait": "G_Hero_1_GholaWisdom"
+							},
+							"target2": {},
+							"ref": "Unit_SetTTraitStacks_PerUnitKindDeath",
+							"desc": "Upon death, all future [G_Hero_1]s gain: ::target_effects_list::"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 0
+					},
+					"name": "Heroic Figure"
+				},
+				{
 					"id": "A_Hero_1_Heroism",
 					"desc": "A nearby unit inspires [!A_Hero_1] to transcend himself.",
 					"props": {
@@ -152831,8 +156955,67 @@
 					"name": "Heroism"
 				},
 				{
+					"id": "G_Hero_1_Heroism",
+					"desc": "A nearby unit inspires [!G_Hero_1] to transcend himself.",
+					"props": {
+						"stackingLimit": 10,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_Power_Flat",
+							"val": 2,
+							"target2": {}
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 1
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Heroism"
+				},
+				{
 					"id": "A_Hero_1_Ally_Buff",
 					"desc": "A nearby unit is inspired by [!A_Hero_1] transcendance.",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Unit_Damage_ARatio",
+							"val": 0.2,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Heroic Figure"
+				},
+				{
+					"id": "G_Hero_1_Ally_Buff",
+					"desc": "A nearby unit is inspired by [!G_Hero_1] transcendance.",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -152938,6 +157121,87 @@
 					"name": "Duncan's Last Stand"
 				},
 				{
+					"id": "G_Hero_1_Skill_Buff_1",
+					"desc": "At the height of the battle, [!G_Hero_1] taps into deep reserves of strength coming from his loyalty to [Ginaz-longname].",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						},
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"followPosOnly": false,
+								"targetPlayers": 0,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"attachSpecs": {
+									"bone": "B_SpineTopJ"
+								},
+								"flags": 0,
+								"vfxPath": "Fx/Unit/SkillsHeroes/FX_Human_Duncan_Skill_constraint.fx"
+							}
+						]
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Hero_1_Skill_Debuff"
+							},
+							"ref": "Entity_GiveTTrait_GroundUnitAtWar_AtTRange2",
+							"target2": {
+								"range": "Melee_Strict"
+							},
+							"desc": "Enemy ground units in [Melee_Strict] suffer ::target_effects::"
+						},
+						{
+							"target": {},
+							"ref": "Entity_Speed_ARatio",
+							"val": 1,
+							"target2": {}
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_AttackSpeed_MRatio",
+							"val": 2
+						},
+						{
+							"target": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 5,
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "G_Hero_1_Heroism"
+							},
+							"target2": {},
+							"ref": "Army_AffectedByAllyUnitBonus_FreezeStackTTrait",
+							"desc": "[G_Hero_1_Heroism] cannot be lost or gained while [G_Hero_1_Skill] is active"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Uncontrollable"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "Cannot be turned off while engaged in melee"
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Cassian's Last Stand"
+				},
+				{
 					"id": "A_Hero_1_Skill_Debuff",
 					"desc": "This unit is taken into [A_Hero_1_Skill], and will have a hard time escaping.",
 					"props": {
@@ -152978,8 +157242,81 @@
 					"name": "Duncan's Focus"
 				},
 				{
+					"id": "G_Hero_1_Skill_Debuff",
+					"desc": "This unit is taken into [G_Hero_1_Skill], and will have a hard time escaping.",
+					"props": {
+						"tip": {
+							"cat": "UnitAffliction"
+						},
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"followPosOnly": false,
+								"targetPlayers": 0,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"attachSpecs": {
+									"bone": "B_SpineTopJ"
+								},
+								"flags": 0,
+								"vfxPath": "Fx/Unit/SkillsHeroes/FX_Human_Duncan_Skill_constraint.fx"
+							}
+						]
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_Speed_MRatio",
+							"val": 0.5,
+							"target2": {}
+						}
+					],
+					"type": 2,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 2
+					},
+					"name": "Cassian's Focus"
+				},
+				{
 					"id": "A_Hero_1_GholaWisdom",
 					"desc": "[!A_Hero_1] has come back from the dead with a few little improvements.",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Power_Flat",
+							"val": 3
+						},
+						{
+							"target": {},
+							"ref": "Army_Life_Flat",
+							"val": 150,
+							"target2": {},
+							"desc": "::s_value:: [Life]"
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 41,
+						"y": 1
+					},
+					"name": "Ghola Wisdom"
+				},
+				{
+					"id": "G_Hero_1_GholaWisdom",
+					"desc": "[!G_Hero_1] has come back from the dead with a few little improvements.",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -153077,6 +157414,72 @@
 					"name": "Exemplar Teacher"
 				},
 				{
+					"id": "G_Hero_2_Trait",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						},
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"followPosOnly": false,
+								"targetPlayers": 0,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"attachSpecs": {},
+								"flags": 2,
+								"vfxPath": "Fx/Unit/SkillsHeroes/FX_Human_Gurney_AOE.fx"
+							}
+						]
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Hero_2_FactionBuff"
+							},
+							"ref": "Entity_FactionOwner_GainTTrait",
+							"target2": {},
+							"displayed": false
+						},
+						{
+							"target": {
+								"trait": "G_Hero_2_UnitsBuff_1_Melee"
+							},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "Melee units gain ::target_effects:: per [Experience] level after the first"
+						},
+						{
+							"target": {
+								"trait": "G_Hero_2_UnitsBuff_1_Range"
+							},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "Ranged units gain ::target_effects:: per [Experience] level after the first"
+						},
+						{
+							"target": {
+								"trait": "G_Hero_2_UnitsBuff_2"
+							},
+							"target2": {
+								"range": "Long_Range"
+							},
+							"ref": "Entity_GiveTTrait_ATRange2_SelfUnits",
+							"desc": "Ally Military Units at [Long_Range] gain ::target_effects::"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 0
+					},
+					"name": "Exemplar Teacher"
+				},
+				{
 					"id": "A_Hero_2_FactionBuff",
 					"desc": "",
 					"props": {
@@ -153104,6 +157507,35 @@
 						"y": 1
 					},
 					"name": "Gurney's Lesson"
+				},
+				{
+					"id": "G_Hero_2_FactionBuff",
+					"desc": "",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Hero_2_UnitsBuff_1"
+							},
+							"ref": "MilitaryUnit_XPLevel_GainTTraitStack",
+							"target2": {},
+							"desc": "Each XP level grants a stack of [G_Hero_2_UnitsBuff_1]"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Dorian's Lesson"
 				},
 				{
 					"id": "A_Hero_2_UnitsBuff_1",
@@ -153171,6 +157603,71 @@
 					"name": "Gurney's Lesson"
 				},
 				{
+					"id": "G_Hero_2_UnitsBuff_1",
+					"desc": "[!G_Hero_2] has made this unit stronger.",
+					"props": {
+						"stackingLimit": 10,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"unit": "G_Trooper"
+							},
+							"ref": "TUnit_GainTTrait2",
+							"val": 0,
+							"target2": {
+								"trait": "G_Hero_2_UnitsBuff_1_Melee"
+							},
+							"desc": "[G_Trooper]s gain [G_Hero_2_UnitsBuff_1_Melee]"
+						},
+						{
+							"target": {
+								"unit": "G_Elite"
+							},
+							"target2": {
+								"trait": "G_Hero_2_UnitsBuff_1_Melee"
+							},
+							"ref": "TUnit_GainTTrait2",
+							"val": 0,
+							"desc": "[G_Elite]s gain [G_Hero_2_UnitsBuff_1_Melee]"
+						},
+						{
+							"target": {
+								"unit": "G_GinazNeophyte"
+							},
+							"target2": {
+								"trait": "G_Hero_2_UnitsBuff_1_Melee"
+							},
+							"ref": "TUnit_GainTTrait2",
+							"val": 0,
+							"desc": "[G_GinazNeophyte]s gain [G_Hero_2_UnitsBuff_1_Melee]"
+						},
+						{
+							"target": {
+								"unit": "G_Demo"
+							},
+							"target2": {
+								"trait": "G_Hero_2_UnitsBuff_1_Range"
+							},
+							"ref": "TUnit_GainTTrait2",
+							"val": 0,
+							"desc": "[G_Demo]s gain [G_Hero_2_UnitsBuff_1_Range]"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Dorian's Lesson"
+				},
+				{
 					"id": "A_Hero_2_UnitsBuff_1_Melee",
 					"desc": "[!A_Hero_2] has made this unit stronger.",
 					"props": {
@@ -153196,6 +157693,33 @@
 						"y": 1
 					},
 					"name": "Gurney's Lesson"
+				},
+				{
+					"id": "G_Hero_2_UnitsBuff_1_Melee",
+					"desc": "[!G_Hero_2] has made this unit stronger.",
+					"props": {
+						"stackingLimit": 10,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 1,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Dorian's Lesson"
 				},
 				{
 					"id": "A_Hero_2_UnitsBuff_1_Range",
@@ -153225,7 +157749,62 @@
 					"name": "Gurney's Lesson"
 				},
 				{
+					"id": "G_Hero_2_UnitsBuff_1_Range",
+					"desc": "[!G_Hero_2] has made this unit stronger.",
+					"props": {
+						"stackingLimit": 10,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Army_AttackSpeed_ARatio",
+							"val": 0.05,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Dorian's Lesson"
+				},
+				{
 					"id": "A_Hero_2_UnitsBuff_2",
+					"desc": "",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Army_ExperienceGain_ARatio",
+							"val": 0.5,
+							"target2": {},
+							"desc": "::s_percent_value:: [Experience]"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Exemplar Teacher"
+				},
+				{
+					"id": "G_Hero_2_UnitsBuff_2",
 					"desc": "",
 					"props": {
 						"stackingLimit": 1,
@@ -153278,6 +157857,33 @@
 						"y": 2
 					},
 					"name": "Gurney's Incapacitation"
+				},
+				{
+					"id": "G_Hero_2_TargetUnitsDebuff",
+					"desc": "This unit is incapacited by [!G_Hero_2].",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Unit_Damage_MRatio",
+							"val": 0.5,
+							"target2": {}
+						}
+					],
+					"type": 2,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 2
+					},
+					"name": "Dorian's Incapacitation"
 				},
 				{
 					"id": "A_Hero_2_Skill",
@@ -153349,6 +157955,75 @@
 					"name": "Forced March"
 				},
 				{
+					"id": "G_Hero_2_Skill",
+					"desc": "[!G_Hero_2]'s songs remind everyone of the sweetness of life, even when it is tough.",
+					"props": {
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"vfxPath": "Fx/Unit/SkillsHeroes/FX_Human_Gurney_Skill_cdb.fx",
+								"attachSpecs": {},
+								"followPosOnly": true,
+								"flags": 0,
+								"targetPlayers": 0
+							},
+							{
+								"attachOnWorld": false,
+								"playOnApplication": false,
+								"isUIFx": false,
+								"vfxPath": "Fx/Unit/SkillsHeroes/FX_Human_Gurney_Skill_Constraint.fx",
+								"attachSpecs": {
+									"bone": "B_ROOTJ"
+								},
+								"followPosOnly": true,
+								"flags": 0,
+								"targetPlayers": 0
+							}
+						],
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "G_Hero_2_Skill_Buff"
+							},
+							"ref": "AllyGroundArmies_AtTRange2_GainTTrait",
+							"target2": {
+								"range": "Long_Range"
+							},
+							"desc": "Ally ground Military Units at [Long_Range] gain: ::target_effects_list::"
+						},
+						{
+							"target": {
+								"trait": "G_Hero_2_Skill_Buff"
+							},
+							"target2": {},
+							"ref": "Entity_SetTTraitStacks",
+							"displayed": false,
+							"val": 1
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "Can be turned off before the timer's end"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 0
+					},
+					"name": "Forced March"
+				},
+				{
 					"id": "A_Hero_2_SkillOff_Fake",
 					"desc": "",
 					"props": {
@@ -153375,8 +158050,73 @@
 					"name": "Stop Forced March"
 				},
 				{
+					"id": "G_Hero_2_SkillOff_Fake",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "Turn off [!G_Hero_2]'s Forced March"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 0
+					},
+					"name": "Stop Forced March"
+				},
+				{
 					"id": "A_Hero_2_Skill_Buff",
 					"desc": "This unit is under the charming effect of [!A_Hero_2]'s song.",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Unit_Speed_ARatio",
+							"val": 0.3
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 2
+						},
+						{
+							"target": {},
+							"ref": "Entity_NoAttack",
+							"target2": {},
+							"desc": "Cannot attack"
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 44,
+						"y": 1
+					},
+					"name": "Forced March"
+				},
+				{
+					"id": "G_Hero_2_Skill_Buff",
+					"desc": "This unit is under the charming effect of [!G_Hero_2]'s song.",
 					"props": {
 						"stackingLimit": 1,
 						"tip": {
@@ -157566,6 +162306,15 @@
 							"ref": "Object_TTrait_AdditionalStackingLimit",
 							"val": 2,
 							"desc": "::s_value:: maximum stacks of [A_Soldier_Debuff]"
+						},
+						{
+							"target": {
+								"trait": "G_Soldier_Debuff"
+							},
+							"target2": {},
+							"ref": "Object_TTrait_AdditionalStackingLimit",
+							"val": 2,
+							"desc": "::s_value:: maximum stacks of [G_Soldier_Debuff]"
 						}
 					],
 					"type": 2,
@@ -162968,6 +167717,14 @@
 							"ref": "Army_Power_Flat",
 							"val": -1,
 							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "G_Drone_Trait"
+							},
+							"ref": "TTrait_Block",
+							"displayed": false,
+							"target2": {}
 						}
 					],
 					"type": 0,
@@ -165114,8 +169871,73 @@
 					"name": "Concord Chamber"
 				},
 				{
+					"id": "GinazFremenEmbassy_Trait",
+					"desc": "A nearby [GinazFremenEmbassy] helps bettering relationship with this [!Sietch].",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "RegionalEffect"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Sietch_RelationGains_ARatio",
+							"val": 2,
+							"desc": "::s_percent_value:: relation increase speed",
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "GinazFremenEmbassy_AlliedTrait"
+							},
+							"target2": {},
+							"ref": "Sietch_Alliance_FactionGainTTraitStack",
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Concord Chamber"
+				},
+				{
 					"id": "AtreidesFremenEmbassy_AlliedTrait",
 					"desc": "A nearby [AtreidesFremenEmbassy] helps bettering relationship with this [!Sietch].",
+					"props": {
+						"tip": {
+							"cat": "RegionalEffect"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"target2": {},
+							"ref": "TRes_Prod_Flat",
+							"val": 20,
+							"desc": "::value:: [::target::] production"
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Concord Chamber"
+				},
+				{
+					"id": "GinazFremenEmbassy_AlliedTrait",
+					"desc": "A nearby [GinazFremenEmbassy] helps bettering relationship with this [!Sietch].",
 					"props": {
 						"tip": {
 							"cat": "RegionalEffect"
@@ -167034,6 +171856,14 @@
 						{
 							"target": {
 								"building": "AtreidesFremenEmbassy"
+							},
+							"ref": "Unlock_TBuilding_Authorize",
+							"desc": "Allows the construction of a [::target::]",
+							"target2": {}
+						},
+						{
+							"target": {
+								"building": "GinazFremenEmbassy"
 							},
 							"ref": "Unlock_TBuilding_Authorize",
 							"desc": "Allows the construction of a [::target::]",
@@ -172068,6 +176898,15 @@
 							"val": 1,
 							"displayed": false,
 							"target2": {}
+						},
+						{
+							"target": {
+								"unit": "G_Ornithopter"
+							},
+							"ref": "TUnit_ImportCost_MRatio",
+							"val": 1,
+							"displayed": false,
+							"target2": {}
 						}
 					],
 					"type": 1,
@@ -172289,6 +177128,15 @@
 						{
 							"target": {
 								"unit": "C_Ornithopter"
+							},
+							"ref": "TUnit_ImportCost_MRatio",
+							"val": 1,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"unit": "G_Ornithopter"
 							},
 							"ref": "TUnit_ImportCost_MRatio",
 							"val": 1,
@@ -172520,6 +177368,15 @@
 							"val": 1,
 							"displayed": false,
 							"target2": {}
+						},
+						{
+							"target": {
+								"unit": "G_Ornithopter"
+							},
+							"ref": "TUnit_ImportCost_MRatio",
+							"val": 1,
+							"displayed": false,
+							"target2": {}
 						}
 					],
 					"type": 1,
@@ -172741,6 +177598,15 @@
 						{
 							"target": {
 								"unit": "C_Ornithopter"
+							},
+							"ref": "TUnit_ImportCost_MRatio",
+							"val": 1,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"unit": "G_Ornithopter"
 							},
 							"ref": "TUnit_ImportCost_MRatio",
 							"val": 1,
@@ -177563,6 +182429,58 @@
 					}
 				},
 				{
+					"id": "ChiroxPassive",
+					"name": "Spymaster",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "Councillor"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Agt_StartingTrait_Flat",
+							"val": 1,
+							"desc": "",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"ref": "CustomProperty",
+							"desc": "Can [HastenFake] mission progress and construction of [!Village] [!Building_Village]s at the cost of [Solari]",
+							"target2": {}
+						},
+						{
+							"target": {
+								"ability": "HastenBuilding"
+							},
+							"ref": "Unlock_TAbility",
+							"desc": "",
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"ability": "HastenMission"
+							},
+							"ref": "Unlock_TAbility",
+							"displayed": false,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 32,
+						"x": 8,
+						"y": 0,
+						"width": 4,
+						"height": 4
+					}
+				},
+				{
 					"id": "THastenBuilding",
 					"desc": "",
 					"props": {
@@ -177661,6 +182579,45 @@
 					}
 				},
 				{
+					"id": "DorianPasssive",
+					"name": "Weapon Master",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "Councillor"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "DorianPassive_Army"
+							},
+							"target2": {},
+							"ref": "Army_GainTTrait_PerXp",
+							"desc": "After reaching the max level, Military Units gain ::target_effects:: every ::value:: [Experience] accrued (x::target_stacking_limit:: max)",
+							"val": 50
+						},
+						{
+							"target": {
+								"trait": "DorianPassive_LevelupStack"
+							},
+							"target2": {},
+							"ref": "MilitaryUnit_XPLevel_GainTTraitStack",
+							"desc": "Each experience level grants ::target_effects::"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 32,
+						"x": 4,
+						"y": 0,
+						"width": 4,
+						"height": 4
+					}
+				},
+				{
 					"id": "YuehPassive",
 					"desc": "",
 					"props": {
@@ -177681,6 +182638,59 @@
 						{
 							"target": {
 								"trait": "YuehPassive_Buff"
+							},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "Non-mechanical Military Units have: ::target_effects_list::"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Infantry_Life_ARatio",
+							"val": 0.15,
+							"displayed": false
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Infantry_HealthRegen_MRatio",
+							"val": 1.3,
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 32,
+						"x": 20,
+						"y": 0,
+						"width": 4,
+						"height": 4
+					},
+					"name": "Physician Philosopher"
+				},
+				{
+					"id": "JoolPassive",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "Councillor"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Knowledge"
+							},
+							"target2": {},
+							"ref": "TRes_Prod_Flat",
+							"desc": "Produce ::s_value:: [Knowledge]",
+							"val": 2
+						},
+						{
+							"target": {
+								"trait": "JoolPassive_Buff"
 							},
 							"target2": {},
 							"ref": "CustomProperty",
@@ -177746,7 +182756,65 @@
 					"name": "Dr. Yueh's Care"
 				},
 				{
+					"id": "JoolPassive_Buff",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Life_ARatio",
+							"val": 0.15
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Army_HealthRegen_MRatio",
+							"val": 1.3
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Dr. Jool's Care"
+				},
+				{
 					"id": "GurneyPassive_LevelupStack",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Unit_Armor_Flat",
+							"val": 1
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Weapon Master"
+				},
+				{
+					"id": "DorianPassive_LevelupStack",
 					"desc": "",
 					"props": {
 						"tip": {
@@ -177800,6 +182868,34 @@
 					"name": "Gurney's Mentorship"
 				},
 				{
+					"id": "DorianPassive_Army",
+					"desc": "Under the mentorship of [Dorian], this unit grows even stronger than usual.",
+					"props": {
+						"stackingLimit": 20,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_Power_MRatio",
+							"val": 1.01,
+							"displayed": true
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Dorian's Mentorship"
+				},
+				{
 					"id": "JessicaPassive",
 					"name": "The Voice",
 					"desc": "",
@@ -177829,6 +182925,49 @@
 							"target2": {},
 							"val": -50,
 							"desc": "A faction betraying a [Peace] with [Atreides-longname] loses ::value:: more [Standing]"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 32,
+						"x": 12,
+						"y": 0,
+						"width": 4,
+						"height": 4
+					}
+				},
+				{
+					"id": "AyaPassive",
+					"name": "The Voice",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "Councillor"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Allow_PeaceForce",
+							"target2": {},
+							"desc": "Can spend [Influence] to force [Peace] with another faction"
+						},
+						{
+							"target": {},
+							"ref": "Treaty_BothFaction_NoUpkeep",
+							"desc": "[Ginaz-adjective] [Treaty]s have no [Authority] upkeeps",
+							"target2": {}
+						},
+						{
+							"target": {
+								"resource": "Standing"
+							},
+							"ref": "Treaty_EnemyBreak_TResLoss_Flat",
+							"target2": {},
+							"val": -50,
+							"desc": "A faction betraying a [Peace] with [Ginaz-longname] loses ::value:: more [Standing]"
 						}
 					],
 					"type": 0,
@@ -177889,7 +183028,96 @@
 					}
 				},
 				{
+					"id": "CassianPassive",
+					"name": "Ambassador",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "Councillor"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Authority"
+							},
+							"target2": {},
+							"ref": "TRes_SietchProd_Flat",
+							"val": 2,
+							"desc": "Produces ::value:: [::target::] per ally [Sietch]"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "OnStart_NearestSietches_MakeVisible",
+							"val": 1,
+							"desc": "",
+							"displayed": false
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "OnStart_NearestSietch_SetRelation",
+							"val": 80,
+							"desc": "Reveals a [Sietch] with ::value:: relation at the start of the game"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 32,
+						"x": 0,
+						"y": 0,
+						"width": 4,
+						"height": 4
+					}
+				},
+				{
 					"id": "PaulPassive",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "Councillor"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Authority"
+							},
+							"target2": {},
+							"ref": "TRes_SietchProd_Flat",
+							"val": 2,
+							"desc": "Produces ::value:: [Authority] per ally [Sietch]"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "OnAlly_Sietch_RevealNearestSietch"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "OnReveal_FirstSietch_SetRelation",
+							"val": 30,
+							"desc": "When the first [Sietch] is revealed, its relation level is always at ::value::"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/Faction/councillors_all.png",
+						"size": 64,
+						"x": 8,
+						"y": 0,
+						"width": 2,
+						"height": 2
+					},
+					"name": "Lisan Al-Gaib"
+				},
+				{
+					"id": "RanPassive",
 					"desc": "",
 					"props": {
 						"tip": {
@@ -177989,8 +183217,101 @@
 					"name": "Loyal"
 				},
 				{
+					"id": "CassianPassive_Loyal",
+					"desc": "This [!Village] is impressed by Cassian's fairness.",
+					"props": {
+						"tip": {
+							"cat": "VillageInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Outpost_StockUpkeep_MRatio",
+							"val": 0.9,
+							"desc": "::percent:: [!Upkeep]",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"ref": "Militia_TrainDuration_MRatio",
+							"val": 0.9,
+							"desc": "::s_percent:: [Militia] training costs and time",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"val": 0.95,
+							"desc": "::percent:: annex cost for neighboring neutral [!Village]s"
+						},
+						{
+							"target": {},
+							"ref": "Militia_TrainCost_MRatio",
+							"val": 0.9,
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "CassianPassive_LoyalAdjacent"
+							},
+							"ref": "AdjacentRegionsNeutralVillages_GainTTrait",
+							"target2": {},
+							"desc": "",
+							"displayed": false
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Loyal"
+				},
+				{
 					"id": "DuncanPassive_LoyalAdjacent",
 					"desc": "This [!Village] is impressed by Duncan's fairness",
+					"props": {
+						"stackingLimit": 10,
+						"tip": {
+							"cat": "VillageInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Outpost_Cost_MRatio",
+							"val": 0.95,
+							"desc": "::percent:: [Authority] cost to [!Annex] this [!Village]",
+							"displayed": false,
+							"target2": {}
+						},
+						{
+							"target": {},
+							"ref": "Outpost_PeacefulAnnex_Influence_Cost_MRatio",
+							"val": 0.95,
+							"displayed": false,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 21,
+						"y": 1
+					},
+					"name": "Ambassador"
+				},
+				{
+					"id": "CassianPassive_LoyalAdjacent",
+					"desc": "This [!Village] is impressed by Cassian's fairness",
 					"props": {
 						"stackingLimit": 10,
 						"tip": {
@@ -202172,6 +207493,10 @@
 						{
 							"value": -2,
 							"aiType": "Military"
+						},
+						{
+							"value": 2,
+							"councilor": "Aya"
 						}
 					]
 				},
@@ -202624,6 +207949,10 @@
 						{
 							"value": 1,
 							"councilor": "Thufir"
+						},
+						{
+							"value": 1,
+							"councilor": "Chirox"
 						}
 					]
 				},
@@ -202677,6 +208006,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"tip": {
@@ -202718,6 +208050,10 @@
 						{
 							"value": 1,
 							"councilor": "Jessica"
+						},
+						{
+							"value": 1,
+							"councilor": "Aya"
 						}
 					]
 				},
@@ -203377,6 +208713,15 @@
 									},
 									"ref": "AdjacentRegionsLoneHarvester_GainTTrait",
 									"faction": "Fremen",
+									"target2": {}
+								},
+								{
+									"target": {
+										"trait": "SpiceSilos_Trait"
+									},
+									"ref": "AdjacentRegionsAllyVillages_GainTTrait",
+									"desc": "Ally [!Village]s in the Region and its neighbors gain ::target_effects:: (x::target_stacking_limit:: max)",
+									"faction": "Ginaz",
 									"target2": {}
 								}
 							],
@@ -205955,6 +211300,96 @@
 					]
 				},
 				{
+					"id": "GinazFremenEmbassy",
+					"texts": {
+						"name": "Concord Chamber",
+						"desc": "Long lasting alliances are built on small, practical actions. A local presence helps climb these small steps, day after day.",
+						"plural": {
+							"name": "Concord Chambers"
+						}
+					},
+					"visuals": {
+						"model": [
+							{
+								"path": "Structure/Buildings/Ambassade/Prefab_Ambassade.prefab"
+							}
+						],
+						"thumbnail": {
+							"file": "UI/structures/FremenEmbassy.png",
+							"size": 1,
+							"x": 0,
+							"y": 0,
+							"width": 592,
+							"height": 168
+						}
+					},
+					"states": [
+						{
+							"attributes": [
+								{
+									"target": {
+										"trait": "GinazFremenEmbassy_Trait"
+									},
+									"ref": "AdjacentRegionsSietches_GainTTrait",
+									"desc": "[Sietch]s in this region and its neighbors get ::target_effects:: (x::target_stacking_limit:: max)",
+									"target2": {}
+								},
+								{
+									"target": {
+										"trait": "GinazFremenEmbassy_AlliedTrait"
+									},
+									"target2": {},
+									"ref": "CustomProperty",
+									"desc": "Allied [Sietch]s in this region and its neighbors get ::target_effects:: (x1 max)"
+								}
+							],
+							"duration": 4,
+							"upkeep": [
+								{
+									"qty": 10,
+									"res": "Solari"
+								},
+								{
+									"qty": 2,
+									"res": "Water"
+								}
+							],
+							"cost": [
+								{
+									"res": "Plascrete",
+									"qty": 150
+								}
+							],
+							"effects": []
+						}
+					],
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Ginaz"
+							}
+						],
+						"rotation": -70,
+						"scale": 2.9,
+						"tip": {
+							"cat": "Buildings"
+						},
+						"noFactor": true
+					},
+					"gfx": {
+						"file": "UI/icons/buildings_icons.png",
+						"size": 80,
+						"x": 0,
+						"y": 3
+					},
+					"domain": "Statecraft",
+					"aiWeights": [
+						{
+							"value": -1
+						}
+					]
+				},
+				{
 					"id": "PropagandaOffice",
 					"visuals": {
 						"model": [
@@ -206423,6 +211858,26 @@
 									"faction": "Vernius",
 									"scope": 2,
 									"displayed": false
+								},
+								{
+									"target": {
+										"unit": "G_Ship"
+									},
+									"ref": "Unlock_TUnit",
+									"faction": "Ginaz",
+									"scope": 2,
+									"desc": "Allows the deployment of [G_Ship] and [G_Frigate]",
+									"target2": {}
+								},
+								{
+									"target": {
+										"unit": "G_Frigate"
+									},
+									"ref": "Unlock_TUnit",
+									"faction": "Ginaz",
+									"displayed": false,
+									"scope": 2,
+									"target2": {}
 								}
 							],
 							"cost": [
@@ -212142,6 +217597,10 @@
 						{
 							"value": -10,
 							"councilor": "Jessica"
+						},
+						{
+							"value": -10,
+							"councilor": "Aya"
 						}
 					],
 					"props": {},
@@ -212582,6 +218041,10 @@
 						{
 							"value": -10,
 							"councilor": "Jessica"
+						},
+						{
+							"value": -10,
+							"councilor": "Aya"
 						}
 					],
 					"props": {},
@@ -213052,6 +218515,15 @@
 							"ref": "Unlock_TUnit",
 							"desc": "Unlocks the [V_Drone] unit",
 							"faction": "Vernius"
+						},
+						{
+							"target": {
+								"unit": "G_Drone"
+							},
+							"ref": "Unlock_TUnit",
+							"desc": "Unlocks the [G_Drone] unit",
+							"target2": {},
+							"faction": "Ginaz"
 						}
 					]
 				},
@@ -213471,6 +218943,10 @@
 						{
 							"value": -10,
 							"councilor": "Jessica"
+						},
+						{
+							"value": -10,
+							"councilor": "Aya"
 						}
 					],
 					"props": {},
@@ -213525,6 +219001,10 @@
 						{
 							"value": 10,
 							"councilor": "Thufir"
+						},
+						{
+							"value": 10,
+							"councilor": "Chirox"
 						}
 					],
 					"props": {},
@@ -213579,6 +219059,10 @@
 						{
 							"value": 10,
 							"councilor": "Thufir"
+						},
+						{
+							"value": 10,
+							"councilor": "Chirox"
 						}
 					],
 					"props": {
@@ -213900,6 +219384,62 @@
 					]
 				},
 				{
+					"id": "GinazMerchants",
+					"name": "Local Community",
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 3,
+						"y": 10
+					},
+					"desc": "Investing in local communities is the foundation of trust between the people and their leader.",
+					"faction": "Ginaz",
+					"tier": 0,
+					"gridY": 0,
+					"gridX": 0,
+					"type": 16092214,
+					"domain": "Economy",
+					"replaces": "CompositeMaterials",
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Economy"
+						},
+						{
+							"value": 10,
+							"aiType": "Expansion"
+						}
+					],
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Plascrete"
+							},
+							"target2": {},
+							"ref": "TRes_Prod_Flat",
+							"val": 5,
+							"desc": "::s_value:: [Plascrete] production"
+						},
+						{
+							"target": {
+								"building": "MaintenanceCenter"
+							},
+							"ref": "Unlock_TBuilding",
+							"desc": "Unlocks the [::target::] [!Village] [!Building_Village]",
+							"target2": {}
+						},
+						{
+							"target": {
+								"building": "InvestmentOffice"
+							},
+							"ref": "Unlock_TBuilding",
+							"target2": {},
+							"desc": "Unlocks the [::target::] [!Village] [!Building_Village]"
+						}
+					]
+				},
+				{
 					"domain": "Economy",
 					"id": "UrbanPlanning",
 					"name": "Urban Planning",
@@ -213926,6 +219466,59 @@
 					"desc": "With careful planning and heavy investment, it's possible to build a full city in no time.",
 					"replaces": "AdvancedEngineering",
 					"faction": "Atreides",
+					"props": {},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Allow_BuildingSimultaneousConstruction",
+							"desc": "Allow constructing multiple [!Village] [!Building_Village]s simultaneously"
+						},
+						{
+							"target": {
+								"building": "Main_MasonGuild"
+							},
+							"target2": {},
+							"ref": "Unlock_TBuilding",
+							"desc": "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+						},
+						{
+							"target": {
+								"treaty": "TradeAgreement"
+							},
+							"target2": {},
+							"ref": "Unlock_TTreaty",
+							"desc": "Unlocks the [::target::] [Treaty]"
+						}
+					]
+				},
+				{
+					"domain": "Economy",
+					"id": "Ginaz_UrbanPlanning",
+					"name": "Urban Planning",
+					"tier": 1,
+					"gridX": 0,
+					"gridY": 0,
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Economy"
+						},
+						{
+							"value": 10,
+							"aiType": "Expansion"
+						}
+					],
+					"type": 16092214,
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 0,
+						"y": 6
+					},
+					"desc": "With careful planning and heavy investment, it's possible to build a full city in no time.",
+					"replaces": "AdvancedEngineering",
+					"faction": "Ginaz",
 					"props": {},
 					"attributes": [
 						{
@@ -213994,10 +219587,106 @@
 					]
 				},
 				{
+					"domain": "Economy",
+					"id": "GinazForemen",
+					"name": "Ginaz Foremen",
+					"tier": 3,
+					"gridX": 0,
+					"gridY": 0,
+					"type": 16092214,
+					"faction": "Ginaz",
+					"replaces": "VeteranCrews",
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 0,
+						"y": 8
+					},
+					"desc": "Loyal workers at key posts will make sure that your assets are maintained in working order.",
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Economy"
+						}
+					],
+					"props": {},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "CrewPoints_Max_Flat",
+							"val": 2,
+							"target2": {}
+						},
+						{
+							"target": {
+								"trait": "TGinazForemen_Buff"
+							},
+							"target2": {},
+							"ref": "Harvester_MaxCrew_GainTTrait_PerPayedContract",
+							"desc": ""
+						}
+					]
+				},
+				{
 					"id": "UnderstandTheBeauty",
 					"name": "Air Network",
 					"desc": "On a planet like Arrakis, distant outposts are islands in an ocean of sand. Reaching them on time is often easier by air.",
 					"faction": "Atreides",
+					"tier": 1,
+					"gridY": 0,
+					"gridX": 0,
+					"replaces": "LocalHubs",
+					"type": 3532447,
+					"domain": "Expansion",
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 8,
+						"y": 2
+					},
+					"aiWeights": [
+						{
+							"value": 10,
+							"aiType": "Expansion"
+						},
+						{
+							"value": 10,
+							"aiType": "Statecraft"
+						}
+					],
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"building": "Airfield"
+							},
+							"ref": "TBuilding_Cost_MRatio",
+							"val": 0.3,
+							"target2": {},
+							"desc": "::percent:: [Airfield] construction costs"
+						},
+						{
+							"target": {
+								"building": "Airfield"
+							},
+							"ref": "TBuilding_StockUpkeep_MRatio",
+							"val": 0.3,
+							"target2": {},
+							"desc": "::s_percent:: [Airfield] [!Upkeep]"
+						},
+						{
+							"target": {},
+							"ref": "Shuttle_MoveSpeed_ARatio",
+							"val": 1,
+							"target2": {}
+						}
+					]
+				},
+				{
+					"id": "Ginaz_UnderstandTheBeauty",
+					"name": "Air Network",
+					"desc": "On a planet like Arrakis, distant outposts are islands in an ocean of sand. Reaching them on time is often easier by air.",
+					"faction": "Ginaz",
 					"tier": 1,
 					"gridY": 0,
 					"gridX": 0,
@@ -214130,6 +219819,86 @@
 				},
 				{
 					"domain": "Expansion",
+					"id": "Ginaz_EmbraceCulture",
+					"name": "Cultural Assimilation",
+					"tier": 2,
+					"gridX": 0,
+					"gridY": 0,
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 3,
+						"y": 7
+					},
+					"type": 3532447,
+					"replaces": "OutpostLogistics",
+					"faction": "Ginaz",
+					"desc": "Most people would rather have a tyrant who act like them than a strange but benevolent leader.",
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Expansion"
+						}
+					],
+					"props": {
+						"loseEffects": [
+							{
+								"vals": [],
+								"desc": "",
+								"target": {},
+								"target2": {},
+								"ref": "Agent_Unassign_LockedSlot"
+							}
+						]
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"comments": "",
+							"val": 0.8,
+							"desc": "::s_percent:: [Authority] and [Influence] cost to use [PeacefullyAnnex]"
+						},
+						{
+							"target": {
+								"resource": "Authority"
+							},
+							"target2": {},
+							"ref": "Outpost_PeacefulAnnex_TRes_Cost_MRatio",
+							"val": 0.8,
+							"displayed": false
+						},
+						{
+							"target": {
+								"resource": "Influence"
+							},
+							"target2": {},
+							"ref": "Outpost_PeacefulAnnex_TRes_Cost_MRatio",
+							"val": 0.8,
+							"displayed": false
+						},
+						{
+							"target": {
+								"building": "GinazFremenEmbassy"
+							},
+							"ref": "Unlock_TBuilding",
+							"target2": {},
+							"desc": "Unlocks the [GinazFremenEmbassy] [!Village] [!Building_Village]"
+						},
+						{
+							"target": {
+								"infiltration": "IField"
+							},
+							"ref": "Agt_InfiltrationSlot_Flat",
+							"val": 1,
+							"desc": "::s_value:: [Agent] slot in [IField]",
+							"target2": {}
+						}
+					]
+				},
+				{
+					"domain": "Expansion",
 					"id": "VeteranMilitia",
 					"name": "Veteran Militia",
 					"tier": 2,
@@ -214156,6 +219925,47 @@
 						{
 							"target": {
 								"trait": "TAtreidesOfficer"
+							},
+							"ref": "Unit_Territory_GainTTrait",
+							"target2": {},
+							"desc": "::target_effects:: by Military Units inside [$my(faction)-adjective] borders"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Army_MilitiaLife_ARatio",
+							"val": 0.8
+						}
+					]
+				},
+				{
+					"domain": "Expansion",
+					"id": "Ginaz_VeteranMilitia",
+					"name": "Veteran Militia",
+					"tier": 2,
+					"gridX": 0,
+					"gridY": 0,
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Expansion"
+						}
+					],
+					"type": 3532447,
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 7,
+						"y": 2
+					},
+					"desc": "A soldier too old to remain on active duty can be sent as an officer in a far-away outpost. His knowledge will help the local militia with strategic planning and training.",
+					"replaces": "SpectralImaging",
+					"faction": "Ginaz",
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"trait": "TGinazOfficer"
 							},
 							"ref": "Unit_Territory_GainTTrait",
 							"target2": {},
@@ -214215,6 +220025,51 @@
 					]
 				},
 				{
+					"id": "Ginaz_NewHomeland",
+					"name": "Post-Trauma Reintegration",
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 2,
+						"y": 6
+					},
+					"desc": "With the proper medical techniques and  thorough psychological care, soldiers who have lived through traumatic experiences can still serve.",
+					"faction": "Ginaz",
+					"tier": 1,
+					"gridY": 0,
+					"gridX": 0,
+					"replaces": "CalltoArms",
+					"type": 15218003,
+					"domain": "Military",
+					"aiWeights": [],
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"resource": "CommandPoint"
+							},
+							"ref": "TRes_Prod_Flat",
+							"val": 5,
+							"desc": "::s_value:: [CommandPoint]",
+							"target2": {}
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Infantry_SafeRegenCost_MRatio",
+							"val": 0.7
+						},
+						{
+							"target": {
+								"building": "Main_Command"
+							},
+							"ref": "Unlock_TBuilding",
+							"desc": "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]",
+							"target2": {}
+						}
+					]
+				},
+				{
 					"domain": "Military",
 					"id": "AtreidesOfficers",
 					"name": "Proud Liberator",
@@ -214230,6 +220085,64 @@
 					"type": 15218003,
 					"replaces": "SupportStructures",
 					"faction": "Atreides",
+					"desc": "You are on the right side of this fight. Everyone says so. Just enjoy and stop thinking about it!",
+					"aiWeights": [],
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Standing"
+							},
+							"target2": {},
+							"ref": "CustomProperty",
+							"val": 20,
+							"desc": "Non-mechanical units get <good>+1%</good> max [Life] per ::value:: [Standing]"
+						},
+						{
+							"target": {
+								"resource": "Standing"
+							},
+							"target2": {},
+							"ref": "Infantry_Life_PerTResProd",
+							"val": 20,
+							"displayed": false
+						},
+						{
+							"target": {
+								"siegeAction": "Liberate"
+							},
+							"target2": {},
+							"ref": "Infantry_TSiegeActionComplete_FactionLessStanding_HealMaxLife_ARatio",
+							"val": 0.5,
+							"desc": "Units Liberating or Annexing a [!Village] from a faction with less [Standing] heal ::percent_value:: of [Life] for free"
+						},
+						{
+							"target": {
+								"siegeAction": "Annex"
+							},
+							"target2": {},
+							"ref": "Infantry_TSiegeActionComplete_FactionLessStanding_HealMaxLife_ARatio",
+							"val": 0.5,
+							"displayed": false
+						}
+					]
+				},
+				{
+					"domain": "Military",
+					"id": "GinazOfficers",
+					"name": "Proud Liberator",
+					"tier": 3,
+					"gridX": 0,
+					"gridY": 0,
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 3,
+						"y": 6
+					},
+					"type": 15218003,
+					"replaces": "SupportStructures",
+					"faction": "Ginaz",
 					"desc": "You are on the right side of this fight. Everyone says so. Just enjoy and stop thinking about it!",
 					"aiWeights": [],
 					"props": {},
@@ -214324,6 +220237,57 @@
 					]
 				},
 				{
+					"domain": "Statecraft",
+					"id": "GinazSympathizers",
+					"name": "Ginaz Sympathizers",
+					"tier": 0,
+					"gridX": 0,
+					"gridY": 0,
+					"type": 4407807,
+					"replaces": "IntelligenceNetwork",
+					"faction": "Ginaz",
+					"desc": "A pervasive spy network can also be used for benevolent means.",
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 3,
+						"y": 9
+					},
+					"aiWeights": [
+						{
+							"value": 10,
+							"aiType": "Statecraft"
+						},
+						{
+							"value": 10,
+							"councilor": "Chirox"
+						}
+					],
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Standing"
+							},
+							"ref": "TRes_OnCouncilOpening_PerTInfiltration2Level_Flat",
+							"val": 5,
+							"desc": "::s_value:: [Standing] per [ILandsraad] level, on Council opening",
+							"target2": {
+								"infiltration": "ILandsraad"
+							}
+						},
+						{
+							"target": {
+								"resource": "Influence"
+							},
+							"ref": "TRes_Prod_Flat",
+							"val": 2,
+							"target2": {},
+							"desc": "::s_value:: [Influence] production"
+						}
+					]
+				},
+				{
 					"id": "AtreidesDelegations",
 					"name": "Political Entente",
 					"desc": "With tension rising, gathering friendly houses into an informal alliance is the only way to get some help when chaos inevitably ensues.",
@@ -214360,6 +220324,54 @@
 							"ref": "OnBetray_TUnit_SpawnMainBase",
 							"val": 4,
 							"desc": "When another faction betrays a [Peace] with [Atreides-longname], receive ::value:: free [::target::]"
+						},
+						{
+							"target": {
+								"building": "Main_CouncilChamber"
+							},
+							"ref": "Unlock_TBuilding",
+							"desc": "Unlocks the [Main_CouncilChamber] [!Building_MB] in [$my(mainbase)]",
+							"target2": {}
+						}
+					]
+				},
+				{
+					"id": "GinazDelegations",
+					"name": "Political Entente",
+					"desc": "With tension rising, gathering friendly houses into an informal alliance is the only way to get some help when chaos inevitably ensues.",
+					"faction": "Ginaz",
+					"tier": 2,
+					"gridY": 0,
+					"gridX": 0,
+					"replaces": "CounterMeasures",
+					"type": 4407807,
+					"domain": "Statecraft",
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 8,
+						"y": 4
+					},
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Statecraft"
+						},
+						{
+							"value": 20,
+							"councilor": "Aya"
+						}
+					],
+					"props": {},
+					"attributes": [
+						{
+							"target": {
+								"unit": "LandsraadSoldiers_Dev"
+							},
+							"target2": {},
+							"ref": "OnBetray_TUnit_SpawnMainBase",
+							"val": 4,
+							"desc": "When another faction betrays a [Peace] with [Ginaz-longname], receive ::value:: free [::target::]"
 						},
 						{
 							"target": {
@@ -214448,6 +220460,81 @@
 				},
 				{
 					"domain": "Statecraft",
+					"id": "Ginaz_ActiveSurveillance",
+					"name": "Active Surveillance",
+					"tier": 2,
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"val": 1,
+							"desc": "::s_value:: [Influence] and [Intel] production per [Agent] assigned to [!CounterIntel]"
+						},
+						{
+							"target": {
+								"resource": "Influence"
+							},
+							"target2": {},
+							"ref": "TRes_ProdPerCounterIntelAgt_Flat",
+							"val": 1,
+							"displayed": false
+						},
+						{
+							"target": {
+								"resource": "Intel"
+							},
+							"target2": {},
+							"ref": "TRes_ProdPerCounterIntelAgt_Flat",
+							"val": 1,
+							"displayed": false
+						},
+						{
+							"target": {
+								"infiltration": "ICounterIntel"
+							},
+							"ref": "Agt_InfiltrationSlot_Flat",
+							"desc": "::s_value:: [Agent] slot in [!CounterIntel]",
+							"target2": {},
+							"val": 1
+						}
+					],
+					"props": {
+						"loseEffects": [
+							{
+								"vals": [],
+								"desc": "",
+								"target": {},
+								"target2": {},
+								"ref": "Agent_Unassign_LockedSlot"
+							}
+						]
+					},
+					"gridX": 0,
+					"gridY": 0,
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Statecraft"
+						},
+						{
+							"value": 20,
+							"councilor": "Aya"
+						}
+					],
+					"type": 4407807,
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 4,
+						"y": 5
+					},
+					"desc": "To catch a spy in our midst, it is not enough to look within. We must also turn our gaze towards friends and enemies alike.",
+					"replaces": "NegotiationTactics",
+					"faction": "Ginaz"
+				},
+				{
+					"domain": "Statecraft",
 					"id": "SustainableSpying",
 					"name": "Sustainable Spying",
 					"tier": 2,
@@ -214473,6 +220560,84 @@
 					"desc": "Agents that focus on bringing positive results to their House instead of participating in nefarious plots often end up forming deep and durable alliances.",
 					"replaces": "StealthGear",
 					"faction": "Atreides",
+					"props": {},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "[Agent]s assigned on [IChoam], [ILandsraad], or [ISpaceGuild] slots produce ::s_percent_value:: of their associated resources",
+							"val": 0.5
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "AssignedAgt_NoSharingTrait_Stack_Flat",
+							"val": 1,
+							"desc": "[Agent] traits present only once on an [!Infiltration] field apply their effects twice"
+						},
+						{
+							"target": {
+								"infiltration": "IChoam"
+							},
+							"ref": "Agt_TInfiltration_TRes2SlotProd_ARatio",
+							"target2": {
+								"resource": "Solari"
+							},
+							"val": 0.5,
+							"displayed": false
+						},
+						{
+							"target": {
+								"infiltration": "ILandsraad"
+							},
+							"target2": {
+								"resource": "Influence"
+							},
+							"ref": "Agt_TInfiltration_TRes2SlotProd_ARatio",
+							"val": 0.5,
+							"displayed": false
+						},
+						{
+							"target": {
+								"infiltration": "ISpaceGuild"
+							},
+							"ref": "Agt_TInfiltration_TRes2SlotProd_ARatio",
+							"target2": {
+								"resource": "Manpower"
+							},
+							"val": 0.5,
+							"displayed": false
+						}
+					]
+				},
+				{
+					"domain": "Statecraft",
+					"id": "Ginaz_SustainableSpying",
+					"name": "Sustainable Spying",
+					"tier": 2,
+					"gridX": 0,
+					"gridY": 0,
+					"aiWeights": [
+						{
+							"value": 20,
+							"aiType": "Statecraft"
+						},
+						{
+							"value": 20,
+							"councilor": "Aya"
+						}
+					],
+					"type": 4407807,
+					"gfx": {
+						"file": "UI/developments/techIcons2.png",
+						"size": 64,
+						"x": 4,
+						"y": 10
+					},
+					"desc": "Agents that focus on bringing positive results to their House instead of participating in nefarious plots often end up forming deep and durable alliances.",
+					"replaces": "StealthGear",
+					"faction": "Ginaz",
 					"props": {},
 					"attributes": [
 						{
@@ -220010,6 +226175,14 @@
 						{
 							"value": 10,
 							"councilor": "Jessica"
+						},
+						{
+							"value": 10,
+							"faction": "Ginaz"
+						},
+						{
+							"value": 10,
+							"councilor": "Aya"
 						}
 					],
 					"forceCost": [
@@ -220102,6 +226275,14 @@
 						{
 							"value": 10,
 							"aiType": "Statecraft"
+						},
+						{
+							"value": 10,
+							"faction": "Ginaz"
+						},
+						{
+							"value": 10,
+							"councilor": "Aya"
 						}
 					],
 					"forceCost": [
@@ -220190,6 +226371,14 @@
 						{
 							"value": 10,
 							"aiType": "Statecraft"
+						},
+						{
+							"value": 10,
+							"faction": "Ginaz"
+						},
+						{
+							"value": 10,
+							"councilor": "Aya"
 						}
 					],
 					"forceCost": [
@@ -233707,6 +239896,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"tip": {
@@ -234019,6 +240211,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"tip": {
@@ -234665,6 +240860,9 @@
 						"onlyForFactions": [
 							{
 								"faction": "Atreides"
+							},
+							{
+								"faction": "Ginaz"
 							}
 						],
 						"startSound": "UI_Spyoperation_Ceasefire",
@@ -236895,6 +243093,10 @@
 							{
 								"nb": 3,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 3,
+								"faction": "Ginaz"
 							}
 						],
 						"base": [
@@ -236925,6 +243127,10 @@
 							{
 								"nb": 2,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 2,
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -237001,6 +243207,10 @@
 							{
 								"nb": 3,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 3,
+								"faction": "Ginaz"
 							}
 						],
 						"base": [
@@ -237031,6 +243241,10 @@
 							{
 								"nb": 2,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 2,
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -237100,6 +243314,10 @@
 							{
 								"nb": 3,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 3,
+								"faction": "Ginaz"
 							}
 						],
 						"base": [
@@ -237130,6 +243348,10 @@
 							{
 								"nb": 2,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 2,
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -237203,6 +243425,10 @@
 							{
 								"nb": 3,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 3,
+								"faction": "Ginaz"
 							}
 						],
 						"base": [
@@ -237233,6 +243459,10 @@
 							{
 								"nb": 2,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 2,
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -237292,6 +243522,10 @@
 							{
 								"nb": 3,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 3,
+								"faction": "Ginaz"
 							}
 						],
 						"base": [
@@ -237322,6 +243556,10 @@
 							{
 								"nb": 2,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 2,
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -237487,6 +243725,10 @@
 							{
 								"nb": 3,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 3,
+								"faction": "Ginaz"
 							}
 						],
 						"base": [
@@ -237517,6 +243759,10 @@
 							{
 								"nb": 1,
 								"faction": "Vernius"
+							},
+							{
+								"nb": 1,
+								"faction": "Ginaz"
 							}
 						]
 					},
@@ -239075,6 +245321,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239130,6 +245379,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239185,6 +245437,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239240,6 +245495,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239295,6 +245553,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239338,6 +245599,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239393,6 +245657,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239448,6 +245715,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -239503,6 +245773,9 @@
 							"factions": [
 								{
 									"ref": "Atreides"
+								},
+								{
+									"ref": "Ginaz"
 								}
 							],
 							"priority": 0,
@@ -252809,6 +259082,25 @@
 					"props": {
 						"poleDistMin": 1,
 						"faction": "Atreides",
+						"borderDistMin": 1,
+						"desertDistMin": 1,
+						"maxWindForce": 0,
+						"minWindForce": 0,
+						"sandwormActivity": 0,
+						"tip": {
+							"cat": "MainBaseRegion"
+						}
+					},
+					"thumb": "UI/regions/MainBases/Arrakeen.png",
+					"desc": "",
+					"biome": "Default"
+				},
+				{
+					"id": "GinazBase",
+					"name": "Ginaz Sword-School",
+					"props": {
+						"poleDistMin": 1,
+						"faction": "Ginaz",
 						"borderDistMin": 1,
 						"desertDistMin": 1,
 						"maxWindForce": 0,
@@ -334973,6 +341265,33 @@
 					}
 				},
 				{
+					"id": "PlainsOfGinaz",
+					"thumb": "UI/regions/MainBases/Arrakeen.png",
+					"texts": {
+						"name": "Plains of Ginaz",
+						"desc": "The Ginaz sword-school holds these plains with steel and discipline."
+					},
+					"biome": "C_Arrakeen",
+					"props": {
+						"maxCount": 0,
+						"maxFactions": 3,
+						"mainBasePresent": "GinazKeep",
+						"signatureRegion": "GinazBase",
+						"aiWeight": 0,
+						"secObjectiveBlacklist": [
+							{
+								"ref": "Conquest_Fremen_SietchRelation"
+							}
+						],
+						"cityPawn": "CityPawn_Atreides"
+					},
+					"type": 3,
+					"impCount": 0,
+					"mapProps": {
+						"height": 50
+					}
+				},
+				{
 					"id": "CarthagsRift",
 					"thumb": "UI/regions/MainBases/Carthag.png",
 					"texts": {
@@ -350970,6 +357289,15 @@
 				{
 					"id": "Atreides",
 					"faction": "Atreides",
+					"duration": 181,
+					"mood": 0,
+					"targetMood": 0,
+					"type": 0,
+					"props": {}
+				},
+				{
+					"id": "Ginaz",
+					"faction": "Ginaz",
 					"duration": 181,
 					"mood": 0,
 					"targetMood": 0,

@@ -41,3 +41,7 @@ and say whether it is canon. If it contradicts the canon decisions in [art_direc
 | `ginaz_master_polish_before_after.png` | Ours | Master before / after | built | [units](units.md) |
 | `ginaz_neophyte_polish_before_after.png` | Ours | Neophyte before / after | built | [units](units.md) |
 | `ginaz_polish_detail_crops.png` | Ours | Master chest, hem, cape back; Captain chest | built | [units](units.md) |
+| `ginaz_captain_melee_weapons_overview.png` | Ours | the Captain with all 21 melee weapons, same mid-swing frame | preview | [unit specs](unit_specs.md) |
+| `ginaz_tallsword_recolour_before_after.png` | Ours | tall sword, vanilla blade (left) vs steel-blue recolour (right) | proposal | [unit specs](unit_specs.md) |
+| `ginaz_sword_options_hilt_compare.png` | Ours | Sword Knight: wine/gold, dark grey/silver, simplified hilt | proposal | [unit specs](unit_specs.md) |
+| `ginaz_roster_current.png` | Ours | the three Ginaz soldiers in the faction (Captain/Swordmaster, Neophyte, Master), front and three-quarter | built | [unit specs](unit_specs.md) |

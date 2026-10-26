@@ -1,6 +1,6 @@
 # Units
 
-Concept roster: five lines. One is built (the Captain fills the Trooper role). Squad sizes, looks and the build ideas below are
+Concept roster: five lines. Four units are built (Captain, Swordmaster, Neophyte, Master; in-game ids, weapons and fight style are in [unit_specs.md](unit_specs.md)). Squad sizes, looks and the build ideas below are
 from the concept render plus our model catalog; **stat numbers are sketches, not final**.
 
 ![Concept roster](images/units_concept_roster.jpg)
@@ -9,10 +9,11 @@ from the concept render plus our model catalog; **stat numbers are sketches, not
 | Unit | Squad | Role | Weapon | Armour | Status |
 |---|---|---|---|---|---|
 | **Scout** | 3 | fast recon / skirmish, finds Kanly targets | rapier | none (hat, short jacket) | not built |
-| **Troopers** | 4 | core line infantry | long rapier | wine coat, brown mantle/chest plate | **built as the Ginaz Captain** (squad 5, in game) |
+| **Troopers** | 4 | core line infantry | long rapier | wine coat, brown mantle/chest plate | **built**: Ginaz Swordmaster (`G_Trooper`) and Ginaz Captain (`G_Elite`, squad 5), same model |
 | **Throwers** | 3 | ranged-ish harassers (thrown daggers; no firearms) | throwing daggers | bandoliers, wine coat | not built |
 | **Elite Swordmaster** | 4 | elite duellist | curved sabre or dual rapiers | leather cuirass, gold embroidery | not built |
-| **Master of Ginaz** | 1 (hero) | leader unit, aura source | long sabre | full gold filigree, cape, two banners | not built |
+| **Master of Ginaz** | 1 (hero) | leader unit, aura source | long sabre | full gold filigree, cape, two banners | **built** (`G_GinazMaster`, tall rapier, no banners, no aura yet) |
+| **Neophyte** (roster sheet) | 5 | cheap trainee | none (unarmed) | plum jacket, grey sash | **built** (`G_GinazNeophyte`) |
 
 Costume rule across all: **more gold embroidery = higher rank**, armour is leather and brown, never steel (see [art_direction.md](art_direction.md)).
 
@@ -93,20 +94,28 @@ Neck shortened (head lowered, short gold-rimmed collar), denser chest braiding w
 A big upgrade of the Ginaz Captain: the Mercenary's cape kept and recoloured wine, gold frogging and vine filigree painted on the chest, coat opening, hem and cape,
 silver streak in the hair and beard, tall gold-rimmed collar, tall rapier. Banners and a sabre were not modelled. Details: `model_projects/ginaz_master/SPEC.md`.
 
-## Game packages and data (prepared, NOT installed)
+## Game packages and data
 | Unit | CharMOD folder | Status |
 |---|---|---|
-| Ginaz Neophyte | `CharMOD/Male01_GinazNeophyte` (copy in `model_projects/ginaz_neophyte/06_game_ready/`) | HMD + 4 materials, check_hmd OK |
-| Master of Ginaz | `CharMOD/Male01_GinazMaster` (copy in `model_projects/ginaz_master/06_game_ready/`) | HMD + 6 materials (weapon = the game's own textures), check_hmd OK |
+| Ginaz Captain | `CharMOD/Male01_GinazCaptain` (copy in `model_projects/ginaz_captain/06_game_ready/`) | in the pak, `G_Elite` and `G_Trooper` |
+| Ginaz Neophyte | `CharMOD/Male01_GinazNeophyte` (copy in `model_projects/ginaz_neophyte/06_game_ready/`) | HMD + 4 materials, check_hmd OK; `G_GinazNeophyte` |
+| Master of Ginaz | `CharMOD/Male01_GinazMaster` (copy in `model_projects/ginaz_master/06_game_ready/`) | HMD + 6 materials (weapon = the game's own textures), check_hmd OK; `G_GinazMaster` |
 
-Both are additive: `python model_projects/ginaz_master/08_scripts/15_new_units_cdb.py` (dry run on a temp copy), then `--apply` and `repackage.py`.
-Stat sketches: Neophyte 250 hp / 8 power / 2 armor, squad 5; Master 900 / 28 / 6, squad 1. Only the Ginaz Captain (Warden slot) is in the live game.
+On 2026-10-25 the three were wired into a new `Ginaz` faction (`model_projects/ginaz_faction/SPEC.md`), which also restored the Atreides Warden to vanilla. The live data now has them; the game has not been launched with it.
+In-game stats (read from the data): Neophyte 250 / 8 / 2, squad 5; Master 900 / 28 / 6, squad 1; see [unit_specs.md](unit_specs.md).
 
 ## Polish pass (2026-10-25): Captain, Neophyte, Master
 Real gold hardware (domed buttons, olive toggles, rolled collar rim in a metallic gold material), x2 textures, anti-aliased embroidery with relief and metal/gloss maps.
-Details, numbers and install state: `model_projects/ginaz_polish/SPEC.md`.  Staged in the editor resource tree, not yet in the live pak.
+Details, numbers and install state: `model_projects/ginaz_swordmaster/SPEC.md`.  Staged in the editor resource tree before the faction install; probably in the pak now, unconfirmed.
 
 ![Captain polish](images/ginaz_captain_polish_before_after.png)
 ![Master polish](images/ginaz_master_polish_before_after.png)
 ![Neophyte polish](images/ginaz_neophyte_polish_before_after.png)
 ![Detail crops](images/ginaz_polish_detail_crops.png)
+
+### Polish pass, corrected preview (no "film")
+The first polish renders looked washed out; that was the preview lighting/specular wiring, not the textures (see `model_projects/ginaz_swordmaster/SPEC.md`, addendum). Current renders:
+![Captain](images/ginaz_captain_polish_final.png)
+![Master](images/ginaz_master_polish_final.png)
+![Neophyte](images/ginaz_neophyte_polish_final.png)
+![Film cause](images/ginaz_film_cause_importer_vs_matte.png)

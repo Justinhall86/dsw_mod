@@ -59,7 +59,7 @@ Rule: where there is no exact attribute, document the approximation in the unit/
 ## 4. Three ways to bring the House in (and what each costs)
 | Path | What it is | Cost | Risk |
 |---|---|---|---|
-| **A. Units inside an existing faction** (current) | Ginaz units replace/extend Atreides slots (Warden -> Captain, more to follow) | each unit is a model + cdb entry; process saved as the `dsw-new-unit` skill | low; every Warden recruit changes; no faction identity |
+| **A. Units inside an existing faction** (used first, 2026-10-23/24) | Ginaz units replace/extend Atreides slots (Warden -> Captain). Superseded on 2026-10-25 by a cloned `Ginaz` faction (`model_projects/ginaz_faction/SPEC.md`), which restored the Warden | each unit is a model + cdb entry; process saved as the `dsw-new-unit` skill | low; every Warden recruit changed; no faction identity |
 | **B. Ginaz as traits on an existing faction** | Atreides (or another) gets `startingTraits` and `hegemonyBonuses` that implement the Ginaz bonuses, plus new leader/councilors | trait + attribute work, characters, portraits | medium; changes Atreides play for everyone; no separate faction |
 | **C. New playable faction** | a new `faction` row, HQ structure/villages/buildings, units, leader + 4 councilors, UI art, add to `gameMode.Conquest.playableFactions`, AI weights | large; most data work, art and testing | highest; *unverified* whether the engine tolerates a 9th playable faction in the faction-select UI and AI; needs a recon spike first |
 
@@ -69,7 +69,7 @@ and the user wants a separate faction.
 ## 5. Phases
 | Phase | Work | Output | Notes |
 |---|---|---|---|
-| 0 (done) | Ginaz Captain over the Warden; spawn 5 at start | in game | see [ginaz_captain.md](ginaz_captain.md) |
+| 0 (done) | Ginaz Captain, then a first `Ginaz` faction with the Captain, Swordmaster, Neophyte and Master; spawn 5 Captains at start | in the data, not yet launched | see [unit_specs.md](unit_specs.md), [ginaz_captain.md](ginaz_captain.md) |
 | 1 | Captain texture upgrades (brown mantle, gold buttons/piping/hem discs) | better model | pure texture |
 | 2 | Elite Swordmaster, Master of Ginaz, Scout, Throwers | 4 more units | [units.md](units.md); decide takeover slots vs new units |
 | 3 | Faction traits as a testbed on Atreides (or a fresh trait) | working Mastery, anti-armour, supply, speed | attribute mapping above |
