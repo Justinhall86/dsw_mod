@@ -1,0 +1,27 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_Idualis_Elite",
+			"source": "Character/Idualis/Elite/Male01_Idualis_Elite.fbx"
+		},
+		{
+			"type": "model",
+			"name": "SandwormHook",
+			"source": "Character/Idualis/Weapon/SandwormHook.fbx",
+			"x": 0.00177,
+			"y": 0.22865,
+			"z": 0.04221,
+			"rotationX": -87.5,
+			"rotationY": 20.6,
+			"rotationZ": -0.9
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "SandwormHook",
+			"target": "Male01_Idualis_Elite.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

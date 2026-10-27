@@ -1,0 +1,27 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_IdualisTrooper03",
+			"source": "Character/Idualis/Trooper/Male01_IdualisTrooper03.fbx"
+		},
+		{
+			"type": "model",
+			"name": "MetalBar",
+			"source": "Character/Idualis/Weapon/MetalBar.fbx",
+			"x": 0.09403,
+			"y": 0.29556,
+			"z": 0.02591,
+			"rotationX": -68.7,
+			"rotationY": -40.5,
+			"rotationZ": -33.6
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "MetalBar",
+			"target": "Male01_IdualisTrooper03.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

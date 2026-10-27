@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Idualis_Demo",
+			"source": "Character/Idualis/Demo/Male01_Idualis_Demo.fbx"
+		}
+	]
+}
