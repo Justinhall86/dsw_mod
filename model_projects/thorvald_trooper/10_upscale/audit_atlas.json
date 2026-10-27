@@ -1,0 +1,721 @@
+{
+ "label": "atlas",
+ "blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T4_atlas.blend",
+ "meshes": [
+  {
+   "name": "Commando",
+   "tris": 1015,
+   "verts": 681,
+   "max_influences": 4,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "CommandoHead",
+   "tris": 1000,
+   "verts": 552,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "DuncanFill_legs",
+   "tris": 1793,
+   "verts": 1171,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "DuncanFill_skirt",
+   "tris": 410,
+   "verts": 255,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "MercenaryFill_arms",
+   "tris": 1994,
+   "verts": 1434,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperCapL",
+   "tris": 168,
+   "verts": 86,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperCapR",
+   "tris": 168,
+   "verts": 86,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperCuffL",
+   "tris": 320,
+   "verts": 160,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperCuffR",
+   "tris": 320,
+   "verts": 160,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperEmblem",
+   "tris": 222,
+   "verts": 231,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperHat",
+   "tris": 1064,
+   "verts": 560,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperWaist",
+   "tris": 448,
+   "verts": 224,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperYoke0",
+   "tris": 192,
+   "verts": 128,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperYoke1",
+   "tris": 192,
+   "verts": 128,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  },
+  {
+   "name": "TrooperYoke2",
+   "tris": 192,
+   "verts": 128,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Thorvald"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "object": "Commando",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 317.8654370271174,
+   "tris": 1015
+  },
+  {
+   "object": "CommandoHead",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 462.7706145798343,
+   "tris": 1000
+  },
+  {
+   "object": "DuncanFill_legs",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 379.53118324140456,
+   "tris": 1793
+  },
+  {
+   "object": "DuncanFill_skirt",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 388.98452551409883,
+   "tris": 410
+  },
+  {
+   "object": "MercenaryFill_arms",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 378.9390807278422,
+   "tris": 1994
+  },
+  {
+   "object": "TrooperCapL",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 508.2733367569592,
+   "tris": 168
+  },
+  {
+   "object": "TrooperCapR",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 508.27334404295675,
+   "tris": 168
+  },
+  {
+   "object": "TrooperCuffL",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 544.0202457994046,
+   "tris": 320
+  },
+  {
+   "object": "TrooperCuffR",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 544.0202298211066,
+   "tris": 320
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 222
+  },
+  {
+   "object": "TrooperHat",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 540.3435051869781,
+   "tris": 1064
+  },
+  {
+   "object": "TrooperWaist",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 985.0708859971294,
+   "tris": 448
+  },
+  {
+   "object": "TrooperYoke0",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 792.7568577951972,
+   "tris": 192
+  },
+  {
+   "object": "TrooperYoke1",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 1027.950139230672,
+   "tris": 192
+  },
+  {
+   "object": "TrooperYoke2",
+   "material": "Mat_Thorvald",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Albedo.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2453,
+     0.2082,
+     0.1891
+    ],
+    "mean_saturation": 0.3347,
+    "sharpness": 0.8003
+   },
+   "metallic_gloss_ao": {
+    "image": "Thorvald_MetallicGlossAO.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Thorvald_Normal.png",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 1413.994740031406,
+   "tris": 192
+  }
+ ],
+ "problems": [],
+ "notes": [
+  "Commando: 4 bone influences on a vertex (game limit 3; 12b_assemble_export.py limits and normalises on export)"
+ ],
+ "total_tris": 9498,
+ "verdict": [
+  "tri count 9498 is inside the vanilla range"
+ ]
+}

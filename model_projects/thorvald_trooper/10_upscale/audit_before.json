@@ -1,0 +1,400 @@
+{
+ "label": "before",
+ "blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T6_merged.blend",
+ "meshes": [
+  {
+   "name": "CommandoHead",
+   "tris": 1000,
+   "verts": 552,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Commando"
+   ]
+  },
+  {
+   "name": "DuncanFill_legs",
+   "tris": 1793,
+   "verts": 1171,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Duncan"
+   ]
+  },
+  {
+   "name": "DuncanFill_sash",
+   "tris": 594,
+   "verts": 369,
+   "max_influences": 3,
+   "materials": [
+    "Mat_DuncanSash"
+   ]
+  },
+  {
+   "name": "Gurney",
+   "tris": 3246,
+   "verts": 2350,
+   "max_influences": 4,
+   "materials": [
+    "Mat_Gurney"
+   ]
+  },
+  {
+   "name": "TrooperEmblem",
+   "tris": 74,
+   "verts": 77,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Duncan",
+    "Mat_Gurney"
+   ]
+  },
+  {
+   "name": "TrooperHat",
+   "tris": 1216,
+   "verts": 640,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald_Trim"
+   ]
+  },
+  {
+   "name": "TrooperNeck",
+   "tris": 240,
+   "verts": 147,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Thorvald_Trim"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "object": "CommandoHead",
+   "material": "Mat_Commando",
+   "slot": 0,
+   "albedo": {
+    "image": "Commando_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.235,
+     0.1948,
+     0.1811
+    ],
+    "mean_saturation": 0.2568,
+    "sharpness": 0.794
+   },
+   "metallic_gloss_ao": {
+    "image": "Commando_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Commando_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 499.7926551820267,
+   "tris": 1000
+  },
+  {
+   "object": "DuncanFill_legs",
+   "material": "Mat_Duncan",
+   "slot": 0,
+   "albedo": {
+    "image": "Duncan_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2177,
+     0.2154,
+     0.1848
+    ],
+    "mean_saturation": 0.2388,
+    "sharpness": 0.9541
+   },
+   "metallic_gloss_ao": {
+    "image": "Duncan_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Duncan_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 379.5316837252756,
+   "tris": 1793
+  },
+  {
+   "object": "DuncanFill_sash",
+   "material": "Mat_DuncanSash",
+   "slot": 0,
+   "albedo": {
+    "image": "Duncan_Sash_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2481,
+     0.2291,
+     0.1936
+    ],
+    "mean_saturation": 0.2746,
+    "sharpness": 1.0089
+   },
+   "metallic_gloss_ao": {
+    "image": "Duncan_MetallicGlossAO.png.003",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Duncan_Normal.png.003",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 374.8249832596764,
+   "tris": 594
+  },
+  {
+   "object": "Gurney",
+   "material": "Mat_Gurney",
+   "slot": 0,
+   "albedo": {
+    "image": "Gurney_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1756,
+     0.1629,
+     0.1423
+    ],
+    "mean_saturation": 0.2578,
+    "sharpness": 0.8009
+   },
+   "metallic_gloss_ao": {
+    "image": "Gurney_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Gurney_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 430.7934900418019,
+   "tris": 3246
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Duncan",
+   "slot": 0,
+   "albedo": {
+    "image": "Duncan_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2177,
+     0.2154,
+     0.1848
+    ],
+    "mean_saturation": 0.2388,
+    "sharpness": 0.9541
+   },
+   "metallic_gloss_ao": {
+    "image": "Duncan_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Duncan_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 50
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Gurney",
+   "slot": 1,
+   "albedo": {
+    "image": "Gurney_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1756,
+     0.1629,
+     0.1423
+    ],
+    "mean_saturation": 0.2578,
+    "sharpness": 0.8009
+   },
+   "metallic_gloss_ao": {
+    "image": "Gurney_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Gurney_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 24
+  },
+  {
+   "object": "TrooperHat",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 0,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": 540.0201634286653,
+   "tris": 1216
+  },
+  {
+   "object": "TrooperNeck",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 0,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 240
+  }
+ ],
+ "problems": [
+  "DuncanFill_legs/Mat_Duncan metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "DuncanFill_sash/Mat_DuncanSash metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "Gurney/Mat_Gurney metallic_gloss_ao: alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "TrooperEmblem/Mat_Duncan metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "TrooperEmblem/Mat_Gurney metallic_gloss_ao: alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255"
+ ],
+ "notes": [
+  "Gurney: 4 bone influences on a vertex (game limit 3; 12b_assemble_export.py limits and normalises on export)"
+ ],
+ "total_tris": 8163,
+ "verdict": [
+  "tri count 8163 is inside the vanilla range"
+ ]
+}

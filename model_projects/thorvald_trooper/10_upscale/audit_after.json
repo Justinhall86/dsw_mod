@@ -1,0 +1,384 @@
+{
+ "label": "after",
+ "blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T6_up2.blend",
+ "meshes": [
+  {
+   "name": "CommandoHead",
+   "tris": 1000,
+   "verts": 552,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Commando"
+   ]
+  },
+  {
+   "name": "DuncanFill_legs",
+   "tris": 1793,
+   "verts": 1171,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Duncan"
+   ]
+  },
+  {
+   "name": "DuncanFill_sash",
+   "tris": 594,
+   "verts": 369,
+   "max_influences": 3,
+   "materials": [
+    "Mat_DuncanSash"
+   ]
+  },
+  {
+   "name": "Gurney",
+   "tris": 3246,
+   "verts": 2350,
+   "max_influences": 4,
+   "materials": [
+    "Mat_Gurney"
+   ]
+  },
+  {
+   "name": "TrooperEmblem",
+   "tris": 74,
+   "verts": 77,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Duncan",
+    "Mat_Gurney"
+   ]
+  },
+  {
+   "name": "TrooperHat",
+   "tris": 1216,
+   "verts": 640,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald_Trim"
+   ]
+  },
+  {
+   "name": "TrooperNeck",
+   "tris": 240,
+   "verts": 147,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Thorvald_Trim"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "object": "CommandoHead",
+   "material": "Mat_Commando",
+   "slot": 0,
+   "albedo": {
+    "image": "CommandoHead_0_up2_Albedo",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2361,
+     0.1965,
+     0.1821
+    ],
+    "mean_saturation": 0.2563,
+    "sharpness": 0.395
+   },
+   "metallic_gloss_ao": {
+    "image": "CommandoHead_0_up2_MetallicGlossAO",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "CommandoHead_0_up2_Normal",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 999.5853103640534,
+   "tris": 1000
+  },
+  {
+   "object": "DuncanFill_legs",
+   "material": "Mat_Duncan",
+   "slot": 0,
+   "albedo": {
+    "image": "DuncanFill_legs_0_up2_Albedo",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2182,
+     0.2151,
+     0.1852
+    ],
+    "mean_saturation": 0.2397,
+    "sharpness": 0.4733
+   },
+   "metallic_gloss_ao": {
+    "image": "DuncanFill_legs_0_up2_MetallicGlossAO",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "DuncanFill_legs_0_up2_Normal",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 759.0633674505513,
+   "tris": 1793
+  },
+  {
+   "object": "DuncanFill_sash",
+   "material": "Mat_DuncanSash",
+   "slot": 0,
+   "albedo": {
+    "image": "DuncanFill_sash_0_up2_Albedo",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2483,
+     0.2298,
+     0.195
+    ],
+    "mean_saturation": 0.2739,
+    "sharpness": 0.4981
+   },
+   "metallic_gloss_ao": {
+    "image": "DuncanFill_sash_0_up2_MetallicGlossAO",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "DuncanFill_sash_0_up2_Normal",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 749.6499665193528,
+   "tris": 594
+  },
+  {
+   "object": "Gurney",
+   "material": "Mat_Gurney",
+   "slot": 0,
+   "albedo": {
+    "image": "Gurney_0_up2_Albedo",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1786,
+     0.1643,
+     0.1431
+    ],
+    "mean_saturation": 0.2572,
+    "sharpness": 0.3968
+   },
+   "metallic_gloss_ao": {
+    "image": "Gurney_0_up2_MetallicGlossAO",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Gurney_0_up2_Normal",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": 861.5869800836037,
+   "tris": 3246
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Duncan",
+   "slot": 0,
+   "albedo": {
+    "image": "DuncanFill_legs_0_up2_Albedo",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2182,
+     0.2151,
+     0.1852
+    ],
+    "mean_saturation": 0.2397,
+    "sharpness": 0.4733
+   },
+   "metallic_gloss_ao": {
+    "image": "DuncanFill_legs_0_up2_MetallicGlossAO",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "DuncanFill_legs_0_up2_Normal",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 50
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Gurney",
+   "slot": 1,
+   "albedo": {
+    "image": "Gurney_0_up2_Albedo",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1786,
+     0.1643,
+     0.1431
+    ],
+    "mean_saturation": 0.2572,
+    "sharpness": 0.3968
+   },
+   "metallic_gloss_ao": {
+    "image": "Gurney_0_up2_MetallicGlossAO",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Gurney_0_up2_Normal",
+    "size": [
+     2048,
+     2048
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 24
+  },
+  {
+   "object": "TrooperHat",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 0,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": 540.0201634286653,
+   "tris": 1216
+  },
+  {
+   "object": "TrooperNeck",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 0,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 240
+  }
+ ],
+ "problems": [],
+ "notes": [
+  "Gurney: 4 bone influences on a vertex (game limit 3; 12b_assemble_export.py limits and normalises on export)"
+ ],
+ "total_tris": 8163,
+ "verdict": [
+  "tri count 8163 is inside the vanilla range"
+ ]
+}
