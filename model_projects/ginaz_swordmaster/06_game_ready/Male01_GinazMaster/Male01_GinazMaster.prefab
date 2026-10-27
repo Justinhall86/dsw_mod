@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_GinazMaster",
+			"source": "CharMOD/Male01_GinazMaster/Male01_GinazMaster.hmd"
+		}
+	]
+}
