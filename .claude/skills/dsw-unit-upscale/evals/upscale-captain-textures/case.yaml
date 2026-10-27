@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: upscale-captain-textures
+expected_outcome: |
+  The unit is audited before and after, its 512/256 px textures are raised to 1024/512 (the 2048 map stays 2048), colours do not drift,
+  maps are RGBA with alpha 255, the result is a new blend (the input is untouched), a before/after comparison with numbers is reported,
+  the preview was rendered with matte game-style wiring and looked at, and the live game and pak were not changed.

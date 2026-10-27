@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: add-detail-low-poly-unit
+expected_outcome: |
+  The run audits the triangle budget first, subdivides only the coat (one part, one level), keeps the unit total under the 12k vanilla ceiling,
+  keeps at most 3 bone influences per vertex, renders before and after at the same camera with the matte preview, checks at least one animation clip for tearing,
+  and saves a new blend instead of overwriting the input.

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: fix-hazy-preview
+expected_outcome: |
+  The run tests the haze (specular off or matte wiring on the same close-up), concludes the textures are fine and the preview wiring/lighting
+  causes it, renders a matte comparison it looked at, leaves the textures and export blends unchanged, and gives the user a PREVIEW blend or matte renders.
