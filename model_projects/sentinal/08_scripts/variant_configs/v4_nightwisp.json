@@ -1,0 +1,41 @@
+{
+  "name": "nightwisp",
+  "brief": "4. NIGHTWISP - silent runner: nacelles gone, hull flattened to a blade, starboard wing sheared out of true, one port sensor boom, matte black paint.",
+  "paint": [
+    {"mode": "desat", "factor": 0.8},
+    {"mode": "darken", "factor": 0.7},
+    {"box": [[0.2, 0.95], [0.2, 0.8], [0.2, 1]], "mode": "gain",
+     "factor": 1.65},
+    {"box": [[-1, -0.55], [0.2, 1], [-1, 1]], "mode": "gain",
+     "factor": 1.45},
+    {"box": [[-0.2, 0.3], [-1.2, -0.7], [-1, 1]], "mode": "replace",
+     "color": [214, 140, 58], "alpha": 0.75}
+  ],
+  "ops": [
+    {"op": "delete_islands", "box": [[-0.45, -0.05], [0.85, 1.0], [-0.6, 0.6]],
+     "label": "nacelle_starboard"},
+    {"op": "delete_islands", "box": [[-0.45, -0.05], [-1.0, -0.85], [-0.6, 0.6]],
+     "label": "nacelle_port"},
+    {"op": "deform", "label": "flatten the hull to a blade",
+     "scale": [1, 1, 0.55], "pivot": [0, 0, -1.0]},
+    {"op": "deform", "label": "crush the bridge flush",
+     "band": [0, 0.2, 0.85], "scale": [1, 1, 0.72], "pivot": [0, 0, -0.8]},
+    {"op": "deform", "label": "mirror-break: starboard wing aft + in",
+     "band": [1, 0.1, 1.0], "scale": [1, 0.82, 1], "pivot": [0, 0, 0],
+     "shear": [0, 1, -0.3]}
+  ],
+  "parts": [
+    {"kind": "box", "name": "boom_mount", "size": [1.1, 1.0, 0.55],
+     "loc": [0.1, -0.6, 0.12]},
+    {"kind": "cyl", "name": "boom", "radius": 0.1, "depth": 3.4,
+     "axis": "y", "segments": 8, "loc": [0.1, -0.9, 0.2],
+     "rot": [0, 0, 0]},
+    {"kind": "cyl", "name": "dish", "radius": 0.42, "depth": 0.3,
+     "axis": "y", "segments": 10, "loc": [0.1, -1.18, 0.2],
+     "rot": [0, 12, 0]},
+    {"kind": "box", "name": "strut_a", "size": [0.22, 1.5, 0.22],
+     "loc": [0.36, -0.72, -0.02], "rot": [0, 0, 18]},
+    {"kind": "box", "name": "strut_b", "size": [0.22, 1.5, 0.22],
+     "loc": [-0.16, -0.72, -0.02], "rot": [0, 0, -18]}
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "longshot",
+  "brief": "5. LONGSHOT - spinal-gun brig: hull stretched to 1.5x length, span narrowed, long dorsal barrel on a rail, twin stern shrouds, amber spine stripe.",
+  "paint": [
+    {"box": [[-1, 1], [-0.06, 0.06], [0.15, 1]], "mode": "replace",
+     "color": [214, 140, 58], "alpha": 0.92},
+    {"box": [[-1, -0.78], [-0.5, 0.5], [-1, 0.45]], "mode": "darken",
+     "factor": 0.5},
+    {"box": [[0.25, 0.85], [0.15, 0.75], [-0.7, 0.3]], "mode": "stencil",
+     "text": "IX", "color": [214, 140, 58], "px": 44}
+  ],
+  "ops": [
+    {"op": "deform", "label": "stretch the hull to 1.5x",
+     "scale": [1.5, 1, 1], "pivot": [0, 0, 0]},
+    {"op": "deform", "label": "narrow starboard wing",
+     "band": [1, 0.1, 1.0], "scale": [1, 0.72, 1], "pivot": [0, 0, 0]},
+    {"op": "deform", "label": "narrow port wing",
+     "band": [1, 0.1, -1.0], "scale": [1, 0.72, 1], "pivot": [0, 0, 0]},
+    {"op": "deform", "label": "drop the stern deck",
+     "band": [0, -0.35, -1.0], "scale": [1, 1, 0.88], "pivot": [0, 0, -1.0]}
+  ],
+  "parts": [
+    {"kind": "box", "name": "spine_rail", "size": [12.0, 0.6, 0.5],
+     "loc": [0.0, 0, 0.42], "taper": [0.95, 0.9]},
+    {"kind": "cyl", "name": "barrel", "radius": 0.24, "depth": 11.0,
+     "axis": "x", "segments": 12, "loc": [0.1, 0, 0.74]},
+    {"kind": "box", "name": "breech", "size": [2.4, 0.95, 0.75],
+     "loc": [-0.3, 0, 0.62]},
+    {"kind": "cyl", "name": "muzzle", "radius": 0.34, "depth": 1.0,
+     "axis": "x", "segments": 12, "hollow": 0.42, "loc": [0.78, 0, 0.74]},
+    {"kind": "cyl", "name": "shroud_port", "radius": 0.55, "depth": 1.8,
+     "axis": "x", "segments": 10, "hollow": 0.35, "loc": [-1.02, 0.17, -0.3]},
+    {"kind": "cyl", "name": "shroud_starboard", "radius": 0.55, "depth": 1.8,
+     "axis": "x", "segments": 10, "hollow": 0.35, "loc": [-1.02, -0.17, -0.3]}
+  ]
+}

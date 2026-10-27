@@ -1,5 +1,5 @@
 """Kitbash v2: graft DroneS (the Smuggler combat drone - the asset already
-earmarked as this house's own Drone unit in house/units.md) onto the
+earmarked as House Thorvald's own Drone unit in house_thorvald/units.md) onto the
 Sentinal frigate's dorsal spine as a mounted recon/turret pod. Same
 whole-object-graft technique as v1 (DroneA), swapped to the donor that's
 actually staying in the roster, so the Frigate and Drone units share a

@@ -2,10 +2,10 @@
 
 ## What this project is
 
-A modding workspace for the new (unnamed) House's **Frigate** unit - the
-heavy air/gunship slot in `house/units.md`. Source asset is
+A modding workspace for **House Thorvald's** **Frigate** unit - the
+heavy air/gunship slot in `house_thorvald/units.md`. Source asset is
 `model_inputs/Vehicle/Common/Renegade_Frigate` (filename only, not a canon
-name - working name **Sentinal** until the house/unit name is locked).
+name - working name **Sentinal** until the unit name is locked).
 
 This file is the modding **options read**: what can and can't be done to
 this specific mesh, with two working examples delivered and a third
@@ -122,7 +122,7 @@ Technique (see `08_scripts/11_build_kitbash_v1.py`):
 ### Kitbash v2 - `sentinal_kitbash_v2_droneS` (the real donor)
 
 v1 used `DroneA` (Atreides) only because it was already converted from an
-earlier task. The house's roster plan (`house/units.md`) already earmarks
+earlier task. House Thorvald's roster plan (`house_thorvald/units.md`) already earmarks
 **`DroneS`** (the Smuggler combat drone) as this house's own Drone unit, so
 re-running the graft with the actual donor makes the Frigate and the Drone
 share a silhouette family on purpose, not by accident - the pod mounted on
@@ -297,7 +297,7 @@ whether to add, swap, or drop it from a combo.
 
 ## Open decisions
 
-- Frigate in-game name still not locked (`house/units.md` has candidates).
+- Frigate in-game name still not locked (`house_thorvald/units.md` has candidates).
 - **Pick a direction: `graft_v7_hero_combo` is the recommendation** - it's
   the finished, multi-donor result. If a single simpler addition is wanted
   instead, `graft_v6_shuttle_hatch` (boldest, best alone) or
