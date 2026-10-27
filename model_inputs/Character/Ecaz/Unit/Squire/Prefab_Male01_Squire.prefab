@@ -1,0 +1,39 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Male01_Squire",
+			"source": "Character/Ecaz/Unit/Squire/Male01_Squire.fbx",
+			"type": "model",
+			"children": [
+				{
+					"name": "camera",
+					"x": 1.6715626158904322,
+					"y": 0.3824053622689319,
+					"z": 1.5603448403676545,
+					"scaleY": 0.9999999999999999,
+					"rotationY": 8.611984786804088,
+					"rotationZ": -168.24440218380892,
+					"fovY": 60,
+					"zFar": 1000,
+					"zNear": 0.1,
+					"type": "camera"
+				}
+			]
+		},
+		{
+			"name": "Landsraad_Halberd",
+			"source": "Character/Ecaz/Weapon/SpearSquire/SpearSquire.fbx",
+			"y": -0.14198,
+			"z": 0.01736,
+			"rotationX": -87.3,
+			"type": "model"
+		},
+		{
+			"name": "constraint",
+			"object": "Landsraad_Halberd",
+			"target": "Male01_Squire.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon",
+			"type": "constraint"
+		}
+	]
+}

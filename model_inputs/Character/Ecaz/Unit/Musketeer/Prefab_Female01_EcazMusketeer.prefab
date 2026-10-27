@@ -1,0 +1,44 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Female01_EcazMusketeer",
+			"source": "Character/Ecaz/Unit/Musketeer/Female01_EcazMusketeer.fbx",
+			"type": "model",
+			"children": [
+				{
+					"name": "camera",
+					"x": 1.8958451733330142,
+					"y": 0.42763824722886346,
+					"z": 1.465305788636358,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 0.9999999999999999,
+					"rotationX": 4.9822208763585816e-17,
+					"rotationY": 4.076384611363304,
+					"rotationZ": -170.2105980014454,
+					"fovY": 60,
+					"zFar": 1000,
+					"zNear": 0.1,
+					"type": "camera"
+				}
+			]
+		},
+		{
+			"name": "MusketeerRifle",
+			"source": "Character/Ecaz/Weapon/MusketeerRifle/MusketeerRifle.fbx",
+			"x": 0.09097,
+			"y": 0.07495,
+			"z": -0.18043,
+			"rotationX": -108,
+			"rotationY": -105.8,
+			"rotationZ": 16.8,
+			"type": "model"
+		},
+		{
+			"name": "constraint",
+			"object": "MusketeerRifle",
+			"target": "Female01_EcazMusketeer.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun",
+			"type": "constraint"
+		}
+	]
+}

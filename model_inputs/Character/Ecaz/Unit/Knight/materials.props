@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"KnightElite02:MAT_Knight": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			},
+			"KnightElite03:MAT_Knight": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_WhitmoreBludd",
+			"source": "Character/Ecaz/Unit/WhitmoreBludd/Male01_WhitmoreBludd.fbx"
+		},
+		{
+			"type": "model",
+			"name": "SwordWhitmoreL",
+			"source": "Character/Ecaz/Weapon/SwordWhitmore/SwordWhitmore.fbx",
+			"x": -0.04768,
+			"y": -0.24886,
+			"z": -0.02134,
+			"scaleY": 1.0000000000000002,
+			"scaleZ": 1.0000000000000002,
+			"rotationX": -85.1
+		},
+		{
+			"type": "model",
+			"name": "SwordWhitmoreR",
+			"source": "Character/Ecaz/Weapon/SwordWhitmore/SwordWhitmore.fbx",
+			"x": -0.02671,
+			"y": -0.41025,
+			"z": -0.00756,
+			"rotationX": -89,
+			"rotationY": 22.3,
+			"rotationZ": 0.4
+		},
+		{
+			"type": "constraint",
+			"name": "ConstraintL",
+			"object": "SwordWhitmoreL",
+			"target": "Male01_WhitmoreBludd.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "constraint",
+			"name": "ConstraintR",
+			"object": "SwordWhitmoreR",
+			"target": "Male01_WhitmoreBludd.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_Shield"
+		}
+	]
+}

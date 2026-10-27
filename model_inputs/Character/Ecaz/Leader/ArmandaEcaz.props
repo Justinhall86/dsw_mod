@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Armanda_Neutral_Welcome.fbx": {
+			"events": [
+				{
+					"frame": 126,
+					"data": "Play"
+				}
+			]
+		}
+	}
+}

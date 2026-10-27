@@ -1,0 +1,15 @@
+{
+	"materials": {
+		"PBR": {
+			"eyes_liet1:blinn2SG1": {
+				"mode": "PBR",
+				"blend": "Add",
+				"shadows": false,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}

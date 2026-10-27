@@ -1,0 +1,345 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Hide",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.Vignetting",
+					"name": "Vignetting",
+					"enabled": false
+				},
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 0.58,
+					"threshold": 0.9,
+					"intensity": 0.26,
+					"blur": 20,
+					"saturation": 1
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Character/Atreide/Leader/Leto/LetoLUT_raw.png",
+					"intensity": 0.2
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.56,
+			"rotation": 20,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/museum_of_ethnography_1k.hdr"
+		},
+		{
+			"type": "model",
+			"name": "ArmandaEcaz",
+			"source": "Character/Ecaz/Leader/ArmandaEcaz.fbx",
+			"x": -0.08,
+			"rotationZ": -5,
+			"animation": "Character/Ecaz/Leader/Animations/Anim_Armanda_Neutral_Idle.fbx",
+			"children": [
+				{
+					"type": "box",
+					"name": "box",
+					"editorOnly": true,
+					"z": 1.37,
+					"scaleX": 0.1,
+					"scaleY": 0.1,
+					"scaleZ": 0.1
+				},
+				{
+					"type": "material",
+					"name": "material_cornea",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"drawOrder": "100"
+						}
+					},
+					"diffuseMap": "Character/Atreide/Leader/Leto/Leto_Cornea_Albedo.png",
+					"normalMap": "Character/Atreide/Leader/Leto/Leto_Cornea_Normal.png",
+					"specularMap": "Character/Atreide/Leader/Leto/Leto_Cornea_MetallicGlossAO.png",
+					"materialName": "Mat_Cornea",
+					"color": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				{
+					"type": "material",
+					"name": "material_Armanda",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Ecaz/Leader/ArmandaEcaz_Albedo.png",
+					"materialName": "MAT_Armanda",
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 1,
+							"specularTint": 0.8,
+							"specularColorPath": "Character/Ecaz/Leader/ArmandaEcaz_SpecColor.png",
+							"mode": "Texture"
+						},
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"intensity": 0.2,
+							"maxAmountPerLight": 0.1,
+							"translucencyTexture": "Character/Ecaz/Leader/ArmandaEcaz_SSSThickness.png"
+						},
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"intensity": 0.23,
+							"noiseFrequency": 96.21,
+							"intensityFactor": 0.8,
+							"noiseIntensityPath": "Character/Ecaz/Leader/ArmandaEcaz_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Ecaz/Leader/ArmandaEcaz_AnisoAngle.png",
+							"rotationOffset": 144.55
+						}
+					]
+				},
+				{
+					"type": "material",
+					"name": "material_hair",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "Alpha",
+							"shadows": true,
+							"culling": "None",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"alphaKill": false,
+							"depthWrite": "On"
+						}
+					},
+					"materialName": "MAT_Hair",
+					"children": [
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"mainColor": 12428685,
+							"nearColor": 11176536,
+							"intensity": 0.1,
+							"maxAmountPerLight": 0.1
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "light",
+			"name": "Main_Light",
+			"x": 0.92116,
+			"y": -0.74079,
+			"z": 1.78231,
+			"scaleX": 4.45,
+			"scaleY": 2.516663680991616,
+			"scaleZ": 2.5166636809916154,
+			"rotationX": -2.7,
+			"rotationY": 24.55,
+			"rotationZ": 139.1,
+			"kind": "Spot",
+			"color": 16746834,
+			"power": 1.5,
+			"range": 1.86,
+			"zNear": 0.02,
+			"angle": 41.45,
+			"fallOff": 0
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": -0.5,
+			"y": -3.166203286957874,
+			"z": 1.2837056882841176,
+			"scaleX": 0.9999999999999999,
+			"scaleY": 0.9999999999999999,
+			"scaleZ": 0.9999999999999999,
+			"rotationY": 1.5000000000000122,
+			"rotationZ": 82.49999999999996,
+			"fovY": 18,
+			"zFar": 37.88
+		},
+		{
+			"type": "light",
+			"name": "RimLight_0",
+			"x": 0.98,
+			"y": 0.87,
+			"z": 1.72,
+			"scaleX": 1.58,
+			"scaleY": 0.9308768576333822,
+			"scaleZ": 0.9308768576333821,
+			"rotationX": 3.2,
+			"rotationY": 10.4,
+			"rotationZ": -129.7,
+			"kind": "Spot",
+			"color": 16739367,
+			"power": 4,
+			"range": 1.58,
+			"zNear": 0.02,
+			"angle": 61.01,
+			"fallOff": 1,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0,
+				"quality": 1,
+				"bias": 0.0003,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "Main_Light_0",
+			"x": -0.77575,
+			"y": -1.16326,
+			"z": 2.11073,
+			"scaleX": 2.5799999999999996,
+			"scaleY": 0.7075023971047603,
+			"scaleZ": 0.7075023971047605,
+			"rotationX": -3.8,
+			"rotationY": 19.7,
+			"rotationZ": 57.4,
+			"kind": "Spot",
+			"color": 16769746,
+			"power": 2.27,
+			"range": 2.44,
+			"zNear": 0.02,
+			"angle": 56.29,
+			"fallOff": 0,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0,
+				"quality": 1,
+				"bias": 0.01,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "RimLight",
+			"x": -0.37,
+			"y": 1.04,
+			"z": 1.81,
+			"scaleX": 1.5800000000000005,
+			"scaleY": 0.9182903103278274,
+			"scaleZ": 0.9182903103278275,
+			"rotationX": 11.6,
+			"rotationY": 19.5,
+			"rotationZ": -71.7,
+			"kind": "Spot",
+			"color": 16744489,
+			"power": 0,
+			"range": 1.58,
+			"zNear": 0.02,
+			"angle": 60.33,
+			"fallOff": 1
+		},
+		{
+			"type": "model",
+			"name": "ArmandaGlass",
+			"source": "Character/Ecaz/Leader/ArmandaGlass.fbx",
+			"x": -0.01739,
+			"y": -0.17257,
+			"z": -0.00149,
+			"rotationX": -89,
+			"rotationY": 0.4,
+			"rotationZ": -5,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 1,
+							"specularTint": 0.8
+						},
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"intensity": 0.51
+						},
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"intensity": 0.2,
+							"maxAmountPerLight": 0.1,
+							"translucencyTexture": "Character/Ecaz/Leader/GlassEcaz_SSSThickness.png"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "ArmandaGlass",
+			"target": "ArmandaEcaz.root.B_ROOTJ.ATTACH_Glass"
+		}
+	]
+}

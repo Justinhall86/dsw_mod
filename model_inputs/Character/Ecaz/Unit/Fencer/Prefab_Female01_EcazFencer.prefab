@@ -1,0 +1,58 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Female01_EcazFencer",
+			"source": "Character/Ecaz/Unit/Fencer/Female01_EcazFencer.fbx",
+			"type": "model",
+			"children": [
+				{
+					"name": "camera",
+					"x": 1.5396357345768021,
+					"y": 0.44444915253823475,
+					"z": 1.8737222651490884,
+					"rotationY": 13.881147102524533,
+					"rotationZ": -167.26435938979407,
+					"fovY": 60,
+					"zFar": 1000,
+					"zNear": 0.1,
+					"type": "camera"
+				}
+			]
+		},
+		{
+			"name": "LittleSword",
+			"source": "Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx",
+			"x": 0.02183,
+			"y": -0.16015,
+			"z": 0.07623,
+			"rotationX": 34,
+			"rotationY": -97.4,
+			"rotationZ": -121.2,
+			"type": "model"
+		},
+		{
+			"name": "TallSword",
+			"source": "Character/Ecaz/Weapon/FencerDoubleKnife/LittleSword.fbx",
+			"x": 0.08205,
+			"y": -0.07809,
+			"z": -0.00652,
+			"rotationX": -90.2,
+			"rotationY": 27.7,
+			"rotationZ": 9,
+			"type": "model"
+		},
+		{
+			"name": "Constraint_L",
+			"object": "TallSword",
+			"target": "Female01_EcazFencer.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_Weapon_L",
+			"type": "constraint"
+		},
+		{
+			"name": "Constraint_R",
+			"object": "LittleSword",
+			"target": "Female01_EcazFencer.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon",
+			"type": "constraint"
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_EcazIlesa",
+			"source": "Character/Ecaz/Unit/Ilesa/Female01_EcazIlesa.fbx"
+		},
+		{
+			"type": "model",
+			"name": "GunIlesaL",
+			"source": "Character/Ecaz/Weapon/GunIlesa/GunIlesa.fbx",
+			"y": -0.00497,
+			"z": -0.05309,
+			"rotationX": -91.4
+		},
+		{
+			"type": "constraint",
+			"name": "constraintL",
+			"object": "GunIlesaL",
+			"target": "Female01_EcazIlesa.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		},
+		{
+			"type": "model",
+			"name": "GunR",
+			"source": "Character/Ecaz/Weapon/GunIlesa/GunIlesa.fbx",
+			"x": 0.04004,
+			"y": 0.01882,
+			"z": 0.21258,
+			"rotationX": -88.1,
+			"rotationY": 9.9,
+			"rotationZ": -6.2
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "GunR",
+			"target": "Female01_EcazIlesa.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

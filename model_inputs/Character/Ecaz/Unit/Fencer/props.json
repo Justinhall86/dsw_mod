@@ -1,0 +1,11 @@
+{
+	"hmd.animPaths" : [
+		"/Anim/Female01",
+		"/Anim/Female01/MissileLauncher",
+		"/Anim/Female01/DualSwords",
+		"/Anim/Female01/Pistol",
+		"/Anim/Female01/Rifle",
+		"/Anim/Female01/Shield",
+		"/Anim/Female01/Fencer"
+	]
+}

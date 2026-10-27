@@ -1,0 +1,40 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Male01_Knight",
+			"source": "Character/Ecaz/Unit/Knight/Male01_Knight.fbx",
+			"type": "model",
+			"children": [
+				{
+					"name": "camera",
+					"x": 1.5999795870973614,
+					"y": 0.6290592140609987,
+					"z": 1.6343025018229973,
+					"scaleZ": 0.9999999999999999,
+					"rotationX": -4.016820839462964e-16,
+					"rotationY": 8.206042130583782,
+					"rotationZ": -159.05817108655162,
+					"fovY": 60,
+					"zFar": 1000,
+					"zNear": 0.1,
+					"type": "camera"
+				}
+			]
+		},
+		{
+			"name": "SwordKnight",
+			"source": "Character/Ecaz/Weapon/SwordKnight/SwordKnight.fbx",
+			"y": -0.09635,
+			"z": 0.03033,
+			"rotationX": -92.5,
+			"type": "model"
+		},
+		{
+			"name": "constraint",
+			"object": "SwordKnight",
+			"target": "Male01_Knight.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon",
+			"type": "constraint"
+		}
+	]
+}
