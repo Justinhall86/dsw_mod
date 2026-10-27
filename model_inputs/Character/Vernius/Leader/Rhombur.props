@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_Rhombur_Neutral_Welcome.fbx": {
+			"events": [
+				{
+					"frame": 13,
+					"data": "Play"
+				}
+			]
+		}
+	}
+}

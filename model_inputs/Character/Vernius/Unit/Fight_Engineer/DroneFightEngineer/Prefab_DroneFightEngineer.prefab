@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "DroneFightEngineer",
+			"source": "Character/Vernius/Unit/Fight_Engineer/DroneFightEngineer/DroneFightEngineer.fbx",
+			"type": "model"
+		}
+	]
+}

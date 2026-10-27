@@ -1,0 +1,41 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Male01_Suboid",
+			"source": "Character/Vernius/Unit/Suboid/Male01_Suboid.fbx",
+			"type": "model"
+		},
+		{
+			"name": "Prefab_SuboidWrench",
+			"source": "Character/Vernius/Weapon/SuboidWrench/Prefab_SuboidWrench.prefab",
+			"x": 0.03543,
+			"y": 0.15908,
+			"z": -0.00422,
+			"rotationX": 72,
+			"rotationY": -143.1,
+			"rotationZ": 8.8,
+			"type": "reference",
+			"children": [
+				{
+					"name": "constraint",
+					"object": "Prefab_SuboidWrench",
+					"target": "Male01_Suboid.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon",
+					"type": "constraint"
+				}
+			]
+		},
+		{
+			"name": "camera",
+			"x": 2.212147332278244,
+			"y": 0.7228215470475705,
+			"z": 1.6548543671901457,
+			"rotationX": -2.018120678184322e-16,
+			"rotationY": 9.936727735108645,
+			"rotationZ": -161.7907911657609,
+			"zFar": 1000,
+			"zNear": 0.1,
+			"type": "camera"
+		}
+	]
+}

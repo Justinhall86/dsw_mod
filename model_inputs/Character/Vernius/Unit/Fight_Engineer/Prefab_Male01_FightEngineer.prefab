@@ -1,0 +1,44 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Male01_FightEngineer",
+			"source": "Character/Vernius/Unit/Fight_Engineer/Male01_FightEngineer.fbx",
+			"x": -0.47333,
+			"y": -0.00518,
+			"type": "model"
+		},
+		{
+			"name": "Prefab_EngineerRifle",
+			"source": "Character/Vernius/Weapon/EngineerSpear/Prefab_EngineerRifle.prefab",
+			"x": 0.06363,
+			"y": 0.05439,
+			"z": 0.05107,
+			"rotationX": -88.7,
+			"rotationY": 0.1,
+			"rotationZ": -3.6,
+			"type": "reference",
+			"children": [
+				{
+					"name": "constraint",
+					"object": "Prefab_EngineerRifle",
+					"target": "Male01_FightEngineer.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun",
+					"type": "constraint"
+				}
+			]
+		},
+		{
+			"name": "camera",
+			"x": 2.0503358431817746,
+			"y": 0.7721769591510981,
+			"z": 1.7704760662291257,
+			"rotationX": 2.0262220337422236e-16,
+			"rotationY": 11.168842414916645,
+			"rotationZ": -163.3407333729734,
+			"visible": false,
+			"zFar": 1000,
+			"zNear": 0.1,
+			"type": "camera"
+		}
+	]
+}

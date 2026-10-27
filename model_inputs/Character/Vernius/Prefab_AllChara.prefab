@@ -1,0 +1,44 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "Prefab_Male01_Ctair",
+			"source": "Character/Vernius/Unit/Ctair/Prefab_Male01_Ctair.prefab",
+			"x": -3.87084
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Male01_FightEngineer",
+			"source": "Character/Vernius/Unit/Fight_Engineer/Prefab_Male01_FightEngineer.prefab",
+			"x": -1.13554
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_FightingMek",
+			"source": "Character/Vernius/Unit/FightingMek/Prefab_FightingMek.prefab",
+			"x": 2.73986,
+			"y": -0.63475,
+			"z": 1.43196
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_DroneNuwa",
+			"source": "Character/Vernius/Unit/Nuwa/Prefab_DroneNuwa.prefab",
+			"x": -6.55938,
+			"z": 1.85279
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Male01_Suboid",
+			"source": "Character/Vernius/Unit/Suboid/Prefab_Male01_Suboid.prefab",
+			"x": 0.16831
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Nuwa",
+			"source": "Character/Vernius/Unit/Nuwa/Prefab_Nuwa.prefab",
+			"x": -5.9309
+		}
+	]
+}

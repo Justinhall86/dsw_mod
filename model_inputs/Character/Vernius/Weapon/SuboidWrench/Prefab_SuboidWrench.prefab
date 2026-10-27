@@ -1,0 +1,13 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SuboidWrench",
+			"source": "Character/Vernius/Weapon/SuboidWrench/SuboidWrench.fbx",
+			"scaleX": 0.9,
+			"scaleY": 0.9,
+			"scaleZ": 0.9
+		}
+	]
+}

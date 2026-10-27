@@ -1,0 +1,24 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "FightingMek",
+			"source": "Character/Vernius/Unit/FightingMek/FightingMek.fbx",
+			"type": "model",
+			"children": [
+				{
+					"name": "camera",
+					"x": 5.1314,
+					"y": 2.2255,
+					"z": 1.6724,
+					"rotationY": 5.432,
+					"rotationZ": -155.0475,
+					"fovY": 25,
+					"zFar": 1000,
+					"zNear": 0.1,
+					"type": "camera"
+				}
+			]
+		}
+	]
+}

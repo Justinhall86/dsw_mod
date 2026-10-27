@@ -1,0 +1,29 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_Ctair",
+			"source": "Character/Vernius/Unit/Ctair/Male01_Ctair.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_CtairSword",
+			"source": "Character/Vernius/Weapon/CtairSword/Prefab_CtairSword.prefab",
+			"x": -0.00368,
+			"y": 0.19856,
+			"z": 0.01148,
+			"rotationX": -35.8,
+			"rotationY": 101.1,
+			"rotationZ": -120.1,
+			"children": [
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "Prefab_CtairSword",
+					"target": "Male01_Ctair.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "EngineerRifle",
+			"source": "Character/Vernius/Weapon/EngineerSpear/EngineerRifle.fbx"
+		}
+	]
+}

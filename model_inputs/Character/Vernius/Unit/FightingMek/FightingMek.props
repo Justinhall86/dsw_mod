@@ -1,0 +1,28 @@
+{
+	"animations": {
+		"Anim_FightingMek_AttackMelee01.fbx": {
+			"events": [
+				{
+					"frame": 1,
+					"data": "Charge"
+				},
+				{
+					"frame": 35,
+					"data": "Shot"
+				}
+			]
+		},
+		"Anim_FightingMek_AttackMelee02.fbx": {
+			"events": [
+				{
+					"frame": 1,
+					"data": "Charge"
+				},
+				{
+					"frame": 46,
+					"data": "Shot"
+				}
+			]
+		}
+	}
+}

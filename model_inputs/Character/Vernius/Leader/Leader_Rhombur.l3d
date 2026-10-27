@@ -1,0 +1,473 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Hide",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Character/Harkonnen/Leader/Baron_LUT.png",
+					"intensity": 0.24
+				},
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 0.58,
+					"threshold": 0.8,
+					"intensity": 2,
+					"blur": 20,
+					"saturation": 0.1
+				},
+				{
+					"type": "rfx.temporalbloom",
+					"name": "temporalbloom",
+					"size": 0.81,
+					"downScaleCount": 2,
+					"threshold": 0.95,
+					"intensity": 0.67,
+					"maxValue": 100,
+					"temporalStrength": 0.1
+				},
+				{
+					"type": "rfx.sao",
+					"name": "sao",
+					"size": 0.72,
+					"blur": 10,
+					"blurQuality": 0.87,
+					"noiseScale": 0.94,
+					"samples": 30,
+					"radius": 0.78,
+					"intensity": 5.45,
+					"bias": 0.32,
+					"microIntensity": 0.06
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.41,
+			"hdrMax": 3,
+			"rotation": 136.36,
+			"diffSize": 32,
+			"specSize": 16,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/museum_of_ethnography_1k.hdr"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": -0.34,
+			"y": -2.8,
+			"z": 1.39,
+			"rotationY": 0.4924,
+			"rotationZ": 81.82,
+			"fovY": 18,
+			"zFar": 37.88
+		},
+		{
+			"type": "light",
+			"name": "Bounce_Light",
+			"x": 1.14839,
+			"y": 0.42456,
+			"z": 1.78231,
+			"scaleX": 1.8600000000000003,
+			"scaleY": 0.7037630438698301,
+			"scaleZ": 0.70376304386983,
+			"rotationX": -2.7,
+			"rotationY": 24.5,
+			"rotationZ": 154.5,
+			"kind": "Spot",
+			"color": 16746834,
+			"power": 0.83,
+			"range": 1.86,
+			"zNear": 0.02,
+			"angle": 41.45,
+			"fallOff": 0,
+			"debugDisplay": false
+		},
+		{
+			"type": "light",
+			"name": "MD1Light",
+			"x": 0.35971,
+			"y": 0.36206,
+			"z": 1.84377,
+			"scaleX": 1.8600000000000003,
+			"scaleY": 0.7037630438698301,
+			"scaleZ": 0.70376304386983,
+			"rotationX": -24.2,
+			"rotationY": 4.9,
+			"rotationZ": 81.7,
+			"kind": "Spot",
+			"color": 14929605,
+			"power": 1.52,
+			"range": 1.86,
+			"zNear": 0.02,
+			"angle": 41.45,
+			"fallOff": 0,
+			"debugDisplay": false
+		},
+		{
+			"type": "light",
+			"name": "MD2Light",
+			"x": -0.32914,
+			"y": -0.06204,
+			"z": 1.30064,
+			"scaleX": 1.8600000000000003,
+			"scaleY": 0.7037630438698301,
+			"scaleZ": 0.70376304386983,
+			"rotationX": -24.6,
+			"rotationY": 1.7,
+			"rotationZ": 74.7,
+			"kind": "Spot",
+			"color": 14929605,
+			"power": 1.36,
+			"range": 1,
+			"zNear": 0.02,
+			"angle": 41.45,
+			"fallOff": 0,
+			"debugDisplay": false
+		},
+		{
+			"type": "light",
+			"name": "MD3Light",
+			"x": 0.50481,
+			"y": 0.18087,
+			"z": 1.18574,
+			"scaleX": 1.8600000000000003,
+			"scaleY": 0.7037630438698301,
+			"scaleZ": 0.70376304386983,
+			"rotationX": -24,
+			"rotationY": 5.8,
+			"rotationZ": 83.7,
+			"kind": "Spot",
+			"color": 14929605,
+			"power": 0.91,
+			"range": 1,
+			"zNear": 0.02,
+			"angle": 41.45,
+			"fallOff": 0,
+			"debugDisplay": false
+		},
+		{
+			"type": "light",
+			"name": "RimLight_0",
+			"x": 0.74763,
+			"y": 2.02349,
+			"z": 1.70565,
+			"scaleX": 1.58,
+			"scaleY": 0.9308768576333822,
+			"scaleZ": 0.9308768576333821,
+			"rotationX": 3.2,
+			"rotationY": 10.4,
+			"rotationZ": -114.3,
+			"kind": "Spot",
+			"color": 2695324,
+			"power": 5.53,
+			"range": 1.72,
+			"zNear": 0.02,
+			"angle": 61.68,
+			"fallOff": 1,
+			"debugDisplay": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0,
+				"quality": 1,
+				"bias": 0.0003,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "Main_Light_0",
+			"x": 0.30485,
+			"y": 0.22561,
+			"z": 2.72992,
+			"scaleX": 2.5799999999999996,
+			"scaleY": 0.7075023971047603,
+			"scaleZ": 0.7075023971047605,
+			"rotationX": 27.3,
+			"rotationY": 64.2,
+			"rotationZ": 105.3,
+			"kind": "Spot",
+			"color": 12571125,
+			"power": 2,
+			"range": 5.46,
+			"zNear": 0.02,
+			"angle": 21.23,
+			"fallOff": 1,
+			"debugDisplay": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 5.45,
+				"quality": 1,
+				"bias": 0.02,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "RimLight",
+			"x": -1.08805,
+			"y": 1.29704,
+			"z": 1.77622,
+			"scaleX": 1.5800000000000005,
+			"scaleY": 0.9182903103278274,
+			"scaleZ": 0.9182903103278275,
+			"rotationX": 21.6,
+			"rotationY": 19.6,
+			"rotationZ": -26,
+			"kind": "Spot",
+			"color": 11327984,
+			"power": 3.26,
+			"range": 1.58,
+			"zNear": 0.02,
+			"angle": 60.33,
+			"fallOff": 1,
+			"debugDisplay": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "ArmandaGlass",
+			"target": "ArmandaEcaz.root.B_ROOTJ.ATTACH_Glass"
+		},
+		{
+			"type": "model",
+			"name": "Rhombur",
+			"source": "Character/Vernius/Leader/Rhombur.fbx",
+			"x": 0.17,
+			"y": 0.96368,
+			"z": -0.15046,
+			"rotationZ": -15,
+			"animation": "Character/Vernius/Leader/Animations/Anim_Rhombur_Neutral_Idle.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material_Rhombur",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "None",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 4.77
+						}
+					},
+					"diffuseMap": "Character/Vernius/Leader/Rhombur_Albedo.png",
+					"normalMap": "Character/Vernius/Leader/Rhombur_Normal.png",
+					"specularMap": "Character/Vernius/Leader/Rhombur_MetallicGlossAOEmiss.png",
+					"materialName": "Rhombur",
+					"children": [
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"intensity": 0.25,
+							"maxAmountPerLight": 0.1,
+							"translucencyTexture": "Character/Vernius/Leader/Rhombur_SSS.png"
+						},
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"intensityFactor": 0.13,
+							"noiseIntensityPath": "Character/Vernius/Leader/Rhombur_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Vernius/Leader/Rhombur_AnisoAngle.png",
+							"rotationOffset": 103.64
+						},
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 0.27,
+							"specularTint": 0.59,
+							"specularColorPath": "Character/Vernius/Leader/Rhombur_SpecColor.png",
+							"mode": "Texture"
+						}
+					]
+				},
+				{
+					"type": "material",
+					"name": "material_cornea",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"drawOrder": "100"
+						}
+					},
+					"diffuseMap": "Character/Vernius/Leader/Vernius_Cornea_Albedo.png",
+					"normalMap": "Character/Vernius/Leader/Vernius_Cornea_Normal.png",
+					"specularMap": "Character/Vernius/Leader/Vernius_Cornea_MetallicGlossAO.png",
+					"materialName": "Mat_Cornea",
+					"color": [
+						0,
+						0,
+						0,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "MiniDrone1",
+			"source": "Character/Vernius/Leader/MiniDrone1.fbx",
+			"x": 0.17,
+			"y": 0.96368,
+			"z": -0.15046,
+			"rotationZ": -15,
+			"animation": "Character/Vernius/Leader/Animations/Anim_MD1_Neutral_Idle.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 5.91
+						}
+					},
+					"diffuseMap": "Character/Vernius/Leader/MiniDrone_Albedo.png",
+					"normalMap": "Character/Vernius/Leader/MiniDrone_Normal.png",
+					"specularMap": "Character/Vernius/Leader/MiniDrone_MetallicGlossAOEmiss.png",
+					"children": [
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"intensity": 0.68
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "MiniDrone2",
+			"source": "Character/Vernius/Leader/MiniDrone2.fbx",
+			"x": 0.17,
+			"y": 0.96368,
+			"z": -0.15046,
+			"rotationZ": -15,
+			"animation": "Character/Vernius/Leader/Animations/Anim_MD2_Neutral_Idle.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 5.83
+						}
+					},
+					"diffuseMap": "Character/Vernius/Leader/MiniDrone_Albedo.png",
+					"normalMap": "Character/Vernius/Leader/MiniDrone_Normal.png",
+					"specularMap": "Character/Vernius/Leader/MiniDrone_MetallicGlossAOEmiss.png",
+					"children": [
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"intensity": 0.8,
+							"direction": 65.45
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "MiniDrone3",
+			"source": "Character/Vernius/Leader/MiniDrone3.fbx",
+			"x": 0.17,
+			"y": 0.96368,
+			"z": -0.15046,
+			"rotationZ": -15,
+			"animation": "Character/Vernius/Leader/Animations/Anim_MD3_Neutral_Idle.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"emissive": 6.44
+						}
+					},
+					"diffuseMap": "Character/Vernius/Leader/MiniDrone_Albedo.png",
+					"normalMap": "Character/Vernius/Leader/MiniDrone_Normal.png",
+					"specularMap": "Character/Vernius/Leader/MiniDrone_MetallicGlossAOEmiss.png",
+					"children": [
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"intensity": 0.65,
+							"direction": 125.45
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "light",
+			"name": "light_0",
+			"x": 0.41394,
+			"y": -0.3773,
+			"z": 1.0256,
+			"rotationZ": 15.4,
+			"power": 0.07,
+			"range": 10,
+			"zNear": 0.02
+		}
+	]
+}

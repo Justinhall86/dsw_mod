@@ -1,0 +1,20 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_Nuwa",
+			"source": "Character/Vernius/Unit/Nuwa/Female01_Nuwa.fbx"
+		},
+		{
+			"type": "object",
+			"name": "MuzzleA"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "MuzzleA",
+			"target": "Female01_Nuwa.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon.B_Weapon_Muzzle01.B_Weapon_Muzzle02"
+		}
+	]
+}
