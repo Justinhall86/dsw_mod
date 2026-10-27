@@ -1,0 +1,222 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "polygon",
+			"name": "polygon",
+			"editorOnly": true,
+			"locked": true,
+			"y": 0.5,
+			"z": 0.1,
+			"scaleX": 10000,
+			"scaleY": 10000,
+			"scaleZ": 5,
+			"color": -14869219,
+			"kind": 0,
+			"args": [
+				0
+			]
+		},
+		{
+			"type": "model",
+			"name": "Sandworm",
+			"source": "Character/Creatures/Sandworm/Sandworm.fbx",
+			"scaleX": 0.3,
+			"scaleY": 0.3,
+			"scaleZ": 0.3,
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "Alpha",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"depthWrite": "On"
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": -0.07778,
+			"y": 0.08292,
+			"z": 1.0336,
+			"scaleX": 10.73,
+			"scaleY": 10,
+			"rotationZ": 90,
+			"albedoMap": "Fx/Alphas/sand_gaussian.png",
+			"normalMap": "Fx/DistortionMaps/sand-normal.png",
+			"pbrMap": "Fx/DistortionMaps/SphereClean.png",
+			"pbrStrength": 0,
+			"fadePower": 15,
+			"children": [
+				{
+					"type": "shader",
+					"name": "AutoAlpha",
+					"source": "shaders/AutoAlpha.hx",
+					"props": {
+						"scale": 3
+					}
+				},
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 1,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Gradients/GradientSpice_2.png",
+						"onDecal": true
+					},
+					"isInstance": true
+				},
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 1,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Alphas/Spark.png",
+						"onDecal": true
+					},
+					"isInstance": true
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": false,
+						"wrap": true,
+						"progress": 0.59,
+						"saturation": 0,
+						"width": 1,
+						"uvScaleX": 1,
+						"uvScaleY": 1,
+						"texture": "Fx/Alphas/sand.png",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "WorldUV",
+					"source": "shaders/WorldUV.hx",
+					"props": {
+						"useNormalMap": true,
+						"onDecal": true,
+						"scale": 0.02,
+						"rotation": 0
+					}
+				},
+				{
+					"type": "shader",
+					"name": "ColorSet",
+					"source": "shaders/ColorSet.hx",
+					"props": {
+						"amount": 1,
+						"color": [
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "EnvColorMult",
+					"source": "shaders/EnvColorMult.hx",
+					"props": {
+						"sandBlend": 0.8,
+						"sandColorSet": false,
+						"envBlend": 0.5,
+						"envColorSet": false
+					},
+					"isInstance": true
+				},
+				{
+					"type": "shader",
+					"name": "Fresnel",
+					"source": "shaders/Fresnel.hx",
+					"props": {
+						"RGB": false,
+						"ALPHA": true,
+						"REVERSE": false,
+						"bias": 0.74,
+						"scale": 1,
+						"power": 1,
+						"color": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "NightEmissive",
+					"source": "shaders/NightEmissive.hx",
+					"props": {
+						"amount": 1,
+						"ATTENUATE": false,
+						"emissiveMap": "Fx/Gradients/ColorSand2.png"
+					}
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "TransportWorm_Smoke",
+			"source": "Character/Creatures/Sandworm/TransportWorm_Smoke.fx",
+			"x": -4.85,
+			"y": -2.73,
+			"scaleX": 3,
+			"scaleY": 3,
+			"scaleZ": 3
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "TransportWorm_Smoke",
+			"target": "Sandworm.Root.B_Spine07"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "advancedDecal",
+			"target": "Sandworm.Root.B_Spine06",
+			"positionOnly": true
+		}
+	]
+}
