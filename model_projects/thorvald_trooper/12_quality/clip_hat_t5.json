@@ -1,0 +1,27 @@
+{
+ "Common_Run": {
+  "worst_cm": 0.0,
+  "verts_inside": 0,
+  "frame": 0
+ },
+ "Common_AttackMelee01": {
+  "worst_cm": 0.0,
+  "verts_inside": 0,
+  "frame": 0
+ },
+ "Common_AttackMelee02": {
+  "worst_cm": 0.0,
+  "verts_inside": 0,
+  "frame": 0
+ },
+ "Common_FightHitFront": {
+  "worst_cm": 0.0,
+  "verts_inside": 0,
+  "frame": 0
+ },
+ "Common_FightIdle": {
+  "worst_cm": 0.0,
+  "verts_inside": 0,
+  "frame": 0
+ }
+}
