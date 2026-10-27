@@ -1,0 +1,362 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Hide",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.Vignetting",
+					"name": "Vignetting",
+					"enabled": false
+				},
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 0.58,
+					"threshold": 0.9,
+					"intensity": 0.26,
+					"blur": 20,
+					"saturation": 1
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Character/Atreide/Leader/Leto/LetoLUT_raw.png",
+					"intensity": 0.2
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.62,
+			"rotation": 20,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/museum_of_ethnography_1k.hdr"
+		},
+		{
+			"type": "light",
+			"name": "Main_Light",
+			"x": 0.92116,
+			"y": -0.74079,
+			"z": 1.78231,
+			"scaleX": 4.45,
+			"scaleY": 2.516663680991616,
+			"scaleZ": 2.5166636809916154,
+			"rotationX": -2.7,
+			"rotationY": 24.55,
+			"rotationZ": 139.1,
+			"kind": "Spot",
+			"color": 16746834,
+			"power": 1.5,
+			"range": 1.86,
+			"zNear": 0.02,
+			"angle": 41.45,
+			"fallOff": 0
+		},
+		{
+			"type": "model",
+			"name": "LietKynes",
+			"source": "Character/Fremen/Leader/LietKynes.fbx",
+			"x": -0.05093,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"alphaKill": true
+						}
+					},
+					"materialName": "Mat_LietKynes",
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 0.83,
+							"specularTint": 1,
+							"specularColorPath": "Character/Fremen/Leader/LietKynes_SpecTint.png",
+							"mode": "Texture"
+						},
+						{
+							"type": "anisotropy",
+							"name": "anisotropy",
+							"mode": "Texture",
+							"intensity": 0.23,
+							"intensityFactor": 0.6,
+							"noiseIntensityPath": "Character/Fremen/Leader/LietKynes_AnisoIntensity.png",
+							"noiseDirectionPath": "Character/Fremen/Leader/LietKynes_AnisoAngle.png"
+						},
+						{
+							"type": "sss",
+							"name": "sss",
+							"props": {},
+							"intensity": 0.1,
+							"threshold": 0.11,
+							"maxAmountPerLight": 0.1,
+							"translucencyTexture": "Character/Fremen/Leader/LietKynes_SSS_Scatter.png"
+						}
+					]
+				},
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Atreide/Leader/Leto/Leto_Cornea_Albedo.png",
+					"specularMap": "Character/Atreide/Leader/Leto/Leto_Cornea_MetallicGlossAO.png",
+					"materialName": "Mat_Cornea",
+					"color": [
+						0.00784313725490196,
+						0.0392156862745098,
+						0.058823529411764705,
+						1
+					],
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"specular": 0.19,
+							"specularTint": 0.79
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": -0.34,
+			"y": -3.17,
+			"z": 1.33,
+			"rotationY": 1.5,
+			"rotationZ": 82.5,
+			"fovY": 18,
+			"zFar": 37.88
+		},
+		{
+			"type": "light",
+			"name": "RimLight_0",
+			"x": 0.98,
+			"y": 0.87,
+			"z": 1.72,
+			"scaleX": 1.58,
+			"scaleY": 0.9308768576333822,
+			"scaleZ": 0.9308768576333821,
+			"rotationX": 3.2,
+			"rotationY": 10.4,
+			"rotationZ": -129.7,
+			"kind": "Spot",
+			"color": 16739367,
+			"power": 4,
+			"range": 1.58,
+			"zNear": 0.02,
+			"angle": 61.01,
+			"fallOff": 1,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0,
+				"quality": 1,
+				"bias": 0.0003,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "Main_Light_0",
+			"x": -0.68498,
+			"y": -1.02133,
+			"z": 2.05041,
+			"scaleX": 2.5799999999999996,
+			"scaleY": 0.7075023971047603,
+			"scaleZ": 0.7075023971047605,
+			"rotationX": -3.8,
+			"rotationY": 19.7,
+			"rotationZ": 57.4,
+			"kind": "Spot",
+			"color": 16769746,
+			"power": 2.27,
+			"range": 2.44,
+			"zNear": 0.02,
+			"angle": 56.29,
+			"fallOff": 0,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 2048,
+				"radius": 0,
+				"quality": 1,
+				"bias": 0.01,
+				"samplingMode": {
+					"kind": "None"
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "RimLight",
+			"x": -0.37,
+			"y": 1.04,
+			"z": 1.81,
+			"scaleX": 1.5800000000000005,
+			"scaleY": 0.9182903103278274,
+			"scaleZ": 0.9182903103278275,
+			"rotationX": 11.6,
+			"rotationY": 19.5,
+			"rotationZ": -71.7,
+			"kind": "Spot",
+			"color": 16744489,
+			"power": 0,
+			"range": 1.58,
+			"zNear": 0.02,
+			"angle": 60.33,
+			"fallOff": 1
+		},
+		{
+			"type": "box",
+			"name": "box",
+			"editorOnly": true,
+			"z": 1.32,
+			"scaleX": 0.1,
+			"scaleY": 0.1,
+			"scaleZ": 0.1
+		},
+		{
+			"type": "polygon",
+			"name": "EyeGlow",
+			"x": -0.04782,
+			"y": -0.09065,
+			"z": -0.033,
+			"scaleX": 0.04,
+			"scaleY": 0.06,
+			"rotationX": 115.7,
+			"rotationY": -0.2,
+			"rotationZ": 0.7,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "AfterTonemapping",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Fremen/Leader/EyeGlow.png",
+					"color": [
+						0.023529411764705882,
+						0.08235294117647059,
+						0.16862745098039217,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "polygon",
+			"name": "EyeGlow2",
+			"x": -0.04714,
+			"y": -0.088,
+			"z": 0.033,
+			"scaleX": 0.04,
+			"scaleY": 0.06,
+			"rotationX": 62.5,
+			"rotationY": 2.2,
+			"rotationZ": 4.4,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "AfterTonemapping",
+							"blend": "Add",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Fremen/Leader/EyeGlow.png",
+					"color": [
+						0.023529411764705882,
+						0.08235294117647059,
+						0.16862745098039217,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "EyeGlow",
+			"target": "LietKynes.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_Spine03J.B_SpineTopJ.B_Neck01J.B_HeadJ"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "EyeGlow2",
+			"target": "LietKynes.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_Spine03J.B_SpineTopJ.B_Neck01J.B_HeadJ"
+		},
+		{
+			"type": "reference",
+			"name": "FX_UI_LietScene",
+			"source": "Fx/UI/FX_UI_LietScene.fx",
+			"rotationZ": 180
+		}
+	]
+}

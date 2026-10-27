@@ -1,0 +1,17 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_Infiltrator": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true,
+				"emissive": 1
+			}
+		}
+	}
+}

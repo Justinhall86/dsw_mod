@@ -1,0 +1,48 @@
+{
+	"materials": {
+		"PBR": {
+			"Kulon02_mat": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Kulon01_mat": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": false,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Kulon01": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1,
+				"alphaKill": true
+			},
+			"Kulontrooper_mat": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1,
+				"alphaKill": false
+			}
+		}
+	}
+}

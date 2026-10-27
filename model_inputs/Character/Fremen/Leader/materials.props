@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_Cornea": {
+				"mode": "PBR",
+				"blend": "Add",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"Mat_LietKynes": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": false,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true,
+				"emissive": 2
+			}
+		}
+	}
+}

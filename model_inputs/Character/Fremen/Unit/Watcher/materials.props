@@ -1,0 +1,28 @@
+{
+	"materials": {
+		"PBR": {
+			"Watcher_mat": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": false,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1,
+				"alphaKill": true
+			},
+			"Mat_Watcher": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true,
+				"emissive": 1
+			}
+		}
+	}
+}

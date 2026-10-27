@@ -1,0 +1,39 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Weapon_MissileLauncher",
+			"source": "Character/Atreide/Unit/HeavyWeaponSquad/Weapon_MissileLauncher.fbx",
+			"x": 0.20137,
+			"z": 0.91,
+			"scaleX": 1.67,
+			"scaleY": 1.48,
+			"scaleZ": 1.67,
+			"rotationZ": -90
+		},
+		{
+			"type": "model",
+			"name": "Male01_FremenSoldier",
+			"source": "Character/Fremen/Unit/Soldier/Male01_FremenSoldier.fbx",
+			"x": -1.52,
+			"animation": "Anim/Male01/Anim_Male01_Run.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Male01_Feydakin",
+			"source": "Character/Fremen/Unit/Feydakin/Male01_Feydakin.fbx",
+			"x": 0.3,
+			"y": 0.6,
+			"animation": "Anim/Male01/Anim_Male01_Run.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Male01_Feydakin",
+			"source": "Character/Fremen/Unit/Feydakin/Male01_Feydakin.fbx",
+			"x": 0.3,
+			"y": -0.6,
+			"animation": "Anim/Male01/Anim_Male01_Run.fbx"
+		}
+	]
+}

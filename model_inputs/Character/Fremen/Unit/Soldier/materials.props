@@ -1,0 +1,17 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_FremenSoldier01": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true,
+				"emissive": 1
+			}
+		}
+	}
+}

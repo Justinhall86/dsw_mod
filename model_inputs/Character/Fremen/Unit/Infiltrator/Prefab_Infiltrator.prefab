@@ -1,0 +1,56 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_Infiltrator",
+			"source": "Character/Fremen/Unit/Infiltrator/Female01_Infiltrator.fbx"
+		},
+		{
+			"type": "model",
+			"name": "KindJal_Harkonnen_L",
+			"source": "Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx",
+			"y": -0.15,
+			"z": 0.02,
+			"rotationX": -90
+		},
+		{
+			"type": "model",
+			"name": "KindJal_Harkonnen_R",
+			"source": "Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx",
+			"y": -0.15,
+			"z": 0.12,
+			"rotationX": -109.09
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "KindJal_Harkonnen_L",
+			"target": "Female01_Infiltrator.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_Weapon_L"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "KindJal_Harkonnen_R",
+			"target": "Female01_Infiltrator.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -1,
+			"scaleX": 1.49,
+			"scaleY": 1.49,
+			"scaleZ": 1.3,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"albedoStrength": 0.35,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "tdecal",
+			"target": "Female01_Infiltrator.B_ROOTJ",
+			"positionOnly": true
+		}
+	]
+}

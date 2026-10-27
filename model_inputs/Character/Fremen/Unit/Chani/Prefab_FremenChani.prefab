@@ -1,0 +1,25 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_FremenChani",
+			"source": "Character/Fremen/Unit/Chani/Female01_FremenChani.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Crysknife",
+			"source": "Character/Fremen/Weapon/Crysknife/Crysknife.fbx",
+			"x": -0.00275,
+			"y": -0.11773,
+			"z": 0.01896,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Crysknife",
+			"target": "Female01_FremenChani.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		}
+	]
+}

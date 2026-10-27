@@ -1,0 +1,12 @@
+{
+	"animations": {
+		"Anim_LietKynes_Neutral_Welcome.fbx": {
+			"events": [
+				{
+					"frame": 46,
+					"data": "Play"
+				}
+			]
+		}
+	}
+}
