@@ -84,7 +84,9 @@ def flatten_multi_model(path):
         q = qmul(q, (p.qx, p.qy, p.qz, p.qw))
     mesh = d.models[i]
     p = copy.copy(mesh.position)
-    p.qx, p.qy, p.qz, p.qw = q
+    if q[3] < 0:                                     # qw is derived (always >= 0); -q is the same rotation
+        q = tuple(-c for c in q)
+    p.qx, p.qy, p.qz = q[0], q[1], q[2]
     mesh.position = p
     d.models = [mesh]
     return d
