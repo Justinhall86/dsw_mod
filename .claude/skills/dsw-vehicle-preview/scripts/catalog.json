@@ -1,77 +1,411 @@
 [
-  {"folder": "Atreide/CarryAll", "name": "CarryAll", "models": ["CarryAll.fbx"],
-   "albedo": "CarryAll_Albedo.png", "mgao": "CarryAll_MetallicGlossAO.png", "normal": "CarryAll_Normal.png", "emissive": "CarryAll_Emissive.png"},
-  {"folder": "Atreide/DroneA", "name": "DroneA", "models": ["DroneA.fbx"],
-   "albedo": "CombatDrone_Atreide_Albedo.png", "mgao": "CombatDrone_Atreide_MetallicGlossAOEmiss.png", "normal": "CombatDrone_Atreide_Normal.png", "emissive": "CombatDrone_Emissive.png"},
-  {"folder": "Atreide/Harvester", "name": "Harvester", "models": ["Vehicule_Harvester.fbx"],
-   "albedo": "Harvester_Albedo.png", "mgao": "Harvester_MetallicGlossAO.png", "normal": "Harvester_Normal.png"},
-  {"folder": "Atreide/Hawk", "name": "Hawk", "models": ["Hawk.fbx"],
-   "albedo": "Hawk_Albedo.png", "mgao": "Hawk_MetallicGlossAOEmiss.png", "normal": "Hawk_Normal.png"},
-  {"folder": "Atreide/Kraken", "name": "Kraken", "models": ["Kraken.fbx"],
-   "albedo": "Kraken_Albedo.png", "mgao": "Kraken_MetallicGlossAOEmiss.png", "normal": "Kraken_Normal.png"},
-  {"folder": "Atreide/Ornithopter", "name": "Ornithopter", "models": ["Vehicle_Ornithopter.fbx"],
-   "albedo": "Ornithopter_Albedo.png", "mgao": "Ornithopter_MetallicGlossAO.png", "normal": "Ornithopter_Normal.png", "emissive": "Ornithopter_Emissive.png"},
-  {"folder": "Atreide/SpaceShuttle", "name": "SpaceShuttle", "models": ["SpaceShuttle.fbx"],
-   "albedo": "SpaceShuttle_Albedo.png", "mgao": "SpaceShuttle_MetallicGlossAOEmiss.png", "normal": "SpaceShuttle_Normal.png"},
-  {"folder": "Atreide/SpiceFreighterDrone", "name": "SpiceFreighterDrone", "models": ["SpiceFreighterDrone.fbx"],
-   "albedo": "SpiceFreighter_Albedo.png", "mgao": "SpiceFreighter_MetallicGlossAO.png", "normal": "SpiceFreighter_Normal.png"},
-  {"folder": "Atreide/Tank", "name": "Tank", "models": ["Tank.fbx"], "front": "+X", "flat_colour": [0.42, 0.42, 0.40]},
-  {"folder": "Common/Ravager", "name": "Ravager", "models": ["Ravager.fbx"],
-   "albedo": "Ravager_Albedo.png", "mgao": "Ravager_MetallicGlossAOEmiss.png", "normal": "Ravager_Normal.png"},
-  {"folder": "Common/Ravager_Drone", "name": "Ravager_Drone", "models": ["Ravager_Drone.fbx"],
-   "albedo": "Ravager_Drone_Albedo.png", "mgao": "Ravager_Drone_MetallicGlossAOEmiss.png", "normal": "Ravager_Drone_Normal.png"},
-  {"folder": "Common/Ravager_Shuttle", "name": "Ravager_Shuttle", "models": ["RavagerShuttle.fbx"],
-   "albedo": "Ravager_Shuttle_Albedo.png", "mgao": "Ravager_Shuttle_MetallicGlossAOEmiss.png", "normal": "Ravager_Shuttle_Normal.png"},
-  {"folder": "Common/Renegade_Frigate", "name": "Renegade_Frigate", "models": ["Renegade_Frigate.fbx"],
-   "albedo": "Renegade_Frigate_Albedo.png", "mgao": "Renegade_Frigate_MetallicGlossAOEmiss.png", "normal": "Renegade_Frigate_Normal.png"},
-  {"folder": "Ecaz/DroneE", "name": "DroneE", "models": ["DroneE.fbx"],
-   "albedo": "EcazDrone_Albedo.png", "mgao": "EcazDrone_MetallicGlossAO.png", "normal": "EcazDrone_Normal.png"},
-  {"folder": "Ecaz/Monument", "name": "Monument", "models": ["Monument.fbx"],
-   "albedo": "Monument_Albedo.png", "mgao": "Monument_MetallicGlossAO.png", "normal": "Monument_Normal.png"},
-  {"folder": "Ecaz/Siren", "name": "Siren", "models": ["Siren.fbx"],
-   "albedo": "Siren_Albedo.png", "mgao": "Siren_MetallicGlossAO.png", "normal": "Siren_Normal.png"},
-  {"folder": "Fremen/Altar", "name": "Altar", "models": ["Altar.fbx"],
-   "albedo": "Altar_Albedo.png", "mgao": "Altar_MetallicGlossAOEmiss.png", "normal": "Altar_Normal.png"},
-  {"folder": "Fremen/KulonTurret", "name": "KulonTurret", "models": ["KulonTurretBase.fbx", "KulonTurretCannon.fbx"],
-   "albedo": "KulonTurret_Albedo.png", "mgao": "KulonTurret_MetallicGlossAO.png", "normal": "KulonTurret_Normal.png"},
-  {"folder": "Fremen/KulonTurret_undeployed", "name": "KulonTurret_undeployed", "models": ["KulonTurret_Undeployed.fbx"],
-   "albedo": "KulonTurret_undeployed_Albedo.png", "mgao": "KulonTurret_undeployed_MetallicGlossAOEmiss.png", "normal": "KulonTurret_undeployed_Normal.png"},
-  {"folder": "Fremen/OrnithopterF", "name": "OrnithopterF", "models": ["Ornithopter_F.fbx"],
-   "albedo": "OrnithopterFremen_Albedo.png", "mgao": "OrnithopterFremen_MetallicGlossAO.png", "normal": "OrnithopterFremen_Normal.png"},
-  {"folder": "Harkonnen/DroneH", "name": "DroneH", "models": ["DroneH.fbx"],
-   "albedo": "CombatDrone_Harkonnen_Albedo.png", "mgao": "CombatDrone_Harkonnen_MetallicGlossAO.png", "normal": "CombatDrone_Harkonnen_Normal.png"},
-  {"folder": "Harkonnen/DroneH_Melee", "name": "DroneH_Melee", "models": ["DroneH_Melee.fbx"],
-   "albedo": "CombatDrone_Harkonnen_Melee_Albedo.png", "mgao": "CombatDrone_Harkonnen_Melee_MetallicGlossAO.png", "normal": "CombatDrone_Harkonnen_Melee_Normal.png"},
-  {"folder": "Harkonnen/Harpy", "name": "Harpy", "models": ["Harpy.fbx"],
-   "albedo": "Harpy_Albedo.png", "mgao": "Harpy_MetallicGlossAOEmiss.png", "normal": "Harpy_Normal.png"},
-  {"folder": "Harkonnen/Overlord", "name": "Overlord", "models": ["Overlord.fbx"],
-   "albedo": "Overlord_Albedo.png", "mgao": "Overlord_MetallicGlossAOEmiss.png", "normal": "Overlord_Normal.png"},
-  {"folder": "Imperial/Chronos", "name": "Chronos", "models": ["Chronos.fbx"],
-   "albedo": "Chronos_Albedo.png", "mgao": "Chronos_MetallicGlossAOEmiss.png", "normal": "Chronos_Normal.png"},
-  {"folder": "Imperial/DroneI", "name": "DroneI", "models": ["ImperiumDroneBase.fbx", "ImperiumDroneCanon.fbx"],
-   "albedo": "ImperiumDrone_Albedo.png", "mgao": "ImperiumDrone_MetallicGlossAO.png", "normal": "ImperiumDrone_Normal.png"},
-  {"folder": "Imperial/Hammer", "name": "Hammer", "models": ["Hammer.fbx"],
-   "albedo": "Hammer_Albedo.png", "mgao": "Hammer_MetallicGlossAOEmiss.png", "normal": "Hammer_Normal.png"},
-  {"folder": "Imperial/Harvester", "name": "Imperial_Harvester", "models": ["ImperialHarvester.fbx"],
-   "albedo": "Harvester_Albedo.png", "mgao": "Harvester_MetallicGlossAO.png", "normal": "Harvester_Normal.png"},
-  {"folder": "Smuggler/Banshee", "name": "Banshee", "models": ["Banshee.fbx"],
-   "albedo": "Banshee_Albedo.png", "mgao": "Banshee_MetallicGlossAOEmiss.png", "normal": "Banshee_Normal.png"},
-  {"folder": "Smuggler/DroneS", "name": "DroneS", "models": ["DroneS.fbx"],
-   "albedo": "CombatDrone_Smuggler_Albedo.png", "mgao": "CombatDrone_Smuggler_MetallicGlossAO.png", "normal": "CombatDrone_Smuggler_Normal.png", "emissive": "CombatDrone_Smuggler_Emissive.png"},
-  {"folder": "Smuggler/StockDrone", "name": "StockDrone", "models": ["StockDrone.fbx"],
-   "albedo": "StockDrone_Albedo.png", "mgao": "StockDrone_MetallicGlossAOEmiss.png", "normal": "StockDrone_Normal.png"},
-  {"folder": "Smuggler/Wraith", "name": "Wraith", "models": ["Wraith.fbx"],
-   "albedo": "Wraith_Albedo.png", "mgao": "Wraith_MetallicGlossAOEmiss.png", "normal": "Wraith_Normal.png"},
-  {"folder": "Vernius/AutomatedMilitia", "name": "AutomatedMilitia", "models": ["AutomatedMilitia.fbx"],
-   "albedo": "AutomatedMilitia_Albedo.png", "mgao": "AutomatedMilitia_MetallicGlossAO.png", "normal": "AutomatedMilitia_Normal.png", "emissive": "AutomatedMilitia_Emissive.png"},
-  {"folder": "Vernius/DroneRailGun", "name": "DroneRailGun", "models": ["DroneRailGun.fbx"],
-   "albedo": "DroneRailGun_Albedo.png", "mgao": "DroneRailGun_MetallicGlossAO.png", "normal": "DroneRailGun_Normal.png", "emissive": "DroneRailGun_Emissive.png"},
-  {"folder": "Vernius/DroneTesla", "name": "DroneTesla", "models": ["DroneTesla.fbx"],
-   "albedo": "DroneTesla_Albedo.png", "mgao": "DroneTesla_MetallicGlossAO.png", "normal": "DroneTesla_Normal.png", "emissive": "DroneTesla_Emissive.png"},
-  {"folder": "Vernius/FolderRelay", "name": "FolderRelay", "models": ["FolderRelay.fbx"],
-   "albedo": "FolderRelay_Albedo.png", "mgao": "FolderRelay_MetallicGlossAO.png", "normal": "FolderRelay_Normal.png", "emissive": "FolderRelay_Emissive.png"},
-  {"folder": "Vernius/Harvester", "name": "Vernius_Harvester", "models": ["Harvester.fbx"],
-   "albedo": "Harvester_Albedo.png", "mgao": "Harvester_MetallicGlossAO.png", "normal": "Harvester_Normal.png", "emissive": "Harvester_Emissive.png"},
-  {"folder": "Vernius/Spirit", "name": "Spirit", "models": ["Spirit.fbx"],
-   "albedo": "Spirit_Albedo.png", "mgao": "Spirit_MetallicGlossAO.png", "normal": "Spirit_Normal.png", "emissive": "Spirit_Emissive.png"}
+ {
+  "folder": "Atreide/CarryAll",
+  "name": "CarryAll",
+  "models": [
+   "CarryAll.fbx"
+  ],
+  "albedo": "CarryAll_Albedo.png",
+  "mgao": "CarryAll_MetallicGlossAO.png",
+  "normal": "CarryAll_Normal.png",
+  "emissive": "CarryAll_Emissive.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Atreide/DroneA",
+  "name": "DroneA",
+  "models": [
+   "DroneA.fbx"
+  ],
+  "albedo": "CombatDrone_Atreide_Albedo.png",
+  "mgao": "CombatDrone_Atreide_MetallicGlossAOEmiss.png",
+  "normal": "CombatDrone_Atreide_Normal.png",
+  "emissive": "CombatDrone_Emissive.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Atreide/Harvester",
+  "name": "Harvester",
+  "models": [
+   "Vehicule_Harvester.fbx"
+  ],
+  "albedo": "Harvester_Albedo.png",
+  "mgao": "Harvester_MetallicGlossAO.png",
+  "normal": "Harvester_Normal.png",
+  "front": "-X"
+ },
+ {
+  "folder": "Atreide/Hawk",
+  "name": "Hawk",
+  "models": [
+   "Hawk.fbx"
+  ],
+  "albedo": "Hawk_Albedo.png",
+  "mgao": "Hawk_MetallicGlossAOEmiss.png",
+  "normal": "Hawk_Normal.png"
+ },
+ {
+  "folder": "Atreide/Kraken",
+  "name": "Kraken",
+  "models": [
+   "Kraken.fbx"
+  ],
+  "albedo": "Kraken_Albedo.png",
+  "mgao": "Kraken_MetallicGlossAOEmiss.png",
+  "normal": "Kraken_Normal.png"
+ },
+ {
+  "folder": "Atreide/Ornithopter",
+  "name": "Ornithopter",
+  "models": [
+   "Vehicle_Ornithopter.fbx"
+  ],
+  "albedo": "Ornithopter_Albedo.png",
+  "mgao": "Ornithopter_MetallicGlossAO.png",
+  "normal": "Ornithopter_Normal.png",
+  "emissive": "Ornithopter_Emissive.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Atreide/SpaceShuttle",
+  "name": "SpaceShuttle",
+  "models": [
+   "SpaceShuttle.fbx"
+  ],
+  "albedo": "SpaceShuttle_Albedo.png",
+  "mgao": "SpaceShuttle_MetallicGlossAOEmiss.png",
+  "normal": "SpaceShuttle_Normal.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Atreide/SpiceFreighterDrone",
+  "name": "SpiceFreighterDrone",
+  "models": [
+   "SpiceFreighterDrone.fbx"
+  ],
+  "albedo": "SpiceFreighter_Albedo.png",
+  "mgao": "SpiceFreighter_MetallicGlossAO.png",
+  "normal": "SpiceFreighter_Normal.png"
+ },
+ {
+  "folder": "Atreide/Tank",
+  "name": "Tank",
+  "models": [
+   "Tank.fbx"
+  ],
+  "front": "+X",
+  "flat_colour": [
+   0.42,
+   0.42,
+   0.4
+  ]
+ },
+ {
+  "folder": "Common/Ravager",
+  "name": "Ravager",
+  "models": [
+   "Ravager.fbx"
+  ],
+  "albedo": "Ravager_Albedo.png",
+  "mgao": "Ravager_MetallicGlossAOEmiss.png",
+  "normal": "Ravager_Normal.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Common/Ravager_Drone",
+  "name": "Ravager_Drone",
+  "models": [
+   "Ravager_Drone.fbx"
+  ],
+  "albedo": "Ravager_Drone_Albedo.png",
+  "mgao": "Ravager_Drone_MetallicGlossAOEmiss.png",
+  "normal": "Ravager_Drone_Normal.png"
+ },
+ {
+  "folder": "Common/Ravager_Shuttle",
+  "name": "Ravager_Shuttle",
+  "models": [
+   "RavagerShuttle.fbx"
+  ],
+  "albedo": "Ravager_Shuttle_Albedo.png",
+  "mgao": "Ravager_Shuttle_MetallicGlossAOEmiss.png",
+  "normal": "Ravager_Shuttle_Normal.png",
+  "front": "-X"
+ },
+ {
+  "folder": "Common/Renegade_Frigate",
+  "name": "Renegade_Frigate",
+  "models": [
+   "Renegade_Frigate.fbx"
+  ],
+  "albedo": "Renegade_Frigate_Albedo.png",
+  "mgao": "Renegade_Frigate_MetallicGlossAOEmiss.png",
+  "normal": "Renegade_Frigate_Normal.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Ecaz/DroneE",
+  "name": "DroneE",
+  "models": [
+   "DroneE.fbx"
+  ],
+  "albedo": "EcazDrone_Albedo.png",
+  "mgao": "EcazDrone_MetallicGlossAO.png",
+  "normal": "EcazDrone_Normal.png"
+ },
+ {
+  "folder": "Ecaz/Monument",
+  "name": "Monument",
+  "models": [
+   "Monument.fbx"
+  ],
+  "albedo": "Monument_Albedo.png",
+  "mgao": "Monument_MetallicGlossAO.png",
+  "normal": "Monument_Normal.png"
+ },
+ {
+  "folder": "Ecaz/Siren",
+  "name": "Siren",
+  "models": [
+   "Siren.fbx"
+  ],
+  "albedo": "Siren_Albedo.png",
+  "mgao": "Siren_MetallicGlossAO.png",
+  "normal": "Siren_Normal.png"
+ },
+ {
+  "folder": "Fremen/Altar",
+  "name": "Altar",
+  "models": [
+   "Altar.fbx"
+  ],
+  "albedo": "Altar_Albedo.png",
+  "mgao": "Altar_MetallicGlossAOEmiss.png",
+  "normal": "Altar_Normal.png"
+ },
+ {
+  "folder": "Fremen/KulonTurret",
+  "name": "KulonTurret",
+  "models": [
+   "KulonTurretBase.fbx",
+   "KulonTurretCannon.fbx"
+  ],
+  "albedo": "KulonTurret_Albedo.png",
+  "mgao": "KulonTurret_MetallicGlossAO.png",
+  "normal": "KulonTurret_Normal.png"
+ },
+ {
+  "folder": "Fremen/KulonTurret_undeployed",
+  "name": "KulonTurret_undeployed",
+  "models": [
+   "KulonTurret_Undeployed.fbx"
+  ],
+  "albedo": "KulonTurret_undeployed_Albedo.png",
+  "mgao": "KulonTurret_undeployed_MetallicGlossAOEmiss.png",
+  "normal": "KulonTurret_undeployed_Normal.png"
+ },
+ {
+  "folder": "Fremen/OrnithopterF",
+  "name": "OrnithopterF",
+  "models": [
+   "Ornithopter_F.fbx"
+  ],
+  "albedo": "OrnithopterFremen_Albedo.png",
+  "mgao": "OrnithopterFremen_MetallicGlossAO.png",
+  "normal": "OrnithopterFremen_Normal.png",
+  "front": "-X"
+ },
+ {
+  "folder": "Harkonnen/DroneH",
+  "name": "DroneH",
+  "models": [
+   "DroneH.fbx"
+  ],
+  "albedo": "CombatDrone_Harkonnen_Albedo.png",
+  "mgao": "CombatDrone_Harkonnen_MetallicGlossAO.png",
+  "normal": "CombatDrone_Harkonnen_Normal.png",
+  "front": "-X"
+ },
+ {
+  "folder": "Harkonnen/DroneH_Melee",
+  "name": "DroneH_Melee",
+  "models": [
+   "DroneH_Melee.fbx"
+  ],
+  "albedo": "CombatDrone_Harkonnen_Melee_Albedo.png",
+  "mgao": "CombatDrone_Harkonnen_Melee_MetallicGlossAO.png",
+  "normal": "CombatDrone_Harkonnen_Melee_Normal.png"
+ },
+ {
+  "folder": "Harkonnen/Harpy",
+  "name": "Harpy",
+  "models": [
+   "Harpy.fbx"
+  ],
+  "albedo": "Harpy_Albedo.png",
+  "mgao": "Harpy_MetallicGlossAOEmiss.png",
+  "normal": "Harpy_Normal.png"
+ },
+ {
+  "folder": "Harkonnen/Overlord",
+  "name": "Overlord",
+  "models": [
+   "Overlord.fbx"
+  ],
+  "albedo": "Overlord_Albedo.png",
+  "mgao": "Overlord_MetallicGlossAOEmiss.png",
+  "normal": "Overlord_Normal.png"
+ },
+ {
+  "folder": "Imperial/Chronos",
+  "name": "Chronos",
+  "models": [
+   "Chronos.fbx"
+  ],
+  "albedo": "Chronos_Albedo.png",
+  "mgao": "Chronos_MetallicGlossAOEmiss.png",
+  "normal": "Chronos_Normal.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Imperial/DroneI",
+  "name": "DroneI",
+  "models": [
+   "ImperiumDroneBase.fbx",
+   "ImperiumDroneCanon.fbx"
+  ],
+  "albedo": "ImperiumDrone_Albedo.png",
+  "mgao": "ImperiumDrone_MetallicGlossAO.png",
+  "normal": "ImperiumDrone_Normal.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Imperial/Hammer",
+  "name": "Hammer",
+  "models": [
+   "Hammer.fbx"
+  ],
+  "albedo": "Hammer_Albedo.png",
+  "mgao": "Hammer_MetallicGlossAOEmiss.png",
+  "normal": "Hammer_Normal.png"
+ },
+ {
+  "folder": "Imperial/Harvester",
+  "name": "Imperial_Harvester",
+  "models": [
+   "ImperialHarvester.fbx"
+  ],
+  "albedo": "Harvester_Albedo.png",
+  "mgao": "Harvester_MetallicGlossAO.png",
+  "normal": "Harvester_Normal.png",
+  "front": "-X"
+ },
+ {
+  "folder": "Smuggler/Banshee",
+  "name": "Banshee",
+  "models": [
+   "Banshee.fbx"
+  ],
+  "albedo": "Banshee_Albedo.png",
+  "mgao": "Banshee_MetallicGlossAOEmiss.png",
+  "normal": "Banshee_Normal.png"
+ },
+ {
+  "folder": "Smuggler/DroneS",
+  "name": "DroneS",
+  "models": [
+   "DroneS.fbx"
+  ],
+  "albedo": "CombatDrone_Smuggler_Albedo.png",
+  "mgao": "CombatDrone_Smuggler_MetallicGlossAO.png",
+  "normal": "CombatDrone_Smuggler_Normal.png",
+  "emissive": "CombatDrone_Smuggler_Emissive.png"
+ },
+ {
+  "folder": "Smuggler/StockDrone",
+  "name": "StockDrone",
+  "models": [
+   "StockDrone.fbx"
+  ],
+  "albedo": "StockDrone_Albedo.png",
+  "mgao": "StockDrone_MetallicGlossAOEmiss.png",
+  "normal": "StockDrone_Normal.png",
+  "front": "+X"
+ },
+ {
+  "folder": "Smuggler/Wraith",
+  "name": "Wraith",
+  "models": [
+   "Wraith.fbx"
+  ],
+  "albedo": "Wraith_Albedo.png",
+  "mgao": "Wraith_MetallicGlossAOEmiss.png",
+  "normal": "Wraith_Normal.png"
+ },
+ {
+  "folder": "Vernius/AutomatedMilitia",
+  "name": "AutomatedMilitia",
+  "models": [
+   "AutomatedMilitia.fbx"
+  ],
+  "albedo": "AutomatedMilitia_Albedo.png",
+  "mgao": "AutomatedMilitia_MetallicGlossAO.png",
+  "normal": "AutomatedMilitia_Normal.png",
+  "emissive": "AutomatedMilitia_Emissive.png"
+ },
+ {
+  "folder": "Vernius/DroneRailGun",
+  "name": "DroneRailGun",
+  "models": [
+   "DroneRailGun.fbx"
+  ],
+  "albedo": "DroneRailGun_Albedo.png",
+  "mgao": "DroneRailGun_MetallicGlossAO.png",
+  "normal": "DroneRailGun_Normal.png",
+  "emissive": "DroneRailGun_Emissive.png"
+ },
+ {
+  "folder": "Vernius/DroneTesla",
+  "name": "DroneTesla",
+  "models": [
+   "DroneTesla.fbx"
+  ],
+  "albedo": "DroneTesla_Albedo.png",
+  "mgao": "DroneTesla_MetallicGlossAO.png",
+  "normal": "DroneTesla_Normal.png",
+  "emissive": "DroneTesla_Emissive.png"
+ },
+ {
+  "folder": "Vernius/FolderRelay",
+  "name": "FolderRelay",
+  "models": [
+   "FolderRelay.fbx"
+  ],
+  "albedo": "FolderRelay_Albedo.png",
+  "mgao": "FolderRelay_MetallicGlossAO.png",
+  "normal": "FolderRelay_Normal.png",
+  "emissive": "FolderRelay_Emissive.png"
+ },
+ {
+  "folder": "Vernius/Harvester",
+  "name": "Vernius_Harvester",
+  "models": [
+   "Harvester.fbx"
+  ],
+  "albedo": "Harvester_Albedo.png",
+  "mgao": "Harvester_MetallicGlossAO.png",
+  "normal": "Harvester_Normal.png",
+  "emissive": "Harvester_Emissive.png"
+ },
+ {
+  "folder": "Vernius/Spirit",
+  "name": "Spirit",
+  "models": [
+   "Spirit.fbx"
+  ],
+  "albedo": "Spirit_Albedo.png",
+  "mgao": "Spirit_MetallicGlossAO.png",
+  "normal": "Spirit_Normal.png",
+  "emissive": "Spirit_Emissive.png"
+ }
 ]
