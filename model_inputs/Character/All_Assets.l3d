@@ -1,0 +1,1224 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Background",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "environment",
+					"name": "environment",
+					"power": 0.8,
+					"rotation": 27.27,
+					"sourceMapPath": "Environment/Resource/Skymap/envMap_05.png"
+				},
+				{
+					"type": "rfx.temporalbloom",
+					"name": "temporalbloom",
+					"size": 0.5,
+					"downScaleCount": 5,
+					"threshold": 1,
+					"maxValue": 100
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "GROUND",
+			"x": -10,
+			"y": -2,
+			"children": [
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -10,
+					"y": -15,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -10,
+					"y": -25,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -19.98124,
+					"y": -15,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -19.98124,
+					"y": -5.10694,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -19.98124,
+					"y": -25,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"y": -15,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"y": -25,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"y": -5,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -10,
+					"y": -5,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_05_normal.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": -9.83,
+					"y": 5.01,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey04_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_normal.png",
+							"specularMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_basecolor.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"y": 5,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey04_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_normal.png",
+							"specularMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_basecolor.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": 10,
+					"y": -5,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey04_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_normal.png",
+							"specularMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_basecolor.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": 10,
+					"y": -15,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey04_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_normal.png",
+							"specularMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_basecolor.png"
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "Ground",
+					"x": 10,
+					"y": 5,
+					"scaleX": 10,
+					"scaleY": 10,
+					"scaleZ": 10,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey04_basecolor.png",
+							"normalMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_normal.png",
+							"specularMap": "Environment/Texture/Ground/Rock/Ground_Rock_Grey03_basecolor.png"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "CHARACTERS",
+			"children": [
+				{
+					"type": "model",
+					"name": "Male01_Marauder",
+					"source": "Character/Common/Marauder/Male01_Marauder.fbx",
+					"x": -4,
+					"y": -12,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "Male01_Raider",
+					"source": "Character/Common/Raider/Male01_Raider.fbx",
+					"x": -2,
+					"y": -12,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "Militia_male02",
+					"source": "Character/Common/Militia/Male01_Militia02.fbx",
+					"y": -12
+				},
+				{
+					"type": "model",
+					"name": "Militia_male01",
+					"source": "Character/Common/Militia/Male01_Militia01.fbx",
+					"x": 2,
+					"y": -12
+				},
+				{
+					"type": "model",
+					"name": "Kulon02",
+					"source": "Character/Fremen/Unit/CaravanKulon/Kulon/Kulon02.fbx",
+					"x": -8.42,
+					"y": -9,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "Kulon01",
+					"source": "Character/Fremen/Unit/CaravanKulon/Kulon/Kulon01.fbx",
+					"x": -5.57,
+					"y": -9,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "KulonTrooper",
+					"source": "Character/Fremen/Unit/CaravanKulon/Kulon/KulonTrooper.fbx",
+					"x": -7,
+					"y": -9,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "Male01_Feydakin",
+					"source": "Character/Fremen/Unit/Feydakin/Male01_Feydakin.fbx",
+					"y": -9,
+					"scaleX": 1.2,
+					"scaleY": 1.2,
+					"scaleZ": 1.2
+				},
+				{
+					"type": "model",
+					"name": "Female01_Watcher",
+					"source": "Character/Fremen/Unit/Watcher/Female01_Watcher.fbx",
+					"x": -4,
+					"y": -9
+				},
+				{
+					"type": "model",
+					"name": "Female01_Infiltrator",
+					"source": "Character/Fremen/Unit/Infiltrator/Female01_Infiltrator.fbx",
+					"x": -2,
+					"y": -9
+				},
+				{
+					"type": "model",
+					"name": "Male01_Scout",
+					"source": "Character/Smuggler/Unit/Scout/Male01_Scout.fbx",
+					"x": -4,
+					"y": -6,
+					"scaleY": 1.0000000000000004,
+					"scaleZ": 1.0000000000000004
+				},
+				{
+					"type": "model",
+					"name": "Female01_FreeCompany",
+					"source": "Character/Smuggler/Unit/FreeCompany/Female01_FreeCompany.fbx",
+					"x": -2,
+					"y": -6,
+					"scaleX": 1.2,
+					"scaleY": 1.2,
+					"scaleZ": 1.2
+				},
+				{
+					"type": "model",
+					"name": "Female01_HarkonnenGunner",
+					"source": "Character/Harkonnen/Unit/Gunner/Female01_HarkonnenGunner.fbx",
+					"x": -2,
+					"y": -3,
+					"scaleX": 1.05,
+					"scaleY": 1.05,
+					"scaleZ": 1.05
+				},
+				{
+					"type": "model",
+					"name": "Female01_HarkonnenVanguard",
+					"source": "Character/Harkonnen/Unit/Vanguard/Female01_HarkonnenVanguard.fbx",
+					"x": -4,
+					"y": -3
+				},
+				{
+					"type": "model",
+					"name": "Atreide_Shield_01",
+					"source": "Character/Atreide/Unit/Weapons/Atreide_Shield_01.fbx",
+					"x": -0.86,
+					"y": -1,
+					"z": 0.97,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "Male01_FremenSoldier",
+					"source": "Character/Fremen/Unit/Soldier/Male01_FremenSoldier.fbx",
+					"x": 2,
+					"y": -9
+				},
+				{
+					"type": "model",
+					"name": "Weapon_MissileLauncher",
+					"source": "Character/Atreide/Unit/HeavyWeaponSquad/Weapon_MissileLauncher.fbx",
+					"x": -3,
+					"y": -0.99,
+					"z": 0.62,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002,
+					"rotationX": 2.9999999999999987,
+					"rotationY": -21,
+					"rotationZ": -26.4
+				},
+				{
+					"type": "model",
+					"name": "Atreide_MaulaRifle",
+					"source": "Character/Atreide/Unit/Weapons/Atreide_MaulaRifle.fbx",
+					"x": -4.94,
+					"y": -0.96,
+					"z": 0.69,
+					"scaleX": 0.9999999999999999,
+					"rotationX": 3.3,
+					"rotationY": -20.299999999999997,
+					"rotationZ": -25.799999999999997
+				},
+				{
+					"type": "model",
+					"name": "Male01_SmugglerMercenary",
+					"source": "Character/Smuggler/Unit/Mercenary/Male01_SmugglerMercenary.fbx",
+					"y": -6,
+					"scaleX": 1.0000000000000004,
+					"scaleY": 1.0000000000000004,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "model",
+					"name": "Female01_SmugglerSkirmisher",
+					"source": "Character/Smuggler/Unit/Skirmisher/Female01_SmugglerSkirmisher.fbx",
+					"x": 2,
+					"y": -6,
+					"scaleX": 1.0000000000000004,
+					"scaleY": 1.0000000000000004
+				},
+				{
+					"type": "model",
+					"name": "Male01_HarkonnenTrooper",
+					"source": "Character/Harkonnen/Unit/Trooper/Male01_HarkonnenTrooper.fbx",
+					"x": 2,
+					"y": -3
+				},
+				{
+					"type": "model",
+					"name": "Male01_HouseGuard",
+					"source": "Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard.fbx",
+					"y": -3,
+					"scaleX": 1.2,
+					"scaleY": 1.2,
+					"scaleZ": 1.2
+				},
+				{
+					"type": "model",
+					"name": "Female01_AtreideWarden",
+					"source": "Character/Atreide/Unit/Warden/Female01_AtreideWarden.fbx",
+					"scaleX": 1.2,
+					"scaleY": 1.2,
+					"scaleZ": 1.2
+				},
+				{
+					"type": "model",
+					"name": "Male01_AtreideSoldier",
+					"source": "Character/Atreide/Unit/Soldier/Male01_AtreideSoldier.fbx",
+					"x": 2,
+					"scaleX": 1.0000000000000004,
+					"scaleY": 1.0000000000000004
+				},
+				{
+					"type": "model",
+					"name": "Male01_HeavyWeaponSquad",
+					"source": "Character/Atreide/Unit/HeavyWeaponSquad/Male01_HeavyWeaponSquad.fbx",
+					"x": -2
+				},
+				{
+					"type": "model",
+					"name": "Female01_AtreideRanger",
+					"source": "Character/Atreide/Unit/Ranger/Female01_AtreideRanger.fbx",
+					"x": -4
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "BUILDINGS",
+			"children": [
+				{
+					"type": "reference",
+					"name": "Prefab_ListeningPost",
+					"source": "Structure/Buildings/ListeningPost/Prefab_ListeningPost.prefab",
+					"x": -17,
+					"y": -6,
+					"z": 0.03,
+					"rotationZ": 90
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_MilitaryBase",
+					"source": "Structure/Buildings/MilitaryBase/Prefab_MilitaryBase.prefab",
+					"x": -14.77,
+					"y": -6,
+					"z": 0.03,
+					"rotationZ": 90
+				},
+				{
+					"type": "model",
+					"name": "ResearchHub",
+					"source": "Structure/Buildings/ResearchHub/ResearchHub.fbx",
+					"x": -14.76,
+					"y": -8.48,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 0.9999999999999999,
+					"scaleZ": 0.9999999999999999
+				},
+				{
+					"type": "model",
+					"name": "Tile_Village_01",
+					"source": "Structure/Village/Tiles/Model/Tile_Village_01.fbx",
+					"x": -19,
+					"y": -1,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": -90
+				},
+				{
+					"type": "model",
+					"name": "Tile_Village_08",
+					"source": "Structure/Village/Tiles/Model/Tile_Village_08.fbx",
+					"x": -21,
+					"y": 1,
+					"rotationZ": -90
+				},
+				{
+					"type": "model",
+					"name": "Tile_Village_07",
+					"source": "Structure/Village/Tiles/Model/Tile_Village_07.fbx",
+					"x": -19,
+					"y": 1,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": -90
+				},
+				{
+					"type": "model",
+					"name": "Tile_Village_06",
+					"source": "Structure/Village/Tiles/Model/Tile_Village_06.fbx",
+					"x": -21,
+					"y": -1,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": -90
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "VEHICLES",
+			"children": [
+				{
+					"type": "model",
+					"name": "DroneH",
+					"source": "Vehicle/Harkonnen/DroneH/DroneH.fbx",
+					"x": -6,
+					"y": -3
+				},
+				{
+					"type": "model",
+					"name": "CombatDrone_Smuggler",
+					"source": "Vehicle/Smuggler/DroneS/DroneS.fbx",
+					"x": -6,
+					"y": -6,
+					"z": 0.95888,
+					"scaleY": 1.000000000000001,
+					"scaleZ": 1.000000000000001,
+					"rotationZ": -180
+				},
+				{
+					"type": "model",
+					"name": "CrashedOrnithopter",
+					"source": "Structure/Point_Of_Interest/CrashedOrnithopter/CrashedOrnithopter.fbx",
+					"x": -6.08,
+					"y": 5.19,
+					"z": 0.04
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_Harvester",
+					"source": "Vehicle/Atreide/Harvester/Prefab_Harvester.prefab",
+					"x": -11.27169,
+					"y": -22.95665,
+					"z": -0.00399,
+					"rotationZ": -90
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_Ornithopter",
+					"source": "Vehicle/Atreide/Ornithopter/Prefab_Ornithopter.prefab",
+					"x": -12.72226,
+					"y": -27.37233,
+					"z": 1,
+					"scaleX": 1.5000000000000009,
+					"scaleY": 1.5000000000000009,
+					"scaleZ": 1.5,
+					"rotationZ": -89.99999999999999
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Sandworm",
+			"source": "Character/Creatures/Sandworm/Sandworm.fbx",
+			"x": 0.29,
+			"y": 5,
+			"scaleX": 0.6,
+			"scaleY": 0.6,
+			"scaleZ": 0.6
+		},
+		{
+			"type": "light",
+			"name": "light_2",
+			"x": -9.52,
+			"y": -7.49,
+			"z": 5.64,
+			"scaleX": 1.0000000000000002,
+			"rotationX": 29.4,
+			"rotationY": 10.5,
+			"rotationZ": -155.9,
+			"kind": "Directional",
+			"color": 8771839,
+			"power": 1.52,
+			"range": 10,
+			"zNear": 0.02
+		},
+		{
+			"type": "light",
+			"name": "light_0",
+			"z": 5.64,
+			"rotationY": 63.6,
+			"rotationZ": 32.9,
+			"kind": "Directional",
+			"color": 16772554,
+			"power": 1.97,
+			"occlusionFactor": 0.59,
+			"isMainLight": true,
+			"range": 10,
+			"zNear": 0.02,
+			"maxDist": 300,
+			"minDist": 10,
+			"autoShrink": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 4096,
+				"radius": 0,
+				"quality": 0,
+				"bias": 0.02,
+				"samplingMode": {
+					"kind": "PCF",
+					"quality": 3,
+					"scale": 0.76
+				}
+			}
+		},
+		{
+			"type": "object",
+			"name": "VFX",
+			"x": -12.29,
+			"y": -19.29833333333333,
+			"z": -0.03333333333333333,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Soft_Grey_3",
+					"source": "Fx/Smoke/FX_Smoke_Soft_Grey_3.fx",
+					"x": -0.6700000000000017,
+					"y": -0.8916666666666728,
+					"z": 0.03333333333333333,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Soft_Grey_2",
+					"source": "Fx/Smoke/FX_Smoke_Soft_Grey_2.fx",
+					"x": -0.5700000000000003,
+					"y": -2.891666666666673,
+					"z": 0.03333333333333333,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Soft_Grey_1",
+					"source": "Fx/Smoke/FX_Smoke_Soft_Grey_1.fx",
+					"x": -0.5700000000000003,
+					"y": -4.991666666666671,
+					"z": 0.03333333333333333,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Soft_3",
+					"source": "Fx/Smoke/FX_Smoke_Soft_3.fx",
+					"x": 1.9299999999999997,
+					"y": 0.008333333333329307,
+					"z": 0.03333333333333333,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Soft_2",
+					"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+					"x": 1.8299999999999983,
+					"y": -2.431666666666672,
+					"z": -0.06666666666666668,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Soft_1",
+					"source": "Fx/Smoke/FX_Smoke_Soft_1.fx",
+					"x": 1.7299999999999986,
+					"y": -4.491666666666671,
+					"z": 0.03333333333333333,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_Grey_3",
+					"source": "Fx/Smoke/FX_Smoke_Big_Grey_3.fx",
+					"x": -3.08,
+					"y": 1.198333333333327,
+					"z": 0.03333333333333333
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_Grey_2",
+					"source": "Fx/Smoke/FX_Smoke_Big_Grey_2.fx",
+					"x": -0.3200000000000003,
+					"y": 1.2983333333333285,
+					"z": -0.06666666666666668
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_Grey_1",
+					"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+					"x": 1.9899999999999984,
+					"y": 1.2983333333333285,
+					"z": -0.06666666666666668
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_3",
+					"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+					"x": -3.1800000000000015,
+					"y": 3.9983333333333277,
+					"z": -0.06666666666666668
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_2",
+					"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+					"x": -0.7800000000000011,
+					"y": 3.9983333333333277,
+					"z": 0.03333333333333333
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_1",
+					"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+					"x": 1.6899999999999995,
+					"y": 3.898333333333328,
+					"z": 0.03333333333333333
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "CombatDrone_Atreide",
+			"source": "Vehicle/Atreide/DroneA/DroneA.fbx",
+			"x": -11.33832,
+			"y": -26.88246,
+			"z": 0.2,
+			"scaleX": 1.45,
+			"scaleY": 1.45,
+			"scaleZ": 1.45,
+			"rotationZ": -45.8
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_5",
+			"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+			"x": -8.24,
+			"y": -15.65,
+			"rotationZ": -60.3
+		},
+		{
+			"type": "model",
+			"name": "Wrecked_Harvester",
+			"source": "Structure/Point_Of_Interest/Wrecked_Harvester/Wrecked_Harvester.fbx",
+			"x": -10.64,
+			"y": 5.05,
+			"z": 0.01,
+			"rotationZ": -90
+		},
+		{
+			"type": "model",
+			"name": "SpiceFreighterDrone",
+			"source": "Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighterDrone.fbx",
+			"x": -14.3908,
+			"y": -22.76284,
+			"z": 0.39481,
+			"scaleX": 1.55,
+			"scaleY": 1.55,
+			"scaleZ": 1.55
+		},
+		{
+			"type": "model",
+			"name": "Weapon_MilitiaShield",
+			"source": "Character/Common/Weapon/Militia_Shield/Weapon_MilitiaShield.fbx",
+			"x": 1.82,
+			"y": -12.57
+		},
+		{
+			"type": "model",
+			"name": "Crashed_shuttle",
+			"source": "Structure/Point_Of_Interest/Crashed_Shuttle/Crashed_shuttle.fbx",
+			"x": -16.02,
+			"y": 4.71
+		},
+		{
+			"type": "model",
+			"name": "MissileLauncher",
+			"source": "Character/Harkonnen/Weapon/MissileLauncher.fbx",
+			"x": -2.93,
+			"y": -3.98,
+			"z": 0.74,
+			"rotationX": 2.8,
+			"rotationY": -17,
+			"rotationZ": -22.2
+		},
+		{
+			"type": "model",
+			"name": "Male01_ImperiumTrooper",
+			"source": "Character/Imperial/Trooper/Male01_ImperialTrooper.fbx",
+			"y": -15
+		},
+		{
+			"type": "model",
+			"name": "Male01_LandsraadGuard",
+			"source": "Character/Common/Landsraad/Male01_LandsraadGuard.fbx",
+			"x": -6,
+			"y": -15
+		},
+		{
+			"type": "model",
+			"name": "Male01_HarkonnenRabban",
+			"source": "Character/Harkonnen/Unit/Rabban/Male01_HarkonnenRabban.fbx",
+			"x": 4,
+			"y": -3,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_FremenOtheym",
+			"source": "Character/Fremen/Unit/Otheym/Prefab_FremenOtheym.prefab",
+			"x": 4,
+			"y": -9,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_SmugglersDrisq",
+			"source": "Character/Smuggler/Unit/Drisq/Prefab_SmugglersDrisq.prefab",
+			"x": 4,
+			"y": -6,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_HarkonnenNefud",
+			"source": "Character/Harkonnen/Unit/Nefud/Prefab_HarkonnenNefud.prefab",
+			"x": 6,
+			"y": -3,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_AtreidesDuncan",
+			"source": "Character/Atreide/Unit/Duncan/Prefab_AtreidesDuncan.prefab",
+			"x": 4,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_AtreidesGurney",
+			"source": "Character/Atreide/Unit/Gurney/Prefab_AtreidesGurney.prefab",
+			"x": 6,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_FremenChani",
+			"source": "Character/Fremen/Unit/Chani/Prefab_FremenChani.prefab",
+			"x": 6,
+			"y": -9,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_SmugglerBannerjee",
+			"source": "Character/Smuggler/Unit/Bannerjee/Prefab_SmugglerBannerjee.prefab",
+			"x": 6,
+			"y": -6,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "model",
+			"name": "Male01_ImperialFlameThrower",
+			"source": "Character/Imperial/FlameThrower/Male01_ImperialFlameThrower.fbx",
+			"x": -2,
+			"y": -15
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_ImperialSardaukar_03",
+			"source": "Character/Imperial/Sardaukar/Prefab_ImperialSardaukar_03.prefab",
+			"x": 2,
+			"y": -15,
+			"scaleX": 1.2,
+			"scaleY": 1.2,
+			"scaleZ": 1.2
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_ImperialWensicia",
+			"source": "Character/Imperial/Wensicia/Prefab_ImperialWensicia.prefab",
+			"x": 4,
+			"y": -14.99671,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_BaseEcaz",
+			"source": "Structure/Base/Ecaz/Prefab_BaseEcaz.prefab",
+			"x": -24.96484,
+			"y": -9.14888,
+			"scaleX": 0.23,
+			"scaleY": 0.23,
+			"scaleZ": 0.23,
+			"rotationZ": -176.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Arrakeen",
+			"source": "Structure/Base/Arrakeen/Prefab_Arrakeen.prefab",
+			"x": -31.65052,
+			"y": -13.72653,
+			"z": -0.00134,
+			"scaleX": 0.15,
+			"scaleY": 0.15,
+			"scaleZ": 0.15,
+			"rotationZ": -78.5
+		}
+	]
+}

@@ -1,0 +1,249 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": 3.29,
+			"y": -7.94,
+			"z": 0.23,
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "model",
+					"name": "PlastcreteFactory",
+					"source": "Structure/Buildings/PlascreteFactory/PlastcreteFactory.fbx",
+					"x": -0.25100000000000033,
+					"y": -3.4829999999999988,
+					"z": -0.22599999999999998,
+					"rotationZ": 180,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Structure/Buildings/PlascreteFactory/PlascreteFactory_Harkonnen_Albedo.png"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Village_Medium_01",
+					"source": "Structure/Village/Tiles/Model/Village_Medium_01.fbx",
+					"x": 3.4189999999999996,
+					"y": -3.3229999999999986,
+					"z": -0.22599999999999998,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": -89.99999999999999,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Structure/Village/Tiles/Textures/VillageBuilding02_Harkonnen_Albedo.png"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "BaseCarthag",
+					"source": "Structure/Base/Carthag/BaseCarthag.fbx",
+					"x": 15.039,
+					"y": 0.947000000000001,
+					"z": -0.22599999999999998,
+					"scaleX": 2.65,
+					"scaleY": 2.65,
+					"scaleZ": 2.65,
+					"rotationZ": -89.99999999999999
+				},
+				{
+					"type": "model",
+					"name": "SpiceFreighterDrone",
+					"source": "Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighterDrone.fbx",
+					"x": -9.981,
+					"y": 0.8370000000000015,
+					"z": 1.554,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighter_Harkonnen_Albedo.png"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "SpaceShuttle",
+					"source": "Vehicle/Atreide/SpaceShuttle/SpaceShuttle.fbx",
+					"x": -7.741,
+					"y": 0.6470000000000011,
+					"z": 0.254,
+					"rotationZ": -89.99999999999999,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Vehicle/Atreide/SpaceShuttle/SpaceShuttle_Harkonnen_Albedo.png"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Vehicule_Harvester",
+					"source": "Vehicle/Atreide/Harvester/Vehicule_Harvester.fbx",
+					"x": -4.881,
+					"y": 0.31700000000000106,
+					"z": -0.22599999999999998,
+					"rotationZ": -89.99999999999999,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Vehicle/Atreide/Harvester/Harvester_Harkonnen_Albedo.png"
+						}
+					]
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_Female01_HarkonnenVanguard",
+					"source": "Character/Harkonnen/Unit/Vanguard/Prefab_Female01_HarkonnenVanguard.prefab",
+					"x": 4.159,
+					"y": 1.1270000000000016,
+					"z": -0.22599999999999998
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_HarkonnenTrooper",
+					"source": "Character/Harkonnen/Unit/Trooper/Prefab_HarkonnenTrooper.prefab",
+					"x": -2.0310000000000006,
+					"y": 0.8570000000000011,
+					"z": -0.22599999999999998
+				},
+				{
+					"type": "reference",
+					"name": "Male01_HouseGuard",
+					"source": "Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard.prefab",
+					"x": 2.1989999999999994,
+					"y": 1.0370000000000008,
+					"z": -0.22599999999999998
+				},
+				{
+					"type": "reference",
+					"name": "Female01_HarkonnenGunner",
+					"source": "Character/Harkonnen/Unit/Gunner/Female01_HarkonnenGunner.prefab",
+					"x": 0.06899999999999906,
+					"y": 1.0370000000000008,
+					"z": -0.22599999999999998
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "CarryAll",
+			"source": "Vehicle/Atreide/CarryAll/CarryAll.fbx",
+			"x": 2.96,
+			"y": -20.47,
+			"z": 1.22,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Vehicle/Atreide/CarryAll/CarryAll_Harkonnen_Albedo.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Vehicle_Ornithopter",
+			"source": "Vehicle/Atreide/Ornithopter/Vehicle_Ornithopter.fbx",
+			"x": 3.83,
+			"y": -23.36,
+			"scaleX": 1.81,
+			"scaleY": 1.81,
+			"scaleZ": 1.81,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Vehicle/Atreide/Ornithopter/Ornithopter_Harkonnen_Albedo.png"
+				}
+			]
+		}
+	]
+}

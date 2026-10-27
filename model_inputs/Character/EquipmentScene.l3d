@@ -1,0 +1,172 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Hide",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0
+				}
+			},
+			"children": [
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"threshold": 1,
+					"intensity": 0.4,
+					"blur": 13.33
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Character/Atreide/Leader/Leto/LetoLUT_raw.png",
+					"intensity": 0.6
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.2,
+			"sourceMapPath": "Environment/Resource/Skymap/envMap_05.png"
+		},
+		{
+			"type": "object",
+			"name": "Lights",
+			"children": [
+				{
+					"type": "light",
+					"name": "Main_Light",
+					"x": 2.76,
+					"y": 2.99347,
+					"z": 5.21,
+					"scaleX": 2.5000000000000004,
+					"scaleY": 2.5,
+					"scaleZ": 2.4999999999999996,
+					"rotationY": 49.09,
+					"rotationZ": -120,
+					"kind": "Spot",
+					"color": 16772822,
+					"power": 3,
+					"isMainLight": true,
+					"range": 8,
+					"zNear": 0.02,
+					"fallOff": 10,
+					"shadows": {
+						"mode": "Dynamic",
+						"size": 1024,
+						"radius": 5,
+						"quality": 2,
+						"bias": 0.02,
+						"samplingMode": {
+							"kind": "None"
+						}
+					}
+				},
+				{
+					"type": "light",
+					"name": "Rim Light",
+					"x": -3.39732,
+					"y": -3.87642,
+					"z": 1.55521,
+					"scaleX": 3,
+					"scaleY": 1.5597052289896247,
+					"scaleZ": 1.5597052289896247,
+					"rotationX": -28.4,
+					"rotationY": 2,
+					"rotationZ": 66.2,
+					"kind": "Spot",
+					"color": 16766891,
+					"power": 3,
+					"occlusionFactor": 0,
+					"range": 7,
+					"zNear": 0.02,
+					"fallOff": 20
+				},
+				{
+					"type": "light",
+					"name": "Refraction Light",
+					"x": 1,
+					"z": -1.34911,
+					"scaleX": 3,
+					"scaleY": 1.5597052289896247,
+					"scaleZ": 1.5597052289896247,
+					"rotationX": 16.9,
+					"rotationY": -114.8,
+					"rotationZ": 14.8,
+					"kind": "Spot",
+					"color": 16762735,
+					"power": 3,
+					"occlusionFactor": 0,
+					"range": 5,
+					"zNear": 0.02,
+					"fallOff": 20
+				}
+			]
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 10.33951742908841,
+			"y": 2.8632127773785268,
+			"z": 5.249737152850913,
+			"scaleY": 0.9999999999999999,
+			"rotationX": -4.2480800552198888e-16,
+			"rotationY": 20.629209480769763,
+			"rotationZ": -164.5846487235492,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		},
+		{
+			"type": "model",
+			"name": "Keep",
+			"source": "Fx/Meshes_Common/Sphere.fbx",
+			"editorOnly": true,
+			"x": 0.03647,
+			"y": -0.02985,
+			"z": 1.41982,
+			"scaleX": 0.55,
+			"scaleY": 0.55,
+			"scaleZ": 0.5499999999999998,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "Forward",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Male01_AtreideSoldier",
+			"source": "Character/Atreide/Unit/Soldier/Male01_AtreideSoldier.fbx",
+			"editorOnly": true,
+			"animation": "Anim/Male01/Anim_Male01_Idle01.fbx"
+		}
+	]
+}

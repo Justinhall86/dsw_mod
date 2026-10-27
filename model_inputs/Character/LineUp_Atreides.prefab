@@ -1,0 +1,224 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "Prefab_HeavyWeaponSquad",
+			"source": "Character/Atreide/Unit/HeavyWeaponSquad/Prefab_HeavyWeaponSquad.prefab"
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Female01_Ranger",
+			"source": "Character/Atreide/Unit/Ranger/Prefab_Female01_Ranger.prefab",
+			"x": -2.04
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_AtreideSoldier",
+			"source": "Character/Atreide/Unit/Soldier/Prefab_AtreideSoldier.prefab",
+			"x": -4.08
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Female01_Warden",
+			"source": "Character/Atreide/Unit/Warden/Prefab_Female01_Warden.prefab",
+			"x": -6.29
+		},
+		{
+			"type": "model",
+			"name": "BaseArrakeen",
+			"source": "Structure/Base/Arrakeen/BaseArrakeen.fbx",
+			"x": 19.19,
+			"y": -0.06,
+			"z": -0.14,
+			"rotationZ": -180
+		},
+		{
+			"type": "model",
+			"name": "CarryAll",
+			"source": "Vehicle/Atreide/CarryAll/CarryAll.fbx",
+			"x": -9.48,
+			"y": 0.5,
+			"z": 0.83,
+			"rotationZ": -90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Vehicle/Atreide/CarryAll/CarryAll_Atreides_Albedo.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Vehicule_Harvester",
+			"source": "Vehicle/Atreide/Harvester/Vehicule_Harvester.fbx",
+			"x": -13.01,
+			"y": -0.12,
+			"rotationZ": -90
+		},
+		{
+			"type": "model",
+			"name": "Vehicle_Ornithopter",
+			"source": "Vehicle/Atreide/Ornithopter/Vehicle_Ornithopter.fbx",
+			"x": -11.4,
+			"y": 4.41,
+			"z": 2.77,
+			"scaleX": 1.75,
+			"scaleY": 1.75,
+			"scaleZ": 1.75,
+			"rotationZ": -90
+		},
+		{
+			"type": "model",
+			"name": "SpaceShuttle",
+			"source": "Vehicle/Atreide/SpaceShuttle/SpaceShuttle.fbx",
+			"x": -16.36,
+			"y": -0.43,
+			"z": 2.79,
+			"rotationZ": -90
+		},
+		{
+			"type": "model",
+			"name": "SpiceFreighterDrone",
+			"source": "Vehicle/Atreide/SpiceFreighterDrone/SpiceFreighterDrone.fbx",
+			"x": -9.8,
+			"y": 5.03,
+			"z": 2.07
+		},
+		{
+			"type": "model",
+			"name": "DroneA",
+			"source": "Vehicle/Atreide/DroneA/DroneA.fbx",
+			"x": -13.43,
+			"y": 4.43,
+			"z": 2.99,
+			"rotationZ": -90
+		},
+		{
+			"type": "model",
+			"name": "Airfield",
+			"source": "Structure/Buildings/Airfield/Airfield.fbx",
+			"x": -2.02,
+			"y": -7.53,
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Structure/Buildings/Airfield/Airfield_Atreides_Albedo.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "FuelCellFactory",
+			"source": "Structure/Buildings/FuelCellFactory/FuelCellFactory.fbx",
+			"x": -4.57,
+			"y": -7.17,
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Structure/Buildings/FuelCellFactory/FuelCellFactory_Atreides_Albedo.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Refinery",
+			"source": "Structure/Buildings/Refinery/Refinery.fbx",
+			"x": -8.27,
+			"y": -7.77,
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Structure/Buildings/Refinery/Refinery_Atreides_Albedo.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "SupplyDepot",
+			"source": "Structure/Buildings/SupplyDepot/SupplyDepot.fbx",
+			"x": -12.41,
+			"y": -7.85,
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Structure/Buildings/SupplyDepot/SupplyDepot_Atreides_Albedo.png"
+				}
+			]
+		}
+	]
+}
