@@ -1,0 +1,88 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_HarkonnenNefud",
+			"source": "Character/Harkonnen/Unit/Nefud/Male01_HarkonnenNefud.fbx"
+		},
+		{
+			"type": "model",
+			"name": "NefudShield",
+			"source": "Character/Harkonnen/Weapon/NefudShield.fbx",
+			"y": -0.15,
+			"scaleX": 0.9,
+			"scaleY": 0.9,
+			"scaleZ": 0.9,
+			"rotationX": -88.1,
+			"rotationY": -12.2,
+			"rotationZ": -4.4,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Add",
+							"shadows": true,
+							"culling": "None",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"materialName": "NefudSetADD_Mat",
+					"color": [
+						1,
+						0.4235294117647059,
+						0.4235294117647059,
+						1
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "NefudMace",
+			"source": "Character/Harkonnen/Weapon/NefudMace.fbx",
+			"y": 0.11334,
+			"scaleZ": 0.95,
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint_Shield",
+			"object": "NefudShield",
+			"target": "Male01_HarkonnenNefud.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_Shield"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint_Mace",
+			"object": "NefudMace",
+			"target": "Male01_HarkonnenNefud.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "object",
+			"name": "Handgun",
+			"children": [
+				{
+					"type": "model",
+					"name": "Gun",
+					"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+					"x": -0.01058,
+					"y": 0.06254,
+					"z": 0.1224,
+					"rotationX": -96.8,
+					"visible": false
+				},
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "Handgun.Gun",
+					"target": "Male01_HarkonnenNefud.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+				}
+			]
+		}
+	]
+}

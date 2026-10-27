@@ -1,0 +1,55 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_MaulaRifle_Harkonnen": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			},
+			"Mat_MissileLauncher_Harkonnen": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			},
+			"Mat_Shield_Energy": {
+				"mode": "BeforeTonemapping",
+				"blend": "Add",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"Mat_Shield_Metal": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"NefudSet_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

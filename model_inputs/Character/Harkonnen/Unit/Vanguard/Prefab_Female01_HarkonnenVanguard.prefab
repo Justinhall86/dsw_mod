@@ -1,0 +1,101 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Female01_HarkonnenVanguard",
+			"source": "Character/Harkonnen/Unit/Vanguard/Female01_HarkonnenVanguard.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"children": [
+						{
+							"type": "specularColor",
+							"name": "specularColor",
+							"enabled": false,
+							"specular": 0.29,
+							"specularTint": 0.85
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "KindJal_Harkonnen",
+			"source": "Character/Harkonnen/Weapon/Knife/Knife01.fbx",
+			"y": -0.1,
+			"z": -0.00951,
+			"scaleX": 0.11,
+			"scaleY": 0.11,
+			"scaleZ": 0.11,
+			"rotationX": -90,
+			"rotationY": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "KindJal_Harkonnen",
+			"target": "Female01_HarkonnenVanguard.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -1,
+			"scaleX": 1.49,
+			"scaleY": 1.49,
+			"scaleZ": 1.3,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"albedoStrength": 0.35,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "tdecal",
+			"target": "Female01_HarkonnenVanguard.root.B_ROOTJ",
+			"positionOnly": true
+		},
+		{
+			"type": "model",
+			"name": "Gun",
+			"source": "Character/Common/Weapon/Gun/Gun.fbx",
+			"y": -0.01867,
+			"z": -0.13208,
+			"rotationX": -90,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Gun",
+			"target": "Female01_HarkonnenVanguard.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 10.51822315697108,
+			"y": 5.26289790296785,
+			"z": 1.8111774427111687,
+			"rotationX": -9.96095175834486e-17,
+			"rotationY": 3.7842503039241566,
+			"rotationZ": -153.2400843799589,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

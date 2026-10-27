@@ -1,0 +1,25 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_Cerberus",
+			"source": "Character/Harkonnen/Unit/Cerberus/Male01_Cerberus.fbx"
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 12.201755911244828,
+			"y": 2.346943305969876,
+			"z": 2.8471729408228335,
+			"scaleX": 0.9999999999999999,
+			"scaleZ": 0.9999999999999999,
+			"rotationY": 7.71703260970189,
+			"rotationZ": -169.60285696446903,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}

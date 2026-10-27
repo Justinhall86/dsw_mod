@@ -1,0 +1,85 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_HouseGuard",
+			"source": "Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Character/Harkonnen/Unit/HouseGuard/Mat_HouseGuard_Damaged_Albedo.png",
+					"normalMap": "Character/Harkonnen/Unit/HouseGuard/Mat_HouseGuard_Damaged_Normal.png"
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_01",
+			"source": "Character/Harkonnen/Weapon/Knife/Knife02.fbx",
+			"y": -0.1,
+			"scaleX": 0.11,
+			"scaleY": 0.11,
+			"scaleZ": 0.11,
+			"rotationX": -90,
+			"rotationY": 90
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_02",
+			"source": "Character/Harkonnen/Weapon/Knife/Knife02.fbx",
+			"x": -0.24607,
+			"y": 0.00133,
+			"z": 0.23504,
+			"scaleX": 0.11,
+			"scaleY": 0.11,
+			"scaleZ": 0.11,
+			"rotationX": 16.1,
+			"rotationY": 176.4,
+			"rotationZ": 16.9,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Sword_01",
+			"target": "Male01_HouseGuard.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Sword_02",
+			"target": "Male01_HouseGuard.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -1,
+			"scaleX": 1.49,
+			"scaleY": 1.49,
+			"scaleZ": 1.3,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"albedoStrength": 0.35,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "tdecal",
+			"target": "Male01_HouseGuard.B_ROOTJ",
+			"positionOnly": true
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_Gatling": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

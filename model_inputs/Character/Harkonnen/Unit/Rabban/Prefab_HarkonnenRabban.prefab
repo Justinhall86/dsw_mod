@@ -1,0 +1,32 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_HarkonnenRabban",
+			"source": "Character/Harkonnen/Unit/Rabban/Male01_HarkonnenRabban.fbx"
+		},
+		{
+			"type": "object",
+			"name": "Handgun",
+			"children": [
+				{
+					"type": "model",
+					"name": "Gun",
+					"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+					"x": -0.01058,
+					"y": 0.06254,
+					"z": 0.1224,
+					"rotationX": -96.8,
+					"visible": false
+				},
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "Handgun.Gun",
+					"target": "Male01_HarkonnenRabban.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+				}
+			]
+		}
+	]
+}

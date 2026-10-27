@@ -1,0 +1,94 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_HouseGuard",
+			"source": "Character/Harkonnen/Unit/HouseGuard/Male01_HouseGuard.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Shield_01",
+			"source": "Character/Harkonnen/Weapon/Harkonnen_Shield_01.fbx",
+			"z": 0.08062,
+			"rotationX": -85
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_01",
+			"source": "Character/Harkonnen/Weapon/Knife/Knife02.fbx",
+			"y": -0.08,
+			"z": 0.05,
+			"scaleX": 0.11,
+			"scaleY": 0.11,
+			"scaleZ": 0.11,
+			"rotationX": -90,
+			"rotationY": -90
+		},
+		{
+			"type": "model",
+			"name": "Atreide_Sword_02",
+			"source": "Character/Harkonnen/Weapon/Knife/Knife02.fbx",
+			"x": -0.24607,
+			"y": 0.00133,
+			"z": 0.23504,
+			"scaleX": 0.11,
+			"scaleY": 0.11,
+			"scaleZ": 0.11,
+			"rotationX": 16.1,
+			"rotationY": 176.4,
+			"rotationZ": 16.9,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Shield_01",
+			"target": "Male01_HouseGuard.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_Shield"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Sword_01",
+			"target": "Male01_HouseGuard.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Weapon"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_Sword_02",
+			"target": "Male01_HouseGuard.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -1,
+			"scaleX": 1.49,
+			"scaleY": 1.49,
+			"scaleZ": 1.3,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png",
+			"albedoStrength": 0.35,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "tdecal",
+			"target": "Male01_HouseGuard.B_ROOTJ",
+			"positionOnly": true
+		},
+		{
+			"type": "camera",
+			"name": "camera",
+			"x": 9.2389870714168,
+			"y": 4.921724603342785,
+			"z": 6.1311212918987685,
+			"rotationX": -1.7713043977412157e-15,
+			"rotationY": 26.129604314025574,
+			"rotationZ": -151.86498567164492,
+			"visible": false,
+			"fovY": 10,
+			"zFar": 1475.8371319584191,
+			"zNear": 0.14758371319584193
+		}
+	]
+}
