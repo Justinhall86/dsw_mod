@@ -24,8 +24,8 @@ import os
 import numpy as np
 from PIL import Image
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house"
-MODELS = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house"
+MODELS = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando"
 TEX = os.path.join(PROJ, "04_textures")
 
 # ---------------------------------------------------------------- palette
