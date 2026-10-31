@@ -1,7 +1,7 @@
 import re, numpy as np
-bpy.ops.wm.open_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\ginaz_stage1.blend")
+bpy.ops.wm.open_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_work\ginaz_stage1.blend")
 print("reopened:", [o.name for o in bpy.data.objects])
-SC2 = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\ginaz_stage2.py"
+SC2 = r"C:\Users\justi\Python\dsw_mod\model_work\ginaz_stage2.py"
 G = globals(); G["__file__"] = SC2
 P2 = re.split(r"\n# -{20,} ", open(SC2, encoding="utf-8").read()); G["P2"] = P2
 def run2(i):
