@@ -26,20 +26,20 @@ DEFAULTS = {
     # The folder Steam launches the game from.
     "game_dir": r"C:\Program Files (x86)\Steam\steamapps\common\D4X",
     # Old paks go here, never into the game folder.
-    "archive_dir": r"C:\Users\justi\OneDrive\Python\dsw_mod\pak_archive",
+    "archive_dir": r"C:\Users\justi\Python\dsw_mod\pak_archive",
     # CastleDB / HIDE editor; files that go into the pak live in res\res
     "editor_dir": r"C:\dsw_mod\D4XEditor",
     # Vanilla assets extracted from the game (read-only reference)
     "extr_dir": r"C:\dsw_mod\extr",
     # Peter Quin's HMD Toolkit (pure Python)
-    "toolkit_dir": r"C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit",
+    "toolkit_dir": r"C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit",
     # This repo
-    "project_dir": r"C:\Users\justi\OneDrive\Python\dsw_mod",
+    "project_dir": r"C:\Users\justi\Python\dsw_mod",
     # Blender 5.2
     "blender": r"C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
     # Model projects live here
     "model_projects": os.path.join(
-        r"C:\Users\justi\OneDrive\Python\dsw_mod", "model_projects"),
+        r"C:\Users\justi\Python\dsw_mod", "model_projects"),
 }
 
 
