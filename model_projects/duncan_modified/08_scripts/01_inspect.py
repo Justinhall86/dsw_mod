@@ -2,7 +2,7 @@
 so the scarf/cape geometry can be identified."""
 import bpy, os, numpy as np
 
-SRC = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
+SRC = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=False)
 

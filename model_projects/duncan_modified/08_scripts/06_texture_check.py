@@ -1,9 +1,9 @@
 """Step 6: render textured views (albedo) to check whether the hanging back piece is hair or scarf/cape cloth."""
 import bpy, os, mathutils
 
-SRC = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
-TEX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\01_input"
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\02_progress_photos"
+SRC = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
+TEX = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\01_input"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\02_progress_photos"
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=False)
 scene = bpy.context.scene

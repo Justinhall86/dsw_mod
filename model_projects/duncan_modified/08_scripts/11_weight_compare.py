@@ -22,5 +22,5 @@ def report(path, label):
     mx = max((sum(1 for g in v.groups if g.weight > 1e-4) for v in me.data.vertices), default=0)
     print("  max influences/vert:", mx)
 
-report(r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx", "SRC")
-report(r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\05_fbx_export\duncan_modified.fbx", "OUT")
+report(r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx", "SRC")
+report(r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\05_fbx_export\duncan_modified.fbx", "OUT")

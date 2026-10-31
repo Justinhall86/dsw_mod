@@ -1,8 +1,8 @@
 """Step 2: render front/side/back/3-4 views of the imported model so the scarf and cape can be located visually."""
 import bpy, os, math, numpy as np
 
-SRC = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\02_progress_photos"
+SRC = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\02_progress_photos"
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=False)
 

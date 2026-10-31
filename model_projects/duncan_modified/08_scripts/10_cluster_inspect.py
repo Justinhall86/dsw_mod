@@ -1,6 +1,6 @@
 """Inspect Cluster deformers in source vs exported FBX via the toolkit's fbx_binary reader."""
 import sys
-sys.path.insert(0, r"C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit\Models")
+sys.path.insert(0, r"C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit\Models")
 from fbx_binary import read_fbx
 
 def clusters(path, label):
@@ -33,5 +33,5 @@ def clusters(path, label):
     empty = [(n, b) for n, b, i in rows if i == 0]
     print("  empty clusters:", empty if empty else "none")
 
-clusters(r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx", "SRC")
-clusters(r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\05_fbx_export\duncan_modified.fbx", "OUT")
+clusters(r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx", "SRC")
+clusters(r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\05_fbx_export\duncan_modified.fbx", "OUT")

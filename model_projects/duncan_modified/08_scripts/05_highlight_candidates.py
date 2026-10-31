@@ -1,8 +1,8 @@
 """Step 5: highlight candidate scarf/cape islands in red on close-up views (front chest + back) to confirm the removal set."""
 import bpy, os, numpy as np, bmesh, mathutils
 
-SRC = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified\02_progress_photos"
+SRC = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\03_blender\Male01_AtreidesDuncan_src.fbx"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified\02_progress_photos"
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=False)
 scene = bpy.context.scene

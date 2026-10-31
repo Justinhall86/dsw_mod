@@ -2,7 +2,7 @@
 islands whose bbox z_min >= 1.3 and that contain green faces) and export duncan_modified.fbx."""
 import bpy, os, numpy as np, bmesh, mathutils
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified"
 SRC = os.path.join(PROJ, "03_blender", "Male01_AtreidesDuncan_src.fbx")
 TEX = os.path.join(PROJ, "01_input")
 OUT = os.path.join(PROJ, "05_fbx_export", "duncan_modified.fbx")

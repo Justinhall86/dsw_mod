@@ -29,11 +29,11 @@ import sys
 import bpy
 from mathutils import Matrix, Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified"
 BLEND_DIR = os.path.join(PROJ, "03_blender")
 TEX_DIR = os.path.join(PROJ, "04_textures")
 PHOTOS = os.path.join(PROJ, "02_progress_photos", "03_final")
-WORK = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\duncan_preview"
+WORK = r"C:\Users\justi\Python\dsw_mod\model_work\duncan_preview"
 
 HMD = os.path.join(PROJ, "06_game_ready", "Male01_DuncanModified", "Male01_DuncanModified.hmd")
 SWORD_HMD = r"C:\dsw_mod\extr\Character\Atreide\Unit\Weapons\Atreide_Sword_01.fbx"
@@ -42,7 +42,7 @@ ANIM_HMD = r"C:\dsw_mod\extr\Anim\Male01\Duncan\Anim_Male01_Duncan_FightIdle.fbx
 # them, so 04_textures/ holds real PNG conversions of the shipped maps
 SWORD_TEX = TEX_DIR
 
-TOOLKIT = r"C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit"
+TOOLKIT = r"C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit"
 BODY_FBX = os.path.join(WORK, "preview_body.fbx")
 SWORD_FBX = os.path.join(WORK, "preview_sword.fbx")
 ANIM_FBX = os.path.join(WORK, "preview_body_anim.fbx")

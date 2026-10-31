@@ -3,7 +3,7 @@
 Bone names/hierarchy/transforms are untouched -- use_deform is a Blender-only skinning hint."""
 import bpy, os
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\duncan_modified"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\duncan_modified"
 BLEND = os.path.join(PROJ, "03_blender", "duncan_modified.blend")
 OUT = os.path.join(PROJ, "05_fbx_export", "duncan_modified.fbx")
 
