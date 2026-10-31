@@ -1,6 +1,6 @@
 {
  "label": "before",
- "blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T6_merged.blend",
+ "blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T14_merged.blend",
  "meshes": [
   {
    "name": "CommandoHead",
@@ -59,8 +59,8 @@
   },
   {
    "name": "TrooperNeck",
-   "tris": 240,
-   "verts": 147,
+   "tris": 280,
+   "verts": 168,
    "max_influences": 2,
    "materials": [
     "Mat_Thorvald_Trim"
@@ -183,7 +183,7 @@
     ],
     "problems": []
    },
-   "texels_per_m": 374.8249832596764,
+   "texels_per_m": 377.7912211530491,
    "tris": 594
   },
   {
@@ -198,11 +198,11 @@
     ],
     "problems": [],
     "mean_rgb": [
-     0.1756,
-     0.1629,
-     0.1423
+     0.1757,
+     0.163,
+     0.1425
     ],
-    "mean_saturation": 0.2578,
+    "mean_saturation": 0.2576,
     "sharpness": 0.8009
    },
    "metallic_gloss_ao": {
@@ -223,7 +223,7 @@
     ],
     "problems": []
    },
-   "texels_per_m": 430.7934900418019,
+   "texels_per_m": 445.33537946077007,
    "tris": 3246
   },
   {
@@ -278,11 +278,11 @@
     ],
     "problems": [],
     "mean_rgb": [
-     0.1756,
-     0.1629,
-     0.1423
+     0.1757,
+     0.163,
+     0.1425
     ],
-    "mean_saturation": 0.2578,
+    "mean_saturation": 0.2576,
     "sharpness": 0.8009
    },
    "metallic_gloss_ao": {
@@ -341,7 +341,7 @@
     ],
     "problems": []
    },
-   "texels_per_m": 540.0201634286653,
+   "texels_per_m": 540.0195516219953,
    "tris": 1216
   },
   {
@@ -380,7 +380,7 @@
     "problems": []
    },
    "texels_per_m": null,
-   "tris": 240
+   "tris": 280
   }
  ],
  "problems": [
@@ -393,8 +393,8 @@
  "notes": [
   "Gurney: 4 bone influences on a vertex (game limit 3; 12b_assemble_export.py limits and normalises on export)"
  ],
- "total_tris": 8163,
+ "total_tris": 8203,
  "verdict": [
-  "tri count 8163 is inside the vanilla range"
+  "tri count 8203 is inside the vanilla range"
  ]
 }

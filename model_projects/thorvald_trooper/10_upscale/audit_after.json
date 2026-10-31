@@ -1,6 +1,6 @@
 {
  "label": "after",
- "blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T6_up2.blend",
+ "blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_trooper\\10_upscale\\Trooper_T14_up2.blend",
  "meshes": [
   {
    "name": "CommandoHead",
@@ -59,8 +59,8 @@
   },
   {
    "name": "TrooperNeck",
-   "tris": 240,
-   "verts": 147,
+   "tris": 280,
+   "verts": 168,
    "max_influences": 2,
    "materials": [
     "Mat_Thorvald_Trim"
@@ -179,7 +179,7 @@
     ],
     "problems": []
    },
-   "texels_per_m": 749.6499665193528,
+   "texels_per_m": 755.5824423060982,
    "tris": 594
   },
   {
@@ -195,11 +195,11 @@
     "problems": [],
     "mean_rgb": [
      0.1786,
-     0.1643,
-     0.1431
+     0.1645,
+     0.1433
     ],
-    "mean_saturation": 0.2572,
-    "sharpness": 0.3968
+    "mean_saturation": 0.2571,
+    "sharpness": 0.3967
    },
    "metallic_gloss_ao": {
     "image": "Gurney_0_up2_MetallicGlossAO",
@@ -217,7 +217,7 @@
     ],
     "problems": []
    },
-   "texels_per_m": 861.5869800836037,
+   "texels_per_m": 890.6707589215401,
    "tris": 3246
   },
   {
@@ -271,11 +271,11 @@
     "problems": [],
     "mean_rgb": [
      0.1786,
-     0.1643,
-     0.1431
+     0.1645,
+     0.1433
     ],
-    "mean_saturation": 0.2572,
-    "sharpness": 0.3968
+    "mean_saturation": 0.2571,
+    "sharpness": 0.3967
    },
    "metallic_gloss_ao": {
     "image": "Gurney_0_up2_MetallicGlossAO",
@@ -331,7 +331,7 @@
     ],
     "problems": []
    },
-   "texels_per_m": 540.0201634286653,
+   "texels_per_m": 540.0195516219953,
    "tris": 1216
   },
   {
@@ -370,15 +370,15 @@
     "problems": []
    },
    "texels_per_m": null,
-   "tris": 240
+   "tris": 280
   }
  ],
  "problems": [],
  "notes": [
   "Gurney: 4 bone influences on a vertex (game limit 3; 12b_assemble_export.py limits and normalises on export)"
  ],
- "total_tris": 8163,
+ "total_tris": 8203,
  "verdict": [
-  "tri count 8163 is inside the vanilla range"
+  "tri count 8203 is inside the vanilla range"
  ]
 }
