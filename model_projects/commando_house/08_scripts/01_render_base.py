@@ -7,8 +7,8 @@ import os
 import bpy
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house"
-FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house"
+FBX = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
 OUT = os.path.join(PROJ, "02_progress_photos", "01_base_inspect")
 os.makedirs(OUT, exist_ok=True)
 
