@@ -207,11 +207,29 @@ texture, one ember on the Gurney texture), so the recolour sets its colour with 
 `12b_assemble_export.py` (join to one mesh), `build_game_textures.py`, `convert_model.py`, then a `data.cdb` slot
 (see `dsw-new-unit` stages 7 to 9). The hat is a separate object and joins in the export.
 
-## Files
+## Project layout after the 2026-10-27 clean-up
+
+**Final: `03_blender/Thorvald_Trooper_v13.blend`** (recipe `T14_Trooper`; see v13 below). Previous: `Thorvald_Trooper_v12.blend` (T13, rejected as too slim), `Thorvald_Trooper_v11.blend` (T7).
+The file table in "Files" below is the *historical* list: only the files named here still exist.
+
+| Path | Kept |
+|---|---|
+| `03_blender/` | `Thorvald_Trooper_v11.blend` (final), `T7_Trooper_thorvald.blend` (recoloured recipe output), `history/` = v1, v3, v6, v8, v9 (one per design direction) |
+| `04_textures/` | `thorvald_t7/` + `t7_uv_regions.json` (final), `trim/`, `src/`, `sword/` |
+| `10_upscale/` | `Trooper_T7_merged.blend`, `Trooper_T7_up2.blend` (input of the katana mount), `tex/`, audits, before/after renders |
+| `02_progress_photos/` | `01_versions/` (stills T1-T7, vs-reference comparisons, v8-v11 GIFs, v11 head close-ups), `00_reference/` (donor/part/head sheets) |
+| `05_fbx_export/` | rig sources, `AtreideSword_TRUE_FBX.fbx`, `anim/` (Common clips used for tests) |
+| `08_scripts/`, `01_input/` | unchanged (`.blend1` backups removed) |
+
+Deleted as rebuildable scratch: T1-T6 intermediates, `.blend1` backups, v2/v4/v5/v7/v10 blends, T4-T6 upscale work, old texture sets, all review/quality/polish render dumps and per-frame clip shots.
+Git history still holds the tracked originals.
+
+## Files (historical)
 
 | Path | Contents |
 |---|---|
-| `03_blender/Thorvald_Trooper_v10.blend` | **current deliverable**: v9 + katana (Atreides sword, blade 0.69 -> 0.94 m, slight curve) on B_Weapon, throat notch recoloured, wider neck sleeve |
+| `03_blender/Thorvald_Trooper_v11.blend` | **current deliverable**: T7 (upright, form-fitting cuirass, hat centred on the skull) + the library katana (black blade, smaller hilt), 8,203 tris body |
+| `03_blender/Thorvald_Trooper_v10.blend` | previous deliverable: v9 + katana (Atreides sword, blade 0.69 -> 0.94 m, slight curve) on B_Weapon, throat notch recoloured, wider neck sleeve |
 | `03_blender/Thorvald_Trooper_v9.blend` | previous deliverable: T6 (Gurney upper body, Duncan legs + Duncan's own sash/tunic/tabard in rust with black trim, Commando head + face wrap), 8,115 tris |
 | `03_blender/Thorvald_Trooper_v8.blend` | previous deliverable: T5 rebuild (Gurney upper body + arms, Duncan legs, hand-built hood + mask, apron + coat tails), 3 materials, 10,989 tris |
 | `03_blender/Thorvald_Trooper_v7.blend` | previous deliverable: trim atlas (real UVs for hat, yoke, cuffs, waist, tabard, caps), ONE material on a 2048 atlas, shoulder caps + elbow pads, capped sleeve cuts, 9,714 tris |
@@ -302,3 +320,44 @@ Measured: 8,115 tris, audit 0 problems, 0 unweighted verts.  Materials: Gurney, 
 - **Neck sleeve** widened to 88-272 deg: closes the side gap between the head and the collar.
 - GIFs: `12_quality/Thorvald_Trooper_v10_katana.gif`, `12_quality/Thorvald_Trooper_vs_Duncan.gif` (`21_sword_fight.py`: two rigs, NLA-sequenced
   Common clips, each fighter under a pivot keyed per clip from the shoulder line so they always face each other).
+
+
+## v11: T7 posture, bulk, hat, katana from the weapons library (2026-10-27)
+- **Posture.** The skeleton and clips are the Atreides Trooper's exactly (same head / neck / shoulder heights in every frame, `compare_posture.py`),
+  so the hunch was the MESH: the head sat low between the plates and the Gurney cuirass pushed the upper chest / collar 8-10 cm further forward
+  than the Atreides Trooper's (`measure_body.py`). T7 raises the head 3 cm (`head_shift_z=0.03`) and slims the cuirass.
+- **Form-fitting armour.** `t5_shape.slim_upper(torso=...)`: x0.93 wide, front x0.88 / back x0.90 deep about y 0.02, the upper-chest front pulled to
+  x0.64 (z 1.48-1.62), faded in above the sash (z 1.30-1.40) and out on arm-weighted vertices; pauldrons x0.86. Chest-to-back depth 0.54 -> 0.49 m;
+  the collar front now matches the Atreides Trooper (-0.15 m).
+- **Hat** centred on the cranium (bounding-box centre of the head above the brow), not the vertex average that the dense face pulled 3-4 cm forward;
+  no forward tilt. Rim centre is within 1 cm of the head's centre line.
+- **Katana** now comes from `model_projects/weapons/thorvald_katana` (black blade, hilt x0.72, grip at local y 0.144), mounted with
+  `weapons/scripts/mount_weapon.py`. `08_scripts/20_katana.py` is superseded.
+- Rebuild: `bash 08_scripts/run_final.sh T7_Trooper` then
+  `blender -b 10_upscale/Trooper_T7_up2.blend --python ../weapons/scripts/mount_weapon.py -- ../weapons/thorvald_katana 03_blender/Thorvald_Trooper_v11.blend`.
+
+
+## v12: skin-tight cuirass (2026-10-27, recipe `T13_Trooper`)
+User: torso narrower and shallower, no puffed-out look, armour design unchanged. Mesh-only reshape (`t5_shape.slim_upper`), same parts and textures.
+- **Torso** x0.74 wide, front x0.66 / back x0.64 deep, upper chest x0.48, faded in from z 1.18 to 1.30 (low enough that Gurney's tunic hem goes in
+  with the plate) and faded out from |x| 0.24 to 0.40 (`x_fade`: no step where the torso meets the shoulder).
+- **Shoulder shells** x0.66 toward the shoulder joint, now including the arm-weighted shells (`pauldron_arm=(0.14, 0.28)`: fades out down the upper arm).
+- **Sash** taken in with the torso (`fill ... slim=True`) and cut at z 1.31 (was 1.34), so its ragged top edge stays under the plate.
+- **Emblem** moved onto the flat part of the left chest panel (x 0.058, z 1.46, r 0.034), lifted 9 mm (`lift`) so the neighbouring plate's bulge doesn't clip it.
+  (`conform=True` exists in `build_emblems` but looked worse across a plate seam.)
+- Measured vs v11: chest-to-back depth 0.49 -> 0.35 m; depth at z 1.45 0.44 -> 0.32 m; waist width (z 1.38) 0.40 -> 0.31 m; shoulder-shell top 1.76 -> 1.72 m.
+  8,173 tris, audit 0 problems. Clips checked in `02_progress_photos/01_versions/gifs/Thorvald_Trooper_v12.gif` (FightIdle, AttackMelee01/02, Run).
+- Intermediate recipes T8-T12 kept in `03_variants_trooper.py` (each step's reason in its comment).
+- Rebuild: `bash 08_scripts/run_final.sh T13_Trooper` then
+  `blender -b 10_upscale/Trooper_T13_up2.blend --python ../weapons/scripts/mount_weapon.py -- ../weapons/thorvald_katana 03_blender/Thorvald_Trooper_v12.blend`.
+
+
+## v13: v11 with a flat chest plate (2026-10-27, recipe `T14_Trooper`)
+User: v11's bulk is the better choice (v12 too slim); only flatten the chest plate (from the side it read as a bust) and remove the "beak" at its bottom.
+- `t5_shape.slim_upper(chest_flat=...)` on top of T7: front vertices in front of a plane (y -0.17 m on the chest, -0.16 m at the bottom) are pulled back
+  toward it, x0.30 on the chest and x0.15 at the bottom. That handles the pec bulge (was -0.23 m) and the lower plate's tip, which jutted 10 cm ahead of the belt (-0.247 m at z 1.28).
+  It fades out from |x| 0.14 to 0.24 and on arm vertices; above z 1.56 it eases out to nothing at the collar (z 1.64).
+- The sash is taken in with the same transform (`slim=True`), so its top stays tucked under the plate.
+- 8,203 tris, audit 0 problems. GIF: `02_progress_photos/01_versions/gifs/Thorvald_Trooper_v13.gif`; stills `v13_flat_chest_compare.png`.
+- Rebuild: `bash 08_scripts/run_final.sh T14_Trooper` then
+  `blender -b 10_upscale/Trooper_T14_up2.blend --python ../weapons/scripts/mount_weapon.py -- ../weapons/thorvald_katana 03_blender/Thorvald_Trooper_v13.blend`.
