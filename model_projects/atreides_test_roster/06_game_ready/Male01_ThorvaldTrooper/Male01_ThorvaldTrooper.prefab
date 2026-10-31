@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_ThorvaldTrooper",
+			"source": "CharMOD/Male01_ThorvaldTrooper/Male01_ThorvaldTrooper.hmd"
+		}
+	]
+}
