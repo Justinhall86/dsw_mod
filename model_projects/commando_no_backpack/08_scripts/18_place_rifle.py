@@ -24,7 +24,7 @@ import bpy
 import numpy as np
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 OUT = os.path.join(PROJ, "02_progress_photos", "08_rifle_placement")
 os.makedirs(OUT, exist_ok=True)
 FBX = os.path.join(PROJ, "05_fbx_export", "Male01_CommandoNoPackHouse.fbx")
