@@ -1,6 +1,6 @@
 import os
-TEX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\tex"
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_outputs\Male01_GinazSwordmaster.fbx"
+TEX = r"C:\Users\justi\Python\dsw_mod\model_work\tex"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_outputs\Male01_GinazSwordmaster.fbx"
 rig = bpy.data.objects["Armature"]; lo = bpy.data.objects["GinazSwordmaster"]; me = lo.data
 if rig.animation_data: rig.animation_data.action = None
 for pb in rig.pose.bones: pb.matrix_basis.identity()
@@ -16,4 +16,4 @@ with bpy.context.temp_override(**view3d_ctx()):
         bake_anim=False, path_mode='COPY', embed_textures=True, apply_scale_options='FBX_SCALE_UNITS',
         primary_bone_axis='Y', secondary_bone_axis='X', mesh_smooth_type='OFF')
 print("exported", os.path.getsize(OUT), "bytes")
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\ginaz_final.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_work\ginaz_final.blend")
