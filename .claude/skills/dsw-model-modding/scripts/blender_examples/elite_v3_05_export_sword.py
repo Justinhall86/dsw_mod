@@ -1,6 +1,6 @@
 """v3 step 5: with the assembled guard (v3_04) open, add the Atreides Trooper's sword (blender_bridge_commands/53_sword.py + 54_join.py first) and export the sword variant."""
 import os
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\Male01_LandsraadGuardEliteSword.fbx"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\Male01_LandsraadGuardEliteSword.fbx"
 lo = bpy.data.objects["LandsraadElite"]; rig = bpy.data.objects["Armature"]; me = lo.data
 lo.name = "LandsraadEliteSword"; me.name = "LandsraadEliteSword"
 sm = me.materials[2]; sm.name = "Mat_AtreideSword"
@@ -28,4 +28,4 @@ with bpy.context.temp_override(**view3d_ctx()):
         bake_anim=False, path_mode='COPY', embed_textures=True, apply_scale_options='FBX_SCALE_UNITS',
         primary_bone_axis='Y', secondary_bone_axis='X', mesh_smooth_type='FACE')
 print("exported", os.path.getsize(OUT), "bytes")
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\03_blender\v3_guard_elite_sword_final.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\03_blender\v3_guard_elite_sword_final.blend")
