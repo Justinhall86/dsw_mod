@@ -9,7 +9,7 @@ import os
 import bpy
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 OUT = os.path.join(PROJ, "02_progress_photos", "07_rifle")
 os.makedirs(OUT, exist_ok=True)
 RIFLE = r"C:\dsw_mod\extr\Character\Atreide\Unit\Weapons\Atreide_MaulaRifle_TRUE_FBX.fbx"
