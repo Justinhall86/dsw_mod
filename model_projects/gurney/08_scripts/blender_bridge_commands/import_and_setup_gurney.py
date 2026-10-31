@@ -5,7 +5,7 @@ import bpy
 import os
 
 # Paths
-PROJECT_ROOT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\gurney"
+PROJECT_ROOT = r"C:\Users\justi\Python\dsw_mod\model_projects\gurney"
 INPUT_FBX = os.path.join(PROJECT_ROOT, "01_input", "Male01_AtreidesGurney.fbx")
 ALBEDO = os.path.join(PROJECT_ROOT, "01_input", "Gurney_Albedo.png")
 METALLIC_GLOSS_AO = os.path.join(PROJECT_ROOT, "01_input", "Gurney_MetallicGlossAO.png")
