@@ -43,6 +43,8 @@ Read from the sheet by eye, with rough sampling for the armour, skirt and backdr
 
 The family matches the Sentinal palette (dark metal, rust, warm trim). That means one house identity can cover both the Frigate and
 the infantry, if the rust and the trim are aligned. The sheet's trim is hotter and redder than Sentinal's amber, so pick one trim colour for the house.
+**Lore points to orange:** Dune: Awakening's House Thorvald stillsuit swatch is described as "industrial orange trim"
+([lore.md](lore.md)), so the sheet's hotter ember orange is the better match.
 
 ## Leaders and councillors
 - **Earl Memnon Thorvald:** a long black coat with a high collar, a black wrap and sash, a cane, a small gear emblem on the chest and an arm patch.
@@ -71,12 +73,17 @@ councillors and the leader are a mixed cast in coats, leather and plate. So the 
 the whole house's culture ("The Mercenary Syndicate"). Ginaz reads as European gentry (wine coats, rapiers). Confirm the lore, since it
 decides how the rest of the house should look.
 
+**What the lore says (2026-10-30, [lore.md](lore.md)):** nothing about costume or culture. Canon gives Ipyr hills and mountains, an
+orbital refinery and asteroid mines. Our suggestion: treat the hat and mask as **foundry and mine gear** worn by the house's hired and
+industrial troops (masks against slag fumes and grit, wide brims against furnace glare and sparks), while the nobles and councillors
+dress as Landsraad gentry in coats. That keeps the sheet's look and gives it a reason.
+
 ## Naming pattern
 "Iron Guard" is now a faction mechanic: soldiers cost Solari instead of Manpower ([faction_design.md](faction_design.md)). That
 explains the "Iron" in Iron Ranger and Iron Guard, but the unit names are being redone, so treat the current ones as placeholders.
 
 ## Open questions
-1. Is the East Asian costume the mercenary uniform only, or the house's culture?
+1. Is the East Asian costume the mercenary uniform only, or the house's culture? (Suggested answer above: foundry and mine gear.)
 2. What does the Trooper fight with?
 3. New names for the four infantry units.
 4. **Overseer Jool** clashes with Ginaz's Commander Jool. Rename one.

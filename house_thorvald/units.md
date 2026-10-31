@@ -4,6 +4,48 @@ Vehicle/air roster for House Thorvald (separate from House Ginaz — nothing for
 Ground infantry have a look but no stats yet: the combat sheet shows four units (see [art_direction.md](art_direction.md)). Faction bonuses are in
 [faction_design.md](faction_design.md). See [heroes.md](heroes.md) and [counsellors.md](counsellors.md) for the leader, heroes and councillors.
 
+**Lore ([lore.md](lore.md)):** Thorvald's export is Heighforge alloy, the metal warships and defence platforms are built from, and its
+wealth comes from mining asteroids. Armour plate, hulls and machines are the house's pride, so the roster should look over-built and
+well-supplied rather than ragged.
+
+**Build status (2026-10-30):** the faction `Th_*` is installed (untested in game) with our models in five slots: Th_Trooper,
+Th_Soldier (Iron Ranger), Th_Special (Iron Guard), Th_Elite (Heavy Vanguard), Th_Frigate. The fighter (Th_Ship) is also installed.
+Details in each `model_projects/thorvald_*` folder and `model_projects/thorvald_faction/SPEC.md`. The sections below are the original
+planning notes.
+
+## Units still needed (checked against `data.cdb` on 2026-10-31)
+Skipped on purpose: **Ornithopters** (4 variants) and the **Harvester**. Atreides and Harkonnen both use the shared vanilla base models
+(`Ornithopter`, `Harvester`) with no model of their own, so Thorvald keeps them.
+
+| Slot | Row | Status | Need |
+|---|---|---|---|
+| Artillery drone | `Th_Drone` (and `Th_Drone_Deployed`) | still Corrino's artillery drone | A Thorvald drone. Recommended: reskin Smuggler `DroneS` (see Drone options above) |
+| Hero 1 | `Th_Hero_1` Karlin Mallenor | Corrino hero body and portrait | New hero body + portrait; support/aura commander |
+| Hero 2 | `Th_Hero_2` Vane Torrver | Corrino hero body and portrait | New hero body + portrait; rocket/camouflage specialist |
+| Heroes' pet | `Th_LazaTiger` | Corrino's Laza Tiger, tied to a hero | Remove or replace with something Thorvald (not a unit we need to model) |
+| Leader and councillors | Memnon, Jool/Ein, Silva, Haruka, Nobru | names only; portraits are Corrino's | Portraits only, no 3D model. Ein is new ([counsellors.md](counsellors.md)) |
+| Orbital strike visual | `Th_MissileShip`, `Th_Nuke_Area` | Corrino's missile ship | A Thorvald look for Hammerfall ([operations.md](operations.md)); optional |
+| HQ | `ThorvaldCitadel` | Corrino capital ship model | A Thorvald HQ model; likely a Heighforge-style station |
+| Mining vehicle | none | concept art only | Optional new unit: the tracked claw machine ("Belt Crawler") |
+
+Already done (our models, installed, untested in game): Trooper, Iron Ranger, Iron Guard, Heavy Vanguard, Frigate, Fighter (`Th_Ship`).
+
+Fixes, not new units: Iron Guard's bazooka body still fires the Corrino flamer; the Frigate has no deploy animations; units still cost
+Manpower, not Solari.
+
+## Name ideas from the lore
+The infantry names are being redone. Candidates that carry the lore:
+
+| Unit | Current | Candidates |
+|---|---|---|
+| Trooper | Trooper | Forgehand, Ipyr Levy, Deckhand |
+| Ranger (rifle) | Iron Ranger | Belt Marksman, Heighforge Rifle |
+| Bazooka | Iron Guard | Planetbreaker, Slag Gunner, Breaker |
+| Shield and flame blade | Heavy Vanguard | Heighforge Vanguard, Smelter Guard, Anvil |
+| Frigate | (TBD) | Anvil, Heighforge Tender, Hammer of Ipyr |
+
+"Iron Guard" is also the faction bonus name, so it is worth freeing it from the bazooka unit.
+
 ## Overview
 | Unit | Source asset | Role | Status |
 |---|---|---|---|
@@ -97,10 +139,12 @@ See that project's `SPEC.md`.
 [images/art_tracked_claw_vehicle.png](images/art_tracked_claw_vehicle.png): a tracked machine with a boxy armoured cab, a claw arm
 and a rock-saw head, in dark steel with rust trim. No name or role is stated. The Hammer of Wealth bonus (+15% Plascrete from mining) suggests a
 mining or utility vehicle, but that is a guess. There is no source model for it yet.
+The lore backs the mining read: a rock-saw and claw are tools for cutting planetoids in the Ipyrian Belt, put on tracks for Arrakis.
+Name idea: **Belt Crawler**.
 
 ## Air roster tie-in
 Guild Sub-Contract (5000 Hegemony) gives instant troop travel between Owned Airfields, so the Frigate, Fighter and Drone sit at the centre of
-this house's design.
+this house's design. The lore agrees: the house's power base, Heighforge, is in orbit, and its alloys are aerospace alloys.
 
 ## Open decisions
 - Lock in a Frigate name from the candidates above (or propose your own).
