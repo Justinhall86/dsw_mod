@@ -1,13 +1,13 @@
 {
-  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_graft_v5_ravager_dome.blend",
-  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\graft_v5_renders",
+  "out_blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_graft_v5_ravager_dome.blend",
+  "frames_dir": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\graft_v5_renders",
   "n_frames": 16, "res": 480,
   "grafts": [
     {"name": "ravager_dome",
-     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\Ravager_real.fbx",
-     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\albedo.png",
-     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\mgao.png",
-     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\normal.png",
+     "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\Ravager_real.fbx",
+     "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_inputs\\Vehicle\\Common\\Ravager\\preview_textures\\normal.png",
      "extract": {"x": [-0.17, 0.17], "y": [-0.3, 0.3], "z": [0.25, 1.0]},
      "mount_frac": [-0.5, 0.0, 1.0], "embed": 0.15, "rot_deg": [0, 0, 0]}
   ]

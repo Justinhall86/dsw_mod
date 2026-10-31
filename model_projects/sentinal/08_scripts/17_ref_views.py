@@ -31,7 +31,7 @@ for tag, fbx, alb, mga, nrm in SHIPS:
     print("REF", tag, h.stats())
 
 # other vanilla ships - visual language check
-OTHER = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Vehicle"
+OTHER = r"C:\Users\justi\Python\dsw_mod\model_inputs\Vehicle"
 for name, sub in [("banshee", r"Smuggler\Banshee"), ("wraith", r"Smuggler\Wraith"),
                   ("ravager", r"Common\Ravager"), ("harpy", r"Harkonnen\Harpy")]:
     folder = os.path.join(OTHER, sub)

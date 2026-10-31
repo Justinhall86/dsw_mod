@@ -1,13 +1,13 @@
 {
-  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_kitbash_v5_heavy_rack.blend",
-  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\kb_v5_renders",
+  "out_blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_kitbash_v5_heavy_rack.blend",
+  "frames_dir": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\kb_v5_renders",
   "n_frames": 16, "res": 480,
   "mounts": [
     {"name": "heavy_rack",
-     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\DroneS_real.fbx",
-     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\albedo.png",
-     "mgao": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\mgao.png",
-     "normal": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\normal.png",
+     "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\DroneS_real.fbx",
+     "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\albedo.png",
+     "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\mgao.png",
+     "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\01_input\\DroneS_preview_textures\\normal.png",
      "frac": [-0.55, 0.0, 0.3], "margin": 0.02, "scale_frac": 0.32, "rot_deg": [0,0,180]}
   ]
 }

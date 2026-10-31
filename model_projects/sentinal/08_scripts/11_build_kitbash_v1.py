@@ -9,18 +9,18 @@ import sys
 import bpy
 from mathutils import Vector, Matrix
 
-HOST_FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\01_input\Renegade_Frigate_real.fbx"
-HOST_ALB = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Albedo.png"
-HOST_MGAO = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_MetallicGlossAO.png"
-HOST_NRM = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Normal.png"
+HOST_FBX = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\01_input\Renegade_Frigate_real.fbx"
+HOST_ALB = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Albedo.png"
+HOST_MGAO = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_MetallicGlossAO.png"
+HOST_NRM = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Normal.png"
 
-DONOR_FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\DroneA_real.fbx"
-DONOR_ALB = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\albedo.png"
-DONOR_MGAO = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\mgao.png"
-DONOR_NRM = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\normal.png"
+DONOR_FBX = r"C:\Users\justi\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\DroneA_real.fbx"
+DONOR_ALB = r"C:\Users\justi\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\albedo.png"
+DONOR_MGAO = r"C:\Users\justi\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\mgao.png"
+DONOR_NRM = r"C:\Users\justi\Python\dsw_mod\model_inputs\Vehicle\Atreide\DroneA\preview_textures\normal.png"
 
-OUT_BLEND = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\03_blender\sentinal_kitbash_v1.blend"
-FRAMES_DIR = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\02_progress_photos\01_components\kitbash_renders"
+OUT_BLEND = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\03_blender\sentinal_kitbash_v1.blend"
+FRAMES_DIR = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\02_progress_photos\01_components\kitbash_renders"
 N_FRAMES = 16
 RES = 480
 

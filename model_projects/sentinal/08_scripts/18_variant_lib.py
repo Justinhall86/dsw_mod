@@ -24,7 +24,7 @@ import bmesh
 import bpy
 from mathutils import Vector
 
-ROOT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal"
+ROOT = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal"
 HOST_FBX = os.path.join(ROOT, "01_input", "Renegade_Frigate_real.fbx")
 TEX = os.path.join(ROOT, "04_textures")
 HOUSE_ALB = os.path.join(TEX, "Sentinal_Albedo.png")

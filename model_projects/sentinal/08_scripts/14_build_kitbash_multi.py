@@ -28,10 +28,10 @@ from mathutils import Vector, Euler
 
 cfg = json.load(open(sys.argv[sys.argv.index("--") + 1]))
 
-HOST_FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\01_input\Renegade_Frigate_real.fbx"
-HOST_ALB = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Albedo.png"
-HOST_MGAO = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_MetallicGlossAO.png"
-HOST_NRM = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Normal.png"
+HOST_FBX = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\01_input\Renegade_Frigate_real.fbx"
+HOST_ALB = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Albedo.png"
+HOST_MGAO = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_MetallicGlossAO.png"
+HOST_NRM = r"C:\Users\justi\Python\dsw_mod\model_projects\sentinal\04_textures\Sentinal_Normal.png"
 
 OUT_BLEND = cfg["out_blend"]
 FRAMES_DIR = cfg["frames_dir"]

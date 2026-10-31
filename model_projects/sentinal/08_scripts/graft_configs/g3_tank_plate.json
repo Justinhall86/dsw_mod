@@ -1,11 +1,11 @@
 {
-  "out_blend": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_graft_v3_tank_plate.blend",
-  "frames_dir": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\graft_v3_renders",
+  "out_blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\03_blender\\sentinal_graft_v3_tank_plate.blend",
+  "frames_dir": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\sentinal\\02_progress_photos\\01_components\\graft_v3_renders",
   "n_frames": 16, "res": 480,
   "grafts": [
     {"name": "tank_plate",
-     "fbx": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Atreide\\Tank\\preview_textures\\Tank_real.fbx",
-     "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_inputs\\Vehicle\\Atreide\\Tank\\preview_textures\\albedo.png",
+     "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_inputs\\Vehicle\\Atreide\\Tank\\preview_textures\\Tank_real.fbx",
+     "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_inputs\\Vehicle\\Atreide\\Tank\\preview_textures\\albedo.png",
      "mgao": null, "normal": null,
      "extract": {"x": [-0.3, 0.6], "y": [-1.0, 1.0], "z": [0.45, 1.0]},
      "mount_frac": [0.55, 0.0, 1.0], "embed": 0.08, "rot_deg": [0, 0, 0]}
