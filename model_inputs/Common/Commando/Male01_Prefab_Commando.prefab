@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_Commando",
+			"source": "Character/Common/Commando/Male01_Commando.fbx"
+		},
+		{
+			"type": "model",
+			"name": "Atreide_MaulaRifle",
+			"source": "Character/Atreide/Unit/Weapons/Atreide_MaulaRifle.fbx",
+			"rotationX": -90
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Atreide_MaulaRifle",
+			"target": "Male01_Commando.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_Gun"
+		}
+	]
+}
