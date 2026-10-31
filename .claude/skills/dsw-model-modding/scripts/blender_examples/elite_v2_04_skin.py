@@ -83,6 +83,6 @@ for k, g in enumerate(lo.vertex_groups):
 inf = [len([g for g in v.groups if g.weight > 1e-4]) for v in me.vertices]
 print("max influences", max(inf), "| prop-bone weighted verts:", sum(1 for v in me.vertices for g in v.groups if names[idx[g.group]] in PROPS and g.weight > 0.05))
 try:
-    bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\03_blender\v2_stage3_skinned.blend")
+    bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\03_blender\v2_stage3_skinned.blend")
 except RuntimeError as e:
     print("save skipped:", str(e)[:60])
