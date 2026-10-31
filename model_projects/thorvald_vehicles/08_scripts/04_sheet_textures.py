@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-ROOT = r"C:\Users\justi\OneDrive\Python\dsw_mod"
+ROOT = r"C:\Users\justi\Python\dsw_mod"
 PROJ = os.path.join(ROOT, "model_projects", "thorvald_vehicles")
 pairs = [
     ("Vehicle/Smuggler/Wraith/Wraith_Albedo.png", "fighter/Wraith_Albedo.png"),

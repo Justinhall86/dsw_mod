@@ -3,7 +3,7 @@ import glob
 import numpy as np
 from PIL import Image
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\thorvald_vehicles"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\thorvald_vehicles"
 
 print("--- textures (recoloured) ---")
 for f in sorted(glob.glob(os.path.join(PROJ, "04_textures", "*", "*.png"))):
