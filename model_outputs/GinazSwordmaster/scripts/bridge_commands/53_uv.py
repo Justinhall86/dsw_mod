@@ -1,5 +1,5 @@
 import re, numpy as np
-SC2 = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\ginaz_stage2.py"
+SC2 = r"C:\Users\justi\Python\dsw_mod\model_work\ginaz_stage2.py"
 G["__file__"] = SC2
 P2 = re.split(r"\n# -{20,} ", open(SC2, encoding="utf-8").read())
 G["P2"] = P2
