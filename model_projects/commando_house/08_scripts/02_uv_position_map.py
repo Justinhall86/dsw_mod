@@ -17,8 +17,8 @@ import os
 import bpy
 import numpy as np
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house"
-FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house"
+FBX = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
 OUT = os.path.join(PROJ, "04_textures")
 os.makedirs(OUT, exist_ok=True)
 
