@@ -23,4 +23,4 @@ for v in me.vertices:
         if g.weight > 0.05: use[lo.vertex_groups[g.group].name] = use.get(lo.vertex_groups[g.group].name, 0) + 1
 print("prop-bone weighted verts:", {k: use.get(k, 0) for k in ("B_Weapon_Add", "B_Weapon", "B_Gun", "B_Shield", "B_Scabbard")})
 print("cape:", {k: use.get(k, 0) for k in ("B_Cape01", "B_Cape02", "B_Cape03")}, "| bones used", len(use))
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\elite_stage3.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_work\elite_stage3.blend")

@@ -21,7 +21,7 @@ _s = importlib.util.spec_from_file_location("v5_13", os.path.join(os.path.dirnam
 DOME = importlib.util.module_from_spec(_s)
 _s.loader.exec_module(DOME)
 
-MP = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects"
+MP = r"C:\Users\justi\Python\dsw_mod\model_projects"
 LE = os.path.join(MP, "landsraad_elite")
 WEAPON = os.environ.get("WEAPON", "halberd")
 GUARD = os.path.join(MP, "landsraad_guard", "03_blender", "landsraad_guard_%s_preview.blend" % WEAPON)

@@ -15,7 +15,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--every", type=int, default=2)
 ap.add_argument("--fps", type=float, default=15)
 a = ap.parse_args()
-ROOT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\02_progress_photos\21_gifs"
+ROOT = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\02_progress_photos\21_gifs"
 for d in sorted(p for p in glob.glob(os.path.join(ROOT, "*")) if os.path.isdir(p)):
     files = sorted(glob.glob(os.path.join(d, "f*.png")))[:: a.every]
     if not files:

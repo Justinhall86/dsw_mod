@@ -10,7 +10,7 @@ import os
 import bpy
 from mathutils import Vector
 
-LE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+LE = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 BLEND = os.path.join(LE, "03_blender", os.environ.get("BLEND", "landsraad_elite_v5_halberd_preview.blend"))
 TAG = os.environ.get("TAG", "")   # file-name prefix per design path
 OUT = os.path.join(LE, "02_progress_photos", "14_anim_stress")

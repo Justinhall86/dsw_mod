@@ -1,5 +1,5 @@
 import os
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_outputs\LandsraadElite\fbx\Male01_LandsraadElite.fbx"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_outputs\LandsraadElite\fbx\Male01_LandsraadElite.fbx"
 lo = bpy.data.objects["LandsraadElite"]; rig = bpy.data.objects["Armature"]; me = lo.data
 for o in bpy.context.view_layer.objects: o.select_set(False)
 lo.select_set(True); bpy.context.view_layer.objects.active = lo
@@ -19,4 +19,4 @@ with bpy.context.temp_override(**view3d_ctx()):
         bake_anim=False, path_mode='COPY', embed_textures=True, apply_scale_options='FBX_SCALE_UNITS',
         primary_bone_axis='Y', secondary_bone_axis='X', mesh_smooth_type='FACE')
 print("exported", os.path.getsize(OUT), "bytes")
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_outputs\LandsraadElite\blender\elite_final.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_outputs\LandsraadElite\blender\elite_final.blend")

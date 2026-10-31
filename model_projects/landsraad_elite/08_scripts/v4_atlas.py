@@ -18,7 +18,7 @@ SIGN = {"front": 1.0, "back": -1.0, "side": 1.0}
 ATLAS = 1024
 ZOOM = 2
 
-HERE = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\08_scripts"
+HERE = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\08_scripts"
 
 
 class Island:

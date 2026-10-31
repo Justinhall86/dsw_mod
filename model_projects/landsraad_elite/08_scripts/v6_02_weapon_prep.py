@@ -14,9 +14,9 @@ import sys
 from PIL import Image
 
 EXTR = r"C:\dsw_mod\extr"
-TOOLKIT = r"C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit\Models"
-CHECK = r"C:\Users\justi\OneDrive\Python\dsw_mod\.claude\skills\dsw-model-modding\scripts\check_hmd.py"
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\weapon_survey"
+TOOLKIT = r"C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit\Models"
+CHECK = r"C:\Users\justi\Python\dsw_mod\.claude\skills\dsw-model-modding\scripts\check_hmd.py"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\weapon_survey"
 os.makedirs(OUT, exist_ok=True)
 WEAPONS = [
     "Character/Common/Weapon/Landsraad_halberd/Landsraad_Halberd.fbx",

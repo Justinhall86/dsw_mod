@@ -1,7 +1,7 @@
 """v2 step 4: export the skinned 20k mesh as Male01_LandsraadElite.fbx (halberd variant) for the HMD Toolkit.
 Run in the GUI Blender via the bridge. Expects objects elite_lo + Rig (skinned by v2_04_skin.py)."""
 import os
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 OUT = os.path.join(PROJ, "05_fbx_export", "Male01_LandsraadElite.fbx")
 lo = bpy.data.objects["elite_lo"]; rig = bpy.data.objects["Rig"]; me = lo.data
 lo.name = "LandsraadElite"; me.name = "LandsraadElite"; rig.name = "Armature"; rig.data.name = "Armature"

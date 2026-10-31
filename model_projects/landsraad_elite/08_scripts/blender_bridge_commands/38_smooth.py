@@ -32,4 +32,4 @@ for k, g in enumerate(lo.vertex_groups):
 inf = [len([g for g in v.groups if g.weight > 1e-4]) for v in me.vertices]
 print("max influences", max(inf))
 measure(do_shots=True, tag="13")
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\elite_stage3.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_work\elite_stage3.blend")

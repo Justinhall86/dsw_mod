@@ -11,7 +11,7 @@ import sys
 import bpy
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-MP = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects"
+MP = r"C:\Users\justi\Python\dsw_mod\model_projects"
 JSON = os.path.join(MP, "landsraad_elite", "08_scripts", "intermediate_data", "v5_uv_tris.json")
 HG_PAD = [20, 21, 30, 31, 35, 36, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
 DONORS = (

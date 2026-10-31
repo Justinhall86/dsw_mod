@@ -2,7 +2,7 @@
 Objects: helm_loft (helmet), padL_new / padR_new (pauldrons, +x / -x).   Needs `helm_src` (v4_helmet_prep.py) and `padL_hi` (the sculpt) in the scene."""
 import json, math, bmesh
 import numpy as np
-SC = "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/08_scripts/"
+SC = "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/08_scripts/"
 exec(open(SC + "v4_atlas.py", encoding="utf-8").read(), globals())
 exec(open(SC + "v4_helmet_loft.py", encoding="utf-8").read(), globals())
 exec(open(SC + "v4_helmet_uv.py", encoding="utf-8").read(), globals())

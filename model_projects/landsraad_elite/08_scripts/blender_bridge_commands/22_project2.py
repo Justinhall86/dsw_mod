@@ -1,7 +1,7 @@
 from mathutils.bvhtree import BVHTree
 from mathutils import Vector
 import colorsys
-ref = np.load(r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\elite_ref_rgb.npy").astype(np.float64) / 255.0
+ref = np.load(r"C:\Users\justi\Python\dsw_mod\model_work\elite_ref_rgb.npy").astype(np.float64) / 255.0
 H, Wd, _ = ref.shape
 o = bpy.data.objects["elite_src"]; me = o.data
 bm = bmesh.new(); bm.from_mesh(me); bm.verts.ensure_lookup_table(); bm.normal_update()

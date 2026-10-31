@@ -5,9 +5,9 @@ import math, os
 import numpy as np, bmesh
 from mathutils import Euler, Vector
 
-SC = "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/08_scripts/"
-PH = "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/02_progress_photos/10_parts_quality"
-TEXD = "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v4_parts_1024/"
+SC = "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/08_scripts/"
+PH = "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/02_progress_photos/10_parts_quality"
+TEXD = "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v4_parts_1024/"
 
 # ------------------------------------------------------------------ carve the sculpt pieces
 hi = bpy.data.objects["elite_hi"]; me = hi.data

@@ -10,7 +10,7 @@ import math, os
 import bpy
 import numpy as np
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 TEX = os.path.join(PROJ, "04_textures", "v2_2048")
 os.makedirs(TEX, exist_ok=True)
 SIZE = 2048

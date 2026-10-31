@@ -15,7 +15,7 @@ import sys
 import numpy as np
 from PIL import Image, ImageDraw
 
-MP = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects"
+MP = r"C:\Users\justi\Python\dsw_mod\model_projects"
 LE = os.path.join(MP, "landsraad_elite")
 TRIS = json.load(open(os.path.join(LE, "08_scripts", "intermediate_data", "v5_uv_tris.json")))
 SRC = os.path.join(MP, "imperial_sardaukar", "04_textures", "Sardaukar_Albedo.png")

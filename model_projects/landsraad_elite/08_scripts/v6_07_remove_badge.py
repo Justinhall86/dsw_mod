@@ -17,7 +17,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-LE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+LE = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 GUR = r"C:\dsw_mod\extr\Character\Atreide\Unit\Gurney\Gurney"
 ALB = os.path.join(LE, "04_textures", "v5_kitbash", "gurney_parts_landsraad_Albedo.png")
 OUT = os.path.join(LE, "04_textures", "v6_pads_nobadge")

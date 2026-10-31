@@ -7,7 +7,7 @@ import os
 import bpy
 from mathutils import Vector
 
-LE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+LE = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 OUT = os.path.join(LE, "02_progress_photos", "16_showcase")
 os.makedirs(OUT, exist_ok=True)
 

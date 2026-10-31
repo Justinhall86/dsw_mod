@@ -10,7 +10,7 @@ import os
 import bpy
 from mathutils import Vector
 
-LE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+LE = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 BLEND = os.path.join(LE, "03_blender", "landsraad_elite_v6_G1_tallsword_preview.blend")
 CLIPS_DIR = os.path.join(LE, "05_fbx_export", "anim_tests")
 OUT = os.path.join(LE, "02_progress_photos", "21_gifs")

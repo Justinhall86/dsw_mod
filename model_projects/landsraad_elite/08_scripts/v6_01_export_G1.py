@@ -14,7 +14,7 @@ import os
 
 import bpy
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 SRC = os.path.join(PROJ, "03_blender", "v6_G1_export_base.blend")
 OUT = os.path.join(PROJ, "05_fbx_export", "Male01_LandsraadEliteG1.fbx")
 TMP = os.path.join(PROJ, "05_fbx_export", "v6_placeholders")

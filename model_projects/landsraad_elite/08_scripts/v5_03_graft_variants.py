@@ -17,7 +17,7 @@ import bmesh
 import bpy
 from mathutils import Matrix, Vector
 
-MP = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects"
+MP = r"C:\Users\justi\Python\dsw_mod\model_projects"
 LE = os.path.join(MP, "landsraad_elite")
 WEAPON = os.environ.get("WEAPON", "halberd")   # which guard preview .blend (weapon + idle animation) to graft onto
 FINAL = os.environ.get("FINAL") == "1"          # posed render + save the finished .blend for WEAPON

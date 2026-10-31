@@ -12,7 +12,7 @@ import bmesh
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-PROJ = r"C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite"
+PROJ = r"C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite"
 P = dict(w_outer=0.028, w_inner=0.046, w_plateau=0.085, step=0.009, wall=0.030, under=0.045, dome_lift=0.0, center_lift=0.0,
          major=(0, 2, 4, 6, 8, 10, 12))   # outline vertices that keep their own plateau height; the others lie on the straight edge between them
 

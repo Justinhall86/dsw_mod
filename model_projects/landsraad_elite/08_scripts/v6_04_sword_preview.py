@@ -14,7 +14,7 @@ import sys
 import bpy
 from mathutils import Matrix, Vector
 
-LE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+LE = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 BASE = os.path.join(LE, "03_blender", "landsraad_elite_v5_G1_halberd_preview.blend")
 SWORD = os.path.join(LE, "05_fbx_export", "weapon_survey", "TallSword.fbx")
 SWORD_ALB = os.path.join(LE, "05_fbx_export", "weapon_survey", "TallSword_Albedo.png")

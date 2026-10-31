@@ -10,7 +10,7 @@ import os
 import bmesh
 import bpy
 
-MP = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects"
+MP = r"C:\Users\justi\Python\dsw_mod\model_projects"
 OUT = os.path.join(MP, "landsraad_elite", "08_scripts", "intermediate_data", "v5_uv_tris.json")
 
 

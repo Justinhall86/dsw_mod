@@ -16,7 +16,7 @@ import bmesh
 import bpy
 from mathutils import Vector
 
-MP = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects"
+MP = r"C:\Users\justi\Python\dsw_mod\model_projects"
 GUARD = os.path.join(MP, "landsraad_guard", "03_blender", "landsraad_guard_halberd_preview.blend")
 DONOR = os.path.join(MP, "imperial_houseguard", "03_blender", "Imperial_HouseGuard.blend")
 OUT = os.path.join(MP, "landsraad_elite", "02_progress_photos", "11_kitbash_survey")

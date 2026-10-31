@@ -10,8 +10,8 @@ import os
 import bpy
 from mathutils import Matrix, Vector
 
-D = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\weapon_survey"
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\02_progress_photos\19_weapon_survey"
+D = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\weapon_survey"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\02_progress_photos\19_weapon_survey"
 os.makedirs(OUT, exist_ok=True)
 info = []
 for w in json.load(open(os.path.join(D, "weapons.json"))):

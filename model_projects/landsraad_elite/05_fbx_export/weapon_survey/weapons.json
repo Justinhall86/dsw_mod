@@ -2,101 +2,101 @@
  {
   "name": "Landsraad_Halberd",
   "source": "Character/Common/Weapon/Landsraad_halberd/Landsraad_Halberd.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Landsraad_Halberd_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Landsraad_Halberd_Albedo.png"
  },
  {
   "name": "Atreide_Sword_01",
   "source": "Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Atreide_Sword_01_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Atreide_Sword_01_Albedo.png"
  },
  {
   "name": "SardaukarSword",
   "source": "Character/Imperial/Weapon/SardaukarSword/SardaukarSword.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SardaukarSword_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SardaukarSword_Albedo.png"
  },
  {
   "name": "SardaukarSword02",
   "source": "Character/Imperial/Weapon/SardaukarSword_02/SardaukarSword02.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SardaukarSword02_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SardaukarSword02_Albedo.png"
  },
  {
   "name": "Aramsham_Sword",
   "source": "Character/Imperial/Weapon/AramshamSword/Aramsham_Sword.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Aramsham_Sword_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Aramsham_Sword_Albedo.png"
  },
  {
   "name": "SwordKnight",
   "source": "Character/Ecaz/Weapon/SwordKnight/SwordKnight.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SwordKnight_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SwordKnight_Albedo.png"
  },
  {
   "name": "SwordWhitmore",
   "source": "Character/Ecaz/Weapon/SwordWhitmore/SwordWhitmore.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SwordWhitmore_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SwordWhitmore_Albedo.png"
  },
  {
   "name": "TallSword",
   "source": "Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\TallSword_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\TallSword_Albedo.png"
  },
  {
   "name": "LittleSword",
   "source": "Character/Ecaz/Weapon/FencerDoubleKnife/LittleSword.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\LittleSword_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\LittleSword_Albedo.png"
  },
  {
   "name": "CtairSword",
   "source": "Character/Vernius/Weapon/CtairSword/CtairSword.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\CtairSword_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\CtairSword_Albedo.png"
  },
  {
   "name": "LongKnife",
   "source": "Character/Idualis/Weapon/LongKnife.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\LongKnife_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\LongKnife_Albedo.png"
  },
  {
   "name": "DoubleKnife",
   "source": "Character/Idualis/Weapon/DoubleKnife.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\DoubleKnife_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\DoubleKnife_Albedo.png"
  },
  {
   "name": "KindJal_Harkonnen",
   "source": "Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\KindJal_Harkonnen_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\KindJal_Harkonnen_Albedo.png"
  },
  {
   "name": "Knife01",
   "source": "Character/Harkonnen/Weapon/Knife/Knife01.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Knife01_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Knife01_Albedo.png"
  },
  {
   "name": "Crysknife",
   "source": "Character/Fremen/Weapon/Crysknife/Crysknife.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Crysknife_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\Crysknife_Albedo.png"
  },
  {
   "name": "SpearSquire",
   "source": "Character/Ecaz/Weapon/SpearSquire/SpearSquire.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SpearSquire_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\SpearSquire_Albedo.png"
  },
  {
   "name": "EngineerSpear",
   "source": "Character/Vernius/Weapon/EngineerSpear/EngineerSpear.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\EngineerSpear_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\EngineerSpear_Albedo.png"
  },
  {
   "name": "GurneySet_Javelin",
   "source": "Character/Atreide/Unit/Weapons/GurneySet_Javelin.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\GurneySet_Javelin_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\GurneySet_Javelin_Albedo.png"
  },
  {
   "name": "MetalBar",
   "source": "Character/Idualis/Weapon/MetalBar.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\MetalBar_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\MetalBar_Albedo.png"
  },
  {
   "name": "NefudMace",
   "source": "Character/Harkonnen/Weapon/NefudMace.fbx",
-  "albedo": "C:\\Users\\justi\\OneDrive\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\NefudMace_Albedo.png"
+  "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\landsraad_elite\\05_fbx_export\\weapon_survey\\NefudMace_Albedo.png"
  }
 ]

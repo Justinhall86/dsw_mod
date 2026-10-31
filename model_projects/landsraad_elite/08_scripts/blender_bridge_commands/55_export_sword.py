@@ -1,5 +1,5 @@
 import os
-OUT = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\Male01_LandsraadEliteSword.fbx"
+OUT = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\05_fbx_export\Male01_LandsraadEliteSword.fbx"
 lo = bpy.data.objects["LandsraadElite"]; rig = bpy.data.objects["Armature"]; me = lo.data
 lo.name = "LandsraadEliteSword"; me.name = "LandsraadEliteSword"
 sm = me.materials[1]; sm.name = "Mat_AtreideSword"
@@ -27,4 +27,4 @@ with bpy.context.temp_override(**view3d_ctx()):
         bake_anim=False, path_mode='COPY', embed_textures=True, apply_scale_options='FBX_SCALE_UNITS',
         primary_bone_axis='Y', secondary_bone_axis='X', mesh_smooth_type='FACE')
 print("exported", os.path.getsize(OUT), "bytes")
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite\03_blender\v2_sword_final.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite\03_blender\v2_sword_final.blend")
