@@ -17,8 +17,8 @@ model keeps playing every existing animation.
 import os
 import bpy
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house"
-SRC_FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house"
+SRC_FBX = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
 TEX = os.path.join(PROJ, "04_textures")
 OUTDIR = os.path.join(PROJ, "05_fbx_export")
 os.makedirs(OUTDIR, exist_ok=True)
