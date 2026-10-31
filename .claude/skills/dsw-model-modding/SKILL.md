@@ -15,7 +15,7 @@ not headless, with screenshots), and finish by installing the pak and (if asked)
    from `C:\Users\justi\OneDrive\steamapps\common\D4X`, which OneDrive syncs minutes later. Installing
    to the justi path and launching right away tests stale or vanilla data, so results flip-flop.
 2. **Only two paks in the game folder:** `res.compressed.pak` (vanilla, never touch) and
-   `res.compressed1.pak` (ours). Archive old builds to `C:\Users\justi\OneDrive\Python\dsw_mod\pak_archive`,
+   `res.compressed1.pak` (ours). Archive old builds to `C:\Users\justi\Python\dsw_mod\pak_archive`,
    never next to the game.
 3. **Prove the game loaded our data.** After a test, `game.log` (in the game folder) must contain
    `[DataCache] Modified data.cdb`. The game logs it only when the loaded data.cdb differs from vanilla
@@ -36,14 +36,14 @@ unit spawned next to the test unit) so each result tells you which layer is brok
 
 | What | Where |
 |---|---|
-| Working data.cdb (source of truth) | `C:\Users\justi\OneDrive\Python\dsw_mod\mod_files\data.cdb` |
+| Working data.cdb (source of truth) | `C:\Users\justi\Python\dsw_mod\mod_files\data.cdb` |
 | Editor (HIDE) + pak staging | `C:\dsw_mod\D4XEditor\res` (files to pack go in the nested `res\res`) |
 | Build + install + launch | `C:\dsw_mod\D4XEditor\res\repackage.py` |
 | Extracted vanilla assets | `C:\dsw_mod\extr` |
-| HMD Toolkit | `C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit` |
+| HMD Toolkit | `C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit` |
 | Blender 5.2 | `C:\Program Files\Blender Foundation\Blender 5.2\blender.exe` |
-| Per-unit project folder | `C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\<unit_name>\` - ONE folder per unit with numbered subfolders `01_input` `02_progress_photos\<stage>` `03_blender` `04_textures` `05_fbx_export` `06_game_ready\<variant>` `07_data_cdb` `08_scripts`, plus `SPEC.md`. Create it with `scripts/new_project.py <unit_name>` (the user wants this instead of `model_outputs/`) |
-| Knowledge base | `C:\Users\justi\OneDrive\Python\dsw_mod\modeling.md` |
+| Per-unit project folder | `C:\Users\justi\Python\dsw_mod\model_projects\<unit_name>\` - ONE folder per unit with numbered subfolders `01_input` `02_progress_photos\<stage>` `03_blender` `04_textures` `05_fbx_export` `06_game_ready\<variant>` `07_data_cdb` `08_scripts`, plus `SPEC.md`. Create it with `scripts/new_project.py <unit_name>` (the user wants this instead of `model_outputs/`) |
+| Knowledge base | `C:\Users\justi\Python\dsw_mod\modeling.md` |
 
 `repackage.py` packs mod_files\data.cdb, copies it over the editor's res\data.cdb, and refuses to run
 if the editor copy was edited more recently (so editor changes are never silently lost - copy that
