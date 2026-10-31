@@ -4,7 +4,7 @@ import bpy
 from mathutils import Vector
 
 
-repo = r"C:\Users\justi\OneDrive\Python\dsw_mod"
+repo = r"C:\Users\justi\Python\dsw_mod"
 project = os.path.join(repo, "model_projects", "freecompany_unarmed")
 blend = os.path.join(project, "03_blender", "FreeCompany_Unarmed.blend")
 emissive_path = os.path.join(
