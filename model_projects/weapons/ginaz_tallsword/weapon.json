@@ -1,0 +1,15 @@
+{
+  "name": "Ginaz_TallSword",
+  "description": "House Ginaz Swordmaster (Master of Ginaz) sword: the Ecaz Fencer TallSword with its own WeaponFencer textures, mounted where Duncan's sword grip sits.",
+  "fbx": "source/TallSword_TRUE_FBX.fbx",
+  "textures": {"Base Color": "textures/WeaponFencer_Albedo.png",
+               "Specular IOR Level": "textures/WeaponFencer_MetallicGlossAO.png",
+               "Normal": "textures/WeaponFencer_Normal.png"},
+  "bone": "B_Weapon",
+  "rest_grip_world": [0.0, 0.03, 0.12],
+  "rot_x_deg": 90.0,
+  "grip_local": [0.0, -0.10, 0.0],
+  "used_by": ["House Ginaz Swordmaster / Master of Ginaz (model_projects/ginaz_swordmaster, recipe M2_Master)",
+              "House Ginaz Captain (model_projects/ginaz_captain)"],
+  "notes": "TallSword data: pommel at y 0, handle y -0.13..0, basket -0.41..-0.13, blade toward -Y. For the game it is baked into the body mesh at this rest placement, 100% on B_Weapon (12b_assemble_export.py --sword)."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Thorvald_Katana",
+  "description": "House Thorvald katana: the stock Atreides sword (Atreide_Sword_01, Duncan's prefab sword) with the blade stretched x1.35 to 0.94 m and curved 3.5 cm at the tip, the hilt (guard, grip, pommel) scaled to 0.72, blade painted black.",
+  "blend": "Thorvald_Katana.blend",
+  "object": "Thorvald_Katana",
+  "textures": {"Base Color": "textures/Katana_Albedo.png"},
+  "material": {"metallic": 0.45, "roughness": 0.35},
+  "bone": "B_Weapon",
+  "rest_grip_world": [0.0, 0.03, 0.12],
+  "rot_x_deg": 90.0,
+  "grip_local": [0.0, 0.144, 0.0],
+  "used_by": ["House Thorvald Trooper (model_projects/thorvald_trooper)"],
+  "rebuild": "blender -b --python make_katana.py ; python paint_katana.py ; blender -b --python make_katana.py"
+}

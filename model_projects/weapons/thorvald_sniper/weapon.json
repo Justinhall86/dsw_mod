@@ -1,0 +1,36 @@
+{
+  "name": "Thorvald_Sniper",
+  "description": "House Thorvald Ranged sniper rifle: the Ravager Leader sniper (RavagerLeaderSniper), held on B_Gun like the vanilla prefab.",
+  "fbx": "source/RavagerLeaderSniper_TRUE_FBX.fbx",
+  "textures": {
+    "Base Color": "textures/Thorvald_Sniper_Albedo.png",
+    "Specular IOR Level": "textures/RavagerLeaderSniper_MetallicGlossAO.png",
+    "Normal": "textures/RavagerLeaderSniper_Normal.png"
+  },
+  "bone": "B_Gun",
+  "mount": "bone_local",
+  "rot_deg": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "offset": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "grip_local": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "used_by": [
+    "House Thorvald Ranged (model_projects/thorvald_ranged)"
+  ],
+  "notes": "Vanilla prefab (Prefab_RavagerLeader): model rotationX -90 in game space, constraint to ...B_rWristJ.B_Gun. In Blender (bone_local on B_Gun) the matching rotation is (0,0,0): checked in Sniper_FightIdle / Sniper_AttackRange, both hands on the rifle, scope at the eye.",
+  "material": {
+    "metallic": 0.35,
+    "roughness": 0.55
+  },
+  "rebuild": "blender -b --python dump_sniper_uv.py -> python paint_sniper.py"
+}

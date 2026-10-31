@@ -1,0 +1,16 @@
+{
+  "name": "Thorvald_Glaive",
+  "description": "House Thorvald Elite glaive: the Landsraad halberd's shaft (shortened), collar ring, socket and butt cap with a hand-modelled curved glaive blade and back hook, a rust cloth grip wrap; brass -> copper, shaft black, dark steel blade with a honed edge. No energy effects.",
+  "blend": "Thorvald_Glaive.blend",
+  "object": "Thorvald_Glaive",
+  "textures": {"Base Color": "textures/Glaive_Albedo.png"},
+  "material": {"metallic": 0.45, "roughness": 0.4},
+  "bone": "B_Weapon",
+  "mount": "bone_local",
+  "rot_deg": [0.0, 90.0, 0.0],
+  "offset": [0.0, 0.0, 0.0],
+  "grip_local": [0.0, 0.0, 0.0],
+  "used_by": ["House Thorvald Elite (model_projects/thorvald_elite)"],
+  "rebuild": "blender -b --python make_glaive.py ; python paint_glaive.py ; blender -b --python make_glaive.py -- --shots",
+  "notes": "Weapon space = Gurney's javelin (GurneySet_Javelin): head at -z, hand at the origin, blade in the xz plane. Vanilla prefab: javelin rotationX -90 rotationY 90 on ...B_rWristJ.B_Weapon; in Blender (bone_local) that is rotation (0, 90, 0), checked in the Gurney clips. Anim set: Gurney."
+}

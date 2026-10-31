@@ -1,0 +1,16 @@
+{
+  "name": "Thorvald_TowerShield",
+  "description": "House Thorvald Elite tower shield, hand-modelled to the reference sheet: 0.56 x 1.20 m chamfered slab, bent across its width, raised worn-copper rim round a recessed dark steel face, copper inner line, rust grime, scratches, copper gear-and-star emblem, dark viewing slot; grip bar on the back. No energy effects.",
+  "blend": "Thorvald_TowerShield.blend",
+  "object": "Thorvald_TowerShield",
+  "textures": {"Base Color": "textures/Shield_Albedo.png"},
+  "material": {"metallic": 0.35, "roughness": 0.55},
+  "bone": "B_Shield",
+  "mount": "bone_local",
+  "rot_deg": [-8.2, -2.3, 0.3],
+  "offset": [0.0, 0.0, 0.0],
+  "grip_local": [0.0, 0.0, 0.0],
+  "used_by": ["House Thorvald Elite (model_projects/thorvald_elite)"],
+  "rebuild": "blender -b --python make_shield.py ; python paint_shield.py ; blender -b --python make_shield.py -- --shots",
+  "notes": "Weapon space = Gurney's shield (GurneySet_Shield): x across, z up, front -y, hand at the origin. Vanilla prefab: y -0.04091 z 0.01254 rotationX -98.2 rotationY -2.3 rotationZ 0.3 on ...B_lWristJ.B_Shield; in Blender (bone_local) rotation (-8.2, -2.3, 0.3). Gurney's own shield (energy halo + chevron removed) was tried first: candidates/."
+}

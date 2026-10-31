@@ -1,0 +1,17 @@
+{
+  "name": "Thorvald_Bazooka",
+  "description": "House Thorvald Demolition bazooka: the Fremen Bazooka (the Landsraad Guard's), matte black-gunmetal tube with rust bands and copper details, on B_Gun like the vanilla prefab.",
+  "fbx": "source/Bazooka_TRUE_FBX.fbx",
+  "textures": {"Base Color": "textures/Thorvald_Bazooka_Albedo.png",
+               "Specular IOR Level": "textures/Bazooka_MetallicGlossAO.png",
+               "Normal": "textures/Bazooka_Normal.png"},
+  "material": {"metallic": 0.35, "roughness": 0.6},
+  "bone": "B_Gun",
+  "mount": "bone_local",
+  "rot_deg": [0.0, 0.0, 0.0],
+  "offset": [0.0, 0.0, 0.0],
+  "grip_local": [0.0, 0.0, 0.0],
+  "used_by": ["House Thorvald Demolition (model_projects/thorvald_demolition)"],
+  "rebuild": "python paint_bazooka.py",
+  "notes": "Vanilla prefab (Prefab_LandsraadGuard_Bazooka): Fremen Bazooka, rotationX -90 in game space, constraint to ...B_rWristJ.B_Gun; in Blender (bone_local on B_Gun) that is rotation (0,0,0), as for the sniper. Anim sets: LandsraadGuard_Bazooka, MissileLauncher."
+}
