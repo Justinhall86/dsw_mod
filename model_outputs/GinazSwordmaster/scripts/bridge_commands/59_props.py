@@ -1,7 +1,7 @@
 import os, shutil, math, numpy as np
 from mathutils import Vector, Euler
 G = globals()
-PROG = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\progress"
+PROG = r"C:\Users\justi\Python\dsw_mod\model_work\progress"
 os.makedirs(PROG, exist_ok=True)
 SH = os.path.join(BRIDGE, "shots")
 m = {"21_front.png": "01_source_turnaround_sheet.png", "25_fit_front.png": "02_scaled_to_rig_before_arm_fix.png",
