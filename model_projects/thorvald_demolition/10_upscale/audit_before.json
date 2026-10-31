@@ -1,0 +1,811 @@
+{
+ "label": "before",
+ "blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_demolition\\10_upscale\\Trooper_D2_Demolition_merged.blend",
+ "meshes": [
+  {
+   "name": "Canister_0",
+   "tris": 96,
+   "verts": 72,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Canister"
+   ]
+  },
+  {
+   "name": "Canister_1",
+   "tris": 96,
+   "verts": 72,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Canister"
+   ]
+  },
+  {
+   "name": "CommandoHead",
+   "tris": 1000,
+   "verts": 552,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Commando"
+   ]
+  },
+  {
+   "name": "DuncanFill_feet",
+   "tris": 1136,
+   "verts": 764,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Duncan"
+   ]
+  },
+  {
+   "name": "DuncanFill_sash",
+   "tris": 594,
+   "verts": 369,
+   "max_influences": 3,
+   "materials": [
+    "Mat_DuncanSash"
+   ]
+  },
+  {
+   "name": "Gurney",
+   "tris": 3518,
+   "verts": 2894,
+   "max_influences": 4,
+   "materials": [
+    "Mat_Gurney",
+    "Mat_Thorvald_Trim"
+   ]
+  },
+  {
+   "name": "MercenaryFill_legs",
+   "tris": 1262,
+   "verts": 814,
+   "max_influences": 3,
+   "materials": [
+    "Mat_Mercenary",
+    "Mat_Base"
+   ]
+  },
+  {
+   "name": "MercenaryFill_pouches_b",
+   "tris": 104,
+   "verts": 84,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Mercenary",
+    "Mat_Base"
+   ]
+  },
+  {
+   "name": "MercenaryFill_pouches_f",
+   "tris": 104,
+   "verts": 84,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Mercenary",
+    "Mat_Base"
+   ]
+  },
+  {
+   "name": "TrooperEmblem",
+   "tris": 74,
+   "verts": 77,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Duncan",
+    "Mat_Gurney"
+   ]
+  },
+  {
+   "name": "TrooperHat",
+   "tris": 1216,
+   "verts": 640,
+   "max_influences": 1,
+   "materials": [
+    "Mat_Thorvald_Trim"
+   ]
+  },
+  {
+   "name": "TrooperNeck",
+   "tris": 280,
+   "verts": 168,
+   "max_influences": 2,
+   "materials": [
+    "Mat_Thorvald_Trim"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "object": "Canister_0",
+   "material": "Mat_Canister",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Bazooka_Albedo.png",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1796,
+     0.1211,
+     0.0938
+    ],
+    "mean_saturation": 0.4081,
+    "sharpness": 0.7482
+   },
+   "metallic_gloss_ao": {
+    "image": "Bazooka_MetallicGlossAO.png",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Bazooka_Normal.png",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "texels_per_m": 240.07215433054986,
+   "tris": 96
+  },
+  {
+   "object": "Canister_1",
+   "material": "Mat_Canister",
+   "slot": 0,
+   "albedo": {
+    "image": "Thorvald_Bazooka_Albedo.png",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1796,
+     0.1211,
+     0.0938
+    ],
+    "mean_saturation": 0.4081,
+    "sharpness": 0.7482
+   },
+   "metallic_gloss_ao": {
+    "image": "Bazooka_MetallicGlossAO.png",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Bazooka_Normal.png",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "texels_per_m": 240.07213285273903,
+   "tris": 96
+  },
+  {
+   "object": "CommandoHead",
+   "material": "Mat_Commando",
+   "slot": 0,
+   "albedo": {
+    "image": "Commando_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.235,
+     0.1948,
+     0.1811
+    ],
+    "mean_saturation": 0.2568,
+    "sharpness": 0.794
+   },
+   "metallic_gloss_ao": {
+    "image": "Commando_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Commando_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 499.7926551820267,
+   "tris": 1000
+  },
+  {
+   "object": "DuncanFill_feet",
+   "material": "Mat_Duncan",
+   "slot": 0,
+   "albedo": {
+    "image": "Duncan_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.227,
+     0.2268,
+     0.1955
+    ],
+    "mean_saturation": 0.2347,
+    "sharpness": 0.999
+   },
+   "metallic_gloss_ao": {
+    "image": "Duncan_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Duncan_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 385.6019417161899,
+   "tris": 1136
+  },
+  {
+   "object": "DuncanFill_sash",
+   "material": "Mat_DuncanSash",
+   "slot": 0,
+   "albedo": {
+    "image": "Duncan_Sash_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2481,
+     0.2291,
+     0.1936
+    ],
+    "mean_saturation": 0.2746,
+    "sharpness": 1.0089
+   },
+   "metallic_gloss_ao": {
+    "image": "Duncan_MetallicGlossAO.png.003",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Duncan_Normal.png.003",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 377.7912211530491,
+   "tris": 594
+  },
+  {
+   "object": "Gurney",
+   "material": "Mat_Gurney",
+   "slot": 0,
+   "albedo": {
+    "image": "Gurney_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1692,
+     0.159,
+     0.1392
+    ],
+    "mean_saturation": 0.2498,
+    "sharpness": 0.7904
+   },
+   "metallic_gloss_ao": {
+    "image": "Gurney_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Gurney_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 445.5161306238743,
+   "tris": 3228
+  },
+  {
+   "object": "Gurney",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 1,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": 1485.2235801833885,
+   "tris": 290
+  },
+  {
+   "object": "MercenaryFill_legs",
+   "material": "Mat_Mercenary",
+   "slot": 0,
+   "albedo": {
+    "image": "Smuggler_Mercenary_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2777,
+     0.267,
+     0.2798
+    ],
+    "mean_saturation": 0.4301,
+    "sharpness": 1.0394
+   },
+   "metallic_gloss_ao": {
+    "image": "Smuggler_Mercenary_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.07): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Smuggler_Mercenary_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 397.93981533111463,
+   "tris": 1262
+  },
+  {
+   "object": "MercenaryFill_legs",
+   "material": "Mat_Base",
+   "slot": 1,
+   "albedo": {
+    "image": "Smuggler_Base_Albedo.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.4101,
+     0.2643,
+     0.2516
+    ],
+    "mean_saturation": 0.3745,
+    "sharpness": 1.0215
+   },
+   "metallic_gloss_ao": {
+    "image": "Smuggler_Base_MetallicGlossAO.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Smuggler_Base_Normal.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 0
+  },
+  {
+   "object": "MercenaryFill_pouches_b",
+   "material": "Mat_Mercenary",
+   "slot": 0,
+   "albedo": {
+    "image": "Smuggler_Mercenary_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2777,
+     0.267,
+     0.2798
+    ],
+    "mean_saturation": 0.4301,
+    "sharpness": 1.0394
+   },
+   "metallic_gloss_ao": {
+    "image": "Smuggler_Mercenary_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.07): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Smuggler_Mercenary_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 593.6575177775621,
+   "tris": 104
+  },
+  {
+   "object": "MercenaryFill_pouches_b",
+   "material": "Mat_Base",
+   "slot": 1,
+   "albedo": {
+    "image": "Smuggler_Base_Albedo.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.4101,
+     0.2643,
+     0.2516
+    ],
+    "mean_saturation": 0.3745,
+    "sharpness": 1.0215
+   },
+   "metallic_gloss_ao": {
+    "image": "Smuggler_Base_MetallicGlossAO.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Smuggler_Base_Normal.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 0
+  },
+  {
+   "object": "MercenaryFill_pouches_f",
+   "material": "Mat_Mercenary",
+   "slot": 0,
+   "albedo": {
+    "image": "Smuggler_Mercenary_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2777,
+     0.267,
+     0.2798
+    ],
+    "mean_saturation": 0.4301,
+    "sharpness": 1.0394
+   },
+   "metallic_gloss_ao": {
+    "image": "Smuggler_Mercenary_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.07): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Smuggler_Mercenary_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": 593.6575505213451,
+   "tris": 104
+  },
+  {
+   "object": "MercenaryFill_pouches_f",
+   "material": "Mat_Base",
+   "slot": 1,
+   "albedo": {
+    "image": "Smuggler_Base_Albedo.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.4101,
+     0.2643,
+     0.2516
+    ],
+    "mean_saturation": 0.3745,
+    "sharpness": 1.0215
+   },
+   "metallic_gloss_ao": {
+    "image": "Smuggler_Base_MetallicGlossAO.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Smuggler_Base_Normal.png.001",
+    "size": [
+     256,
+     256
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 0
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Duncan",
+   "slot": 0,
+   "albedo": {
+    "image": "Duncan_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.227,
+     0.2268,
+     0.1955
+    ],
+    "mean_saturation": 0.2347,
+    "sharpness": 0.999
+   },
+   "metallic_gloss_ao": {
+    "image": "Duncan_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Duncan_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 50
+  },
+  {
+   "object": "TrooperEmblem",
+   "material": "Mat_Gurney",
+   "slot": 1,
+   "albedo": {
+    "image": "Gurney_Thorvald_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.1692,
+     0.159,
+     0.1392
+    ],
+    "mean_saturation": 0.2498,
+    "sharpness": 0.7904
+   },
+   "metallic_gloss_ao": {
+    "image": "Gurney_MetallicGlossAO.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": [
+     "alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255"
+    ]
+   },
+   "normal": {
+    "image": "Gurney_Normal.png.001",
+    "size": [
+     512,
+     512
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 24
+  },
+  {
+   "object": "TrooperHat",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 0,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": 540.0195516219953,
+   "tris": 1216
+  },
+  {
+   "object": "TrooperNeck",
+   "material": "Mat_Thorvald_Trim",
+   "slot": 0,
+   "albedo": {
+    "image": "Trim_Albedo.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": [],
+    "mean_rgb": [
+     0.2472,
+     0.1553,
+     0.113
+    ],
+    "mean_saturation": 0.386,
+    "sharpness": 0.9775
+   },
+   "metallic_gloss_ao": {
+    "image": "Trim_MetallicGlossAO.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "normal": {
+    "image": "Trim_Normal.png",
+    "size": [
+     1024,
+     1024
+    ],
+    "problems": []
+   },
+   "texels_per_m": null,
+   "tris": 280
+  }
+ ],
+ "problems": [
+  "Canister_0/Mat_Canister metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "Canister_1/Mat_Canister metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "DuncanFill_feet/Mat_Duncan metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "DuncanFill_sash/Mat_DuncanSash metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "Gurney/Mat_Gurney metallic_gloss_ao: alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "MercenaryFill_legs/Mat_Mercenary metallic_gloss_ao: alpha<1 (min 0.07): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "MercenaryFill_pouches_b/Mat_Mercenary metallic_gloss_ao: alpha<1 (min 0.07): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "MercenaryFill_pouches_f/Mat_Mercenary metallic_gloss_ao: alpha<1 (min 0.07): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "TrooperEmblem/Mat_Duncan metallic_gloss_ao: alpha<1 (min 0.10): the converter keeps it, the game may blend or cut out - ship alpha 255",
+  "TrooperEmblem/Mat_Gurney metallic_gloss_ao: alpha<1 (min 0.09): the converter keeps it, the game may blend or cut out - ship alpha 255"
+ ],
+ "notes": [
+  "Gurney: 4 bone influences on a vertex (game limit 3; 12b_assemble_export.py limits and normalises on export)"
+ ],
+ "total_tris": 9480,
+ "verdict": [
+  "tri count 9480 is inside the vanilla range",
+  "Canister_0/Mat_Canister albedo 256x256 is below 512",
+  "Canister_1/Mat_Canister albedo 256x256 is below 512",
+  "MercenaryFill_legs/Mat_Base albedo 256x256 is below 512",
+  "MercenaryFill_pouches_b/Mat_Base albedo 256x256 is below 512",
+  "MercenaryFill_pouches_f/Mat_Base albedo 256x256 is below 512"
+ ]
+}

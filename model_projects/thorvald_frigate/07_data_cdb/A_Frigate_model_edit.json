@@ -1,0 +1,23 @@
+{
+  "model": "A_Frigate",
+  "before": {
+    "mesh": [
+      {
+        "path": "Vehicle/Atreide/Kraken/Prefab_Kraken.prefab"
+      }
+    ],
+    "rigName": 15,
+    "inherit": "Kraken",
+    "scale": 1.6
+  },
+  "after": {
+    "mesh": [
+      {
+        "path": "VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab"
+      }
+    ],
+    "rigName": 29,
+    "inherit": "RenegadeFrigate",
+    "scale": 1.2
+  }
+}

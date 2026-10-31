@@ -1,0 +1,18 @@
+{
+ "fbx": [
+  "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\indoctrination_center\\IndoctrinationCenter.fbx"
+ ],
+ "name": "indoctrination_center",
+ "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\indoctrination_center\\IndoctrinationCenter_Atreides_Albedo.png",
+ "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\indoctrination_center\\IndoctrinationCenter_MetallicGlossAOEmiss.png",
+ "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\indoctrination_center\\IndoctrinationCenter_Normal.png",
+ "emissive": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\indoctrination_center\\IndoctrinationCenter_Emissive.png",
+ "front": "-Y",
+ "delete": [],
+ "zoom": 1.3,
+ "stills": {
+  "three_quarter": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\indoctrination_center\\_vanilla\\indoctrination_center_three_quarter.png",
+  "front": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\indoctrination_center\\_vanilla\\indoctrination_center_front.png",
+  "top": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\indoctrination_center\\_vanilla\\indoctrination_center_top.png"
+ }
+}

@@ -1,0 +1,86 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Thorvald_Frigate",
+			"source": "VehMOD/Thorvald_Frigate/Thorvald_Frigate.hmd",
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"x": -0.0,
+					"y": 2.7,
+					"z": -3.2,
+					"rotationX": -90.0,
+					"rotationY": 90.0,
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"y": -0.7,
+							"rotationY": 105,
+							"rotationZ": -10
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA_2",
+							"y": -0.8,
+							"rotationY": 105,
+							"rotationZ": -30
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA_3",
+							"y": -0.9,
+							"rotationY": 105,
+							"rotationZ": -50
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA_4",
+							"y": -1,
+							"rotationY": 105,
+							"rotationZ": -70
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB",
+							"y": 0.7,
+							"rotationY": 105,
+							"rotationZ": 10
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB_2",
+							"y": 0.8,
+							"rotationY": 105,
+							"rotationZ": 30
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB_3",
+							"y": 0.9,
+							"rotationY": 105,
+							"rotationZ": 50
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB_4",
+							"y": 1,
+							"rotationY": 105,
+							"rotationZ": 70
+						}
+					],
+					"rotationZ": 0.0
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Kraken.Muzzles",
+			"target": "Kraken.root.B_ROOT.B_Body"
+		}
+	]
+}

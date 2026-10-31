@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Thorvald_Ship",
+			"source": "VehMOD/Thorvald_Ship/Thorvald_Ship.hmd"
+		}
+	]
+}

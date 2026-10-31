@@ -1,0 +1,27 @@
+{
+ "fbx": [
+  "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\hq_outpost\\ConquestOutpost.fbx"
+ ],
+ "name": "hq_outpost",
+ "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\hq_outpost\\ConquestOutpost_Atreides_Albedo.png",
+ "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\hq_outpost\\ConquestOutpost_MetallicGlossAO.png",
+ "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\hq_outpost\\ConquestOutpost_Normal.png",
+ "emissive": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\hq_outpost\\ConquestOutpost_Emissive.png",
+ "front": "-Y",
+ "delete": [
+  {
+   "obj": "Conquest",
+   "islands": [
+    1244,
+    1245,
+    1246,
+    1247
+   ]
+  }
+ ],
+ "zoom": 1.5,
+ "stills": {
+  "three_quarter": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\hq_outpost\\_try_banner\\hq_outpost_three_quarter.png",
+  "front": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\hq_outpost\\_try_banner\\hq_outpost_front.png"
+ }
+}

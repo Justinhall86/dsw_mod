@@ -1,0 +1,1049 @@
+{
+  "variants": [
+    {
+      "host": "frigate",
+      "host_remove": [
+        [
+          -5.0,
+          1.36,
+          1.2,
+          5.0,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.36,
+          -5.0,
+          -1.2,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.4,
+          -0.1,
+          0.1,
+          -0.2,
+          0.5
+        ]
+      ],
+      "host_squash": [
+        {
+          "slab": "x",
+          "range": [
+            -9,
+            9
+          ],
+          "axis": "y",
+          "scale": 1.2
+        },
+        {
+          "slab": "x",
+          "range": [
+            1.3,
+            5.5
+          ],
+          "axis": "y",
+          "scale": 0.5
+        }
+      ],
+      "host_scale": [
+        {
+          "box": [
+            2.9,
+            4.9,
+            1.45,
+            1.66,
+            1.5,
+            1.85
+          ],
+          "pivot": [
+            3.62,
+            1.557,
+            1.685
+          ],
+          "scale": [
+            1.2,
+            2.8,
+            1.9
+          ]
+        }
+      ],
+      "name": "f1_slab_clean",
+      "_note": "spine + thick Hawk wings + chin turret + twin exhausts, no jets",
+      "host_role": "charcoal",
+      "global_scale": 0.55,
+      "res": 800,
+      "margin": 1.25,
+      "views": {
+        "tq": [
+          0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          -0.001,
+          0,
+          1
+        ],
+        "nose": [
+          1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "under": [
+          0.6,
+          -0.6,
+          -0.7
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            3.3,
+            3.7
+          ],
+          "role": "oxblood"
+        },
+        {
+          "axis": "x",
+          "range": [
+            0.9,
+            1.3
+          ],
+          "role": "copper"
+        }
+      ],
+      "pieces": [],
+      "grafts": [
+        {
+          "donor": "hawk",
+          "role": "charcoal",
+          "box_abs": [
+            0.4,
+            2.3,
+            -0.6,
+            1.3,
+            0.25,
+            0.95
+          ],
+          "scale": [
+            2.1,
+            2.1,
+            5.0
+          ],
+          "rot_deg": [
+            0,
+            0,
+            90
+          ],
+          "at": [
+            -2.0,
+            2.93,
+            0.0
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "ravager",
+          "role": "charcoal",
+          "box_abs": [
+            -1.25,
+            -0.6,
+            -0.3,
+            0.3,
+            -0.1,
+            0.6
+          ],
+          "scale": 2.0,
+          "rot_deg": [
+            0,
+            0,
+            180
+          ],
+          "at": [
+            4.2,
+            0,
+            -0.95
+          ],
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "box_abs": [
+            2.95,
+            4.85,
+            2.45,
+            2.75,
+            1.55,
+            1.82
+          ],
+          "scale": [
+            0.9,
+            2.0,
+            2.0
+          ],
+          "at": [
+            5.0,
+            0.22,
+            -1.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "cyl_abs": [
+            4.215,
+            1.175,
+            0.5,
+            -2.3,
+            -0.45,
+            "x"
+          ],
+          "scale": [
+            0.7,
+            1.3,
+            1.3
+          ],
+          "at": [
+            -4.85,
+            0.6,
+            0.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 6
+        }
+      ]
+    },
+    {
+      "host": "frigate",
+      "host_remove": [
+        [
+          -5.0,
+          1.36,
+          1.2,
+          5.0,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.36,
+          -5.0,
+          -1.2,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.4,
+          -0.1,
+          0.1,
+          -0.2,
+          0.5
+        ]
+      ],
+      "host_squash": [
+        {
+          "slab": "x",
+          "range": [
+            -9,
+            9
+          ],
+          "axis": "y",
+          "scale": 1.2
+        },
+        {
+          "slab": "x",
+          "range": [
+            1.3,
+            5.5
+          ],
+          "axis": "y",
+          "scale": 0.5
+        }
+      ],
+      "host_scale": [
+        {
+          "box": [
+            2.9,
+            4.9,
+            1.45,
+            1.66,
+            1.5,
+            1.85
+          ],
+          "pivot": [
+            3.62,
+            1.557,
+            1.685
+          ],
+          "scale": [
+            1.2,
+            2.8,
+            1.9
+          ]
+        }
+      ],
+      "name": "f2_tip_drums",
+      "_note": "f1 + small drum jets on the wing tips",
+      "host_role": "charcoal",
+      "global_scale": 0.55,
+      "res": 800,
+      "margin": 1.25,
+      "views": {
+        "tq": [
+          0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          -0.001,
+          0,
+          1
+        ],
+        "nose": [
+          1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "under": [
+          0.6,
+          -0.6,
+          -0.7
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            3.3,
+            3.7
+          ],
+          "role": "oxblood"
+        },
+        {
+          "axis": "x",
+          "range": [
+            0.9,
+            1.3
+          ],
+          "role": "copper"
+        }
+      ],
+      "pieces": [
+        {
+          "donor": "wraith",
+          "role": "drum",
+          "size": 1.1,
+          "stretch": 1.0,
+          "rot_deg": [
+            0,
+            90,
+            0
+          ],
+          "lateral": "y",
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "min_island_faces": 12,
+          "seat": {
+            "at": 4.8,
+            "overlap": 0.1
+          },
+          "pos": [
+            -2.2,
+            0.0
+          ]
+        }
+      ],
+      "grafts": [
+        {
+          "donor": "hawk",
+          "role": "charcoal",
+          "box_abs": [
+            0.4,
+            2.3,
+            -0.6,
+            1.3,
+            0.25,
+            0.95
+          ],
+          "scale": [
+            2.1,
+            2.1,
+            5.0
+          ],
+          "rot_deg": [
+            0,
+            0,
+            90
+          ],
+          "at": [
+            -2.0,
+            2.93,
+            0.0
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "ravager",
+          "role": "charcoal",
+          "box_abs": [
+            -1.25,
+            -0.6,
+            -0.3,
+            0.3,
+            -0.1,
+            0.6
+          ],
+          "scale": 2.0,
+          "rot_deg": [
+            0,
+            0,
+            180
+          ],
+          "at": [
+            4.2,
+            0,
+            -0.95
+          ],
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "box_abs": [
+            2.95,
+            4.85,
+            2.45,
+            2.75,
+            1.55,
+            1.82
+          ],
+          "scale": [
+            0.9,
+            2.0,
+            2.0
+          ],
+          "at": [
+            5.0,
+            0.22,
+            -1.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "cyl_abs": [
+            4.215,
+            1.175,
+            0.5,
+            -2.3,
+            -0.45,
+            "x"
+          ],
+          "scale": [
+            0.7,
+            1.3,
+            1.3
+          ],
+          "at": [
+            -4.85,
+            0.6,
+            0.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 6
+        }
+      ]
+    },
+    {
+      "host": "frigate",
+      "host_remove": [
+        [
+          -5.0,
+          1.36,
+          1.2,
+          5.0,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.36,
+          -5.0,
+          -1.2,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.4,
+          -0.1,
+          0.1,
+          -0.2,
+          0.5
+        ]
+      ],
+      "host_squash": [
+        {
+          "slab": "x",
+          "range": [
+            -9,
+            9
+          ],
+          "axis": "y",
+          "scale": 1.2
+        },
+        {
+          "slab": "x",
+          "range": [
+            1.3,
+            5.5
+          ],
+          "axis": "y",
+          "scale": 0.5
+        }
+      ],
+      "host_scale": [
+        {
+          "box": [
+            2.9,
+            4.9,
+            1.45,
+            1.66,
+            1.5,
+            1.85
+          ],
+          "pivot": [
+            3.62,
+            1.557,
+            1.685
+          ],
+          "scale": [
+            1.2,
+            2.8,
+            1.9
+          ]
+        }
+      ],
+      "name": "f3_tip_tubes",
+      "_note": "f1 + slim nozzle-tube jets on the wing tips",
+      "host_role": "charcoal",
+      "global_scale": 0.55,
+      "res": 800,
+      "margin": 1.25,
+      "views": {
+        "tq": [
+          0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          -0.001,
+          0,
+          1
+        ],
+        "nose": [
+          1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "under": [
+          0.6,
+          -0.6,
+          -0.7
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            3.3,
+            3.7
+          ],
+          "role": "oxblood"
+        },
+        {
+          "axis": "x",
+          "range": [
+            0.9,
+            1.3
+          ],
+          "role": "copper"
+        }
+      ],
+      "pieces": [],
+      "grafts": [
+        {
+          "donor": "hawk",
+          "role": "charcoal",
+          "box_abs": [
+            0.4,
+            2.3,
+            -0.6,
+            1.3,
+            0.25,
+            0.95
+          ],
+          "scale": [
+            2.1,
+            2.1,
+            5.0
+          ],
+          "rot_deg": [
+            0,
+            0,
+            90
+          ],
+          "at": [
+            -2.0,
+            2.93,
+            0.0
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "ravager",
+          "role": "charcoal",
+          "box_abs": [
+            -1.25,
+            -0.6,
+            -0.3,
+            0.3,
+            -0.1,
+            0.6
+          ],
+          "scale": 2.0,
+          "rot_deg": [
+            0,
+            0,
+            180
+          ],
+          "at": [
+            4.2,
+            0,
+            -0.95
+          ],
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "box_abs": [
+            2.95,
+            4.85,
+            2.45,
+            2.75,
+            1.55,
+            1.82
+          ],
+          "scale": [
+            0.9,
+            2.0,
+            2.0
+          ],
+          "at": [
+            5.0,
+            0.22,
+            -1.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "cyl_abs": [
+            4.215,
+            1.175,
+            0.5,
+            -2.3,
+            -0.45,
+            "x"
+          ],
+          "scale": [
+            0.7,
+            1.3,
+            1.3
+          ],
+          "at": [
+            -4.85,
+            0.6,
+            0.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 6
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "cyl_abs": [
+            4.215,
+            1.175,
+            0.5,
+            -2.3,
+            -0.45,
+            "x"
+          ],
+          "scale": [
+            0.7,
+            0.75,
+            0.75
+          ],
+          "at": [
+            -2.2,
+            4.95,
+            0.0
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 6
+        }
+      ]
+    },
+    {
+      "host": "frigate",
+      "host_remove": [
+        [
+          -5.0,
+          1.36,
+          1.2,
+          5.0,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.36,
+          -5.0,
+          -1.2,
+          -1.0,
+          4.0
+        ],
+        [
+          -5.0,
+          1.4,
+          -0.1,
+          0.1,
+          -0.2,
+          0.5
+        ]
+      ],
+      "host_squash": [
+        {
+          "slab": "x",
+          "range": [
+            -9,
+            9
+          ],
+          "axis": "y",
+          "scale": 1.2
+        },
+        {
+          "slab": "x",
+          "range": [
+            1.3,
+            5.5
+          ],
+          "axis": "y",
+          "scale": 0.5
+        }
+      ],
+      "host_scale": [
+        {
+          "box": [
+            2.9,
+            4.9,
+            1.45,
+            1.66,
+            1.5,
+            1.85
+          ],
+          "pivot": [
+            3.62,
+            1.557,
+            1.685
+          ],
+          "scale": [
+            1.2,
+            2.8,
+            1.9
+          ]
+        }
+      ],
+      "name": "f4_tip_drums_belly",
+      "_note": "f2 + belly plate pack + copper dome",
+      "host_role": "charcoal",
+      "global_scale": 0.55,
+      "res": 800,
+      "margin": 1.25,
+      "views": {
+        "tq": [
+          0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          -0.001,
+          0,
+          1
+        ],
+        "nose": [
+          1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "under": [
+          0.6,
+          -0.6,
+          -0.7
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            3.3,
+            3.7
+          ],
+          "role": "oxblood"
+        },
+        {
+          "axis": "x",
+          "range": [
+            0.9,
+            1.3
+          ],
+          "role": "copper"
+        }
+      ],
+      "pieces": [
+        {
+          "donor": "wraith",
+          "role": "drum",
+          "size": 1.1,
+          "stretch": 1.0,
+          "rot_deg": [
+            0,
+            90,
+            0
+          ],
+          "lateral": "y",
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "min_island_faces": 12,
+          "seat": {
+            "at": 4.8,
+            "overlap": 0.1
+          },
+          "pos": [
+            -2.2,
+            0.0
+          ]
+        }
+      ],
+      "grafts": [
+        {
+          "donor": "hawk",
+          "role": "charcoal",
+          "box_abs": [
+            0.4,
+            2.3,
+            -0.6,
+            1.3,
+            0.25,
+            0.95
+          ],
+          "scale": [
+            2.1,
+            2.1,
+            5.0
+          ],
+          "rot_deg": [
+            0,
+            0,
+            90
+          ],
+          "at": [
+            -2.0,
+            2.93,
+            0.0
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "ravager",
+          "role": "charcoal",
+          "box_abs": [
+            -1.25,
+            -0.6,
+            -0.3,
+            0.3,
+            -0.1,
+            0.6
+          ],
+          "scale": 2.0,
+          "rot_deg": [
+            0,
+            0,
+            180
+          ],
+          "at": [
+            4.2,
+            0,
+            -0.95
+          ],
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "box_abs": [
+            2.95,
+            4.85,
+            2.45,
+            2.75,
+            1.55,
+            1.82
+          ],
+          "scale": [
+            0.9,
+            2.0,
+            2.0
+          ],
+          "at": [
+            5.0,
+            0.22,
+            -1.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "cyl_abs": [
+            4.215,
+            1.175,
+            0.5,
+            -2.3,
+            -0.45,
+            "x"
+          ],
+          "scale": [
+            0.7,
+            1.3,
+            1.3
+          ],
+          "at": [
+            -4.85,
+            0.6,
+            0.1
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 6
+        },
+        {
+          "donor": "spaceshuttle",
+          "role": "charcoal",
+          "box_abs": [
+            -0.95,
+            1.02,
+            -0.85,
+            0.85,
+            0.15,
+            0.62
+          ],
+          "scale": [
+            1.4,
+            1.3,
+            1.6
+          ],
+          "rot_deg": [
+            180,
+            0,
+            0
+          ],
+          "at": [
+            -0.5,
+            0,
+            -1.1
+          ],
+          "min_island_faces": 6
+        },
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "disc_abs": [
+            0,
+            0,
+            1.9,
+            3.9,
+            6.2
+          ],
+          "scale": 0.4,
+          "at": [
+            -2.8,
+            0,
+            null
+          ],
+          "min_island_faces": 8
+        }
+      ]
+    }
+  ]
+}

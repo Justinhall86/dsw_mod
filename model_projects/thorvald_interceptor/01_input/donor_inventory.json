@@ -1,0 +1,616 @@
+[
+  {
+    "name": "Chronos",
+    "path": "Imperial/Chronos/preview_textures/Chronos_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Chronos"
+    ],
+    "body": "Chronos",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Chronos4",
+      "_Mat_ImperiumDrone2"
+    ],
+    "verts": 8229,
+    "polys": 4510,
+    "tris": 4510,
+    "lo": [
+      -3.3226,
+      -4.7062,
+      -0.084
+    ],
+    "hi": [
+      2.7769,
+      4.5799,
+      2.686
+    ],
+    "size": [
+      6.0995,
+      9.2861,
+      2.77
+    ],
+    "centre": [
+      -0.2729,
+      -0.0631,
+      1.301
+    ],
+    "bones": {
+      "B_Body": 2434,
+      "B_Cannon03": 964,
+      "B_Cannon05": 961,
+      "B_Cannon01": 959,
+      "B_Cannon04": 955,
+      "B_Cannon02": 954,
+      "B_BlockCanon10": 192,
+      "B_BlockCanon08": 192,
+      "B_BlockCanon09": 190,
+      "B_BlockCanon07": 190,
+      "B_BlockCanon11": 188,
+      "B_Door02": 20
+    }
+  },
+  {
+    "name": "CarryAll",
+    "path": "Atreide/CarryAll/preview_textures/CarryAll_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "CarryAll"
+    ],
+    "body": "CarryAll",
+    "armature": "Armature",
+    "materials": [
+      "CarryAll_MAT"
+    ],
+    "verts": 4147,
+    "polys": 3671,
+    "tris": 3671,
+    "lo": [
+      -2.8131,
+      -1.2754,
+      -0.157
+    ],
+    "hi": [
+      1.4827,
+      1.2754,
+      1.1205
+    ],
+    "size": [
+      4.2958,
+      2.5508,
+      1.2775
+    ],
+    "centre": [
+      -0.6652,
+      -0.0,
+      0.4818
+    ],
+    "bones": {
+      "B_Chassis": 3350,
+      "B_Magnet": 797
+    }
+  },
+  {
+    "name": "Wraith",
+    "path": "Smuggler/Wraith/preview_textures/Wraith_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Wraith"
+    ],
+    "body": "Wraith",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Wraith"
+    ],
+    "verts": 8410,
+    "polys": 8416,
+    "tris": 8416,
+    "lo": [
+      -4.2294,
+      -4.2632,
+      -0.8179
+    ],
+    "hi": [
+      4.2294,
+      4.2632,
+      5.2559
+    ],
+    "size": [
+      8.4589,
+      8.5264,
+      6.0739
+    ],
+    "centre": [
+      0.0,
+      -0.0,
+      2.219
+    ],
+    "bones": {
+      "B_Body": 1770,
+      "GasTube02": 1384,
+      "GasTube03": 1384,
+      "GasTube04": 1384,
+      "B_BigCircle": 888,
+      "GasTube01": 608,
+      "Little_GasTube01": 388,
+      "Little_GasTube02": 388,
+      "B_TopCircle": 216
+    }
+  },
+  {
+    "name": "Banshee",
+    "path": "Smuggler/Banshee/preview_textures/Banshee_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Banshee"
+    ],
+    "body": "Banshee",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Banshee"
+    ],
+    "verts": 5070,
+    "polys": 6032,
+    "tris": 6032,
+    "lo": [
+      -1.8279,
+      -1.6182,
+      -0.2616
+    ],
+    "hi": [
+      1.8279,
+      4.6443,
+      1.755
+    ],
+    "size": [
+      3.6558,
+      6.2625,
+      2.0166
+    ],
+    "centre": [
+      0.0,
+      1.513,
+      0.7467
+    ],
+    "bones": {
+      "B_Body": 1984,
+      "B_WingRotation_R": 1204,
+      "B_WingRotation_L": 1204,
+      "B_Canon": 328,
+      "B_CircleHead_L": 89,
+      "B_CircleHead_R": 89,
+      "B_Wing_R": 86,
+      "B_Wing_L": 86
+    }
+  },
+  {
+    "name": "Ravager",
+    "path": "Common/Ravager/preview_textures/Ravager_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Ravager"
+    ],
+    "body": "Ravager",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Ravager"
+    ],
+    "verts": 2513,
+    "polys": 2028,
+    "tris": 2028,
+    "lo": [
+      -1.8001,
+      -1.4914,
+      -1.2689
+    ],
+    "hi": [
+      1.8001,
+      1.4914,
+      1.0075
+    ],
+    "size": [
+      3.6001,
+      2.9828,
+      2.2764
+    ],
+    "centre": [
+      -0.0,
+      -0.0,
+      -0.1307
+    ],
+    "bones": {
+      "B_Body": 1379,
+      "B_UnderWing": 392,
+      "B_Wing_L": 310,
+      "B_Wing_R": 310,
+      "B_Canon": 122
+    }
+  },
+  {
+    "name": "Kraken",
+    "path": "Atreide/Kraken/preview_textures/Kraken_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Kraken_low"
+    ],
+    "body": "Kraken_low",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Kraken"
+    ],
+    "verts": 748,
+    "polys": 520,
+    "tris": 520,
+    "lo": [
+      -2.9855,
+      -3.7054,
+      0.2542
+    ],
+    "hi": [
+      2.9855,
+      4.2848,
+      2.1177
+    ],
+    "size": [
+      5.971,
+      7.9902,
+      1.8635
+    ],
+    "centre": [
+      0.0,
+      0.2897,
+      1.186
+    ],
+    "bones": {
+      "B_Body": 748
+    }
+  },
+  {
+    "name": "Hawk",
+    "path": "Atreide/Hawk/preview_textures/Hawk_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Hawk"
+    ],
+    "body": "Hawk",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Hawk"
+    ],
+    "verts": 1539,
+    "polys": 1297,
+    "tris": 1297,
+    "lo": [
+      -2.2482,
+      -1.2995,
+      0.198
+    ],
+    "hi": [
+      2.2485,
+      1.5683,
+      1.1401
+    ],
+    "size": [
+      4.4967,
+      2.8679,
+      0.9421
+    ],
+    "centre": [
+      0.0002,
+      0.1344,
+      0.669
+    ],
+    "bones": {
+      "B_Body": 1403,
+      "B_Canon_L": 68,
+      "B_Canon_R": 68
+    }
+  },
+  {
+    "name": "Overlord",
+    "path": "Harkonnen/Overlord/preview_textures/Overlord_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Overlord"
+    ],
+    "body": "Overlord",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Overlord"
+    ],
+    "verts": 5868,
+    "polys": 5800,
+    "tris": 5800,
+    "lo": [
+      -1.92,
+      -4.8503,
+      -0.78
+    ],
+    "hi": [
+      1.92,
+      8.7593,
+      4.4295
+    ],
+    "size": [
+      3.8399,
+      13.6095,
+      5.2095
+    ],
+    "centre": [
+      0.0,
+      1.9545,
+      1.8247
+    ],
+    "bones": {
+      "B_Body": 3590,
+      "B_Body_Broken": 2278
+    }
+  },
+  {
+    "name": "Hammer",
+    "path": "Imperial/Hammer/preview_textures/Hammer_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Hammer"
+    ],
+    "body": "Hammer",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Hammer"
+    ],
+    "verts": 2039,
+    "polys": 1761,
+    "tris": 1761,
+    "lo": [
+      -2.0411,
+      -1.0252,
+      -0.3773
+    ],
+    "hi": [
+      2.0411,
+      1.3863,
+      1.1602
+    ],
+    "size": [
+      4.0822,
+      2.4115,
+      1.5375
+    ],
+    "centre": [
+      0.0,
+      0.1805,
+      0.3914
+    ],
+    "bones": {
+      "B_Body": 2039
+    }
+  },
+  {
+    "name": "DroneS",
+    "path": "Smuggler/DroneS/preview_textures/DroneS_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "CombatDrone_Smuggler"
+    ],
+    "body": "CombatDrone_Smuggler",
+    "armature": "Armature",
+    "materials": [
+      "CombatDrone_mat"
+    ],
+    "verts": 1824,
+    "polys": 2480,
+    "tris": 2480,
+    "lo": [
+      -1.1089,
+      -0.8389,
+      -0.0008
+    ],
+    "hi": [
+      1.1089,
+      0.8389,
+      1.4357
+    ],
+    "size": [
+      2.2179,
+      1.6778,
+      1.4365
+    ],
+    "centre": [
+      -0.0,
+      0.0,
+      0.7174
+    ],
+    "bones": {
+      "B_Drone": 1016,
+      "B_Arm": 378,
+      "B_WingR": 170,
+      "B_WingL": 166,
+      "B_Canon": 94
+    }
+  },
+  {
+    "name": "DroneA",
+    "path": "Atreide/DroneA/preview_textures/DroneA_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "CombatDrone_Atreide"
+    ],
+    "body": "CombatDrone_Atreide",
+    "armature": "Armature",
+    "materials": [
+      "CombatDrone_Atreide_mat"
+    ],
+    "verts": 2227,
+    "polys": 2694,
+    "tris": 2694,
+    "lo": [
+      -0.7716,
+      -0.7149,
+      -0.0025
+    ],
+    "hi": [
+      1.1324,
+      0.7147,
+      0.8793
+    ],
+    "size": [
+      1.904,
+      1.4295,
+      0.8817
+    ],
+    "centre": [
+      0.1804,
+      -0.0001,
+      0.4384
+    ],
+    "bones": {
+      "B_BodyDrone": 1043,
+      "B_ArmWeaponL": 370,
+      "B_ArmWeaponR": 360,
+      "B_ReactorL": 141,
+      "B_ReactorR": 141,
+      "B_WeaponR": 87,
+      "B_WeaponL": 85
+    }
+  },
+  {
+    "name": "Harvester",
+    "path": "Atreide/Harvester/preview_textures/Harvester_real.fbx",
+    "exists": false,
+    "error": "missing"
+  },
+  {
+    "name": "Frigate",
+    "path": "Common/Renegade_Frigate/preview_textures/Renegade_Frigate_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Renegade_Frigate"
+    ],
+    "body": "Renegade_Frigate",
+    "armature": "Armature",
+    "materials": [
+      "lambert1"
+    ],
+    "verts": 2109,
+    "polys": 1756,
+    "tris": 1756,
+    "lo": [
+      -4.8105,
+      -4.6752,
+      -0.046
+    ],
+    "hi": [
+      5.3887,
+      4.6752,
+      2.5422
+    ],
+    "size": [
+      10.1992,
+      9.3504,
+      2.5882
+    ],
+    "centre": [
+      0.2891,
+      -0.0,
+      1.2481
+    ],
+    "bones": {
+      "B_Body": 2109
+    }
+  },
+  {
+    "name": "Harpy",
+    "path": "Harkonnen/Harpy/preview_textures/Harpy_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Harpy"
+    ],
+    "body": "Harpy",
+    "armature": "Armature",
+    "materials": [
+      "Mat_Harpy"
+    ],
+    "verts": 4343,
+    "polys": 3431,
+    "tris": 3431,
+    "lo": [
+      -1.4254,
+      -0.6017,
+      -1.1518
+    ],
+    "hi": [
+      1.4254,
+      2.6017,
+      1.1518
+    ],
+    "size": [
+      2.8508,
+      3.2034,
+      2.3036
+    ],
+    "centre": [
+      -0.0,
+      1.0,
+      0.0
+    ],
+    "bones": {
+      "B_Body": 2285,
+      "B_WingL": 469,
+      "B_WingR": 469,
+      "B_TailWing_Start": 260,
+      "B_TailWing_Mid": 170,
+      "B_LittleWing_Start_L": 100,
+      "B_LittleWing_End_L": 100,
+      "B_RittleWing_Start_R": 100,
+      "B_RittleWing_End_R": 100,
+      "B_LittleWing_Mid_L": 98,
+      "B_RittleWing_Mid_R": 98,
+      "B_TailWing_End": 94
+    }
+  },
+  {
+    "name": "Tank",
+    "path": "Atreide/Tank/preview_textures/Tank_real.fbx",
+    "exists": true,
+    "mesh_objects": [
+      "Tank"
+    ],
+    "body": "Tank",
+    "armature": null,
+    "materials": [
+      "Material"
+    ],
+    "verts": 766,
+    "polys": 558,
+    "tris": 558,
+    "lo": [
+      -1.6985,
+      -0.9449,
+      0.002
+    ],
+    "hi": [
+      2.1243,
+      0.9449,
+      1.9593
+    ],
+    "size": [
+      3.8228,
+      1.8899,
+      1.9572
+    ],
+    "centre": [
+      0.2129,
+      -0.0,
+      0.9806
+    ],
+    "bones": {
+      "NONE": 766
+    }
+  },
+  {
+    "name": "Thopter",
+    "path": "Atreide/Ornithopter/preview_textures/Ornithopter_real.fbx",
+    "exists": false,
+    "error": "missing"
+  }
+]

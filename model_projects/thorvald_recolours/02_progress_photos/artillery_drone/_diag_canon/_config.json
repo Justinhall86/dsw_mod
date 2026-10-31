@@ -1,0 +1,16 @@
+{
+ "fbx": [
+  "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\artillery_drone\\ImperiumDroneCanon.fbx"
+ ],
+ "name": "artillery_drone",
+ "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\artillery_drone\\ImperiumDrone_Albedo.png",
+ "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\artillery_drone\\ImperiumDrone_MetallicGlossAO.png",
+ "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\artillery_drone\\ImperiumDrone_Normal.png",
+ "emissive": null,
+ "front": "+X",
+ "delete": [],
+ "stills": {
+  "three_quarter": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\artillery_drone\\_diag_canon\\artillery_drone_three_quarter.png",
+  "x_pos": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\artillery_drone\\_diag_canon\\artillery_drone_x_pos.png"
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Chronos",
+ "fbx": ["C:/Users/justi/Python/dsw_mod/model_inputs/Vehicle/Imperial/Chronos/preview_textures/Chronos_real.fbx"],
+ "front": "-Y",
+ "albedo": "C:/Users/justi/Python/dsw_mod/model_inputs/Vehicle/Imperial/Chronos/preview_textures/albedo.png",
+ "mgao": "C:/Users/justi/Python/dsw_mod/model_inputs/Vehicle/Imperial/Chronos/preview_textures/mgao.png",
+ "normal": "C:/Users/justi/Python/dsw_mod/model_inputs/Vehicle/Imperial/Chronos/preview_textures/normal.png",
+ "turntable": false,
+ "still_px": 900,
+ "stills": {
+  "x_pos": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald_fighter/02_progress_photos/donors/chrono_side2.png",
+  "three_quarter": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald_fighter/02_progress_photos/donors/chrono_tq2.png",
+  "front": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald_fighter/02_progress_photos/donors/chrono_front2.png"
+ }
+}

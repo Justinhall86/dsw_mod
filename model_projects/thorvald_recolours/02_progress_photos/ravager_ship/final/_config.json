@@ -1,0 +1,71 @@
+{
+ "fbx": [
+  "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager.fbx"
+ ],
+ "name": "ravager_ship",
+ "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\04_textures\\ravager_ship\\Ravager_Albedo.png",
+ "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager_MetallicGlossAOEmiss.png",
+ "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager_Normal.png",
+ "emissive": null,
+ "front": "+X",
+ "delete": [
+  {
+   "obj": "Ravager",
+   "bones": [
+    "B_Canon"
+   ]
+  },
+  {
+   "obj": "Ravager",
+   "box": [
+    [
+     -0.66,
+     -0.07,
+     0.2
+    ],
+    [
+     -0.15,
+     0.07,
+     0.56
+    ]
+   ]
+  },
+  {
+   "obj": "Ravager",
+   "box": [
+    [
+     0.2,
+     -1.6,
+     0.4
+    ],
+    [
+     1.6,
+     -1.03,
+     1.0
+    ]
+   ]
+  },
+  {
+   "obj": "Ravager",
+   "box": [
+    [
+     0.2,
+     1.03,
+     0.4
+    ],
+    [
+     1.6,
+     1.6,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "zoom": 1.3,
+ "stills": {
+  "three_quarter": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\ravager_ship\\final\\ravager_ship_three_quarter.png",
+  "y_neg": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\ravager_ship\\final\\ravager_ship_y_neg.png",
+  "top": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\ravager_ship\\final\\ravager_ship_top.png"
+ },
+ "blend": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\03_blender\\ravager_ship_final.blend"
+}

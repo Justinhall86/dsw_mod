@@ -1,0 +1,4 @@
+v10_dark_heavycu dark heavy|v01 with copper wing tips and nose collar
+v11_arrow_polish twotone heavy|POLISH of v06: wings seated further inboard (root gap closed)
+v12_compact_polish twotone heavy|POLISH of v04: inboard wings + copper tips/collar
+v13_thick_polish twotone heavy|POLISH of v05: inboard wings

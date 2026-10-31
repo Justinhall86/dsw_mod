@@ -1,0 +1,17 @@
+{
+ "fbx": [
+  "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager.fbx"
+ ],
+ "name": "ravager_ship",
+ "albedo": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager_Albedo.png",
+ "mgao": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager_MetallicGlossAOEmiss.png",
+ "normal": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\01_input\\ravager_ship\\Ravager_Normal.png",
+ "emissive": null,
+ "front": "+X",
+ "delete": [],
+ "zoom": 1.6,
+ "stills": {
+  "y_neg": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\ravager_ship\\_vanilla2\\ravager_ship_y_neg.png",
+  "x_neg": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald_recolours\\02_progress_photos\\ravager_ship\\_vanilla2\\ravager_ship_x_neg.png"
+ }
+}

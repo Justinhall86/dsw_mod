@@ -1,0 +1,13 @@
+MERGED 2 slots; materials now ['Mat_Base', 'Mat_Commando', 'Mat_Duncan', 'Mat_DuncanSash', 'Mat_Gurney', 'Mat_Mercenary', 'Mat_Thorvald_Trim']
+UPSCALED CommandoHead           Mat_Commando         1024x1024 -> 2048x2048 (x2)  painted
+UPSCALED DuncanFill_feet        Mat_Duncan           1024x1024 -> 2048x2048 (x2)  painted
+UPSCALED DuncanFill_sash        Mat_DuncanSash       1024x1024 -> 2048x2048 (x2)  painted
+UPSCALED Gurney                 Mat_Gurney           1024x1024 -> 2048x2048 (x2)  painted
+UPSCALED MercenaryFill_legs     Mat_Mercenary        1024x1024 -> 2048x2048 (x2)  painted
+UPSCALED MercenaryFill_legs     Mat_Base              256x256  ->  512x512  (x2)  painted
+MATERIALS 6
+AUDIT before tris 10076 problems 7
+AUDIT after tris 10076 problems 0
+TrooperHat         Mat_Thorvald_Trim  1024x1024 -> 1024x1024  colour drift  0.0%  saturation  +0.0%  edge contrast x1.00
+TrooperNeck        Mat_Thorvald_Trim  1024x1024 -> 1024x1024  colour drift  0.0%  saturation  +0.0%  edge contrast x1.00
+RESULT: OK

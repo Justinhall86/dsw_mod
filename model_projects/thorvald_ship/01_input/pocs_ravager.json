@@ -1,0 +1,430 @@
+{
+  "variants": [
+    {
+      "name": "r1_ravager_base",
+      "_note": "Ravager recoloured: charcoal, oxblood prow, copper wing caps, canopy dome. Keel fin kept.",
+      "host": "ravager",
+      "host_role": "charcoal",
+      "res": 800,
+      "margin": 1.3,
+      "views": {
+        "tq": [
+          -0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          0,
+          -0.001,
+          1
+        ],
+        "nose": [
+          -1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "rear": [
+          1,
+          0,
+          0.1
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            -1.9,
+            -1.15
+          ],
+          "role": "oxblood"
+        },
+        {
+          "axis": "y",
+          "range": [
+            1.25,
+            1.7
+          ],
+          "abs": true,
+          "role": "copper"
+        }
+      ],
+      "grafts": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "disc_abs": [
+            0,
+            0,
+            1.9,
+            3.9,
+            6.2
+          ],
+          "scale": 0.24,
+          "at": [
+            -0.35,
+            0,
+            null
+          ],
+          "min_island_faces": 8
+        }
+      ]
+    },
+    {
+      "name": "r2_ravager_guns",
+      "_note": "R1 + twin forward guns from the frigate",
+      "host": "ravager",
+      "host_role": "charcoal",
+      "res": 800,
+      "margin": 1.3,
+      "views": {
+        "tq": [
+          -0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          0,
+          -0.001,
+          1
+        ],
+        "nose": [
+          -1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "rear": [
+          1,
+          0,
+          0.1
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            -1.9,
+            -1.15
+          ],
+          "role": "oxblood"
+        },
+        {
+          "axis": "y",
+          "range": [
+            1.25,
+            1.7
+          ],
+          "abs": true,
+          "role": "copper"
+        }
+      ],
+      "grafts": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "disc_abs": [
+            0,
+            0,
+            1.9,
+            3.9,
+            6.2
+          ],
+          "scale": 0.24,
+          "at": [
+            -0.35,
+            0,
+            null
+          ],
+          "min_island_faces": 8
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "box_abs": [
+            2.95,
+            4.85,
+            2.45,
+            2.75,
+            1.55,
+            1.82
+          ],
+          "scale": [
+            0.55,
+            1.2,
+            1.2
+          ],
+          "rot_deg": [
+            0,
+            0,
+            180
+          ],
+          "at": [
+            -0.65,
+            0.4,
+            0.74
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        }
+      ]
+    },
+    {
+      "name": "r3_ravager_swept",
+      "_note": "Stub wings removed, swept Hawk wings grafted on; oxblood prow",
+      "host": "ravager",
+      "host_role": "charcoal",
+      "res": 800,
+      "margin": 1.3,
+      "views": {
+        "tq": [
+          -0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          0,
+          -0.001,
+          1
+        ],
+        "nose": [
+          -1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "rear": [
+          1,
+          0,
+          0.1
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            -1.9,
+            -1.15
+          ],
+          "role": "oxblood"
+        }
+      ],
+      "grafts": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "disc_abs": [
+            0,
+            0,
+            1.9,
+            3.9,
+            6.2
+          ],
+          "scale": 0.24,
+          "at": [
+            -0.35,
+            0,
+            null
+          ],
+          "min_island_faces": 8
+        },
+        {
+          "donor": "hawk",
+          "role": "charcoal",
+          "box_abs": [
+            -2.3,
+            -0.4,
+            -0.6,
+            1.3,
+            0.25,
+            0.95
+          ],
+          "scale": 0.72,
+          "rot_deg": [
+            0,
+            0,
+            -90
+          ],
+          "at": [
+            0.55,
+            0.95,
+            0.62
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        }
+      ],
+      "host_remove": [
+        [
+          0.15,
+          1.9,
+          0.55,
+          2.0,
+          -3,
+          3
+        ],
+        [
+          0.15,
+          1.9,
+          -2.0,
+          -0.55,
+          -3,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "r4_ravager_swept_guns",
+      "_note": "R3 + twin forward guns",
+      "host": "ravager",
+      "host_role": "charcoal",
+      "res": 800,
+      "margin": 1.3,
+      "views": {
+        "tq": [
+          -0.78,
+          -0.78,
+          0.34
+        ],
+        "top": [
+          0,
+          -0.001,
+          1
+        ],
+        "nose": [
+          -1,
+          0,
+          0.08
+        ],
+        "side": [
+          0,
+          -1,
+          0.06
+        ],
+        "rear": [
+          1,
+          0,
+          0.1
+        ]
+      },
+      "host_bands": [
+        {
+          "axis": "x",
+          "range": [
+            -1.9,
+            -1.15
+          ],
+          "role": "oxblood"
+        }
+      ],
+      "grafts": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "disc_abs": [
+            0,
+            0,
+            1.9,
+            3.9,
+            6.2
+          ],
+          "scale": 0.24,
+          "at": [
+            -0.35,
+            0,
+            null
+          ],
+          "min_island_faces": 8
+        },
+        {
+          "donor": "hawk",
+          "role": "charcoal",
+          "box_abs": [
+            -2.3,
+            -0.4,
+            -0.6,
+            1.3,
+            0.25,
+            0.95
+          ],
+          "scale": 0.72,
+          "rot_deg": [
+            0,
+            0,
+            -90
+          ],
+          "at": [
+            0.55,
+            0.95,
+            0.62
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        },
+        {
+          "donor": "frigate",
+          "role": "charcoal",
+          "box_abs": [
+            2.95,
+            4.85,
+            2.45,
+            2.75,
+            1.55,
+            1.82
+          ],
+          "scale": [
+            0.55,
+            1.2,
+            1.2
+          ],
+          "rot_deg": [
+            0,
+            0,
+            180
+          ],
+          "at": [
+            -0.65,
+            0.4,
+            0.74
+          ],
+          "mirror": true,
+          "mirror_axis": "y",
+          "min_island_faces": 0
+        }
+      ],
+      "host_remove": [
+        [
+          0.15,
+          1.9,
+          0.55,
+          2.0,
+          -3,
+          3
+        ],
+        [
+          0.15,
+          1.9,
+          -2.0,
+          -0.55,
+          -3,
+          3
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "_comment": "Thorvald Interceptor variants. box_abs is an ABSOLUTE world-space box on the donor, in the donor's own baked (evaluated) coordinates - print them with 11_islands_baked.py or parts_colour.py. mount is a FRACTION of the host half-extent. size is the chunk's longest dimension in world units. rot_deg is applied to the chunk BEFORE it is mounted.",
+  "_reference": "reference_sheet_v2_frigate_jets.png - two banded turbine drums on stubby outriggers, long charcoal slab hull, raised copper-rimmed block aft, spine cannon forward.",
+  "_donor_notes": {
+    "wraith_pod": "Smuggler frigate (S_Frigate -> Prefab_Wraith) corner thruster. Box -4.32,-2.46 : -4.32,-2.48 : 1.28,3.88 cuts 748 faces, 2.11 x 1.94 x 2.50, drum axis along Z. rot_deg [90,0,0] lays the drum along Y so the intake ring faces forward.",
+    "chronos": "6.10 x 9.29 x 2.77, already near-black charcoal, has a raised block aft. Best hull match.",
+    "kraken": "5.97 x 7.99 x 1.86, lowest-poly (520 tris), flat dark wedge.",
+    "frigate": "Renegade Frigate 10.20 x 9.35 x 2.59, long flat grey slab."
+  },
+  "variants": [
+    {
+      "name": "interceptor_A_reference",
+      "_note": "Closest read of reference v2: Chronos slab hull, two Wraith turbine drums laid horizontal on outriggers, drums aft-of-centre.",
+      "host": "chronos",
+      "host_role": "hull",
+      "res": 900,
+      "margin": 1.24,
+      "pieces": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "size": 3.05,
+          "rot_deg": [
+            90,
+            0,
+            0
+          ],
+          "mirror": "x",
+          "mount": [
+            0,
+            0.12,
+            0.02
+          ],
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "_disc_note": "centre_x, centre_y, radius, z0, z1 (absolute donor space)",
+          "min_island_faces": 12,
+          "seat": {
+            "axis": "x",
+            "overlap": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "name": "interceptor_B_kraken",
+      "_note": "Kraken flat dark wedge (520 tris) with the two Wraith drums pulled tighter and lower - a leaner, faster read.",
+      "host": "kraken",
+      "host_role": "hull",
+      "res": 900,
+      "margin": 1.24,
+      "pieces": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "size": 2.95,
+          "rot_deg": [
+            90,
+            0,
+            0
+          ],
+          "mirror": "x",
+          "mount": [
+            0,
+            0.18,
+            -0.02
+          ],
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "_disc_note": "centre_x, centre_y, radius, z0, z1 (absolute donor space)",
+          "min_island_faces": 12,
+          "seat": {
+            "axis": "x",
+            "overlap": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "name": "interceptor_C_quad",
+      "_note": "Four drums, two per side, staggered fore and aft like the ORIGINAL reference sheet. Reads heavier and more industrial.",
+      "host": "chronos",
+      "host_role": "hull",
+      "res": 900,
+      "margin": 1.22,
+      "pieces": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "size": 2.6,
+          "rot_deg": [
+            90,
+            0,
+            0
+          ],
+          "mirror": "x",
+          "mount": [
+            0,
+            0.34,
+            0.02
+          ],
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "_disc_note": "centre_x, centre_y, radius, z0, z1 (absolute donor space)",
+          "min_island_faces": 12,
+          "seat": {
+            "axis": "x",
+            "overlap": 0.45
+          }
+        },
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "size": 2.6,
+          "rot_deg": [
+            90,
+            0,
+            0
+          ],
+          "mirror": "x",
+          "mount": [
+            0,
+            -0.3,
+            0.02
+          ],
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "_disc_note": "centre_x, centre_y, radius, z0, z1 (absolute donor space)",
+          "min_island_faces": 12,
+          "seat": {
+            "axis": "x",
+            "overlap": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "name": "interceptor_D_frigate",
+      "_note": "Renegade Frigate long slab as the spine, drums mounted wide on stubby outrigger arms - the most literal reading of the side view.",
+      "host": "frigate",
+      "host_role": "hull",
+      "res": 900,
+      "margin": 1.24,
+      "pieces": [
+        {
+          "donor": "wraith",
+          "role": "copper",
+          "size": 3.05,
+          "rot_deg": [
+            90,
+            0,
+            0
+          ],
+          "mirror": "x",
+          "mount": [
+            0,
+            0.06,
+            -0.02
+          ],
+          "disc_abs": [
+            -3.36,
+            -3.4,
+            0.95,
+            1.3,
+            3.9
+          ],
+          "_disc_note": "centre_x, centre_y, radius, z0, z1 (absolute donor space)",
+          "min_island_faces": 12,
+          "seat": {
+            "axis": "x",
+            "overlap": 0.45
+          }
+        }
+      ]
+    }
+  ]
+}

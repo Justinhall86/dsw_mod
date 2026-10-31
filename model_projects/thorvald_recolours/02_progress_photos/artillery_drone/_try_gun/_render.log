@@ -1,0 +1,17 @@
+C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\08_scripts\render_asset.py:133: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\08_scripts\render_asset.py:172: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:04.141  render           | Saved: 'C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\artillery_drone\_try_gun\artillery_drone_three_quarter.png'
+00:04.484  render           | Saved: 'C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\artillery_drone\_try_gun\artillery_drone_x_pos.png'
+FBX version: 7400
+FBX version: 7400
+DELETED Imperium_DroneCanon 1088 islands 5614 verts
+KEPT_OPEN_EDGES before 3530 after 3530 OK
+BOUNDS [-1.215, -0.932, -0.003] [1.055, 0.932, 0.872]
+RENDERED three_quarter C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\artillery_drone\_try_gun\artillery_drone_three_quarter.png
+RENDERED x_pos C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\artillery_drone\_try_gun\artillery_drone_x_pos.png
+DONE artillery_drone
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

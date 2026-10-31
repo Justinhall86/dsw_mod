@@ -1,0 +1,8 @@
+0.0677 Atreides Hawk
+0.2070 Harkonnen Harpy
+0.3332 Corrino Hammer
+0.4488 Smuggler Banshee
+0.5504 Ecaz Siren
+0.6619 Vernius Spirit
+0.7653 Renegade Ravager
+0.8989 THORVALD (ours)

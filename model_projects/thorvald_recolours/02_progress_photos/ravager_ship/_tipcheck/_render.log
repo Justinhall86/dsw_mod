@@ -1,0 +1,18 @@
+C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\08_scripts\render_asset.py:134: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\08_scripts\render_asset.py:173: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:04.484  render           | Saved: 'C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_tipcheck\ravager_ship_y_neg.png'
+FBX version: 7400
+DELETED Ravager 22 islands 118 verts
+KEPT_OPEN_EDGES before 2216 after 2216 OK
+DELETED Ravager 36 islands 256 verts
+KEPT_OPEN_EDGES before 1982 after 1982 OK
+DELETED Ravager 36 islands 256 verts
+KEPT_OPEN_EDGES before 1748 after 1748 OK
+BOUNDS [-1.8, -1.174, -1.269] [1.8, 1.174, 1.008]
+RENDERED y_neg C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_tipcheck\ravager_ship_y_neg.png
+DONE ravager_ship
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

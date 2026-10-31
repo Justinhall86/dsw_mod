@@ -1,0 +1,17 @@
+{
+  "model": "Th_Ship",
+  "before": {
+    "mesh": [
+      {
+        "path": "Vehicle/Imperial/Hammer/Prefab_Hammer.prefab"
+      }
+    ]
+  },
+  "after": {
+    "mesh": [
+      {
+        "path": "VehMOD/Thorvald_Ship/Prefab_Thorvald_Ship.prefab"
+      }
+    ]
+  }
+}

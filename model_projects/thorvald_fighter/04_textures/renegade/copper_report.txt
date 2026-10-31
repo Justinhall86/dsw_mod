@@ -1,0 +1,5 @@
+source C:\Users\justi\Python\dsw_mod\model_projects\thorvald_fighter\04_textures\renegade\source_albedo.png
+pixels changed (w>0.05): 2665 / 262144 (1.0%)
+accent pixels (w>0.5):   1052 (0.40%)
+mean rgb before [58.7 56.  53.5]  after [59. 56. 53.]
+target hue 25.0 deg (copper #B26E3C), value preserved per pixel

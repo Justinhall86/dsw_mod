@@ -1,0 +1,16 @@
+C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\08_scripts\render_asset.py:134: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\08_scripts\render_asset.py:173: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:04.062  render           | Saved: 'C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_vanilla\ravager_ship_three_quarter.png'
+00:04.437  render           | Saved: 'C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_vanilla\ravager_ship_front.png'
+00:04.812  render           | Saved: 'C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_vanilla\ravager_ship_top.png'
+FBX version: 7400
+BOUNDS [-1.8, -1.491, -1.269] [1.8, 1.491, 1.008]
+RENDERED three_quarter C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_vanilla\ravager_ship_three_quarter.png
+RENDERED front C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_vanilla\ravager_ship_front.png
+RENDERED top C:\Users\justi\Python\dsw_mod\model_projects\thorvald_recolours\02_progress_photos\ravager_ship\_vanilla\ravager_ship_top.png
+DONE ravager_ship
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

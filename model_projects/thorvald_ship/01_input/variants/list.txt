@@ -1,0 +1,13 @@
+v01_clean_dark dark std|S4 cleaned: no side rods, no rear side boxes, wings moved inboard; dark palette
+v02_clean_twotone twotone std|v01 with gunmetal two-tone panels
+v03_compact_dark dark std|shorter body, smaller thicker wings: closer to Hawk/Hammer proportions
+v04_compact_twotone twotone std|v03 two-tone
+v05_thickwing_heavycu twotone heavy|chunky armoured wings, copper wing tips + nose collar
+v06_arrow_nojets twotone heavy|no tip jets at all: one clean arrow shape, copper wing tips
+v07_sibling_drums dark std|small copper-ringed drums at the tips: family tie to the frigate
+v08_gunship twotone std|compact with side guns AND chin gun: most weapons
+v09_stealth dark std|flattest and widest, no jets: stealth-fighter read
+v10_dark_heavycu dark heavy|v01 with copper wing tips and nose collar
+v11_arrow_polish twotone heavy|POLISH of v06: wings seated further inboard (root gap closed)
+v12_compact_polish twotone heavy|POLISH of v04: inboard wings + copper tips/collar
+v13_thick_polish twotone heavy|POLISH of v05: inboard wings

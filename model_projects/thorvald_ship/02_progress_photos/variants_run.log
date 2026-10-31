@@ -1,0 +1,28 @@
+== v01_clean_dark (dark/std)
+[build] FINAL dims 4.240 x 4.739 x 0.830  tris=2752  objects=9
+JOINED verts=3396 tris=2752 materials=1
+== v02_clean_twotone (twotone/std)
+[build] FINAL dims 4.240 x 4.739 x 0.830  tris=2752  objects=9
+JOINED verts=3396 tris=2752 materials=1
+== v03_compact_dark (dark/std)
+[build] FINAL dims 3.794 x 4.187 x 0.830  tris=2752  objects=9
+JOINED verts=3396 tris=2752 materials=1
+== v04_compact_twotone (twotone/std)
+[build] FINAL dims 3.794 x 4.187 x 0.830  tris=2752  objects=9
+JOINED verts=3396 tris=2752 materials=1
+== v05_thickwing_heavycu (twotone/heavy)
+[build] FINAL dims 4.091 x 4.555 x 0.830  tris=2752  objects=9
+JOINED verts=3396 tris=2752 materials=1
+== v06_arrow_nojets (twotone/heavy)
+[build] FINAL dims 4.240 x 4.314 x 0.830  tris=2264  objects=7
+JOINED verts=2886 tris=2264 materials=1
+== v07_sibling_drums (dark/std)
+[build] FINAL dims 4.240 x 4.970 x 0.830  tris=3536  objects=9
+JOINED verts=4182 tris=3536 materials=1
+== v08_gunship (twotone/std)
+[build] FINAL dims 3.794 x 4.187 x 0.830  tris=2804  objects=11
+JOINED verts=3500 tris=2804 materials=1
+== v09_stealth (dark/std)
+[build] FINAL dims 4.240 x 4.497 x 0.738  tris=2264  objects=7
+JOINED verts=2886 tris=2264 materials=1
+ALL_DONE

@@ -1,0 +1,7 @@
+0.0740 Atreides Hawk
+0.2444 Corrino Hammer
+0.3817 Vernius Spirit
+0.5057 v11_arrow_polish
+0.6335 v12_compact_polish
+0.7641 v13_thick_polish
+0.9066 v07_sibling_drums
