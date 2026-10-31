@@ -7,7 +7,7 @@ and export Male01_LandsraadGuardElite.fbx for the HMD Toolkit.
 Weights: helmet 100% B_SpineTopJ (the vanilla head never moved on its own: it was bound to SpineTop); pauldrons 85% clavicle +
 15% SpineTop (same rule as the full Elite)."""
 import os, numpy as np, bmesh
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_elite"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_elite"
 OUT = os.path.join(PROJ, "05_fbx_export", "Male01_LandsraadGuardElite.fbx")
 g = bpy.data.objects["guard_mod"]; parts = bpy.data.objects["parts_lo"]; rig = bpy.data.objects["GuardRig"]
 for nm in ("guard_vanilla", "elite_hi", "parts_hi", "snapcam", "keylight"):
