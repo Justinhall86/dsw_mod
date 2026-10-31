@@ -16,7 +16,7 @@ import math
 import bpy
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 blend = os.path.abspath(argv[0]) if argv else os.path.join(
