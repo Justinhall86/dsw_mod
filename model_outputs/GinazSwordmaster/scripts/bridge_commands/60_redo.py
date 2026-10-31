@@ -19,7 +19,7 @@ print("groups:", len(lo.vertex_groups), "| props among them:", [g.name for g in 
 gname = {g.index: g.name for g in lo.vertex_groups}
 unw = sum(1 for v in me.vertices if not any(g.weight > 1e-4 for g in v.groups)); print("unweighted verts:", unw)
 # 4. cape chain + limit/normalize/report/save (parts 3 and 4 of stage 3)
-SC3 = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\ginaz_stage3.py"
+SC3 = r"C:\Users\justi\Python\dsw_mod\model_work\ginaz_stage3.py"
 parts = re.split(r"\n# -{20,} ", open(SC3, encoding="utf-8").read())
 G.update(dict(lo=lo, rig=rig, me=me, n=len(me.vertices), groups=gname))
 for i in (3, 4):
