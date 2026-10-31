@@ -28,9 +28,9 @@ from collections import deque
 import numpy as np
 from PIL import Image
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house"
-MODELS = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando"
-PREV = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\commando_preview"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house"
+MODELS = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando"
+PREV = r"C:\Users\justi\Python\dsw_mod\model_work\commando_preview"
 TEX = os.path.join(PROJ, "04_textures")
 
 # a metal blob bigger than this is an armour plate, not trim
