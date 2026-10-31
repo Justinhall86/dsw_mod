@@ -1,159 +1,159 @@
 {
   "AramshamSword": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/AramshamSword.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/AramshamSword/Aramsham_Sword_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/AramshamSword/Aramsham_Sword_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/AramshamSword/Aramsham_Sword_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/AramshamSword.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/AramshamSword/Aramsham_Sword_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/AramshamSword/Aramsham_Sword_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/AramshamSword/Aramsham_Sword_Normal.png"
   },
   "Atreide_Sword_01": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Atreide_Sword_01.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Atreide_Sword_01/AtreideSoldier01_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Atreide_Sword_01/AtreideSoldier01_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Atreide_Sword_01/AtreideSoldier01_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Atreide_Sword_01.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Atreide_Sword_01/AtreideSoldier01_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Atreide_Sword_01/AtreideSoldier01_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Atreide_Sword_01/AtreideSoldier01_Normal.png"
   },
   "BannerjeeSpear": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/BannerjeeSpear.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/BannerjeeSpear/BannerjeeSpear_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/BannerjeeSpear/BannerjeeSpear_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/BannerjeeSpear/BannerjeeSpear_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/BannerjeeSpear.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/BannerjeeSpear/BannerjeeSpear_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/BannerjeeSpear/BannerjeeSpear_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/BannerjeeSpear/BannerjeeSpear_Normal.png"
   },
   "Crysknife": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Crysknife.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Crysknife/Crysknife_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Crysknife/Crysknife_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Crysknife/Crysknife_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Crysknife.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Crysknife/Crysknife_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Crysknife/Crysknife_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Crysknife/Crysknife_Normal.png"
   },
   "CtairSword": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/CtairSword.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/CtairSword/CtairSword_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/CtairSword/CtairSword_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/CtairSword/CtairSword_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/CtairSword.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/CtairSword/CtairSword_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/CtairSword/CtairSword_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/CtairSword/CtairSword_Normal.png"
   },
   "DoubleKnife": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/DoubleKnife.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/DoubleKnife/WeaponTrooper_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/DoubleKnife/WeaponTrooper_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/DoubleKnife/WeaponTrooper_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/DoubleKnife.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/DoubleKnife/WeaponTrooper_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/DoubleKnife/WeaponTrooper_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/DoubleKnife/WeaponTrooper_Normal.png"
   },
   "EngineerSpear": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/EngineerSpear.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/EngineerSpear/EngineerSpear_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/EngineerSpear/EngineerSpear_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/EngineerSpear/EngineerSpear_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/EngineerSpear.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/EngineerSpear/EngineerSpear_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/EngineerSpear/EngineerSpear_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/EngineerSpear/EngineerSpear_Normal.png"
   },
   "KindJal": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/KindJal.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/KindJal/Smuggler_Mercenary_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/KindJal/Smuggler_Mercenary_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/KindJal/Smuggler_Mercenary_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/KindJal.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/KindJal/Smuggler_Mercenary_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/KindJal/Smuggler_Mercenary_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/KindJal/Smuggler_Mercenary_Normal.png"
   },
   "Knife01": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Knife01.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife01/Knife_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife01/Knife_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife01/Knife_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Knife01.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife01/Knife_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife01/Knife_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife01/Knife_Normal.png"
   },
   "Knife02": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Knife02.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife02/Knife_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife02/Knife_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife02/Knife_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/Knife02.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife02/Knife_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife02/Knife_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/Knife02/Knife_Normal.png"
   },
   "LandsraadHalberd": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/LandsraadHalberd.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LandsraadHalberd/Landsraad_Halberd_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LandsraadHalberd/Landsraad_Halberd_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LandsraadHalberd/Landsraad_Halberd_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/LandsraadHalberd.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LandsraadHalberd/Landsraad_Halberd_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LandsraadHalberd/Landsraad_Halberd_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LandsraadHalberd/Landsraad_Halberd_Normal.png"
   },
   "LittleSword": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/LittleSword.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LittleSword/WeaponFencer_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LittleSword/WeaponFencer_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LittleSword/WeaponFencer_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/LittleSword.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LittleSword/WeaponFencer_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LittleSword/WeaponFencer_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LittleSword/WeaponFencer_Normal.png"
   },
   "LongKnife": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/LongKnife.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LongKnife/WeaponTrooper_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LongKnife/WeaponTrooper_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LongKnife/WeaponTrooper_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/LongKnife.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LongKnife/WeaponTrooper_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LongKnife/WeaponTrooper_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/LongKnife/WeaponTrooper_Normal.png"
   },
   "MetalBar": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/MetalBar.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/MetalBar/WeaponTrooper_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/MetalBar/WeaponTrooper_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/MetalBar/WeaponTrooper_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/MetalBar.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/MetalBar/WeaponTrooper_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/MetalBar/WeaponTrooper_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/MetalBar/WeaponTrooper_Normal.png"
   },
   "NefudMace": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/NefudMace.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/NefudMace/NefudSet_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/NefudMace/NefudSet_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/NefudMace/NefudSet_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/NefudMace.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/NefudMace/NefudSet_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/NefudMace/NefudSet_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/NefudMace/NefudSet_Normal.png"
   },
   "SandwormHook": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SandwormHook.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SandwormHook/SandwormHook_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SandwormHook/SandwormHook_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SandwormHook/SandwormHook_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SandwormHook.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SandwormHook/SandwormHook_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SandwormHook/SandwormHook_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SandwormHook/SandwormHook_Normal.png"
   },
   "SpearSquire": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SpearSquire.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SpearSquire/SpearSpire_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SpearSquire/SpearSpire_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SpearSquire/SpearSpire_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SpearSquire.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SpearSquire/SpearSpire_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SpearSquire/SpearSpire_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SpearSquire/SpearSpire_Normal.png"
   },
   "SuboidWrench": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SuboidWrench.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SuboidWrench/SuboidWrench_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SuboidWrench/SuboidWrench_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SuboidWrench/SuboidWrench_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SuboidWrench.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SuboidWrench/SuboidWrench_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SuboidWrench/SuboidWrench_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SuboidWrench/SuboidWrench_Normal.png"
   },
   "SwordKnight": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight/SwordKnight_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight/SwordKnight_MetallicGlossAO.png",
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight/SwordKnight_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight/SwordKnight_MetallicGlossAO.png",
     "Normal": null
   },
   "SwordWhitmore": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordWhitmore.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordWhitmore/SwordWhitmoreBludd_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordWhitmore/SwordWhitmoreBludd_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordWhitmore/SwordWhitmoreBludd_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordWhitmore.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordWhitmore/SwordWhitmoreBludd_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordWhitmore/SwordWhitmoreBludd_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordWhitmore/SwordWhitmoreBludd_Normal.png"
   },
   "TallSword": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/TallSword_TRUE_FBX.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword/WeaponFencer_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword/WeaponFencer_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword/WeaponFencer_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/TallSword_TRUE_FBX.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword/WeaponFencer_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword/WeaponFencer_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword/WeaponFencer_Normal.png"
   },
   "TallSword_Ginaz": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/TallSword_TRUE_FBX.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword_Ginaz/WeaponFencer_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword_Ginaz/WeaponFencer_MetallicGlossAO.png",
-    "Normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword_Ginaz/WeaponFencer_Normal.png"
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/TallSword_TRUE_FBX.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword_Ginaz/WeaponFencer_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword_Ginaz/WeaponFencer_MetallicGlossAO.png",
+    "Normal": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/TallSword_Ginaz/WeaponFencer_Normal.png"
   },
   "SwordKnight_Ginaz": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_MetallicGlossAO.png",
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_MetallicGlossAO.png",
     "Normal": null
   },
   "SwordKnight_Blade": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_MetallicGlossAO.png",
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Ginaz/SwordKnight_MetallicGlossAO.png",
     "Normal": null,
     "blade_only": true
   },
   "SwordKnight_Silver": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_MetallicGlossAO.png",
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_MetallicGlossAO.png",
     "Normal": null
   },
   "SwordKnight_Simple": {
-    "fbx": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
-    "Albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_Albedo.png",
-    "MetallicGlossAO": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_MetallicGlossAO.png",
+    "fbx": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/05_fbx_export/melee/SwordKnight.fbx",
+    "Albedo": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_Albedo.png",
+    "MetallicGlossAO": "C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/04_textures/melee/SwordKnight_Silver/SwordKnight_MetallicGlossAO.png",
     "Normal": null,
     "drop_flourish": {
       "above_y": 0.04,
