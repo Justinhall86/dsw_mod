@@ -12,7 +12,7 @@ import sys
 import bpy
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 SHOTS = os.path.join(PROJ, "02_progress_photos", "06_final")
 os.makedirs(SHOTS, exist_ok=True)
 
