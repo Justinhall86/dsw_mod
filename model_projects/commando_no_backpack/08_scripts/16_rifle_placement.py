@@ -23,7 +23,7 @@ import os
 import bpy
 from mathutils import Matrix, Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 FBX = os.path.join(PROJ, "05_fbx_export", "Male01_CommandoNoPackHouse.fbx")
 RIFLE = r"C:\dsw_mod\extr\Character\Atreide\Unit\Weapons\Atreide_MaulaRifle_TRUE_FBX.fbx"
 
