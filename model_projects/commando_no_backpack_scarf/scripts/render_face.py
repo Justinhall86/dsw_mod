@@ -3,7 +3,7 @@ import math
 from mathutils import Vector, Matrix
 
 # Open the blend file
-bpy.ops.wm.open_mainfile(filepath=r'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack_scarf\03_blender\Commando_NoBackpack_Scarf.blend')
+bpy.ops.wm.open_mainfile(filepath=r'C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack_scarf\03_blender\Commando_NoBackpack_Scarf.blend')
 
 # Find the body and armature
 body = None
@@ -46,7 +46,7 @@ else:
 # Set render settings
 bpy.context.scene.render.resolution_x = 1024
 bpy.context.scene.render.resolution_y = 1024
-bpy.context.scene.render.filepath = r'C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack_scarf\02_progress_photos\04_showcase\face_closeup.png'
+bpy.context.scene.render.filepath = r'C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack_scarf\02_progress_photos\04_showcase\face_closeup.png'
 bpy.context.scene.render.image_settings.file_format = 'PNG'
 
 # Render
