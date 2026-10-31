@@ -11,8 +11,22 @@ Shown on the house selection screen ([images/faction_screen_thorvald.jpg](images
 sash, a cane, and the gear emblem on his chest and arm patch. He is the house leader, so he is separate from the two hero drafts below.
 The councillors are in [counsellors.md](counsellors.md).
 
+**Lore ([lore.md](lore.md)):** the ruling Earl of Ipyr and master of Heighforge. In 10187 AG he married his sister Firenza to Shaddam IV,
+hoping for an imperial heir; the Emperor could not father sons, Firenza fell out of favour and died around 10189. Memnon blames the
+Court and now uses his Landsraad seat and his wealth to back the Emperor's enemies. In Dune: Imperium he is the leader who turns
+resources into Landsraad influence, which matches the faction's economy-first bonuses. Personality to write for: cold, patient,
+grieving, and certain that everything, including revenge, can be bought.
+
+**Leader voice lines (draft):** "Everything has a price. The Emperor taught me mine." / "Ipyr remembers Firenza." / "Strike with the
+hammer of wealth."
+
 ## Hero drafts (names under review)
 Karlin Mallenor and Vane Torrver are the original draft names and are being redone along with the rest of the roster.
+
+**Lore hooks (ours):** Karlin can be a War Academy commandant, the school that trains Thorvald nobles in tactics and logistics together,
+which fits a commander whose power is making the army around him better. Vane can come from the Ipyrian Belt demolition crews, who
+crack planetoids with shaped charges and work in the dark of the belt, which explains both the rocket launcher and the camouflage.
+**Theodoric Ein**, the house's War Academy-trained envoy in Dune: Awakening, is a canon-flavoured name for either slot.
 
 ## Karlin Mallenor
 - **Role:** Buff/support commander — an aura hero who strengthens the squads around him rather than fighting solo.
