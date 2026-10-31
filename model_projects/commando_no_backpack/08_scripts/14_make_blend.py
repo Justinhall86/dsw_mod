@@ -24,7 +24,7 @@ import sys
 import bpy
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 BLEND_DIR = os.path.join(PROJ, "03_blender")
 os.makedirs(BLEND_DIR, exist_ok=True)
 
