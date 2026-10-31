@@ -17,8 +17,8 @@ import sys
 
 import bpy
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
-HOUSE_TEX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house\04_textures"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
+HOUSE_TEX = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house\04_textures"
 OUTDIR = os.path.join(PROJ, "05_fbx_export")
 os.makedirs(OUTDIR, exist_ok=True)
 
