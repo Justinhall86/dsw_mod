@@ -38,13 +38,13 @@ import bmesh
 import numpy as np
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
 OUTDIR = os.path.join(PROJ, "05_fbx_export")
 os.makedirs(OUTDIR, exist_ok=True)
 SHOTS = os.path.join(PROJ, "02_progress_photos", "06_final")
 os.makedirs(SHOTS, exist_ok=True)
 
-DEFAULT_SRC = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
+DEFAULT_SRC = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
 DEFAULT_OUT = os.path.join(OUTDIR, "Male01_CommandoNoPack.fbx")
 
 BACKPACK = [4, 5, 6, 7, 41, 42, 43, 44]
