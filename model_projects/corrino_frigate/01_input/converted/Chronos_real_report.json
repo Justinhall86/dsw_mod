@@ -1,0 +1,195 @@
+{
+ "objects": [
+  {
+   "name": "Armature",
+   "type": "ARMATURE",
+   "parent": null
+  },
+  {
+   "name": "Chronos",
+   "type": "MESH",
+   "parent": "Armature",
+   "verts": 8229,
+   "polys": 4510,
+   "materials": [
+    "Mat_Chronos4",
+    "_Mat_ImperiumDrone2"
+   ],
+   "vgroups": [
+    "B_Body",
+    "B_Door01",
+    "B_Door02",
+    "B_Door03",
+    "B_BlockCanon11",
+    "B_Cannon01",
+    "B_BlockCanon10",
+    "B_Cannon02",
+    "B_BlockCanon09",
+    "B_Cannon03",
+    "B_BlockCanon08",
+    "B_Cannon04",
+    "B_BlockCanon07",
+    "B_Cannon05"
+   ],
+   "modifiers": [
+    [
+     "Armature",
+     "ARMATURE"
+    ]
+   ],
+   "bbox_min": [
+    -3.323,
+    -4.706,
+    -0.084
+   ],
+   "bbox_max": [
+    2.777,
+    4.58,
+    2.686
+   ],
+   "size": [
+    6.1,
+    9.286,
+    2.77
+   ]
+  }
+ ],
+ "images": [
+  {
+   "name": "Chronos_Albedo.png",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Chronos_Albedo.png",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  {
+   "name": "Chronos_Albedo.png.001",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Chronos_Albedo.png",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  {
+   "name": "Chronos_MetallicGlossAOEmiss.png",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Chronos_MetallicGlossAOEmiss.png",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  {
+   "name": "Chronos_Normal.png",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Chronos_Normal.png",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  {
+   "name": "ImperiumDrone_Albedo.png",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Vehicle\\Imperial\\DroneI\\ImperiumDrone_Albedo.png",
+   "size": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "ImperiumDrone_MetallicGlossAO.png",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Vehicle\\Imperial\\DroneI\\ImperiumDrone_MetallicGlossAO.png",
+   "size": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "ImperiumDrone_Normal.png",
+   "file": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\corrino_frigate\\01_input\\converted\\Vehicle\\Imperial\\DroneI\\ImperiumDrone_Normal.png",
+   "size": [
+    0,
+    0
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "name": "_Mat_ImperiumDrone2",
+   "nodes": [
+    {
+     "node": "Image Texture",
+     "image": "ImperiumDrone_Albedo.png",
+     "socket_links": []
+    },
+    {
+     "node": "Image Texture.001",
+     "image": "ImperiumDrone_MetallicGlossAO.png",
+     "socket_links": []
+    },
+    {
+     "node": "Image Texture.002",
+     "image": "ImperiumDrone_Normal.png",
+     "socket_links": []
+    },
+    {
+     "in": "Base Color",
+     "from": "Image Texture"
+    },
+    {
+     "in": "Normal",
+     "from": "Normal Map"
+    },
+    {
+     "in": "Specular IOR Level",
+     "from": "Image Texture.001"
+    }
+   ]
+  },
+  {
+   "name": "Mat_Chronos4",
+   "nodes": [
+    {
+     "node": "Image Texture",
+     "image": "Chronos_Albedo.png",
+     "socket_links": []
+    },
+    {
+     "node": "Image Texture.001",
+     "image": "Chronos_MetallicGlossAOEmiss.png",
+     "socket_links": []
+    },
+    {
+     "node": "Image Texture.002",
+     "image": "Chronos_Normal.png",
+     "socket_links": []
+    },
+    {
+     "node": "Image Texture.003",
+     "image": "Chronos_Albedo.png.001",
+     "socket_links": []
+    },
+    {
+     "in": "Base Color",
+     "from": "Image Texture"
+    },
+    {
+     "in": "Alpha",
+     "from": "Image Texture.003"
+    },
+    {
+     "in": "Normal",
+     "from": "Normal Map"
+    },
+    {
+     "in": "Specular IOR Level",
+     "from": "Image Texture.001"
+    }
+   ]
+  }
+ ],
+ "texdir": [
+  "Chronos_Albedo.png",
+  "Chronos_MetallicGlossAOEmiss.png",
+  "Chronos_Normal.png"
+ ]
+}

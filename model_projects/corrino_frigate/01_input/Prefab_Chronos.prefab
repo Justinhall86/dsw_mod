@@ -1,0 +1,130 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Chronos",
+			"source": "Vehicle/Imperial/Chronos/Chronos.fbx",
+			"x": -1.27931,
+			"y": 0.58213
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Imperial/Chronos/Select.fbx",
+			"x": -0.08034,
+			"y": -1.2408,
+			"rotationX": -90,
+			"visible": false
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Select",
+			"target": "Chronos.B_ROOT.B_Body"
+		},
+		{
+			"type": "object",
+			"name": "MuzzlesALL",
+			"rotationY": 90,
+			"children": [
+				{
+					"type": "object",
+					"name": "MuzzleE",
+					"x": -2.70512,
+					"y": 0.57665,
+					"z": 3.22128,
+					"scaleX": 0.19,
+					"scaleY": 0.19,
+					"scaleZ": 0.64,
+					"rotationX": -20.1,
+					"children": [
+						{
+							"type": "box",
+							"name": "box",
+							"editorOnly": true
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "MuzzleD",
+					"x": -1.62798,
+					"y": 0.57665,
+					"z": 3.22128,
+					"scaleX": 0.19,
+					"scaleY": 0.19,
+					"scaleZ": 0.64,
+					"rotationX": -20.1,
+					"children": [
+						{
+							"type": "box",
+							"name": "box",
+							"editorOnly": true
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "MuzzleC",
+					"x": -0.5584,
+					"y": 0.57665,
+					"z": 3.22128,
+					"scaleX": 0.19,
+					"scaleY": 0.19,
+					"scaleZ": 0.64,
+					"rotationX": -20.1,
+					"children": [
+						{
+							"type": "box",
+							"name": "box",
+							"editorOnly": true
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "MuzzleB",
+					"x": 0.54038,
+					"y": 0.57665,
+					"z": 3.22128,
+					"scaleX": 0.19,
+					"scaleY": 0.19,
+					"scaleZ": 0.64,
+					"rotationX": -20.1,
+					"children": [
+						{
+							"type": "box",
+							"name": "box",
+							"editorOnly": true
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "MuzzleA",
+					"x": 1.60051,
+					"y": 0.57665,
+					"z": 3.22128,
+					"scaleX": 0.19,
+					"scaleY": 0.19,
+					"scaleZ": 0.64,
+					"rotationX": -20.1,
+					"children": [
+						{
+							"type": "box",
+							"name": "box",
+							"editorOnly": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "ConstraintMuzzles",
+			"object": "MuzzlesALL",
+			"target": "Chronos.B_ROOT"
+		}
+	]
+}
