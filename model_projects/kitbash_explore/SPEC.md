@@ -130,3 +130,18 @@ V5c with the circled problems fixed (27 render iterations in `02_progress_photos
   the previous pak is archived in `pak_archive/res.compressed1_20261024_143757.pak`.
 - **Not yet seen in the game.** Check: new game -> game.log contains `[DataCache] Modified data.cdb`; 5 captains beside Arrakeen; sword stays in
   hand in idle/run/attack; scale looks right next to a Trooper.
+
+## Project layout after the 2026-10-27 clean-up
+
+**Final: `03_blender/V6c_GinazCaptain_TallSword.blend`** (installed build in `06_game_ready/`, revert cdb in `07_data_cdb/`).
+The sections above are the historical log; only the files below still exist.
+
+| Path | Kept |
+|---|---|
+| `03_blender/` | the final blend; `history/` = V1-V4, V5e, V6 Ranger, V7, V8, Commando_GurneyHead_v3, V6b_GinazCollar_plum |
+| `02_progress_photos/` | `00_reference/` (part, collar, limb sheets), `01_versions/` (variant sheets, V5e and Ginaz milestones, showcase stills, Ginaz Captain GIFs, `melee_weapons/` GIFs) |
+| `04_textures/` | `ginaz_v6b/`, `v6b_uv_regions.json`, `Commando_NoPack_Albedo.png`, `commando_back_uv.json`, `melee/`, `sword/` |
+| `05_fbx_export/`, `06_game_ready/`, `07_data_cdb/`, `08_scripts/` | unchanged |
+
+Deleted: `.blend1` backups, limb/collar probe blends, V5/V5b/V5c/V5d and the other Commando/collar intermediates, V6/V6b non-plum builds, the superseded `ginaz_v6` textures, and every per-iteration render folder (survey, components, fix iterations, frames).
+Old paths in the sections above (e.g. `07_sword/gifs/`, `11_melee_weapons/`) now live under `02_progress_photos/01_versions/`.

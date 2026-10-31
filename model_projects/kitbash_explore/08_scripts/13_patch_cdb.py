@@ -7,10 +7,10 @@ import copy
 import json
 import sys
 
-sys.path.insert(0, r"C:\Users\justi\OneDrive\Python\dsw_mod\.claude\skills\dsw-model-modding\scripts")
+sys.path.insert(0, r"C:\Users\justi\Python\dsw_mod\.claude\skills\dsw-model-modding\scripts")
 import cdb_tools as C  # noqa: E402
 
-CDB = r"C:\Users\justi\OneDrive\Python\dsw_mod\mod_files\data.cdb"
+CDB = r"C:\Users\justi\Python\dsw_mod\mod_files\data.cdb"
 data, exact = C.load(CDB)
 orig = copy.deepcopy(data)
 sh = C.sheets(data)

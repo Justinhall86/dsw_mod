@@ -1,6 +1,6 @@
 import sys, os, bpy
 from mathutils import Vector
-sys.path.insert(0,r"C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/kitbash_explore/08_scripts")
+sys.path.insert(0,r"C:/Users/justi/Python/dsw_mod/model_projects/kitbash_explore/08_scripts")
 import blender_scene as bs
 out=os.path.abspath(sys.argv[sys.argv.index("--")+1])
 for m in bpy.data.materials: m.use_backface_culling=True
