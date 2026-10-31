@@ -12,15 +12,15 @@ DEFAULTS = {
     # stale/vanilla data. Keep only res.compressed.pak (vanilla) + res.compressed1.pak (ours) here.
     "game_dir": r"C:\Program Files (x86)\Steam\steamapps\common\D4X",
     # Replaced / old paks go here, never into the game folder.
-    "archive_dir": r"C:\Users\justi\OneDrive\Python\dsw_mod\pak_archive",
+    "archive_dir": r"C:\Users\justi\Python\dsw_mod\pak_archive",
     # CastleDB/HIDE editor: data.cdb, res/res (files that go into the pak), backups/
     "editor_dir": r"C:\dsw_mod\D4XEditor",
     # Vanilla assets extracted from the game (read-only reference)
     "extr_dir": r"C:\dsw_mod\extr",
     # Peter Quin's HMD Toolkit (pure Python)
-    "toolkit_dir": r"C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit",
+    "toolkit_dir": r"C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit",
     # The project repo (modeling.md, model_outputs/, model_work/)
-    "project_dir": r"C:\Users\justi\OneDrive\Python\dsw_mod",
+    "project_dir": r"C:\Users\justi\Python\dsw_mod",
     "blender": r"C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
     "haxe": r"C:\HaxeToolkit\haxe\haxe.exe",
     "hl": r"C:\HaxeToolkit\hashlink-1.15.0-win\hl.exe",
