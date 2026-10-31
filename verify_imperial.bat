@@ -1,6 +1,6 @@
 @echo off
 setlocal
-set REPO=C:\Users\justi\OneDrive\Python\dsw_mod
+set REPO=C:\Users\justi\Python\dsw_mod
 set BLENDER="C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
 set UNITS=imperial_aramsham,Imperial_Aramsham.blend;imperial_flamethrower,Imperial_FlameThrower.blend;imperial_houseguard,Imperial_HouseGuard.blend;imperial_lazatiger,Imperial_LazaTiger.blend;imperial_shaddam,Emperor_Shaddam.blend;imperial_sardaukar,Imperial_Sardaukar.blend;imperial_trooper,Imperial_Trooper.blend;imperial_wensicia,Imperial_Wensicia.blend
 
