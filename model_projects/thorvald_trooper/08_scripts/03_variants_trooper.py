@@ -157,7 +157,78 @@ VARIANTS = {
                        emblem=dict(gear_uv=(0.1592, 0.5049), star_uv=(0.711, 0.961),
                                    spots=[dict(o=(0.085, -1.0, 1.44), d=(0, 1, 0), r=0.041)]),
                        title="Thorvald Trooper T6: Gurney upper body + arms, Duncan legs + sash/tabard, Commando head + face wrap"),
+    # T7 = T6, standing tall like the Atreides Trooper and form-fitting: the head raised 3 cm (it sat low between the plates), the cuirass
+    # slimmed (the upper chest / collar front pushed 8-10 cm further forward than the Atreides Trooper's - the hunched look), and the hat
+    # centred on the skull with no forward tilt
+    "T7_Trooper": dict(base="Gurney", donor="Commando", remove=[],
+                       cut_below_z=1.26, cut_below_r=0.30, min_island=16,
+                       strip_bones=("Hip", "Knee", "Ankle", "Ball", "ROOT"),
+                       fill=[dict(donor="Duncan", tag="legs", match=("Hip", "Knee", "Ankle", "Ball")),
+                             dict(donor="Duncan", tag="sash", keep_comps=[1, 10, 27], zmax=1.34, own_albedo=True)],
+                       trim=True,
+                       head_shift_z=0.03,
+                       hat=dict(profile=True, R=0.260, drop=0.092, tilt=0.0, center="skull", black_uv=(0.711, 0.961), ember_uv=(0.1592, 0.5049), stripe=(0.92, 0.975)),
+                       smooth_parts=35.0,
+                       slim_upper=dict(arm=0.80, hand=0.90, pauldron=0.86, pauldron_ramp=(0.15, 0.26), pauldron_up=0.05,
+                                       torso=dict(z=(1.30, 1.40), kx=0.93, ky_front=0.88, ky_back=0.90, upper_front=0.64, upper_z=(1.48, 1.62),
+                                                  yc=0.02, x_max=0.34)),
+                       neck_sleeve=dict(rings=(1.58, 1.62, 1.66, 1.70, 1.74, 1.78, 1.81, 1.84), cols=20, a0=88, a1=272, offset=0.003, top_tuck=-0.018, side_tuck=-0.014,
+                                        neck_r=0.10, neck_r_low=0.15, low_below=1.67),
+                       emblem=dict(gear_uv=(0.1592, 0.5049), star_uv=(0.711, 0.961),
+                                   spots=[dict(o=(0.085, -1.0, 1.44), d=(0, 1, 0), r=0.041)]),
+                       title="Thorvald Trooper T7: upright, form-fitting cuirass, centred hat"),
 }
+# T8: T7 with the cuirass taken in further (narrower, shallower front and back, waist tapered), pauldrons a touch smaller: skin-tight armour.
+VARIANTS["T8_Trooper"] = dict(VARIANTS["T7_Trooper"],
+                              slim_upper=dict(arm=0.80, hand=0.90, pauldron=0.82, pauldron_ramp=(0.15, 0.26), pauldron_up=0.05,
+                                              torso=dict(z=(1.27, 1.37), kx=0.86, ky_front=0.80, ky_back=0.80, upper_front=0.58,
+                                                         upper_z=(1.46, 1.60), yc=0.02, x_fade=0.24, x_max=0.38)),
+                              title="Thorvald Trooper T8: skin-tight cuirass")
+# T9: T8 pushed much harder (T8 read only slightly slimmer): torso -20 % wide, -28..-30 % deep, upper chest -48 %, shoulder shells x0.74 pulled down
+# onto the shoulder joint.
+VARIANTS["T9_Trooper"] = dict(VARIANTS["T7_Trooper"],
+                              slim_upper=dict(arm=0.80, hand=0.90, pauldron=0.74, pauldron_ramp=(0.12, 0.24), pauldron_up=0.0,
+                                              torso=dict(z=(1.26, 1.34), kx=0.80, ky_front=0.72, ky_back=0.70, upper_front=0.52,
+                                                         upper_z=(1.44, 1.58), yc=0.02, x_fade=0.24, x_max=0.40)),
+                              title="Thorvald Trooper T9: skin-tight cuirass")
+# T10: T9 + the sash top taken in with the torso (T9 exposed its ragged edge) + the arm-weighted shoulder shells shrunk too (faded out down the arm).
+VARIANTS["T10_Trooper"] = dict(VARIANTS["T9_Trooper"],
+                               fill=[dict(donor="Duncan", tag="legs", match=("Hip", "Knee", "Ankle", "Ball")),
+                                     dict(donor="Duncan", tag="sash", keep_comps=[1, 10, 27], zmax=1.34, own_albedo=True, slim=True)],
+                               slim_upper=dict(VARIANTS["T9_Trooper"]["slim_upper"], pauldron_arm=(0.12, 0.24)),
+                               title="Thorvald Trooper T10: skin-tight cuirass, smaller shoulder shells")
+# T11: T10 one step stronger (T10 still read only moderately slimmer): torso -26 % wide, -34..-36 % deep, shells x0.66.
+VARIANTS["T11_Trooper"] = dict(VARIANTS["T10_Trooper"],
+                               slim_upper=dict(arm=0.80, hand=0.90, pauldron=0.66, pauldron_ramp=(0.12, 0.24), pauldron_up=0.0, pauldron_arm=(0.14, 0.28),
+                                               torso=dict(z=(1.26, 1.34), kx=0.74, ky_front=0.66, ky_back=0.64, upper_front=0.48,
+                                                          upper_z=(1.44, 1.58), yc=0.02, x_fade=0.24, x_max=0.40)),
+                               title="Thorvald Trooper T11: skin-tight cuirass")
+# T12: T11 + emblem conformed to the (now tighter) chest curve and moved in with the narrower plate; sash cut 3 cm lower (its ragged top
+# edge showed at the waist sides).
+VARIANTS["T12_Trooper"] = dict(VARIANTS["T11_Trooper"],
+                               fill=[dict(donor="Duncan", tag="legs", match=("Hip", "Knee", "Ankle", "Ball")),
+                                     dict(donor="Duncan", tag="sash", keep_comps=[1, 10, 27], zmax=1.31, own_albedo=True, slim=True)],
+                               emblem=dict(gear_uv=(0.1592, 0.5049), star_uv=(0.711, 0.961),
+                                           spots=[dict(o=(0.068, -1.0, 1.44), d=(0, 1, 0), r=0.036, conform=True)]),
+                               title="Thorvald Trooper T12: skin-tight cuirass")
+# T13: T12 with the emblem on the flat part of the left chest panel (x 0.04..0.08: T12's spot crossed the panel seam at x 0.09) and the torso
+# taper starting lower (z 1.18..1.30) so Gurney's tunic hem (z 1.30..1.37) goes in with the plate instead of flaring out under it.
+VARIANTS["T13_Trooper"] = dict(VARIANTS["T12_Trooper"],
+                               slim_upper=dict(VARIANTS["T11_Trooper"]["slim_upper"],
+                                               torso=dict(VARIANTS["T11_Trooper"]["slim_upper"]["torso"], z=(1.18, 1.30))),
+                               emblem=dict(gear_uv=(0.1592, 0.5049), star_uv=(0.711, 0.961),
+                                           spots=[dict(o=(0.058, -1.0, 1.46), d=(0, 1, 0), r=0.034, lift=0.009)]),
+                               title="Thorvald Trooper T13: skin-tight cuirass")
+# T14: back to T7 (the user preferred v11's bulk) with only the chest front flattened: the pec bulge (front at -0.23 m) and the lower plate's tip
+# that jutted 10 cm ahead of the belt (-0.247 m at z 1.28) are pulled back toward a plane at -0.17 / -0.16 m.  Sash slimmed with it (stays tucked).
+VARIANTS["T14_Trooper"] = dict(VARIANTS["T7_Trooper"],
+                               fill=[dict(donor="Duncan", tag="legs", match=("Hip", "Knee", "Ankle", "Ball")),
+                                     dict(donor="Duncan", tag="sash", keep_comps=[1, 10, 27], zmax=1.34, own_albedo=True, slim=True)],
+                               slim_upper=dict(VARIANTS["T7_Trooper"]["slim_upper"],
+                                               chest_flat=dict(knots=[(1.20, -0.16, 0.15), (1.34, -0.16, 0.15), (1.40, -0.17, 0.30),
+                                                                      (1.56, -0.17, 0.30), (1.64, -0.15, 1.0)],
+                                                               x_fade=0.14, x_max=0.24)),
+                               title="Thorvald Trooper T14: v11 with a flat chest plate, no lip")
 
 
 def dominant(obj):
@@ -1229,9 +1300,15 @@ def build_emblems(rig, base, skirt, p):
     groups = []  # vertex group names, in the order the weights below index them
     made = []  # (vertex list, bone, normal)
 
+    def on_surface(q, n, lift):  # conform: drop a flat-disc point back onto the curved plate (a flat disc sinks into a tight curve)
+        if not conform:
+            return q
+        hit = bvh.ray_cast(q + n * 0.05, -n, 0.12)[0]
+        return hit + n * (0.002 + lift) if hit is not None else q
+
     def layer(c, t, b, pts, lift, n, uv, mat):
-        centre = bm.verts.new(c + n * lift)
-        ring = [bm.verts.new(c + n * lift + t * x + b * y) for x, y in pts]
+        centre = bm.verts.new(on_surface(c + n * lift, n, lift))
+        ring = [bm.verts.new(on_surface(c + n * lift + t * x + b * y, n, lift)) for x, y in pts]
         vs = [centre] + ring
         for i in range(len(ring)):
             f = bm.faces.new((centre, ring[i], ring[(i + 1) % len(ring)]))
@@ -1241,6 +1318,7 @@ def build_emblems(rig, base, skirt, p):
         return vs
 
     for sp in p["spots"]:
+        conform = sp.get("conform", False)
         o, d = Vector(sp["o"]), Vector(sp["d"]).normalized()
         loc, n, _i, _dist = bvh.ray_cast(o, d)
         if loc is None:
@@ -1265,7 +1343,7 @@ def build_emblems(rig, base, skirt, p):
             rad = 0.40 * R if k % 2 == 0 else 0.17 * R
             a = math.pi / 2 + k * math.pi / 5
             star.append((rad * math.cos(a), rad * math.sin(a)))
-        c = loc + n * 0.002
+        c = loc + n * sp.get("lift", 0.002)
         vs = (layer(c, t, b, gear, 0.0, n, p["gear_uv"], 0) + layer(c, t, b, hole, 0.0015, n, p["star_uv"], 1)
               + layer(c, t, b, star, 0.0030, n, p["gear_uv"], 0))
         bone = dom.get(kd.find(loc)[1]) or "B_SpineTopJ"
@@ -1319,6 +1397,14 @@ def build_hat_profile(rig, base, skirt, donor, p):
     top = max(c.z for c in wv)
     cx = sum(c.x for c in wv) / len(wv)
     cy = sum(c.y for c in wv) / len(wv)
+    if p.get("center") == "skull":
+        # centre on the CRANIUM (bounding-box centre of the head above the brow), not on the vertex average: the face is modelled far more
+        # densely than the back of the head, which pulls the average ~3 cm forward and the hat with it
+        sk = [c for c in wv if c.z > top - p.get("skull_depth", 0.10)]
+        cx = (min(c.x for c in sk) + max(c.x for c in sk)) / 2
+        cy = (min(c.y for c in sk) + max(c.y for c in sk)) / 2
+        print("   hat centred on the skull at (%.3f %.3f) (vertex average was %.3f %.3f)" % (
+            cx, cy, sum(c.x for c in wv) / len(wv), sum(c.y for c in wv) / len(wv)))
     S = p["R"] / HAT_RIM_R
     segs = p.get("segs", 32)
     apex_z = (top - p["drop"]) + 0.1708 * S
@@ -1640,6 +1726,8 @@ def build(name, v):
             for vt in part.data.vertices:
                 vt.co.z += f["shift_z"]
             part.data.update()
+        if f.get("slim") and v.get("slim_upper"):  # the part's top tucks under the torso: take it in with the torso so its edge stays hidden
+            print("   %s slimmed with the torso: %d verts moved" % (part.name, T5S.slim_upper(part, rig, v["slim_upper"])))
         sxy = f.get("scale_xy", 1.0)
         if sxy != 1.0:
             for vt in part.data.vertices:
