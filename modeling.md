@@ -472,3 +472,141 @@ in `model_work/` (`ginaz_stage1/2/3.py`), progress images in `model_work/progres
   `model_projects/gabarit_test03/`.
 - These are unrigged static test meshes, not playable unit models; no game-facing CDB,
   prefab, pak, or installation changes were made.
+
+## 15. Vehicle kitbashing: traps found building the Thorvald Interceptor (2026-10-28)
+
+Full write-up with numbers, donor tables and next steps:
+`model_projects/thorvald_interceptor/HANDOFF.md`. These are the reusable lessons.
+
+### 15.1 HMD FBXs store BIND pose, and Y/Z are TRANSPOSED
+
+`mesh.data.vertices` holds the bind pose, not the shape you see rendered, and in bind
+pose **Y and Z are swapped** relative to the rendered pose. Verified on CarryAll:
+raw `y -0.157..1.121, z -1.275..1.275` vs evaluated `y -1.275..1.275, z -0.157..1.121`.
+Any coordinate read from raw vertex data is wrong on two axes.
+
+Always bake first, then measure:
+
+```python
+dg = bpy.context.evaluated_depsgraph_get()
+ev = o.evaluated_get(dg)
+me = ev.to_mesh()
+coords = [(o.matrix_world @ me.vertices[i].co).copy() for i in range(len(me.vertices))]
+ev.to_mesh_clear()
+for i, v in enumerate(o.data.vertices):
+    v.co = coords[i]
+# remove the ARMATURE modifier, unparent, set matrix_world = Identity
+```
+
+After that local == world. Reference: `bake_pose_and_clear_armature()` in
+`model_projects/sentinal/08_scripts/15_extract_and_graft.py`.
+
+### 15.2 `ShaderNodeHueSaturation` `Hue` is an OFFSET (0.5 = unchanged)
+
+Feeding it an absolute hue rotates every colour to a seemingly random result - a
+neutral grey hull rendered vivid yellow. For a palette retint, do NOT use it. Use:
+albedo -> `RGBToBW` (luminance, keeps painted seams) -> `MULTIPLY_ADD` gain/lift ->
+`Mix(MULTIPLY)` against the target palette RGB -> Base Color.
+Note the earlier "hue replacement" note in section 3.5 only holds if the value you
+pass is a delta, not an absolute hue.
+
+### 15.3 Connected-component ("island") selection cannot cut a vehicle
+
+These hulls are hundreds of unwelded islands (Wraith = 196, CarryAll = 152), so
+island-id selection yields a rivet, not a nacelle. Cut by **world-space primitive on
+face centroids**: `cut_box()` for boxes, `cut_disc()` (cylinder) for anything round.
+A box is wrong for a cylinder - tight enough to exclude struts shaves the drum, loose
+enough to keep the drum drags in torn strut stubs.
+
+### 15.4 Cuts leave fragments that read as torn black metal
+
+A cut severing welded detail leaves thin triangles hanging in mid-air; through them
+you see the inside of the shell. Delete islands below a face threshold
+(`drop_fragments`, `min_island_faces` per piece; 12 works for the Wraith drum and
+removes 15 islands / 93 faces). A disc radius of 1.35 also sliced the gas-tube
+collars at radius ~1.13 into floating "C" crescents; 0.95 excludes them.
+
+### 15.5 Several vanilla vehicles are one-sided PROPS, not symmetric models
+
+Measured with `model_projects/thorvald_interceptor/08_scripts/14_symmetry.py`
+(fraction of grid cells with no mirror partner). **That script only mirrors X**, so a
+ship that is long on X is measured nose-against-tail. Re-checked 2026-10-29 on both axes:
+
+| Donor | Mirror X | Mirror Y | Verdict |
+|---|---|---|---|
+| Kraken, Overlord, Hammer | 0.0 % | 87-99 % | symmetric (lateral axis X) |
+| Banshee, Hawk | ~0-1 % | - | symmetric (lateral axis X) |
+| **Renegade Frigate** | 96.2 % | **0.0 %** | **symmetric (lateral axis Y, long on X)** |
+| Ravager | 88.8 % | **0.0 %** | symmetric (lateral axis Y) |
+| Wraith | 0.0 % | 2.1 % | symmetric on both |
+| Chronos | 89.5 % | 69.7 % | **genuine asymmetric prop** |
+| CarryAll | 94.8 % | not re-checked | probably symmetric on Y, check |
+
+Mounting a mirrored pair of parts on an asymmetric host produces a visibly lopsided
+ship. **Run the symmetry test on both axes before choosing a kitbash host**, and mirror
+the kitbash parts across the axis that tested symmetric. Only Chronos is a real prop.
+
+### 15.6 Fraction-of-half-extent mounting cannot seat a part
+
+`mount = [fx,fy,fz]` of the host half-extent plus an `embed` offset is unstable: the
+result depends on the *piece's* size too, so one mount value buried a long piece and
+left a short one floating. Seat exactly instead - put the chunk's inner face
+`overlap` units inside the host half-extent on a chosen axis (`seat` key in
+`10_build_variant.py`). Watch for a **double-applied sign**: the symptom was both
+drums landing on the +x side so only one drum rendered.
+
+### 15.7 Vehicle preview textures: two naming conventions, and dead paths
+
+- `preview_textures/albedo.png`, `mgao.png`, `normal.png` (lowercase).
+- `<Name>_Albedo.png`, `<Name>_MetallicGlossAOEmiss.png`, `<Name>_Normal.png` in the
+  **parent** folder. Note `Emiss` is part of the name.
+- The FBX material nodes point at dead paths, so an unwired render is flat magenta.
+  Wire by **socket**, and **replace the image datablock** rather than re-pointing
+  `node.image.filepath` (re-pointing keeps the old packed pixels).
+- Only `preview_textures/*_real.fbx` import at all; plain `.fbx` start with `HMD`
+  bytes. Every game FBX also carries a 2 m `Cube` helper that must be deleted first.
+
+### 15.8 `MetallicGlossAO` is R = metallic, G = gloss, B = AO
+
+Answered the open question in section 12. Dumping the packed map into
+`Specular IOR Level` is what makes previews look washed out. Correct wiring:
+`SeparateColor` -> Red=Metallic, Green -> 1-x -> Roughness (0.62 floor),
+Blue -> multiply into Base Color. This is preview-only; do not bake it into an
+exported blend.
+
+
+## 16. Kitbashed vehicle -> game (Thorvald Frigate, 2026-10-29)
+
+Full write-up: `model_projects/thorvald_frigate/HANDOFF.md`. Reusable lessons:
+
+- **Vehicle skeletons are almost all a bare root + `B_Body`.** The HMD toolkit's `fbxfix.restore_skeleton` assumed the root
+  joint has a bind matrix (`transpos`), which only characters and a few vehicles do (Monument, Siren, Spirit, `JNT_*`). Every
+  Kraken/Renegade/Wraith/Ravager/Chronos-style rig failed with "root joint has no bind matrix". Fixed by patching
+  `HMD_toolkit/Models/fbxfix.py` (backup `fbxfix.py.bak_pre_vehicle`): `R_conv = transpos @ global_rest` is valid for ANY joint
+  with a bind matrix, so fall back to the first one. Character behaviour is unchanged.
+- **Reference rig for a vehicle = that vehicle's own vanilla HMD** (`--ref C:\dsw_mod\extr\Vehicle\...\Name.fbx`), not Male01.
+  `check_hmd.py` then prints a harmless FAIL (it compares to the Male01 joint list); judge by the geometry/material lines.
+- **Skin matrix:** the real FBX stores the bind pose in mesh.data and a per-model data->world matrix. Fit it by least squares
+  (import the vanilla `*_real.fbx`, compare raw vs evaluated coords). Renegade: world x = -data z, y = -data x, z = data y.
+  Convert a world-space kitbash back with `data = M^-1 (world + offset)`; keep the offset the builder applied when centring
+  (`scene["frigate_offset"]`) so the model lands in the vanilla frame (pivot/height preserved). Reuse the vanilla armature object
+  and parent matrix; weight everything 1.0 to `B_Body`.
+- **Animations and rig:** `model.rigName` is an enum index (Male01 0 ... Kraken 15 ... RenegadeFrigate 29); `model.inherit` names
+  another model row carrying the `anim` list (`RenegadeFrigate_Run/Idle/FightIdle/Death`, files in `Anim/RenegateFregate/`, sic).
+  A kitbash on a vanilla skeleton must use that skeleton's rig + animation set. Folder `props.json`
+  `{"hmd.animPaths": ["/Anim/<dir>/"]}` points the model at its animations; `materials.props` is keyed by the HMD material name.
+- **Weapon muzzles live in the prefab** as named `object`s (`A_Frigate_Attack` fires 8 missiles from `MuzzleA..B_4`). Keep the
+  names. Prefab Euler angles use Heaps `initRotation` (row-vector, Rx then Ry then Rz); Kraken nose is raw +Z, Renegade's is -Z.
+- When only the look changes, leave the unit row alone and swap the **model** row's mesh/rig/inherit/scale (`52_cdb_edit.py`, reversible).
+
+
+## 17. Cloning a faction from another house (House Thorvald from Corrino, 2026-10-29)
+
+Details: `model_projects/thorvald_faction/SPEC.md`; script `53_add_thorvald_faction.py` (adapted from the Ginaz Atreides clone).
+- Pick a new id prefix by checking the sheets first: `T_` is taken (`T_Drone_Attack`, Tleilaxu traits), `Th_` is free.
+- A unit's replacement model only works if the unit's attack logic fits the model's anim set: compare `model.inherit` anim ids with the unit's combos
+  (Trooper MilitaryCommon == MilitaryCommon is clean; flamer vs bazooka is not). A unit with `effects.models: []` takes its models from its parent unit
+  (Elite -> Sardaukar variants), so set the list explicitly.
+- Clone-set gotchas found by `cdb_validate.py`: a cloned unit can reference a trait with the same id (`Nuke_Area`) - clone it too; characters link to hero units
+  via `props.heroUnit`; faction landmarks (`city`, `region`, `territory`, `conquestCity`) are rewritten by the id map.
+- Always baseline `cdb_validate.py --vanilla <current vanilla>` before and after; the target is "NEW in modded: 0".
