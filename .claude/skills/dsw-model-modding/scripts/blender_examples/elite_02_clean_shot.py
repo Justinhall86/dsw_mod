@@ -1,6 +1,6 @@
 import os, math, numpy as np, bmesh
 from mathutils import Vector, Euler
-PROG = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\progress"
+PROG = r"C:\Users\justi\Python\dsw_mod\model_work\progress"
 def shot2(name, w=1000, h=900):
     sc = bpy.context.scene; sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = w, h, 100
     c = view3d_ctx()
