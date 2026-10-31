@@ -11,11 +11,11 @@ import sys
 
 from PIL import Image
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_guard"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_guard"
 IN = os.path.join(PROJ, "01_input")
 TEX = os.path.join(PROJ, "04_textures")
 OUT = os.path.join(PROJ, "05_fbx_export", "preview")
-TOOLKIT = r"C:\Users\justi\OneDrive\Python\dsw_mod\HMD_toolkit\HMD_toolkit"
+TOOLKIT = r"C:\Users\justi\Python\dsw_mod\HMD_toolkit\HMD_toolkit"
 ANIM = r"C:\dsw_mod\extr\Anim\Male01"
 os.makedirs(TEX, exist_ok=True)
 os.makedirs(OUT, exist_ok=True)

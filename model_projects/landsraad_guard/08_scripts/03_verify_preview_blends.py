@@ -6,7 +6,7 @@ import os
 
 import bpy
 
-BLEND_DIR = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_guard\03_blender"
+BLEND_DIR = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_guard\03_blender"
 BONE = {"halberd": "B_Weapon", "gun": "B_Gun", "bazooka": "B_Gun"}
 ok = True
 for tag, bone in BONE.items():

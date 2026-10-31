@@ -21,7 +21,7 @@ import sys
 import bpy
 from mathutils import Matrix, Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\landsraad_guard"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\landsraad_guard"
 BLEND_DIR = os.path.join(PROJ, "03_blender")
 TEX_DIR = os.path.join(PROJ, "04_textures")
 PHOTOS = os.path.join(PROJ, "02_progress_photos", "03_final")
