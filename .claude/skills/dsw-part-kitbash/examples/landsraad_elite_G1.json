@@ -1,10 +1,10 @@
 {
   "name": "G1",
   "_comment": "Landsraad Elite G1: vanilla Landsraad Guard + recoloured Sardaukar collar + recoloured Gurney pauldrons. Guard's own shoulder pads (21/22) removed, the hood flare (17/18, the helmet's lower shell) clipped below z 1.70 so the collar replaces it. Pads use the badge-free textures from model_projects/landsraad_elite/08_scripts/v6_07_remove_badge.py.",
-  "base_blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_guard/03_blender/landsraad_guard_halberd_preview.blend",
+  "base_blend": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_guard/03_blender/landsraad_guard_halberd_preview.blend",
   "body": "LandsraadGuard",
   "rig": "Male01_LandsraadGuard",
-  "out_dir": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/02_progress_photos/22_badge",
+  "out_dir": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/02_progress_photos/22_badge",
   "drop": [
     21,
     22
@@ -18,7 +18,7 @@
   },
   "parts": [
     {
-      "blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
+      "blend": "C:/Users/justi/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
       "object": "Imperial",
       "components": [
         18
@@ -29,10 +29,10 @@
         0,
         1.55
       ],
-      "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"
+      "albedo": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"
     },
     {
-      "blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
+      "blend": "C:/Users/justi/Python/dsw_mod/model_projects/imperial_sardaukar/03_blender/Imperial_Sardaukar.blend",
       "object": "Imperial",
       "components": [
         19
@@ -43,18 +43,18 @@
         0,
         1.55
       ],
-      "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"
+      "albedo": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v5_kitbash/Sardaukar_pauldron_landsraad_Albedo.png"
     },
     {
-      "blend": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/gurney/03_blender/Male01_AtreidesGurney.blend",
+      "blend": "C:/Users/justi/Python/dsw_mod/model_projects/gurney/03_blender/Male01_AtreidesGurney.blend",
       "object": "Atreides_Gurney",
       "components": [
         17,
         18
       ],
-      "albedo": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v6_pads_nobadge/ElitePads_Albedo.png",
-      "normal": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v6_pads_nobadge/ElitePads_Normal.png",
-      "mgao": "C:/Users/justi/OneDrive/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v6_pads_nobadge/ElitePads_MetallicGlossAO.png"
+      "albedo": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v6_pads_nobadge/ElitePads_Albedo.png",
+      "normal": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v6_pads_nobadge/ElitePads_Normal.png",
+      "mgao": "C:/Users/justi/Python/dsw_mod/model_projects/landsraad_elite/04_textures/v6_pads_nobadge/ElitePads_MetallicGlossAO.png"
     }
   ]
 }
