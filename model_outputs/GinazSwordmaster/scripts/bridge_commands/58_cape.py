@@ -1,5 +1,5 @@
 import re
-SC3 = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\ginaz_stage3.py"
+SC3 = r"C:\Users\justi\Python\dsw_mod\model_work\ginaz_stage3.py"
 G = globals()
 G["__file__"] = SC3
 parts = re.split(r"\n# -{20,} ", open(SC3, encoding="utf-8").read())
