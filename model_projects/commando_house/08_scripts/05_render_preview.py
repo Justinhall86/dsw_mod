@@ -10,8 +10,8 @@ import sys
 import bpy
 from mathutils import Vector
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_house"
-FBX = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_house"
+FBX = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
 
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 albedo_path = argv[0] if argv else os.path.join(PROJ, "04_textures", "Commando_House_Albedo.png")
