@@ -21,8 +21,8 @@ import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-PROJ = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_projects\commando_no_backpack"
-SRC = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
+PROJ = r"C:\Users\justi\Python\dsw_mod\model_projects\commando_no_backpack"
+SRC = r"C:\Users\justi\Python\dsw_mod\model_inputs\Commando\Male01_Commando_TRUE_FBX.fbx"
 OUT = os.path.join(PROJ, "02_progress_photos", "04_no_backpack")
 BACKPACK = [4, 5, 6, 7, 41, 42, 43, 44]
 
