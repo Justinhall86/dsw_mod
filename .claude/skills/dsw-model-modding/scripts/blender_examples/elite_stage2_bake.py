@@ -9,7 +9,7 @@ import math, os
 import bpy
 import numpy as np
 
-HERE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work"
+HERE = r"C:\Users\justi\Python\dsw_mod\model_work"
 TEX = os.path.join(HERE, "tex")
 os.makedirs(TEX, exist_ok=True)
 SIZE = 1024
