@@ -78,9 +78,21 @@ def restore_skeleton(nodes: list, ref_hmd: str, log: dict) -> None:
         raise ValueError(f"{ref_hmd} has no skin")
     model_mat = pos_to_mat4(model.position)
     root = next(j for j in skin.joints if j.parent < 0)
-    if root.transpos is None:
-        raise ValueError("root joint has no bind matrix; cannot derive Z-up bake")
-    R_conv = pos_to_mat4(root.transpos) @ pos_to_mat4(root.position)
+    if root.transpos is not None:
+        R_conv = pos_to_mat4(root.transpos) @ pos_to_mat4(root.position)
+    else:
+        # Most vehicle rigs (Kraken, Renegade, Wraith, ...) have a bare B_ROOT with no bind matrix.
+        # R_conv = transpos @ global-rest holds for ANY joint that has a bind matrix (for the root the
+        # global rest is just its local), so derive it from the first such joint (patched 2026-10-29).
+        joints = skin.joints
+        gl = []
+        for j in joints:
+            loc = pos_to_mat4(j.position)
+            gl.append(loc @ gl[j.parent] if j.parent >= 0 else loc)
+        ji = next((i for i, j in enumerate(joints) if j.transpos is not None), None)
+        if ji is None:
+            raise ValueError("no joint has a bind matrix; cannot derive Z-up bake")
+        R_conv = pos_to_mat4(joints[ji].transpos) @ gl[ji]
     R_conv[3, :3] = 0
 
     # reference values per joint name
