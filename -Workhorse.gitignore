@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Editor files
+.vscode/
+*.swp
+
+!.vscode/
+.vscode/*
+!.vscode/mcp.json
+pak_archive/
+model_work/progress/
+mod_files/backups/data_a_landsraadguard_sword_model_20261019_080154.cdb
+mod_files/backups
+model_projects/landsraad_elite/02_progress_8photos/
+*test*.*
+model_projects/landsraad_elite/02_progress_photos/06_animation_tests/
+model_projects/landsraad_elite/02_progress_photos/
