@@ -24,4 +24,4 @@ f0, f1 = map(int, act.frame_range)
 for k, t in enumerate((0.2, 0.4)):
     f = f0 + int((f1 - f0) * t); bpy.context.scene.frame_set(f)
     print(cshot(f"14_attack_{k}", rz=35, scale=2.6, loc=(0,0,1.0), w=700, h=800, engine='BLENDER_EEVEE'))
-bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work\elite_stage3.blend")
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\justi\Python\dsw_mod\model_work\elite_stage3.blend")
