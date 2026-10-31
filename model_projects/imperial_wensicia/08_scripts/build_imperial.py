@@ -4,7 +4,7 @@ import sys
 import bpy
 from mathutils import Vector
 
-repo = r"C:\Users\justi\OneDrive\Python\dsw_mod"
+repo = r"C:\Users\justi\Python\dsw_mod"
 scripts = os.path.join(repo, ".claude", "skills", "dsw-model-workshop", "scripts")
 sys.path.insert(0, scripts)
 
