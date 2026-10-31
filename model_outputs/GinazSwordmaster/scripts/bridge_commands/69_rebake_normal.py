@@ -1,5 +1,5 @@
 import os, numpy as np
-HERE = r"C:\Users\justi\OneDrive\Python\dsw_mod\model_work"
+HERE = r"C:\Users\justi\Python\dsw_mod\model_work"
 SIZE = 1024
 lo = bpy.data.objects["GinazSwordmaster"]; me = lo.data; rig = bpy.data.objects["Armature"]; sc = bpy.context.scene
 # 1. bring the high-poly back from stage 1
