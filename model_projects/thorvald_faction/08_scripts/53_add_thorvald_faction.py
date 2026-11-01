@@ -44,7 +44,7 @@ def ids(sheet):
 
 # ---------------------------------------------------------------------------------------------- what gets cloned
 CHARS = {"Shaddam": "Memnon", "Wensicia": "Karlin", "Aramsham": "Vane",
-         "Zum": "ThJool", "Mohiam": "Silva", "Fenring": "Haruka", "Irulan": "Nobru"}
+         "Zum": "ThEin", "Mohiam": "Silva", "Fenring": "Haruka", "Irulan": "Nobru"}
 SKIP_TRAIT = re.compile(r"^(Conquest_|CB_|Q_)")
 EXTRA_ID = {"Nuke_Area": "Th_Nuke_Area", "CDroneInstall": "TDroneInstall", "CDroneLeave": "TDroneLeave",
             "CFrigateDeploy": "TFrigateDeploy", "CFrigateLeave": "TFrigateLeave"}
@@ -244,8 +244,8 @@ NAMES = {
                    desc="Karlin Mallenor, a buff-and-support commander whose presence hardens the ranks around him. (working name)"),
     "Vane": dict(firstname="Vane", lastname="Torrver", title="Captain", gender=0,
                  desc="Vane Torrver, a rocket specialist who opens fights from camouflage. (working name)"),
-    "ThJool": dict(firstname="Jool", lastname="", title="Overseer", gender=0,
-                   desc="Overseer Jool, the syndicate's military overseer: forces fighting near Thorvald territory gain Power and Armor."),
+    "ThEin": dict(firstname="Theodoric", lastname="Ein", title="Envoy", gender=0,
+                   desc="Envoy Theodoric Ein, the War Academy-trained field envoy who speaks for the house on the ground."),
     "Silva": dict(firstname="Silva", lastname="", title="Master", desc="Master Silva, infrastructure and logistics: cheaper, faster village buildings and lighter upkeep on infrastructure."),
     "Haruka": dict(firstname="Haruka", lastname="", title="Lady", gender=1,
                    desc="Lady Haruka, spymaster: agents working Arrakis or CHOAM bring in Intel and Influence."),
