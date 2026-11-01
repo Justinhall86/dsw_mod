@@ -1,108 +1,125 @@
-# D4XEditor — Dune: Spice Wars Mod Workspace
+# Dune: Spice Wars (D4X) Mod Workspace
 
-## Project Purpose
-This workspace is a mod development environment for **Dune: Spice Wars**.  
-The goal is to add a custom playable faction — **the Landsraad** — to the game.
+This repo makes custom units and whole factions for **Dune: Spice Wars**. Two playable factions are
+cloned into the game: **House Ginaz** (from Atreides) and **House Thorvald** (from Corrino). Units are
+kitbashed from vanilla game models in Blender, converted with the HMD toolkit, wired into `data.cdb`,
+packed into a pak, and installed into the Steam game.
 
-## Primary Data File
-- **`res/data.cdb`** — the main game database (CastleDB / JSON format). **This is the file we edit.**
-- **`res/res/data.cdb`** — a nested copy inside packed resources. **Do NOT confuse or edit this file.**
+## How to work with this user
 
-## CastleDB (.cdb) Format
-CastleDB files are plain **JSON** with a specific top-level structure:
-```json
-{
-  "sheets": [
-    {
-      "name": "sheetName",
-      "columns": [ { "typeStr": "0", "name": "id" }, ... ],
-      "lines": [ { "id": "rowId", ... } ]
-    }
-  ],
-  "customTypes": [...],
-  "compress": false
-}
-```
-- Each "sheet" is a table. Sub-sheets use `@` notation (e.g. `faction@characters`).
-- Column `typeStr` codes: `0`=Unique ID, `1`=Text, `2`=Boolean, `3`=Integer, `4`=Float, `5`=Color, `6:`=Reference, `7`=Enum, `8`=List, `9`=Image, `10`=Tile, `17`=Dynamic JSON.
-- The editor is a custom NW.js app launched from this workspace.
+- **Do the work; don't hand over instructions.** Run the Blender, toolkit, cdb and pak steps yourself.
+  Give manual steps only as a fallback.
+- **Show progress as you go.** Save progress PNGs and GIFs under
+  `model_projects/<unit>/02_progress_photos/<stage>/` and open them with `Start-Process` (or send them
+  with SendUserFile) as each one is made, not only at the end.
+- **Use existing game parts.** Kitbash from vanilla meshes so texel density and style match.
+  Hand-modelled primitives are a last resort — hand-built cloth (hoods, aprons) has been rejected as unlike vanilla.
+- **Never use Sardaukar parts** as a donor or base. Kitbashes should also *remove* parts
+  (backpacks, belts, scarves, capes), not only add them.
+- **Never delete the user's files** unless asked. Archive instead. Some removals outside the repo are
+  blocked by the harness; report them and leave them to the user.
+- Show several variants side by side when a design choice is open, with your favourites and why.
+  Judge looks in a game-like matte preview at RTS distance: fine detail and thin copper lines vanish when zoomed out.
+- **Install only when asked.** Slot and stat choices are the user's. "Put it in the game" means:
+  export, cdb edit, validate, repackage.
 
-## Key Sheets in data.cdb (relevant to faction modding)
-| Sheet | Purpose |
+## Paths
+
+| What | Where |
 |---|---|
-| `faction` | Playable faction definitions (id, texts, colors, starting resources, etc.) |
-| `character` | Leaders, councillors, speakers |
-| `unit` | All military units (stats, attacks, costs, effects) |
-| `ability` | All abilities (council powers, special actions) |
-| `quest` | Quests and operations (espionage missions) |
-| `resource` | Resource types (Solari, Influence, Intel, GuildFavor, etc.) |
-| `condition` / `effect` | Shared logic building blocks |
+| Repo | `C:\Users\justi\Python\dsw_mod` (moved off OneDrive 2026-10-30; if a script misses a path, grep it for `OneDrive`) |
+| Working data.cdb | `mod_files/data.cdb`; vanilla references `mod_files/data_vanilla_<date>.cdb`; backups `mod_files/backups/` |
+| Editor and res tree | `C:\dsw_mod\D4XEditor` (`res\res\CharMOD\...`, `res\res\VehMOD\...`) |
+| Pack and install | `python C:\dsw_mod\D4XEditor\res\repackage.py --quiet --no-launch` |
+| Extracted vanilla assets | `C:\dsw_mod\extr` (the `.fbx` files there are HMDs in disguise) |
+| Game | `C:\Program Files (x86)\Steam\steamapps\common\D4X` — always this path; its `steamapps` is a junction to a different physical copy than `C:\Users\justi\OneDrive\steamapps` |
+| HMD toolkit | `HMD_toolkit/HMD_toolkit` (`Repackager/convert_fbx.py`, `Models/hmd_reader.py`, `Models/fbxfix.py`, patched for bare-root vehicle rigs) |
+| Blender | `C:\Program Files\Blender Foundation\Blender 5.2\blender.exe` |
+| Vanilla vehicle previews and donor FBX | `model_inputs/Vehicle/<Faction>/<Model>/preview_textures/<Model>_real.fbx` |
+| Old paks | `pak_archive/` (never in the game folder) |
+| Knowledge base | `modeling.md` (add findings to it) |
 
-## Existing Factions (for reference)
-`Atreides`, `Harkonnen`, `Smugglers`, `Fremen`, `Corrino`, `Ecaz`, `Vernius`  
-There is already a stub entry `LandsraadFaction` in the sheet — our custom faction extends this.
+## Skills (start here)
 
-## Landsraad Faction — Core Design Context
-**Identity:** Political, punitive, and wealthy. Relies on CHOAM wealth, Spacing Guild transport, and elite punitive military.  
-**Visual theme:** Primary color gold, secondary imperial purple.  
-**Global mechanics:**
-- Ignores Landsraad standing penalties
-- Starts with 10,000 Solari
-- Can trade Spice for Influence
-- Faction leader is completely immune to assassination
+- `dsw-new-unit` — the whole kitbash-to-game recipe for a new character unit. Copy its scripts into the
+  project's `08_scripts/`. Add lessons to `references/lessons.md` and donor ids to `references/catalog.md`.
+- `dsw-part-kitbash` (part-level grafts, elite looks), `dsw-model-workshop` (remove or repaint parts),
+  `dsw-unit-upscale` (polish), `dsw-model-modding` (cdb, HMD, pak mechanics; also `cdb_tools.py`,
+  `cdb_validate.py`, `check_hmd.py`), `dsw-vehicle-preview` (vehicle turntables and HMD round-trip renders).
 
-**Councillors:** Jakob (Guild/transport), Siora (Spy/punitive), Herbert (Military), Nier (Diplomacy)  
-**Key units:** Karlin Mallenor (leader), Vane Torvver (hero), Landsraad Guard, Landsraad Legionnaire, Punisher, Landsraad Enforcer, Auditor drone  
-**Key operation:** Guild Transporters (instant troop deployment, 50 Intel or Influence)
+## Project layout
 
-## Engine Visual Architecture — Critical Constraints
+Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_progress_photos/<stage>`,
+`03_blender`, `04_textures`, `05_fbx_export`, `06_game_ready`, `07_data_cdb`, `08_scripts`, plus
+`SPEC.md` or `HANDOFF.md`. Custom weapons live in `model_projects/weapons/<weapon>/` (`weapon.json`
+records the mount and who uses it) and are mounted with `weapons/scripts/mount_weapon.py`.
+Index: `weapons/README.md`.
 
-The game engine does **NOT** support "Paper Doll" micro-kitbashing. Unit meshes have weapons,
-helmets, and heads **permanently baked in** — they cannot be swapped via JSON paths, equipment
-arrays, or attachment point references. When designing or describing unit visuals, use **only**
-the **Frankenstein Kitbash Strategy**'s 5 viable methods:
+## data.cdb rules
 
-1. **Full Mesh Swapping** — change the `prefab path` to swap in a completely different model
-2. **Animation Swapping** — assign a different `animCombo` (e.g. Sardaukar sword on a spearman mesh)
-3. **VFX and Projectile Swapping** — change attack data so a unit fires a different effect or projectile
-4. **Scale Manipulation** — set `scale` to `1.15`–`1.25` for heroes/elites; `1.0` for standard infantry
-5. **Color Masking** — rely on faction shader masks to apply Landsraad Gold and Purple to vanilla meshes
+- `mod_files/data.cdb` = the current vanilla plus only the requested edits. A cdb built on old vanilla
+  broke game startup after a Steam update (2026-10-22). After a game update, extract the new vanilla
+  (`dsw-model-modding/scripts/pak_extract_one.py`) and rebase.
+- Every edit script backs up first and has a dry run or `--revert`. Keep
+  `07_data_cdb/data_BEFORE_<change>.cdb` in the project.
+- Before every pak build:
+  `python .claude/skills/dsw-model-modding/scripts/cdb_validate.py --vanilla mod_files/data_vanilla_2026-10-28.cdb`.
+  The target is **0 NEW problems**.
+- Prefer changing one model row (mesh path) over touching unit rows: keep the slot's rig, `inherit`
+  animation set, scale and audio when the mesh is skinned to that rig.
+- After a game test, `game.log` must contain `[DataCache] Modified data.cdb`. If it is missing, the game
+  ran vanilla data.
+- The game loads every `res*.pak` in the game folder alphabetically, and later ones override earlier
+  ones. Only `res.compressed.pak` and `res.compressed1.pak` may be there.
+- Never edit the packed `res/res/data.cdb`; it is a build artifact, not the working file.
 
-Full documentation and examples → [docs/howto_visual_kitbashing.md](docs/howto_visual_kitbashing.md)
+## CastleDB format
 
-## Mod Design Documents (YAML master reference — do not generate CDB JSON until these are finalized)
-Located in `mod/`:
-- `mod/landsraad_faction.yml` — core faction identity, mechanics, visuals
-- `mod/landsraad_councillors.yml` — four starting advisors
-- `mod/landsraad_units.yml` — full military roster
-- `mod/landsraad_operations.yml` — espionage missions and operations
+`data.cdb` is plain JSON:
+`{ "sheets": [ { "name", "columns": [{ "typeStr", "name" }], "lines": [...] } ], "customTypes": [...], "compress": false }`.
+Sub-sheets use `@` notation (`faction@characters`). A column's `typeStr` is a code, optionally followed by
+`:` and a comma-separated name list (e.g. `10:Controllable,MainBase,...` is a flag set). **Do not guess a
+column's meaning — copy the shape from the Atreides template row** (see `docs/howto_castledb_workflow.md`).
 
-## Workflow Rules
-1. **Draft in YAML first** — all new faction content goes into the `mod/*.yml` files.
-2. **Edit CDB second** — once YAML is approved, translate to CastleDB JSON in `res/data.cdb`.
-3. **Never edit `res/res/data.cdb`** — that is a packed asset, not the working file.
-4. **Preserve existing entries** — when adding to `data.cdb`, append new rows; do not overwrite existing faction rows.
-5. **Validate JSON** — after any edit to `data.cdb`, verify it is valid JSON before saving.
-   - Verify formatting/indentation; ensure no UTF-8 BOM is present; check for accidental trailing commas.
-6. **Use the existing faction schema** as a template (see the `Atreides` entry as the gold standard).
+## Factions
 
-## Helper Skills
-- **`/sync-unit-from-cdb`** — Reusable workflow to synchronize a unit entry in `mod/landsraad_units.yml` with its definition in `res/data.cdb`. Handles ID renaming, stat sync, inheritance chains, graphics, sounds, and documentation. Use when a YAML unit has a placeholder ID or stats that don't match CDB.
+- **House Ginaz** (`Ginaz`, ids `G_*`) — design docs in `house_ginaz/` (README is the index); build in
+  `model_projects/ginaz_faction/`. Cloned from Atreides, wine colour `0x7A1F3D`. Custom units `G_Elite`
+  (Ginaz Captain, confirmed in game), `G_Trooper`, `G_GinazNeophyte`, `G_GinazMaster`. Never put Ginaz
+  units on Atreides again. The Landsraad Elite is a **separate** project (`model_projects/landsraad_elite`) —
+  keep it out of Ginaz entirely.
+- **House Thorvald** (`Thorvald`, ids `Th_*`; `T_` is taken) — design docs in `house_thorvald/`; build in
+  `model_projects/thorvald_faction/`. Cloned from Corrino, copper `0xB26E3C`. Look: polished charcoal or
+  gunmetal, bold copper trim, oxblood accents; no rust, no bone patches; copper must read at RTS zoom.
+  Units built and installed but **none has been seen in game yet**.
 
-## Modding Reference Guides
+## Vehicle kitbash and export
 
-Three how-to guides live in `docs/`. Read the relevant guide **before** generating any CDB JSON or
-modifying unit/faction/asset data. Do not guess CDB schema — look it up in the guide first.
+- Builder: `08_scripts/20_build_variant.py -- <spec.json>`. A declarative spec has a host plus
+  `host_remove`, `host_squash`, `host_center`, and `grafts` from donors. Graft options: `box_abs`/`cyl_abs`
+  cuts, `strict`, `scale`, `rot_deg`, `at`, `mirror`, `remove_abs`, `clamp_abs`.
+- Gotchas: HMD FBX files store the bind pose, so bake evaluated coordinates before cutting; use `strict`
+  cuts or big triangles make spikes; unwelded panel donors need `min_island_faces: 0`; removing big host
+  parts shifts the centre, so pin `host_center`. Nose directions: Renegade +X, Ravager −X, Hawk, Hammer and
+  Banshee −Y.
+- Export chain: `50_export_fbx.py` → `51_convert_vehicle.py` → **`53_fix_bind.py <hmd> <vanilla ref>`**
+  (required — the toolkit writes a wrong `B_Body` bind rotation that pitches or rolls the ship in game)**
+  → `52_cdb_edit.py` (`--revert`) → validate → repackage.
+- Verify with a round trip: render the converted HMD next to the vanilla ship. Both must sit level, facing
+  the same way.
 
-| Trigger phrase / intent | Read this guide first |
+## Reference guides
+
+Read the relevant guide **before** generating CDB JSON or changing unit/faction/asset data.
+
+| Trigger | Read first |
 |---|---|
-| "generate unit JSON" / "write CDB entry" / "add unit to data.cdb" | [docs/howto_castledb_workflow.md](../docs/howto_castledb_workflow.md) |
-| "add operation" / "add quest" / "write quest entry" | [docs/howto_castledb_workflow.md](../docs/howto_castledb_workflow.md) |
-| "how does X look" / "change unit appearance" / "kitbash" / "unit model" / "unit icon" | [docs/howto_visual_kitbashing.md](../docs/howto_visual_kitbashing.md) |
- 
+| "generate unit JSON" / "write CDB entry" / "add unit to data.cdb" / "add operation" / "add quest" | `docs/howto_castledb_workflow.md` |
+| "how does X look" / "change unit appearance" / "kitbash" / "unit model" / "unit icon" / colour masks | `docs/howto_visual_kitbashing.md` |
+| Correct JSON structure unknown / how does vanilla do it | `docs/howto_reverse_engineering.md` |
+| Unsure which applies | Check all three |
 
-**Explicit trigger rules (MUST follow):**
-- Any request involving new CDB JSON → MUST open `docs/howto_castledb_workflow.md` first and confirm the Atreides template pattern is followed before writing any JSON.
-- Any request about faction visuals, unit portraits, model paths, or color masks → MUST open `docs/howto_visual_kitbashing.md` first.
-- Any request where the correct JSON structure is unknown → MUST open `docs/howto_reverse_engineering.md` and explain the extraction/compare workflow before writing any speculative JSON.
-- **If unsure which guide applies → check all three guides before responding.**
+- Any request involving new CDB JSON → open `docs/howto_castledb_workflow.md` first and confirm the
+  Atreides template pattern is followed before writing any JSON.
+- Any request where the correct JSON structure is unknown → open `docs/howto_reverse_engineering.md` and
+  explain the extraction/compare workflow before writing any speculative JSON.
