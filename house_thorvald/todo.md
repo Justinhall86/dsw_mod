@@ -1,0 +1,3 @@
+- Change Thorvald ranged unit's weapon. Use the Smuggler's sniper rifle instead.
+- Update the emblem on all the soldiers/buildings to the correct one.
+- Create the base.
