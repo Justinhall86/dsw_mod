@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: starting-trait-duration
+expected_outcome: |
+  Explains that faction startingTraits are applied with EPermanent, so props.duration is ignored and the buff never wears off; proposes a data-only alternative such as props.resStockConditions (ApplicationCondition) gated on a resource that grows per day.
