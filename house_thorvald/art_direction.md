@@ -37,6 +37,7 @@ Read from the sheet by eye, with rough sampling for the armour, skirt and backdr
 | Gunmetal black | `#23201C` to `#2B2721` | armour, hat, mask | darker than Sentinal `ironhull` (`#322E2C`) |
 | Rust-brown | `#48241A` | skirt, arm wraps | redder and darker than Sentinal `rust_plate` (`#7A4C34`) |
 | Copper-bronze | by eye | gear emblem, shield trim | — |
+| **Burnt orange** (faction colour) | `#CC5500` | the faction's UI and map colour in `data.cdb` (`faction.color` = 13391104), and the emblem's gear | brighter than every model colour on this page, on purpose: it has to read on the minimap |
 | Ember orange | by eye, hot | blade fire, hat pinstripe | hotter than Sentinal `trim_amber` (`#D68C3A`) |
 | Gold edging | by eye | collar and shoulder trim on Jool and Nobru, and the screen borders. The soldiers use rust and orange instead. | not in the Sentinal palette |
 | Backdrop | `#744326` | concept background only, never a model colour | — |
@@ -58,6 +59,8 @@ the infantry, if the rust and the trim are aligned. The sheet's trim is hotter a
   faction icon (rust-red), the leader's coat and the infantry's chest, shoulders and shield.
 - It must not look like Ginaz's crossed rapiers. Ginaz's emblem rules say the house emblem is crossed rapiers over waves.
 - On models, keep it a small embroidered or stamped patch, not a large print. The same motif can go on the Frigate's hull as a decal.
+- **Game file:** [images/emblem_gear_star.png](images/emblem_gear_star.png) (512 px master) and the 64 px `pak_assets/UI/Faction/ThorvaldEmblem.png` that
+  `data.cdb` points at. Burnt-orange gear (`#CC5500`), gunmetal disc, copper star with a dark star inset. Redraw with `cdb/make_emblem.py`.
 
 ## Silhouette and readability
 - The conical hat is the most readable shape at RTS distance. It must survive the squint test at small size.

@@ -35226,6 +35226,45 @@
 					"house": 0
 				},
 				{
+					"id": "Thorvald",
+					"images": {
+						"emblem": {
+							"file": "UI/Faction/ThorvaldEmblem.png",
+							"size": 64,
+							"x": 0,
+							"y": 0
+						}
+					},
+					"color": 13391104,
+					"texts": {
+						"name": "House Thorvald",
+						"shortName": "Thorvald",
+						"longName": "House|Thorvald",
+						"adjective": "Thorvald",
+						"plural": {
+							"name": "House Thorvald",
+							"shortName": "Thorvald",
+							"longName": "House|Thorvald"
+						},
+						"desc": "The Industrial Hegemon. House Thorvald buys its wars with the exotic alloys of Heighforge, a factory so vast that CHOAM resents it, and hires mercenaries to fight them."
+					},
+					"startResourcesByDifficulty": [],
+					"baseProductionsByDifficulty": [],
+					"props": {
+						"initials": "TH"
+					},
+					"gfx": {
+						"file": "UI/Faction/ThorvaldEmblem.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					},
+					"landmarks": {},
+					"characters": {},
+					"conquest": {},
+					"house": 2
+				},
+				{
 					"id": "Harkonnen",
 					"gfx": {
 						"file": "UI/Faction/factionButton00.png",
