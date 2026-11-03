@@ -2,7 +2,7 @@
 
     python add_thorvald_faction.py [--apply]     (without --apply: dry run, prints the row and writes nothing)
 
-Safe to re-run: if the Thorvald row exists, only its colour, emblem and button icon are brought back in line.
+Safe to re-run: if the Thorvald row exists, only its colour, description, emblem and button icon are brought back in line.
 
 What the row is: an INERT stub, modelled on the Renegades row (house 2 = "Unknown", no landmarks, no
 characters, no start traits). It carries the faction colour, the emblem, the names and the description, and
@@ -24,6 +24,8 @@ import cdb_tools as C  # noqa: E402
 
 CDB = os.environ.get("DSW_CDB", os.path.join(REPO, "mod_files", "data.cdb"))
 BURNT_ORANGE = 0xCC5500          # 13391104; faction.color is 0xRRGGBB (Ginaz wine 0x7A1F3D, Atreides green 0x26734C)
+DESC = ("The Industrial Hegemon. House Thorvald buys its wars with the exotic alloys of Heighforge, "
+        "a vast foundry on a distant world that CHOAM resents, and hires mercenaries to fight them.")
 EMBLEM = {"file": "UI/Faction/ThorvaldEmblem.png", "size": 64, "x": 0, "y": 0}
 
 data, exact = C.load(CDB)
@@ -42,8 +44,7 @@ if row is None:
             "longName": "House|Thorvald",
             "adjective": "Thorvald",
             "plural": {"name": "House Thorvald", "shortName": "Thorvald", "longName": "House|Thorvald"},
-            "desc": ("The Industrial Hegemon. House Thorvald buys its wars with the exotic alloys of Heighforge, "
-                     "a factory so vast that CHOAM resents it, and hires mercenaries to fight them."),
+            "desc": DESC,
         },
         "startResourcesByDifficulty": [],
         "baseProductionsByDifficulty": [],
@@ -59,6 +60,7 @@ if row is None:
     print("adding faction row Thorvald at index", at)
 else:
     row["color"] = BURNT_ORANGE
+    row["texts"]["desc"] = DESC
     row.setdefault("images", {})["emblem"] = dict(EMBLEM)
     row["gfx"] = dict(EMBLEM)
     print("Thorvald row exists; colour, emblem and button icon refreshed")

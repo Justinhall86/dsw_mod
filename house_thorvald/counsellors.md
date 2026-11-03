@@ -13,8 +13,8 @@ belongs in `house_ginaz/`. Numbers are as shown on the concept screen and are **
 - **Heavy Annexation (Passive):** -20% Authority cost to annex a village if it was recently pillaged or fought over.
 
 ## Master Silva
-- **Role:** master operations manager. Runs **Heighforge**, the house's massive exotic-metals factory, and the infrastructure and logistics
-  that feed it ([faction_design.md](faction_design.md)).
+- **Role:** master operations manager. Runs **Heighforge**, the house's one massive exotic-metals factory (on another planet), and the infrastructure and
+  logistics that feed it and ship from it ([faction_design.md](faction_design.md)).
 - **Look:** short curly hair, copper pauldron, quilted brown leather jerkin, dark high-collared undershirt.
 - **Supply Line Optimization (Passive):** non-military village buildings cost -15% Plascrete and are constructed 20% faster.
 - **Asset Preservation (Passive):** all non-military infrastructure (like Harvesters and processing plants) has -20% Solari and Fuel Cell upkeep.
@@ -33,13 +33,14 @@ belongs in `house_ginaz/`. Numbers are as shown on the concept screen and are **
 
 ## How the four fit together
 Jool is the war councillor. Silva, Haruka and Nobru are the industry, the shadow and the money-and-politics side, which suits an
-industrial syndicate more than a warrior house. Silva keeps Heighforge and the supply chain running; the other two sell what it makes.
+industrial syndicate more than a warrior house. Silva keeps Heighforge and the supply chain to it running; the other two sell what it makes.
 Haruka and Nobru both work CHOAM from the inside, which pays off the faction bonus that lowers CHOAM standing ([faction_design.md](faction_design.md)).
 
 ## Open decisions
 - **Name clash:** House Ginaz already has a **Commander Jool** (`house_ginaz/leaders_and_councilors.md`). Rename one.
-- **Silva and Heighforge:** her two abilities (cheaper, faster non-military buildings; lower infrastructure upkeep) already touch Heighforge as a
-  non-military building. Decide whether she should also boost Heighforge's output directly, or leave it as it is.
+- **Silva and Heighforge:** Heighforge is off-world, so her two abilities (cheaper, faster non-military buildings; lower infrastructure upkeep) only reach
+  its Arrakis end, the Consignment Terminal and the Harvesters and plants that feed it. Decide whether she should also improve the Spice and Plascrete
+  conversion rate, or leave it as it is.
 - Balance: Nobru's Market Manipulation (-15% Solari, +5 Influence per 10% owned) can scale fast; Silva's -20% upkeep applies to a lot
   of buildings.
 - Portraits are concept art only. There are no models for these, so any in-game portrait would need new art.
