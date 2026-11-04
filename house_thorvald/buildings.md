@@ -27,6 +27,21 @@ the people who would run these buildings in [counsellors.md](counsellors.md).
 Optional eighth: a **Gearworks Spire** (a monument, limit 1, Statecraft) carrying the emblem, in the way Corrino has the Emperor Monument. Only worth it
 if Hegemony needs something to look at.
 
+## Consignment Terminal: proposed kitbash (2026-11-04)
+The dock that ships Spice and Plascrete off-world to Heighforge. Built from vanilla parts; the donor meshes have not been seen in this repo yet, so
+the part choices are by function and get confirmed once the folders are copied into `model_inputs/Structure/`.
+
+| Role | Donor | Take | Change |
+|---|---|---|---|
+| **Base (main mass, back half)** | `SpiceSilo` (`Prefab_SpiceSilo`) | the silo cluster | recolour Thorvald; swap the silo caps for wide shallow cones (the kasa-hat motif); burnt-orange band and lamp on each cap |
+| **Front: the off-world link** | `Airfield` (`Prefab_Airfield`) | the landing pad or cradle only | recolour; burnt-orange pad markings; drop the rest of the airfield |
+| **Hero prop on the pad** | `SpaceShuttle` vehicle (already in `model_inputs/Vehicle/Atreide/`) | the whole shuttle, scaled down, hatch facing the silos | new `SpaceShuttle_Thorvald_Albedo` with the vehicle recolour method; it already ships per-faction albedos |
+| **Join between them** | `SupplyDepot` (the Maintenance Center) or `PlascreteFactory` | crates, a conveyor or gantry, pipework | recolour; run it from the silos to the shuttle's hatch |
+| **House marks** | made here | the gear-and-star emblem on a rust banner, lamps | small additions only |
+
+Rules: stay inside the Spice Silo's footprint plus the pad; the silos stay the tallest element; from the RTS camera the read is "silos + a ship".
+Remove any donor faction emblems or flags. If the terminal becomes a map building instead of a Main Base one, this same model is the house's one unique model.
+
 ## How many unique buildings the vanilla houses have (read from the vanilla `data.cdb`, 2026-11-04)
 Every building not listed here uses the **same model for every faction**. The data has no per-faction model or styling for shared buildings, so any difference
 there is the engine's faction colour (not verifiable without the prefabs).
