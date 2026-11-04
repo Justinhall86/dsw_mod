@@ -26,7 +26,7 @@ PROJ = os.path.dirname(HERE)
 name = sys.argv[1]
 GIF = "--gif" in sys.argv
 FAST = "--fast" in sys.argv
-PX = 480 if FAST else 720
+PX = 480 if FAST else 640
 
 K.reset()
 B.BUILDINGS[name]()
@@ -79,7 +79,7 @@ sc.collection.objects.link(cam)
 sc.camera = cam
 sc.render.engine = "CYCLES"
 sc.cycles.device = "CPU"
-sc.cycles.samples = 14 if FAST else 40
+sc.cycles.samples = 14 if FAST else 32
 sc.cycles.use_denoising = True
 sc.view_settings.view_transform = "Standard"
 sc.render.image_settings.file_format = "PNG"
@@ -107,8 +107,8 @@ for view, az, el in (VIEWS[:1] if FAST else VIEWS):
 if GIF:
     fdir = os.path.join(os.environ.get("TB_FRAMES", "/tmp"), "tb_frames", name)
     os.makedirs(fdir, exist_ok=True)
-    sc.cycles.samples = 24
+    sc.cycles.samples = 16
     for i in range(24):
         place(-50 + i * 15.0, 0.5)
-        shoot(os.path.join(fdir, "frame_%03d.png" % i), 420)
+        shoot(os.path.join(fdir, "frame_%03d.png" % i), 380)
 print("DONE", name)

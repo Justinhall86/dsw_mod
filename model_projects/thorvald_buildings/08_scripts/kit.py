@@ -205,6 +205,9 @@ def join_all(final_name):
     ob = bpy.context.view_layer.objects.active
     ob.name = final_name
     ob.data.name = final_name
+    if ob.data.uv_layers:                       # join leaves the layer inactive; the emblem texture then reads one texel
+        ob.data.uv_layers[0].active_render = True
+        ob.data.uv_layers.active = ob.data.uv_layers[0]
     # apply object-level rotation/scale baked by join; set a clean origin at the footprint centre
     OBJS.clear()
     return ob
