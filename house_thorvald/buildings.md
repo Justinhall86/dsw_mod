@@ -27,6 +27,12 @@ the people who would run these buildings in [counsellors.md](counsellors.md).
 Optional eighth: a **Gearworks Spire** (a monument, limit 1, Statecraft) carrying the emblem, in the way Corrino has the Emperor Monument. Only worth it
 if Hegemony needs something to look at.
 
+## Main Base buildings have no 3D model in vanilla
+Checked in `mod_files/data.cdb`: every `Main_*` building row has **only a thumbnail** (`UI/structures/Main_Districts_<Domain>.png`, a 592 x 168 strip), no
+`visuals.model`. In the game they appear as districts of the faction's base mesh, not as separate buildings. So the four Main Base ideas (Consignment Terminal,
+Contract Hall, Syndicate Exchange, Ledger Office) need a **thumbnail**, not a model. Only the village buildings (Sub-Contract Depot, Deep Mine Works, Asylum Quarter)
+need real 3D models. Vanilla also reuses one prefab at different sizes through `props.scale` (Experimental Furnace 3.5, Spice Collector 6.5 for the Recycling Plant).
+
 ## 3D models (made 2026-11-04)
 All seven exist as full 3D models in [`model_projects/thorvald_buildings/`](../model_projects/thorvald_buildings/SPEC.md): `.blend` and `.fbx` per building, four
 preview stills and a turntable each. They are built from scratch, because the only genuinely unused building assets in the game data

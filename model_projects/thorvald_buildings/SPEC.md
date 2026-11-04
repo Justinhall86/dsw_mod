@@ -48,6 +48,11 @@ Gunmetal was lifted slightly from the art-direction value so the silhouettes rea
 - `08_scripts/`: `kit.py` (materials and primitives), `buildings.py` (the seven builders), `build.py <Name> [--gif|--fast]`, `assemble_gifs.py`.
   Needs the `bpy` pip package (`pip install bpy==5.2.3`); no GPU needed.
 
+## Which of these the game actually needs
+Main Base buildings (`Main_*`) have no 3D model in vanilla, only a 592 x 168 thumbnail; they show as districts on the base mesh. So the Consignment Terminal, Contract
+Hall, Syndicate Exchange and Ledger Office renders are best used as **thumbnail art**. Only the Sub-Contract Depot, Deep Mine Works and Asylum Quarter need game models,
+and those should be redone against measured vanilla buildings (not available in this repo yet).
+
 ## Not done / next
 - **UV unwrap and a texture.** The models use flat palette materials; only the emblem planes have UVs. The game path (HMD) needs UVs and the three texture maps
   (Albedo, MetallicGlossAO, Normal), so the next step is a Smart UV project plus a baked atlas per building.
