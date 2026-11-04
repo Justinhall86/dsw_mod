@@ -27,6 +27,20 @@ the people who would run these buildings in [counsellors.md](counsellors.md).
 Optional eighth: a **Gearworks Spire** (a monument, limit 1, Statecraft) carrying the emblem, in the way Corrino has the Emperor Monument. Only worth it
 if Hegemony needs something to look at.
 
+## How many unique buildings the vanilla houses have (read from the vanilla `data.cdb`, 2026-11-04)
+Every building not listed here uses the **same model for every faction**. The data has no per-faction model or styling for shared buildings, so any difference
+there is the engine's faction colour (not verifiable without the prefabs).
+
+| | Atreides | Corrino | Harkonnen | Smugglers | Fremen |
+|---|---|---|---|---|---|
+| **Unique Main Base building** (thumbnail only, no model) | `Main_CouncilChamber` | `Main_Monument` | `Main_InterrogationCenter` | `Main_BlackMarketBranch` | `Main_Bazaar`, `Main_Temple` |
+| **Unique map building with its own model** | `AtreidesFremenEmbassy` (Ambassade) | `PropagandaOffice` | `OppressionHeadquarter` (InterrogationCenter model) | `SmugglingCenter` | `WindTrap`, `SandCaches` (StealthTent), `ShaiHuludTemple`; `RecyclingPlant` reuses the Spice Collector model |
+| **Shared building it cannot build** | none | `MaintenanceCenter` | none | `SpiceSilos` | `Refinery`, `DewCollector`, `WaterExtractor`, `FuelCellFactory`, `Airfield`, `NuclearSilo`, `SpacingGuildBranch`, `Main_FusionPlant`, `Main_HarvesterWorks`, `Main_LandsraadQuarters` |
+| **Own copy of a shared building, same model** | none | none | none | none | `Main_RecyclingVats_Fremen`, `Main_Embassy_Fremen`, `ExperimentalAlloyFurnace_Fremen`, `MilitaryFactory_Fremen`, `ResearchStation_Fremen` |
+
+**The standard for a Great House is one unique Main Base building plus one unique map building with its own model.** Fremen are the exception (a desert set).
+For Thorvald that means **one thumbnail and one 3D model**: the Consignment Terminal (the perk needs it) and one of the three village buildings.
+
 ## Main Base buildings have no 3D model in vanilla
 Checked in `mod_files/data.cdb`: every `Main_*` building row has **only a thumbnail** (`UI/structures/Main_Districts_<Domain>.png`, a 592 x 168 strip), no
 `visuals.model`. In the game they appear as districts of the faction's base mesh, not as separate buildings. So the four Main Base ideas (Consignment Terminal,
