@@ -27,6 +27,11 @@ the people who would run these buildings in [counsellors.md](counsellors.md).
 Optional eighth: a **Gearworks Spire** (a monument, limit 1, Statecraft) carrying the emblem, in the way Corrino has the Emperor Monument. Only worth it
 if Hegemony needs something to look at.
 
+## 3D models (made 2026-11-04)
+All seven exist as full 3D models in [`model_projects/thorvald_buildings/`](../model_projects/thorvald_buildings/SPEC.md): `.blend` and `.fbx` per building, four
+preview stills and a turntable each. They are built from scratch, because the only genuinely unused building assets in the game data
+(`IndoctrinationCenter`, `TrafficHub`) are not in this repo. They have flat materials and no UV unwrap yet, so they are previews, not game-ready.
+
 ## Recommended order
 1. **Consignment Terminal**: the faction bonus needs it, and a vanilla prefab already exists. Recolour it burnt orange and dark gunmetal; add freight gantries later.
 2. **Contract Hall**, then **Syndicate Exchange**: both reuse existing Main Base prefabs, and between them they express "the house that buys its wars".
