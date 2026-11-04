@@ -71418,6 +71418,30 @@
 							"animName": "RenegadeFrigate_Death",
 							"sound": "Ravager_Death",
 							"animEvents": []
+						},
+						{
+							"id": "AirfieldIdle",
+							"loop": true,
+							"lock": false,
+							"animName": "RenegadeFrigate_FightIdle"
+						},
+						{
+							"id": "Opening",
+							"lock": false,
+							"animName": "RenegadeFrigate_Idle",
+							"loop": false
+						},
+						{
+							"id": "Closing",
+							"lock": false,
+							"animName": "RenegadeFrigate_Idle",
+							"loop": false
+						},
+						{
+							"id": "Idle_Airfield",
+							"lock": false,
+							"animName": "RenegadeFrigate_FightIdle",
+							"loop": true
 						}
 					]
 				},
@@ -92340,17 +92364,13 @@
 						}
 					},
 					"id": "Th_Special",
-					"traits": [
-						{
-							"ref": "Th_Special_Trait"
-						}
-					],
+					"traits": [],
 					"stats": [
 						{
 							"health": 400,
-							"power": 7,
-							"armor": 1,
-							"range": 25
+							"power": 23,
+							"armor": 0,
+							"range": 35
 						}
 					],
 					"props": {
@@ -92371,7 +92391,7 @@
 					"faction": "Thorvald",
 					"texts": {
 						"name": "Iron Guard",
-						"desc": "Heavy weapon troopers of House Thorvald armed with a shoulder-fired launcher. (Attack logic is still the Corrino flamer.)",
+						"desc": "Heavy weapon troopers of House Thorvald armed with a shoulder-fired launcher, for opening up armour and fortifications.",
 						"plural": {
 							"name": "Iron Guards"
 						}
@@ -92381,7 +92401,7 @@
 							"value": 40
 						}
 					],
-					"inherits": "Flamer",
+					"inherits": "Demo",
 					"effects": {
 						"models": [
 							{
@@ -92397,53 +92417,26 @@
 								"kind": 1
 							},
 							{
-								"kind": 4,
-								"fxs": [
-									{
-										"fx": "Fx/Unit/FX_Human_MissileLauncher_Fire.fx",
-										"space": 0,
-										"attachTo": "B_Weapon",
-										"scale": 1,
-										"flags": 0
-									}
-								],
-								"soundSource": 0,
-								"sound": "Flamethrower_Attackrange"
-							},
-							{
-								"kind": 5,
-								"fxs": [
-									{
-										"fx": "Fx/Unit/FX_Human_MissileLauncher_Fire_Gear.fx",
-										"space": 0,
-										"attachTo": "B_Weapon",
-										"flags": 0
-									}
-								],
-								"soundSource": 0,
-								"sound": "Flamethrower_Attackrange"
-							},
-							{
 								"kind": 24,
 								"fxs": [],
 								"soundSource": 0,
-								"fxTarget": 0,
-								"sound": "Common_Death"
+								"sound": "Common_Death",
+								"fxTarget": 0
 							}
 						],
 						"sound": {
 							"voices": [
 								{
 									"action": 2,
-									"event": "Voice_C_Incinerator_Attack"
+									"event": "Voice_A_Heavyweaponsquad_Attack"
 								},
 								{
 									"action": 1,
-									"event": "Voice_C_Incinerator_Move"
+									"event": "Voice_A_Heavyweaponsquad_Move"
 								},
 								{
 									"action": 0,
-									"event": "Voice_C_Incinerator_Select"
+									"event": "Voice_A_Heavyweaponsquad_Select"
 								}
 							]
 						}
@@ -92468,16 +92461,16 @@
 					},
 					"equipment": [
 						{
-							"ref": "WideNozzle"
+							"ref": "DistractingFlashes"
 						},
 						{
-							"ref": "ExoticCompounds"
+							"ref": "HeavyLoads"
 						},
 						{
-							"ref": "PhosphorusMix"
+							"ref": "WhistlingAmmo"
 						},
 						{
-							"ref": "TerrifyingMask"
+							"ref": "WarMemoir"
 						}
 					],
 					"attacks": {}
@@ -148151,6 +148144,20 @@
 						"allowStackSquashing": true
 					},
 					"__ignoreLoc__": true
+				},
+				{
+					"id": "Convert_TRes_To_TRes2",
+					"desc": "Trades any resource in target's convertFrom for any in target2's convertTo, at the amounts written",
+					"props": {},
+					"gfx": {
+						"file": "UI/icons/attribute_icons.png",
+						"size": 32,
+						"x": 3,
+						"y": 0
+					},
+					"implemented": true,
+					"val": 1,
+					"__ignoreLoc__": true
 				}
 			],
 			"props": {
@@ -192262,6 +192269,26 @@
 							"ref": "Faction_DuplicateEachBuildingLimit_Flat",
 							"val": 1,
 							"desc": ""
+						},
+						{
+							"target": {
+								"convertFrom": [
+									{
+										"val": 100,
+										"resource": "Plascrete"
+									}
+								]
+							},
+							"target2": {
+								"convertTo": [
+									{
+										"val": 150,
+										"resource": "Solari"
+									}
+								]
+							},
+							"ref": "Convert_TRes_To_TRes2",
+							"desc": "Trade [Plascrete] for [Solari] in the top bar"
 						}
 					],
 					"type": 0,
@@ -212249,8 +212276,33 @@
 					"name": "range",
 					"opt": true,
 					"kind": null
+				},
+				{
+					"typeStr": "8",
+					"name": "convertFrom",
+					"kind": null
 				}
 			]
+		},
+		{
+			"name": "trait@attributes@target@convertFrom",
+			"columns": [
+				{
+					"typeStr": "4",
+					"name": "val",
+					"kind": null
+				},
+				{
+					"typeStr": "6:resource",
+					"name": "resource",
+					"kind": null
+				}
+			],
+			"lines": [],
+			"props": {
+				"hide": true
+			},
+			"separators": []
 		},
 		{
 			"name": "trait@attributes@target2",
@@ -212396,8 +212448,33 @@
 					"name": "range",
 					"opt": true,
 					"kind": null
+				},
+				{
+					"typeStr": "8",
+					"name": "convertTo",
+					"kind": null
 				}
 			]
+		},
+		{
+			"name": "trait@attributes@target2@convertTo",
+			"columns": [
+				{
+					"typeStr": "4",
+					"name": "val",
+					"kind": null
+				},
+				{
+					"typeStr": "6:resource",
+					"name": "resource",
+					"kind": null
+				}
+			],
+			"lines": [],
+			"props": {
+				"hide": true
+			},
+			"separators": []
 		},
 		{
 			"name": "structure@props",
@@ -230776,7 +230853,7 @@
 				{
 					"domain": "Expansion",
 					"id": "Thorvald_Megalopolis",
-					"name": "Thorvald_Megalopolis",
+					"name": "Megalopolis",
 					"tier": 0,
 					"gridX": 0,
 					"gridY": 0,

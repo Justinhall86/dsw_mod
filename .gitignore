@@ -28,3 +28,9 @@ model_projects/landsraad_elite/02_progress_8photos/
 model_projects/landsraad_elite/02_progress_photos/06_animation_tests/
 model_projects/landsraad_elite/02_progress_photos/
 model_inputs/Vehicle/Atreide/CarryAll/CarryAll_Albedo.png
+
+# Third-party: Quinn patcher source unpacked by tool/unpack_quinn.py (no licence found), and game binaries
+tool/quinn_patcher/
+tool/hlboot_backups/
+# Game binaries: keep local, this repo is public
+mod_files/hlboot_build*/**/*.dat

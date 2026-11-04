@@ -30,8 +30,7 @@ Skipped on purpose: **Ornithopters** (4 variants) and the **Harvester**. Atreide
 
 Already done (our models, installed, untested in game): Trooper, Iron Ranger, Iron Guard, Heavy Vanguard, Frigate, Fighter (`Th_Ship`).
 
-Fixes, not new units: Iron Guard's bazooka body still fires the Corrino flamer; the Frigate has no deploy animations; units still cost
-Manpower, not Solari.
+Fixes, not new units: units still cost Manpower, not Solari. Iron Guard now fires a bazooka and the Frigate's deploy animations use its own clips (2026-11-04, untested in game).
 
 ## Name ideas from the lore
 The infantry names are being redone. Candidates that carry the lore:
