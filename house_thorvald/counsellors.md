@@ -6,6 +6,29 @@ Four councillors with two abilities each, taken from the Codex screen
 [images/councillors_three_quarter.jpg](images/councillors_three_quarter.jpg). Separate from House Ginaz — nothing for this house
 belongs in `house_ginaz/`. Numbers are as shown on the concept screen and are **PROPOSED**.
 
+> **Status 2026-11-02:** in `data.cdb` the military slot is now **Envoy Theodoric Ein** (id `ThEin`), replacing Overseer Jool. His
+> effect is still Jool's copied Corrino one. The Jool section below is kept as a source of perks. A pool of alternative perks, one
+> Thorvald version per vanilla councillor, is in [councillor_ideas.md](councillor_ideas.md) (**ideas only**).
+
+> **Status 2026-11-03 (BUILT in `data.cdb`):** all four councillors have their own perks and portraits. Each one is a single passive
+> trait made only of attributes that vanilla traits already use, so nothing here needs a patch. Built by
+> `model_projects/thorvald/thorvald_councillors/08_scripts/20_councillors_cdb.py` (`--revert` restores the old rows). The **Active**
+> perks in the sections below (Sabotage Network, Market Manipulation, Hammer Brief) are **not** built: a councillor has one passive
+> trait slot and no active slot was found.
+>
+> | Councillor (portrait source) | Perk | In the game |
+> |---|---|---|
+> | Adjutant Nobru (banner bust) | Market Patronage | first 20 votes on each Landsraad resolution are free (`FreeVotes_Resolution_Flat`, Ecaz); CHOAM shares cost -15% (`CMarket_Share_BuyPrice_MRatio`) |
+> | Envoy Ein (`council_male_military_cape.jpg`) | Academy Doctrine | military Solari upkeep -10% (`Army_TResUpkeep_MRatio`); units start one level higher (`Army_SpawnExperienceLevel_Flat`); +1 Armor in a region with an active Thorvald operation (`FactionArmy_InZoneWithOperation_Armor_Flat`) |
+> | Master Silva (banner bust) | Supply Line Optimization | village buildings -15% Plascrete, built 20% faster, -20% Solari upkeep (`Building_Village_TResCost_MRatio`, `Building_ConstructionSpeed_ARatio`, `Building_TRes_Upkeep_MRatio`) |
+> | Lady Haruka (banner bust) | Corporate Espionage | +1 Influence and +1 Intel per infiltration level held in another faction (`TRes_ProdPerInfiltrationLevels_Flat`, IntelBroker's shape); operations prepare 25% faster and cost 15% less (`Mission_PreparationTime_MRatio`, `Mission_Cost_MRatio`) |
+>
+> Silva is now `gender 0` (the banner portrait is a man; it was set female by the Mohiam clone). Nobru's AI domain is Statecraft and
+> Silva's Economy, to match the perks. Portraits sit in **new** atlases (`UI/Faction/councillors_thorvald.png`,
+> `UI/Faction/Menu/menuCouncilorsThorvald.png`, `UI/Faction/Menu/councillorsThorvald.png`), so no vanilla atlas is overridden.
+> The seven unused concept images became the Thorvald **agent** portraits (`Th1`..`Th7`, `UI/spying/agents/agents_thorvald*.png`);
+> Thorvald no longer draws Corrino's agents. Jool's banner bust is one of them. Karlin (hero) keeps his old portrait cell.
+
 ## Overseer Jool
 - **Role:** military overseer (general type).
 - **Look:** grey-streaked hair and beard, a scar on the brow, dark plate with crossed rust-leather straps, a gold-lined stand-up collar.
