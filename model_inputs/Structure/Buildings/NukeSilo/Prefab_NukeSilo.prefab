@@ -1,0 +1,23 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "NukeSilo",
+			"source": "Structure/Buildings/NukeSilo/NukeSilo.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.04349,
+			"y": -0.00121,
+			"z": -0.05727,
+			"scaleX": 4.29,
+			"scaleY": 3.67,
+			"scaleZ": 0.31,
+			"rotationZ": -8,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}
