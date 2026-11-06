@@ -1,9 +1,44 @@
-# House Thorvald Elite (tower shield + glaive): project notes
+# Thorvald Elite (`TH_Elite`, Heavy Vanguard)
 
+![Current version (v2)](thorvald_elite_current.gif)
+
+**Current version: v2. It is the model installed in the game** (`Th_Elite` and `A_Elite` model rows -> `CharMOD/Male01_ThorvaldElite/Prefab_ThorvaldElite.prefab`,
+Gurney anim set, rigName 0, scale 1.1). Not yet seen in game.
+
+## Versions
+
+![All versions](02_progress_photos/versions_lineup.png)
+
+| Version | What changed | Blender file |
+|---|---|---|
+| v1 | Body E3: tiered pauldrons (copies of the plate), plain hand-built shield and glaive | [v1_tiered_pauldrons.blend](03_blender/v1_tiered_pauldrons.blend) |
+| **v2** | Body E4: one-piece pauldron with two generated lames and rivets, bulkier arms and gloves, black goggles; layered tower shield (`weapons/thorvald_towershield` v2) and glaive (`weapons/thorvald_glaive`). **Installed.** | [v2_final.blend](03_blender/v2_final.blend) (body only: [v2_final_body_only.blend](03_blender/v2_final_body_only.blend)) |
+
+Renders: `02_progress_photos/<version>/` (front, three-quarter, side, back; v2 also has the shield sheet and a v1 comparison).
+
+## Folder map
+
+| Folder | What is in it |
+|---|---|
+| `01_input/` | The reference character sheet |
+| `02_progress_photos/` | `versions_lineup.png` and one folder per version |
+| `03_blender/` | One `.blend` per version |
+| `04_textures/` | The recoloured body textures, trim atlas and UV region map used by recipe E4 |
+| `05_fbx_export/anim/` | The six Gurney animation clips used to pose previews |
+| `06_game_ready/` | A copy of the installed `CharMOD/Male01_ThorvaldElite` folder (HMD, prefab, 1024 px textures) |
+| `08_scripts/` | Recipe builder `03_variants_trooper.py` (variant `E4_Elite`) and its helpers |
+
+## Archive
+
+Everything else (E1 to E3 variants and their renders, 24 donor and clip stills, the unused Shield anim set, old scripts copied from other projects,
+and `10_upscale/`, an x2 texture version of v2 that was **never installed**) is in `model_projects/_archive_unused/thorvald_elite_wip/`, with a
+`MANIFEST.txt`. The installed textures are the 1024 px ones. If you want the x2 version, take `10_upscale/` from the archive.
+
+# Design notes
 Reference: `01_input/character_image_sheet.jpg`.  Built from the Demolition body (`D2_Demolition`, itself the Trooper T14); scripts copied from
 `thorvald_demolition/08_scripts`, recipes in `03_variants_trooper.py`.
 
-**Current: `03_blender/Thorvald_Elite_v2.blend`** (recipe `E4_Elite` + `weapons/thorvald_towershield` v2 + `weapons/thorvald_glaive`).
+**Current: `03_blender/v2_final.blend`** (recipe `E4_Elite` + `weapons/thorvald_towershield` v2 + `weapons/thorvald_glaive`).
 v1 (`E3_Elite`) kept.
 
 ## v2 (2026-10-28, after the user's review of v1)

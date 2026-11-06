@@ -254,7 +254,7 @@ NAMES = {
 }
 for cid, nm in NAMES.items():
     ids("character")[cid].update(nm)
-ids("unit")["Th_Hero_1"]["texts"]["name"] = "Karlin Mallenor"
+ids("unit")["Th_Hero_1"]["texts"]["name"] = "Karlin Mallenor"   # renamed Karlin Thorvald by thorvald_hero_1/08_scripts/40_cdb_karlin.py
 ids("unit")["Th_Hero_2"]["texts"]["name"] = "Vane Torrver"
 
 # ---------------------------------------------------------------------------------------------- unit swaps: the Thorvald models we built

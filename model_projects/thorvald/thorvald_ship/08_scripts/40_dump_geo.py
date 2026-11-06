@@ -1,7 +1,7 @@
 """Dump the assembled frigate's triangles (world position, normal, source UV) and the atlas cell of
 each object, for 41_make_atlas.py.
 
-    blender -b 03_blender/frigate_v10_layers.blend --python 40_dump_geo.py -- <out.npz>
+    blender -b 03_blender/v6_final.blend --python 40_dump_geo.py -- <out.npz>
 
 Cells (col, row from the TOP of the atlas image):
   0 Renegade hull + nozzles   1 Wraith drum   2 Wraith dome   3 Space Shuttle plate stack

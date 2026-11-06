@@ -1,12 +1,12 @@
 """Skin the textured Thorvald fighter to the vanilla Hammer armature (single bone B_Body) and export an FBX.
 
-    blender -b 03_blender/f11_tex.blend --python 50_export_fbx.py -- <out.fbx>
+    blender -b 03_blender/v6_final_tex.blend --python 50_export_fbx.py -- <out.fbx>
 
 Th_Ship keeps the Hammer's rig (rigName 21), animation set and prefab, so only the mesh changes.
 Our kitbash is built nose -X and centred on the origin; the Hammer lives nose -Y with its body centred ~0.39 up.
     hammer_world = Rz(+90) @ (final * GEO) + (0, 0, ZC)
 GEO bakes the size in, so the slot's model scale (1.6) can stay: effective 1.6*0.84 = 1.35x our build units,
-which puts it between the Hawk and the Ravager on screen (see 02_progress_photos/LINEUP_*).
+which puts it between the Hawk and the Ravager on screen.
 Then, as for the frigate, data = M^-1 (hammer_world) with M the vanilla skin matrix (data -> world).
 """
 import os

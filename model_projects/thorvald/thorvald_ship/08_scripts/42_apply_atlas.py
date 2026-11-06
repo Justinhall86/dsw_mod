@@ -1,6 +1,6 @@
 """Remap every part's UVs into the atlas, merge into ONE mesh with ONE material, save and render.
 
-    blender -b 03_blender/frigate_v10_layers.blend --python 42_apply_atlas.py -- <out.blend> <render_dir> [--turntable N]
+    blender -b 03_blender/v6_final.blend --python 42_apply_atlas.py -- <out.blend> <render_dir> [--turntable N]
 
 Needs 04_textures/Thorvald_Ship_{Albedo,MetallicGlossAO,Normal}.png from 41_make_atlas.py.
 The saved blend uses the toolkit wiring (Albedo->Base Color, MGAO->Specular IOR Level, Normal->Normal Map);

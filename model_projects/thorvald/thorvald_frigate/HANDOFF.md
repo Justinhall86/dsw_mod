@@ -4,7 +4,7 @@
 (currently `inherit: Kraken`, prefab `Vehicle/Atreide/Kraken/Prefab_Kraken.prefab`).
 
 ## Goal
-Match the Shiro concept sheet `../thorvald_interceptor/01_input/reference_sheet_v2_frigate_jets.png`:
+Match the Shiro concept sheet `01_input/reference_sheet_v2_frigate_jets.png`:
 long charcoal slab hull, two banded copper turbine drums on stubby arms flanking the rear,
 oxblood stripes, bone weathered plate, copper filigree, spine cannon. **House rule: only
 pre-existing game parts, no hand-modelled primitives.**
@@ -26,7 +26,7 @@ pre-existing game parts, no hand-modelled primitives.**
   and deleted; it survives only as the top row of `02_progress_photos/CONTACT_hull_AB.png`.
 
 ## IMPORTANT: orientation (corrected 2026-10-29)
-**The Renegade's nose is +X**, not -X as `../thorvald_fighter/SPEC.md` says: the thin guns and the
+**The Renegade's nose is +X**, not -X as `../_archive_unused/thorvald_fighter/SPEC.md` says: the thin guns and the
 cockpit-like dark box are at +X, the wings sweep wide at -X, and the wing-tip nozzles open toward -X
 (engine glow). So the frigate's rear/exhaust is -X (the former "open U" is the exhaust end, now plugged),
 the drums sit at the rear with louvre faces toward +X, and bells point -X. Verified only from the
@@ -106,8 +106,8 @@ single-material texture atlas with the sheet's palette (charcoal / copper / oxbl
    estimated from the sheet, not measured.
 3. Faint copper fuzz on drum rims (thin strut fragments).
 4. (superseded: export is done, see GAME EXPORT above) was: the merged mesh has no armature/`B_Body` skin (re-skin with the rest-space
-   transform trick in `../thorvald_fighter/SPEC.md`), then FBX (Y fwd, Z up) -> HMD toolkit -> `data.cdb`
+   transform trick in `../_archive_unused/thorvald_fighter/SPEC.md`), then FBX (Y fwd, Z up) -> HMD toolkit -> `data.cdb`
    `A_Frigate` -> pak. Precedent `../sentinal`. Confirm nose direction in game first.
 
 ## Corrections made on 2026-10-29
-Fixed the Renegade symmetry verdict in `../thorvald_interceptor/HANDOFF.md` and `modeling.md` 15.5.
+Fixed the Renegade symmetry verdict in `../_archive_unused/thorvald_interceptor/HANDOFF.md` and `modeling.md` 15.5.

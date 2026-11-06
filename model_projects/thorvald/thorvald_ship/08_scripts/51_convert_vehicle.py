@@ -39,7 +39,7 @@ van = os.path.join(extr, "Vehicle", "Imperial", "Hammer")
 ref = os.path.join(van, "Hammer.fbx")   # HMD in disguise
 d4x = os.path.join(cfg("game_dir"), "D4X.exe")
 
-# barrel tips in our build frame (01_input/final/FINAL_ship.json: muzzle x -2.0, y +-0.13, z -0.185)
+# barrel tips in our build frame (01_input/v6.json: muzzle x -2.0, y +-0.13, z -0.185)
 # -> Hammer world via 50_export_fbx (GEO 0.84, Rz +90, z +0.39)
 GEO, ZC = 0.84, 0.39
 TIP = (-2.0, 0.13, -0.185)
