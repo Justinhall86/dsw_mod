@@ -1,0 +1,146 @@
+// out: false
+@import "game.less";
+
+
+region {
+	layout: vertical;
+	fill-height: true;
+	auto-size: 1;
+	>#body{
+		min-height: @selection-content-height + 2;
+		fill-height: true;
+		width: 188;
+		background: @color-hud-bg;
+		background-alpha: 1;
+		align : middle bottom;
+		fmt-text, text {
+			color: @color-desert;
+			.regular-14;
+		}
+		layout : vertical;
+
+		#portrait {
+			height: 170;
+			fill-width: true;
+			layout: stack;
+			background: @color-hud-bg;
+			content-align: bottom left;
+			#image {
+				width: 188;
+				height: 176;
+			}
+			#fade {
+				src: url("UI/HUD/regionName_Gradient.png");
+				width: 188;
+				height: 70;
+			}
+			special-region-icon{
+				align: top right;
+				margin-top: -1;
+				margin-right: 10;
+				bitmap {
+					src: "UI/icons/drap_star.png";
+					width: 32;
+				}
+			}
+
+			#main {
+				layout: vertical;
+				padding-left: 10;
+				padding-bottom: 15;
+				valign: bottom;
+				width: 188;
+				#mainTitle {
+					.bold-20;
+				}
+			}
+		}
+
+		#props {
+			padding: 6;
+			padding-bottom: 8;
+			layout : vertical;
+			spacing : 10;
+			#structures {
+				spacing : 4;
+				margin-top: -13;
+				margin-bottom: -10;
+				min-width: 24;
+				min-height: 40;
+			}
+			#infos {
+				layout : vertical;
+				spacing : 3;
+				.info{
+					fill-width: true;
+					spacing : 5;
+				}
+				#windStrength {
+					.bold-15;
+					align: right;
+				}
+			}
+
+			#bar {
+				content-align : left middle;
+				layout : vertical;
+				spacing : 10;
+			}
+		}
+
+		#regionSupervisor {
+			agent-portrait {
+				//width: 40;
+				//height: 40;
+			}
+			>#portrait {
+				width: 40;
+				height: 40;
+			}
+			align: top left;
+			content-align: middle middle;
+		}
+	}
+
+}
+
+
+
+city-region {
+	layout: vertical;
+	background: @color-hud-bg;
+	spacing: -1;
+	padding-top: 1;
+	.portrait {
+		width: 188;
+		height: 212;
+	}
+	.stats{
+		align: top middle;
+		background-alpha: 0.5;
+		fmt-text{
+			color: @color-desert;
+		}
+		spacing: 2;
+		height: 70;
+		content-align: middle middle;
+		margin-bottom: 1;
+		resource-counter{
+			content-align: middle left;
+			width: 50;
+			bitmap{
+				width: 24;
+			}
+		}
+		#life{
+			width: 60;
+		}
+		.defeated {
+			color: @color-bad;
+			.bold-14;
+			offset-y: -2;
+		}
+	}
+
+}
+

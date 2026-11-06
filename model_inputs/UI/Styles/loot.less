@@ -1,0 +1,53 @@
+@import "game.less";
+
+loot-display {
+	position: absolute;
+	align: middle middle;
+	content-align: middle middle;
+	#resTxt {
+		fmt-text {
+			.bold-13;
+		}
+	}
+	filter: glow(#000, 0.9, 6, 1, 1, true);
+
+}
+
+dmg-display {
+	position: absolute;
+	align: middle middle;
+	content-align: middle middle;
+	#resTxt {
+		fmt-text {
+			.bold-12;
+			alpha: 0.8;
+		}
+	}
+	filter: glow(#000, 0.9, 4, 1, 1, true);
+	bitmap{
+		width: 16;
+		//visible: false;
+	}
+	max-lifetime: 2;
+	anim-height: 80;
+}
+
+regen-display {
+	position: absolute;
+	align: middle middle;
+	content-align: middle middle;
+	#resTxt {
+		fmt-text {
+			.bold-12;
+			alpha: 0.8;
+			color: @color-good;
+		}
+	}
+	filter: glow(#000, 0.9, 4, 1, 1, true);
+	bitmap{
+		width: 16;
+		//visible: false;
+	}
+	max-lifetime: 2;
+	anim-height: 80;
+}

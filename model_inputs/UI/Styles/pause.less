@@ -1,0 +1,481 @@
+@import "common.less";
+@import "parameters.less";
+
+pause-window, pause-window-conquest {
+	layout: stack;
+	background-id: true;
+	background: black;
+	>#background {
+		alpha: 0.0;
+		.transition-alpha-quick;
+		alpha: 0.8;
+	}
+	fill-width: true;
+	fill-height: true;
+
+	menu-button {
+		click-sfx: @UI_Menu_Select_Ingame;
+		spectator-enabled: true;
+
+		&.admin-visible.appear {
+			alpha: 0.6;
+		}
+		&.statsBtn.disabled {
+			alpha: 0.6;
+		}
+	}
+	>#backBtn {
+		pad-focusable: false;
+		pad-click: @input-menu-back;
+		pad-binding-persistent: true;
+		pad-always-clickable: true;
+		spectator-enabled: true;
+
+		>#leftCont {
+			alpha: 0;
+		}
+	}
+
+	>.menuList {
+		valign: middle;
+		.transition-alpha-quick;
+		.transition-x-quick;
+
+		.resumeGame { pad-default-focus: true; }
+	}
+
+	>.optionsMenu {
+		alpha: 0;
+		offset-x: -50;
+		.transition-alpha-quick;
+		.transition-x-quick;
+		visible: false;
+
+		menu-button {
+			click-sfx: @UI_Menu_Option_Select;
+			click-vfx: "Fx/UI/MainMenu/FX_ButtonsRound.fx2d";
+			&:active {
+				start-vfx: none;
+			}
+		}
+	}
+
+	>options-list, >save-list, >input-bindings {
+		alpha: 0;
+		.transition-alpha-quick;
+		align: middle middle;
+		visible: false;
+
+		padding-top: 100;
+		width: 800;
+		align: middle middle;
+	}
+	>input-bindings ,>options-list{
+		block-floating-cursor: true;
+	}
+
+	>save-list {
+		align: top middle;
+		offset-x: 100;
+		margin-top: 50;
+		margin-bottom: 50;
+		>.title {
+			.regular-20;
+			margin-bottom: 20;
+		}
+
+		&.save-mode {
+			margin-top: 60;
+			margin-bottom: 65;
+		}
+	}
+
+	&.showSaves {
+		>save-list {
+			visible: true;
+			alpha: 1;
+			is-bind-layer: true;
+		}
+		>game-info {
+			visible: false;
+		}
+	}
+
+	&.showOptions {
+		>options-list {
+			visible: true;
+			alpha: 1;
+		}
+		>game-info {
+			visible: false;
+		}
+		&.in-option-group {
+			>options-list {
+				is-bind-layer: true;
+				pad-focus-mode: vertical;
+			}
+		}
+	}
+
+	&.showInputs {
+		>input-bindings {
+			visible: true;
+			alpha: 1;
+		}
+		>game-info {
+			visible: false;
+		}
+		&.in-input-group {
+			input-bindings {
+				is-bind-layer: true;
+				pad-focus-mode: vertical;
+			}
+		}
+	}
+
+
+	&.showOptions, &.showInputs {
+		>.mainList {
+			visible: false;
+			alpha: 0;
+			offset-x: -50;
+		}
+		>.optionsMenu {
+			visible: true;
+			alpha: 1;
+			offset-x: 0;
+			is-bind-layer: true;
+		}
+	}
+
+	.gameInfo {
+		align: bottom right;
+		layout: vertical;
+		content-halign: right;
+		margin-bottom: 30;
+		margin-right: 8;
+		spacing: 8;
+
+		.trailer & {
+			visible: false;
+		}
+		text {
+			.sans-12;
+			alpha: 0.5;
+		}
+
+		button {
+			.decorated-btn;
+			pad-focusable: false;
+		}
+		&.pad {
+			margin-bottom: 80;
+		}
+	}
+
+	game-info {
+		align: top right;
+		margin-top: 50;
+		margin-right: 264;
+	}
+}
+
+pause-window-conquest {
+	>#background {
+		alpha: 0.6;
+	}
+}
+
+game-info {
+	width: 400;
+	layout: vertical;
+
+	>.upper-cont {
+		fill-width: true;
+		content-align: middle middle;
+		layout: vertical;
+		padding-top: 32;
+		padding-bottom: 30;
+		spacing: 10;
+		background: vgrid("UI/HUD/infoDialogBg.png", 2) 12 12;
+
+		>.title {
+			.regular-17;
+			.uppercase;
+			color: @color-ui-text-light;
+		}
+
+		>.time-cont {
+			content-valign: middle;
+			spacing: 3;
+			.game-time {
+				.regular-17;
+				color: @color-ui-text-light;
+			}
+			>#timer{
+				min-width: 60;
+				>fmt-text{
+					color: @color-text-timer;
+				}
+			}
+		}
+
+		lobby-code-cont {
+			.hide-code-btn {
+				#iconBmp {
+					width: 24;
+				}
+			}
+			.code-cont {
+				content-valign: middle;
+			}
+			.code-title {
+				.regular-15;
+			}
+			.code-text {
+				.regular-17;
+			}
+		}
+
+		#debugBtn {
+			position: absolute;
+			align: top right;
+			offset-x: -20;
+			offset-y: -15;
+			.decorated-btn;
+		}
+	}
+	>.body-cont {
+		layout: stack;
+		fill-width: true;
+		content-align: middle middle;
+		padding-bottom: 32;
+		background: vgrid("UI/HUD/infoDialogBg.png", 2) 12 12;
+		background-tile-pos-y: 1;
+
+		>.top-arrow-deco {
+			// margin-top: -31;
+			align: top middle;
+			src: "UI/elements/ic_line_graphic_top_bar.png";
+			width: 396;
+		}
+
+		game-parameters {
+			padding-top: 20;
+
+			>.separator{
+				visible:false;
+			}
+			.in-game-parameters(300);
+
+			parameter-line {
+				&.difficulty, &.speed, &.victories {
+					margin-top: 20;
+					margin-bottom: 0;
+				}
+
+				&.faststart{
+					margin-top: 15;
+				}
+			}
+			button.disabled {
+				pad-focusable: false;
+			}
+		}
+		.seed-text {
+			align: bottom right;
+			margin-right: 20;
+			margin-bottom: -15;
+			.sans-12;
+
+			// Hidden when not paying attention, visible on screenshots
+			color: #23242c;
+		}
+	}
+	&.editable {
+		width: 500;
+		game-parameters {
+			width: 350;
+			parameter-line {
+				width: 350;
+			}
+		}
+	}
+}
+
+pause-info {
+	@panel-width: 360;
+	background: @panel-bg;
+	align: top right;
+	width: @panel-width;
+	layout: vertical;
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	window-header{
+		.windowHeader;
+		padding: 6;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+		height: 20;
+		.name{
+			.bold-15;
+		}
+		bitmap{
+			height: 20 !important;
+		}
+
+		fill-width: true;
+		close-button{visible: false;}
+	}
+	.pause-info {
+		fill-width: true;
+		content-align: middle middle;
+		background: hgrid("UI/multiplayer/box_timer_in_game.png", @ui-faction-count);
+		padding: 12;
+		#pauserName {
+			align: left;
+			.bold-14;
+			allow-over-rich-ids: false;
+			max-width-text: 250;
+		}
+		.timer {
+			content-align: middle middle;
+			align: right;
+			spacing: 8;
+			>fmt-text{
+				color: @color-warning;
+				.bold-15;
+				min-width: 41;
+			}
+			.chrono{
+				layout: stack;
+				.chrono-bg{
+					src: "UI/elements/ic_full_chrono_border.png";
+					height: 24;
+				}
+
+				#chronoGauge{
+					invert: true;
+					bitmap{
+						src: "UI/elements/circle_64.png";
+						tint: @color-warning;
+						height: 15;
+					}
+					align: bottom middle;
+					margin-bottom: 3;
+				}
+			}
+		}
+	}
+	.pause-action{
+		background: @panel-bg;
+		background-tile-pos-x: 1;
+		background-tile-pos-y: 2;
+		padding: 2;
+		padding-top: -1;
+		layout: vertical;
+		.separator{
+			width: @panel-width - 4;
+			src: "UI/multiplayer/ic_graphic_timer_in_game.png";
+			margin-bottom: -9;
+		}
+		.action{
+			content-align: middle middle;
+			fill-width: true;
+			spacing: 10;
+			padding: 2;
+			#desc{
+				max-width: @panel-width - 120;
+			}
+			#resumeBtn {
+				.decorated-btn;
+				spectator-enabled: true;
+				align: middle right;
+				width: 100;
+				height: 35;
+				fmt-text{
+					color: @color-ui-text;
+				}
+			}
+		}
+	}
+	.tiled-faction(background-tile-pos-x, ~'.pause-info');
+}
+
+pause-indicator {
+	margin-top: 150;
+	width: 445;
+	align: top middle;
+	layout: vertical;
+	content-align: middle middle;
+	.top-deco {
+		background: "UI/HUD/pause_top_arrow.png";
+		width: 213;
+		height: 17;
+		margin-bottom: 7;
+		alpha: 0;
+	}
+	.bottom-deco {
+		margin-top: 12;
+		background: "UI/HUD/pause_bottom_line.png";
+		height: 6;
+		width: 30;
+		alpha: 0;
+	}
+	.message-cont {
+		offset-y: -1;
+		fmt-text {
+			.regular-40;
+			color: @color-ui-text;
+			text-shadow : 0 1 #000 0.6;
+		}
+		alpha: 0;
+	}
+	.bottom-cont {
+		margin-top: 3;
+		alpha: 0;
+
+		>fmt-text {
+			text-align: multiline-center;
+			.bold-14;
+			color: @color-ui-text-light;
+			// text-shadow : 0 1 #000 0.6;
+			alpha: 0.7;
+		}
+	}
+
+	&.paused {
+		.top-deco {
+			transition: alpha 0.5 ease-in;
+			appear-delay: 0.5 0;
+			&.appear {
+				alpha: 1;
+			}
+		}
+		.bottom-deco {
+			transition: width 0.5 linear;
+			transition: alpha 0.5 ease-in;
+			appear-delay: 0.1 0;
+			&.appear {
+				width: 441;
+				alpha: 1;
+			}
+		}
+		.message-cont {
+			transition: alpha 0.5 ease-in;
+			appear-delay: 0.8 0;
+			&.appear {
+				alpha: 1;
+			}
+		}
+		.bottom-cont {
+			transition: alpha 0.5 ease-in;
+			appear-delay: 1.1 0;
+			&.appear {
+				alpha: 1;
+			}
+		}
+	}
+}

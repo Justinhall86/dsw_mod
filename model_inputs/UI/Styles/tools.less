@@ -1,0 +1,73 @@
+.modelViewer {
+	spacing: 2;
+	button {
+		content-halign: left;
+		bitmap {
+			width: 26;
+			height: 26;
+		}
+
+		fmt-text{
+			.bold-13;
+			color: @color-ui-text-light;
+		}
+		background: @panel-bg;
+		background-tile-pos-x : 1;
+		background-tile-pos-y : 2;
+
+		padding: 7;
+		min-width: 100;
+		background-id: true;
+	}
+
+	&.envList {
+		halign: right;
+		layout: vertical;
+		spacing: 2;
+		button {
+			min-width: 200;
+			fmt-text{
+				.bold-14;
+				color: @color-ui-text;
+			}
+			padding: 10;
+			background-tile-pos-x : 2;
+			background-tile-pos-y : 0;
+		}
+	}
+
+	&.selector {
+		max-width: 570;
+		max-height: 1000;
+		overflow: scroll;
+		multiline: true;
+		button {
+			min-width: 180;
+			padding: 1;
+			background-id: true;
+			#background {
+				alpha: 0.8;
+			}
+		}
+		margin-top: 80;
+		vspacing: 3;
+		hspacing: 3;
+	}
+
+	&.animSelector {
+		layout: vertical;
+		margin-right: 1;
+		halign: right;
+		margin-top: 250;
+		spacing: 2;
+		button {
+			min-width: 140;
+		}
+	}
+
+	&.factionSelect {
+		margin-left: 0;
+		margin-top: 30;
+		spacing: 2;
+	}
+}

@@ -1,0 +1,2429 @@
+@import "game.less";
+
+@agent-banner-width: 310;
+@agent-slot-size: 50;
+
+locked-slot {
+	width: @agent-slot-size;
+	height: @agent-slot-size;
+	background: hgrid("UI/spying/agentSlots.png", 5) 10 10;
+	background-tile-pos-x: 1;
+}
+
+locked-slot {
+	width: @agent-slot-size;
+	height: @agent-slot-size;
+	background: hgrid("UI/spying/agentSlots.png", 5) 10 10;
+	background-tile-pos-x: 1;
+}
+
+
+agent-portrait {
+	@size: 40;
+
+	#levelInsignia {
+		src: hgrid("UI/icons/level_icons.png", 4);
+		src-pos-x: 3;
+		height: 20;
+		align: bottom left;
+		margin: -5;
+	}
+	#body {
+		height: @size;
+	}
+	#overlays {
+		layout: stack;
+		>bitmap {
+			height: @size;
+		}
+	}
+	>#container{
+		layout: stack;
+	}
+
+	@icon-pos: 7;
+	@icon-size: 15;
+
+	#topIcon {
+		position: absolute;
+		align: top right;
+		offset-x: @icon-pos;
+		offset-y: -@icon-pos;
+		width: @icon-size;
+		height: @icon-size;
+	}
+
+	#bottomIcon {
+		position: absolute;
+		align: bottom right;
+		offset-x: @icon-pos;
+		offset-y: @icon-pos;
+		width: @icon-size;
+		height: @icon-size;
+	}
+
+	.captured {
+		src: hgrid("UI/icons/agentIcons.png", 3);
+		src-pos-x: 1;
+	}
+	.sietch {
+		src: hgrid("UI/icons/agentIcons.png", 3);
+		src-pos-x: 0;
+	}
+	.sacrificed {
+		src: grid("UI/icons/actionIcons.png", 31, 2);
+		src-pos-x: 13;
+		src-pos-y: 1;
+	}
+	&.brainwashed {
+		#topIcon {
+			src: hgrid("UI/icons/agentIcons.png", 3);
+			src-pos-x: 2;
+		}
+	}
+}
+
+agent-picker {
+	width: @agent-slot-size;
+	height: @agent-slot-size;
+	popup-position: left-align-top;
+	>#btn {
+		fill-width: true;
+		fill-height: true;
+		layout: stack;
+		background: hgrid("UI/spying/agentSlots.png", 5) 10 10;
+		background-tile-pos-x: 2;
+
+		#additionalText {
+			text-shadow : 1 1 #000 1;
+		}
+
+		&.hasNoAgent {
+			background-tile-pos-x: 0;
+		}
+
+		&.disabled {
+			color-adjust: none;
+			fmt-text, text{
+				color-adjust: none;
+			}
+		}
+
+		&.captured {
+			color-adjust: brightness(-0.1) saturate(-0.8);
+			fmt-text, text{
+				color-adjust: none;
+			}
+		}
+	}
+
+	&.sacrifice-slot {
+		#btn {
+			align : right middle;
+			width: 44;
+			height: 44;
+			background-tile-pos-x: 3;
+			agent-portrait {
+				scale: 0.90;
+			}
+		}
+	}
+
+	&.selected {
+		filter: glow(#dbc392, 0.8, 0, 3, 1, true);
+	}
+}
+
+agent-shop {
+	margin-right: 5;
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+	buyable-agent-cont {
+		width: 236;
+		height: 83;
+		padding: 5;
+		spacing: 5;
+		margin: -5 0 -5 -18;
+		content-valign: middle;
+		layout: stack;
+
+		background-type: dynamic;
+		>#background {
+			background: @color-bg-dark-2;
+			image-scale: 0.5;
+			outline: 1 @color-ui-text;
+			smooth-span: 0;
+			outline-alpha: 0.3;
+		}
+		>.bg {
+			background: "UI/spying/shop_background.png";
+			fill-width: true;
+			fill-height: true;
+			margin: -4;
+		}
+		#buyBtn {
+			width: 140;
+			height: 50;
+			align: middle middle;
+			margin-right: 70;
+
+			layout: stack;
+			background: #181920;
+			fmt-text {
+				text-align: multiline-center;
+				allow-over-rich-ids: false;
+			}
+
+			>.overlay {
+				fill-width: true;
+				fill-height: true;
+				background: hgrid("UI/developments/btn_vernius.png", 2) 15 15;
+			}
+
+			&.clickable {
+				&:hover {
+					.overlay {
+						background-tile-pos-x: 1;
+					}
+					color-adjust: none;
+				}
+				&:active {
+					color-adjust: brightness(-0.05);
+				}
+			}
+		}
+		.agent-outline {
+			align: middle right;
+			margin-right: 12;
+			padding: 2;
+
+			background-type: dynamic;
+			>#background {
+				outline: 1.5 @faction-vernius;
+				border-radius: 6.5;
+				smooth-span: 0;
+			}
+		}
+	}
+}
+
+
+choose-agent {
+	background: @panel-bg;
+	position: absolute;
+	content-align : top middle;
+	layout: vertical;
+	spacing: 15;
+	padding: 20;
+
+	width: 300;
+
+	.title {
+		.small-title;
+		color: @color-desert;
+	}
+
+	.noAgent {
+		.italic-14;
+		color: @color-desert;
+	}
+
+	.fAgents {
+		multiline: true;
+		max-width: 500;
+		spacing: 10;
+
+		base-button {
+			.filtered-btn;
+			width: @agent-slot-size;
+			height: @agent-slot-size;
+			padding: 0;
+
+			background: hgrid("UI/spying/agentSlots.png", 5) 10 10;
+			background-tile-pos-x: 2;
+
+			&.disabled {
+				color-adjust: brightness(-0.07) saturate(-0.05);
+				agent-portrait {
+					color-adjust: brightness(-0.05) saturate(-0.8);
+				}
+			}
+		}
+	}
+
+	.fButtons {
+		spacing: 10;
+		button {
+			.decorated-btn;
+			text {
+				color: @color-desert;
+			}
+		}
+	}
+}
+
+category-emblem {
+	layout: horizontal;
+	content-align: middle middle;
+
+	.lvl {
+		color: @color-desert;
+		.bold-14;
+	}
+
+	#percent_value {
+		visible: false;
+	}
+
+	&.bad .lvl { color: @color-bad !important; }
+	&.good .lvl { color: @color-good !important; }
+
+
+	.emblem {
+		src: grid("UI/spying/infiltrationIconsHd.png", 5, 2);
+	}
+	.emblemPos();
+
+	&.small {
+		.emblem {
+			src: hgrid("UI/spying/infiltrationSmallIconsHd.png", 5);
+			scale: 0.5;
+		}
+		&.faction {
+			.emblem {
+				src: hgrid("UI/spying/infiltrationFactionSmallIconsHd.png", @ui-faction-count);
+			}
+		}
+		.emblemPos();
+
+		.lvl {
+			offset-y: 1;
+		}
+	}
+}
+
+.emblemPos() {
+	&.landsraad .emblem { src-pos-x: 3; }
+	&.spaceguild .emblem { src-pos-x: 1; }
+	&.choam .emblem { src-pos-x: 2; }
+	&.field .emblem { src-pos-x: 0; }
+
+	.tiled-faction(src-pos-x, ~'.emblem');
+}
+
+
+infiltration-level {
+	spacing: 5;
+	.levelTitle {
+		.regular-13;
+		color: @color-ui-text-light;
+	}
+	.level {
+		min-width: 15;
+		.bold-13;
+		color: @color-ui-text-light;
+		text-shadow : 1 1 #000 0.7;
+
+		&.level0 {
+			color: @color-ui-text-dark;
+		}
+		&.levelMax {
+			color: @color-good;
+		}
+	}
+}
+
+infiltration {
+	base-gauge {
+		padding: 3;
+		empty-color: #0C0D11;
+		body-width: 100;
+		body-height: 8;
+		background: "UI/HUD/progressBar_bg.png" 4 4;
+
+		#fillBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+			background-tile-pos-x: 1;
+		}
+
+		fmt-text {
+			.regular-11;
+		}
+	}
+}
+
+faction-category {
+	background: hgrid("UI/landsraad/border_resolution_select.png", 2) 5 5;
+	background-alpha: 0.1;
+	padding: 4;
+
+	.fIcon {
+		layout: stack;
+
+		width: 15;
+		height: 15;
+
+		cursor: button;
+		.filtered-btn;
+
+		.factionIcon {
+			src: hgrid("UI/spying/factionsHd.png", @ui-faction-count);
+			scale: 0.5;
+		}
+
+		.infoIcon {
+			src: "UI/spying/infoBTN.png";
+			align: bottom middle;
+			offset-y: -5;
+		}
+	}
+	>.content {
+		layout: vertical;
+		content-align: middle middle;
+		width: 175;
+		height: 80;
+		//spacing: 3;
+		background: "UI/spying/factionBgHd.png";
+
+		.slots {
+			spacing: 4;
+		}
+
+		.fLevel {
+			base-gauge {
+				offset-y: 3;
+			}
+		}
+	}
+	&.selected {
+		filter: glow(#dbc392, 0.8, 0, 3, 1, true);
+		.infoIcon {
+			visible: false;
+		}
+	}
+
+	.tiled-faction(src-pos-x, ~'.factionIcon');
+
+	&.atreides base-gauge {
+		color: @faction-atreides;
+	}
+	&.harkonnen base-gauge {
+		color: @faction-harkonnen;
+	}
+	&.smugglers base-gauge {
+		color: @faction-smugglers !important;
+	}
+	&.fremen base-gauge {
+		color: @faction-fremen;
+	}
+	&.corrino base-gauge {
+		color: @faction-corrino;
+	}
+	&.ecaz base-gauge {
+		color: @faction-ecaz;
+	}
+	&.vernius base-gauge {
+		color: @faction-vernius;
+	}
+	.progress{
+		&.depleting {
+			#barBody{
+				enable-pulse: true;
+				pulse-color: #3f3520;
+				pulse-alpha: 0.6;
+				pulse-frequency: 0.6;
+			}
+		}
+	}
+}
+
+infiltration-category {
+	content-align: middle middle;
+	layout: vertical;
+	@size-w: 300;
+	width: @size-w;
+	padding: 3;
+	pad-focusable: true;
+	click-sfx: @UI_Button_Release;
+	focus-sfx: @UI_Button_Rollover;
+
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-1;
+		border-radius: 4;
+		outline: 1.0 #000;
+	}
+	&.pad{
+		&:hover {
+			>#background {
+				outline: 2.0 @color-gold;
+			}
+		}
+	}
+	&.pc{
+		&:hover {
+			>#background {
+				outline: 0.5 @color-gold;
+			}
+		}
+	}
+
+
+	&.landsraad .fBody {
+		background-tile-pos-y: 2;
+	}
+	&.spaceguild .fBody {
+		background-tile-pos-y: 0;
+	}
+	&.choam .fBody {
+		background-tile-pos-y: 1;
+	}
+	&.field .fBody {
+		background-tile-pos-y: 3;
+	}
+	&.field{
+		pad-default-focus: true;
+	}
+	.infiltrationIcon {
+		scale: 0.5;
+	}
+	>.fInfo {
+		content-align: left middle;
+		spacing: 5;
+		fill-width: true;
+		auto-size: 1;
+
+		height: 30;
+		.fName {
+			.infiltrationName {
+				.bold-14;
+				color: @color-ui-text-light;
+			}
+		}
+		>fmt-text {
+			.regular-15;
+		}
+	}
+	.fBody {
+		background: vgrid("UI/spying/infiltrationBackgroundHd.png", 4) 240 1 1 1;
+
+		layout: vertical;
+		content-align: middle middle;
+		fill-width: true;
+		auto-size: 1;
+		spacing: 10;
+		padding: 5;
+	}
+	.progress{
+		body-width: @size-w - 8;
+		body-height: 3;
+		&.depleting {
+			#barBody{
+				enable-pulse: true;
+				pulse-color: #3f3520;
+				pulse-alpha: 0.6;
+				pulse-frequency: 0.6;
+			}
+		}
+	}
+
+	>.slots {
+		align: middle right;
+		spacing: 4;
+	}
+
+	agent-picker {
+		base-button {
+			pad-focusable: false;
+		}
+		base-button {
+			// this is in a separate block as pad-focusable to waork around a domkit bug
+			// that would spam both pad-focusable: false and true
+			recursive-propagate: true;
+		}
+	}
+	&.inspect-focus.is-active-layer {
+		bind-layer-cursor: snap;
+		agent-picker {
+			&.index-0 base-button{
+				pad-default-focus: true;
+			}
+			base-button {
+				pad-focusable: true;
+				&.disabled {
+					pad-focusable: false;
+				}
+			}
+		}
+	}
+}
+
+spying {
+	@color-title: @color-desert;
+	@color-1: @color-window-title;
+	@color-2: @color-old-gold;
+	@win-width-pc: 1600;
+	@win-width-pad: 1920;
+	@win-height-pc: 695;
+	@win-width-no-faction: 1600;
+
+	@win-header-height: 30;
+	@content-top-height: 87;
+
+	layout: stack;
+	content-align: top middle;
+	margin-top: @pad-window-margin-top;
+	margin-bottom: @pad-window-margin-top - 4;
+	&.pad{
+		fill-width: true;
+		fill-height: true;
+		.winContent {
+			fill-width: true;
+			fill-height: true;
+			>.separator{
+				width: @win-width-pad;
+			}
+			.infiltration-body {
+				width: 690;
+				spacing: 20;
+			}
+			.spyingBottom .otherSlots .fMissions {
+				margin-bottom: 160;
+				.fMissionHeader{
+					width: 860;
+				}
+				.fMissionsSelector{
+					hspacing:100;
+					padding-left: 100;
+				}
+			}
+			.topContent .spyingTop .topLeft {
+				width: 600;
+				.agentInfos {
+					.nbAgents fmt-text {
+						.regular-20;
+					}
+					next-agent-timer {
+						fmt-text {
+							.regular-20;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.pc{
+		width: @win-width-pc;
+		height: @win-height-pc;
+		align: top left;
+		margin-left: 10;
+		// margin-right: 310;
+		.winContent {
+			height: @win-height-pc - @win-header-height;
+			>.separator{
+				width: @win-width-pc;
+			}
+			.infiltration-body {
+				width: 690;
+				spacing: 20;
+			}
+			.spyingBottom .otherSlots .fMissions {
+				margin-bottom: 115;
+				.fMissionHeader{
+					width: 830;
+				}
+				.fMissionsSelector{
+					hspacing:50;
+				}
+			}
+
+			.spyingBottom .factionsContainer {
+				faction-informations{
+					.fAllCats {
+						spacing: 10;
+					}
+				}
+			}
+			.topContent .spyingTop .topLeft {
+				width: 400;
+				.agentInfos{
+					.nbAgents fmt-text {
+						.regular-17;
+					}
+					next-agent-timer {
+						fmt-text {
+							.regular-17;
+						}
+					}
+				}
+
+			}
+		}
+	}
+
+	bind-layer-cursor: snap;
+	&.tab-information {
+		pad-focus-mode: grid;
+	}
+
+	window-header {
+		.windowHeader;
+		height: @win-header-height;
+		fill-width: true;
+		auto-size: 1;
+		margin: 2;
+	}
+
+	.agentDrag {
+		position: absolute;
+		background: hgrid("UI/spying/agentSlots.png", 5) 10 10;
+		background-tile-pos-x: 2;
+		padding: 5;
+	}
+
+	.winContent {
+		layout: vertical;
+		content-align: top middle;
+
+		.topContent {
+			layout: vertical;
+			background: @panel-bg;
+			background-tile-pos-x: 2;
+		}
+
+		.spyingTop {
+			height: @content-top-height;
+			spacing: 20;
+			padding-left: 20;
+			fill-width: true;
+			content-valign: middle;
+
+			@top-title-spacing: 8;
+
+			background-type: dynamic;
+			>#background {
+				outline: 1 #524A3C;
+				smooth-span: 0;
+				outline-offset: 2;
+			}
+
+			>.top-buttons {
+				halign: middle;
+				.menu-tabs();
+				spacing: 34;
+				margin-top: 20;
+				margin-bottom: 2;
+				.btn-cont button{
+					pad-focusable: false;
+					spectator-enabled: true;
+				}
+
+
+				.selected-indicator {
+					align: middle middle;
+					src: hgrid("UI/elements/hover_select_hege.png", 2);
+					alpha: 0;
+					transition: alpha 0.2 ease-out;
+				}
+
+				&.selected {
+					>.selected-indicator {
+						src-pos-x: 1;
+						alpha: 1;
+					}
+				}
+				&:hover {
+					.selected-indicator {
+						alpha: 1;
+					}
+				}
+			}
+
+			.topLeft {
+				@agents-padding: 2;
+
+				spacing: @top-title-spacing - @agents-padding;
+				@agents-width: 600;
+				content-align: middle middle;
+				.agentInfos {
+					layout: vertical;
+					align: left middle;
+					spacing: 10;
+					.nbAgents {
+						spacing: 10;
+						fmt-text {
+							color: @color-ui-text-light;
+						}
+						.tNbAgents {
+							color: @color-ui-text-light;
+						}
+					}
+
+					next-agent-timer {
+						spacing: 5;
+						fmt-text {
+							color: @color-ui-text-light;
+						}
+						.agtRecruitTime {
+							color: @color-spying-next-agent;
+							min-width: 48;
+							.not-en &, @{opt-minfont} {
+								min-width: 57;
+							}
+						}
+
+						.fChrono {
+							layout: stack;
+							content-align: middle bottom;
+							offset-y: 3;
+
+							.nextAgentIcon {
+								src: "UI/spying/chronoBorderHd.png";
+								scale: 0.5;
+							}
+							.progress {
+								src: "UI/spying/chronoHd.png";
+								offset-y: -3;
+								invert: true;
+							}
+						}
+					}
+				}
+
+				available-agents {
+					max-width: @agents-width;
+					padding: @agents-padding;
+
+					>#agents {
+						spacing: 7;
+					}
+				}
+			}
+
+			.separator {
+				valign: middle;
+				src: #524A3C;
+				width: 1;
+				height: 83;
+				margin: -2;
+			}
+
+			.closeBtn {
+				.filtered-btn;
+				background: "UI/elements/close.png";
+				width: 20;
+				height: 20;
+				align: top right;
+				position: absolute;
+				offset-x: -2;
+				offset-y: 2;
+			}
+		}
+
+		>.separator {
+			src: "UI/HUD/goldBorder01.png";
+			height: 4;
+			position: absolute;
+			y: @content-top-height + @win-header-height + 4;
+			halign: middle;
+		}
+
+		.spyingBottom {
+			fill-width: true;
+			fill-height: true;
+			padding-top: 0;
+
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-2;
+				border-radius: 0 0 0 0;
+				outline: 4 @color-bg-dark-3;
+			}
+			.factionSlots {
+				valign: top;
+				.factionsContainer{
+					fill-height: true;
+					padding-left: 15;
+					padding-right: 15;
+					margin-bottom: 4;
+					padding-top: 30;
+					padding-bottom: 10;
+					layout: horizontal;
+					spacing: 15;
+					valign: top;
+
+					>fmt-text {
+						.regular-15;
+					}
+				}
+				.vert-separator {
+					fill-height: true;
+					width: 1;
+					background: @color-desert-darken;
+					margin-top: 10;
+					margin-bottom: 10;
+				}
+				.rightCont {
+					content-align: top middle;
+					layout: vertical;
+					fill-width: true;
+					fill-height: true;
+					auto-size: 1;
+					spacing: 20;
+					padding: 20;
+					.separator {
+						fill-width: true;
+						height: 1;
+						background: @color-desert-darken;
+						margin-left: 10;
+						margin-right: 10;
+					}
+					counter-intel-panel {
+						spacing: 8;
+						padding: 5;
+						fill-width: true;
+						auto-size: 1;
+						content-align: middle middle;
+						pad-focusable: true;
+
+						background-type: dynamic;
+						>#background {
+							background: @color-bg-dark-1;
+							border-radius: 4;
+							outline: 1.0 #000;
+						}
+						fmt-text {
+							color: @color-1;
+						}
+						.fTitle {
+							layout: horizontal;
+							spacing: 5;
+
+							.nbCounterintel {
+								color: @color-bad;
+							}
+
+							.infoIcon {
+								offset-y: 1;
+								src: "UI/spying/infoBTN.png";
+								scale: 0.92;
+								margin-bottom: -3;
+							}
+
+							>fmt-text {
+								.regular-15;
+							}
+						}
+
+						.content {
+							spacing: 7;
+						}
+						agent-picker {
+							base-button {
+								pad-focusable: false;
+							}
+						}
+						&.inspect-focus {
+							bind-layer-cursor: snap;
+							agent-picker {
+								&.index-0 base-button{
+									pad-default-focus: true;
+								}
+								base-button {
+									pad-focusable: true;
+								}
+							}
+						}
+					}
+					.informations {
+						fill-width: true;
+						fill-height: true;
+						auto-size-width: 1;
+						auto-size-height: 3;
+						tip-infiltration {
+							valign: top;
+							fill-width: true;
+							auto-size: 1;
+							margin:0;
+							.header, .slot-info, .infil-prod, .unlocks {
+								fmt-text{
+									color: @color-text-title;
+								}
+							}
+							>.body{
+								fill-width: true;
+								auto-size: 1;
+								>.main-content {
+									fill-width: true;
+									auto-size: 1;
+									>flow {
+										fill-width: true;
+										auto-size: 1;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			>.otherSlots {
+				fill-width: true;
+				auto-size: 1;
+				spacing: 10;
+				margin-left: 10;
+				.infiltrationContainer {
+					layout: vertical;
+					valign: top;
+					spacing: 15;
+					margin-top: 15;
+					.header-cont {
+						align: middle middle;
+						content-align: middle middle;
+						spacing: 15;
+						fill-width: true;
+						auto-size: 1;
+						padding-left: 50;
+						padding-right: 50;
+						fmt-text {
+							.bold-20;
+							color: @color-title;
+						}
+						.separator {
+							background: #524A3C;
+							fill-width: true;
+							auto-size: 1;
+							height: 2;
+						}
+					}
+					.infiltration-body {
+						layout: vertical;
+						.infiltration-content{
+							hspacing: 50;
+							vspacing: 10;
+							multiline: true;
+							content-align: middle middle;
+							fill-width: true;
+							auto-size: 1;
+						}
+						.separator {
+							background: #524A3C;
+							fill-width: true;
+							auto-size: 1;
+							margin-left: 100;
+							margin-right: 100;
+							height: 2;
+						}
+						.infiltration-information{
+							content-align: middle middle;
+							fill-width: true;
+							auto-size: 1;
+							padding-left:10;
+							padding-right:10;
+							margin-bottom: -120;
+							tip-infiltration {
+								valign: top;
+								fill-width: true;
+								auto-size: 1;
+								margin:0;
+								.header, .slot-info, .infil-prod {
+									fmt-text{
+										color: @color-text-title;
+									}
+								}
+								>.body{
+									fill-width: true;
+									auto-size: 1;
+									>.main-content {
+										fill-width: true;
+										auto-size: 1;
+										>flow {
+											fill-width: true;
+											auto-size: 1;
+										}
+									}
+								}
+							}
+						}
+					}
+
+
+				}
+				.vert-separator {
+					fill-height: true;
+					width: 2;
+					background: @color-desert-darken;
+					align: top;
+					margin-top: 10;
+					margin-bottom: 10;
+				}
+				.missionsBg {
+					content-align: middle top;
+					padding-top: 16;
+					spacing: 5;
+					fill-width: true;
+					auto-size: 1;
+					overflow: limit;
+					layout: vertical;
+					.header-cont {
+						layout: vertical;
+						fill-width: true;
+						content-align: top middle;
+						spacing: 5;
+						.title-cont {
+							spacing: 15;
+							content-align: middle middle;
+							>fmt-text {
+								.bold-20;
+								color: @color-title;
+							}
+							.separator {
+								background: #524A3C;
+								width: 120;
+								auto-size: 1;
+								height: 2;
+							}
+						}
+					}
+					.fOperations {
+						halign: middle;
+						content-align: middle middle;
+						padding-top: 5;
+						padding-right: 45;
+						spacing: 12;
+
+						>fmt-text {
+							color: @color-1;
+							.bold-14;
+						}
+
+						operations {
+							spacing: 5;
+						}
+					}
+
+					.fMissions {
+						layout: vertical;
+						content-align: top middle;
+						background: "UI/spying/missionSelectorBg2.png" 5 5;
+						padding: 3;
+						fill-height: true;
+						fill-width: true;
+						margin-left: 15;
+						margin-right: 25;
+
+					}
+
+					.fMissionHeader {
+						content-align: middle middle;
+						height: 40;
+						spacing: 5;
+						>fmt-text {
+							color: @color-1;
+							.bold-14;
+							text-transform: uppercase;
+						}
+						#availableFilter{
+							.decorated-btn;
+							position: absolute;
+							padding: 6;
+							align: middle right;
+							margin-right: 2;
+							bitmap{
+								height: 24;
+							}
+						}
+					}
+
+					.fMissionsSelector {
+						background: "UI/spying/missionSelectorBg.png" 5 5;
+						padding-top: 2;
+						content-align: top;
+						&.available-only{
+							.locked, .cantStart { visible: false; }
+						}
+
+						overflow: scroll;
+						.scrollbar {
+							align: top right;
+							position: absolute;
+						}
+					}
+				}
+			}
+
+
+			missions-selector {
+				multiline: true;
+				fill-height: true;
+				fill-width: true;
+				padding-left: 2;
+				padding-bottom: 12;
+				padding-top: 12;
+
+				mission-panel {
+					@margin-left: 5;
+					@margin-right: 10;
+					@mission-width: 415 - @margin-left - @margin-right;
+					@mission-hpadding: 10;
+					@content-spacing: 10;
+
+					layout: vertical;
+					content-align: left top;
+					background: grid("UI/spying/missionBg.png", 2, 4) 10 22 210 7;
+					//padding-top: 3;
+					//padding-bottom: 3;
+					padding-left: 10;
+					padding-right: 10;
+					margin-left: @margin-left;
+					margin-right: @margin-right;
+					margin-top: 10;
+					spacing: 10;
+					width: @mission-width - 2 * @mission-hpadding - @content-spacing;
+					height: 80;
+					focus-sfx: @UI_Button_Rollover;
+
+					pad-focusable: true;
+					tip-position:  left;
+
+					&:hover {
+						background-tile-pos-x: 1;
+
+						.missionIcon {
+							color-adjust: brightness(0.2);
+						}
+					}
+
+					background-tile-pos-y: 3;
+					&.VeryEasy {
+						background-tile-pos-y: 0;
+					}
+					&.Easy {
+						background-tile-pos-y: 1;
+					}
+					&.Medium {
+						background-tile-pos-y: 2;
+					}
+
+					.fName {
+						width: @mission-width - 2 * @mission-hpadding;
+						spacing: 7;
+						height: 20;
+						content-align: left middle;
+
+						.missionName {
+							.bold-14;
+							offset-y: 1;
+						}
+						.fDifficulty {
+							spacing: 5;
+							halign: right;
+							content-align: middle middle;
+							offset-y: 1;
+							propagate-over-out: true;
+						}
+						.difficultyInfo {
+							background: "UI/spying/infoBTN.png";
+							width: 18;
+							height: 18;
+							//offset-y: 1;
+						}
+						.difficulty {
+							.italic-15;
+						}
+						.lockedIcon {
+							src: vgrid("UI/spying/levelLock.png", 2);
+							width: 11;
+							height: 13;
+							offset-y: 1;
+						}
+						.factionIcon {
+							scale: 0.7;
+							//offset-y: 1;
+							margin-bottom: -10;
+							margin-top: -2;
+							.faction-banner-small();
+						}
+						.factionUnlockIcon {
+							halign: right;
+							margin-bottom: -4;
+							width: 24;
+							height: 24;
+							src: hgrid("UI/Faction/factionButtonsmall.png", 15);
+							&.faction-atreides { src-pos-x: 0; }
+							&.faction-harkonnen { src-pos-x: 1; }
+							&.faction-smugglers { src-pos-x: 3; }
+							&.faction-fremen { src-pos-x: 2; }
+							&.faction-corrino { src-pos-x: 4; }
+							&.faction-ecaz { src-pos-x: 13; }
+							&.faction-vernius { src-pos-x: 14; }
+						}
+						.hostileIconContainer {
+							halign: right;
+							.hostileIcon {
+								margin-bottom: -4;
+								width: 24;
+								height: 24;
+							}
+						}
+					}
+
+					.content {
+						layout: horizontal;
+						content-align: left middle;
+						spacing: @content-spacing;
+						width: @mission-width - 2 * @mission-hpadding;
+
+						counter {
+							bitmap {
+								scale: 0.75;
+							}
+							text {
+								.bold-13 !important;
+							}
+						}
+
+						>.fLeft {
+							content-align: left middle;
+							background: hgrid("UI/spying/missionIconBg.png", 3);
+						}
+
+						>.fRight {
+							layout: vertical;
+							content-align: left middle;
+							//padding-top: 4;
+
+							>.fBelow {
+								min-height: 25;
+								content-align: left middle;
+								margin-right: 30;
+
+								base-gauge {
+									padding: 2;
+									padding-top: 4;
+									empty-color: #0C0D11;
+									body-width: 90;
+									body-height: 5;
+
+									#fillBar {
+										background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+										background-tile-pos-x: 1;
+									}
+								}
+							}
+						}
+
+						.fProgress {
+							spacing: 5;
+						}
+
+						.fNeededLevels {
+							spacing: 5;
+							padding-top: -4;
+							padding-left: 4;
+							content-align: middle middle;
+							>fmt-text {
+								.regular-14;
+							}
+							category-emblem {
+								fmt-text {
+									.bold-15;
+								}
+							}
+						}
+
+						.sacrificeSlot {
+							align : right middle;
+							width: 44;
+							height: 44;
+							background-tile-pos-x: 3;
+							agent-portrait {
+								scale: 0.90;
+							}
+							.sacrificeCounter{
+								position:absolute;
+								align : bottom middle;
+							}
+						}
+					}
+
+					mission-carac {
+						align: right middle;
+						padding-left: 10;
+						offset-y: -1;
+
+						&.debug {
+							text {
+								color: @color-bad;
+							}
+						}
+					}
+
+					.missionIcon {
+						valign: middle;
+						width: 40;
+						height: 40;
+						//margin-top: 5;
+					}
+
+
+
+					.btn {
+						width: 44;
+						height: 44;
+						align: right;
+						propagate-over-out: true;
+
+						background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+						icon: grid("UI/spying/startButton.png", 2, 2);
+						pad-focusable: false;
+
+						&.cancelBtn {
+							#iconBmp {
+								src-pos-x: 1;
+							}
+						}
+
+						&.disabled {
+							color-adjust: none;
+						}
+
+						&.startBtn {
+							click-sfx: @UI_Spyoperation;
+						}
+					}
+
+					.hastenBtn {
+						width : 44;
+						height: 44;
+						align: right;
+						propagate-over-out: true;
+
+						background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+						icon: grid("UI/icons/actionIcons.png", 16, 2);
+						#iconBmp {
+							src-pos-x: 9;
+							src-pos-y: 1;
+						}
+					}
+
+					text {
+						color: @color-title;
+						.regular-14;
+					}
+					.fCost {
+						spacing: 8;
+					}
+					#cost {
+						fmt-text {
+							.bold-15 !important;
+						}
+					}
+
+					.completeIcon {
+						visible: false;
+						src: "cdb:icon.Yes.gfx";
+						scale: 0.5;
+						margin-top: -5;
+					}
+
+					.progressTime {
+						padding: 3;
+						empty-color: #0C0D11;
+						body-width: 190;
+						body-height: 8;
+						background: "UI/HUD/progressBar_bg.png" 4 4;
+
+						#fillBar {
+							background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+							background-tile-pos-x: 1;
+						}
+					}
+
+					&:focus {
+						&.canBeStarted {
+							.startBtn{
+								pad-click: @input-menu-leftclick;
+							}
+						}
+						&.started {
+							.cancelBtn{
+								pad-click: @input-menu-leftclick;
+							}
+						}
+					}
+
+					&.cantStart {
+						text {
+							alpha: 0.6;
+						}
+						.startBtn {
+							visible: true;
+						}
+						.cancelBtn {
+							visible: false;
+						}
+						.hastenMissionBtn {
+							visible: false;
+						}
+						.progressTime {
+							visible: false;
+						}
+						.lockedIcon {
+							visible: false;
+						}
+						.difficultyInfo {
+							alpha: 0.6;
+						}
+
+						.content {
+							>.fLeft {
+								background-tile-pos-x: 1;
+							}
+						}
+
+						.btn {
+							color-adjust: saturate(-0.8);
+							alpha: 0.5;
+						}
+						.missionIcon {
+							alpha: 0.5;
+						}
+					}
+
+					&.locked {
+						text {
+							alpha: 0.6;
+						}
+						.cancelBtn {
+							visible: false;
+						}
+						.startBtn {
+							visible: false;
+						}
+						.hastenMissionBtn {
+							visible: false;
+						}
+						.progressTime {
+							visible: false;
+						}
+						&.noAgent .sacrificeSlot {
+							visible: false;
+						}
+						.difficultyInfo {
+							alpha: 0.6;
+						}
+
+						.content {
+							>.fLeft {
+								background-tile-pos-x: 2;
+							}
+						}
+
+						.missionIcon {
+							src-pos-y: 2;
+						}
+					}
+
+					&.canBeStarted {
+						.lockedIcon {
+							visible: false;
+						}
+						.startBtn {
+							visible: true;
+						}
+						.cancelBtn {
+							visible: false;
+						}
+						.hastenMissionBtn {
+							visible: false;
+						}
+						.progressTime {
+							visible: false;
+						}
+
+					}
+
+					&.started {
+						.lockedIcon {
+							visible: false;
+						}
+						.startBtn {
+							visible: false;
+						}
+						.cancelBtn {
+							visible: true;
+						}
+						.hastenMissionBtn {
+							visible: true;
+						}
+						.progressTime {
+							visible: true;
+						}
+						.fNeededLevels {
+							visible: false;
+						}
+						&.noAgent .sacrificeSlot {
+							visible: false;
+						}
+						.fCost {
+							visible: false;
+						}
+					}
+
+					&.complete {
+						.startBtn {
+							visible: false;
+						}
+						.cancelBtn {
+							visible: false;
+						}
+						.hastenMissionBtn {
+							visible: false;
+						}
+						.progressTime {
+							visible: true;
+						}
+						.lockedIcon {
+							visible: false;
+						}
+						.fNeededLevels {
+							visible: false;
+						}
+						&.noAgent .sacrificeSlot {
+							visible: false;
+						}
+						.completeIcon {
+							visible: true;
+						}
+						base-gauge {
+							color: #34a636;
+						}
+						.fCost {
+							visible: false;
+						}
+					}
+
+					&.complications {
+						cursor: button;
+						.progressTime {
+							color: @color-progressbar-missioncomplications;
+						}
+					}
+				}
+			}
+		}
+		.weightDebugBtn {
+			.decorated-bad-btn;
+			position: absolute;
+			align: left bottom;
+			offset-y: -10;
+		}
+		.debugAIWeightText {
+			color: @color-text-bad !important;
+		}
+	}
+
+
+	.spyingFooter {
+		layout: vertical;
+		padding: 10;
+		fill-width: true;
+		@info-width: 850;
+		spacing: 5;
+		background: #23262D;
+
+		.fTitle {
+			content-align: left middle;
+			fill-width: true;
+			//width: @info-width;
+			spacing: 5;
+		}
+
+		.infoTitle {
+			.small-title;
+			color: @color-desert;
+		}
+
+		.factionTitle {
+			halign: right;
+			.bold-14;
+			color: @color-desert;
+		}
+
+		.fInfos {
+			spacing: 10;
+		}
+
+		faction-selector {
+			halign: right;
+			spacing: 2;
+			scale: 0.7;
+			faction-button {
+				style: 1;
+			}
+		}
+
+		.factionInfos {
+
+
+		}
+	}
+
+	&.factionNumber-0 {
+		width: @win-width-no-faction;
+		.winContent {
+			>.separator {
+				width: @win-width-no-faction - 4;
+			}
+			.spyingBottom {
+				.factionSlots {
+					padding-left: 352;
+				}
+			}
+		}
+	}
+}
+
+faction-informations {
+	layout: vertical;
+	content-align: top middle;
+	spacing: 10;
+	pad-focusable: true;
+	pad-cursor-icon: @icon-padbottomcursor;
+	fill-height: true;
+	@size-w: 350;
+
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-1;
+		border-radius: 4;
+		outline: 0.5 #000000;
+	}
+	&.selected {
+		>#background {
+			outline: 1.0 @color-gold;
+		}
+	}
+	.header-information {
+		background-type: dynamic;
+
+		width: @size-w - 2;
+		margin-top: 60;
+		margin-left: 2;
+		margin-right: 2;
+		>#background {
+			background: @color-hud-bg;
+			border-radius: 0 0 0 0;
+			outline: 0.5 #000000;
+		}
+		.header-content{
+			layout: vertical;
+			fill-width: true;
+			content-align: top middle;
+			spacing: 10;
+			padding-top: 5;
+			infiltration-level {
+				fmt-text {
+					.bold-17;
+				}
+			}
+			infiltration-slots {
+				base-button {
+					pad-focusable: false;
+				}
+			}
+			.progress{
+				body-width: @size-w - 4;
+				body-height: 6;
+				&.depleting {
+					#barBody{
+						enable-pulse: true;
+						pulse-color: #3f3520;
+						pulse-alpha: 0.6;
+						pulse-frequency: 0.6;
+					}
+				}
+			}
+		}
+	}
+
+	.factionIcon {
+		align: top middle;
+		position: absolute;
+		offset-y: -70;
+		scale: 0.5;
+	}
+
+	.fAllCats {
+		layout: vertical;
+		halign: left;
+		spacing: 25;
+
+		fill-width: true;
+		auto-size: 1;
+
+		.top-body {
+			fill-width: true;
+			spacing: 5;
+			margin-left: 10;
+			layout: vertical;
+			content-align: middle middle;
+			.catTitle {
+				.bold-17;
+				color: @color-text-title;
+			}
+			.separator {
+				background: #524A3C;
+				fill-width: true;
+				auto-size: 1;
+				margin-right: 50;
+				margin-left: 50;
+				height: 2;
+			}
+		}
+	}
+
+	.fCat {
+		layout: vertical;
+		align: top left;
+		padding: 10;
+		padding-top: 8;
+		spacing: 10;
+		fill-width: true;
+		auto-size: 1;
+		.fCatHeader {
+			content-align: left middle;
+			.separator {
+				background: @color-desert-darken;
+				fill-width: true;
+				auto-size: 1;
+				margin-right: 10;
+				margin-left: 10;
+				margin-top: 2;
+				height: 1;
+			}
+		}
+		.catTitle {
+			.bold-17;
+			color: @color-ui-text-light;
+		}
+	}
+
+	.menu-emblem-Faction(~'.factionIcon');
+
+	.fInfoList {
+		hspacing: 10;
+		vspacing: 5;
+		padding-left: 5;
+		align: top left;
+		content-align: left middle;
+		multiline: true;
+
+		min-height: 35;
+		width: 330;
+
+		fmt-text {
+			color: @color-ui-text-light;
+		}
+	}
+
+	.fRes {
+		multiline: true;
+		content-align: top left;
+		hspacing: 0;
+		vspacing: 14;
+		padding: 0;
+		width: 330;
+		resource-information {
+			min-width: 100;
+		}
+	}
+
+	.fUnits {
+		multiline: true;
+		content-align: top left;
+		hspacing: 5;
+		vspacing: 14;
+		width: 330;
+		min-height: 45;
+		>flow{
+			width: 90;
+		}
+	}
+
+	.fFaction {
+		hspacing: 14;
+		>flow{
+			width: 40;
+		}
+		councilor-information{
+			spacing: 5;
+			content-align: middle middle;
+			width: 77;
+			multiline: true;
+			>element{
+				background: @comp-round-bg;
+				padding: 2;
+			}
+			bitmap{
+				width: 32;
+			}
+		}
+	}
+
+	.fTerritory {
+		hspacing: 14;
+		>flow{
+			width: 55;
+		}
+	}
+
+	counter, resource-counter, .ingameIcon, information-counter, resource-information {
+		content-align: left middle;
+		spacing: 3;
+		bitmap {
+			height: 24;
+		}
+		>.counter-text {
+			#tf {
+				.bold-16;
+			}
+			#tFlow {
+				.bold-16;
+			}
+		}
+	}
+
+	flowing-resource {
+		min-width: 95;
+	}
+
+	&.inspect-focus {
+		bind-layer-cursor: snap;
+		.header-information infiltration-slots {
+			base-button {
+				pad-focusable: true;
+			}
+		}
+		resource-information, information-counter {
+			pad-focusable: true;
+		}
+		.fAllCats .fCat #fFaction councilor-information {
+			>element {
+				pad-focusable: true;
+
+			}
+		}
+	}
+}
+
+resource-information {
+	hspacing : 1;
+	content-align: left middle;
+
+	.counter-text {
+		#tFlow {
+			margin-left: 2;
+			margin-bottom: 1;
+			.bold-12;
+			color: @color-good;
+			&.negative-flow{
+				color: @color-bad;
+			}
+		}
+	}
+
+	&.stocks-negative {
+		#tf {
+			color: @color-bad;
+		}
+	}
+	&.stocks-full {
+		#tf {
+			color: @color-warning;
+		}
+	}
+}
+
+info-agent-assignments {
+	content-align: top left;
+	layout: vertical;
+	spacing: 6;
+	.player-infil{
+		hspacing: 8;
+		.assignment{
+			background-alpha: 0.5;
+		}
+	}
+	.all-infil {
+		multiline: true;
+		hspacing: 8;
+		vspacing: 3;
+	}
+	.assignment{
+		background: @panel-bg;
+		background-alpha: 0.2;
+		background-tile-pos-x: 2;
+		padding: 2;
+		width: 50;
+		spacing: 5;
+		content-align: left middle;
+		.assign-icon{
+			background: @comp-round-bg;
+			bitmap{
+				height: 28;
+			}
+		}
+		fmt-text{
+			.bold-15;
+			min-width: 10;
+		}
+	}
+}
+
+info-military-units {
+	content-align: top left;
+	multiline: true;
+	hspacing: 6;
+	vspacing: 3;
+	.unit{
+		background: @panel-bg;
+		background-alpha: 0.5;
+		background-tile-pos-x: 2;
+		padding: 2;
+		width: 60;
+		spacing: 2;
+		content-align: middle middle;
+		bitmap{
+			height: 32;
+			align: middle left;
+		}
+		fmt-text{
+			.bold-15;
+			min-width: 5;
+		}
+	}
+}
+
+info-operations, info-special-regions {
+	content-align: top left;
+	layout: vertical;
+	padding: 5;
+	spacing: 10;
+	fmt-text{
+		.bold-13;
+	}
+}
+
+info-sietches {
+	content-align: top left;
+	layout: vertical;
+	spacing: 8;
+	.sietch{
+		spacing: 3;
+		content-align: middle middle;
+		bitmap{
+			height: 20;
+		}
+		fmt-text{
+			.bold-13;
+		}
+	}
+}
+
+info-developments {
+	content-align: top left;
+	multiline: true;
+	spacing: 8;
+	.domain{
+		background: @panel-bg;
+		background-alpha: 0.2;
+		background-tile-pos-x: 2;
+		padding: 2;
+		spacing: 2;
+		width: 60;
+		content-align: middle middle;
+		.icon{
+			align: middle left;
+			background: @comp-round-bg;
+			bitmap{
+				height: 28;
+			}
+		}
+		fmt-text{
+			.bold-15;
+		}
+	}
+}
+
+mission-operation {
+	@mission-width: 40;
+	@mission-height: 40;
+	@progress-height: 5;
+	@spacing: 1;
+
+	padding: 0;
+	spacing: @spacing;
+
+	layout: vertical;
+	content-align : top middle;
+
+	height: @mission-height + @progress-height + @spacing;
+	.bg {
+		content-align: middle middle;
+		background: hgrid("UI/spying/operationSlots.png", 2) 5 5;
+		width: @mission-width;
+		height: @mission-height;
+	}
+
+	&.hover-effect {
+		enable-pulse: true;
+		pulse-color: #ffffff;
+		pulse-alpha: 0.05;
+		pulse-frequency: 0.3;
+		&:hover {
+			color-adjust: brightness(0.05);
+		}
+		&:active {
+			color-adjust: brightness(-0.05);
+		}
+	}
+
+	&.locked {
+		.bg {
+			background-tile-pos-x: 1;
+		}
+	}
+
+	.delete {
+		position: absolute;
+		scale: 0.4;
+		x: 29;
+		y: 2;
+		propagate-over-out: true;
+	}
+
+	.progress {
+		body-width: @mission-width - 4;
+		body-height: 5;
+	}
+
+	.progressTime {
+		empty-color: #0C0D11;
+		color: @color-progressbarincomplete;
+		background: "UI/HUD/progressBar_bg.png" 4 4;
+
+		#fillBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+			background-tile-pos-x: 1;
+		}
+	}
+
+	.factionIcon {
+		position: absolute;
+		scale: 0.4;
+		y: 22;
+	}
+
+	ability-button {
+		background: vgrid("UI/buttons/buttons03.png", 2) 12 12;
+		padding: 0;
+		width: @mission-width;
+		height: @mission-height;
+		propagate-over-out: true;
+		pad-action: @padaction-usespyingoperation;
+	}
+}
+
+
+mission-carac {
+	content-align: middle middle;
+	layout: vertical;
+
+	min-width: 30;
+
+	fmt-text {
+		color: @color-desert;
+		.bold-13 !important;
+	}
+}
+
+
+complication-choice {
+	@panel-width: 380;
+	.decorated-btn;
+	layout: vertical;
+	spacing: 5;
+	padding: 10;
+	padding-bottom: 20;
+	width: @panel-width;
+	height: 70;
+	content-align: top middle;
+	>.header{
+		layout: vertical;
+		margin: -5;
+		#thumbnail{
+			width: @panel-width;
+		}
+		>.header-bar{
+			margin-top: -1;
+			src: "UI/HUD/goldBorder01.png";
+			width: @panel-width;
+			height: 4;
+		}
+		padding-bottom: 10;
+	}
+
+	fmt-text {
+		.regular-14;
+		//text-align: multilinecenter;
+		color: @color-ui-text-light;
+	}
+
+	.fTitle {
+		fmt-text {
+			.bold-15;
+			color: @color-ui-text;
+		}
+	}
+
+	.fCost {
+		content-align: middle middle;
+		resource-counter {
+			fmt-text {
+				offset-y: 2;
+			}
+		}
+	}
+
+	.fInvestment {
+		layout: vertical;
+		spacing: 5;
+		padding-bottom: 15;
+		resource-cost {
+			#tf {
+				offset-y: 1;
+			}
+		}
+	}
+
+	.fEffect {
+		layout: vertical;
+		spacing: 12;
+	}
+}
+
+complications {
+	layout: vertical;
+	width: 1250;
+	offset-y: 100;
+	align: top middle;
+	content-align: middle middle;
+	background: @panel-bg;
+	spacing: 10;
+
+	>window-header{
+		.windowHeader;
+		fill-width: true;
+	}
+
+	.title {
+		.window-title;
+		color: @color-ui-text;
+	}
+
+	.fMissionName {
+		spacing: 5;
+	}
+
+	.missionName {
+		color: @color-ui-text;
+		.bold-17;
+	}
+
+	.factionIcon {
+		scale: 0.4;
+		offset-y: 6;
+		&.atreides { src:"cdb:faction.Atreides.gfx"; }
+		&.harkonnen { src:"cdb:faction.Harkonnen.gfx"; }
+		&.fremen { src:"cdb:faction.Fremen.gfx"; }
+		&.smugglers { src:"cdb:faction.Smugglers.gfx"; }
+		&.corrino { src:"cdb:faction.Corrino.gfx"; }
+		&.ecaz { src:"cdb:faction.Ecaz.gfx"; }
+		&.vernius { src:"cdb:faction.Vernius.gfx"; }
+	}
+
+	.desc {
+		color: @color-ui-text-light;
+		margin-top: 5;
+	}
+
+	.choices {
+		spacing: 20;
+		padding: 20;
+	}
+
+	.remainingTime {
+		empty-color: #0C0D11;
+		color: @color-time;
+		body-width: 150;
+		body-height: 10;
+		padding: 3;
+		background: "UI/HUD/progressBar_bg.png" 4 4;
+
+		#fillBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+			background-tile-pos-x: 1;
+		}
+	}
+}
+
+operation-shortcut {
+    background: @panel-bg;
+	padding: 12;
+	spacing: 1;
+	align: top right;
+	layout: vertical;
+	margin-right: 291;
+	margin-top: 136;
+	width: 134;
+	start-sfx: @Button_Spyingmenu_Littlebar_Open;
+	close-sfx: @Button_Spyingmenu_Littlebar_Close;
+	bind-layer-cursor: snap;
+
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+	button {
+		.square-btn;
+		layout: horizontal;
+		width: 110;
+		height: 50;
+
+		click-sfx: @UI_Spyoperation;
+
+		counter {
+			bitmap {
+				scale: 0.75;
+			}
+			text {
+				.bold-13 !important;
+			}
+		}
+
+		#leftCont {
+			margin-left: 5;
+			background: hgrid("UI/HUD/roundedBG03.png", 2) 5 5;
+			background-tile-pos-x: 0;
+
+			align: left;
+			#iconBmp {
+				height: 40;
+			}
+		}
+		#rightCont {
+			visible: true !important;
+			layout: horizontal;
+			spacing: 2;
+			margin-right: 8;
+
+			>.fRight {
+				align: middle middle;
+				width: 50;
+				layout: vertical;
+				spacing: -6;
+				// fmt-text {
+				// 	color: @color-ui-text;
+				// }
+			}
+			#agtBtn {
+				align : right middle;
+				width: 40;
+				height: 40;
+				background: hgrid("UI/spying/agentSlots.png", 5) 10 10;
+				background-tile-pos-x: 3;
+				agent-portrait {
+					scale: 0.90;
+				}
+			}
+		}
+	}
+
+	agent-picker {
+		popup-position: top-align-left;
+	}
+}
+
+missions-debug {
+	layout: vertical;
+
+	height: 1000;
+	padding: 30;
+	align: middle middle;
+	content-align : top middle;
+	spacing: 15;
+	background: @window-bg;
+
+	>fmt-text {
+		.big-title;
+		halign: middle;
+	}
+
+	faction-selector {
+		visible: false;
+	}
+
+	.cat {
+		layout: horizontal;
+		hspacing: 30;
+		vspacing: 30;
+		overflow: scroll;
+		multiline: true;
+		width: 1700;
+		max-height: 900;
+		content-align: top middle;
+
+		>.title {
+			.big-title;
+			color: @color-desert;
+		}
+	}
+
+
+}
+
+mission-debug {
+	layout: vertical;
+	min-width: 300;
+
+	.missionName {
+		.big-title;
+		color: @color-desert;
+	}
+
+	.fCost {
+		content-align: left middle;
+		padding-top: 10;
+	}
+
+	.fTip {
+		layout: vertical;
+		padding-top: 10;
+		spacing: 5;
+		content-valign: top;
+	}
+
+	.fOperation {
+		layout: vertical;
+		padding-top: 10;
+		spacing: 5;
+	}
+
+	tip-mission, tip-ability {
+		max-width: 300;
+
+		background : hgrid("UI/tool_bg.png", 2) 2 2;
+		padding : 5;
+	}
+}

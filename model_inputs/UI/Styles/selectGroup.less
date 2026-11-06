@@ -1,0 +1,95 @@
+@import "game.less";
+
+@portrait-width: 36;
+
+select-group {
+	entity-header{
+		.header-top{
+			fill-width: true;
+			fill-height: true;
+			content-align: top left;
+			padding: 2;
+			padding-top: 5;
+			padding-right: 5;
+			spacing: 5;
+			.owner-emblem {
+				height: 40;
+				margin-left: 3;
+			}
+			.badge {
+				layout: vertical;
+				spacing: 5;
+			}
+			.actions{
+				align: top right;
+				content-align: middle right;
+				//margin-top: -3;
+				spacing: 5;
+
+				#fAbilities {
+					align: middle;
+					hspacing: 5;
+					vspacing: 3;
+				}
+
+			}
+			abilities-displayer{
+				min-height: 40;
+				min-width: 40;
+				margin-top: 5;
+			}
+		}
+	}
+	unit-group {
+		layout: vertical;
+		height: @selection-content-height;
+		width: @unit-display-width;
+		@{opt-minfont} {
+			width: @unit-display-width-minfont;
+		}
+		#list{
+			halign: middle;
+			max-width: (@portrait-width + 5) * 7;
+			spacing: 5;
+			valign: middle;
+			content-align: middle middle;
+			multiline: true;
+		}
+	}
+}
+
+unit-portrait{
+	layout: vertical;
+	vspacing: -1;
+	.portrait{
+		background: none;
+		padding: 0;
+		bitmap {
+			width: @portrait-width;
+			height: @portrait-width;
+		}
+	}
+	.unit-bars{
+		layout: vertical;
+		content-align: top middle;
+		background: @color-hud-bg-dark;
+		spacing: -1;
+		simple-gauge{
+			padding: 1;
+			body-width: @portrait-width - 2;
+			body-height: 2;
+			&#healthBar{
+				body-height: 3;
+				color: @color-health;
+				empty-color: @color-health-lost;
+				#fillBar {
+					background: hgrid("UI/HUD/gaugeBGs.png", 5) 0 2;
+					background-tile-pos-x: 4;
+				}
+				#emptyBar{
+					alpha: 1;
+				}
+			}
+		}
+	}
+}

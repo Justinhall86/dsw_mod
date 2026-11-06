@@ -1,0 +1,213 @@
+@import "game.less";
+
+selection-bar {
+	align: bottom left;
+	content-align: top left;
+	background: rgb(17, 17, 17);
+	spacing: 1;
+	padding: 1;
+	min-height: 280;
+	traits-displayer{
+		margin-top: -64;
+	}
+
+	.title {
+		.bold-24;
+		text-shadow : 0 1 #000 1;
+	}
+	.sub-title {
+		.italic-14;
+	}
+
+	.header-shadow{
+		fill-width: true;
+		auto-size: 1;
+		background: "UI/HUD/structureBody_Gradient.png";
+		background-alpha: 0.25;
+		min-height: 60;
+		margin-bottom: -60;
+	}
+
+	&.has-entity, &.region-only {
+		pad-action: @padaction-inspectselection;
+		spectator-enabled: true;
+	}
+	&.inspect-focus {
+		bind-layer-cursor: snap;
+		trait-preview {
+			pad-focusable: true;
+		}
+		tip-trait {
+			pad-focusable: true;
+			tip-position: right;
+		}
+		banner-button {
+			pad-cursor-icon: @icon-padtopbarcursor;
+		}
+		army-displayer, unit-displayer {
+			entity-header {
+				.header-top {
+					#titleComp {
+						pad-focusable: true;
+						pad-default-focus: true;
+					}
+				}
+			}
+		}
+		unit-group {
+			unit-portrait.index-0 {
+				pad-default-focus: true;
+			}
+		}
+		resource-counter{
+			pad-focusable: true;
+			pad-cursor-icon: @icon-padtopbarcursor;
+		}
+		structure-event, structure-ghost-market {
+			entity-header {
+				pad-default-focus: true;
+			}
+		}
+
+		world-event-action {
+			pad-focusable: true;
+			.btn {
+				pad-click: none;
+				pad-focusable: false;
+			}
+			>#background {
+				outline-alpha: 0.7;
+				transition: outline-alpha @hover-transition;
+			}
+			&:focus {
+				>#background {
+					outline-alpha: 1;
+				}
+				.btn {
+					pad-click: @input-game-leftclick;
+				}
+			}
+		}
+		structure-trait-bar {
+			trait-preview.index-0 {
+				pad-default-focus: true;
+			}
+		}
+		structure-sietch {
+			trait-preview {
+				pad-default-focus: true;
+			}
+		}
+		special-region-icon {
+			pad-focusable: true;
+		}
+		&.region-only {
+			special-region-icon {
+				pad-default-focus: true;
+			}
+		}
+	}
+
+	tip-trait {
+		.title-header {
+			#titleCont{
+				#subTitleText{
+					visible: false;
+				}
+			}
+		}
+	}
+}
+
+entity-selection {
+	layout: vertical;
+	align: top;
+
+	fmt-text, text {
+		color: @color-desert;
+		.regular-14;
+	}
+	#topContainer {
+		content-align: bottom;
+		#traits {
+			multiline: true;
+		}
+	}
+	>#body {
+		spectator-enabled: true;
+		content-align: top;
+		height: @selection-content-height + 2;
+		spacing: 1;
+		>#mainWindow {
+			background: @color-hud-bg;
+			fill-height: true;
+			layout : vertical;
+			content-align: top middle;
+		}
+
+		>#rightContainer {
+			background-id: true;
+			fill-height: true;
+			content-align: top right;
+			background:@color-hud-bg;
+			>#subWindows {
+				>flow{
+					padding: 10;
+					padding-top: 6;
+				}
+			}
+		}
+	}
+
+	.resNetProd {
+		margin-left: 3;
+		.bold-13;
+	}
+}
+
+entity-header {
+	background: vgrid("UI/HUD/factionHeader_noPattern.png", (@ui-faction-count + 1));
+	fill-width: true;
+	auto-size: 1;
+	height: 82;
+
+	.header-top {
+		.badge {
+			margin-top: 5;
+		}
+	}
+	.badge {
+		padding-right: 10;
+	}
+
+	content-align: top left;
+	layout: vertical;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	.header-bg-left{
+		position: absolute;
+		align: top left;
+		src: vgrid("UI/HUD/factionHeaderGradient.png", (@ui-faction-count + 1));
+	}
+	.header-bg-right{
+		position: absolute;
+		align: top right;
+		src: vgrid("UI/HUD/factionHeaderPattern.png", (@ui-faction-count + 1));
+	}
+
+	.tiled-faction(background-tile-pos-y, @offset: 1);
+	.tiled-faction(src-pos-y, ~'.header-bg-left', @offset: 1);
+	.tiled-faction(src-pos-y, ~'.header-bg-right', @offset: 1);
+}
+
+entity-refund-button {
+	.generic-btn;
+	&.refundable {
+		pad-action: @padaction-disbandentity;
+	}
+	&.spectator {
+		visible: false;
+	}
+}

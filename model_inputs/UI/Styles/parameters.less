@@ -1,0 +1,751 @@
+@import "common.less";
+
+
+// Multiple of 2 for line-width please, for the buttons
+.in-game-parameters(@line-width: 300) {
+	width: @line-width;
+
+	>.header {
+		visible: false;
+	}
+	parameter-line {
+		width: @line-width;
+		@button-width: ((@line-width - 12) / 2);
+		spacing: 15;
+
+		>.label {
+			max-width: 150;
+			>fmt-text {
+				.regular-15;
+				text-transform: none;
+			}
+		}
+
+		cycle-select {
+			min-height: 25;
+			.center {
+				min-width: 55;
+				> #label {
+					offset-y: -2;
+				}
+			}
+
+			&.disabled {
+				#prevBtn, #nextBtn {
+					visible: false;
+				}
+			}
+		}
+		>.buttons-cont {
+
+			>button {
+				width: @button-width;
+				color-adjust: gain(@color-bad, 0.15);
+
+				&.selected {
+					color-adjust: brightness(-0.05) gain(@color-good, 0.07);
+				}
+			}
+		}
+		&.difficulty, &.victories, &.faststart {
+			margin-top: 0;
+			margin-bottom: 0;
+			.toggleCont {
+				min-width: 55;
+			}
+		}
+	}
+	>.lines-cont {
+		parameter-line {
+			&.faststart {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+// Multiple of 3 please, for the buttons
+.parameter-dims(@line-width: 501) {
+	width: @line-width;
+	parameter-line, .spectator-param, .conquest-name-param, .midgame-param {
+		width: @line-width;
+		@button-width: ((@line-width - (12 * 2)) / 3);
+		>.buttons-cont {
+			>button {
+				width: @button-width;
+			}
+		}
+		&.ai-specific {
+			width: @button-width;
+		}
+		parameter-ai {
+			width: @button-width;
+		}
+
+		&:focus {
+			>.focus-indicator {
+				width: @line-width;
+			}
+		}
+	}
+}
+
+parameter-line, element.spectator-param, element.conquest-name-param, element.midgame-param {
+	content-valign: middle;
+	content-halign: right;
+	spacing: 15;
+
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+
+	>.label {
+		halign: left;
+		max-width: 270;
+		>fmt-text {
+			.regular-18;
+			text-transform: uppercase;
+			color: @color-param-title;
+		}
+	}
+	cycle-select {
+		halign: right;
+		.center {
+			width: 140;
+			>#label {
+				text-align: multilinecenter;
+				color: @color-ui-text;
+				.regular-16
+			}
+		}
+		#prevBtn, #nextBtn {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		#prevBtn { >bitmap { src-pos-x: 0; } padding-right: 0; margin-right: 0; }
+		#nextBtn { >bitmap { src-pos-x: 1; } padding-left: 0; margin-left: 0; }
+		min-height: 29;
+	}
+	.text-input-container {
+		background-type: dynamic;
+		pad-focusable: false;
+		>#background {
+			background: @color-bg-dark-4;
+			border-radius: 2;
+			outline: 0.5 @color-ui-text;
+		}
+		.inner-cont {
+			padding: 5;
+			height: 26;
+		}
+		fmt-text-input {
+			width: 195;
+			alpha: 0.75;
+			hover-enabled: true;
+			focus-effects-enabled: true;
+			transition: alpha @hover-transition;
+
+			&:hover, &:focus {
+				alpha: 1.1;
+			}
+		}
+	}
+	>.line-sep {
+		background: @color-ui-text;
+		height: 1;
+		fill-width: true;
+		auto-size: 1;
+		halign: middle;
+	}
+
+	>.buttons-cont {
+		spacing: 12;
+		fill-width: true;
+		multiline: true;
+
+		>button {
+			background: "UI/menu/param_button_bg.png" 2 2;
+			color-adjust: none;
+			padding: 16 10 16 10;
+			hspacing: 3;
+			reverse: true;
+			#leftCont {
+				padding: -6;
+				padding-left: 0;
+				padding-right: -10;
+				min-width: 5;
+				min-height: 1;
+			}
+			alpha: 0.5;
+			#iconBmp {
+				width: 18;
+			}
+			fmt-text { .regular-16; }
+			.lock-icon {
+				visible: false;
+				valign: middle;
+				src: "UI/multiplayer/ic_lock.png";
+				margin-top: -4;
+				margin-bottom:-4;
+				>bitmap {
+					width: 12;
+				}
+			}
+
+			#iconBmp {
+				visible: false;
+			}
+			&.selected {
+				filter: none;
+				alpha: 1;
+
+				icon: "cdb:icon.Yes.gfx";
+				#iconBmp {
+					visible: true;
+				}
+				&.disabled {
+					over-icon: default;
+					color-adjust: saturate(0);
+					color-adjust: brightness(-0.05);
+				}
+			}
+			&:hover {
+				color-adjust: brightness(0.08);
+			}
+			&:active {
+				color-adjust: brightness(-0.05);
+			}
+		}
+	}
+
+	>.focus-indicator {
+		position: absolute;
+		visible: false;
+		x: -3;
+		height: 29;
+		width: 100;
+		transition: width @hover-transition;
+		alpha: 0;
+		transition: alpha @hover-transition;
+		background-type: dynamic;
+		>#background {
+			border-radius: 10 0 0 10;
+			outline: 1.5 @color-ui-text;
+			outline-thickness: 1.5 0 1.5 0.5;
+			outline-alpha: 0.8;
+			gradient: linear(-90, fade(@color-gold, 45%), rgba(0,0,0,0));
+		}
+	}
+
+	&.enabled {
+		pad-focusable: true;
+
+		>.buttons-cont >button {
+			#leftCont {
+				visible: true;
+			}
+			&.btn-supremacy {
+				.lock-icon {
+					visible: true;
+				}
+			}
+		}
+	}
+	&.type-multiplechoice {
+		layout: vertical;
+		spacing: 15;
+		>.line-sep {
+			visible: false;
+		}
+	}
+	&.type-ai {
+		>.focus-indicator {
+			height: 42;
+			y: -2;
+		}
+		>.line-sep {
+			visible: false;
+		}
+
+		>.banners {
+			halign: left;
+			spacing: 8;
+			faction-banner {
+				width: 30;
+			}
+		}
+
+		#chooseAiBtn {
+			halign: right;
+			.decorated-btn;
+			padding: 13 25 14 25;
+			background: hgrid("UI/menu/btn_resets.png", 2) 20 20;
+			pad-focusable: false;
+			.border4k;
+			fmt-text {
+				.regular-15;
+				color: @color-ui-text;
+				alpha: 0.7
+			}
+		}
+	}
+	&.type-toggleselect {
+		height: 29;
+		.toggleCont{
+			width: 198;
+			content-align: middle;
+		}
+	}
+	&.ai-specific {
+		>.line-sep, >.label {
+			visible: false;
+		}
+		cycle-select {
+			halign: middle;
+			hspacing: 5;
+			.center {
+				width: 105;
+			}
+			min-height: 35;
+		}
+	}
+	&.mapsize {
+		cycle-select {
+			overflow-cycle: true;
+		}
+	}
+
+	&.hidden {
+		visible: false;
+	}
+
+	&:focus {
+		>.focus-indicator {
+			visible: true;
+			alpha: 1;
+		}
+		&.enabled {
+			cycle-select {
+				#prevBtn {
+					pad-click: @input-menu-cycleselect-prev;
+					pad-press-type: repeat-press;
+				}
+				#nextBtn {
+					pad-click: @input-menu-cycleselect-next;
+					pad-press-type: repeat-press;
+				}
+			}
+
+			.text-input-container {
+				pad-click: @input-menufocustextinput;
+			}
+			#spectatorsToggle, #toggleSelect, #chooseAiBtn, #midgameSpectatorsToggle {
+				pad-click: @input-menu-leftclick;
+			}
+		}
+	}
+}
+
+parameter-ai {
+	layout: vertical;
+	>.faction-btn {
+		.unfiltered-btn;
+
+		fill-width: true;
+		auto-size: 1;
+		icon: hgrid("UI/multiplayer/faction_choice_faction.png", (@ui-faction-count + 1));
+		spacing: 10;
+		content-halign: left;
+
+		margin: 0 5 0 5;
+		padding-left: 14;
+		height: 48;
+		background: hgrid("UI/menu/btn_resets.png", 2) 20 20;
+		.border4k;
+
+		#iconBmp {
+			width: 22;
+		}
+		>#rightCont {
+			>#tf {
+				.regular-16;
+				color: @color-ui-text-light;
+			}
+		}
+		&.clickable {
+			&:hover {
+				color-adjust: brightness(0.08);
+			}
+		}
+		&:active {
+			color-adjust: brightness(-0.05);
+		}
+
+		&.selected {
+			background-tile-pos-x: 1;
+		}
+	}
+	.tiled-faction(src-pos-x, ~'.faction-btn #iconBmp');
+}
+
+game-parameters {
+	layout: vertical;
+	spacing: 12;
+
+	.parameter-dims(@line-width: 501);
+
+	>.header {
+		.title-cont{
+			fill-width: true;
+			content-valign: middle;
+			>fmt-text {
+				.regular-23;
+				.uppercase;
+				color: @color-ui-text;
+			}
+
+			#resetBtn {
+				halign: right;
+				.decorated-btn;
+				padding: 13 25 14 25;
+
+				background: hgrid("UI/menu/btn_resets.png", 2) 20 20;
+				.border4k;
+
+				fmt-text {
+					.regular-15;
+					color: @color-ui-text;
+					alpha: 0.7
+				}
+			}
+		}
+	}
+	>.separator {
+		background: "UI/HUD/spice_report_separator.png";
+		height: 2;
+		width: 496;
+	}
+	>.lines-cont {
+		layout: vertical;
+		parameter-line {
+			&.victories {
+				margin-top: 12;
+				margin-bottom: 4;
+			}
+			&.difficulty {
+				margin-top: 12;
+			}
+			&.aiplayers {
+				margin-top: 8;
+			}
+			&.faststart {
+				margin-top: 10;
+			}
+		}
+	}
+	&.in-menu {
+		parameter-line, .spectator-param {
+			pad-focusable: true;
+		}
+	}
+}
+
+faction-banner {
+	layout: stack;
+
+	.banner {
+		width: 28;
+		src: hgrid("UI/Faction/Menu/decorated_banners.png", (@ui-faction-count + 2));
+	}
+
+	.tiled-faction(src-pos-x, ~'.banner', 1);
+
+	.cross {
+		visible: false;
+		width: 14;
+		align: middle middle;
+		offset-y: -1;
+		src: "UI/icons/cross0.png";
+	}
+
+	&.none .banner {
+		src-pos-x: 0;
+	}
+
+	&.block .cross {
+		visible: true;
+	}
+}
+
+factions-banner-displayer {
+	content-align: middle right;
+	spacing: 15;
+	max-width: 305;
+
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+
+	>.label {
+		halign: left;
+		max-width: 270;
+		>fmt-text {
+			.regular-16;
+			text-transform: uppercase;
+			color: @color-param-title;
+		}
+	}
+	>.line-sep {
+		background: @color-ui-text;
+		height: 1;
+		fill-width: true;
+		auto-size: 1;
+		halign: middle;
+	}
+
+	&#disabled {
+		faction-banner {
+			bitmap#banner { color-adjust: brightness(-0.1) saturate(-0.3); }
+			&.none {
+				bitmap#banner { color-adjust: none; }
+			}
+		}
+	}
+}
+
+@cardSize: 140;
+@innerCardSize: (@cardSize - 2);
+ai-faction-card {
+	width: @cardSize;
+	height: @cardSize;
+	cursor: button;
+	layout: stack;
+	pad-focusable: true;
+
+	click-sfx: @UI_Button_Release;
+	hover-sfx: @UI_Button_Rollover;
+
+	>.box {
+		width: @innerCardSize;
+		height: @innerCardSize;
+		layout: stack;
+		content-align: middle middle;
+		background-type: dynamic;
+		>#background {
+			background: @color-bg-dark-1;
+			border-radius: 8;
+			outline: 1 @color-ui-border-dark;
+		}
+
+		.environment {
+			width: @innerCardSize;
+			height: @innerCardSize;
+			border-radius: 2;
+			margin: 8;
+			alpha: 0;
+			transition: alpha @hover-transition;
+			color-adjust: brightness(-0.2) saturate(-0.5);
+			transition: color-adjust @hover-transition;
+
+			&.Atreides { image: "UI/menu/Atreides/box_background.jpg" fit; }
+			&.Harkonnen { image: "UI/menu/Harkonnen/box_background.jpg" fit; }
+			&.Smugglers { image: "UI/menu/Smugglers/box_background.jpg" fit; }
+			&.Fremen { image: "UI/menu/Fremen/box_background.jpg" fit; }
+			&.Corrino { image: "UI/menu/Corrino/box_background.jpg" fit; }
+			&.Ecaz { image: "UI/menu/Ecaz/box_background.jpg" fit; }
+			&.Vernius { image: "UI/menu/Vernius/box_background.jpg" fit; }
+		}
+
+		.portrait {
+			width: (@innerCardSize - 2);
+			height: (@innerCardSize - 2);
+			border-radius: 8;
+			image-scale: 1.2;
+			image-offset-y: -290;
+			alpha: 1;
+			transition: alpha @hover-transition;
+			color-adjust: brightness(-0.05) saturate(-0.3);
+			transition: color-adjust @hover-transition;
+
+			&.Atreides { image: "UI/menu/Atreides/box_portrait.png" fit; }
+			&.Harkonnen { image: "UI/menu/Harkonnen/box_portrait.png" fit; }
+			&.Smugglers { image: "UI/menu/Smugglers/box_portrait.png" fit; }
+			&.Fremen { image: "UI/menu/Fremen/box_portrait.png" fit; }
+			&.Corrino { image: "UI/menu/Corrino/box_portrait.png" fit; }
+			&.Ecaz { image: "UI/menu/Ecaz/box_portrait.png" fit; }
+			&.Vernius { image: "UI/menu/Vernius/box_portrait.png" fit; }
+		}
+
+		.gradient-bottom {
+			width: @innerCardSize;
+			height: (@innerCardSize * 0.5);
+			valign: bottom;
+			border-radius: 0 0 6 6;
+			gradient: linear(0, @color-hud-bg-dark, rgba(0,0,0,0));
+		}
+
+		.inner-border {
+			width: @innerCardSize;
+			height: @innerCardSize;
+			border-radius: 10;
+			outline: 1 @color-ui-text;
+			outline-offset: 6;
+			outline-alpha: 0.4;
+			transition: outline-alpha @hover-transition;
+		}
+
+		.outer-border {
+			width: (@cardSize);
+			height: (@cardSize);
+			border-radius: 8;
+			outline: 1.5 @color-ui-text;
+			alpha: 0;
+			transition: alpha @hover-transition;
+		}
+	}
+
+	>.titles {
+		layout: vertical;
+		margin-bottom: 16;
+		align: middle bottom;
+		content-halign: middle;
+		max-width: @innerCardSize;
+		spacing: 6;
+		>.titlePre {
+			.bold-14;
+			.uppercase;
+			color: @color-ui-text-light;
+		}
+		>.title {
+			.bold-16;
+			.uppercase;
+			letter-spacing: 2;
+			max-width-text: 110;
+			color: @color-ui-text-light;
+			offset-x: 2;
+
+			.not-en & {
+				letter-spacing: 0;
+				use-ellipsis: true;
+			}
+		}
+	}
+
+	>.emblem {
+		align: top left;
+		offset: 12 2;
+		scale: 0.25;
+		color-adjust: none;
+		transition: color-adjust @hover-transition;
+		.menu-emblem-Faction();
+	}
+
+	&.state-Base {
+		&:hover {
+			>.box .portrait { color-adjust: none; }
+			>.box .inner-border { outline-alpha: 1; }
+		}
+	}
+
+	&.state-Select {
+		>.box .portrait { color-adjust: none; }
+		>.box .environment { alpha: 1; }
+		>.box .outer-border { alpha: 1; }
+
+		&:hover {
+			>.box .portrait { color-adjust: saturate(-1); alpha: 0.8; }
+			>.box .environment { alpha: 0; }
+		}
+	}
+
+	&.state-Disable {
+		>.box .portrait { color-adjust: saturate(-1); alpha: 0.7; }
+		>.box .inner-border { outline-alpha: 0.15; }
+		>.emblem { color-adjust: brightness(-0.1) saturate(-0.3); }
+
+		&:hover {
+			>.box .portrait { color-adjust: brightness(-0.05) saturate(-0.3); alpha: 1; }
+		}
+	}
+}
+
+@settingsWidth: 436;
+ai-faction-settings {
+	width: @settingsWidth;
+	layout: vertical;
+	content-halign: middle;
+	fill-height: true;
+
+	recursive-propagate: true;
+
+	#backBtn {
+		align: left;
+		margin: 0 0 16 -10;
+		padding: 20 20 16 0;
+		pad-click: @input-menu-aichoosefaction-back;
+		.separator { width: 50; }
+	}
+
+	.line-separator {
+		src: "UI/elements/line_graphic_interface.png";
+		height: 1;
+		width: @settingsWidth;
+	}
+
+	.ai-infos {
+		layout: horizontal;
+		spacing: 16;
+		margin: 12 0 12 0;
+
+		.vseparator {
+			@sepHeight: 86;
+			layout: vertical;
+			width: 1;
+			height: @sepHeight;
+			margin: -12 0 -12 0;
+			.top {
+				height: (@sepHeight / 2);
+				gradient: linear(180, rgba(0,0,0,0), #FCD28B);
+			}
+			.bottom {
+				height: (@sepHeight / 2);
+				gradient: linear(0, rgba(0,0,0,0), #FCD28B);
+			}
+		}
+
+		.selected-ais {
+			layout: vertical;
+			valign: middle;
+
+			>fmt-text {
+				.regular-18;
+				.uppercase;
+				color: @color-ui-text;
+				margin-bottom: 8;
+			}
+
+			.banners {
+				align: middle;
+				spacing: 7;
+			}
+		}
+
+
+		.ai-status {
+			layout: vertical;
+			valign: middle;
+			spacing: 8;
+
+			.banners {
+				spacing: 4;
+				.banner { width: 20 }
+			}
+		}
+	}
+
+	#factionsGrid {
+		spacing: 8;
+		multiline: true;
+		margin-top: 50;
+	}
+}

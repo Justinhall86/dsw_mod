@@ -1,0 +1,167 @@
+@import "game.less";
+
+occupation-actions{
+	visible: false;
+	disc-rotation-speed: 0.1;
+	&.show {
+		visible: true;
+	}
+	.discMask {
+		position: absolute;
+		x: -70;
+		y: -73;
+		width: 200;
+		height: 124;
+	}
+	#disc {
+		src: "UI/HUD/actionCircle.png";
+		align: middle middle;
+		x: 70;
+		y: 70;
+	}
+
+	.occupier-actions & {
+		occupation-action-button {
+			position: absolute;
+			y: -27;
+			x: -20;
+			transition: x 0.2 ease-out;
+			transition: y 0.2 ease-out;
+		}
+		&.pc {
+			occupation-action-button {
+				&.pos-top {
+					y: -85;
+				}
+				&.pos-left {
+					x: -82;
+				}
+				&.pos-right {
+					x: 42;
+				}
+			}
+		}
+		&.pad {
+			occupation-action-button {
+				y: -85;
+				&.pos-top {
+				}
+				&.pos-left {
+					x: -77;
+				}
+				&.pos-right {
+					x: 37;
+				}
+			}
+		}
+	}
+
+	&.selection-actions {
+		spacing: 4;
+		layout: vertical;
+
+		.child-uwhq & {
+			visible: false;
+		}
+
+		occupation-action-button {
+			min-height: 50;
+			min-width: 50;
+			.glow {
+				min-width: 60;
+				min-height: 60;
+			}
+
+			transition: offset-x 0.2 ease-out;
+			transition: alpha 0.2 ease-out;
+			appear-delay: 0.05;
+
+			offset-x: -39;
+			alpha: 0.0;
+			&.appear {
+				offset-x: 9;
+				alpha: 1.0;
+			}
+
+			&.annex {
+				pad-click: @input-occupation-annex;
+			}
+			&.liberate {
+				pad-click: @input-occupation-liberate;
+			}
+			&.pillage, &.pillagesietch {
+				pad-click: @input-occupation-pillage;
+			}
+		}
+		.discMask {
+			visible: false;
+		}
+
+		structure-sietch & {
+			position: absolute;
+
+			occupation-action-button {
+				offset-x: 310;
+				&.appear {
+					offset-x: 410;
+				}
+			}
+		}
+	}
+}
+
+occupation-action-button {
+	background: vgrid("UI/buttons/buttons02.png", 2) 10 10;
+	min-width: 40;
+	min-height: 40;
+	layout: stack;
+	content-align: middle middle;
+	>#icon{
+		width: 32;
+	}
+	.glow {
+		background: "UI/buttons/actionGlow.png" 10 10;
+		freq: 0.5;
+		background-id: true;
+		margin: -20;
+		min-width: 50;
+		min-height: 50;
+		alpha: 1;
+		.option-photosensitive-true & {
+			alpha: 0.6;
+		}
+		transition: alpha 0.8 ease-in;
+		#background {
+			blend: add;
+		}
+		&.blink-off {
+			alpha: 0.2;
+			.option-photosensitive-true & {
+				alpha: 0.1;
+			}
+		}
+	}
+
+	&.disabled {
+		bitmap{
+			alpha: 0.5;
+		}
+		.glow {
+			visible: false;
+		}
+	}
+	&.in-progress {
+		.glow {
+			visible: false;
+		}
+	}
+	&.clickable{
+		&:hover{
+			background-tile-pos-y: 1;
+			color-adjust: none;
+			bitmap{
+				src-pos-y: 1;
+			}
+		}
+	}
+}

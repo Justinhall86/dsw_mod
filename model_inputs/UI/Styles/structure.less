@@ -1,0 +1,1755 @@
+// out: false
+@import "game.less";
+@import "building.less";
+
+structure {
+	#unknown {
+		padding: 40;
+		content-align: middle middle;
+		max-width: 250;
+	}
+
+	fmt-text{
+		color: @color-desert;
+	}
+
+	#leftContent{
+		>fmt-text{
+			max-width: 200;
+			.italic-14;
+		}
+	}
+
+	#leftHeader{
+		.subTitle, #stats{
+			visible: false;
+		}
+
+		.res-prod{
+			spacing : 5;
+			resource-counter{
+				&.malus{
+					fmt-text{
+						color: @color-bad;
+					}
+				}
+			}
+		}
+	}
+	&.reconned{
+		&.structure, &.mainBase{
+			#leftHeader{
+				.subTitle, #stats{
+					visible: true;
+				}
+			}
+		}
+	}
+	&.unreconned, &.naturalRes, &.worldEvent{
+		#headerHighlight{
+			visible: true;
+		}
+		#header{
+			margin-left: 9;
+			margin-top: -3;
+			#portraitTile{
+				width: 50;
+				height: 50;
+			}
+		}
+	}
+	occupation-actions.show {
+		&.show {
+			occupation-action-button {
+				pad-action: @padaction-siegeaction;
+				&.annex {
+					pad-action: @padaction-siegeaction-annex;
+				}
+				&.pillage, &.pillagesietch {
+					pad-action: @padaction-siegeaction-pillage;
+				}
+				&.liberate {
+					pad-action: @padaction-siegeaction-liberate;
+				}
+				&.in-progress {
+					pad-action: @padaction-cancelsiegeaction;
+				}
+			}
+		}
+
+	}
+}
+
+structure-poi {
+	width: 350;
+	height: 140;
+	layout : vertical;
+	content-align: top middle;
+	entity-header {
+		content-align: middle left;
+		.badge {
+			padding-left: 22;
+			spacing: 25;
+			content-align: middle left;
+			fmt-text{
+				margin-bottom: 5;
+			}
+			.emblem {
+				width: 32;
+			}
+		}
+		.header-highlight {
+			position: absolute;
+			src: "UI/HUD/poiPattern01.png";
+			position: absolute;
+			height: 82;
+			y: 0;
+		}
+	}
+	.desc {
+		layout: vertical;
+		spacing: 10;
+		padding-top: 35;
+		max-width: 250;
+
+		.flavor-desc{
+			.italic-14;
+			color: @color-tip-desc;
+		}
+	}
+	.debugName {
+		color: @color-bad;
+	}
+}
+
+structure-village {
+	@comp-width: 470;
+	@no-owner-width: 250;
+	width: @comp-width;
+	height: @selection-content-height;
+	layout : vertical;
+	content-align: top middle;
+	&.no-owner{
+		width: @no-owner-width;
+		.vertical-separator{
+			visible: false;
+		}
+	}
+
+	&.mine {
+		entity-header {
+			.header-bg-right {
+				height: 62;
+			}
+		}
+	}
+
+	entity-header {
+		fill-width: true;
+		content-align: top left;
+		auto-size: 1;
+		height: 62;
+		.header-bg-right {
+			height: 82;
+		}
+		.header-top{
+			fill-width: true;
+			padding-left: 5;
+			padding-right: 5;
+			content-align : middle left;
+			spacing: 10;
+			banner-button{
+				margin-top: -8;
+			}
+			.badge {
+				margin-top: 5;
+				spacing: 5;
+				.emblem {
+					width: 40;
+				}
+				.badge-text {
+					layout: vertical;
+					spacing: 5;
+				}
+			}
+			.actions {
+				halign: right;
+			}
+			abilities-displayer, entity-refund-button {
+				halign: right;
+				margin-top: 5;
+			}
+			structure-headquarters-button {
+				spacing: 5;
+				>.toggle-arrow {
+					src: grid("UI/tuto/arrows.png", 3, 2);
+					src-pos-y: 1;
+				}
+				&.selected {
+					filter: none;
+					>image {
+						filter: glow(#dbc392, 1, 1, 4, 1, true);
+					}
+					>.toggle-arrow {
+						src-pos-y: 0;
+					}
+				}
+			}
+		}
+		.header-bottom{
+			fill-width: true;
+			align: bottom right;
+			content-align: middle right;
+			margin-bottom: 5;
+			spacing: 5;
+			.stability-block{
+				background: @comp-round-bg;
+				background-tile-pos-x: 1;
+				padding: 3;
+				margin: 2;
+				outpost-stability-indicator{
+					width: 50;
+				}
+			}
+		}
+	}
+
+	.infos{
+		fill-width: true;
+		content-align: top middle;
+		padding: 10;
+		padding-top: 20;
+		spacing: 20;
+
+		.vertical-separator {
+			width: 1;
+			height: 100;
+			background: @color-desert;
+			alpha: 0.1;
+		}
+	}
+	.pattern-bg {
+		position: absolute;
+		align: bottom left;
+		margin-bottom: -2;
+
+		height: @selection-content-height;
+		width: @comp-width;
+		overflow: hidden;
+		bitmap {
+			width: @comp-width;
+			src: "UI/HUD/village_bg_pattern.png";
+			align: bottom middle;
+		}
+	}
+
+	>.occupation-mask {
+		position: absolute;
+		x: @comp-width;
+		width: 200;
+		height: @selection-content-height;
+		.child-building & {
+			x: @comp-width + @building-width;
+		}
+	}
+	&.no-owner{
+		.pattern-bg {
+			width: @no-owner-width;
+		}
+		>.occupation-mask {
+			x: 251;
+		}
+	}
+
+	entity-refund-button.refundable {
+		pad-action: @padaction-leavevillage;
+
+	}
+}
+
+
+structure-city {
+	@comp-width: 520;
+	@comp-height: @selection-content-height;
+	width: @comp-width;
+	height: @comp-height;
+	layout : vertical;
+	content-align: top left;
+	entity-header {
+		layout: horizontal;
+	}
+
+	>.header {
+		background: vgrid("UI/HUD/factionHeader_noPattern.png", (@ui-faction-count + 1));
+		fill-width: true;
+		height: 24;
+		content-align: left middle;
+		spacing: 5;
+		padding-left: 5;
+
+		.baseName {
+			.bold-15;
+			text-transform: uppercase;
+		}
+		.factionName {
+			.italic-15;
+		}
+		.emblem {
+			margin-top: 2;
+			margin-bottom: -25;
+			margin-right: 2;
+			//visible: false;
+		}
+		.header-pattern-right {
+			position: absolute;
+			align: top right;
+			src: vgrid("UI/HUD/factionHeaderHalf.png", (@ui-faction-count + 1));
+			height: 23;
+		}
+	}
+	.tiled-faction(background-tile-pos-y, ~'>.header', 1);
+	.faction-banner-small(src, ~'.emblem');
+	.tiled-faction(src-pos-y, ~'.header-pattern-right', @offset: 1);
+
+	structure-districts{
+		padding: 5;
+		valign: middle;
+	}
+
+	structure-res-bar{
+		visible: false;
+	}
+	structure-trait-bar{
+		visible: false;
+	}
+
+	.pattern-bg{
+		padding-left: 12;
+		align: bottom left;
+		position: absolute;
+		overflow: hidden;
+		bitmap {
+			width: 336;
+			src: "UI/HUD/mb_bg_pattern.png";
+			align: bottom middle;
+		}
+	}
+	&.locked .pattern-bg {
+		alpha: 0.35;
+	}
+
+	#districtsLocked{
+		layout: vertical;
+		align: right middle;
+		width: 220;
+		padding-bottom: 20;
+		content-align: middle middle;
+		>bitmap {
+			src: "UI/elements/ic_padlock.png";
+		}
+		condition-check{
+			bitmap{
+				visible: false;
+			}
+			fmt-text{
+				max-width: 200;
+				text-align: multiline-center;
+			}
+		}
+	}
+
+	&.harkonnen #left >#slots {
+		max-width: 250;
+	}
+	&.corrino #left >#slots {
+		max-width: 150;
+	}
+	&.fremen #left >#slots {
+		max-width: 150;
+	}
+	&.vernius #left >#slots #districts {
+		spacing: 12;
+	}
+}
+
+structure-renegade-base {
+	@comp-width: 350;
+	width: @comp-width;
+	height: @selection-content-height;
+	layout : vertical;
+	content-align: top middle;
+
+	entity-header {
+		fill-width: true;
+		content-align: top left;
+		auto-size: 1;
+		.header-top{
+			fill-width: true;
+			padding-left: 5;
+			padding-right: 5;
+			content-align : middle left;
+			spacing: 10;
+			banner-button{
+				margin-top: -8;
+			}
+			.badge {
+				content-align : top left;
+				margin-top: 5;
+				spacing: 5;
+				.emblem {
+					width: 56;
+					margin: -6;
+				}
+				.badge-text {
+					padding-top: 5;
+					layout: vertical;
+					spacing: 5;
+				}
+			}
+		}
+	}
+
+	.infos{
+		fill-width: true;
+		content-align: top middle;
+		padding: 10;
+		padding-top: 25;
+	}
+	.pattern-bg {
+		position: absolute;
+		align: bottom left;
+		margin-bottom: -2;
+
+		height: @selection-content-height;
+		width: @comp-width;
+		overflow: hidden;
+		bitmap {
+			width: @comp-width;
+			src: "UI/HUD/village_bg_pattern.png";
+			align: bottom middle;
+		}
+	}
+	structure-militia-display{
+		@btn-count: 5;
+		@list-width: 44;
+		width: @list-width * @btn-count;
+		#list{
+			max-width: @list-width * @btn-count;
+		}
+	}
+
+	>.occupation-mask {
+		position: absolute;
+		x: @comp-width;
+		width: 200;
+		height: @selection-content-height;
+		.child-building & {
+			x: @comp-width + @building-width;
+		}
+	}
+}
+
+structure-sietch {
+	@comp-width: 400;
+	width: @comp-width;
+	height: @selection-content-height;
+	layout: vertical;
+	content-align: top left;
+	.header-top{
+		fill-width: true;
+		padding-left: 5;
+		padding-right: 5;
+		content-align : middle left;
+		spacing: 10;
+		banner-button{
+			margin-top: -8;
+		}
+		.badge {
+			margin-top: 3;
+			spacing: 5;
+			.emblem {
+				width: 40;
+				valign: top;
+			}
+			.badge-text {
+				layout: vertical;
+				margin-top: 8;
+				spacing: 5;
+				.sietch-title {
+					.regular-16;
+					color: @color-health-enemy;
+				}
+			}
+		}
+		.header-right{
+			halign: right;
+			spacing: 5;
+			abilities-displayer {
+				halign: right;
+				margin-top: 5;
+			}
+
+			structure-ability-indicator {
+				halign: right;
+				//margin-top: 5;
+			}
+
+			structure-local-sietch-button {
+				height: 40;
+				spacing: 5;
+				>.toggle-arrow {
+					src: grid("UI/tuto/arrows.png", 3, 2);
+					src-pos-y: 1;
+				}
+				&.selected {
+					filter: none;
+					>image {
+						filter: glow(#dbc392, 1, 1, 4, 1, true);
+					}
+					>.toggle-arrow {
+						src-pos-y: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.management{
+		spacing: 20;
+		content-align: top middle;
+		margin-top: 10;
+		align: top middle;
+		structure-militia-display {
+			align: top left;
+			margin-top: 3;
+		}
+
+		.alliance{
+			content-align: top middle;
+			layout: vertical;
+			margin-top: 4;
+			spacing: 5;
+			.pointing-arrow{
+				src: hgrid("UI/icons/more_less_infos.png", 2);
+				src-pos-x: 1;
+			}
+			trait-preview {
+				background: @comp-round-bg;
+				pad-focusable: true;
+			}
+			.pointing-arrow, trait-preview {
+				alpha: 0.5;
+			}
+			&.active{
+				.pointing-arrow, trait-preview {
+					alpha: 1;
+				}
+				filter: glow(#e2cea6, 0.9, 3, 1, 1, true);
+			}
+			#allyIcons {
+				position: absolute;
+				x: -5;
+				y: -5;
+				.ally-icon {
+					scale: 0.5;
+					&.atreides { src: "cdb:faction.Atreides.gfx" }
+					&.harkonnen { src: "cdb:faction.Harkonnen.gfx" }
+					&.smugglers { src: "cdb:faction.Smugglers.gfx" }
+					&.fremen { src: "cdb:faction.Fremen.gfx" }
+					&.corrino { src: "cdb:faction.Corrino.gfx" }
+					&.ecaz { src: "cdb:faction.Ecaz.gfx" }
+					&.vernius { src:"cdb:faction.Vernius.gfx"; }
+				}
+			}
+
+			#allianceBtn{
+				.decorated-btn;
+				pad-action: @padaction-sietchally;
+				bitmap{
+					src: grid("UI/icons/abilities.png", 3, 3);
+					src-pos-x: 2;
+				}
+			}
+			#agtBtn >#btn {
+				pad-action: @padaction-sietchagent;
+			}
+		}
+		.trading {
+			base-button {
+				pad-action: @padaction-sietchtrade;
+				.decorated-btn;
+				width: 60;
+				height: 60;
+				layout: stack;
+				resource-counter{
+					recursive-propagate: true;
+					layout: vertical;
+					content-align: top middle;
+					spacing: 9;
+					res-tip: false;
+					bitmap{
+						width: 32;
+						margin: -5;
+					}
+				}
+				#tradeGauge{
+					invert: true;
+					margin: -10;
+					bitmap{
+						src: "UI/elements/abilitiesGauge.png";
+						width: 60;
+						height: 60;
+						tint: @color-time;
+						alpha: 0.6;
+					}
+				}
+			}
+		}
+	}
+	.pattern-bg {
+		position: absolute;
+		align: bottom left;
+		margin-bottom: -2;
+
+		height: @selection-content-height;
+		width: @comp-width;
+		overflow: hidden;
+		bitmap {
+			width: @comp-width;
+			src: "UI/HUD/village_bg_pattern.png";
+			align: bottom middle;
+		}
+	}
+	&.sietch-ancient {
+		.alliance{
+			visible: false;
+		}
+	}
+	&.no-trade {
+		#relationCounter, .trading {
+			visible: false;
+		}
+		.management {
+			spacing: 50;
+		}
+	}
+}
+
+structure-militia-display {
+	layout: vertical;
+	content-align: top middle;
+	spacing: 15;
+	width: 188;
+
+	.title {
+		.regular-17;
+	}
+
+	#list{
+		max-width: 188;
+		multiline: true;
+		spacing: 4;
+		>element{
+			padding: 0;
+		}
+		militia-portrait{
+			layout: stack;
+			padding: 0;
+			bitmap{
+				width: 40;
+			}
+			background: @comp-round-bg;
+			&.non-editable{
+				>#portrait {
+					color-adjust: brightness(-0.2) gain(#000000, 0.1);
+				}
+			}
+			&.militia{
+				background: hgrid("UI/elements/militiaClassBorder.png", 3) 5 5;
+				&.training{
+					background-tile-pos-x: 2;
+				}
+				&.dead{
+					background-tile-pos-x: 2;
+				}
+			}
+			&.dead{
+				bitmap{
+					alpha: 0.5;
+				}
+			}
+			#gauge{
+				src: "UI/elements/square_rounded_26.png";
+				alpha: 0.5;
+				bitmap{
+					tint: @color-time;
+				}
+			}
+			&.disabled {
+				color-adjust: none;
+			}
+		}
+		#addBtn{
+			background: hgrid("UI/elements/militiaClassBorder.png", 3) 5 5;
+			&.index-0 {
+				pad-click: @input-structure-addmilitia;
+			}
+			>bitmap{
+				src: grid("UI/icons/militiaClassIcon.png", 3, 14);
+				width: 40;
+				src-pos-y: 4;
+			}
+			&:hover{
+				background-tile-pos-x: 1;
+				bitmap{
+					src-pos-x: 1;
+				}
+			}
+			&:active{
+				background-tile-pos-x: 2;
+				bitmap{
+					src-pos-x: 2;
+				}
+			}
+		}
+	}
+}
+
+structure-extensions {
+	layout : vertical;
+	spacing: 12;
+	width: 188;
+	content-align: top middle;
+	>#titleBtn {
+		spectator-enabled: true;
+		margin-top: -3;
+		margin-bottom: -3;
+		#tf {
+			.regular-17;
+			.capitalize;
+		}
+		&.selected {
+			filter: none;
+		}
+	}
+	>#buildingsContainer {
+		max-width: 170;
+		multiline: true;
+		spacing: 5;
+		content-align: middle left;
+		add-slot-button {
+			click-sfx: @Button_Add_Buildingslot;
+			padding: 0;
+			pad-action: none;
+
+			.single-cost {
+				spacing: -2;
+				layout: vertical;
+				content-align: middle top;
+
+				bitmap {
+					margin-top: -3;
+					width: 20;
+					height: 20;
+				}
+			}
+			&.enabled {
+				pad-click: @input-structure-addbuilding;
+			}
+		}
+		.add-btn.enabled {
+			pad-click: @input-structure-addbuilding;
+		}
+	}
+}
+
+
+structure-districts {
+	layout: horizontal;
+	fill-width: true;
+	content-align: middle middle;
+	spacing: 8;
+
+	>#left {
+		layout: vertical;
+		align: middle top;
+		content-align: middle middle;
+		>#titleBtn {
+			spectator-enabled: true;
+			offset-y: -10;
+			#tf {
+				.regular-17;
+				.capitalize;
+			}
+			&.selected {
+				filter: none;
+			}
+		}
+		>#slots {
+			hspacing: 15;
+			vspacing: 19;
+			content-align: middle;
+
+			max-width: 230;
+			multiline: true;
+			margin-top: -2;
+
+			&.locked {
+				>base-building-button {
+					alpha: 0.5;
+				}
+			}
+
+			.districtCont {
+				background-type: dynamic;
+				>#background {
+					background: #0c0d0e;
+					outline: 0.8 #70645a;
+					outline-offset: 2;
+					outline-alpha: 0.8;
+					border-radius: 5;
+				}
+			}
+
+			#districts {
+				multiline: true;
+				spacing: 5;
+				padding: 5;
+
+				.contour {
+					width: 8;
+					height: 8;
+					position: absolute;
+					background: grid("UI/HUD/mb_districts_outline.png", 6, 2);
+
+					&.top-left {
+						align: top left;
+						offset: -4 -4;
+						background-tile-pos-x: 0;
+						&.domain-statecraft {
+							background-tile-pos-x: 2;
+						}
+						&.domain-military {
+							background-tile-pos-x: 4;
+						}
+					}
+					&.top-right {
+						align: top right;
+						offset: 4 -4;
+						background-tile-pos-x: 1;
+						&.domain-statecraft {
+							background-tile-pos-x: 3;
+						}
+						&.domain-military {
+							background-tile-pos-x: 5;
+						}
+					}
+					&.bottom-left {
+						align: bottom left;
+						offset: -4 4;
+						background-tile-pos-y: 1;
+						background-tile-pos-x: 0;
+						&.domain-statecraft {
+							background-tile-pos-x: 2;
+						}
+						&.domain-military {
+							background-tile-pos-x: 4;
+						}
+					}
+					&.bottom-right {
+						align: bottom right;
+						offset: 4 4;
+						background-tile-pos-y: 1;
+						background-tile-pos-x: 1;
+						&.domain-statecraft {
+							background-tile-pos-x: 3;
+						}
+						&.domain-military {
+							background-tile-pos-x: 5;
+						}
+					}
+				}
+
+				.connexion {
+					background: "UI/HUD/mb_vernius_connexion.png";
+					width: 18;
+					height: 4;
+					position: absolute;
+					align: bottom middle;
+					offset-y: 5;
+				}
+				.link {
+					position: absolute;
+					align: bottom middle;
+					background: hgrid("UI/HUD/mb_vernius_link.png", 5);
+					width: 14;
+					height: 14;
+
+					&.start {
+						offset: 4 15;
+					}
+					&.left {
+						background-tile-pos-x: 1;
+						offset-x: 14;
+						width: 16;
+						&.large {
+							width: 34;
+							offset-x: 24;
+						}
+					}
+					&.mid {
+						background-tile-pos-x: 2;
+						offset-y: 15;
+					}
+					&.right {
+						background-tile-pos-x: 3;
+						offset-x: -14;
+						width: 16;
+						&.large {
+							width: 34;
+							offset-x: -24;
+						}
+					}
+					&.end {
+						background-tile-pos-x: 4;
+						offset: -4 15;
+					}
+				}
+
+				>base-building-button {
+					&.enabled {
+						pad-action: @padaction-addmbbuilding;
+
+						&.bind-up {
+							pad-click: @input-mb-building-up;
+						}
+						&.bind-down {
+							pad-click: @input-mb-building-down;
+						}
+						&.bind-left {
+							pad-click: @input-mb-building-left;
+						}
+						&.bind-right {
+							pad-click: @input-mb-building-right;
+						}
+					}
+				}
+				>building-button {
+					&.enabled {
+						pad-action: @padaction-mbbuildingbutton;
+					}
+				}
+			}
+		}
+	}
+
+	.districts-bonuses {
+		spacing: 5;
+		layout: vertical;
+		content-align: top middle;
+		halign: right;
+		padding-right: 20;
+
+		.container {
+			background-type: dynamic;
+			>#background {
+				background: #1d1e22;
+				outline: 0.8 #685e56;
+				border-radius: 5
+			}
+		}
+
+		.district-title {
+			.section-title;
+		}
+		.header {
+			spacing: 5;
+			padding-bottom: 5;
+			padding-top: -3;
+
+			image {
+				align: right;
+			}
+		}
+
+		.district-panel {
+			min-width: 160;
+			layout: vertical;
+			content-align: top middle;
+			padding: 6;
+			spacing: 5;
+			.district-header {
+				content-align: middle left;
+				spacing: 2;
+				domain-icon {
+					.domainSmallIcon;
+				}
+				.domain-name {
+					.bold-14;
+					margin-bottom: 2;
+				}
+			}
+			.bonus-list {
+				spacing: 3;
+			}
+			.link {
+				width: 38;
+				height: 3;
+				background: #3f3d3f;
+				position: absolute;
+				align: middle left;
+				offset: -44 -5;
+			}
+			&.statecraft {
+				.domain-name {
+					color: @color-building-statecraft;
+				}
+			}
+			&.economy {
+				.domain-name {
+					color: @color-building-eco;
+				}
+			}
+			&.military {
+				.domain-name {
+					color: @color-building-military;
+				}
+			}
+		}
+	}
+}
+
+district-bonus {
+	padding: 2;
+	background: @comp-round-bg;
+	background-tile-pos-x: 1;
+	&.disabled {
+		filter: saturate(-0.4);
+		trait-preview{
+			alpha: 0.3;
+		}
+	}
+}
+
+district-bonus-desc {
+	content-align: left middle;
+	spacing: 5;
+	layout: vertical;
+	padding-top: 8;
+
+	domain-icon {
+		.domainSmallIcon;
+	}
+
+	.fTitle {
+		content-align: left middle;
+		spacing: 5;
+		.title {
+			.bold-14 !important;
+		}
+	}
+
+	.bonusIcon {
+		width: 16;
+	}
+
+	.desc {
+		margin-left: 20;
+	}
+
+	&.statecraft {
+		.title {
+			color: @color-building-statecraft;
+		}
+	}
+
+	&.economy {
+		.title {
+			color: @color-building-eco;
+		}
+	}
+
+	&.military {
+		.title {
+			color: @color-building-military;
+		}
+	}
+}
+
+
+outpost-stability-indicator {
+	content-align: middle left;
+	spacing: 2;
+	#indicatorVisual {
+		content-align: bottom right;
+		layout: stack;
+		bitmap { width: 20; height: 20; }
+		.indicator-bg {
+			src: hgrid("UI/icons/stability_BG.png", 4);
+		}
+		.indicator-sign {
+			src: grid("UI/icons/stability_icons.png", 3, 2);
+			src-pos-x: 1
+		}
+		&.stab-high { .indicator-bg { src-pos-x: 0; } };
+		&.stab-normal { .indicator-bg { src-pos-x: 1; } };
+		&.stab-low { .indicator-bg { src-pos-x: 2; } };
+
+		&.stab-var-equal { .indicator-sign { src-pos-x: 2; } };
+		&.stab-var-negative { .indicator-sign { src-pos-y: 1; } };
+		&.high-var { .indicator-sign { src-pos-x: 0; } };
+
+		&.stab-critical {
+			.indicator-bg { src-pos-x: 3; }
+			.indicator-sign { src-pos-x: 2 !important; src-pos-y: 1; }
+		};
+	}
+	#flow{
+		margin-bottom: 2;
+		.bold-13;
+		color: @color-good;
+		&.negative-flow{
+			color: @color-bad;
+		}
+	}
+}
+
+annex-cost{
+	padding: 3;
+	margin: 2;
+	margin-top: 0;
+	background: @comp-round-bg;
+	spacing: 8;
+	align: middle right;
+	content-align: middle middle;
+	bitmap{
+		width: 24;
+		height: 24;
+	}
+	image{
+		margin-right: -8;
+	}
+	resource-counter{
+		spacing: -1;
+	}
+}
+
+structure-res-bar{
+	fill-width: true;
+	content-align: middle left;
+	padding-left: 8;
+	padding-right: 8;
+	min-height: 36;
+	background: #24262e;//#32343c;
+	#barHeader{
+		spacing: 5;
+		.icon {
+			src: "UI/icons/resPicto.png";
+		}
+		content-align: middle left;
+		fmt-text{
+			margin-bottom: 2;
+		}
+	}
+	background-tile-pos-x: 2;
+	background-tile-pos-y: 1;
+	structure-res-list{
+		align: middle right;
+		spacing: 5;
+	}
+}
+structure-trait-bar{
+	fill-width: true;
+	content-align: middle left;
+	padding-left: 8;
+	padding-right: 8;
+	min-height: 36;
+	background: grid("UI/HUD/panelBG.png", 3, 3) 5 5;
+	#barHeader{
+		spacing: 5;
+		content-align: middle left;
+		fmt-text{
+			margin-bottom: 2;
+		}
+	}
+	background-tile-pos-x: 2;
+	background-tile-pos-y: 1;
+	#traitContainer{
+		align:right;
+		#tf {
+			align: middle middle;
+			margin-right: 10;
+		}
+		trait-preview{
+			pad-focusable: true;
+			pad-action: @padaction-villagespecificity;
+			margin: 2;
+		}
+	}
+}
+
+structure-capture-indicator {
+	layout: stack;
+	background: none;
+	#captureGauge{
+		body-width: 30;
+		body-height: 4;
+		color: @faction-smugglers;
+
+		background: @color-hud-bg;
+		padding: 1;
+		align: bottom middle;
+	}
+}
+
+structure-ability-indicator {
+	layout: stack;
+	background: none;
+	#timeGauge{
+		body-width: 30;
+		body-height: 4;
+		color: @faction-fremen;
+
+		background: @color-hud-bg;
+		padding: 1;
+		align: bottom middle;
+	}
+}
+
+
+
+structure-event, structure-ghost-market {
+	@action-width: 300;
+	@action-height: 150;
+	@action-spacing: 10;
+	@no-action-width: 444;
+
+	width: @action-width*2 + @action-spacing*3;
+	&.action-count-0 {
+		width: @no-action-width;
+		#actions {
+			margin-top: 20;
+		}
+	}
+	layout : vertical;
+	content-align: top middle;
+
+	entity-header {
+		pad-focusable: true;
+		pad-cursor-icon: @icon-padalertscursor;
+
+		content-align: middle left;
+		.badge {
+			fill-width: true;
+			fill-height: true;
+			padding-left: 22;
+			padding-right: 12;
+			// spacing: 25;
+			// spacing: 10;
+			content-align: middle left;
+			fmt-text{
+				margin-bottom: 5;
+			}
+			.emblem {
+				width: 32;
+			}
+
+			.fTexts {
+				// halign: left;
+				layout: vertical;
+				// padding-left: 12;
+				// padding-left: 37;
+				margin-left: 37;
+			}
+			.fDesc {
+				content-align: middle middle;
+				spacing: 5;
+			}
+		}
+		.header-highlight {
+			position: absolute;
+			src: "UI/HUD/poiPattern01.png";
+			height: 82;
+			y: 0;
+		}
+		&:hover {
+			.moreInfo {
+				filter: glow(@color-text-light, 0.5, 3, 1, 1, true);
+			}
+		}
+	}
+
+	.header-shadow {
+		visible: false;
+	}
+
+	.desc {
+		halign: right;
+		max-width: 235;
+		text-align: right;
+		alpha: 0;
+		transition: alpha 0.3s;
+
+		&.displayed {
+			alpha: 1;
+			transition: alpha 0.3s;
+		}
+	}
+
+	.tFinished {
+		text-align: multilinecenter;
+		color: @color-warning;
+		.italic-14;
+	}
+
+	.btn {
+		.baseButton;
+	}
+
+	.actions {
+		padding: @action-spacing;
+		spacing: @action-spacing;
+
+		world-event-action {
+			width: @action-width;
+			height: @action-height;
+		}
+	}
+}
+
+structure-ghost-market {
+	@width: 500;
+	width: @width;
+	entity-header {
+		.badge {
+			spacing: 20;
+			.fTitle {
+				layout: horizontal;
+				#factionEmblem {
+					width: 24;
+					margin-left: 4;
+				}
+			}
+			#factionName {
+				.italic-14;
+			}
+		}
+		entity-refund-button{
+			visible: true;
+			margin-left: -15;
+			margin-right: -7;
+			margin-top: 5;
+			align: top right;
+		}
+	}
+
+	structure-res-bar {
+		fill-width: true;
+	}
+
+	#contents {
+		layout: horizontal;
+		content-align: top middle;
+		height: 137;
+		.text-data, .detection-tracking {
+			width: (@width / 2 - 10);
+			margin-top: 30;
+			layout: vertical;
+			spacing: 15;
+			content-align: middle middle;
+			.radial {
+				spacing: 10;
+				content-align: middle middle;
+				radial-fill-image{
+					width: 22;
+					height: 25;
+					background: "UI/elements/ic_full_chrono_border.png";
+					invert: true;
+					bitmap{
+						align: bottom middle;
+						margin-bottom: 4;
+						width: 14;
+						src: "UI/elements/circle_64.png";
+						tint: @color-warning;
+					}
+				}
+			}
+			.tracking-buttons {
+				layout: horizontal;
+				.faction-button {
+					width: 40;
+					height: 40;
+					content-align: middle middle;
+					layout: stack;
+
+					.bg {
+						width: 40;
+						height: 40;
+						src: hgrid("UI/HUD/blackBorderButtons.png", 6);
+						&.atreides { src-pos-x: 0; }
+						&.harkonnen { src-pos-x: 1; }
+						&.fremen { src-pos-x: 2; }
+						&.smugglers { src-pos-x: 3; }
+						&.corrino { src-pos-x: 4; }
+					}
+					.faction-emblem {
+						width: 32;
+					}
+					.hidden-symbol {
+						width: 32;
+						visible: false;
+					}
+					&.no-recon {
+						.bg {
+							src-pos-x: 5;
+						}
+						.faction-emblem {
+							alpha: 0.5;
+						}
+						.hidden-symbol {
+							visible: true;
+						}
+					}
+				}
+			}
+		}
+
+		.vertical-separator {
+			margin-left: 4;
+			margin-right: 5;
+			align: middle middle;
+			width: 1;
+			height: 100;
+			background: @color-desert;
+			alpha: 0.1;
+		}
+
+		fmt-text {
+			.bold-16;
+		}
+	}
+
+	.pattern-bg {
+		position: absolute;
+		align: bottom left;
+		margin-bottom: -2;
+		width: @width;
+
+		overflow: hidden;
+		bitmap {
+			src: "UI/HUD/village_bg_pattern.png";
+			align: bottom middle;
+		}
+	}
+}
+
+world-event-action {
+	layout: vertical;
+	content-align: top middle;
+	spacing: 5;
+	padding: 15;
+
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-1;
+		outline: 1 #63573a;
+		smooth-span: 0;
+		outline-alpha: 1;
+	}
+
+	.header {
+		spacing : 10;
+	}
+
+	.fDesc {
+		layout: vertical;
+		content-align: top middle;
+		spacing: 5;
+	}
+
+	.fDesc2 {
+		spacing: 5;
+		content-align: middle middle;
+
+		&:hover {
+			.infoBtn {
+				filter: glow(@color-text-light, 0.5, 3, 1, 1, true);
+			}
+		}
+
+		.infoBtn {
+			offset-y: 2;
+		}
+	}
+
+	.actionDesc {
+		.small-title;
+	}
+	.otherDesc {
+		.italic-12;
+		text-align: multilinecenter;
+	}
+
+	.content {
+		layout: vertical;
+		spacing: 5;
+		fill-width: true;
+		valign: bottom;
+	}
+
+	.fInfo {
+		fill-width: true;
+	}
+
+	.fButtons {
+		spacing: 10;
+		min-height: 30;
+		content-align: middle middle;
+		align: left;
+		offset-y: 4;
+		padding-right: 4;
+	}
+
+	.btn {
+		align: bottom middle;
+		background: vgrid("UI/buttons/buttons01.png", 3) 12 12;
+		@hpadding: 20;
+		@vpadding: 10;
+		padding-left: @hpadding;
+		padding-right: @hpadding;
+		padding-top: @vpadding;
+		padding-bottom: @vpadding;
+
+		text {
+			offset-y: -1;
+			.regular-13;
+		}
+		&.spectator {
+			visible: false;
+		}
+	}
+
+	.fDuration {
+		layout: vertical;
+		valign: bottom;
+		halign: right;
+		// margin-bottom: -8;
+		//fill-width: true;
+		padding-left: 6;
+		spacing: 5;
+
+		.durationTitle {
+			.bold-12;
+		}
+
+		.duration {
+			.regular-12;
+		}
+
+		.durationIcon {
+			src:"cdb:icon.Duration.gfx";
+			offset-y: 1;
+		}
+
+		image.result {
+			visible: false;
+			bitmap {
+				width: 18;
+				height: 18;
+			}
+		}
+
+		.fDurationTitle {
+			spacing: 5;
+			content-align: left middle;
+		}
+	}
+
+	.progress {
+		fmt-text {
+			.bold-12;
+		}
+
+		padding: 3;
+		empty-color: #0C0D11;
+		color: #78663B;
+		body-width: 100;
+		body-height: 11;
+		background: "UI/HUD/progressBar_bg.png" 4 4;
+
+		#fillBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+			background-tile-pos-x: 1;
+		}
+	}
+
+	.activeBonus {
+		color: @color-good;
+		.italic-14;
+	}
+
+	.fAgent {
+		padding-top: 5;
+		padding-bottom: -10;
+		.chooseAgentBtn {
+			background: grid("UI/HUD/slotBtn01.png", 2, 6) 10 10;
+			//width: @agent-slot-size;
+			//height: @agent-slot-size;
+			padding: 0;
+			scale : 0.8;
+		}
+	}
+
+	.fReward {
+		layout: horizontal;
+		align: left bottom;
+		content-align: left middle;
+		multiline: true;
+		fill-width: true;
+		background: "UI/HUD/roundedBG02.png" 10 10;
+		padding: 10;
+		padding-left: 12;
+		height: 34;
+		spacing: 5;
+
+		>fmt-text {
+			offset-y: 2;
+			.bold-13;
+		}
+
+		world-event-res {
+			offset-y: -3;
+		}
+	}
+
+	.rewardContent {
+		layout: horizontal;
+		multiline: true;
+		spacing: 5;
+		hspacing: 10;
+		content-valign: middle;
+
+		trait-preview {
+			filter: glow(@color-good, 2, 3, 1, 1, true);
+			padding-top: -4;
+			padding-bottom: -4;
+			bitmap {
+				width: 22;
+				height: 22;
+			}
+		}
+
+		fmt-text {
+			.regular-12;
+			offset-y: 2;
+		}
+	}
+
+	.rewardBtn {
+		background: "UI/HUD/btn04.png" 10 10;
+	}
+
+	unit-counter {
+		padding-top: -3;
+		padding-bottom: -3;
+
+		#iconBmp {
+			@size: 20;
+			width: @size;
+			height: @size;
+		}
+	}
+
+	world-event-res-list {
+		margin-bottom: -8;
+		.descTxt {
+			.italic-12;
+		}
+		.or {
+			offset-y: -4 !important;
+		}
+	}
+
+	&.disabled {
+		alpha: 0.6;
+	}
+
+	&.paused {
+		>#background {
+			outline-color: @color-danger;
+		}
+
+		.progress {
+			color: #B71111;
+		}
+
+		.durationIcon {
+			src:"cdb:icon.DurationPaused.gfx";
+		}
+	}
+
+	&.finished {
+		>#background {
+			outline-color: #49f366;
+		}
+
+		.durationIcon {
+			src:"cdb:icon.DurationFinished.gfx";
+		}
+	}
+	&.displayed-index-0 {
+		.btn {
+			pad-click: @input-worldevent-leftaction;
+		}
+	}
+	&.displayed-index-1 {
+		.btn {
+			pad-click: @input-worldevent-rightaction;
+		}
+	}
+}
+
+world-event-res {
+	content-align: middle middle;
+	padding-top: -4;
+	padding-bottom: -4;
+
+	.resIcon {
+		width: 26;
+		height: 26;
+	}
+
+	.valIcon.negativeValue { .attributeArrow-bad; }
+	.valIcon.positiveValue { .attributeArrow-good; }
+
+
+	&.missingRes {
+		text {
+			color: @color-bad;
+		}
+	}
+
+	fmt-text {
+		.bold-13 !important;
+	}
+}
+
+world-event-res-list {
+	layout: horizontal;
+	multiline: true;
+	content-align: middle middle;
+
+	vspacing: -3;
+	&.allRes {
+		hspacing: 10;
+	}
+
+	&.oneRes {
+		hspacing: 1;
+	}
+
+	.or {
+		offset-y: -6;
+		margin-left: 4;
+	}
+}

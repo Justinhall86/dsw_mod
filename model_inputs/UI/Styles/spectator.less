@@ -1,0 +1,568 @@
+@import "game.less";
+
+spectator-hud {
+	// TODO make these use dynamic positions?
+	game-state {
+		margin-right: @spectator-rightcont-width;
+
+		&.playercount-5 {
+			margin-right: (@spectator-rightcont-width - 20 + 80);
+		}
+		&.playercount-6 {
+			margin-right: (@spectator-rightcont-width - 20 + 80 * 2);
+		}
+		&.playercount-7 {
+			margin-right: (@spectator-rightcont-width - 20 + 80 * 3);
+		}
+		&.playercount-8 {
+			margin-right: (@spectator-rightcont-width + 30 + 80 * 3);
+		}
+	}
+	spectator-top-bar {
+		#topRightPopups {
+			offset-x: -(@spectator-rightcont-width + 5);
+			offset-y: 57;
+		}
+	}
+}
+
+// Also uses all the top-bar styles in topBar.less
+spectator-top-bar {
+	spectator-enabled: true;
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+	>#topBg{
+		>#mainBarBg {
+			min-height: 50;
+		}
+		>#mainBarBgPattern {
+			min-height: 49;
+		}
+		@{opt-minfont} {
+			>#mainBarBg {
+				min-height: 52;
+			}
+			>#mainBarBgPattern {
+				min-height: 51;
+			}
+		}
+	}
+	>#topLeftPopups {
+		position: absolute;
+		align: top left;
+		content-align: top left;
+		// offset-x: 10;
+		offset-y: 41;
+		spacing: 10;
+	}
+	#topContent {
+		#management {
+			pad-action: @padaction-specinspecttopleft;
+			spectator-enabled: true;
+			margin-top: -8;
+			margin-left: -8;
+			spacing: 10;
+			padding-left: 14;
+			fill-width: true;
+			auto-size-width: 1;
+			multiline: true;
+			margin-right: 220;
+			background: none;
+
+			button {
+				.decorated-btn;
+				spectator-enabled: true;
+				pad-focusable: true;
+				pad-cursor-icon: @icon-padtopbarcursor;
+				fmt-text {
+					color: @color-ui-text-light;
+				}
+
+				&.index-0 {
+					pad-default-focus: true;
+				}
+				&.selected {
+					filter: glow(@color-ui-hover-border, 1, 0.5, 3, 1, true);
+				}
+			}
+
+			.categ-separator {
+				fill-height: true;
+				valign: middle;
+				width: 1;
+				background: @color-ui-text;
+				alpha: 0.3;
+			}
+
+			&.inspect-focus {
+				bind-layer-cursor: snap;
+				use-dpad: true;
+			}
+		}
+
+		>#rightCont {
+			pad-action: @padaction-specinspecttopright;
+			spectator-enabled: true;
+
+			margin-right: 10;
+			width: @spectator-rightcont-width - 10;
+			content-halign: middle;
+			.inner-right {
+				content-halign: middle;
+				layout: vertical;
+				base-button {
+					spectator-enabled: true;
+				}
+				#factionLeaders {
+					width: 0;
+					offset-y: -68;
+
+					#povBtn {
+						margin-top: 10;
+					}
+					spectator-leader-portrait {
+						.leader-button {
+							&.not-clickable {
+								color-adjust: none;
+								&.dead, &.dead:active {
+									color-adjust: brightness(-0.1) saturate(-1);
+								}
+							}
+						}
+					}
+				}
+				.common-buttons {
+					layout: vertical;
+					content-halign: middle;
+					fill-width: true;
+					auto-size: 1;
+					margin-top: 450;
+					margin-bottom: -450;
+					spacing: 7;
+
+					>button {
+						fill-width: true;
+						pad-focusable: true;
+						auto-size: 1;
+						.baseButton();
+						.filtered-btn;
+						&.selected {
+							filter: glow(@color-ui-hover-border, 1, 0.5, 3, 1, true);
+							&.disabled {
+								color-adjust: none;
+							}
+						}
+					}
+				}
+
+				.common-buttons, spectator-leader-portrait .buttons-container {
+					offset-y: -400;
+					transition: offset-y 0.3 ease-in-out;
+					alpha: 0;
+					transition: alpha 0.3 ease-in-out;
+				}
+			}
+			&.expanded {
+				.common-buttons, spectator-leader-portrait .buttons-container {
+					offset-y: 0;
+					alpha: 1;
+				}
+			}
+			&.inspect-focus {
+				bind-layer-cursor: snap;
+				use-dpad: true;
+			}
+		}
+	}
+}
+
+spectator-leader-portrait {
+	layout: stack;
+	content-align: top middle;
+	.colored-faction-glow(~'councilor-portrait');
+	.leader-button {
+		pad-focusable: true;
+		&.selected {
+			filter: glow(@color-ui-hover-border, 1, 0.5, 4, 1, true);
+		}
+	}
+	.buttons-container {
+		layout: vertical;
+		spacing: 7;
+		margin-top: 97;
+		content-align: top middle;
+		#characters {
+			spacing: 5;
+			margin-right: -10;
+			margin-left: -10;
+			councilor-portrait {
+				pad-focusable: true;
+			}
+		}
+		>.square-button {
+			pad-focusable: true;
+			content-align: middle middle;
+			background-type: dynamic;
+			>#background {
+				background: @color-hud-bg-dark;
+				outline: 1 @color-text;
+				border-radius: 6;
+			}
+			&.selected {
+				filter: glow(@color-ui-hover-border, 1, 0.5, 4, 1, true);
+				&.disabled {
+					color-adjust: none;
+				}
+			}
+		}
+		>button {
+			pad-focusable: true;
+			.baseButton();
+			.filtered-btn;
+			width: 25;
+			margin-right: -10;
+			margin-left: -10;
+			&.selected {
+				filter: glow(@color-ui-hover-border, 1, 0.5, 3, 1, true);
+			}
+		}
+
+	}
+}
+
+spectator-resources {
+	background: @panel-bg;
+	width: 850;
+	.main-window;
+	layout: vertical;
+	&.pad {
+		margin-top: 0;
+	}
+
+	>window-header {
+		auto-size: 1;
+	}
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+
+	>.main-body {
+		padding: 10;
+		spacing: 5;
+		layout: vertical;
+		background: "UI/conquest/conquest_box_bg.png" 25 25;
+		.border4k;
+		background-alpha: 0.4;
+		background-id: true;
+		>#background {
+			color-adjust: brightness(-0.05);
+		}
+
+		>.inner-header {
+			spacing: 8;
+			content-align: middle left;
+			padding: 0 10 0 10;
+			fill-width: true;
+			auto-size: 1;
+			.time {
+				halign: right;
+				content-align: middle left;
+				layout: horizontal;
+				spacing: 10;
+
+				>.remaining-time {
+					align : middle right;
+					content-align: middle right;
+					spacing : 5;
+				}
+
+				.contract-timer {
+					content-align: middle middle;
+					spacing: 5;
+				}
+
+				#remainingTimeText{
+					color: @color-text-timer;
+				}
+				.gauge-container{
+					background: "UI/elements/ic_small_chrono_border@2x.png";
+					filter: glow(#000000, 0.5, 4, 1.2, 1, true);
+					height: 17;
+					width: 15;
+					padding: 3;
+					#gauge {
+						src: "UI/elements/circle_64.png";
+						alpha: 0.95;
+						>bitmap{
+							width: 9;
+							height: 9;
+							tint: @color-warning;
+						}
+					}
+				}
+			}
+			>.separator {
+				height: 20;
+				valign: middle;
+				width: 1;
+				background: @color-ui-text;
+				alpha: 0.3;
+			}
+			#contractSolari, #contractTax{
+				fmt-text{
+					.bold-14;
+				}
+			}
+
+			#contractSolariPrevisions {
+				spacing: 4;
+			}
+
+			#contractSolari, #contractSolariPrevisions {
+				content-align: middle middle;
+			}
+		}
+
+		.all-players {
+			layout: vertical;
+			spacing: 10;
+
+			.player-cont {
+				spacing: 5;
+				padding-left: 10;
+				padding-right: 8;
+				content-valign: middle;
+
+				background-type: dynamic;
+				>#background {
+					background: @color-bg-dark-2;
+					outline: 0.5 black;
+				}
+
+				spectator-neutral-line {
+					visible: false;
+				}
+
+				spectator-resources-line, spectator-neutral-line {
+					spacing: 5;
+					content-valign: middle;
+
+					.faction-indicator {
+						margin-right: 5;
+						margin-top: 3;
+						bitmap {
+							width: 38;
+						}
+					}
+
+					flowing-resource {
+						min-width: 85;
+						fmt-text {
+							color: @color-desert;
+						}
+						&.no-access {
+							alpha: 0;
+						}
+						&.all-blocked {
+							visible: false;
+						}
+					}
+
+					player-spice-report {
+						reverse: true;
+						content-align: middle left;
+						margin-left: 15;
+						layout: horizontal;
+						#baseline, .category.time, .block-separator, #changeRates, .tax-modifications, #patternMask {
+							visible: false;
+						}
+						.filler {
+							width: 0;
+						}
+						.block-light {
+							width: 320;
+						}
+						#spiceDistSlider{
+							tip-position: top-left;
+						}
+						.expected-spice {
+							>resource-counter {
+								min-width: 74;
+							}
+						}
+					}
+
+					harvester-panel {
+						.unit-list {
+							multiline: true;
+							width: 288;
+							spacing: 6;
+							padding: 9;
+						}
+					}
+					orni-panel, armies-panel {
+						spacing: 6;
+						padding: 9;
+						content-valign: middle;
+						.unit-list {
+							multiline: true;
+							content-valign: middle;
+							spacing: 6;
+						}
+						.recruit-btn {
+							visible: false;
+						}
+					}
+					orni-panel, armies-panel, harvester-panel {
+						unit-button {
+							spectator-enabled: true;
+						}
+					}
+
+					thumpers-panel, nuclear-silo-panel {
+						width: 190;
+						padding-left: 15;
+
+						.silo-title, .thumper-title {
+							visible: false;
+						}
+					}
+
+					nuclear-silo-panel {
+						margin-top: 5;
+						margin-bottom: 5;
+
+						.silo {
+							min-height: 40;
+							rightbar-building-button {
+								background: none;
+							}
+						}
+
+						abilities-displayer {
+							visible: false;
+						}
+						&.state-ready {
+							#emptyBar{
+								alpha: 1;
+							}
+						}
+						&.state-waiting, &.state-ready, &.state-disabled {
+							base-gauge, #stateDesc {
+								visible: true;
+							}
+						}
+						&.state-disabled {
+							#emptyBar {
+								alpha: 0.2;
+							}
+						}
+					}
+					thumpers-panel {
+						.thumper-header {
+							reverse: true;
+							fill-width: false;
+
+							flowing-resource {
+								min-width: 0;
+							}
+						}
+						#thumperGauge {
+							body-width: 77;
+						}
+						#thumperBtn {
+							visible: false;
+						}
+						&.empty {
+							visible: false;
+						}
+					}
+					building-button {
+						spectator-enabled: true;
+					}
+					operations {
+						mission-operation {
+							height: 50;
+							content-valign: middle;
+							base-gauge {
+								margin-bottom: -6;
+							}
+						}
+					}
+					quests {
+						margin-left: 10;
+						quest-button {
+							spectator-enabled: true;
+							appear-delay: 0;
+							alpha: 1;
+							margin-left: 0;
+							scale: 0.8;
+						}
+					}
+					&.traits {
+						height: 52;
+					}
+					&.buildings {
+						.separator {
+							height: 20;
+							valign: middle;
+							width: 1;
+							background: @color-ui-text;
+							alpha: 0.3;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.diplomacy {
+		.main-body {
+			max-height: 825;
+			overflow: scroll;
+			.scrollbar {
+				background-alpha: 0.4;
+				.cursor {
+					background: "UI/elements/scrollbar.png";
+					background-alpha: 0.8;
+				}
+				&:hover {
+					background-alpha: 0.6;
+					.cursor {
+						background-alpha: 1;
+					}
+				}
+			}
+		}
+		.all-players {
+			.player-cont {
+				spacing: 20;
+
+				.faction-indicator {
+					visible: false;
+				}
+			}
+		}
+		relationship-bar {
+			background: none;
+			height: 48;
+			diplomacy-status {
+				scale: 0.6;
+			}
+		}
+		active-treaty {
+			background: none;
+			.treaty-card {
+				padding: 4;
+				fill-width: false;
+			}
+		}
+		.team-separator {
+			halign: middle;
+			background: "UI/elements/line_graphic_interface.png";
+			fill-width: true;
+			height: 2;
+		}
+	}
+
+}

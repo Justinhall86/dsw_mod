@@ -1,0 +1,450 @@
+@import "game.less";
+
+quests {
+	margin-left: -2;
+	#questsCont{
+		spacing: 10;
+	}
+}
+@quest-panel-width: 360;
+@sq-panel-bg: hgrid("UI/Quests/container_background_quete.png", 3) 5 5;
+quest {
+	.main-window;
+	@win-width: @quest-panel-width * 2 + 60;
+	width: @win-width;
+	align: middle middle;
+	layout : vertical;
+	spacing: -1;
+	background-tile-pos-x: 1;
+	start-sfx: @UI_Menuquest_Open;
+	close-sfx: @UI_Menuquest_Close;
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	&.pad {
+		fill-width: false;
+		fill-height: false;
+		align: top left;
+	}
+	>.content{
+		fill-width: true;
+		height: 300;
+		layout : vertical;
+		padding: 20;
+		padding-top: 10;
+		spacing: 12;
+		content-align: top middle;
+		>.overview {
+			fill-width: true;
+			content-align: middle left;
+			auto-size: 1;
+			.desc { alpha: 0.5; }
+			>#timer{
+				halign: right;
+				spacing: 5;
+				margin: -4;
+				margin-right: 0;
+				content-align: middle middle;
+				>fmt-text{
+					color: @color-text-timer;
+					.italic-13;
+				}
+				>#timerGauge{
+					width: 15;
+					height: 17;
+					background: "UI/elements/ic_full_chrono_border.png";
+					invert: true;
+					bitmap{
+						align: bottom middle;
+						margin-bottom: 3;
+						width: 9;
+						src: "UI/elements/circle_64.png";
+						tint: @color-text-timer;
+					}
+				}
+			}
+		}
+		>.separator {
+			fill-width: true;
+			auto-size: 1;
+			height: 1;
+			background: @color-ui-text;
+			alpha: 0.15;
+		}
+		>.desc{
+			margin-bottom: 5;
+			alpha: 0.8;
+			auto-size: 1;
+			align: top left;
+			color: @color-ui-text;
+			.regular-17;
+			margin-top: 3;
+		}
+		.no-completion{
+			background: @panel-bg;
+			background-tile-pos-y: 2;
+			padding: 10;
+			layout: horizontal;
+			content-align: middle middle;
+			spacing: 10;
+			bitmap{
+				margin: -7;
+				margin-right: 0;
+				height: 50;
+				src: hgrid("UI/HUD/unitDanger.png", 2);
+				filter: glow(@color-bad, 0.9, 9, 1, 1, true);
+			}
+			>fmt-text{
+				.bold-14;
+			}
+			fmt-text{
+				color: @color-warning;
+			}
+			.consequences-list{
+				layout: vertical;
+				content-align: top middle;
+				spacing: 6;
+			}
+		}
+		>.subquests-container{
+			layout: vertical;
+			@cont-width: @quest-panel-width * 2 + 16;
+			>.thumbnail{
+				content-align: top middle;
+				background: @panel-bg;
+				background-tile-pos-y: 2;
+				padding: 3;
+				spacing: 2;
+				layout: vertical;
+				.quest-image{
+					width: @cont-width;
+					height: 110;
+				}
+				#timerBar{
+					body-width: @cont-width - 2;
+					body-height: 5;
+					background: @color-hud-bg-dark;
+					color: @color-text-timer;
+					#emptyBar{
+						alpha: 0;
+					}
+				}
+				.quest-type {
+					position:absolute;
+					align: top middle;
+					offset-y: -12;
+					src: hgrid("UI/Quests/ic_color_quete_v2.png", 4);
+					scale: 0.5;
+				}
+			}
+			.sub-quests{
+				spacing: 10;
+			}
+		}
+		#patternMask{
+			position:absolute;
+			align: bottom middle;
+			height: 200;
+			.bottom-pattern{
+				width: 750;
+				src: "UI/HUD/quest_bg_pattern.png";
+			}
+		}
+
+	}
+
+	.quest-image {
+		color-adjust: saturate(-0.8);
+	}
+	&.type-event {
+		.quest-type {
+			src-pos-x: 0 !important;
+		}
+	}
+	&.type-globalevent {
+		.quest-type {
+			src-pos-x: 1 !important;
+		}
+	}
+	&.type-contraband {
+		.quest-type {
+			src-pos-x: 2 !important;
+		}
+	}
+	&.type-guild {
+		.quest-type {
+			src-pos-x: 3 !important;
+		}
+	}
+	&.valid{
+		.quest-type {
+			color-adjust: none;
+		}
+	}
+}
+
+subquest-comp{
+	background: @sq-panel-bg;
+	background-tile-pos-x: 1;
+	.border4k;
+	layout: vertical;
+	padding: 3;
+	>.header{
+		layout: vertical;
+		.name{
+			color: @color-ui-text;
+		}
+		#thumbnail{
+			width: @quest-panel-width;
+			visible: false;
+		}
+		>.header-bar{
+			visible: false;
+			margin-top: 1;
+			src: "UI/HUD/goldBorder01.png";
+			width: @quest-panel-width;
+			height: 4;
+		}
+	}
+	.conditions, .rewards{
+		width: @quest-panel-width;
+		layout: vertical;
+		spacing: 15;
+		>fmt-text{
+			color: @color-ui-text-light;
+			.bold-15;
+			alpha: 0.5;
+		}
+		>.name{
+			.bold-16;
+			alpha: 1;
+			margin-bottom: 10;
+		}
+	}
+
+	>.conditions{
+		min-height: 135;
+		padding: 20;
+		content-align: top left;
+		background: @color-bg-dark-2;
+		#conditionsCont{
+			valign: middle;
+			spacing: 15;
+			fmt-text{
+				max-width: @quest-panel-width - 90;
+			}
+			condition-check.active{
+				fmt-text{ color: @color-ui-text-dark; }
+			}
+		}
+	}
+
+	>.rewards{
+		margin-top: 2;
+		padding: 10;
+		#rewardsBox {
+			width: @quest-panel-width - 20;
+			layout: vertical;
+			background: @sq-panel-bg;
+			background-tile-pos-x: 2;
+			.border4k;
+			min-height: 100;
+			padding: 15;
+			spacing: 10;
+			>fmt-text{
+				color: @color-ui-text;
+				.bold-15;
+				alpha: 0.5;
+			}
+
+		}
+		subquest-button{
+			align: bottom middle;
+			margin: 5;
+			margin-bottom: 10;
+
+			&.spectator {
+				visible: false;
+			}
+		}
+		.rewards-list{
+			width: @quest-panel-width - 70;
+			spacing: 12;
+		}
+	}
+
+	#conditionsCont, .rewards-list{
+		margin-left: 5;
+		layout: vertical;
+		spacing: 7;
+		fmt-text{
+			color: @color-ui-text-light;
+		}
+	}
+	&.blocked{
+		background-tile-pos-x: 0;
+		#thumbnail{
+			color-adjust: saturate(-0.9);
+		}
+		>.rewards-list{
+			alpha: 0.6;
+		}
+	}
+	.separator{
+		width: @quest-panel-width;
+		alpha: 0.8;
+		src: "UI/Quests/line_quete_choice.png";
+		margin-top: -1;
+	}
+}
+
+quest-effect-comp{
+	spacing: 5;
+	content-align: top left;
+	bitmap{
+		height: 8;
+		src: vgrid("UI/elements/attributeArrow.png", 2);
+		tint: @color-good;
+		margin-top: 2;
+	}
+	&.bad{
+		bitmap{
+			tint: @color-bad;
+			src-pos-y: 1;
+		}
+	}
+}
+
+subquest-button{
+	.generic-btn;
+	height: 65;
+	width: 220;
+	fmt-text{
+		.bold-15;
+	}
+	click-sfx: @UI_Menuquest_Claimreward;
+}
+
+@quest-button-width: 52;
+quest-button{
+	pad-action: @padaction-questwindow;
+	.main-cont{
+		padding: 2;
+		padding-bottom: 3;
+		#bgBmp{
+			width: @quest-button-width;
+			margin-top: -6;
+		}
+	}
+
+	&.selected{
+		filter: none;
+		color-adjust: none;
+		.main-cont{
+			background-type: dynamic;
+			>#background {
+				background: @color-ui-text;
+				border-radius: 0 0 6 6;
+				filter: glow(@color-ui-text, .7, 6, 1, 1, true);
+			}
+		}
+		#iconBmp{
+			alpha: 0.6;
+		}
+	}
+
+	transition: margin-left 0.2 ease-out;
+	transition: alpha 0.2 ease-out;
+	appear-delay: 0.2 0.1;
+	margin-left: -30;
+	alpha: 0;
+	&.appear {
+		margin-left: 0;
+		alpha: 1;
+	}
+
+	blinker {
+		stopped: true;
+		freq: 0.5;
+		layout: stack;
+		content-align: middle middle;
+		background-id: true;
+		>#background {
+			visible: false;
+			transition: alpha 0.8 ease-in;
+			blend: add;
+			alpha: 1;
+		}
+		#iconBmp{
+			margin-top: 1;
+			width: 30;
+		}
+		content-align: middle middle;
+		min-width: 50;
+		min-height: 50;
+	}
+
+	#subquestTrackers{
+		align: bottom middle;
+		margin:2;
+		margin-bottom: 1;
+		spacing: 2;
+		.tracker {
+			pulse-color: #000;
+			pulse-alpha: 0.5;
+			pulse-frequency: 1;
+			&.notif{
+				enable-pulse: true;
+				.option-photosensitive-true & {
+					pulse-frequency: 0.25;
+				}
+			}
+			>bitmap {
+				src: hgrid("UI/Quests/alert_quete.png", 2);
+				width: 24;
+				alpha: 0;
+				transition: alpha 0.1 ease-in;
+				&.valid{
+					alpha: 1;
+				}
+				&#right{
+					src-pos-x: 1;
+				}
+			}
+		}
+		&.monoChoice{
+			#right{
+				color-adjust: saturate(-0.8) brightness(-0.8);
+				alpha: 1;
+			}
+		}
+	}
+	pulse-color: #fff;
+	pulse-alpha: 0.4;
+	pulse-frequency: 1;
+	&.notif{
+		.option-photosensitive-false & {
+			enable-pulse: true;
+		}
+	}
+
+	#gauge{
+		position: absolute;
+		align: top right;
+		offset-x: 2;
+		offset-y: -3;
+		width: 14;
+		height: 16;
+		background: "UI/Quests/ic_timer_quete.png";
+		invert: true;
+		bitmap{
+			align: bottom middle;
+			margin-bottom: 3;
+			width: 8;
+			src: "UI/Quests/jauge_timer_quete.png";
+			//tint: @color-warning;
+		}
+	}
+}
+
+

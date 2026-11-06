@@ -1,0 +1,210 @@
+@import "game.less";
+
+objectives {
+	layout : vertical;
+	content-align: top left;
+	spacing : 15;
+
+	objective-display {
+		max-width: 320;
+		min-width: 320;
+		background: @panel-bg;
+		padding: 10;
+	}
+
+	&.is-conquest {
+		objective-display.appear {
+			alpha: 0.9;
+			background-alpha: 0.75;
+		}
+		&.focused {
+			objective-display.appear {
+				alpha: 1;
+				background-alpha: 0.8;
+				&.focused {
+					alpha: 1;
+					background-alpha: 1;
+				}
+			}
+		}
+	}
+}
+
+objective-display {
+	layout:vertical;
+	appear-delay: 0.5;
+	alpha: 0;
+	margin-left: -50;
+	transition: alpha 0.5 ease-out;
+	transition: background-alpha 0.5 ease-out;
+	transition: margin-left 0.5 ease-out;
+	&.appear{
+		alpha: 1;
+		margin-left: 0;
+	}
+	>.header{
+		content-align: middle left;
+		fill-width: true;
+		auto-size: 1;
+		spacing: 20;
+		margin-left: 10;
+		#title {
+			.bold-18;
+			color: @color-ui-text;
+			margin-bottom: 5;
+		}
+	}
+
+	.steps{
+		margin-top: 8;
+		margin-left: 15;
+		layout:vertical;
+		spacing: 7;
+		padding-bottom: 10;
+	}
+
+	tip-position: top-align-right;
+}
+
+objective-contenders-display {
+	layout: vertical;
+	margin-top: 5;
+	spacing: 2;
+	objective-contender-progress {
+		spacing: -1;
+		content-align: top left;
+		#emblem{
+			scale: 0.5;
+		}
+		#gauge{
+			body-width: 280;
+			body-height: 15;
+			color: white;
+			#fillBar {
+				background: vgrid("UI/HUD/factionHegemonyGauge.png", @ui-faction-count);
+			}
+
+			empty-color: @color-tip-body-bg;
+			#emptyBar { alpha: 1; }
+		}
+		// TODO remove the !important
+		&.faction-atreides {	#fillBar { background-tile-pos-y: 0 !important; } }
+		&.faction-harkonnen {	#fillBar { background-tile-pos-y: 1 !important; } }
+		&.faction-fremen {		#fillBar { background-tile-pos-y: 2 !important; } }
+		&.faction-smugglers {	#fillBar { background-tile-pos-y: 3 !important; } }
+		&.faction-corrino {		#fillBar { background-tile-pos-y: 4 !important; } }
+		&.faction-ecaz {		#fillBar { background-tile-pos-y: 5 !important; } }
+		&.faction-vernius {		#fillBar { background-tile-pos-y: 6 !important; } }
+
+		&.dead {
+			color-adjust: brightness(-0.2) saturate(-0.5) gain(#000000, 0.3);
+		}
+	}
+}
+
+objective-info {
+	align: top right;
+	bitmap{
+		src: hgrid("UI/multiplayer/btn_information_choice_faction.png", 3);
+	}
+	scale: 0.8;
+	&:hover {
+		>bitmap {
+			src-pos-x: 1;
+		}
+	}
+}
+objective-step-display {
+	layout:vertical;
+	spacing: 4;
+	transition: margin-left 0.2 ease-out;
+	fill-width: true;
+	.desc{
+		content-align: middle left;
+		spacing: 5;
+		transition: alpha 0.5 ease-out;
+		.point{
+			src: hgrid("UI/landsraad/box_check_charter.png", 2);
+			width: 16;
+			src-pos-x: 1;
+		}
+		.icon{
+			scale: 0.5;
+		}
+		#desc{
+			.regular-15;
+			color: @color-ui-text-light;
+			max-width: 220;
+		}
+
+		alpha: 0.3;
+	}
+	#conditionsCont{
+		alpha: 0;
+		layout: vertical;
+		margin-left: 20;
+		spacing: 5;
+		transition: alpha 0.1 ease-out;
+		.completionPin{
+			width: 12;
+		}
+		condition-check{
+			transition: margin-top 0.1 ease-out;
+			margin-top: -18;
+			fmt-text{
+				color: @color-ui-text-light;
+			}
+		}
+	}
+	#choicesCont{
+		alpha: 0;
+		layout: vertical;
+		visible: false;
+		base-button {
+			.decorated-btn;
+			spacing: 5;
+			padding-right: 15;
+			padding-left: 15;
+			fmt-text{
+				color: @color-ui-text;
+				.bold-15;
+			}
+			bitmap{
+				margin: -3;
+			}
+		}
+	}
+
+	margin-left: -3;
+	&.completed {
+		margin-left: 0;
+		.desc {
+			alpha: 0.5;
+			.point{
+				src-pos-x: 0;
+			}
+		}
+	}
+
+	&.active{
+		margin-left: 4;
+		.desc {
+			alpha: 1;
+		}
+		#conditionsCont{
+			alpha: 1;
+			margin-bottom: 3;
+			condition-check{
+				margin-top: 0;
+			}
+		}
+		#choicesCont{
+			alpha: 1;
+			align:middle;
+			visible: true;
+			condition-check{
+				margin-top: 0;
+			}
+		}
+	}
+}

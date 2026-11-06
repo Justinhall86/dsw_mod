@@ -1,0 +1,4717 @@
+// out: false
+@import "common.less";
+@import "factions-status.less";
+
+menu-layout {
+	layout: stack;
+	overflow: limit;
+	background: #000;
+
+	>#screen {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	>#bgBitmap {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	>#modals {
+		background: #000000;
+		background-alpha: 0.5;
+		visible: false;
+		&.show {
+			visible: true;
+		}
+	}
+
+	>#versionTxt {
+		.sans-13;
+		align: bottom right;
+		margin: 10;
+		alpha: 0.5;
+	}
+
+	.layer {
+		fill-width: true;
+		fill-height: true;
+		layout: stack;
+	}
+	#cursorLayer {
+		bitmap {
+			position: absolute;
+		}
+	}
+
+	menu-scene {
+		camera-speed: 1.0;
+		planet-speed: 8.0;
+		planet-offset: -6;
+		visible: true;
+	}
+
+	&.hide-menu-scene {
+		>menu-scene{
+			appear-delay: 0.5 0;
+			&.appear {
+				visible: false;
+			}
+		}
+	}
+}
+
+screen {
+	fill-width: true;
+	fill-height: true;
+	layout: stack;
+	is-bind-layer: true;
+
+	screen-fx-cont {
+		fill-width: true;
+		fill-height: true;
+		layout: stack;
+
+		.top-left {
+			align: top left;
+		}
+		.top-right {
+			align: top right;
+		}
+		.bottom-left {
+			align: bottom left;
+		}
+		.bottom-right {
+			align: bottom right;
+		}
+		.center {
+			align: middle middle;
+		}
+	}
+
+	#backBtn, .backBtn {
+		pad-focusable: false;
+		pad-click: @input-menu-back;
+		pad-binding-persistent: true;
+
+		#leftCont {
+			visible: true;
+			offset-x:10;
+			offset-y:-4;
+		}
+		.separator{
+			visible: true;
+			height: 2;
+			width: 50;
+			background: @color-ui-text;
+			alpha: 0;
+			offset-y:-5;
+			transition: alpha @hover-transition;
+			transition: offset-y @hover-transition;
+		}
+		.arrow-2{
+			visible: true;
+			position:absolute;
+			alpha: 0;
+			y:10;
+			x:18;
+			src: "UI/buttons/dropdown_arrow.png";
+			transition: alpha @hover-transition;
+			transition: y @hover-transition;
+		}
+		.arrow{
+			visible: true;
+			position:absolute;
+			alpha: 0;
+			src: hgrid("UI/multiplayer/Placeholder/arrow.png", 2);
+			src-pos-x: 1;
+			y:-2;
+			x:-13;
+			scale:0.4;
+			transition: alpha @hover-transition;
+			transition: x @hover-transition;
+		}
+		&:hover {
+			bitmap{
+				offset-x:-20;
+			}
+			.separator{
+				alpha: 0.5;
+				offset-y:0;
+			}
+			.arrow-2{
+				alpha: 0.5;
+				y:22;
+			}
+			.arrow{
+				alpha: 1;
+				x:-20;
+			}
+		}
+		bitmap {
+			visible: true;
+			.icon-nav-prev;
+			src: hgrid("UI/multiplayer/Placeholder/arrow.png", 2);
+			src-pos-x: 1;
+			offset-x:0;
+			transition: offset-x @hover-transition;
+		}
+	}
+}
+
+menu-button {
+	layout: stack;
+
+	offset-x: -20;
+	alpha: 0.0;
+	transition: offset-x 0.2 ease-out;
+	transition: alpha 0.2 ease-out;
+	pad-focusable: true;
+
+	click-sfx: @UI_Menu_Select;
+	hover-sfx: @UI_Mainmenu_Button_Rollover;
+	&:active {
+		start-vfx: "Fx/UI/MainMenu/FX_ButtonsRound_Fast.fx2d";
+	}
+	>fx-element {
+		offset-x: 20;
+		halign: left;
+	}
+
+	appear-delay: 0.05;
+	&.appear {
+		offset-x: 0;
+		alpha: 1.0;
+	}
+
+	.bgDefault {
+		background: "UI/elements/menuBtn_hover.png" 78 0 0 0;
+
+		alpha: 0;
+		.transition-alpha(0.3);
+	}
+	.bgHover {
+		background: "UI/elements/menuBtn.png" 78 0 0 0;
+	}
+	.bgDefault, .bgHover {
+		// background: vgrid("UI/elements/menu_etat_select_hover.png", 3) 78 0 0 0;
+		background-id: true;
+		#background {
+			border-scale: 0.5;
+			tint: @color-text;
+			alpha: 0.5;
+		}
+		height: 39;
+		width: 250;
+	}
+	cursor: button;
+
+	.txtCont {
+		min-width: 220;
+		height: 40;
+		valign: middle;
+		content-valign: middle;
+		fmt-text {
+			valign: middle;
+			margin-left: 44;
+			.regular-30;
+			color: @color-title-gold;
+		}
+		.soonTxt {
+			visible: false;
+			margin-left: 9;
+			.italic-28;
+		}
+		.hover-icon {
+			height: 11;
+			margin-left: 13;
+			margin-bottom: -2;
+			content-valign: middle;
+			alpha: 0;
+			.transition-alpha(0.4);
+			.base {
+				src: "UI/elements/menuBtn_hoverIconBase.png";
+				scale: 0.5;
+			}
+			.line {
+				src: "UI/elements/menuBtn_hoverIconLine.png";
+				height: 1.5;
+				width: 5;
+				margin-bottom: -1;
+				.transition-alpha(0.1);
+				transition: width 0.4 ease-out;
+			}
+		}
+	}
+	&:hover {
+		.bgDefault { alpha: 1 }
+		.hover-icon {
+			alpha: 0.8;
+			.line {
+				width: 26;
+			}
+		}
+	}
+
+	&.selected {
+		filter: none;
+		.bgDefault { alpha: 1 }
+		.hover-icon {
+			alpha: 0.8;
+			.line {
+				width: 26;
+			}
+		}
+	}
+	&.pad {
+		&.selected {
+			.txtCont {
+				#labelTxt {
+					.bold-30;
+				}
+			}
+			.hover-icon {
+				alpha: 0;
+				.line {
+					width: 5;
+				}
+			}
+			.bgDefault {
+				background: "UI/elements/menuBtn_select.png" 78 0 0 0;
+
+			}
+		}
+		&:focus {
+			.hover-icon {
+				alpha: 0.8;
+				.line {
+					width: 26;
+				}
+			}
+		}
+	}
+	&.disabled.appear {
+		color-adjust: brightness(-0.1);
+		alpha: 0.5;
+	}
+}
+
+.menuList {
+	vspacing: 20;
+	layout: vertical;
+	margin-left: 150;
+}
+
+.menuBigBtn() {
+	text {
+		.bold-20;
+		.uppercase;
+		color: @color-title-gold;
+	}
+}
+
+button#backBtn, button.backBtn {
+	margin: 20;
+	padding: 20;
+	.menuBigBtn;
+	click-sfx: none;
+	#leftCont {
+		visible: false;
+	}
+	.separator{
+		visible: false;
+	}
+	.arrow-2{
+		visible: false;
+	}
+	.arrow{
+		visible: false;
+	}
+	bitmap {
+		visible: false;
+	}
+}
+
+main-screen {
+	menu-background: none;
+	>#backBtn { visible: false; }
+
+	>game-logo {
+		offset-x: 155;
+		offset-y: 320;
+	}
+	>#userNameCont {
+		content-align: left middle;
+		spacing: 10;
+		background-type: dynamic;
+		padding-right: 20;
+		>#background {
+			gradient: linear(-90, fade(@color-bg-dark-1, 75%), rgba(0,0,0,0));
+		}
+		#pattern {
+			src: "UI/HUD/BGpattern01_small.png";
+			height: 30;
+		}
+		user-name {
+			#usernameTxt {
+				max-width-text: 500;
+				max-width: 500;
+			}
+		}
+	}
+
+	.menuList {
+		vspacing: 23;
+
+		valign: bottom;
+		margin-bottom: 260;
+
+		menu-button {
+			.txtCont {
+				fmt-text {
+					.regular-30;
+				}
+			}
+		}
+		.soloBtn {
+			pad-default-focus: true;
+		}
+		.tutoBtn{
+			&.first-time{
+				#labelTxt{
+					color: @color-text-gold;
+				}
+			}
+		}
+		.resumeGame {
+			position: absolute;
+			x: 650;
+			y: -260;
+			.build-release & {
+				visible: false;
+			}
+		}
+		.loadGame {
+			position: absolute;
+			x: 650;
+			y: -220;
+			.build-release & {
+				visible: false;
+			}
+		}
+		.encyclopedia {
+			position: absolute;
+			x: 650;
+			y: -300;
+			visible: false;
+			.build-release & {
+				visible: false;
+			}
+		}
+	}
+
+	>#betaInfo {
+		padding: 2;
+		margin-bottom: 40;
+		margin-right: 10;
+		@width: 300;
+		width: @width;
+		layout: stack;
+		content-halign: middle;
+		align: bottom right;
+		background-type: dynamic;
+
+		.trailer & {
+			visible: false;
+		}
+		>#background {
+			background: black;
+			background-alpha: 0.7;
+			border-radius: 10;
+			outline: 1 @color-text;
+			outline-alpha: 0.3;
+			outline-offset: 1;
+		}
+
+		.logo {
+			margin-top: 20;
+			src: "UI/logo/Logo.png";
+			scale: 0.5;
+		}
+
+		.desc-cont {
+			width: @width - 4;
+			margin-top: 130;
+			content-halign: middle;
+			padding-bottom: 20;
+			padding-top: 20;
+
+			background-type: dynamic;
+			>#background {
+				background: @color-text;
+				background-alpha: 0.15;
+				border-radius: 0 0 10 10;
+			}
+
+			.desc {
+				.regular-16;
+				text-align: center;
+				max-width: @width - 40;
+			}
+		}
+
+		text {
+			color: @color-text;
+		}
+
+		.title {
+			.bold-20;
+			offset-y: 95;
+		}
+
+		.separator {
+			src: "UI/HUD/horizontalArrow.png";
+			width: @width - 8;
+			margin-top: 130;
+		}
+	}
+}
+
+mode-card {
+	pad-focusable: true;
+	&.is-default { pad-default-focus: true; }
+	cursor: button;
+
+	@card-width: 372;
+	@card-height: 578;
+	width: @card-width + 20;
+	height: @card-height + 20;
+	padding: 9;
+	layout: stack;
+	content-halign: middle;
+
+	hover-sfx: @UI_Menu_Gamemode_Hover;
+
+	background-type: dynamic;
+	>#background {
+		outline: 1.5 @color-ui-text;
+		outline-alpha: 0.4;
+		outline-offset: 5;
+		border-radius: 15;
+
+		transition: outline-alpha @hover-transition;
+		transition: outline-offset @hover-transition;
+	}
+	>.icon-cont {
+		align: top middle;
+		margin-top: -36;
+		transition: margin-top @hover-transition;
+		width: 69;
+		height: 69;
+		background: hgrid("UI/menu/ic_mode.png", 3);
+		>bitmap {
+			align: middle middle;
+			src: grid("UI/icons/icon_mode_jeu.png", 3, 2);
+			src-pos-x: 0;
+			scale: 0.5;
+		}
+	}
+	&:active {
+		start-vfx: "Fx/UI/MainMenu/FX_GameModeBorder.fx2d";
+	}
+	>.content {
+		layout: stack;
+		background: "UI/menu/container_mode.png" 15 15;
+		fill-width: true;
+		fill-height: true;
+		.border4k;
+		padding: 1;
+		>.bg-cont {
+			fill-width: true;
+			fill-height: true;
+			overflow: hidden;
+			>.mode-bg {
+				position: absolute;
+				align: bottom middle;
+
+				width: @card-width;
+				height: 520;
+
+				image-tile: hgrid("UI/menu/illustration_mode.png", 3);
+				image-tile-pos-x: 1;
+
+				image-scale: 0.5;
+				transition: image-scale @hover-transition;
+			}
+		}
+
+		>.title-cont {
+			fill-width: true;
+			layout: stack;
+			margin-top: 48;
+			min-height: 65;
+			content-align: middle middle;
+
+			>.texts {
+				content-halign: middle;
+				layout: vertical;
+				spacing: 10;
+				>fmt-text {
+					.regular-23;
+					.uppercase;
+					color: @color-ui-text-light;
+				}
+				>.mode-title {
+					text-align: multilinecenter;
+					max-width: 200;
+				}
+			}
+			>.header-left-deco, >.header-right-deco {
+				halign: left;
+
+				src: hgrid("UI/menu/line_mode_hover.png", 2);
+				height: 9;
+				width: 60;
+				transition: width @hover-transition;
+			}
+			>.header-right-deco {
+				src-pos-x: 1;
+				halign: right;
+			}
+		}
+		>.desc-cont {
+			.transition-alpha(0.3);
+			alpha: 0.0;
+
+			fill-width: true;
+			layout: vertical;
+			spacing: 20;
+			valign: bottom;
+			margin-bottom: 30;
+
+			transition: offset-y @hover-transition;
+			offset-y: 20;
+
+			content-align: bottom middle;
+
+			>.desc-title {
+				fill-width: true;
+				height: 26;
+				background: "UI/menu/headerBg.png";
+
+				fmt-text {
+					.bold-16;
+					.uppercase;
+					align: middle middle;
+					color: @color-ui-text-light;
+				}
+
+				.right-pattern, .left-pattern {
+					src: hgrid("UI/menu/header_graphic.png", 2);
+					scale: 0.5;
+				}
+				.left-pattern {
+					halign: left;
+				}
+				.right-pattern {
+					halign: right;
+					src-pos-x: 1;
+				}
+			}
+
+			.desc-body {
+				min-height: 80;
+				content-align: top left;
+				>fmt-text {
+					max-width: @card-width - 60;
+					.regular-14;
+					color: @color-ui-text-light;
+				}
+			}
+		}
+		>.gradient-top {
+			background: "UI/elements/gradient_top.png";
+			width: @card-width;
+			height: 250;
+		}
+		>.gradient-bot {
+			background: "UI/elements/gradient_bottom.png";
+			width: @card-width;
+			height: 250;
+			valign: bottom;
+			transition: height @hover-transition;
+		}
+		.coming-soon-cont {
+			visible: false;
+
+			layout: stack;
+			align: bottom middle;
+			margin-bottom: 205;
+			fill-width: true;
+
+			>.coming-soon-graph {
+				position: absolute;
+				valign: top;
+				margin-top: -108;
+				src: "UI/menu/mode_soon_graph.png";
+				scale: 0.5;
+			}
+
+			>.coming-soon-body {
+				height: 112;
+				fill-width: true;
+
+				layout: vertical;
+				content-align: middle middle;
+				background: @color-hud-bg-dark;
+				background-alpha: 0.68;
+
+				>.top-arrow-deco {
+					align: top middle;
+					src: "UI/elements/ic_line_graphic_top_bar.png";
+					scale: 0.5;
+				}
+				>.lower-line-deco {
+					align: bottom middle;
+					src: "UI/elements/line_graphic_interface.png";
+					margin-bottom: -3;
+				}
+				>fmt-text {
+					.regular-20;
+					letter-spacing: 3;
+					.uppercase;
+					align: middle middle;
+					margin-bottom: 5;
+					color: @color-ui-text-light;
+				}
+			}
+		}
+
+		>.bottom-cont {
+			align: bottom middle;
+			layout: stack;
+			content-align: bottom middle;
+
+			>.arrow-1, >.arrow-2 {
+				src: grid("UI/menu/mode_bottom_line_arrow.png", 2, 2);
+				scale: 0.5;
+				transition: margin-bottom @hover-transition;
+				margin-bottom: 4;
+				transition: alpha @hover-transition;
+				alpha: 0.77;
+			}
+			>.arrow-2 {
+				margin-bottom: 2;
+				src-pos-y: 1;
+				alpha: 1;
+
+			}
+			>.line {
+				src: "UI/menu/mode_bottom_line.png";
+				scale: 0.5;
+				transition: margin-bottom @hover-transition;
+			}
+		}
+
+		>.top-deco {
+			src: "UI/menu/mode_top_graph.png";
+			scale: 0.5;
+			alpha: 0.18;
+			.transition-alpha(0.3);
+		}
+	}
+	&.conquest {
+		>.content >.bg-cont { >.mode-bg { image-tile-pos-x: 0; } }
+		>.icon-cont { >bitmap { src-pos-x: 2; } }
+	}
+	&.default {
+		>.content >.bg-cont { >.mode-bg { image-tile-pos-x: 1; } }
+	}
+	&.kanly {
+		>.content >.bg-cont { >.mode-bg { image-tile-pos-x: 2; } }
+		>.icon-cont { >bitmap { src-pos-x: 1; } }
+	}
+
+	&:hover {
+		>#background {
+			outline-alpha: 1;
+			outline-offset: 0;
+		}
+		>.content {
+			>.bg-cont {
+				>.mode-bg {
+					image-scale: 0.55;
+				}
+			}
+			>.desc-cont {
+				alpha: 1.0;
+				offset-y: 0;
+			}
+			>.title-cont {
+				>.header-left-deco, >.header-right-deco {
+					width: 75;
+				}
+			}
+			>.bottom-cont {
+				>.arrow-1 {
+					margin-bottom: 8;
+					alpha: 1;
+				}
+				>.arrow-2 {
+					alpha: 0.4;
+					margin-bottom: 4;
+				}
+			}
+			>.top-deco {
+				alpha: 1;
+			}
+			>.gradient-bot {
+				height: 500;
+			}
+		}
+		>.icon-cont {
+			margin-top: -42;
+			background-tile-pos-x: 1;
+		}
+	}
+	&.upcoming {
+		>#background {
+			outline: 1.5 #fff;
+			outline-alpha: 0.2;
+		}
+		>.content {
+			>.bg-cont {
+				color-adjust: saturate(-0.8);
+			}
+			.coming-soon-cont {
+				visible: true;
+			}
+			>.gradient-top {
+				height: 500;
+			}
+			>.gradient-bot {
+				height: 500;
+			}
+			>.bottom-cont {
+				visible: false;
+			}
+			>.title-cont {
+				>.header-left-deco, >.header-right-deco {
+					visible: false;
+				}
+				>.texts {
+					>fmt-text {
+						color: @color-ui-text-dark;
+					}
+				}
+			}
+		}
+		>.icon-cont {
+			background-tile-pos-x: 2;
+			color-adjust: brightness(-0.08);
+			>bitmap {
+				visible: false;
+			}
+		}
+	}
+}
+
+.solo-header {
+	.windowHeader;
+	width: 800;
+	background: none;
+	close-button{visible: false;}
+
+	>.leftPattern, >.rightPattern {
+		src: hgrid("UI/multiplayer/BGPatterns.png", 2);
+	}
+	>.rightPattern {
+		src-pos-x: 1;
+	}
+	>.name-cont {
+		layout: vertical;
+		spacing: 13;
+		content-halign: middle;
+		.name {
+			.regular-28;
+		}
+		.sub-content {
+			margin-bottom: -15;
+			content-align: middle middle;
+			spacing: 10;
+			fmt-text {
+				.uppercase;
+				.bold-24;
+				color: @color-ui-text-dark;
+			}
+			>bitmap {
+				src: grid("UI/icons/icon_mode_jeu.png", 3, 2);
+				width: 21;
+				&.kanly {
+					src-pos-x: 1;
+				}
+				&.conquest {
+					src-pos-x: 2;
+				}
+			}
+			&.clickable {
+				fmt-text {
+					color: @color-ui-text;
+					alpha: 0.7;
+				}
+				&:hover {
+					fmt-text {
+						alpha: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+solo-screen {
+
+	&.prevscreen-MainScreen {
+		visible: false;
+		alpha: 0;
+		transition: alpha 0.5 linear;
+		appear-delay: 0 0.2;
+		&.appear {
+			visible: true;
+			alpha: 1.0;
+		}
+	}
+
+	background: "UI/menu/menuSpace.png";
+	>#scene {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	>window-header{
+		.solo-header;
+		halign: middle;
+		margin-top: 74;
+		>.name-cont {
+			.sub-content {
+				fmt-text {
+					letter-spacing: 4;
+				}
+			}
+		}
+	}
+
+	>.top-buttons {
+		halign: middle;
+		margin-top: 180;
+
+		spacing: 20;
+		>button {
+			height: 38;
+			min-width: 241;
+			padding: 12;
+			background: hgrid("UI/multiplayer/btn_menu.png", 3) 20 20;
+
+			click-sfx: @UI_Menu_Select;
+			hover-sfx: @UI_Mainmenu_Button_Rollover;
+
+			#tf {
+				.uppercase;
+				.regular-16;
+				color: @color-ui-text;
+				alpha: 0.8;
+			}
+
+			.unfiltered-btn;
+			&:hover {
+				background-tile-pos-x: 1;
+				#tf {
+					alpha: 1;
+				}
+			}
+			&.disabled {
+				background-tile-pos-x: 2;
+				#tf {
+					alpha: 0.4;
+				}
+			}
+			&:active {
+				start-vfx: "Fx/UI/MainMenu/FX_ButtonsRectangular.fx2d";
+			}
+		}
+	}
+
+	>.modes {
+		align: middle middle;
+		spacing: 20;
+		margin-top: 135;
+
+		mode-card {
+			alpha: 0;
+			transition: alpha 0.2 linear;
+			appear-delay: 0.2;
+			&.appear {
+				alpha: 1.0;
+			}
+		}
+	}
+}
+
+
+@faction-card-innerwidth: 300;
+@faction-card-outerwidth: (@faction-card-innerwidth + 40);
+@faction-card-innerheight: 735;
+@faction-card-outerheight: (@faction-card-innerheight + 40);
+faction-card {
+	pad-focusable: true;
+
+	click-sfx: @UI_Mainmenu_Pickleader;
+	hover-sfx: @UI_Mainmenu_Faction_Rollover;
+
+	width: @faction-card-outerwidth;
+	height: @faction-card-outerheight;
+	padding: 10;
+	cursor: button;
+	layout: stack;
+
+	>.box {
+		transition: alpha @hover-transition;
+
+		layout: stack;
+		padding: 10;
+		background-type: dynamic;
+		>#background {
+			border-radius: 5;
+			margin: 10;
+			outline: 1.5 @color-ui-text;
+			outline-thickness: 1.5;
+			outline-offset: -4;
+			outline-alpha: 0.4;
+			image-scale: 1.0;
+			transition: image-scale @hover-transition;
+			transition: outline-alpha @hover-transition;
+			transition: outline-offset @hover-transition;
+			transition: outline-thickness @hover-transition;
+		}
+
+		&.Atreides >#background { image: "UI/menu/Atreides/box_background.jpg" fit; }
+		&.Harkonnen >#background { image: "UI/menu/Harkonnen/box_background.jpg" fit; }
+		&.Smugglers >#background { image: "UI/menu/Smugglers/box_background.jpg" fit; }
+		&.Fremen >#background { image: "UI/menu/Fremen/box_background.jpg" fit; }
+		&.Corrino >#background { image: "UI/menu/Corrino/box_background.jpg" fit; }
+		&.Ecaz >#background { image: "UI/menu/Ecaz/box_background.jpg" fit; }
+		&.Vernius >#background { image: "UI/menu/Vernius/box_background.jpg" fit; }
+
+		.portrait {
+			width: @faction-card-innerwidth;
+			height: @faction-card-innerheight;
+			border-radius: 6;
+
+			&.Atreides { image: "UI/menu/Atreides/box_portrait.png" fit; }
+			&.Harkonnen { image: "UI/menu/Harkonnen/box_portrait.png" fit; }
+			&.Smugglers { image: "UI/menu/Smugglers/box_portrait.png" fit; }
+			&.Fremen { image: "UI/menu/Fremen/box_portrait.png" fit; }
+			&.Corrino { image: "UI/menu/Corrino/box_portrait.png" fit; }
+			&.Ecaz { image: "UI/menu/Ecaz/box_portrait.png" fit; }
+			&.Vernius { image: "UI/menu/Vernius/box_portrait.png" fit; }
+
+			// gradient: linear(0, fade(@color-hud-bg-middle, 90%), rgba(0,0,0,0));
+			gradient-alpha: 0;
+			transition: gradient-alpha @hover-transition;
+		}
+
+		.darken-top {
+			border-radius: 6 6 0 0;
+			valign: top;
+			width: @faction-card-innerwidth;
+			height: 160;
+			gradient: linear(180, fade(@color-hud-bg-middle, 100%), rgba(0,0,0,0));
+		}
+		.gradient-top {
+			border-radius: 6 6 0 0;
+			valign: top;
+			width: @faction-card-innerwidth;
+			height: (@faction-card-innerheight - 350);
+			gradient-alpha: 1;
+			transition: gradient-alpha @hover-transition;
+
+			gradient: linear(180, fade(@color-hud-bg-middle, 85%), rgba(0,0,0,0));
+		}
+		.gradient-bottom {
+			border-radius: 0 0 6 6;
+			valign: bottom;
+			width: @faction-card-innerwidth;
+			height: (@faction-card-innerheight * 0.66);
+
+			gradient-alpha: 0.8;
+			gradient: linear(0, @color-hud-bg-middle, rgba(0,0,0,0));
+		}
+	}
+	>.box-outline {
+		visible: false;
+		align: middle middle;
+		outline: 1.5 black;
+		outline-offset: 0;
+		width: @faction-card-innerwidth;
+		height: @faction-card-innerheight;
+	}
+	.top-graph {
+		align: top middle;
+		margin-top: 10;
+		src: "UI/menu/faction_top_graph.png";
+		scale: 0.5;
+	}
+	.bottom-graph {
+		align: bottom middle;
+		margin-bottom: 10;
+		src: "UI/menu/faction_bottom_graph.png";
+		scale: 0.5;
+	}
+	>.emblem {
+		halign: middle;
+		offset-y: -8;
+		scale: 0.5;
+		.menu-emblem-Faction();
+	}
+
+	>.title-cont {
+		fill-width: true;
+		layout: stack;
+		margin-top: 50;
+		min-height: 85;
+		halign: middle;
+		content-align: middle middle;
+
+		>.titles {
+			layout: vertical;
+			halign: middle;
+			content-halign: middle;
+			spacing: 8;
+			margin-top: 20;
+			>.titlePre {
+				.bold-20;
+				.uppercase;
+				color: @color-ui-text-light;
+			}
+			>.title {
+				.bold-24;
+				.uppercase;
+				letter-spacing: 2;
+				color: @color-ui-text-light;
+			}
+		}
+		>.header-left-deco, >.header-right-deco {
+			halign: left;
+			margin-left: 10;
+
+			src: hgrid("UI/menu/line_mode_hover.png", 2);
+			height: 9;
+			width: 60;
+			transition: width @hover-transition;
+		}
+		>.header-right-deco {
+			src-pos-x: 1;
+			halign: right;
+			margin-right: 10;
+		}
+	}
+	>.descCont {
+		.transition-alpha(0.3);
+		alpha: 0.0;
+
+		background-type: dynamic;
+		#background {
+			background: @color-hud-bg-middle;
+			background-alpha: 0.8;
+			border-radius: 0 0 6 6;
+		}
+
+		align: bottom middle;
+		height: 320;
+		margin-bottom: 10;
+
+		layout: vertical;
+		width: @faction-card-innerwidth;
+
+		transition: offset-y @hover-transition;
+		offset-y: 20;
+
+		>.desc {
+			visible: false;
+			.regular-17;
+			text-align: center;
+			margin-bottom: 30;
+			margin-left: 10;
+			margin-right: 10;
+		}
+
+		>.effectsTitle {
+			fill-width: true;
+			height: 26;
+			background: "UI/menu/headerBg.png";
+			fmt-text {
+				.bold-16;
+				.uppercase;
+				color: @color-ui-text-light;
+				align: middle middle;
+			}
+
+			.right-pattern, .left-pattern {
+				src: hgrid("UI/menu/header_graphic.png", 2);
+				scale: 0.5;
+			}
+			.left-pattern {
+				halign: left;
+			}
+			.right-pattern {
+				halign: right;
+				src-pos-x: 1;
+			}
+		}
+
+		>menu-faction-effects {
+			width: @faction-card-innerwidth - 10;
+			min-height: 250;
+			padding: 20;
+			padding-top: 30;
+			padding-right: 15;
+
+			>.base-bonuses {
+				>.title {
+					visible: false;
+				}
+			}
+
+			>.hegemony-bonuses, >.left {
+				visible: false;
+			}
+
+			.group {
+				spacing: 10;
+				valign: middle;
+				>flow {
+					spacing: 11;
+					bitmap {
+						src: hgrid("UI/elements/attributeArrow_large.png", 2);
+						tint: #fff;
+						offset-y: 3;
+						&.positive {
+							src-pos-x: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	>.select {
+		visible: false;
+		align: bottom middle;
+		margin-bottom: 20;
+		.decorated-btn;
+		.menuBigBtn;
+	}
+
+	>.bottom-cont {
+		align: bottom middle;
+		layout: stack;
+		content-align: bottom middle;
+		margin-bottom: 11;
+
+		>.arrow-1, >.arrow-2 {
+			src: grid("UI/menu/mode_bottom_line_arrow.png", 2, 2);
+			scale: 0.5;
+			transition: margin-bottom @hover-transition;
+			margin-bottom: 4;
+			transition: alpha @hover-transition;
+			alpha: 0.77;
+		}
+		>.arrow-2 {
+			margin-bottom: 2;
+			src-pos-y: 1;
+			alpha: 1;
+
+		}
+		>.line {
+			src: "UI/menu/mode_bottom_line.png";
+			scale: 0.5;
+			transition: margin-bottom @hover-transition;
+		}
+	}
+
+	.dlc-ribbon {
+		visible: false;
+		layout: stack;
+		margin: 10;
+		.ribbon {
+			src: "UI/menu/dlc_ribbon.png";
+			scale: 0.5;
+		}
+		.dlc-text {
+			max-width-text: 50;
+			offset-x: -9;
+			offset-y: 5;
+			align: middle middle;
+			.uppercase;
+			.bold-15;
+			color: @color-ui-text-light;
+			rotation: -45;
+		}
+	}
+
+	&.requires-dlc {
+		.dlc-ribbon {
+			visible: true;
+		}
+		>.box {
+			>#background {
+				color-adjust: saturate(-0.7);
+			}
+			.portrait {
+				color-adjust: saturate(-0.7);
+			}
+		}
+		.top-graph, .bottom-graph, .header-left-deco, .header-right-deco {
+			visible: false;
+		}
+	}
+
+	&:hover {
+		>.descCont {
+			alpha: 1.0;
+			offset-y: 0;
+		}
+		.box {
+			>#background {
+				image-scale: 1.05;
+				outline-alpha: 1;
+				outline-offset: -8;
+			}
+			.portrait {
+				gradient-alpha: 1.0;
+			}
+			.gradient-top {
+				gradient-alpha: 0.1;
+			}
+		}
+		>.title-cont {
+			>.header-left-deco, >.header-right-deco {
+				width: 75;
+			}
+		}
+
+
+		>.bottomDeco {
+			margin-bottom: 20;
+		}
+		>.bottom-cont {
+			>.arrow-1 {
+				margin-bottom: 8;
+				alpha: 1;
+			}
+			>.arrow-2 {
+				alpha: 0.4;
+				margin-bottom: 4;
+			}
+		}
+		&:active {
+			start-vfx: "Fx/UI/MainMenu/FX_HouseSelectionBorder.fx2d";
+		}
+	}
+	&:focus {
+		.box {
+			>#background {
+				outline-thickness: 2.5;
+			}
+		}
+	}
+}
+
+faction-select-screen {
+	menu-background: none;
+
+	scroll-speed: 18;
+
+	background: "UI/menu/menuSpace.png";
+	>#scene {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	>.body {
+		layout: vertical;
+		fill-width: true;
+		fill-height: true;
+
+		>window-header{
+			.solo-header;
+			halign: middle;
+			margin-top: -26;
+			align: middle middle;
+		}
+		>.emblems-cont {
+			layout: vertical;
+			halign: middle;
+			content-halign: middle;
+
+			margin-top: 30;
+			margin-bottom: -106;
+			spacing: 12;
+
+			.header-separator {
+				src: "UI/conquest/smooth_separator.png";
+				width: 430;
+				height: 1;
+			}
+			.header-emblems {
+				spacing: 8;
+				.header-emblem {
+					layout: stack;
+					background: hgrid("UI/Faction/flag_menu_faction_preview.png", (@ui-faction-count + 1));
+					width: 35;
+					height: 39;
+					click-sfx: @UI_Mainmenu_Pickleader;
+
+					.icon {
+						align: middle middle;
+						scale: 0.5;
+					}
+
+					.dlc-ribbon {
+						visible: false;
+						src: "UI/menu/dlc_ribbon_small.png";
+						offset-x: 1;
+						offset-y: 1;
+						scale: 0.5;
+					}
+					&.requires-dlc {
+						.dlc-ribbon {
+							visible: true;
+						}
+					}
+					&.card-focused, &:hover {
+						.tiled-faction(background-tile-pos-x, @offset: 1);
+					}
+				}
+			}
+		}
+
+		>.factions {
+			align: middle middle;
+			margin-top: 100;
+			@over-cutoff: (@faction-card-outerwidth * 0.3);
+			layout: stack;
+
+			.factionScroll {
+				halign: middle;
+				overflow: hidden;
+				max-width: @faction-card-outerwidth * 5;
+				height: @faction-card-outerheight;
+
+				faction-card {
+					alpha: 0;
+					transition: alpha 0.4 linear;
+					appear-delay: 0.1;
+					&.appear {
+						alpha: 1.0;
+					}
+
+					>.emblem {
+						alpha: 1;
+						transition: alpha 0.15 ease-in;
+					}
+
+					&.off-screen {
+						>.emblem {
+							alpha: 0;
+							transition: alpha 0.15 ease-out;
+						}
+					}
+
+					&.default-selected {
+						pad-default-focus: true;
+					}
+				}
+				&.can-scroll {
+					layout: stack;
+					width: (@faction-card-outerwidth * 4) + (@over-cutoff * 2);
+					padding-left: @over-cutoff;
+					faction-card {
+						&.index--1 { appear-delay: 0 0; }
+					}
+				}
+			}
+
+			@scroll-btn-cutoff: (@over-cutoff + 2);
+			#scrollLeftBtn, #scrollRightBtn {
+				height: @faction-card-outerheight;
+				align: middle middle;
+				content-valign: middle;
+				appear-delay: 0.3 0;
+				alpha: 0;
+				transition: alpha 0.4 linear;
+				click-sfx: @UI_Button_Release;
+				hover-sfx: @UI_Button_Rollover;
+
+				&.appear {
+					alpha: 1;
+				}
+				.vert-sep {
+					src: "UI/menu/side_arrows_sep.png";
+					width: 2;
+					height: @faction-card-innerheight;
+					scale: 0.5;
+				}
+				.arrow-cont {
+					layout: stack;
+					content-valign: middle;
+					offset-x: 0;
+					transition: offset-x @hover-transition;
+				}
+				.inner-arrow {
+					src: hgrid("UI/menu/side_arrows_inner.png", 2);
+					scale: 0.5;
+					offset-x: 0;
+					transition: offset-x @hover-transition;
+				}
+				.outer-arrow {
+					src: hgrid("UI/menu/side_arrows_outer.png", 2);
+					scale: 0.5;
+					offset-x: 0;
+					transition: offset-x @hover-transition;
+				}
+				>fx-element {
+					alpha: 1;
+					transition: alpha @hover-transition;
+				}
+				.preview-gradient {
+					width: @scroll-btn-cutoff;
+					height: @faction-card-innerheight;
+				}
+				&.disabled {
+					alpha: 0.5;
+					>fx-element {
+						alpha: 0;
+					}
+				}
+			}
+			#scrollLeftBtn {
+				margin-left: -72;
+				padding-left: 20;
+				halign: left;
+
+				&.appear {
+					start-vfx : "Fx/UI/MainMenu/FX_SelectionArrow_Left.fx2d";
+				}
+				>fx-element {
+					halign: left;
+					offset-x: 42;
+				}
+
+				reverse: true;
+				.vert-sep {
+					margin-left: 10;
+					margin-right: 9;
+				}
+				.arrow-cont {
+					content-halign: right;
+				}
+				.preview-gradient {
+					background-type: dynamic;
+					>#background {
+						gradient: linear(-90, fade(@color-bg-dark-3, 100%), rgba(0,0,0,0));
+					}
+				}
+
+				&:hover, &.nearFocus {
+					.arrow-cont {
+						.inner-arrow {
+							offset-x: -9;
+						}
+						.outer-arrow {
+							offset-x: -5;
+						}
+					}
+				}
+			}
+			#scrollRightBtn {
+				margin-right: -72;
+				padding-right: 20;
+				margin-left: -@over-cutoff;
+				halign: right;
+
+				&.appear {
+					start-vfx : "Fx/UI/MainMenu/FX_SelectionArrow_Right.fx2d";
+				}
+				>fx-element {
+					halign: right;
+					offset-x: -22;
+				}
+
+				.vert-sep {
+					margin-right: 10;
+					margin-left: 9;
+				}
+				.arrow-cont {
+					content-halign: left;
+				}
+				.preview-gradient {
+					background-type: dynamic;
+					>#background {
+						gradient: linear(90, fade(@color-bg-dark-3, 100%), rgba(0,0,0,0));
+					}
+				}
+
+				#iconBmp, .inner-arrow, .outer-arrow {
+					src-pos-x: 1;
+				}
+				&:hover, &.nearFocus {
+					.arrow-cont {
+						.inner-arrow {
+							offset-x: 9;
+						}
+						.outer-arrow {
+							offset-x: 5;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.menu-tabs() {
+	spacing: 16;
+	.btn-cont {
+		layout: vertical;
+		content-halign: middle;
+		spacing: 5;
+
+		>button {
+			height: 39;
+			min-width: 241;
+			padding: 12;
+			background: hgrid("UI/multiplayer/btn_menu.png", 3) 20 20;
+
+			click-sfx: @UI_Menu_Select;
+			hover-sfx: @UI_Mainmenu_Button_Rollover;
+
+			#tf {
+				.uppercase;
+				.regular-16;
+				color: @color-ui-text;
+				alpha: 0.6;
+			}
+
+			.unfiltered-btn;
+			&:hover, &.selected {
+				background-tile-pos-x: 1;
+				#tf {
+					alpha: 1;
+				}
+			}
+			&.selected {
+				start-vfx: "Fx/UI/MainMenu/FX_ButtonsRectangular.fx2d";
+			}
+			&.disabled {
+				background-tile-pos-x: 2;
+				color-adjust: none;
+				#tf {
+					alpha: 0.5;
+				}
+			}
+			&.is-prev {
+				pad-click: @input-menu-tabprev;
+			}
+			&.is-next {
+				pad-click: @input-menu-tabnext;
+			}
+			&.lone-tab {
+				pad-click: none;
+				click-sfx: none;
+				hover-sfx: none;
+			}
+			&:focus {
+				#tf {
+					alpha: 0.8;
+				}
+			}
+		}
+
+		>.selected-indicator {
+			src: "UI/HUD/baseline1.png";
+			width: 241;
+			height: 12;
+			alpha: 0;
+			transition: alpha 0.2 ease-out;
+		}
+
+		&.selected {
+			>.selected-indicator {
+				alpha: 1;
+			}
+		}
+	}
+}
+
+new-game-screen {
+	@margin: 73;
+
+	menu-background: none;
+
+	background: "UI/menu/menuSpace.png";
+
+	>window-header{
+		.solo-header;
+		halign: middle;
+		margin-top: 74;
+	}
+	>#scene {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	>.body, >.body-bg {
+		layout: stack;
+		fill-width: true;
+		valign: middle;
+		margin-top: 83;
+		@content-height: 739;
+		height: @content-height;
+		@fac-info-width: 700;
+
+		>.upper-line-deco, >.lower-line-deco {
+			halign: middle;
+			fill-width: true;
+			height: 2;
+		}
+		>.upper-line-deco {
+			background: "UI/elements/line_graphic_interface_left.png";
+			margin-top: -2;
+		}
+		>.lower-line-deco {
+			background: "UI/elements/line_graphic_interface_right.png";
+			valign: bottom;
+			margin-bottom: -2;
+		}
+
+		>.bg {
+			layout: stack;
+			fill-width: true;
+			fill-height: true;
+			>.bgImage {
+				fill-width: true;
+				fill-height: true;
+				&.atreides { src: "UI/backgrounds/AtreidesBG_sharp.jpg"; }
+				&.harkonnen { src: "UI/backgrounds/HarkonnenBG_sharp.jpg"; }
+				&.smugglers { src: "UI/backgrounds/SmugglersBG_sharp.jpg"; }
+				&.fremen { src: "UI/backgrounds/FremenBG_sharp.jpg"; }
+				&.corrino { src: "UI/backgrounds/CorrinoBG_sharp.jpg"; }
+				&.ecaz { src: "UI/backgrounds/EcazBG_sharp.jpg"; }
+				&.vernius { src: "UI/backgrounds/VerniusBG_sharp.jpg"; }
+			}
+			>.gradients-left {
+				halign:left;
+				layout: horizontal;
+				>.gradient-left {
+					height: @content-height;
+					width: 1300;
+					background: "UI/menu/gradientLR.png";
+				}
+			}
+
+			>.gradients-right {
+				halign:right;
+				layout: horizontal;
+				>.gradient-right {
+					height: @content-height;
+					width: 1200;
+					background: "UI/menu/gradientRL.png";
+				}
+			}
+		}
+
+		.emblems-cont {
+			margin-left: @margin;
+			margin-top: -11;
+			spacing: 8;
+			.header-emblem {
+				content-align: top middle;
+				layout: stack;
+				background: hgrid("UI/Faction/flag_menu_faction_preview.png", (@ui-faction-count + 1));
+				width: 35;
+				height: 39;
+				click-sfx: @UI_Mainmenu_Pickleader;
+
+				.icon {
+					align: middle middle;
+					scale: 0.5;
+				}
+				.selected-arrow {
+					visible: false;
+					offset-y: -12;
+					src: "UI/elements/arrow_flag.png";
+					scale: 0.5;
+				}
+				.dlc-ribbon {
+					visible: false;
+					align: top left;
+					src: "UI/menu/dlc_ribbon_small.png";
+					offset-x: 1;
+					offset-y: 1;
+					scale: 0.5;
+				}
+				&.selected {
+					.selected-arrow {
+						visible: true;
+					}
+				}
+				&.requires-dlc {
+					.dlc-ribbon {
+						visible: true;
+					}
+				}
+				&.selected, &:hover {
+					.tiled-faction(background-tile-pos-x, @offset: 1);
+				}
+			}
+		}
+
+
+		>.facContainer {
+			fmt-text {
+				auto-size: 1;
+			}
+
+			valign: top;
+			padding-top: 96;
+			margin-left: @margin;
+			layout: vertical;
+			>.title-cont {
+				spacing: 16;
+				margin-bottom: 28;
+
+				>.emblem {
+					height: 85;
+				}
+
+				>.titles {
+					layout: vertical;
+					valign: top;
+					margin-top: 1;
+					spacing: 8;
+					min-height: 70;
+					>.titlePre {
+						.regular-25;
+						letter-spacing: 2;
+						.uppercase;
+						color: @color-ui-text;
+					}
+					>.title {
+						.uppercase;
+						.bold-40;
+						letter-spacing: 3;
+						color: @color-ui-text;
+					}
+					>.info-btn {
+						position: absolute;
+						align: middle right;
+						margin-right: -50;
+						src: hgrid("UI/multiplayer/btn_information_choice_faction.png", 3);
+						pad-hover: @input-menu-hoverfactioninfo;
+
+						&:hover {
+							offset-x: -1;
+							>bitmap {
+								src-pos-x: 1;
+							}
+						}
+					}
+				}
+			}
+			>.desc {
+				visible: false;
+				.regular-17;
+				margin-left: 4;
+				margin-bottom: 30;
+				max-width: @fac-info-width - 150;
+				color: @color-ui-text-light;
+			}
+
+			>.effectsCont {
+				align: bottom left;
+				layout: vertical;
+				width: @fac-info-width;
+
+				menu-faction-effects {
+					@spacing: 10;
+					spacing: @spacing;
+					.group {
+						padding: 26 42 42 26;
+						min-height: 195;
+						>flow {
+							fmt-text {
+								alpha: 0.8;
+							}
+						}
+					}
+					>.group {
+						fill-width: true;
+						background-type: dynamic;
+						>#background {
+							background: @color-bg-dark-2;
+							outline: 0.5 #FCD28B;
+							outline-offset: 3;
+						}
+						.bg-pattern {
+							visible: true;
+							position: absolute;
+							halign: middle;
+							y: 4;
+							src: "UI/menu/effects_top_graph.png";
+							scale: 0.5;
+							alpha: 0.7;
+						}
+					}
+					>.hegemony-bonuses {
+						layout: horizontal;
+						spacing: @spacing;
+						>.group {
+							background: "UI/HUD/btn01.png" 12 12;
+							background-alpha: 0.85;
+							width: ((@fac-info-width - @spacing) / 2);
+							>flow {
+								valign: middle;
+								spacing: 8;
+							}
+						}
+					}
+				}
+			}
+
+			>.select {
+				visible: false;
+				align: bottom middle;
+				margin-bottom: 20;
+				.decorated-btn;
+				.menuBigBtn;
+			}
+
+			&:hover {
+				>.descCont {
+					alpha: 1.0;
+				}
+				.background {
+					scale-x: 0.9;
+					scale-y: 0.9;
+					x: -20;
+					y: -30;
+				}
+			}
+		}
+
+		>.right-cont {
+			margin-right: @margin;
+			width: 501;
+			padding-top: 30;
+			height: @content-height + 10;
+			align: middle right;
+
+			#mainSettings {
+				layout: vertical;
+				content-halign: middle;
+				fill-height: true;
+
+				>.tab-cont {
+					fill-width: true;
+					layout: vertical;
+					content-halign: middle;
+					spacing: 10;
+					margin-bottom: 15;
+
+					>.tab-buttons {
+						.menu-tabs();
+					}
+					.separator {
+						src: "UI/elements/line_graphic_interface.png";
+						height: 1;
+						width: 400;
+					}
+				}
+
+				>.councilors-cont {
+					margin-top: 2;
+					&.hidden {
+						visible: false;
+					}
+					layout: vertical;
+					content-halign: middle;
+
+					>.title {
+						.regular-18;
+						margin-bottom: 13;
+						color: @color-ui-text-light;
+					}
+
+					>.titleDeco {
+						visible: false;
+						src: "UI/elements/titleDeco.png";
+						margin-bottom: 5;
+					}
+					councilor-button {
+						&.index-0 { pad-default-focus: true; }
+						&.selected {
+							start-vfx: "Fx/UI/MainMenu/FX_CouncilorsSelection.fx2d";
+						}
+					}
+				}
+
+				.parameters-cont {
+					layout: vertical;
+					spacing: 30;
+
+					&.hidden {
+						visible: false;
+					}
+				}
+			}
+
+			#aiFactionChoice {
+				align: right;
+			}
+
+			.buttons {
+				align: bottom right;
+				spacing: 7;
+				margin-bottom: 30;
+				button {
+					.large-multi-btn;
+					&:hover {
+						fmt-text {
+							alpha: 1;
+						}
+					}
+					&.enabled {
+						fmt-text {
+							alpha: 1;
+							color: @color-ui-text-light;
+						}
+						start-vfx: "Fx/UI/MainMenu/FX_Start.fx2d";
+					}
+					&#startBtn {
+						pad-click: @input-menu-startgame;
+					}
+				}
+
+			}
+		}
+		#prevFactionBtn, #nextFactionBtn {
+			visible: false;
+			icon: hgrid("UI/menu/side_arrows.png", 2);
+			scale: 0.5;
+			click-sfx: @UI_Mainmenu_Pickleader;
+		}
+		#prevFactionBtn {
+			align: middle left;
+			margin-left: 27;
+		}
+		#nextFactionBtn {
+			align: middle right;
+			margin-right: 27;
+
+			#iconBmp {
+				src-pos-x: 1;
+			}
+		}
+	}
+	&.settings-open {
+		>.body, >.body-bg {
+
+			>.bg {
+				>.gradient-right {
+					gradient-alpha: 1;
+				}
+			}
+		}
+	}
+	&.dlc-locked {
+		.right-cont #mainSettings {
+			>.tab-cont {
+				>.tab-buttons {
+					.btn-cont.settings {
+						visible: false;
+					}
+				}
+				>.separator {
+					alpha: 0;
+				}
+			}
+			.parameters-cont {
+				visible: false;
+			}
+			>.councilors-cont {
+				>.title {
+					alpha: 0;
+				}
+			}
+		}
+		&.gametype-Conquest {
+			.tab-cont {
+				.separator {
+					alpha: 0;
+				}
+			}
+		}
+	}
+}
+
+.councilor-dims(@width: 108, @height: 390, @interactExceed: 0) {
+	width: @width + 5;
+	height: @height + 5;
+	padding-left: @interactExceed;
+	padding-right: @interactExceed;
+	margin-left: -@interactExceed;
+	margin-right: -@interactExceed;
+	>.portrait, >.lineInner {
+		width: @width;
+		height: @height;
+	}
+	>.gradient-bottom {
+		width: @width;
+		height: (@height / 2);
+	}
+	>.lineOuter {
+		width: @width + 4;
+		height: @height + 4;
+	}
+}
+councilor-select {
+	spacing: 4;
+	#tipAnchor {
+		position: absolute;
+		align: bottom middle;
+		margin-bottom: 196;
+	}
+
+	&.random {
+		councilor-button {
+			pad-focusable: false;
+			>.portrait {
+				image-tile: hgrid("UI/Faction/Menu/councillorsRandom.png", 2);
+				image-tile-pos-x: 0;
+				image-alpha: 0.3;
+			}
+			&.index-1, &.index-3 {
+				>.portrait {
+					image-tile-pos-x: 1;
+				}
+			}
+		}
+	}
+}
+councilor-button {
+	pad-focusable: true;
+	hover-disabled: true;
+
+	click-sfx: @UI_Mainmenu_Pickcouncelor;
+	hover-sfx: @UI_Mainmenu_Faction_Rollover;
+
+	.councilor-dims(108, 390, 2);
+	layout: stack;
+	content-align: middle middle;
+
+	>.portrait {
+		border-radius: 5;
+		outline: 0.5 black;
+		outline-alpha: 2; // to make a solid 1px line;
+
+		background: @color-hud-bg-middle;
+
+		image-mode: fit;
+		image-alpha: 1;
+		transition: image-alpha @hover-transition;
+		image-scale: 1;
+		transition: image-scale @hover-transition;
+		color-adjust: none;
+	}
+
+	>.gradient-bottom {
+		valign: bottom;
+		margin-bottom: 3;
+
+		border-radius: 6;
+		gradient: linear(0, @color-hud-bg-middle, rgba(0,0,0,0));
+	}
+
+	>.lineInner {
+		outline: 1 @color-ui-text;
+		outline-alpha: 0.4;
+		outline-offset: 5;
+		border-radius: 10;
+
+		transition: outline-alpha @hover-transition;
+	}
+
+	>.lineOuter {
+		outline: 1 @color-ui-text;
+		outline-alpha: 0;
+		outline-offset: 0;
+		border-radius: 8;
+
+		transition: outline-alpha 0.1 ease-out;
+	}
+
+	&.ignored {
+		>.portrait {
+			image-alpha: 0.5;
+		}
+	}
+
+	&.selected {
+		>.lineOuter {
+			outline-alpha: 1;
+		}
+		>.lineInner {
+			outline-alpha: 0.6;
+		}
+		.portrait {
+			color-adjust: contrast(0.2) brightness(0.05);
+			image-scale: 1.03;
+			image-alpha: 1;
+		}
+	}
+	&:hover {
+		>.lineOuter {
+			outline-alpha: 1;
+		}
+		.portrait {
+			image-scale: 1.03;
+			image-alpha: 1;
+		}
+	}
+}
+
+faction-choice {
+	&.self-faction {
+		position: absolute;
+		choice-offset-x: -80;
+	}
+
+	&.other-faction {
+		position: absolute;
+		choice-offset-x: -235;
+		.buttonsPanel, .buttonsPanel >.outer-border {
+			width: 280;
+		}
+	}
+
+	&.ai-param-faction {
+		position: absolute;
+		choice-offset-x: -300;
+		choice-offset-y: -448;
+		.info-btn {
+			visible: false;
+		}
+		.buttonsPanel, .buttonsPanel >.outer-border {
+			width: 280;
+			height: 582;
+		}
+	}
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+
+	@height: 685;
+
+	.buttonsPanel {
+		padding: 15;
+		width: 810;
+		height: @height;
+		spacing: 10;
+
+		background-type: dynamic;
+		>#background {
+			background: #181920;
+			outline: 1.5 #000;
+			outline-offset: -1;
+		}
+
+		>.outer-border {
+			position: absolute;
+			width: 810;
+			height: @height;
+			outline: 1 @color-ui-text-dark;
+			outline-offset: 5;
+		}
+
+		@inner-padding: 14;
+		>.inner-border {
+			fill-height: true;
+			fill-width: true;
+			padding: 2;
+			background-type: dynamic;
+			>#background {
+				outline: 1.5 @color-ui-text;
+				outline-offset: 1;
+			}
+
+			>.vertical-separator {
+				fill-height: true;
+				width: 2;
+				background: @color-ui-text;
+				background-alpha: 0.2;
+				margin-left: 20;
+				margin-right: -1;
+			}
+		}
+
+		.buttonsList {
+			layout: vertical;
+			spacing: 6;
+			valign: top;
+
+			overflow: scroll;
+			margin: @inner-padding;
+			margin-right: -10;
+			padding-right: 15;
+			.scrollbar{
+				margin-right: -15;
+				halign: right;
+				.cursor {
+					width: 8;
+				}
+			}
+
+			>.random-separator {
+				fill-width: true;
+				auto-size: 1;
+				height: 2;
+				background: "UI/menu/line_graphic_interface.png";
+				margin: 4;
+				alpha: 0.6;
+				background-id: true;
+				>#background {
+					tint: @color-gold;
+				}
+			}
+
+			>#factionConts {
+				pad-focusable: true;
+				padding: 1;
+
+				layout: stack;
+
+				@width: 220;
+				@height: 96;
+
+				height: @height;
+				width: @width;
+				background-type: dynamic;
+				click-sfx: UI_Button_Release;
+				hover-sfx: UI_Button_Rollover;
+				>#background {
+					image-tile: grid("UI/multiplayer/box_choice_faction.png", (@ui-faction-count + 1), 3);
+					image-mode: fit;
+				}
+
+				.vertical-line {
+					position: absolute;
+					align: middle right;
+					offset-x : 4;
+					width: 1;
+					height: 0;
+					background: #FCD28B;
+					alpha: 0.7;
+					transition: height @hover-transition;
+				}
+
+				.nameCont {
+					fill-height: true;
+					fill-width: true;
+					padding-left: 16;
+					padding-top: 11;
+					padding-right: 5;
+
+					> text {
+						margin-left: 50;
+					}
+
+					layout: stack;
+					>bitmap.emblem {
+						width: 41;
+						src: hgrid("UI/multiplayer/faction_choice_faction.png", (@ui-faction-count + 1));
+					}
+					>.titlePre {
+						text-transform: uppercase;
+						.regular-15;
+						letter-spacing: 1;
+						offset-y: 3;
+					}
+					>.title {
+						text-transform: uppercase;
+						.bold-18;
+						letter-spacing: 1;
+						offset-y: 21;
+					}
+					>fixed-text{
+						max-width-text: 150;
+					}
+
+					.tiled-faction(src-pos-x, ~'>bitmap.emblem');
+					.lock-icon {
+						visible: false;
+						src: "UI/multiplayer/ic_lock.png";
+						align: top right;
+						width: 11;
+						offset-x: -2;
+						offset-y: -3;
+					}
+					.player-cont {
+						visible: false;
+						align: bottom left;
+						margin-bottom: 11;
+						fmt-text {
+							color: @color-ui-text-light;
+							.regular-17;
+						}
+						.player-name {
+							allow-over-rich-ids: false;
+							max-width-text: @width - 25;
+							use-ellipsis: true;
+						}
+					}
+				}
+
+				&.disabled {
+					>.nameCont {
+						>bitmap {
+							color-adjust: brightness(-0.05) saturate(-0.5);
+						}
+						>fmt-text {
+							alpha: 0.5;
+						}
+						.lock-icon, .player-cont {
+							visible: true;
+						}
+					}
+					>#background {
+						image-tile-pos-y: 2;
+						color-adjust: brightness(-0.1) saturate(-0.2);
+					}
+				}
+
+				&:hover {
+					>#background {
+						outline: 1.5 @color-ui-text;
+						outline-alpha: 0.4;
+					}
+					.vertical-line {
+						height: 80;
+					}
+				}
+				&.selected {
+					color-adjust: none;
+					filter: none;
+					pad-default-focus: true;
+					>#background {
+						outline: 1.5 @color-ui-text;
+						outline-alpha: 1;
+					}
+					.vertical-line {
+						height: 80;
+						alpha : 1;
+					}
+				}
+				&:active {
+					color-adjust: brightness(-0.05);
+					>#background {
+						outline: 1.5 @color-ui-text;
+						outline-alpha: 0.4;
+					}
+				}
+
+				.tiled-faction(image-tile-pos-x, ~'>#background');
+			}
+		}
+		.selected-cont {
+			fill-height: true;
+			fill-width: true;
+			auto-size: 1;
+			layout: vertical;
+			padding: @inner-padding;
+			padding-left: 20;
+			align: top left;
+
+			background-type: dynamic;
+			>#background {
+				image-alpha: 0.3;
+			}
+			&.Atreides >#background { image: "UI/menu/Atreides/box_background.jpg" fit; }
+			&.Harkonnen >#background { image: "UI/menu/Harkonnen/box_background.jpg" fit; }
+			&.Smugglers >#background { image: "UI/menu/Smugglers/box_background.jpg" fit; }
+			&.Fremen >#background { image: "UI/menu/Fremen/box_background.jpg" fit; }
+			&.Corrino >#background { image: "UI/menu/Corrino/box_background.jpg" fit; }
+			&.Ecaz >#background { image: "UI/menu/Ecaz/box_background.jpg" fit; }
+			&.Vernius >#background { image: "UI/menu/Vernius/box_background.jpg" fit; }
+			&.random >#background { image: "UI/multiplayer/box_background_random.png" fit; }
+
+			>.title-cont {
+				spacing: 16;
+				margin-top: 20;
+				margin-left: 6;
+
+				>.emblem {
+					height: 85;
+					&.random {
+						src: hgrid("UI/multiplayer/faction_choice_faction.png", (@ui-faction-count + 1));
+						src-pos-x: @ui-faction-count;
+					}
+				}
+
+				>.titles {
+					layout: vertical;
+					valign: top;
+					margin-top: 1;
+					spacing: 8;
+					min-height: 70;
+					>.titlePre {
+						.regular-25;
+						letter-spacing: 2;
+						.uppercase;
+						color: @color-ui-text;
+					}
+					>.title {
+						.uppercase;
+						.bold-40;
+						letter-spacing: 3;
+						color: @color-ui-text;
+					}
+					>.info-btn {
+						position: absolute;
+						align: middle right;
+						margin-right: -50;
+						src: hgrid("UI/multiplayer/btn_information_choice_faction.png", 3);
+						&:hover {
+							>bitmap {
+								src-pos-x: 1;
+							}
+						}
+					}
+				}
+			}
+			.councilors-cont {
+				layout: vertical;
+				align: middle middle;
+				content-halign: middle;
+
+				>fmt-text {
+					color: @color-ui-text-light;
+				}
+
+				.arrow-separator {
+					align: top middle;
+					src: "UI/HUD/baseline1.png";
+					width: 241;
+					margin-top: 8;
+					margin-bottom: -4;
+				}
+
+				councilor-button {
+					.councilor-dims(100, 320, 2);
+				}
+			}
+			#confirmBtn {
+				.large-multi-btn;
+				align: bottom right;
+				margin-bottom: 15;
+				margin-right: 40;
+				click-sfx: @UI_Mainmenu_Pickleader;
+			}
+			.info-btn {
+				position: absolute;
+				align: top right;
+				margin-top: 3;
+				margin-right: 5;
+				icon: "UI/spying/infoBTN.png";
+			}
+		}
+	}
+
+	.faction-info {
+		height: @height;
+		width: 500;
+		position: absolute;
+		x: 785;
+		transition : x @hover-transition;
+
+		layout: stack;
+		content-align: top left;
+
+		alpha: 0;
+		transition: alpha 0.3 ease-out;
+		recursive-propagate: true;
+
+		background-type: dynamic;
+		>#background {
+			background: #181920;
+			outline: 1.5 #000;
+			outline-offset: -1;
+		}
+
+		>.outer-border {
+			position: absolute;
+			height: @height;
+			width: 500;
+			outline: 1 @color-ui-text-dark;
+			outline-offset: 5;
+		}
+		.bg-pattern-top {
+			position: absolute;
+			align: top middle;
+			src: "UI/menu/effects_top_graph.png";
+			width: 486;
+			margin-top: 7;
+		}
+		.bg-pattern-bottom {
+			position: absolute;
+			align: bottom middle;
+			src: "UI/menu/effects_top_graph.png";
+			scale-y: -1;
+			width: 486;
+			margin-bottom: 7;
+		}
+
+		menu-faction-effects {
+			margin: 40;
+			width: 400;
+			spacing: 45;
+			>.hegemony-bonuses {
+				spacing: 45;
+			}
+		}
+
+	}
+
+	&.expanded {
+		.faction-info {
+			alpha: 1;
+			recursive-propagate: false;
+			x: 810;
+		}
+	}
+	&.dlc-locked {
+		.councilors-cont {
+			.info-text, .arrow-separator {
+				alpha: 0;
+			}
+		}
+	}
+}
+
+faction-choice.ai-param-faction {
+
+	.buttonsPanel {
+		padding: 0;
+		>.inner-border {
+			padding: 14;
+			background-type: none;
+		}
+
+		.buttonsList {
+			>#factionConts {
+				height: 80;
+
+				&.random {
+					.nameCont {
+						>.title {
+							offset-y: 10;
+						}
+					}
+				}
+
+				.nameCont {
+					padding-left: 13;
+					padding-top: 17;
+				}
+			}
+		}
+	}
+}
+
+options-screen {
+	background:"UI/menu/menuSpace.png";
+	>window-header{
+		halign: middle;
+		.windowHeader;
+		margin-top: 50;
+		width: 800;
+		background: none;
+		close-button{visible: false;}
+
+		>.leftPattern, >.rightPattern {
+			src: hgrid("UI/multiplayer/BGPatterns.png", 2);
+		}
+		>.rightPattern {
+			src-pos-x: 1;
+		}
+		>.name-cont >#tf {
+			.regular-25;
+		}
+	}
+
+	>.menuList {
+		align: middle left;
+		layout: vertical;
+		margin-left: 150;
+
+		is-bind-layer: true;
+	}
+
+	menu-button {
+		click-sfx: @UI_Menu_Option_Select;
+		click-vfx: "Fx/UI/MainMenu/FX_ButtonsRound.fx2d";
+		&:active {
+			start-vfx: none;
+		}
+	}
+
+	options-list, input-bindings {
+		block-floating-cursor: true;
+		.fade-in;
+		padding-top: 100;
+		width: 800;
+		align: middle middle;
+	}
+	&.in-option-group {
+		options-list {
+			is-bind-layer: true;
+			pad-focus-mode: vertical;
+		}
+	}
+	&.in-input-group {
+		input-bindings {
+			is-bind-layer: true;
+			pad-focus-mode: vertical;
+		}
+	}
+}
+
+.options-dropdown-list {
+	background: "UI/HUD/btn01.png" 12 12;
+	padding-top: 6;
+	padding-bottom: 6;
+
+	text { .sans-15; }
+
+	>base-button {
+		background: none;
+		>fmt-text {
+			alpha: 1;
+			color: @color-ui-text-dark;
+			offset-x: -4;
+		}
+		&:hover {
+			>fmt-text {
+				color: @color-ui-text-light;
+			}
+		}
+	}
+}
+
+options-list {
+	layout: vertical;
+	content-align: left;
+
+	padding-bottom: 60;
+
+	element {
+		spectator-enabled: true;
+	}
+	#applyBtn {
+		valign: bottom;
+
+		margin-bottom: -60;
+		.decorated-btn;
+		padding: 15;
+		pad-click: @input-optionapply;
+		fmt-text {
+			.regular-20;
+			color: @color-ui-text-light;
+		};
+
+		background-id: true;
+		#background {
+			alpha: 1.0;
+		}
+	}
+	>#container {
+		layout: vertical;
+		option-line {
+			content-valign: middle;
+			content-halign: right;
+			spacing: 15;
+			pad-focusable: true;
+			pad-force-cursor: snap;
+			focus-sfx: @UI_Button_Rollover;
+
+			min-height: 35;
+
+			>.focus-indicator {
+				position: absolute;
+				visible: false;
+				x: -3;
+				height: 35;
+				width: 100;
+				transition: width @hover-transition;
+				alpha: 0;
+				transition: alpha @hover-transition;
+				background-type: dynamic;
+				>#background {
+					border-radius: 10 0 0 10;
+					outline: 1.5 @color-ui-text;
+					outline-thickness: 1.5 0 1.5 0.5;
+					outline-alpha: 0.8;
+					gradient: linear(-90, fade(@color-gold, 40%), rgba(0,0,0,0));
+				}
+			}
+
+			&.disabled {
+				alpha: 0.25;
+			}
+
+			>.line {
+				background: @color-ui-text-dark;
+				height: 1;
+				fill-width: true;
+				auto-size: 1;
+				halign: middle;
+			}
+
+			>#container {
+				align: right;
+			}
+
+			margin-bottom: 12;
+			content-valign: middle;
+			.nameContainer {
+				halign: left;
+				max-width: 450;
+				fmt-text {
+					.regular-20;
+				}
+			}
+			&.MinFontSize {
+				.nameContainer {
+					fmt-text {
+						.regular-28;
+					}
+				}
+			}
+
+			#value-txt {
+				.sans-15;
+			}
+			fmt-text {
+				color:@color-ui-text-light;
+			}
+
+			dropdown {
+				margin-left: 20;
+				width: 240;
+
+				.dropdown-menu-audio;
+
+				base-button {
+					padding: 12;
+					background: "UI/buttons/dropdown_button.png" 12 12;
+					.border4k;
+					fmt-text {
+						offset-x:4;
+					}
+				}
+				text { .sans-15; }
+			}
+
+			.option-button, .reset-button {
+				margin-left: 20;
+				width: 240;
+				.decorated-btn;
+				text { .sans-15 };
+			}
+
+			.reset-button {
+				height: 40;
+				background: hgrid("UI/menu/btn_resets.png", 2)20 20;
+				.border4k;
+			}
+
+			cycle-select.off {
+				#label {
+					alpha: .5;
+				}
+			}
+			slider-select {
+				increase-sfx: @UI_Menu_Option_Sliderup;
+				decrease-sfx: @UI_Menu_Option_Sliderdown;
+				slider-height: 13;
+				base-button, #barGroup {
+					propagate-over-out: true;
+				}
+
+				#barGroup {
+					padding: 2;
+				}
+
+				#prevBtn {
+					padding-right: 15;
+				}
+
+				#nextBtn {
+					padding-left: 15;
+				}
+			}
+
+			dropdown, check-box, cycle-select, .option-button {
+				propagate-over-out: true;
+			}
+
+			check-box, dropdown base-button, .option-button, .reset-button {
+				pad-focusable: false;
+			}
+			cycle-select, slider-select {
+				#prevBtn, #nextBtn {
+					pad-focusable: false;
+				}
+			}
+			&:focus {
+				check-box, dropdown base-button, .option-button, .reset-button {
+					pad-click: @input-menu-leftclick;
+				}
+				cycle-select, slider-select {
+					#prevBtn {
+						pad-click: @input-cycleselect-decrease;
+						pad-press-type: repeat-press;
+					}
+					#nextBtn {
+						pad-click: @input-cycleselect-increase;
+						pad-press-type: repeat-press;
+					}
+				}
+				>.focus-indicator {
+					visible: true;
+					alpha: 1;
+					width: 800;
+				}
+			}
+		}
+	}
+}
+
+startup-options-screen {
+	background: #000;
+	background-alpha: 0.8;
+	.center {
+		align: middle middle;
+		layout: vertical;
+
+		>#okBtn {
+			.decorated-btn;
+		}
+	}
+	#applyBtn {
+		visible: true;
+		alpha: 1;
+	}
+	>#backBtn { visible: false; }
+	#optionsList {
+		max-width: 1000;
+	}
+}
+tuto-button{
+	width: 245;
+	height: 240;
+	background-type: dynamic;
+	&.index-0 { pad-default-focus: true; }
+	pad-focusable: true;
+
+	>#background {
+		outline: 2 @color-ui-text;
+		background: @color-hud-bg-dark;
+		outline-alpha: 0.4;
+		border-radius: 10;
+
+		transition: outline-alpha @hover-transition;
+		transition: outline-offset @hover-transition;
+	}
+
+	&.empty{
+		>#background {
+			outline: 2 #000;
+			background-alpha: 0.7;
+		}
+		.header{
+			alpha: 0;
+		}
+		.content{
+			alpha:0;
+		}
+		>bitmap{
+			alpha: 0;
+		}
+	}
+	layout:vertical;
+	.header{
+		fill-width:true;
+		height: 50;
+		content-align: middle middle;
+		#labelTxt{
+			offset-y: 4;
+			.bold-16;
+			color: @color-ui-text-light;
+		}
+	}
+	>bitmap{
+		&.separator {
+			width: 245;
+			height: 2;
+			position: absolute;
+			y: 51;
+			src: "UI/menu/line_graphic_interface.png"
+		}
+	}
+	.content{
+		#top{
+			width: 240;
+			align: top middle;
+			src: "UI/menu/degrade.png"
+		}
+		layout:stack;
+		fill-width:true;
+		fill-height: true;
+		.top-validate{
+			src: hgrid("UI/menu/ic_top.png", 2);
+			src-pos-x: 1;
+			scale: 0.7;
+			position: absolute;
+			halign:middle;
+			y: -63;
+		}
+		.validate{
+			alpha: 0;
+			align:bottom;
+			margin-bottom: 30;
+			width: 242;
+			src: "UI/menu/graphic_effectuer.png";
+			transition: alpha @hover-transition;
+		}
+
+		.thumbnail{
+			content-align: middle middle;
+			padding: 3;
+			.bmp-crop{
+				fill-width: true;
+				fill-height: true;
+				overflow: hidden;
+				bitmap{
+					position: absolute;
+					align: middle middle;
+					scale: 0.5;
+				}
+			}
+		}
+		.bottom{
+			align: middle bottom;
+			layout: vertical;
+			content-align: middle bottom;
+			margin-bottom: 3;
+			fill-width: true;
+			height: 80;
+			.arrow{
+				src: hgrid("UI/menu/arrow_hover.png", 2);
+				scale: 0.7;
+				src-pos-x: 0;
+				offset-y: 0;
+				transition: offset-y  0.1 ease-out;
+			}
+			.separator{
+				src: "UI/menu/graphiv_bas.png";
+				scale: 0.5;
+			}
+			.bg{
+				position: absolute;
+				y: 5;
+				alpha: 0.5;
+				width: 242;
+				src: "UI/menu/Groupe de masques 330.png";
+			}
+		}
+		.bgHover{
+			alpha: 0;
+			transition: alpha @hover-transition;
+			fill-width: true;
+			fill-height: true;
+			background-type: dynamic;
+			>#background {
+				background: @color-hud-bg-dark;
+				border-radius: 0 0 15 15;
+				background-alpha: 0.8;
+			}
+			.objectivesCont{
+				layout: vertical;
+				spacing: 15;
+				align: top;
+				padding: 15;
+				.objective{
+					content-align: left middle;
+					spacing: 5;
+					#arrow{
+						src: grid("UI/icons/valueArrows.png", 2, 2);
+						src-pos-x: 1;
+						src-pos-y: 0;
+					}
+
+					.desc{
+						.regular-16;
+						color: @color-ui-text-light;
+						auto-size: 1;
+					}
+				}
+			}
+		}
+	}
+	#startBtn {
+		transition: alpha @hover-transition;
+		recursive-propagate: true;
+		alpha: 0;
+		visible: false;
+		position: absolute;
+		align: bottom middle;
+		width: 120;
+		height: 40;
+		margin-bottom: 40;
+		pad-click:@input-menu-leftclick;
+		pad-focusable: false;
+		.decorated-btn;
+		.menuBigBtn;
+
+		padding: 15;
+		background: "UI/menu/btn_start_game.png" 40 40;
+		.border4k;
+		hspacing: 20;
+		color-adjust: none;
+		fmt-text {
+			alpha: 0.6;
+			color: @color-ui-text;
+			.regular-17;
+		}
+		&:hover{
+			fmt-text {
+				alpha: 1;
+			}
+		}
+	}
+	&.done{
+		.content{
+			.top-validate{
+				src-pos-x: 0;
+			}
+			.validate{
+				alpha: 1;
+			}
+		}
+	}
+
+	&:hover {
+		.bgHover{
+			alpha: 1;
+		}
+		.content{
+			.validate{
+				alpha: 0;
+			}
+			.bottom{
+				.arrow{
+					src-pos-x: 1;
+					offset-y:-2;
+				}
+			}
+
+		}
+		#startBtn{
+			alpha: 1;
+			visible: true;
+		}
+	}
+}
+
+tutorials-screen {
+	fill-width: true;
+	fill-height: true;
+
+	background: "UI/menu/menuSpace.png";
+	>#scene {
+		fill-width: true;
+		fill-height: true;
+	}
+	>window-header {
+		.solo-header;
+		halign: middle;
+		margin-top: 74;
+		>.name-cont {
+			.sub-content {
+				fmt-text {
+					letter-spacing: 4;
+				}
+			}
+		}
+	}
+	.body{
+		fill-width: true;
+		align: middle middle;
+		layout: vertical;
+		spacing:30;
+		background: @color-bg-dark-1;
+		background-alpha: 0.5;
+		.separator{
+			src: "UI/elements/line_graphic_interface.png";
+			height: 2;
+		}
+		>.menuList {
+			margin-left:0;
+			align: middle middle;
+			layout: horizontal;
+			vspacing:35;
+			hspacing:35;
+			max-width:1400;
+			multiline:true;
+			#buttons {
+			}
+		}
+	}
+
+
+	menu-button {
+		click-sfx: @UI_Menu_Option_Select;
+	}
+
+}
+
+input-line {
+	padding: 8;
+	fill-width: true;
+	padding-right: 100;
+	margin-right: 15;
+	content-valign: middle;
+	layout: stack;
+	pad-focusable: true;
+	pad-force-cursor: snap;
+	>.focus-indicator {
+		position: absolute;
+		visible: false;
+		y: 4;
+		height: 40;
+		width: 100;
+		transition: width @hover-transition;
+		alpha: 0;
+		transition: alpha @hover-transition;
+		background-type: dynamic;
+		>#background {
+			border-radius: 10 0 0 10;
+			outline: 1.5 @color-ui-text;
+			outline-thickness: 1.5 0 1.5 0.5;
+			outline-alpha: 0.8;
+			gradient: linear(-90, fade(@color-gold, 40%), rgba(0,0,0,0));
+		}
+	}
+	&:focus {
+		>.focus-indicator {
+			visible: true;
+			alpha: 1;
+			width: 370;
+		}
+	}
+	fmt-text{
+		color: @color-param-title;
+	}
+	.keyName {
+		max-width: 250;
+		.regular-20;
+	}
+	.keyCode {
+		cursor: button;
+		spectator-enabled: true;
+		margin-left: 320;
+		background-type: dynamic;
+		>#background {
+			background: black;
+			border-radius: 5;
+			outline: 1 @color-text;
+			outline-alpha: 0.3;
+			outline-offset: 1;
+		}
+		padding: 10;
+		padding-right: 12;
+		padding-left: 12;
+		text {
+			.sans-bold-15;
+			color: @color-ui-text;
+		}
+
+		&.default {
+			text { alpha : 1; }
+		}
+		.icon-BindConflict {
+			position:absolute;
+			align: bottom right;
+			offset-x: 20;
+			offset-y: -10;
+		}
+
+
+		&.rebind, &.conflict {
+			>#background {
+				background: rgb(77, 0, 0);
+				outline-alpha: 1;
+			}
+		}
+	}
+}
+
+input-bindings {
+	width: 600;
+	align: middle left;
+	&.pad{
+		spacing: 100;
+		margin-left: 300;
+	}
+	>.container {
+		width: 600;
+		layout: vertical;
+		spacing: 8;
+		max-height: 800;
+		overflow: scroll;
+
+		.spec-separator {
+			width: 500;
+			height: 1;
+			background: @color-ui-text;
+			background-alpha: 0.5;
+			halign: middle;
+			margin: 37 0 10 0;
+			content-align: top middle;
+
+			>fmt-text {
+				.bold-20;
+				margin-top: -25;
+				alpha: 0.6;
+				color: @color-ui-text;
+			}
+		}
+	}
+	.pad-container {
+		valign: middle;
+		.gamepad {
+			src: grid("UI/console/manette_xbox.png", 3, 7);
+			width: 600;
+			&.pad-input-y{
+				src-pos-y: 1;
+			}
+			&.pad-input-b{
+				src-pos-y: 2;
+			}
+			&.pad-input-a{
+				src-pos-y: 3;
+			}
+			&.pad-input-x{
+				src-pos-y: 4;
+			}
+			&.pad-input-ranalogclick{
+				src-pos-y: 5;
+			}
+			&.pad-input-analogclick{
+				src-pos-x: 1;
+				src-pos-y: 3;
+			}
+			&.pad-input-start{
+				src-pos-x: 1;
+			}
+			&.pad-input-back{
+				src-pos-x: 1;
+				src-pos-y: 1;
+			}
+			&.pad-input-dpadup{
+				src-pos-x: 1;
+				src-pos-y: 4;
+			}
+			&.pad-input-dpadleft{
+				src-pos-x: 1;
+				src-pos-y: 5;
+			}
+			&.pad-input-dpaddown{
+				src-pos-x: 1;
+				src-pos-y: 6;
+			}
+			&.pad-input-dpadright{
+				src-pos-x: 2;
+			}
+			&.pad-input-lt{
+				src-pos-x: 2;
+				src-pos-y: 1;
+			}
+			&.pad-input-lb{
+				src-pos-x: 2;
+				src-pos-y: 2;
+			}
+			&.pad-input-rt{
+				src-pos-x: 2;
+				src-pos-y: 3;
+			}
+			&.pad-input-rb{
+				src-pos-x: 2;
+				src-pos-y: 4;
+			}
+		}
+	}
+}
+
+load-game-screen {
+	background: "UI/menu/menuSpace.png";
+
+	>#scene {
+		fill-width: true;
+		fill-height: true;
+	}
+	>window-header {
+		.solo-header;
+		halign: middle;
+		margin-top: 74;
+		>.name-cont {
+			.sub-content {
+				fmt-text {
+					letter-spacing: 4;
+				}
+			}
+		}
+	}
+
+	save-list {
+		margin-top: 155;
+		margin-bottom: 95;
+		align: top middle;
+
+		window-header {
+			visible: false;
+		}
+	}
+}
+
+credits-group {
+	layout: vertical;
+	content-halign: middle;
+	spacing: 7;
+
+	>.separator {
+		visible: false;
+		src: "UI/elements/line_credits.png";
+		scale: 0.5;
+	}
+	>.title-cont {
+		content-valign: middle;
+		alpha: 0.7;
+		>.group-title {
+			.regular-20;
+			.uppercase;
+		}
+
+		>.line-left, >.line-right {
+			visible: false;
+			background: "UI/elements/line_credits.png";
+			height: 2;
+			width: 350;
+			background-id: true;
+		}
+	}
+	>.member {
+		spacing: 4;
+		>fmt-text {
+			.regular-15;
+			color: @color-ui-text;
+			alpha: 0.7;
+		}
+		&.first {
+			margin-top: 9;
+		}
+	}
+	&.nesting-0 {
+		>.separator {
+			margin-bottom: 34;
+		}
+		>.title-cont {
+			>.group-title {
+				.regular-35;
+				color: @color-ui-text-light;
+			}
+		}
+		&.shiro {
+			>.separator {
+				visible: true;
+				src: "UI/logo/logo_shiro.png";
+			}
+			>.title-cont {
+				visible: false;
+			}
+		}
+		&.funcom {
+			>.separator {
+				visible: true;
+				src: "UI/logo/logo_funcom.png";
+			}
+			>.title-cont {
+				visible: false;
+			}
+		}
+		&.betatesters, &.localization {
+			margin-top: 30;
+			>.title-cont {
+				margin-bottom: 15;
+			}
+		}
+	}
+	&.nesting-1 {
+		>.title-cont {
+			alpha: 0.8;
+			>.group-title {
+				.regular-23;
+				color: @color-ui-text;
+			}
+		}
+		>.separator {
+			visible: true;
+			margin-top: 11;
+			margin-bottom: 11;
+		}
+		&.nth-0 {
+			.separator {
+				visible: false;
+			}
+		}
+	}
+	&.nesting-2, &.nesting-3 {
+		>.title-cont {
+			margin-top: 15;
+			>.group-title {
+				.regular-18;
+				color: @color-ui-text-dark;
+			}
+			>.line-left, >.line-right {
+				visible: false;
+			}
+		}
+		&.nth-0 {
+			>.title-cont {
+				margin-top: 2;
+			}
+		}
+	}
+	&.nesting-3 {
+		>.title-cont {
+			>.group-title {
+				.regular-17;
+			}
+		}
+	}
+}
+
+credits-screen {
+	>game-logo {
+		visible: false;
+		offset-x: 150;
+		offset-y: 270;
+	}
+	>soft-scroll {
+		offset-x: 130;
+		margin-bottom: 4;
+		padding-top: 300; // should be 162
+		padding-bottom: 1100;
+		width: 620;
+		layout: vertical;
+		spacing: 40;
+		content-halign: middle;
+
+		transition: scroll-speed 0.5;
+		scroll-speed: 35;
+		scroll-wheel-speed: 60;
+		interrupt-duration: 3;
+
+		&.interrupted {
+			scroll-speed: 0;
+		}
+
+		.scrollbar {
+			alpha: 0;
+		}
+
+		>.screen-title {
+			visible: false;
+		}
+	}
+}
+
+
+profile-screen {
+	@margin: 73;
+
+	menu-background: none;
+
+	background: "UI/menu/menuSpace.png";
+
+	>window-header{
+		.solo-header;
+		halign: middle;
+		margin-top: 74;
+	}
+	>#scene {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	>.body, >.body-bg {
+		layout: stack;
+		fill-width: true;
+		valign: middle;
+		margin-top: 83;
+		@content-height: 739;
+		height: @content-height;
+		@fac-info-width: 700;
+
+		>.upper-line-deco, >.lower-line-deco {
+			halign: middle;
+			fill-width: true;
+			height: 2;
+		}
+		>.upper-line-deco {
+			background: "UI/elements/line_graphic_interface_left.png";
+			margin-top: -2;
+		}
+		>.lower-line-deco {
+			background: "UI/elements/line_graphic_interface_right.png";
+			valign: bottom;
+			margin-bottom: -2;
+		}
+
+		>.bg {
+			layout: stack;
+			fill-width: true;
+			fill-height: true;
+			>.bgImage {
+				fill-width: true;
+				fill-height: true;
+				&.atreides { src: "UI/backgrounds/AtreidesBG_sharp.jpg"; }
+				&.harkonnen { src: "UI/backgrounds/HarkonnenBG_sharp.jpg"; }
+				&.smugglers { src: "UI/backgrounds/SmugglersBG_sharp.jpg"; }
+				&.fremen { src: "UI/backgrounds/FremenBG_sharp.jpg"; }
+				&.corrino { src: "UI/backgrounds/CorrinoBG_sharp.jpg"; }
+				&.ecaz { src: "UI/backgrounds/EcazBG_sharp.jpg"; }
+				&.vernius { src: "UI/backgrounds/VerniusBG_sharp.jpg"; }
+			}
+			>.gradients-left {
+				halign:left;
+				layout: horizontal;
+				>.gradient-left {
+					height: @content-height;
+					width: 1300;
+					background: "UI/menu/gradientLR.png";
+				}
+			}
+
+			>.gradients-right {
+				halign:right;
+				layout: horizontal;
+				>.gradient-right {
+					height: @content-height;
+					width: 1200;
+					background: "UI/menu/gradientRL.png";
+				}
+			}
+		}
+
+		.emblems-cont {
+			margin-left: @margin;
+			margin-top: -11;
+			spacing: 8;
+			.header-emblem {
+				content-align: top middle;
+				layout: stack;
+				background: hgrid("UI/Faction/flag_menu_faction_preview.png", (@ui-faction-count + 1));
+				width: 35;
+				height: 39;
+				click-sfx: @UI_Mainmenu_Pickleader;
+
+				&.overview{
+					background: hgrid("UI/Faction/overview_flag.png", 2);
+					background-tile-pos-x:0;
+				}
+
+				.icon {
+					align: middle middle;
+					scale: 0.5;
+				}
+				.selected-arrow {
+					visible: false;
+					offset-y: -12;
+					src: "UI/elements/arrow_flag.png";
+					scale: 0.5;
+				}
+				.dlc-ribbon {
+					visible: false;
+					align: top left;
+					src: "UI/menu/dlc_ribbon_small.png";
+					offset-x: 1;
+					offset-y: 1;
+					scale: 0.5;
+				}
+				&.selected {
+					.selected-arrow {
+						visible: true;
+					}
+					&.overview{
+						background-tile-pos-x:1;
+
+					}
+				}
+				&.requires-dlc {
+					.dlc-ribbon {
+						visible: true;
+					}
+				}
+				&.selected, &:hover {
+					.tiled-faction(background-tile-pos-x, @offset: 1);
+				}
+				&:hover{
+					&.overview{
+						background-tile-pos-x:1;
+					}
+				}
+				&.is-prev, &.is-next{
+					pad-binding-persistent: true;
+					binding-icon{
+						bitmap{
+							offset-x: -15;
+							offset-y: -10;
+						}
+
+					}
+				}
+				&.is-prev {
+					pad-click: @input-menu-tabprev;
+				}
+				&.is-next {
+					pad-click: @input-menu-tabnext;
+				}
+			}
+		}
+	}
+}
+
+.fontsDebug {
+	margin: 20;
+	scale: 1;
+	multiline: true;
+	width: 1000;
+	align: top right;
+	margin-top: -60;
+	spacing: 10;
+	>element {
+		background: rgb(131, 26, 0);
+		text {
+
+		}
+	}
+}
+
+overview{
+	fill-width: true;
+	fill-height: true;
+	content-align: middle middle;
+	spacing: 50;
+
+	is-bind-layer: true;
+	.left-container{
+		spacing: 30;
+	}
+	.right-container{
+	}
+
+}
+
+overview-stats{
+	width: 800;
+	max-height: 500;
+	background: hgrid("UI/menu/stats-container.png", @ui-faction-count + 1) 42 20;
+	background-tile-pos-x: @ui-faction-count;
+	layout: vertical;
+	.upper-body{
+		margin-left: 40;
+		margin-right: 40;
+		content-align: middle top;
+		padding-top: 10;
+		fill-width: true;
+		.left-stats, .right-stats{
+			layout: vertical;
+			width:330;
+			valign: top;
+			.header{
+				fill-width: true;
+				layout: vertical;
+				spacing: 6;
+				margin-bottom: 4;
+				>fmt-text {
+					halign: middle;
+					.bold-20;
+					color: @color-ui-text;
+				}
+				.separator{
+					halign: middle;
+					width: 250;
+					height: 2;
+					src: "UI/elements/line_graphic_interface.png";
+				}
+			}
+			.data-container{
+				padding-top: 10;
+				layout:vertical;
+				fill-width: true;
+				spacing: 15;
+				.separator {
+					fill-width: true;
+					auto-size: 1;
+					height: 1;
+					background: @color-ui-text-dark;
+					halign: middle;
+				}
+				.stat-container{
+					fill-width: true;
+					fmt-text{
+						.regular-14;
+						color: @color-ui-text-light;
+					}
+					.stat-desc{
+						margin-left: 10;
+					}
+					.stat-value{
+						halign: right;
+						margin-right: 10;
+					}
+				}
+			}
+		}
+		.left-stats{ halign: left;}
+		.right-stats{ halign: right;}
+	}
+	.lower-body{
+		margin-left: 40;
+		margin-right: 40;
+
+		padding-bottom: 30;
+		padding-top: 30;
+		fill-width: true;
+		content-align: middle middle;
+		.left-stats, .right-stats{
+			layout: vertical;
+			width:300;
+			.pie-container{
+				align: bottom middle;
+			}
+		}
+		.left-stats{ halign: left;}
+		.right-stats{ halign: right;}
+		.v-separator{
+			fill-height: true;
+			auto-size-height: 1;
+			width: 2;
+			background: #A08650;
+			halign: middle;
+		}
+
+	}
+}
+
+faction-overview-stats{
+	layout: vertical;
+	@width: 450;
+	@height: 372;
+	width: @width;
+	width: @height;
+	background-type: dynamic;
+	padding:5;
+	pad-focusable: true;
+	pad-force-cursor: snap;
+	&.inspect-focus {
+		bind-layer-cursor: snap;
+		.body{
+			.stats-container{
+				councilor-button, hero-button{
+					pad-focusable: true !important;
+					&.index-0 {
+						pad-default-focus: true;
+					}
+				}
+			}
+		}
+
+		filter: glow(#dbc392, 1, 1, 4, 1, true);
+	}
+	&:focus {
+		filter: glow(#dbc392, 1, 1, 4, 1, true);
+	}
+	>#background {
+		background: @color-bg-dark-2;
+		outline: 0.5 #FCD28B;
+		outline-offset: 3;
+	}
+	.inner-header{
+		layout: stack;
+		fill-width: true;
+		auto-size-width: 1;
+		height: 46;
+		content-valign: top;
+		>.header-bg {
+			src: "UI/HUD/stats_header_background.png";
+			width: @width;
+			height: 46;
+			position: absolute;
+		}
+		#titleStat{
+			.window-title;
+			text-shadow : 1 1 #000 0.3;
+			color: @color-ui-text;
+			align: middle middle;
+		}
+	}
+	>window-header{
+		content-align: middle middle;
+		height: 15;
+		width: @width;
+		background: "UI/HUD/header_bar_long.png";
+
+		>.leftPattern, >.rightPattern {
+			visible: false;
+		}
+	}
+	.body{
+		width: @width;
+		padding:5;
+		.faction-banner{
+			valign: top;
+			height: 300;
+			offset-y: -5;
+		}
+		.stats-container{
+			layout: vertical;
+			valign: top;
+			spacing: 15;
+
+			fill-width: true;
+			auto-size: 1;
+			councilor-button, hero-button{
+				pad-focusable: false;
+			}
+			.titles{
+				layout: vertical;
+				spacing: 4;
+				margin-top: 4;
+				>.titlePre {
+					.bold-17;
+					.uppercase;
+					color: @color-ui-text-light;
+				}
+				>.title {
+					.bold-20;
+					.uppercase;
+					letter-spacing: 2;
+					color: @color-ui-text-light;
+				}
+			}
+			.separator {
+				fill-width: true;
+				auto-size: 1;
+				height: 1;
+				background: @color-ui-text-dark;
+				halign: middle;
+			}
+			.data-container{
+				layout: vertical;
+				spacing: 15;
+				.stat-container{
+					fill-width: true;
+					fmt-text{
+						.regular-16;
+						color: @color-ui-text-light;
+					}
+					.stat-desc{
+						margin-left: 5;
+					}
+					.stat-value{
+						halign: right;
+						margin-right: 5;
+					}
+				}
+				.separator {
+					margin-left: 5;
+					margin-right: 5;
+				}
+			}
+		}
+		.no-data{
+			content-align: middle middle;
+			fill-width: true;
+			padding: 30;
+			fmt-text{
+				.bold-16;
+				color: @color-warning;
+			}
+		}
+	}
+}
+
+
+pie-element{
+	layout: stack;
+	content-align: middle middle;
+
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-2;
+	}
+	.market-pie-dims(160);
+
+	.middle-info {
+		layout: vertical;
+		content-align: middle middle;
+		spacing: 6;
+		.texts{
+			layout: vertical;
+			content-align: middle middle;
+			spacing: 10;
+			fmt-text{
+				.bold-14;
+				color: @color-ui-text-light;
+			}
+			#title{
+				.bold-16;
+				color: @color-ui-text;
+			}
+			#desc{
+				color: @color-ui-text-dark;
+				.regular-16;
+				offset-y: 4;
+			}
+		}
+		.pie-info{
+			content-align: middle middle;
+			layout: vertical;
+			fmt-text{
+				.bold-16 !important;
+			}
+			.pie-detail{
+				content-align: middle middle;
+				fmt-text{
+					alpha: 0.5;
+				}
+			}
+			#sharePercent {
+				max-width: 35;
+				color: @color-ui-text;
+				text-align: right;
+				offset-y: 4;
+			}
+		}
+	}
+	pie-slice {
+		position: absolute;
+		align: middle middle;
+	}
+
+
+	.no-data{
+		content-align: middle middle;
+		fill-width: true;
+		offset-y: 15;
+		fmt-text{
+			.bold-16;
+			color: @color-warning;
+		}
+	}
+
+}
+
+pie-slice {
+	radial-fill-image{
+		bitmap {
+			src: "UI/elements/circle_hollow_10_360.png";
+		}
+		&.faction { bitmap{ tint: @faction-minorhouses;} }
+		&.faction-Win { bitmap{ tint: @color-text-good;} }
+		&.faction-Lose { bitmap{ tint: @color-text-bad;} }
+
+		&.faction-Hegemony { bitmap{ tint: @domain-expansion;} }
+		&.faction-Supremacy { bitmap{ tint: @domain-military;} }
+		&.faction-Political { bitmap{ tint: @domain-statecraft;} }
+		&.faction-Economy { bitmap{ tint: @domain-economy;} }
+		&.faction-Assassinations { bitmap{ tint: @color-text-bad;} }
+
+		&.faction-Atreides { bitmap{ tint: @faction-atreides;} }
+		&.faction-Harkonnen { bitmap{ tint: @faction-harkonnen;} }
+		&.faction-Smugglers { bitmap{ tint: @faction-smugglers;} }
+		&.faction-Fremen { bitmap{ tint: @faction-fremen;} }
+		&.faction-Corrino { bitmap{ tint: @faction-corrino;} }
+		&.faction-Ecaz { bitmap{ tint: @faction-ecaz;} }
+		&.faction-Vernius { bitmap{ tint: @faction-vernius;} }
+	}
+	&.hovered{
+		filter: glow(#000000, 0.6, 4, 1, 1, true);
+		radial-fill-image{
+			bitmap{
+				src: "UI/elements/circle_hollow_15_360.png";
+			}
+		}
+		scale: 1.015;
+	}
+}
+
+hero-ratio{
+	height: 50;
+	hero-button{
+		hover-sfx: @UI_Mainmenu_Faction_Rollover;
+		.councilor-dims(50, 50, 2);
+		>.lineInner{
+			visible: false;
+		}
+		&:hover {
+			.portrait {
+				image-scale: 1.1;
+			}
+		}
+	}
+	.texts-container{
+		layout: vertical;
+		valign:top;
+		fill-height: true;
+		content-align:left middle;
+		spacing: 10;
+		margin-left: 5;
+		.name{
+			.bold-18;
+			color: @color-ui-text;
+		}
+		.value{
+			.bold-16;
+			color: @color-ui-text-light;
+		}
+	}
+}
+
+
+faction-stats{
+	fill-width: true;
+	fill-height: true;
+	content-align: middle middle;
+	spacing: 50;
+	.left-container{
+		spacing: 30;
+	}
+	>.separator{
+		background: "UI/menu/side_arrows_sep.png";
+		width: 2;
+		fill-height: true;
+	}
+	.right-container{
+		padding:2 0 2 0;
+	}
+
+}
+
+conquest-faction-stats{
+	layout: vertical;
+	@width: 650;
+	width: @width;
+	background-type: dynamic;
+	padding:5;
+	>#background {
+		background: @color-bg-dark-2;
+		outline: 0.5 #FCD28B;
+		outline-offset: 3;
+	}
+	.inner-header{
+		layout: stack;
+		fill-width: true;
+		height: 46;
+		content-valign: top;
+		>.header-bg {
+			src: "UI/HUD/stats_header_background.png";
+			width: @width;
+			height: 46;
+			position: absolute;
+		}
+		#titleStat{
+			.window-title;
+			text-shadow : 1 1 #000 0.3;
+			color: @color-ui-text;
+			align: middle middle;
+		}
+	}
+	>window-header{
+		content-align: middle middle;
+		height: 15;
+		width: @width;
+		background: "UI/HUD/header_bar_long.png";
+
+		>.leftPattern, >.rightPattern {
+			visible: false;
+		}
+	}
+	.body{
+		layout: vertical;
+		fill-width: true;
+		.header-stats{
+			padding-top: 15;
+			padding-bottom: 15;
+			.line{
+				.desc{
+					fmt-text{
+						.regular-16;
+					}
+				}
+				.values{
+					.stat-value{
+						min-width: 90;
+						fmt-text{
+							.regular-16;
+						}
+					}
+				}
+
+			}
+		}
+		.header-separator{
+			src: "UI/menu/titleDeco_long.png";
+			width: @width;
+		}
+		.stats{
+			layout: vertical;
+			fill-width: true;
+			spacing: 30;
+			padding-top: 15;
+			padding-bottom: 30;
+			.separator {
+				fill-width: true;
+				auto-size: 1;
+				height: 1;
+				background: @color-ui-text-dark;
+				halign: middle;
+			}
+		}
+	}
+
+	.line{
+		fill-width: true;
+		padding:5;
+		.desc{
+			align: left middle;
+			fmt-text{
+				.regular-16;
+				color: @color-ui-text-light;
+			}
+		}
+		.values{
+			halign:right;
+			@stat-line-width: 380;
+			width:@stat-line-width;
+			content-align:middle middle;
+			.stat-value{
+				align:middle;
+				content-align: middle middle;
+				min-width: 90;
+				fmt-text{
+					align:middle;
+					.regular-13;
+					color: @color-ui-text-light;
+				}
+
+				game-date{
+					with-year-txt:false;
+					>.texts {
+						fmt-text {
+							margin-bottom: 0;
+							.regular-11;
+						}
+						#tfYear{
+							alpha: 0.5;
+							.regular-11;
+						}
+					}
+				}
+
+			}
+			.dotted-line {
+				src: "UI/CHOAM/separateur_achat.png";
+				height: 16;
+				width: 2;
+				margin:2;
+			}
+		}
+	}
+}
+
+faction-specific-stats{
+	width: 1020;
+	max-height: 500;
+	background: hgrid("UI/menu/stats-container.png", @ui-faction-count + 1) 42 20;
+	padding-left: 40;
+	padding-right: 38;
+	content-align: middle top;
+	.tiled-faction(background-tile-pos-x);
+	.left-container{
+		padding: 10;
+		layout: vertical;
+		fill-width: true;
+		auto-size: 1;
+		faction-specific-stats-container{
+			layout: vertical;
+			.data-container{
+				fill-width: true;
+				layout: vertical;
+				spacing: 15;
+				.stat-container{
+					fill-width: true;
+					fmt-text{
+						.regular-16;
+						color: @color-ui-text-light;
+					}
+					.stat-desc{
+						margin-left: 10;
+					}
+					.stat-value{
+						halign: right;
+						margin-right: 10;
+					}
+				}
+				.separator {
+					fill-width: true;
+					auto-size: 1;
+					height: 1;
+					background: @color-ui-text-dark;
+					halign: middle;
+				}
+			}
+			>.pie-container{
+				spacing: 20;
+				align: bottom middle;
+				padding-top: 10;
+				padding-bottom: 10;
+				.v-separator{
+					height:160;
+					width: 2;
+					background: #A08650;
+					halign: middle;
+				}
+			}
+			.curve-container{
+				@curve-width: 380;
+				@curve-height: 180;
+				@curve-height-pad: 160;
+				min-height: @curve-height-pad + 24;
+				offset-x: 5;
+				layout: vertical;
+				halign: middle;
+				.title-curve{
+					halign: middle;
+					margin: 10;
+					.regular-16;
+					text-shadow : 1 1 #000 0.3;
+					color: @color-ui-text;
+					align: middle middle;
+				}
+				profile-curve{
+					curve-width: @curve-width;
+					curve-height: @curve-height;
+					bounds-increment-y: 100;
+					min-width: @curve-width;
+					min-height: @curve-height;
+					show-x-indices-bounds: true;
+					curve-set {
+						render-scale: 2;
+						line-thickness: 2;
+						segment-count: 200;
+						segment-mode: timeaverageflat;
+					}
+
+					.curve-main {
+						#curveCont{
+							min-width: @curve-width;
+							min-height: @curve-height;
+							background-id: true;
+							#background { visible: false; }
+						}
+					}
+					#curveXAxis{
+						>element{
+							offset-y: @curve-height + 4;
+							>element{
+								min-height: @curve-height + 4;
+							}
+							offset-y: @curve-height;
+							fmt-text {
+								visible: false;
+							}
+							.line {
+								min-height: @curve-height;
+							}
+							&.vert-cursor {
+								fmt-text {
+									visible: true;
+									margin-bottom: -32;
+									color: @color-gold;
+								}
+								>.line {
+									background-alpha: 0.7;
+								}
+							}
+							&.min, &.max {
+								fmt-text {
+									visible: true;
+								}
+							}
+							&.min{
+								fmt-text {
+									offset-x: 5;
+								}
+							}
+							&.max{
+								fmt-text {
+									offset-x: -5;
+								}
+							}
+						}
+					}
+					#curveYAxis{
+						>element{
+							offset-x: @curve-width;
+							>element{
+								min-width: @curve-width + 2;
+							}
+							>fmt-text {
+								x: -10;
+							}
+							&.horiz-cursor {
+								>.line {
+									background-alpha: 0.7;
+								}
+								>fmt-text {
+									x: -10;
+									color: @color-gold;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.right-container{
+		layout: vertical;
+		fill-height: true;
+		fill-width: true;
+		auto-size: 1;
+		.header{
+			fill-width: true;
+			auto-size:1;
+			background: grid("UI/HUD/panelBG.png", 3, 3) 10 10;
+			min-height: 42;
+			content-align: middle middle;
+			fmt-text{
+				.bold-16;
+				text-shadow : 1 1 #000 0.3;
+				color: @color-ui-text;
+				align: middle middle;
+			}
+		}
+		.body{
+			layout: vertical;
+			fill-width: true;
+			fill-height: true;
+			background-type: dynamic;
+			spacing:5;
+			padding: 5 15 5 15;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 0.5 #FCD28B;
+				outline-offset: 1;
+			}
+			.line-container{
+				spacing: 15;
+				auto-size-width: 1;
+				min-height:65;
+				>fmt-text{
+					.regular-16;
+					align: left middle;
+					color: @color-ui-text;
+				}
+				.line{
+					background: @color-window-title;
+					height:1;
+					fill-width: true;
+					auto-size: 1;
+					valign: middle;
+					offset-y: 2;
+				}
+				.inputs{
+					align: right middle;
+					content-align: middle middle;
+					spacing: 5;
+
+					>button {
+						background: "UI/menu/param_button_bg.png" 2 2;
+						color-adjust: none;
+						padding: 5 10 5 10;
+						reverse: true;
+						alpha: 0.5;
+						fmt-text {
+							.regular-16;
+							color: @color-ui-text-light;
+						}
+						&.selected {
+							filter: none;
+							alpha: 1;
+							&.disabled {
+								color-adjust: saturate(0);
+								color-adjust: brightness(-0.05);
+							}
+						}
+						&:hover {
+							color-adjust: brightness(0.08);
+						}
+						&:active {
+							color-adjust: brightness(-0.05);
+						}
+						&.disabled{
+							color-adjust: saturate(-1);
+							color-adjust: brightness(-0.5);
+						}
+					}
+
+					councilor-select {
+						councilor-button{
+							click-sfx: @UI_Mainmenu_Pickcouncelor;
+							hover-sfx: @UI_Mainmenu_Faction_Rollover;
+
+							.councilor-dims(60, 60, 2);
+							layout: stack;
+							content-align: middle middle;
+
+							>.portrait {
+								image-offset-y: -125;
+							}
+
+							alpha: 0.6;
+							transition: alpha 0.3 ease-in;
+							&.selectable {
+								alpha: 1;
+							}
+
+							&.selected {
+								alpha: 1;
+								.portrait {
+									image-scale: 1.1;
+								}
+							}
+							&:hover {
+								.portrait {
+									image-scale: 1.1;
+								}
+							}
+						}
+						#tipAnchor {
+							position: absolute;
+							align: top;
+							margin-top: 70;
+						}
+					}
+
+					heroes-select{
+						hero-button{
+							click-sfx: @UI_Mainmenu_Pickcouncelor;
+							hover-sfx: @UI_Mainmenu_Faction_Rollover;
+							alpha: 0.6;
+							transition: alpha 0.3 ease-in;
+							tip-position: top-align-left;
+							&.selectable {
+								alpha: 1;
+							}
+
+							&.selected {
+								alpha: 1;
+								.portrait {
+									image-scale: 1.1;
+								}
+							}
+							&:hover {
+								.portrait {
+									image-scale: 1.1;
+								}
+							}
+						}
+					}
+
+
+				}
+			}
+		}
+	}
+}
+
+councilors-duo-ratio{
+	.councilors-container{
+		spacing: 5;
+		councilor-button{
+			hover-sfx: @UI_Mainmenu_Faction_Rollover;
+			tip-position: top;
+			.councilor-dims(50, 50, 2);
+			>.portrait {
+				image-offset-y: -125;
+			}
+			>.lineInner{
+				visible: false;
+			}
+			&:hover {
+				.portrait {
+					image-scale: 1.1;
+				}
+			}
+		}
+	}
+	.data-container{
+		padding-left: 5;
+		fill-height: true;
+		auto-size-height: 1;
+		spacing: 10;
+		padding-top: 8;
+		fmt-text{
+			.bold-16;
+			color: @color-ui-text-light;
+		}
+		.name{
+			valign: top;
+			color: @color-ui-text;
+		}
+	}
+}
+
+heroes-select {
+	spacing: 4;
+	#tipAnchor {
+		position: absolute;
+		align: top left;
+	}
+
+	&.random {
+		hero-button {
+			pad-focusable: false;
+			>.portrait {
+				image-tile: hgrid("UI/Faction/Menu/councillorsRandom.png", 2);
+				image-tile-pos-x: 0;
+				image-alpha: 0.3;
+			}
+			&.index-1, &.index-3 {
+				>.portrait {
+					image-tile-pos-x: 1;
+				}
+			}
+		}
+	}
+}
+
+hero-button {
+	pad-focusable: true;
+	hover-disabled: true;
+
+	click-sfx: @UI_Mainmenu_Pickcouncelor;
+	hover-sfx: @UI_Mainmenu_Faction_Rollover;
+	tip-position: top;
+
+	.councilor-dims(60, 60, 2);
+	layout: stack;
+	content-align: middle middle;
+
+	>.portrait {
+		border-radius: 5;
+		outline: 0.5 black;
+		outline-alpha: 2; // to make a solid 1px line;
+
+		background: @color-hud-bg-middle;
+
+		image-mode: fit;
+		image-alpha: 1;
+		transition: image-alpha @hover-transition;
+		image-scale: 1;
+		transition: image-scale @hover-transition;
+		color-adjust: none;
+	}
+
+	>.gradient-bottom {
+		valign: bottom;
+		margin-bottom: 3;
+
+		border-radius: 6;
+		gradient: linear(0, @color-hud-bg-middle, rgba(0,0,0,0));
+	}
+
+	>.lineInner {
+		outline: 1 @color-ui-text;
+		outline-alpha: 0.4;
+		outline-offset: 5;
+		border-radius: 10;
+
+		transition: outline-alpha @hover-transition;
+	}
+
+	>.lineOuter {
+		outline: 1 @color-ui-text;
+		outline-alpha: 0;
+		outline-offset: 0;
+		border-radius: 8;
+
+		transition: outline-alpha 0.1 ease-out;
+	}
+
+	&.ignored {
+		>.portrait {
+			image-alpha: 0.5;
+		}
+	}
+
+	&.selected {
+		>.lineOuter {
+			outline-alpha: 1;
+		}
+		>.lineInner {
+			outline-alpha: 0.6;
+		}
+		.portrait {
+			color-adjust: contrast(0.2) brightness(0.05);
+			image-scale: 1.1;
+			image-alpha: 1;
+		}
+	}
+	&:hover {
+		>.lineOuter {
+			outline-alpha: 1;
+		}
+		.portrait {
+			image-scale: 1.1;
+			image-alpha: 1;
+		}
+	}
+}
+

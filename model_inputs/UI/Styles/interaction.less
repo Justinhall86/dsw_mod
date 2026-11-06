@@ -1,0 +1,124 @@
+interaction {
+	padding-top: -1;
+	>.root {
+		@bodyWidth: 500;
+		@bottomHeight: 80;
+		align: top left;
+		content-align: bottom middle;
+		layout: vertical;
+		width: @bodyWidth;
+		background: "UI/HUD/squareBG01.png" 2 2;
+
+		>window-header {
+			.windowHeader;
+			height: 24;
+			padding: 4;
+			width: @bodyWidth - 4;
+			close-button { visible: false; }
+			>.name-cont >#tf { .bold-16; }
+			>.leftPattern, >.rightPattern { height: 24; }
+			>.leftPattern { offset-x: -4; }
+			>.rightPattern { offset-x: 4; }
+		}
+
+		>.contents {
+			layout: stack;
+
+			>#bgImage {
+				width: @bodyWidth - 4;
+				align: top middle;
+				&.atreides { src: "UI/backgrounds/AtreidesBG_Interaction.jpg"; }
+				&.harkonnen { src: "UI/backgrounds/HarkonnenBG_Interaction.jpg"; }
+				&.smugglers { src: "UI/backgrounds/SmugglersBG_Interaction.jpg"; }
+				&.fremen { src: "UI/backgrounds/FremenBG_Interaction.jpg"; }
+				&.corrino { src: "UI/backgrounds/CorrinoBG_Interaction.jpg"; }
+				&.ecaz { src: "UI/backgrounds/EcazBG_Interaction.jpg"; }
+				&.vernius { src: "UI/backgrounds/VerniusBG_Interaction.jpg"; }
+			}
+
+			>.body {
+				layout: vertical;
+
+				>.middle {
+					fill-width: true;
+					height: 100;
+					width: 320;
+					padding: 2;
+					layout: vertical;
+					content-align: top left;
+
+					>.texts {
+						fill-width: true;
+						fill-height: true;
+						layout: vertical;
+						margin: 25;
+						margin-top: 20;
+						spacing: 10;
+						>#dialogueDesc {
+							.italic-14;
+							align: left middle;
+							color: @color-ui-text-light;
+							text-align: left;
+						}
+					}
+				}
+
+				>.bottom {
+					height: 80;
+					padding: 2;
+					margin-top: -4;
+					layout: stack;
+					@arrowHeight: 11;
+					content-align: top middle;
+					overflow: limit;
+
+					>#separator {
+						height: @arrowHeight;
+						src: "UI/HUD/interactionArrow.png";
+					}
+
+					>#bottomBg {
+						margin-top: @arrowHeight;
+						height: @bottomHeight - @arrowHeight - 4;
+						fill-width: true;
+						background: @panel-bg;
+						background-tile-pos-x: 2;
+						background-tile-pos-y: 1;
+					}
+
+					>.actions {
+						padding-left: 23;
+						layout: horizontal;
+						fill-width: true;
+						fill-height: true;
+						content-align: left middle;
+
+						>button {
+							background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+							fmt-text {
+								.bold-17;
+								color: @color-text;
+							}
+							width: 110;
+							height: 44;
+							resource-counter {
+								margin-top: -5;
+								margin-bottom: -5;
+								#resTxt {
+									margin-top: 10;
+								}
+							}
+						}
+					}
+
+					#leaderImg {
+						align: bottom right;
+						width: 260;
+						src: hgrid("UI/Faction/interactionPortraits.png", @ui-faction-count);
+						.tiled-faction(src-pos-x);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,1456 @@
+@import "game.less";
+
+@costs-bg: #0E1116;
+
+
+resource-input {
+	content-align: middle middle;
+	layout: vertical;
+
+	height: 78;
+
+	pad-focusable: true;
+	click-sfx: @UI_Button_Release;
+	hover-sfx: @UI_Button_Rollover;
+	>.top {
+		valign: top;
+		width: 54;
+		layout: stack;
+
+		>.content {
+			width: 54;
+			height: 54;
+			content-align: middle middle;
+			layout: stack;
+
+			background: hgrid("UI/trade/box_resources.png", 3) 25 25;
+			background-tile-pos-x: 1;
+			.border4k;
+
+			>#iconBmp {
+				width: 38;
+				height: 38;
+			}
+
+			>#tradeWeightText {
+				.regular-17;
+				filter: glow(#000000, 1.5, 1.5, 1, 1, true);
+			}
+		}
+
+		>.bonusContainer {
+			align: top left;
+			margin-left: 5;
+			margin-top: -2;
+
+			>#bonusBmp {
+				src: hgrid("UI/trade/arrow_deficit.png", 2);
+				scale: 0.5;
+				&.bonus {
+					bitmap { src-pos-x: 1; }
+				}
+				&.penalty {
+					bitmap { src-pos-x: 0; }
+				}
+				&.hidden {
+					alpha: 0.0;
+				}
+			}
+		}
+
+		>.currentStockContainer {
+			height: 19;
+			min-width: 40;
+			margin-right: -4;
+			margin-top: -6;
+			padding: 0 4 0 5;
+			align: top right;
+			content-align: middle right;
+			background-type: dynamic;
+			>#background {
+				background: @color-hud-bg-dark;
+				border-radius: 5;
+				outline: 0.5 @color-hud-bg-tactical;
+			}
+
+			>fmt-text {
+				.regular-13;
+				color: #B09567;
+			}
+		}
+	}
+
+	>input-value {
+		spacing: -3;
+		content-valign: middle;
+		margin: 0 -5 0 -5;
+
+		>#valueBtn {
+			layout: stack;
+			margin-top: 4;
+			align: middle top;
+			content-valign: middle;
+			width: 28;
+			height: 20;
+
+			>.data {
+				halign: middle;
+				fmt-text {
+					.regular-12;
+					color: @color-ui-text-light;
+				}
+			}
+		}
+
+		>#remBtn, >#addBtn {
+			margin-top: 2;
+			valign: middle;
+			width: 14;
+			height: 14;
+			background: grid("UI/icons/valueArrows.png", 2, 2);
+			&.disabled {
+				color-adjust: none;
+				alpha: 0.22;
+			}
+		}
+		>#addBtn {
+			background-tile-pos-x: 1;
+		}
+	}
+
+	> .countContainer, > input-value > #valueBtn {
+		background-type: dynamic;
+		>#background {
+			background: @costs-bg;
+			outline: 1 #3a3836;
+			border-radius: 4;
+		}
+	}
+
+	>.countContainer {
+		margin-top: 3;
+		align: middle top;
+		content-valign: middle;
+		width: 30;
+		height: 18;
+
+		>#countTxt {
+			halign: middle;
+			color: #FCD28B;
+		}
+	}
+
+	&.empty {
+		>input-value {
+			visible: false;
+		}
+	}
+
+	&.disabled, &.empty {
+		#iconBmp {
+			alpha: 0.3;
+		}
+		>.top {
+			>.content {
+				background-tile-pos-x: 0;
+			}
+			>.currentStockContainer {
+				>fmt-text {
+					color: @color-old-gold;
+				}
+			}
+		}
+		#input {
+			>#remBtn, >#addBtn {
+				background-tile-pos-y: 1;
+			}
+			>#valueBtn {
+				>#valueTxt {
+					visible: false;
+				}
+			}
+		}
+		>input-value {
+			>#remBtn, >#addBtn {
+				visible: false;
+			}
+		}
+	}
+	&.blocked {
+		>.top {
+			>.content {
+				background-tile-pos-x: 1;
+			}
+		}
+	}
+	&.active {
+		#iconBmp {
+			alpha: 1.0;
+		}
+		#input {
+			>#remBtn, >#addBtn {
+				background-tile-pos-y: 0;
+			}
+			>#valueBtn {
+				>#valueTxt {
+					visible: true;
+				}
+			}
+		}
+	}
+	&.proposed {
+		>.top {
+			>.content {
+				background-tile-pos-x: 2;
+			}
+		}
+	}
+	&.on-table {
+		>.top {
+			width: 47;
+			>.content {
+				margin-top: -3;
+				margin-bottom: 3;
+				width: 47;
+				height: 47;
+				background: none;
+			}
+		}
+		>.countContainer {
+			margin-top: -8;
+			margin-bottom: -13;
+		}
+	}
+	&:focus {
+		>input-value {
+			#remBtn {
+				pad-click: @input-cycleselect-decrease;
+			}
+			#addBtn {
+				pad-click: @input-cycleselect-increase;
+			}
+		}
+	}
+}
+
+
+treaty-input {
+	content-align: middle middle;
+	layout: stack;
+	content-halign: middle;
+	pad-focusable: true;
+
+	click-sfx: @UI_Button_Release;
+	hover-sfx: @UI_Button_Rollover;
+	>.border-bg {
+		width: 50;
+		height: 50;
+		background: black;
+		outline: 1.5 #484139;
+		border-radius: 5;
+	}
+
+	>#icon {
+		scale: 0.5;
+		margin: 5;
+	}
+
+	>#locked {
+		align: top right;
+
+		bitmap {
+			src: "UI/trade/icon_padlock.png";
+			scale: 0.5;
+		}
+		offset-x: -8;
+		offset-y: 8;
+		visible: false;
+	}
+
+	>.costsContainer {
+		align: bottom middle;
+		content-align: bottom middle;
+		layout: vertical;
+		spacing: 1;
+		margin-bottom: -8;
+		padding: 4 5 5 5;
+		background-type: dynamic;
+		>#background {
+			background: @costs-bg;
+			border-radius: 6;
+			outline: 0.5 @color-hud-bg-tactical;
+		}
+
+		>resource-counter {
+			height: 16;
+			>bitmap {
+				width: 18;
+				height: 18;
+			}
+
+			#resTxt {
+				>fmt-text {
+					.regular-13;
+					color: @color-ui-text;
+				}
+			}
+
+			&.disabled {
+				#resTxt {
+					>fmt-text {
+						color: @color-bad;
+					}
+				}
+			}
+
+			&.slot-based {
+				padding: 4;
+				#iconBmp {
+					visible: false;
+				}
+			}
+		}
+		&.empty {
+			visible: false;
+		}
+	}
+
+	>.bonusContainer {
+		visible: false;
+		align: bottom right;
+		margin-right: 8;
+		margin-bottom: 7;
+
+		>#bonusBmp {
+			src: hgrid("UI/trade/arrow_deficit.png", 2);
+			>#bitmap {
+				height: 7;
+			}
+			&.bonus {
+				bitmap { src-pos-x: 1; }
+			}
+			&.penalty {
+				bitmap { src-pos-x: 0; }
+			}
+			&.hidden {
+				alpha: 0.0;
+			}
+		}
+	}
+
+	>#tradeWeightText {
+		filter: glow(#181818, 1.5, 1.5, 1, 1, true);
+	}
+
+	&.disabled {
+		#icon {
+			alpha: 0.6;
+		}
+	}
+	&.locked {
+		>#locked {
+			visible: true;
+		}
+		#icon {
+			alpha: 0.3
+		}
+	}
+	&.already-active {
+		.bonusContainer {
+			visible: true;
+		}
+		>.costsContainer {
+			visible: false;
+		}
+		>.border-bg {
+			outline: 1.5 #FCD28B;
+		}
+		&.displayType-editable {
+			start-vfx: "Fx/UI/Trade/FX_Treaty02.fx2d";
+
+			#icon {
+				filter: grayscale();
+				alpha: 0.5;
+			}
+		}
+	}
+	&.proposed {
+		>.border-bg {
+			outline: 1.5 #FCD28B;
+		}
+	}
+
+	&.on-table {
+		.border-bg {
+			visible: false;
+		}
+		>.costsContainer {
+			visible: false;
+		}
+		>#icon {
+			margin: 0;
+		}
+	}
+	&.displayType-active {
+		start-vfx: "Fx/UI/Trade/FX_Treaty.fx2d";
+
+		>.border-bg {
+			outline: 1.5 #FCD28B;
+		}
+		#icon {
+			alpha: 1;
+		}
+	}
+}
+
+
+trade-gauge {
+	layout: vertical;
+	filter: glow(#847558, 2, 2, 0.5, 0.5, true);
+	padding-top: 6;
+	padding-bottom: 7;
+
+	half-height: 220;
+	arrow-height: 15;
+	elem-spacing: -4;
+
+	content-halign: middle;
+
+	background: hgrid("UI/trade/gauge_container.png", 2) 12 12;
+	.border4k;
+
+	>.middleDeco {
+		src: hgrid("UI/trade/gauge_separator.png", 2);
+		width: 15;
+	}
+
+	>.halfContainer {
+		layout: vertical;
+		spacing: -4;
+		>element {
+			halign: middle;
+			margin-left: 3;
+			margin-right: 3;
+			width: 15;
+			height: 15;
+			background: vgrid("UI/trade/gauge_graduation.png", 3);
+			background-tile-pos-y: 0;
+		}
+	}
+
+	>#top {
+		content-align: bottom middle;
+		reverse: true;
+		>element {
+			&.active {
+				background-tile-pos-y: 2;
+				start-vfx: "Fx/UI/Trade/FX_TradingBar_Good.fx2d";
+				>fx-element {
+					offset-x: 0;
+				}
+			}
+		}
+	}
+
+	>#bottom {
+		content-align: top middle;
+		>element {
+			&.active {
+				background-tile-pos-y: 1;
+				start-vfx: "Fx/UI/Trade/FX_TradingBar_Bad.fx2d";
+				>fx-element {
+					offset-x: 0;
+				}
+			}
+		}
+	}
+	&.active {
+		background-tile-pos-x: 1;
+		>.middleDeco {
+			src-pos-x: 1;
+		}
+	}
+	// &.good {
+	// 	filter: glow(#dba03b, 2.5, 2.5, 0.8, 0.8, true);
+	// }
+	// &.bad {
+	// 	filter: glow(#C12B37, 2.5, 2.5, 0.8, 0.8, true);
+	// }
+}
+
+
+trade-panel {
+	@panel-width: 291;
+	width: @panel-width;
+	layout: stack;
+	min-height: 521;
+	>.main {
+		fill-width: true;
+		layout: vertical;
+		content-align: top left;
+		width: @panel-width;
+
+		>.header {
+			layout: vertical;
+
+			background-type: dynamic;
+			>#background {
+				margin: -1;
+				background: @color-hud-bg-middle;
+				border-radius: 8 8 0 0;
+				outline: 1 black;
+			}
+			>.top-deco {
+				src: "UI/trade/element_graphic_top.png";
+				width: @panel-width;
+			}
+			>.leader-banner {
+				position: absolute;
+				align: top middle;
+				offset-y: 1;
+				src: grid("UI/HUD/leaderBanner4k.png", (@ui-faction-count + 1), 2);
+				scale: 0.5;
+				.tiled-faction(src-pos-x, @offset: 1);
+			}
+			>.name-cont {
+				layout: stack;
+				content-align: top middle;
+
+				fmt-text {
+					color: @color-ui-text-light;
+				}
+				.name-bg {
+					width: @panel-width - 2;
+					margin-left: 1;
+					height: 92;
+					src: hgrid("UI/multiplayer/box_faction_preview_informations.png", @ui-faction-count);
+					.tiled-faction(src-pos-x, ~'>#bmp');
+				}
+				>#titlePre {
+					text-transform: uppercase;
+					.regular-20;
+					.regular-15;
+					letter-spacing: 1;
+					offset-y: 38;
+				}
+				>#title {
+					text-transform: uppercase;
+					.bold-24;
+					.bold-22;
+					letter-spacing: 1;
+					offset-y: 54;
+				}
+				.header-right {
+					align: top right;
+					margin: 10;
+				}
+			}
+			>.left-deco, >.right-deco {
+				position: absolute;
+				align: top left;
+				offset-y: 72;
+
+				src: hgrid("UI/trade/line_box_faction_graphic.png", 2);
+				scale: 0.5;
+			}
+			>.right-deco {
+				src-pos-x: 1;
+				align: top right;
+			}
+		}
+
+		>.body {
+			@side-pad: 28;
+			align: top middle;
+			fill-width: true;
+
+			layout: vertical;
+			padding-left: @side-pad;
+			padding-right: @side-pad;
+			content-align: top middle;
+			spacing: 15;
+			background: hgrid("UI/trade/container_faction_trade.png", @ui-faction-count) 42 20;
+			.border4k;
+
+			.tiled-faction(background-tile-pos-x);
+
+			>.headerArrow {
+				background: "UI/HUD/baseline1.png";
+				fill-width: true;
+				margin-top: 1;
+				margin-bottom: 9;
+				height: 12;
+				align: middle bottom;
+			}
+
+			>#resourcesTxt {
+				.regular-15;
+				color: @color-ui-text-light;
+				margin-bottom: 6;
+			}
+
+			>#ecoRes, >#otherRes, >#agents {
+				content-align: top middle;
+				spacing: 18;
+				multiline: true;
+				fill-width: true;
+			}
+
+			.treaties-header {
+				fill-width: true;
+				margin-left: -9;
+				margin-right: -9;
+				margin-top: 10;
+				height: 20;
+				background: "UI/HUD/header_bar_short.png";
+				content-align: middle middle;
+
+				>fmt-text {
+					.regular-15;
+					color: @color-ui-text-light;
+				}
+				.leftPattern, .rightPattern {
+					src: hgrid("UI/trade/line_graphic_category.png", 2);
+					scale: 0.5;
+				}
+				.leftPattern {
+					halign: left;
+				}
+				.rightPattern {
+					halign: right;
+					src-pos-x: 1;
+				}
+			}
+
+			>.treaties-cont {
+				fill-width: true;
+				min-height: 195;
+				layout: vertical;
+				margin-top: -15;
+				spacing: 24;
+				content-align: middle middle;
+
+				&>flow {
+					spacing: 14;
+				}
+			}
+		}
+	}
+}
+
+proposed-res-list {
+	fill-height: true;
+	content-align: middle top;
+	width: 84;
+	background: "UI/trade/box_trade.png" 15 15;
+	.border4k;
+	layout: vertical;
+
+	>.emblem {
+		width: 35;
+		offset-y: -7;
+		.menu-emblem-Faction();
+	}
+
+	>.relation-cont {
+		fill-width: true;
+		margin: 5 4 0 4;
+		height: 44;
+		content-align: middle middle;
+		background: "UI/trade/jauge_relation_box.png";
+		>diplomacy-status {
+			>#diplomacyIcon {
+				scale: 0.5;
+			}
+		}
+	}
+
+	>#itemsCont {
+		layout: vertical;
+		margin-bottom: 28;
+		spacing: 25;
+		padding-top: 16;
+
+		>element {
+			min-width: 47;
+			min-height: 47;
+			background: hgrid("UI/trade/slot_trade.png", 2);
+			background-tile-pos-x: 1;
+			&.empty-item {
+				background-tile-pos-x: 0;
+			}
+		}
+	}
+}
+
+trading-table {
+	layout: horizontal;
+	align: bottom left;
+	content-align: top middle;
+	height: 680;
+	spacing: 16;
+
+	>.content {
+		layout: stack;
+		>.backgroundContainer {
+			align: top middle;
+			margin-top: 43;
+			layout: vertical;
+			spacing: 10;
+
+			>.center {
+				content-align: middle middle;
+				max-height: 465;
+				>#leftRes {
+					halign: left;
+				}
+				>#rightRes {
+					halign: right;
+				}
+
+				>.gaugeContainer {
+					layout: vertical;
+					fill-height: true;
+					width: 21;
+					margin-right: 2;
+					margin-left: 2;
+					content-align: middle middle;
+					&.human-player {
+						>trade-gauge {
+							>.halfContainer {
+								alpha: 0;
+							}
+						}
+					}
+				}
+			}
+			>.buttons {
+				layout: vertical;
+				spacing: 5;
+				align: top middle;
+
+				>button {
+					align: middle top;
+					.decorated-btn;
+					width: 190;
+					min-height: 61;
+					fmt-text {
+						.bold-17;
+						color: @color-ui-text;
+					}
+					resource-counter {
+						margin-top: -8;
+						margin-bottom: -5;
+						#resTxt {
+							margin-top: 10;
+						}
+						>#iconBmp {
+							offset-y: 3;
+						}
+					}
+					&.disabled {
+						color-adjust: brightness(-0.02);
+						fmt-text {
+							alpha: 0.15;
+						}
+					}
+				}
+				>#forceTradeBtn {
+					icon: "UI/trade/force_treaty_btn.png";
+					>#leftCont {
+						align: bottom left;
+						margin: -16 0 -5 -5;
+						>#iconBmp {
+							scale: 0.5;
+						}
+					}
+					>#rightCont {
+						content-halign: middle;
+						vspacing: 2;
+						fmt-text {
+							.bold-15;
+						}
+					}
+				}
+			}
+		}
+
+		>.foregroundContainer {
+			spacing: 217;
+			align: top middle;
+		}
+	}
+
+	>active-treaties {
+		valign: top;
+		layout: vertical;
+		content-halign: middle;
+
+		>bitmap {
+			scale: 0.5;
+			&.active-start { src: "UI/trade/active_treaty_line_1.png"; }
+			&.active-intermediary { src: "UI/trade/active_treaty_line_2.png"; }
+			&.active-end { src: "UI/trade/active_treaty_line_3.png"; }
+		}
+	}
+}
+
+
+leader {
+	valign: middle;
+	halign: middle;
+	layout: vertical;
+	background: @panel-bg;
+	// @window-width: 1600;
+	@window-width: 1414;
+	@window-height: 876;
+	@inner-height: 750;
+	&.pc{
+		width: @window-width;
+	}
+	&.pad{
+		background-alpha: 0.9;
+		align: bottom;
+		margin-top: @pad-window-margin-top;
+		.outer-cont{
+			>#background{
+				alpha: 0;
+			}
+		}
+		.content{
+			#bgImage{
+				alpha: 0.5;
+			}
+		}
+	}
+	bind-layer-cursor: snap;
+
+
+	>window-header {
+		.windowHeader;
+		fill-width: true;
+		margin-bottom: 0;
+		>.leftPattern, >.rightPattern {
+			src: hgrid("UI/trade/line_graphic_header.png", 2);
+		}
+		>.rightPattern {
+			src-pos-x: 1;
+		}
+	}
+
+	>.outer-cont {
+		layout: stack;
+		padding: 36 0 36 0;
+		background-type: dynamic;
+		>#background {
+			margin: 1;
+			background: #171921;
+			outline: 2 #5B5036;
+			outline-offset: 3;
+		}
+
+		>.top-arrow-deco {
+			margin-top: -31;
+			align: top middle;
+			src: "UI/elements/ic_line_graphic_top_bar.png";
+			scale: 0.5;
+		}
+
+		>.upper-line-deco, >.lower-line-deco {
+			halign: middle;
+			src: "UI/elements/line_graphic_interface.png";
+			width: 1400;
+			height: 1.5;
+		}
+		>.upper-line-deco {
+			margin-top: -2;
+		}
+		>.lower-line-deco {
+			valign: bottom;
+			margin-bottom: -3;
+		}
+
+		>.content {
+			layout: stack;
+			@content-height: @inner-height;
+			align: middle middle;
+			content-align: middle middle;
+			fill-width: true;
+
+			>.bgImage {
+				&.atreides {
+					src: "UI/backgrounds/AtreidesBG.jpg";
+				}
+				&.harkonnen {
+					src: "UI/backgrounds/HarkonnenBG.jpg";
+				}
+				&.smugglers {
+					src: "UI/backgrounds/SmugglersBG.jpg";
+				}
+				&.fremen {
+					src: "UI/backgrounds/FremenBG.jpg";
+				}
+				&.corrino {
+					src: "UI/backgrounds/CorrinoBG.jpg";
+				}
+				&.ecaz {
+					src: "UI/backgrounds/EcazBG.jpg";
+				}
+				&.vernius {
+					src: "UI/backgrounds/VerniusBG.jpg";
+				}
+				@black-borders-height: 0;
+				margin-top: @black-borders-height;
+				margin-bottom: @black-borders-height;
+				align: middle middle;
+			}
+			>.left-gradient {
+				halign: left;
+				margin-left: 7;
+				src: "UI/trade/gradient_left.png";
+			}
+			>.right-gradient {
+				halign: right;
+				margin-right: 7;
+				src: "UI/trade/gradient_right.png";
+			}
+
+			>#tradeContainer {
+				fill-width: true;
+				content-align: middle left;
+				padding-top: 30;
+				padding-left: 44;
+			}
+
+			>#scene {
+				@addedHeight: 100;
+				offset-x: 390;
+				offset-y: 29;
+				width: 1200;
+				height: @content-height + @addedHeight - 4;
+				margin-top: -700;
+				align: bottom middle;
+				background: #000;
+				background-alpha: 0.0;
+				scale: 1;
+
+				// &.harkonnen {
+				// 	offset-x: 440;
+				// }
+				&.corrino {
+					offset-x: 361;
+				}
+			}
+
+			>.debugBtns {
+				align: bottom right;
+				margin: 20;
+				margin-top: 50;
+			}
+		}
+	}
+
+
+	&.pad{
+		fill-width: true;
+		fill-height: true;
+		.outer-cont{
+			auto-size: 1;
+			fill-height: true;
+			>.content {
+				fill-height: true;
+				padding-left: 7;
+				padding-right: 7;
+				.bgImage{
+					auto-size: 1;
+					fill-width: true;
+					fill-height: true;
+				}
+				>.left-gradient {
+					visible: false;
+				}
+				>.right-gradient {
+					visible: false;
+				}
+				>#scene {
+					scale: 1.2;
+				}
+			}
+		}
+	}
+	&.pc{
+		.outer-cont{
+			>.content {
+				@content-height: @inner-height;
+				height: @content-height;
+				>.bgImage {
+					width: @window-width - 14;
+					height: 750;
+				}
+				>.left-gradient {
+					height: 750;
+					width: 1200;
+				}
+				>.right-gradient {
+					height: 750;
+					width: 179;
+				}
+			}
+		}
+	}
+}
+
+
+trade-proposal {
+	valign: middle;
+	halign: middle;
+	layout: vertical;
+	background: @panel-bg;
+	// @window-width: 1600;
+	@window-width: 1414;
+	@window-height: 876;
+	@inner-height: 750;
+	width: @window-width;
+
+	bind-layer-cursor: snap;
+	&.pc{
+		width: @window-width;
+	}
+	&.pad{
+		background-alpha: 0.9;
+		align: bottom;
+		margin-top: @pad-window-margin-top;
+		.outer-cont{
+			>#background{
+				alpha: 0;
+			}
+		}
+		.content{
+			#bgImage{
+				alpha: 0.5;
+			}
+		}
+	}
+
+	>window-header {
+		.windowHeader;
+		fill-width: true;
+		margin-bottom: 0;
+		>.leftPattern, >.rightPattern {
+			src: hgrid("UI/trade/line_graphic_header.png", 2);
+		}
+		>.rightPattern {
+			src-pos-x: 1;
+		}
+	}
+
+	>.outer-cont {
+		layout: stack;
+		padding: 36 0 36 0;
+		background-type: dynamic;
+		>#background {
+			margin: 1;
+			background: #171921;
+			outline: 2 #5B5036;
+			outline-offset: 3;
+		}
+
+		>.top-arrow-deco {
+			margin-top: -31;
+			align: top middle;
+			src: "UI/elements/ic_line_graphic_top_bar.png";
+			scale: 0.5;
+		}
+
+		>.upper-line-deco, >.lower-line-deco {
+			halign: middle;
+			src: "UI/elements/line_graphic_interface.png";
+			width: 1400;
+			height: 1.5;
+		}
+		>.upper-line-deco {
+			margin-top: -2;
+		}
+		>.lower-line-deco {
+			valign: bottom;
+			margin-bottom: -3;
+		}
+
+		>.content {
+			layout: stack;
+			@content-height: @inner-height;
+			height: @content-height;
+			align: middle middle;
+			content-align: middle middle;
+			fill-width: true;
+
+			>.bgImage {
+				&.atreides {
+					src: "UI/backgrounds/AtreidesBG.jpg";
+				}
+				&.harkonnen {
+					src: "UI/backgrounds/HarkonnenBG.jpg";
+				}
+				&.smugglers {
+					src: "UI/backgrounds/SmugglersBG.jpg";
+				}
+				&.fremen {
+					src: "UI/backgrounds/FremenBG.jpg";
+				}
+				&.corrino {
+					src: "UI/backgrounds/CorrinoBG.jpg";
+				}
+				&.ecaz {
+					src: "UI/backgrounds/EcazBG.jpg";
+				}
+				&.vernius {
+					src: "UI/backgrounds/VerniusBG.jpg";
+				}
+				@black-borders-height: 0;
+				margin-top: @black-borders-height;
+				margin-bottom: @black-borders-height;
+				align: middle middle;
+			}
+			>.left-gradient {
+				halign: left;
+				margin-left: 7;
+				src: "UI/trade/gradient_left.png";
+			}
+			>.right-gradient {
+				halign: right;
+				margin-right: 7;
+				src: "UI/trade/gradient_right.png";
+			}
+
+			>#tradeContainer {
+				fill-width: true;
+				content-align: middle left;
+				padding-top: 30;
+				padding-left: 44;
+			}
+
+			>#scene {
+				@addedHeight: 100;
+				offset-x: 390;
+				offset-y: 29;
+				width: 1200;
+				height: @content-height + @addedHeight;
+				margin-top: -700;
+				align: bottom middle;
+				background: #000;
+				background-alpha: 0.0;
+				scale: 1;
+
+				// &.harkonnen {
+				// 	offset-x: 440;
+				// }
+				&.corrino {
+					offset-x: 361;
+				}
+			}
+			>.main {
+				layout: vertical;
+				spacing: 15;
+				fill-width: true;
+				fill-height: true;
+				content-align:left top;
+				padding: 30;
+				.time {
+					background-type: dynamic;
+					>#background {
+						background: @color-bg-dark-2;
+						outline: 0.5 black;
+					}
+					padding: 10;
+					width:610;
+
+
+					content-align:middle left;
+					layout: horizontal;
+					spacing: 10;
+					>fmt-text{
+						color: @color-ui-text-light;
+						.regular-17;
+					}
+					>.remaining-time {
+						align : middle right;
+						content-align: middle right;
+						spacing : 5;
+						>fmt-text{
+							color: @color-text-timer;
+							.regular-17;
+						}
+						.gauge-container{
+							background: "UI/elements/ic_full_chrono_border.png";
+							filter: glow(#000000, 0.5, 4, 1.2, 1, true);
+							height: 20;
+							width: 18;
+							padding: 3;
+							#remainingGauge {
+								src: "UI/elements/circle_64.png";
+								alpha: 0.95;
+								>bitmap{
+									width: 12;
+									height: 12;
+									tint: @color-warning;
+								}
+							}
+						}
+					}
+				}
+				>#content {
+					spacing: 30;
+				}
+				>.buttons {
+					layout: horizontal;
+					spacing: 32;
+					width:612;
+					align:bottom;
+
+					>button {
+						background: "UI/HUD/btn01.png" 12 12;
+						align: middle top;
+						fmt-text {
+							.bold-20;
+							color: @color-text;
+						}
+						width: 140;
+						height: 40;
+						resource-counter {
+							margin-top: -5;
+							margin-bottom: -5;
+						}
+					}
+				}
+			}
+
+			>.debugBtns {
+				align: bottom right;
+				margin: 20;
+				margin-top: 50;
+			}
+		}
+	}
+	&.pad{
+		fill-width: true;
+		>window-header {
+			auto-size: 1;
+		}
+		.outer-cont{
+			auto-size: 1;
+			fill-height: true;
+			>.content {
+				fill-height: true;
+				padding-left: 7;
+				padding-right: 7;
+				.bgImage{
+					auto-size: 1;
+					fill-width: true;
+					fill-height: true;
+				}
+				>.left-gradient {
+					visible: false;
+				}
+				>.right-gradient {
+					visible: false;
+				}
+				>#scene {
+					scale: 1.2;
+				}
+			}
+		}
+	}
+	&.pc{
+		.outer-cont{
+			>.content {
+				@content-height: @inner-height;
+				height: @content-height;
+				>.bgImage {
+					width: @window-width - 14;
+					height: 750;
+				}
+				>.left-gradient {
+					height: 750;
+					width: 1200;
+				}
+				>.right-gradient {
+					height: 750;
+					width: 179;
+				}
+			}
+		}
+	}
+}
+trade-proposal-panel {
+	@panel-width: 291;
+	width: @panel-width;
+	layout: stack;
+	align: top;
+	>.main {
+		fill-width: true;
+		layout: vertical;
+		content-align: top left;
+		width: @panel-width;
+
+		>.header {
+			layout: vertical;
+
+			background-type: dynamic;
+			>#background {
+				margin: -1;
+				background: @color-hud-bg-middle;
+				border-radius: 8 8 0 0;
+				outline: 1 black;
+			}
+			>.top-deco {
+				src: "UI/trade/element_graphic_top.png";
+				width: @panel-width;
+			}
+			>.leader-banner {
+				position: absolute;
+				align: top middle;
+				offset-y: 1;
+				src: grid("UI/HUD/leaderBanner4k.png", (@ui-faction-count + 1), 2);
+				scale: 0.5;
+				.tiled-faction(src-pos-x, @offset: 1);
+			}
+			>.name-cont {
+				layout: stack;
+				content-align: top middle;
+
+				fmt-text {
+					color: @color-ui-text-light;
+				}
+				.name-bg {
+					width: @panel-width - 2;
+					margin-left: 1;
+					height: 92;
+					src: hgrid("UI/multiplayer/box_faction_preview_informations.png", @ui-faction-count);
+					.tiled-faction(src-pos-x, ~'>#bmp');
+				}
+				>#titlePre {
+					text-transform: uppercase;
+					.regular-20;
+					.regular-15;
+					letter-spacing: 1;
+					offset-y: 38;
+				}
+				>#title {
+					text-transform: uppercase;
+					.bold-24;
+					.bold-22;
+					letter-spacing: 1;
+					offset-y: 54;
+				}
+				.header-right {
+					align: top right;
+					margin: 10;
+				}
+			}
+			>.left-deco, >.right-deco {
+				position: absolute;
+				align: top left;
+				offset-y: 72;
+
+				src: hgrid("UI/trade/line_box_faction_graphic.png", 2);
+				scale: 0.5;
+			}
+			>.right-deco {
+				src-pos-x: 1;
+				align: top right;
+			}
+		}
+
+		>.body {
+			@side-pad: 28;
+			align: top middle;
+			fill-width: true;
+			min-height:150;
+			max-height:420;
+
+
+			layout: vertical;
+			padding-left: @side-pad;
+			padding-right: @side-pad;
+			content-align: top middle;
+			spacing: 15;
+			background: hgrid("UI/trade/container_faction_trade.png", @ui-faction-count) 42 20;
+			.border4k;
+
+			.tiled-faction(background-tile-pos-x);
+
+			>.headerArrow {
+				background: "UI/HUD/baseline1.png";
+				fill-width: true;
+				margin-top: 1;
+				margin-bottom: 9;
+				height: 12;
+				align: middle bottom;
+			}
+
+			>#resourcesTxt {
+				.regular-15;
+				color: @color-ui-text-light;
+				margin-bottom: 6;
+			}
+
+			.nothing-txt {
+				.regular-20;
+				color: @color-ui-text-light;
+				align: middle middle;
+				margin-bottom: 40;
+			}
+
+			#resCont{
+				height: 175;
+				#res {
+					align: middle middle;
+					content-align: middle middle;
+					spacing: 18;
+					multiline: true;
+					fill-width: true;
+				}
+			}
+
+
+			.treaties-header {
+				fill-width: true;
+				margin-left: -9;
+				margin-right: -9;
+				margin-top: 10;
+				height: 20;
+				background: "UI/HUD/header_bar_short.png";
+				content-align: middle middle;
+
+				>fmt-text {
+					.regular-15;
+					color: @color-ui-text-light;
+				}
+				.leftPattern, .rightPattern {
+					src: hgrid("UI/trade/line_graphic_category.png", 2);
+					scale: 0.5;
+				}
+				.leftPattern {
+					halign: left;
+				}
+				.rightPattern {
+					halign: right;
+					src-pos-x: 1;
+				}
+			}
+
+			>.treaties-cont {
+				fill-width: true;
+				min-height: 140;
+				layout: vertical;
+				margin-top: -15;
+				spacing: 24;
+				content-align: middle middle;
+
+				&>flow {
+					spacing: 14;
+				}
+			}
+		}
+	}
+}

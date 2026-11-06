@@ -1,0 +1,1032 @@
+@import "game.less";
+
+@unit-size: 40;
+@bar-width: 300;
+@bar-interior-width: 294;
+
+right-bar {
+	background: @panel-bg;
+	background-tile-pos-x: 0;
+	position: absolute;
+	layout: vertical;
+	halign: right;
+
+	fmt-text{
+		color: @color-desert;
+		.bold-13;
+	}
+
+	content-align : top left;
+	margin-right: -4;
+	y: 0;
+	padding-top: 128;
+
+	.big-title {
+		.regular-20;
+	}
+
+	base-button{
+		.decorated-btn;
+	}
+	icon-button{
+		padding: 5;
+	}
+
+	.leaders-background{
+		src: "UI/HUD/rightbarBG.png";
+		position: absolute;
+		halign: middle;
+	}
+
+	.operation-panel {
+		layout: vertical;
+		content-align: top middle;
+		halign: middle;
+		spacing: 10;
+		operations {
+			spacing: 7;
+
+			.factionIcon {
+				scale: 0.35;
+				y: 24;
+			}
+			mission-operation {
+				&.empty {
+					pad-action: @padaction-openoperationshortcut;
+				}
+			}
+		}
+
+		>.missions-resume {
+			multiline: true;
+			max-width: @bar-width;
+		}
+	}
+
+	>.main-panel {
+		>.panel-header{
+			position: absolute;
+			x: 3;
+			y: -8;
+			>flow{
+				background: "UI/HUD/lineHighlighter.png";
+			}
+			.header-liner{
+				width: 81;
+				height: 13;
+			}
+			.header-liner-side{
+				width: 45;
+				height: 13;
+			}
+			.header-button-highlight{
+				src: "UI/HUD/buttonHighlighter.png";
+			}
+		}
+
+		width: @bar-interior-width;
+		margin-top: 10;
+		padding-top: 2;
+		padding-bottom: 4;
+		spacing: 10;
+		content-align: top middle;
+
+		background: @panel-bg;
+		background-tile-pos-y: 1;
+
+		.panel {
+			width: 72;
+			layout: vertical;
+			content-align: top middle;
+			spacing: 2;
+
+			.btn-blinker {
+				stopped: true;
+				freq: 1;
+				background: "UI/buttons/actionGlow.png" 10 10;
+				background-id: true;
+				content-align: middle middle;
+				margin: -5;
+				min-width: 64;
+				min-height: 64;
+				>#background {
+					transition: alpha 0.3 ease-in;
+					blend: add;
+					alpha: 1;
+					visible: false;
+				}
+				&.blink-off {
+					>#background { alpha: 0.05; }
+				}
+				base-button{
+					pulse-color: @color-desert;
+					pulse-alpha: 0.15;
+					pulse-frequency: 1;
+
+					&.selected{
+						filter: glow(#e2cea6, 0.8, 1, 5, 1, true);
+					}
+				}
+				&.notif.state-vote, &.notif-strong {
+					.option-photosensitive-false &.game-not-paused {
+						stopped: false;
+						base-button{
+							enable-pulse: true;
+						}
+					}
+					>#background { visible: true; }
+				}
+				&.notif-strong.state-vote {
+					base-button {
+						pulse-alpha: 0.40;
+					}
+				}
+			}
+
+			#landsraadBlinker {
+				&.notif, &.notif-strong {
+					.option-photosensitive-false & {
+						stopped: false;
+						base-button{
+							enable-pulse: true;
+						}
+					}
+					>#background { visible: true; }
+				}
+				&.notif-strong {
+					base-button {
+						pulse-alpha: 0.40;
+					}
+				}
+			}
+
+			.button{
+				margin-top: 6;
+				content-align: middle middle;
+				layout: vertical;
+				spacing: 2;
+				base-button {
+					layout: stack;
+					width: 54;
+					height: 54;
+					padding: 0;
+					.actionBtn;
+					&:hover{
+						color-adjust: none;
+						color-adjust: brightness(0);
+						>bitmap{
+							src-pos-y: 1;
+						}
+					}
+				}
+				base-gauge {
+					body-width: 50;
+					body-height: 5;
+					background: "UI/HUD/progressBar_bg.png" 4 4;
+					padding: 2;
+					#emptyBar{
+						alpha: 0.02;
+					}
+					@gauge-color: #A0864D;
+					color: @gauge-color;
+					empty-color: @gauge-color;
+				}
+			}
+
+			.resources{
+				layout: vertical;
+				content-align: middle middle;
+				bitmap{
+					width: 20; height: 20;
+				}
+				margin-left: -10;
+				margin-right: -10;
+				fmt-text{
+					.bold-13 !important;
+				}
+				resource-counter{
+					spacing: 2;
+					#tFlow{
+						scale: 0.8;
+					}
+				}
+			}
+
+			&.developments-panel{
+				base-gauge {
+					&.military{
+						color: @color-dev-military;
+						empty-color: @color-dev-military;
+					}
+					&.statecraft{
+						color: @color-dev-statecraft;
+						empty-color: @color-dev-statecraft;
+					}
+					&.expansion{
+						color: @color-dev-expansion;
+						empty-color: @color-dev-expansion;
+					}
+					&.economy{
+						color: @color-dev-eco;
+						empty-color: @color-dev-eco;
+					}
+				}
+			}
+
+			&.landsraad-panel{
+				.button base-gauge {
+					separator-color: @color-gold;
+					overlap-separator-color: @color-gold; //#000;
+					#segmentedFill {
+						element.vote {
+							background: hgrid("UI/HUD/gaugeBGs.png", 5);
+							background-id: true;
+							> #background {
+								alpha: 0.3;
+							}
+
+							.filled-segment {
+								background: #A0864D;
+							}
+						}
+					}
+				}
+			}
+
+			/*
+			&.spying-panel {
+				base-gauge{
+					color: @resource-agent;
+					empty-color: @resource-agent;
+				}
+			}*/
+			#devBtn {
+				pad-action: @padaction-devwindow;
+			}
+			#landsraadBtn {
+				pad-action: @padaction-landsraadwindow;
+			}
+			#spyingBtn {
+				pad-action: @padaction-spyingwindow;
+			}
+		}
+
+
+
+		.vertical-separator {
+			width: 1;
+			height: 109;
+			background: @color-desert;
+			alpha: 0.1;
+		}
+
+	}
+
+	/* faction colors */
+	.tiled-faction(background-tile-pos-y, ~'.unit-category .unit-header');
+}
+
+right-bar .unit-category, unit-list {
+	layout: vertical;
+	.unit-header {
+		width: @bar-interior-width - 2;
+		margin-left: 2;
+		height: 25;
+		content-align: middle middle;
+		background: vgrid("UI/HUD/unitBanner.png", @ui-faction-count) 2 2;
+		fmt-text{
+			.bold-15;
+		}
+	}
+	.unit-panel {
+		layout: vertical;
+		padding: 9;
+		spacing: 10;
+		valign: top;
+
+		max-height: 680;
+		overflow: scroll;
+		margin-bottom: 10;
+		padding-bottom: 13;
+
+		.scrollbar {
+			position: absolute;
+			align: top right;
+			background: @color-hud-bg-dark;
+			offset-x: 6;
+			.cursor {
+				background: @color-ui-text;
+				width: 5;
+			}
+		}
+
+		.unit-panel-decorator{
+			src: "UI/HUD/baseline1.png";
+			margin: -10;
+			margin-left: -7;
+			width: @bar-interior-width - 2;
+			height: 12;
+		}
+
+		.horizontal-separator {
+			width: @bar-width - 30;
+			height: 1;
+			background: @color-desert-darken;
+			alpha: 0.3;
+			margin-bottom: -2;
+		}
+
+		>flow{
+			layout: vertical;
+			spacing: 8;
+		}
+
+		thumpers-panel {
+			width: @bar-interior-width - 24;
+		}
+
+		nuclear-silo-panel {
+			.horizontal-separator {
+				margin-bottom: 0;
+			}
+		}
+
+		rightbar-building-button {
+			padding: 0;
+		}
+
+		.unit-list {
+			content-align: top left;
+			spacing: 6;
+			multiline: true;
+			max-width: @bar-width - 20;
+			#armyBtnContainer, #orniBtnContainer{
+				layout:vertical;
+				control-group-display{
+					position:absolute;
+					align:top middle;
+					offset-y:-10;
+				}
+			}
+			.recruit-btn{
+				width: @unit-size;
+				height: @unit-size;
+			}
+
+			&#unit-list {
+				layout:vertical;
+			}
+
+			&.armies {
+				margin-bottom: -10;
+			}
+		}
+
+		.military-panel {
+			armies-panel {
+				multiline: false;
+			}
+
+			.military-header {
+				width: @bar-interior-width - 24;
+				content-align: middle left;
+				layout:vertical;
+				spacing: 5;
+				.title {
+					.big-title;
+				}
+				.military-title {
+					content-align: top;
+					fill-width : true;
+					flowing-resource{
+						align: right;
+						width: 50;
+						bitmap{
+							width: 24;
+							height: 24;
+						}
+					}
+				}
+				.military-action{
+					fill-width : true;
+					#equipmentBtn {
+						align: right;
+						pad-action: @padaction-equipmentwindow;
+					}
+					#rallyPoint {
+						bitmap{
+							width: 24;
+							height: 24;
+						}
+					}
+					#unitListBtn {
+						pad-action: @padaction-unitlist;
+						visible: false;
+					}
+					#chooseHeroBtn {
+						visible: false;
+						pad-action: @padaction-choosehero;
+					}
+					#equipmentBtn.not-opened {
+						filter: glow(white, 1, 5, 1.1, 0.6, true);
+					}
+				}
+			}
+		}
+
+		.ornithopter-panel {
+			.recruit-btn {
+				pad-action: @padaction-recruitorni;
+			}
+		}
+		.harvester-panel {
+			.manual-recruit {
+				.recruit-btn {
+					pad-action: @padaction-recruitharvtent;
+				}
+			}
+		}
+	}
+}
+
+unit-training-slot {
+	background: @comp-round-bg;
+	#unitBtn{
+		background: none;
+		padding: 0;
+		layout: stack;
+		bitmap{
+			width: @unit-size;
+			height: @unit-size;
+		}
+		#gauge{
+			src: "UI/elements/square_4.png";
+			alpha: 0.6;
+			bitmap{
+				tint: @color-time;
+			}
+		}
+		#percentTxt{
+			.bold-shadow-12;
+		}
+		&.disabled {
+			color-adjust: none;
+		}
+	}
+}
+
+choose-hero-recruit {
+	content-align : middle left;
+	fmt-text {
+		align: middle middle;
+		color: @color-ui-text;
+	}
+	//spacing : 6;
+	padding : 6;
+
+	.square-btn;
+
+	layout : horizontal;
+	fill-width: true;
+	height: 50;
+
+	&:hover {
+		color-adjust: none;
+		color-adjust: brightness(0.1);
+	}
+	margin-top: 10;
+	margin-left: -30;
+}
+
+recruit-unit-button {
+	content-align : middle left;
+	spacing : 6;
+	padding : 2;
+
+
+	.square-btn;
+	padding: 6;
+	#main {
+		layout : vertical;
+		width: 150;
+		spacing: 3;
+	}
+	#nameTxt {
+		margin-top: 1 !important;
+		.bold-14;
+		color: @color-desert;
+	}
+	#stats {
+		spacing: 7;
+		margin-left: -2;
+		padding-right: -10;
+		resource-counter{
+			width: 50;
+			margin-right: -6;
+			spacing: 2;
+			bitmap{
+				width: 20;
+				height: 20;
+			}
+			fmt-text{
+				margin-top: 0;
+				.bold-shadow-12;
+				color: @color-desert-darken;
+			}
+			&.life {
+				margin-right: 0;
+			}
+		}
+	}
+	.portrait {
+		width: 50; height: 50;
+		margin: -3;
+		margin-left: -3;
+		margin-right: -2;
+	}
+	.frame {
+		background: @comp-round-bg;
+		padding: 2;
+		.icon{
+			width: 30;
+		}
+	}
+}
+recruit-unit{
+	#ability{
+		content-align : middle left;
+		spacing : 6;
+		padding : 2;
+
+
+		.square-btn;
+		padding: 6;
+		#main {
+			layout : vertical;
+			width: 150;
+			spacing: 3;
+		}
+		.portrait {
+			width: 50; height: 50;
+			margin: -3;
+			margin-left: -3;
+			margin-right: -2;
+		}
+		.frame {
+			background: @comp-round-bg;
+			padding: 2;
+			.icon{
+				width: 30;
+			}
+		}
+	}
+}
+
+.unit-decorator() {
+	.portrait {
+		.overlay {
+			background: url("UI/HUD/border_button_harvesters.png") 3 3;
+			background-id: true;
+			width: @unit-size;
+			height: @unit-size;
+			>#background {
+				ignore-scale: true;
+			}
+		}
+	}
+}
+
+unit-button{
+	.filtered-btn;
+	padding: 0;
+	content-align : middle middle;
+	spacing: 0;
+	layout: vertical;
+	hover-sfx: @UI_Button_Rollover;
+	.portrait {
+		layout:stack;
+		>bitmap{
+			width: @unit-size;
+			height: @unit-size;
+		}
+		blinker {
+			freq: 1;
+			stopped: true;
+			&.blink-off {
+				#status {
+					alpha: 0 !important;
+				}
+			}
+			#status {
+				visible: false;
+				src: hgrid("UI/HUD/unitEffect.png", 6);
+				transition: alpha 0.5s linear;
+				alpha: 1;
+			}
+			&.game-paused {
+				stopped: true;
+			}
+			.option-photosensitive-true & {
+				stopped: true;
+				#status {
+					alpha: 0.8;
+				}
+			}
+		}
+		#warning{
+			src: hgrid("UI/HUD/unitDanger.png", 2);
+			filter: glow(@color-warning-worm-danger, 1, 10, 1.1, 0.4, true);
+			visible: false;
+		}
+	}
+	.overlay {
+		background: url("UI/elements/UnitSmall_Outline.png") 3 3;
+		background-id: true;
+		width: @unit-size;
+		height: @unit-size;
+		>#background {
+			ignore-scale: true;
+		}
+	}
+
+	health-bar{
+		body-width: @unit-size;
+		body-height: 5;
+	}
+
+	.unitCount {
+		position: absolute;
+		align: bottom right;
+		background: "UI/icons/unitCount.png";
+		width: 16;
+		height: 16;
+		padding: 3;
+		offset-y: -8;
+		content-align: middle middle;
+		fmt-text {
+			.sans-11;
+		}
+	}
+
+	#selectionOutline {
+		position: absolute;
+		align: middle middle;
+		visible: false;
+		src: "UI/HUD/unitbuttonoutline.png";
+	}
+	&.selected{
+		filter: none;
+		#selectionOutline {
+			visible: true;
+		}
+	}
+
+	&.fighting{
+		#status{
+			visible: true !important;
+			src-pos-x: 1 !important;
+		}
+	}
+	&.danger{
+		#warning{
+			visible: true;
+		}
+	}
+}
+
+ornithopter-button{
+	&.idle{
+		blinker {
+			stopped: false;
+			#status{
+				visible: true;
+				src-pos-x: 2;
+			}
+		}
+	}
+	&.escorting-army{
+		#status{
+			visible: true !important;
+			src-pos-x: 0 !important;
+		}
+	}
+	&.escorting-harvester{
+		#status{
+			visible: true !important;
+			src-pos-x: 3 !important;
+		}
+	}
+
+	blinker {
+		align: top right;
+		#status {
+			scale: 0.625;
+		}
+	}
+	simple-gauge{
+		body-width: @unit-size;
+		body-height: 5;
+		color: @color-health;
+		empty-color: @color-health-lost;
+		#fillBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 0 2;
+			background-tile-pos-x: 4;
+		}
+		#emptyBar{
+			alpha: 1;
+		}
+	}
+}
+
+harvester-button{
+	#training{
+		visible: false;
+	}
+	&.dead{
+		simple-gauge{
+			visible: false;
+		}
+		&.refinery {
+			.portrait {
+				visible: false;
+			}
+			#training{
+				visible: true;
+			}
+		}
+	}
+	&.transit {
+		#status{
+			visible: true;
+			src-pos-x: 0;
+		}
+	}
+	&.idle{
+		blinker {
+			stopped: false;
+			#status{
+				visible: true;
+				src-pos-x: 2;
+			}
+		}
+	}
+	&.safeMode{
+		.unit-decorator;
+	}
+	simple-gauge{
+		body-width: @unit-size;
+		body-height: 5;
+		color: @color-health;
+		empty-color: @color-health-lost;
+		#fillBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 0 2;
+			background-tile-pos-x: 4;
+		}
+		#emptyBar{
+			alpha: 1;
+		}
+	}
+
+}
+
+army-button {
+	content-align: top middle;
+	&.on-orbit{
+		blinker {
+			#status{
+				visible: true;
+				src-pos-x: 0;
+			}
+		}
+	}
+	&.no-supply {
+		#supply{
+			visible: false;
+		}
+	}
+
+	&.hero {
+		.unit-decorator;
+	}
+
+	vspacing: -1;
+	.unitBars{
+		layout: vertical;
+		background: @color-hud-bg-dark;
+		spacing: -1;
+	}
+
+
+
+	simple-gauge{
+		body-width: @unit-size - 2;
+		body-height: 2;
+		padding: 1;
+		&.low{
+			filter: glow(@color-warning-worm-danger, 1.6, 10, 0.9, 0.6, true);
+			empty-color: @color-bad;
+			#emptyBar{
+				alpha: 0.4;
+			}
+		}
+		&#healthBar{
+			body-height: 3;
+			color: @color-health;
+			empty-color: @color-health-lost;
+			#fillBar {
+				background: hgrid("UI/HUD/gaugeBGs.png", 5) 0 2;
+				background-tile-pos-x: 4;
+			}
+			#emptyBar{
+				alpha: 1;
+			}
+		}
+	}
+	#selectionOutline {
+		src: "UI/HUD/armybuttonoutline.png";
+	}
+
+	&.no-supply {
+		.unitCount {
+			offset-y: -5;
+		}
+		#selectionOutline {
+			src: "UI/HUD/armybuttonoutline_nosupply.png";
+		}
+	}
+}
+
+
+military-recruitment {
+	position: absolute;
+	align: middle right;
+	layout: horizontal;
+	background: @panel-bg;
+	padding: 12;
+	margin-right: 291;
+	bind-layer-cursor: snap;
+
+	#unitList {
+		layout: vertical;
+		multiline: true;
+		max-width: 225;
+		spacing: 1;
+		content-align:right;
+
+		recruit-unit-button {
+			#cost {
+				visible: false;
+			}
+		}
+	}
+}
+
+thumpers-panel {
+	.thumpers {
+		layout: vertical;
+		spacing: 8;
+
+		.thumper-header {
+			fill-width: true;
+			spacing: 16;
+			>flowing-resource {
+				margin-top: -5;
+				margin-bottom: -8;
+				halign: right;
+				bitmap{
+					width: 24;
+					height: 24;
+				}
+			}
+
+			base-gauge {
+				margin-top: -24;
+				margin-right: -6;
+				body-height: 8;
+				body-width: 60;
+				halign: right;
+
+				&.full {
+					alpha: 0.25;
+				}
+			}
+		}
+		#thumperBtn {
+			pad-action: @padaction-usethumper;
+			>#rightCont {
+				layout: stack;
+				content-align: middle middle;
+				fill-width: true;
+				radial-fill-image {
+					color-adjust: none;
+					align: right;
+					margin-right: 6;
+					width: 22;
+					height: 25;
+					background: "UI/elements/ic_full_chrono_border.png";
+					invert: true;
+					bitmap{
+						align: bottom middle;
+						margin-bottom: 4;
+						width: 14;
+						src: "UI/elements/circle_64.png";
+						tint: @color-warning;
+					}
+				}
+			}
+			width: @bar-interior-width - 24;
+			&.disabled {
+				fmt-text {
+					color-adjust: brightness(-0.4);
+				}
+			}
+		}
+	}
+}
+
+
+nuclear-silo-panel {
+	.silo {
+		layout: vertical;
+		spacing: 10;
+		height: 60;
+		ability-button {
+			width: 80;
+			padding: 5;
+			pad-action: @padaction-usenuke;
+
+			background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+			&.clickable {
+				&:hover {
+					background-tile-pos-y: 1;
+					.ability-icon { src-pos-y: 1}
+				}
+				&:active {
+					color-adjust: brightness(-0.05);
+				}
+			}
+		}
+		.state {
+			layout: horizontal;
+			content-valign: middle;
+			spacing: 10;
+		}
+		.state-cont {
+			align: middle middle;
+			layout: vertical;
+			spacing: 10;
+		}
+	}
+	#stateDesc{
+		margin-top: 5;
+		.italic-13;
+		color: @color-ui-text-dark;
+	}
+
+	base-gauge {
+		body-height: 10;
+		body-width: 95;
+		halign: left;
+		color: @color-dev-military;
+		empty-color: @color-dev-military;
+		#fillBar, #emptyBar, #lagBar {
+			background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+		}
+		#emptyBar{
+			alpha: 0.5;
+		}
+	}
+
+	&.state-waiting, &.state-ready{
+		base-gauge, #stateDesc{
+			visible: false;
+		}
+	}
+	&.state-disabled{
+		base-gauge, abilities-displayer{
+			visible: false;
+		}
+		&.in-construction {
+			base-gauge {
+				visible: true;
+				body-height: 5;
+				color: @color-construction;
+				empty-color: @color-construction;
+				#emptyBar{
+					alpha: 0.2;
+				}
+			}
+		}
+	}
+
+	&.state-launching {
+		abilities-displayer{
+			visible: false;
+		}
+	}
+
+	.horizontal-separator {
+		margin-bottom: 0;
+	}
+}
+

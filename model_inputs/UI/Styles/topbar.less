@@ -1,0 +1,431 @@
+
+@import "game.less";
+
+top-bar, spectator-top-bar {
+	layout: stack;
+	align: top right;
+	content-align: top right;
+	fill-width: true;
+	height : @topBarHeight;
+	spacing: 10;
+
+	pad-action: @padaction-inspecttopbar;
+
+	#mainInfos, #rightResources {
+		fmt-text, text{
+			color: @color-desert;
+		}
+	}
+	>#topBg{
+		align: top right;
+		fill-width: true;
+		content-align : top right;
+		>#mainBarBg {
+			background: "UI/HUD/topbar.png";
+			background-alpha : 1;
+			min-height : 42;
+			min-width : 5000;
+			margin-left: -4170;
+		}
+		>#mainBarBgPattern {
+			background: "UI/HUD/topbar_pattern.png";
+			background-alpha : 1;
+			min-height : 41;
+			min-width : 592;
+		}
+	}
+	>#topContent{
+		fill-width: true;
+		align: top left;
+		content-align : top left;
+		spacing: 5;
+		>#management{
+			content-align : top left;
+			background: @window-round-bg;
+			margin-top: -10;
+			margin-left: -10;
+			margin-right: -5;
+			padding: 5;
+			padding-top: 10;
+			padding-left: 10;
+
+			base-button{
+				background: "UI/HUD/btn01.png" 12 12;
+				background-id: false;
+			}
+
+			#factionInfo {
+				content-align : top left;
+				padding-right: 2;
+				.colored-faction(background);
+				.colored-faction-glow(~'councilor-portrait');
+				background-id: true;
+				#background { alpha: 0.05; }
+				#leaderBtn{
+					background: none;
+					padding: 0;
+					margin-left: 5;
+					margin-bottom: -13;
+					scale: 0.5;
+					pad-action: @padaction-progresswindow;
+				}
+
+				traits-displayer {
+					position: absolute;
+					align: top left;
+					offset-x: 71;
+					offset-y: 92;
+				}
+
+				#characters {
+					padding: 4;
+					layout: vertical;
+					spacing: 4;
+					content-align: top left;
+				}
+			}
+
+			.separator{
+				width: 1;
+				height: 88;
+				background: #000000;
+				filter: glow(#000000, 0.6, 5, 1.2, 1, true);
+				alpha: 0.65;
+			}
+
+			#spiceContainer {
+				layout:stack;
+				content-align: middle right;
+				#spiceBg {
+					src: "UI/HUD/BGpattern01.png";
+					height: 88;
+				}
+				spice-exchange #sliderCont {
+					gauge-slider {
+						#upBtn, #downBtn {
+							visible: false;
+						}
+					}
+				}
+			}
+
+			#spiceInteractions {
+				layout: vertical;
+				align: middle middle;
+				content-align : middle middle;
+				padding: 3;
+				spacing: 2;
+				>.market-container {
+					content-align : middle middle;
+					spacing: 1;
+					fill-width:true;
+					auto-size:1;
+				}
+				.contract-container {
+					background: @comp-round-bg;
+				}
+				base-button {
+					.actionBtn;
+				}
+			}
+		}
+
+		>#mainInfos {
+			content-align: top left;
+			layout: vertical;
+			spacing: 10;
+			margin-right: -80;
+			#resourcesInfo {
+				margin-top: -1;
+				hspacing : 5;
+				content-align: left middle;
+
+				.resCont {
+					content-align: left middle;
+				}
+				.resSep {
+					background: #eeeecc;
+					alpha: 0.15;
+					min-width: 1;
+					min-height: 28;
+					margin-left: -5;
+					margin-right: 5;
+				}
+				flowing-resource {
+					min-width: 85;
+					&.show-decimals {
+						min-width: 105;
+					}
+					&.no-stocks {
+						min-width: 60;
+						&.show-decimals {
+							min-width: 80;
+						}
+					}
+
+					&.hegemony {
+						halign: right;
+					}
+				}
+			}
+			#overflownInfos {
+				background: "UI/HUD/topbar.png";
+				min-height: 42;
+				margin-top: -6;
+				margin-left: -5;
+				padding-left: 5;
+				margin-bottom: -11;
+				width: 5000;
+				margin-right: -5000;
+				content-align: top left;
+				#resourcesOverflow {
+					margin-top: -1;
+				}
+			}
+
+			.alerts-cont {
+				#alerts {
+					position: absolute;
+				}
+			}
+		}
+
+		> #rightResources {
+			align: top right;
+			margin-right: 250;
+		}
+
+		>#rightCont{
+			align: top right;
+			spacing: 6;
+			margin-right: 23;
+
+			#factionLeaders{
+				width: 250;
+				margin-right: -3;
+				margin-top: -1;
+				content-align: top middle;
+				spacing: 16;
+
+				>leader-portrait, >spectator-leader-portrait {
+					.leader-button{
+						background: grid("UI/HUD/leaderBanner4k.png", (@ui-faction-count + 1), 2);
+						margin-top: -15;
+						width: 64;
+						height: 104;
+						pad-action: @padaction-factiontrade;
+
+						&.ally {
+							filter: glow(@color-health-ally, 1, 5, 1, 1, true);
+						}
+						&.disabled{
+						}
+						&.dead{
+							color-adjust: brightness(-0.1) saturate(-1);
+						}
+						&:hover {
+							background-tile-pos-y: 1;
+						}
+						&:active {
+							color-adjust: brightness(-0.05);
+						}
+						.tiled-faction(background-tile-pos-x, @offset: 1);
+						&.unknown {
+							background-tile-pos-x: 0;
+						}
+					}
+					>.diplomacyContainer {
+						align: middle top;
+
+						diplomacy-status {
+							bitmap {
+								width: 24;
+								height: 24;
+							}
+						}
+					}
+				}
+				>leader-portrait {
+					layout: vertical;
+				}
+			}
+		}
+	}
+	>#topRightPopups {
+		position: absolute;
+		align: top right;
+		content-align: top right;
+		offset-x: -306;
+		offset-y: 50;
+		layout: horizontal;
+		spacing: 10;
+		reverse: true;
+
+		>#topRightPopupsColumn {
+			fill-height: true;
+			layout: vertical;
+			vspacing: 10;
+
+			#charterCard {
+				align: top right;
+
+				>.title-header {
+					>.remaining {
+						content-align: middle middle;
+						spacing: 4;
+						padding-bottom: 4;
+						radial-fill-image{
+							width: 22;
+							height: 25;
+							background: "UI/elements/ic_full_chrono_border.png";
+							invert: true;
+							bitmap{
+								align: bottom middle;
+								margin-bottom: 4;
+								width: 14;
+								src: "UI/elements/circle_64.png";
+								tint: @color-warning;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.two-lines {
+		>#topRightPopups {
+			offset-y: 85;
+		}
+	}
+
+	base-button {
+		pad-focusable: false;
+	}
+	.resCont {
+		resource-counter {
+			pad-focusable: true;
+			pad-cursor-icon: @icon-padtopbarcursor;
+		}
+	}
+	.time-buttons {
+		base-button {
+			pad-focusable: true;
+			pad-cursor-icon: @icon-padtopbarcursor;
+		}
+	}
+
+	&.inspect-focus {
+		bind-layer-cursor: snap;
+
+		traits-displayer {
+			trait-preview {
+				pad-focusable: true;
+			}
+		}
+		councilor-portrait {
+			pad-focusable: true;
+		}
+		assassination-progress, my-assassination-progress {
+			pad-focusable: true;
+			pad-cursor-icon: @icon-padtopbarcursor;
+			&:focus {
+				>#progressContent {
+					>button {
+						pad-click: @input-menu-leftclick;
+					}
+				}
+			}
+		}
+
+		.resCont {
+			resource-counter.solari {
+				pad-default-focus: true;
+			}
+		}
+	}
+}
+
+contract-info {
+	content-align : middle middle;
+	padding : 4;
+	spacing : 10;
+	min-width: 102;
+
+	#tf {
+		.bold-15;
+		color: @color-desert;
+		&.not-enough{
+			color: @color-bad;
+		}
+	}
+
+	&.no-contract{
+		alpha: 0.5;
+	}
+
+	.gauge-cont{
+		@gauge-rad: 28;
+		@gauge-thickness: 8;
+		background-type: dynamic;
+		>#background {
+			background: black;
+			border-radius: @gauge-rad * 0.5;
+			outline: 1 @color-ui-text-dark;
+			outline-offset: 1;
+		}
+		filter: glow(#000000, 0.5, 4, 1.2, 1, true);
+		padding: 2;
+		margin-bottom: 1;
+		layout: stack;
+		content-align: middle middle;
+		#gauge {
+			src: "UI/elements/circle_64.png";
+			alpha: 0.95;
+			bitmap{
+				width: @gauge-rad - 4;
+				height: @gauge-rad - 4;
+			}
+		}
+		.gauge-foreground{
+			background-type: dynamic;
+			#background {
+				background: @color-hud-bg-middle;
+				border-radius: @gauge-thickness;
+				outline: 1 @color-ui-text-dark;
+				outline-alpha: 0.8;
+			}
+			width: @gauge-rad - @gauge-thickness - 4;
+			height: @gauge-rad - @gauge-thickness - 4;
+		}
+	}
+}
+
+councilor-portrait {
+	spacing: 3;
+	content-valign: middle;
+	margin-top: 2;
+	margin-bottom: 2;
+
+
+	#portraitCont {
+		width: 32;
+		height: 32;
+		bitmap{
+			width: 32;
+		}
+		&.disabled{
+			bitmap{
+				alpha: 0.6;
+			}
+		}
+	}
+
+	&.empty {
+		#portraitCont {
+			width: 32;
+			height: 32;
+			background: hgrid("UI/elements/militiaClassBorder.png", 3) 5 5;
+		}
+	}
+}

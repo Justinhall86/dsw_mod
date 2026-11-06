@@ -1,0 +1,1470 @@
+@import "game.less";
+
+@pannels-width: 280;
+@pannels-height: 560;
+@resolution-bg: hgrid("UI/landsraad/container_resolution.png", 3) 6 6;
+@charter-bg: hgrid("UI/landsraad/charters/container.png", 4) 10 10;
+landsraad {
+	layout: horizontal;
+	align: middle middle;
+	content-align: top middle;
+	width: 1250;
+	height: 800;
+	layout: vertical;
+
+	background: @panel-bg;
+	background-tile-pos-x: 1;
+	bind-layer-cursor: snap;
+	pad-focus-mode: grid;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+
+	>window-header {
+		auto-size: 1;
+	}
+
+	&.pad {
+		.main-body {
+			>charters-list {
+				pad-focusable: true;
+				padding:4;
+				&.inspect-focus {
+					bind-layer-cursor: snap;
+					charter-card  {
+						pad-focusable: true;
+						&.index-0 { pad-default-focus: true; }
+						&:focus {
+							#addInvestmentButton{
+								&.enabled {
+									pad-click:@input-menu-leftclick;
+								}
+							}
+						}
+					}
+				}
+				&:focus {
+					background-type: dynamic;
+					>#background {
+						border-radius: 5 5 5 5;
+						outline: 2.0 @color-gold;
+					}
+				}
+			}
+			.council-body {
+				.session-body {
+					#voteResList{
+						pad-focusable: true;
+						padding:4;
+						&.inspect-focus {
+							bind-layer-cursor: snap;
+							generic-resolution-card  {
+								pad-focusable: true;
+								&.index-0 { pad-default-focus: true; }
+							}
+						}
+						&:focus {
+							background-type: dynamic;
+							>#background {
+								border-radius: 5 5 5 5;
+								outline: 2.0 @color-gold;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.pc.spectator {
+		margin-right: @spectator-rightcont-width;
+	}
+
+	.main-body {
+		.character-scene {
+			position: absolute;
+			y: 0;
+
+			@offset-padding: 0;
+			@leader-width: 260;
+			x: -@leader-width;
+			@leader-height: 804;
+			padding: @offset-padding;
+			width: @leader-width;
+			height: @leader-height;
+
+			>#scene {
+				background-type: dynamic;
+				>#background {
+					background: #1D1F26;
+					//border-radius: 6;
+					outline: 1 @color-ui-text;
+					outline-alpha: 0.3;
+				}
+				fill-width: true;
+				fill-height: true;
+				scale: 1;
+				&.corrino {
+					offset-x: 0;
+				}
+			}
+		}
+
+		height: 638;
+		padding: 20;
+		padding-top: 6;
+		spacing: 25;
+
+		layout: vertical;
+		content-align: top middle;
+
+		>.main-header {
+			fill-width: true;
+			content-align: top middle;
+			align: top left;
+			margin-left: 13;
+			margin-right: 13;
+			margin-top: 5;
+			margin-bottom: -10;
+			.council-info{
+				halign: left;
+				layout: vertical;
+				content-align: top middle;
+				spacing: 3;
+				#councilTitle { .regular-13; }
+			}
+			.time-info{
+				halign: right;
+			}
+		}
+
+		charters-list{
+			content-align: middle middle;
+			spacing: 23;
+		}
+
+		.council-body {
+			spacing: 40;
+			content-align: top left;
+
+			.session-body{
+				layout: stack;
+				content-align: middle middle;
+				spacing : 25;
+				fill-width: true;
+				auto-size: 1;
+
+				.session-bg{
+					position: absolute;
+					src: "UI/landsraad/bg_res_list.png";
+					align: middle middle;
+				}
+				#sessionEmpty{
+					margin-top: 66;
+					.bold-17;
+				}
+
+				#voteResList{
+					min-width: (@pannels-width * 3) + 30;
+					min-height: @pannels-height + 5;
+					content-align: top middle;
+					spacing: 15;
+					>flow{
+						resolution-card{
+							valign: top;
+						}
+						layout: vertical;
+						width: @pannels-width;
+						height: @pannels-height;
+						padding: 1;
+						padding-bottom: 5;
+					}
+					&.high-turnout {
+						spacing: 50;
+					}
+				}
+			}
+
+			.game-state {
+				layout: vertical;
+				align: top middle;
+				width: @pannels-width;
+				auto-size: 1;
+				fill-height: true;
+				spacing: 10;
+
+				.members-card{
+					layout:vertical;
+					spacing: 15;
+					overflow: scroll;
+					max-height: 515;
+					#membersList, #minorHouses {
+						layout:vertical;
+						spacing: 15;
+						council-member-info {
+							fill-width: true;
+							height: 60;
+						}
+					}
+				}
+
+				#confirmation {
+					layout: vertical;
+					align: bottom middle;
+					padding-left: 8;
+					padding-right: 8;
+					fill-width: true;
+					auto-size: 1;
+					margin-bottom: 10;
+
+					alpha: 0;
+					transition: alpha 0.2 ease-in;
+					&.appear {
+						alpha: 1;
+						transition: alpha 0.3 ease-in;
+						>#readyButton {
+							pad-focusable: true;
+						}
+					}
+
+					#separator {
+						background: "UI/elements/line_graphic_interface.png";
+						height: 1;
+						fill-width: true;
+						auto-size: 1;
+						margin: 0 0 10 0;
+					}
+
+					>#readyButton {
+						align: middle middle;
+						pad-focusable: false;
+						.decorated-btn;
+						width: 250;
+						height: 60;
+						fmt-text {
+							.bold-23;
+							color: @color-desert;
+						}
+					}
+					&.spectator {
+						>#readyButton, #separator {
+							visible: false;
+						}
+						&.has-emblems {
+							#separator {
+								visible: true;
+							}
+						}
+					}
+
+					>faction-emblems {
+						align: middle middle;
+						margin-bottom: 10;
+						margin-right: -50;
+						margin-left: -50;
+						alpha: 0;
+						transition: alpha 0.3 ease-in;
+						&.appear {
+							alpha: 1;
+							transition: alpha 0.3 ease-in;
+						}
+
+						>faction-emblem {
+							alpha: 0.3;
+							transition: alpha 0.3 ease-in;
+
+							&.commit {
+								alpha: 1.0;
+								transition: alpha 0.3 ease-in
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+resolution-action-switcher {
+	valign: bottom;
+	&.spectator {
+		reroll-resolution-action, action-commands, vote-resolution-action {
+			visible: false;
+		}
+	}
+}
+
+resolution-action {
+	fill-width: true;
+	layout: vertical;
+	content-align: middle middle;
+	spacing: 5;
+	margin-bottom: 2;
+	min-height: 80;
+
+	.resolution-action-banner{
+		fill-width: true;
+		height: 25;
+		valign: top;
+		background: @color-hud-bg-dark;
+		content-align: middle middle;
+		fmt-text{
+			.bold-16;
+		}
+	}
+	dropdown{
+		.votes-dropdown-select;
+	}
+	#setBtn {
+		background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+		layout : stack;
+		content-align : middle middle;
+		padding : 10;
+		padding-bottom: 12;
+	}
+}
+
+.votes-dropdown-select {
+	base-button{
+		width: 210;
+		height: 40;
+		spacing: 5;
+		fmt-text{
+			min-width: 140;
+			max-width: 140;
+			.bold-14;
+		}
+		>bitmap{
+			height: 24;
+		}
+	}
+}
+
+.votes-dropdown-list {
+	layout: horizontal;
+	background-type: dynamic;
+	>#background {
+		border-radius: 6;
+		outline: 2 @color-text;
+		outline-offset: 0;
+		background: @color-hud-bg-middle;
+		smooth-span: 0;
+		outline-alpha: 0.3;
+		alpha: 1;
+	}
+
+	padding: 1;
+	base-button {
+		height: 40;
+		background-type: dynamic;
+		margin-left: -1;
+		margin-top: 1;
+		align: middle middle;
+		>#background {
+			background: @color-hud-bg-middle;
+			alpha: 0.6;
+			outline-alpha: 0;
+			margin: 2 0 0 4;
+		}
+		fmt-text {
+			visible: false;
+		}
+		bitmap{
+			margin-left: -3;
+			margin-top: 3;
+			scale: 0.625;
+		}
+	}
+}
+
+.faction-votes-list{
+	spacing: 12;
+}
+
+council-member-info{
+	spacing: 5;
+	padding-left: 7;
+	content-align: left middle;
+	layout: vertical;
+	background: hgrid("UI/landsraad/container_faction.png", (@ui-faction-count + 1)) 9 9;
+
+	.header {
+		align: top left;
+		#banner{
+			height: 48;
+			src: hgrid("UI/landsraad/faction_banners.png", (@ui-faction-count + 1));
+		}
+	}
+
+	.body {
+		layout: vertical;
+		spacing: 8;
+		align: top left;
+		margin-top: 5;
+		margin-left: 5;
+
+		fmt-text#factionName {
+			.bold-17;
+			margin-left: 4;
+			color: @color-desert;
+		}
+
+		fmt-text {
+			.bold-15;
+			color: @color-desert;
+		}
+
+		.body-resources {
+			spacing: 6;
+			resource-counter, flowing-resource, resource-information{
+				spacing: 4;
+				width: 60;
+				auto-size: 0.3;
+				bitmap{
+					width: 20;
+					margin-top: -2;
+				}
+			}
+		}
+	}
+
+	council-member-votes-gauge {
+		layout: horizontal;
+		fill-width: true;
+		total-width: 265;
+		margin-bottom: 10;
+		#emptyGauge {
+			full-color: #101114;
+			empty-color: @color-hud-bg-dark;
+		}
+
+		#freeVoteGauge {
+			full-color: @faction-ecaz;
+			empty-color: @color-hud-bg-dark;
+		}
+
+		#voteGauge {
+			full-color: #B9994F;
+			empty-color: @color-hud-bg-dark;
+		}
+
+		#influenceGauge {
+			full-color: #705D31;
+			empty-color: @color-hud-bg-dark;
+		}
+	}
+
+	.tiled-faction(src-pos-x, ~'#banner', @offset: 1);
+	.tiled-faction(background-tile-pos-x, ~'&.mine', @offset: 1);
+	&.faction-minorhouses{
+		#banner{ src-pos-x: 0; }
+	}
+
+	&.voting-blocked {
+		color-adjust: brightness(-0.2) saturate(-0.5) gain(#000000, 0.3);
+	}
+}
+
+faction-vote-info{
+	spacing: 3;
+	content-align: middle middle;
+	fmt-text {
+		.bold-14;
+		color: @color-desert;
+		offset-y: -1;
+	}
+	bitmap{
+		height: 20;
+	}
+}
+
+generic-resolution-card {
+	recursive-propagate: true;
+
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-1;
+	 	outline: 1 @color-ui-border-dark;
+	 	outline-alpha: 1;
+		border-radius: 6;
+		outline-offset: -1;
+	}
+
+	&.charter{
+		>#background {
+			outline: 2 @color-ui-border-gold;
+		}
+	}
+
+	&:hover {
+		>#background {
+			outline: 1 @color-ui-text-light;
+			outline-alpha: 2;
+		}
+
+		resolution-card {
+
+			.illustration {
+				#illuBackground {
+					image-scale: 0.6;
+				}
+			}
+		}
+	}
+	&.inspect-focus {
+		bind-layer-cursor: snap;
+		result-resolution-action {
+			resolution-vote-results {
+				base-gauge {
+					pad-focusable: true;
+					&.index-0 { pad-default-focus: true; }
+				}
+			}
+		}
+	}
+}
+
+generic-resolution-card {
+	&.card-visibility-hidden {
+		visible: false;
+	}
+
+	&.card-visibility-transition {
+		&.action-visibility-appear {
+			appear-delay: 0 0.5;
+			alpha: 0;
+			resolution-action {
+				alpha: 1;
+			}
+			&.appear {
+				alpha: 1;
+				transition: alpha 0.3 ease-in;
+			}
+		}
+	}
+
+	&.action-visibility-hidden {
+		&.phase-announce, &.phase-decide, &.phase-vote {
+			resolution-action {
+				alpha: 0;
+				transition: alpha 0.2 ease-in;
+			}
+		}
+	}
+
+	&.card-visibility-instant {
+		alpha: 1;
+		&.action-visibility-appear {
+			&.phase-announce, &.phase-decide, &.phase-vote {
+				resolution-action {
+					alpha: 1;
+					transition: alpha 0.3 ease-in;
+				}
+			}
+		}
+	}
+
+	&.phase-result {
+		votes-bar-graph {
+			anim-ratio: 0;
+		}
+		resolution-card {
+			>resolution-winner-banner {
+				alpha: 0;
+				.illustration-container {
+					y: -180;
+				}
+			}
+		}
+
+		resolution-action {
+			alpha: 0;
+		}
+
+		&.result-visibility-instant {
+			votes-bar-graph {
+				anim-ratio: 1;
+			}
+
+			resolution-card {
+				>resolution-winner-banner {
+					alpha: 1;
+					.illustration-container {
+						y: 0;
+					}
+				}
+			}
+
+			resolution-action {
+				alpha: 1;
+			}
+		}
+
+		&.result-visibility-transition {
+			appear-delay: 0 0.5;
+			&.appear {
+				resolution-card {
+					>resolution-winner-banner {
+						alpha: 1;
+						transition: alpha 0.3 ease-in;
+
+						.illustration-container {
+							y: 0;
+							transition: y 0.4 ease-in;
+						}
+					}
+				}
+
+				votes-bar-graph {
+					anim-ratio: 1;
+					transition: anim-ratio 0.5 ease-in;
+				}
+
+				resolution-action {
+					alpha: 1;
+					transition: alpha 0.3 ease-in;
+				}
+			}
+		}
+	}
+
+	&.phase-decide, &.phase-announce, &.phase-vote {
+		recursive-propagate: true;
+	}
+
+	&.phase-decide, &.phase-announce {
+		layout: vertical;
+		spacing: 5;
+		content-align: top middle;
+	}
+
+	&.phase-vote {
+		spacing: 10;
+		content-halign: middle;
+		pad-focusable: true;
+		actions-display {
+			.action-center {
+				&.selected {
+					background-tile-pos-y: 1;
+				}
+			}
+		}
+		#choicesDropdown {
+			>#select {
+				pad-focusable: false;
+			}
+		}
+		&:focus {
+			#choicesDropdown {
+				>#select {
+					pad-click: @input-menu-leftclick;
+				}
+			}
+			.vote-count input-value {
+				#remBtn {
+					pad-click: @input-cycleselect-decrease;
+				}
+				#addBtn {
+					pad-click: @input-cycleselect-increase;
+				}
+			}
+		}
+	}
+
+	#rerollBtn {
+		.decorated-btn;
+		align: middle middle;
+		width: 80;
+		height: 40;
+		fmt-text{
+			.bold-15;
+			color: @color-ui-text;
+		}
+	}
+}
+
+resolution-action-item {
+	layout: vertical;
+	spacing: 15;
+	.title {
+		halign: middle;
+		.bold-18;
+		max-width: @pannels-width - 40;
+	}
+	fmt-text {
+		allow-over-rich-ids: false;
+	}
+	.desc-cont {
+		.arrow {
+			.bullet-arrow;
+			offset-y: -1;
+			scale: 0.5;
+			margin-left: -8;
+			margin-right: 1;
+			align: top left;
+		}
+		fmt-text {
+			.regular-16;
+		}
+	}
+}
+
+@pannel-footer-height: 140;
+@card-height: @pannels-height - @pannel-footer-height - 130;
+
+resolution-card{
+	fill-width: true;
+	height: @pannels-height - @pannel-footer-height;
+	content-align: top middle;
+	layout: vertical;
+	spacing: 11;
+
+	overflow: hidden;
+	>resolution-winner-banner {
+		position: absolute;
+		x: -1;
+		y: -1;
+		background-type: dynamic;
+		width: @pannels-width;
+		height: @card-height - 23;
+		>#background {
+			gradient: linear(180, fade(@color-bg-dark-1, 100%), fade(@color-bg-dark-1, 50%));
+			border-radius: 6 6 0 0;
+		}
+	}
+
+	.illustration {
+		#illuBackground {
+			align: top middle;
+
+			width:  @pannels-width - 2;
+			height: @card-height;
+
+			image-scale: 0.55;
+			transition: image-scale @hover-transition;
+			border-radius: 4 4 0 0;
+		}
+	}
+
+	.action-info {
+		layout: vertical;
+		width: @pannels-width - 2;
+		height: @card-height - 26;
+		padding: 0 10 0 10;
+		spacing: 20;
+		content-align: middle left;
+		position: absolute;
+		background: @color-hud-bg-dark;
+		background-alpha: 0.9;
+		&.empty {
+			background-alpha: 0;
+		}
+
+		resolution-action-item {
+			offset-y: 80;
+			transition: offset-y @hover-transition;
+		}
+
+		alpha: 0;
+		transition: alpha @hover-transition;
+
+		&.active {
+			alpha: 1;
+			resolution-action-item {
+				offset-y: 0;
+			}
+		}
+	}
+
+
+	>.info{
+		content-align: top middle;
+		layout: vertical;
+		spacing: 10;
+		margin-top: -36;
+
+		.gradient{
+			position: absolute;
+			align: top middle;
+			src: "UI/HUD/gradient_shadow_up.png";
+			width: @pannels-width - 2;
+			height: 90;
+			offset-y: -87;
+		}
+		.details{
+			>.res-action-title {
+				visible: false;
+				.italic-14;
+				alpha: 0.7;
+			}
+			>.res-action-effects{
+				visible: false;
+				.italic-14;
+				color: @color-ui-text-dark;
+				max-width: @pannels-width - 30;
+				margin-top: -10;
+			}
+		}
+	}
+}
+
+resolution-details {
+	layout: vertical;
+	content-align: top middle;
+	spacing: 15;
+	.name-header  {
+		fill-width: true;
+		height: 25;
+		background: "UI/landsraad/ban_resolution.png";
+		content-align: middle middle;
+		.name{
+			max-width-text: @pannels-width - 20;
+			.bold-17;
+		}
+	}
+
+	#tfTarget {
+		.italic-14;
+		alpha: 0.7;
+	}
+
+	#tfDesc {
+		.italic-14;
+		color: @color-ui-text-dark;
+		max-width: @pannels-width - 35;
+	}
+}
+
+action-commands {
+	layout: vertical;
+	spacing: 10;
+}
+
+vote-commands{
+	layout: stack;
+	>#noEligibleText {
+		height: 67;
+		content-valign: middle;
+		>fmt-text {
+			.regular-17;
+		}
+	}
+	>.main {
+		content-align: middle middle;
+		layout: vertical;
+		spacing: 5;
+		>.vote-count{
+			content-align: middle middle;
+			spacing: 10;
+			fmt-text{
+				offset-y: -2;
+			}
+			input-value{
+				content-valign: middle;
+				@width: 60;
+				spacing: 3;
+				>#valueBtn {
+					width: @width;
+					background: "UI/landsraad/box_vote_resolution.png" 4 4;
+					content-align: middle middle;
+					over-icon: AddLinkCursor;
+					padding: 4;
+					spacing: 2;
+					>bitmap{
+						width: 16;
+						margin-top: -2;
+					}
+					&:hover{
+						color-adjust: brightness(0.05);
+					}
+				}
+				#remBtn, #addBtn {
+					background: hgrid("UI/landsraad/ic_arrow.png", 2);
+					width: 12;
+					height: 19;
+				}
+				>#addBtn {
+					background-tile-pos-x: 1;
+				}
+				&.influence-mode{
+					#valueTxt{
+						color: @resource-influence;
+					}
+				}
+				&.free-mode{
+					#valueTxt{
+						color: @color-text-freevotes;
+					}
+				}
+				#valueTxt{
+					align: middle middle;
+					color: @color-ui-text;
+					margin-bottom: -1;
+					.bold-13;
+				}
+
+				&.inactive {
+					color-adjust: brightness(-0.2) saturate(-0.5) gain(#000000, 0.3);
+				}
+			}
+		}
+	}
+}
+
+active-resolution-card {
+	layout: vertical;
+	width: @pannels-width - 20;
+	height: 100;
+	spacing: 6;
+	background: @resolution-bg;
+	content-align: top middle;
+	pad-focusable: true;
+
+	.header{
+		fill-width: true;
+		height: 25;
+		content-align: middle left;
+		spacing: 10;
+
+		background: "UI/landsraad/ban_active_resolution_chapter.png";
+		background-id: true;
+		#factionBanner{
+			src: hgrid("UI/landsraad/faction_banners.png", (@ui-faction-count + 1));
+			width: 26;
+			margin-top: -1;
+			margin-left: 15;
+			&.faction-all {
+				alpha: 0;
+			}
+			.tiled-faction(src-pos-x, @offset: 1);
+		}
+		.res-name{
+			max-width-text: 150;
+			.bold-16;
+		}
+
+		>.cancelBtns {
+			align: middle right;
+			padding-right: 4;
+		}
+	}
+	.effect{
+		padding: 8;
+		padding-top: 4;
+		padding-bottom: 4;
+		align: middle middle;
+		.res-effects{
+			.italic-14;
+		}
+	}
+
+	#timerGauge {
+		layout: stack;
+		valign: bottom;
+		margin-top: -2;
+		padding: 1;
+		body-width: @pannels-width - 24;
+		body-height: 12;
+		color: @color-text-timer;
+		empty-color: @color-hud-bg-dark;
+
+		fmt-text {
+			.bold-11;
+			color: #312d2d;
+		}
+	}
+
+	&.declined {
+		alpha: 0.8;
+		.header {
+			#factionBanner {
+				alpha: 0;
+			}
+			#background {
+				alpha: 0.5;
+			}
+		}
+		.effect {
+			fmt-text {
+				alpha: 0.5;
+				color: @color-ui-text-dark;
+			}
+		}
+	}
+
+	&.canceled {
+		#timerGauge {
+			color: @color-bad;
+		}
+	}
+}
+
+actions-display {
+	layout: stack;
+	position: absolute;
+	align: top middle;
+	spacing: 4;
+	offset-y: 222;
+	padding: 1;
+
+	content-align: top middle;
+	.line-bg-1 {
+		height: 5;
+		width: @pannels-width - 2;
+		src: "UI/landsraad/resolution_header_line.png";
+	}
+	.actions-cont {
+		layout: horizontal;
+		spacing: 0;
+
+		.action-center {
+			width: 56;
+			height: 56;
+			margin-top: -24;
+			content-align: middle middle;
+			background: vgrid("UI/landsraad/resolution_header_box.png", 2);
+			spectator-enabled: true;
+			bitmap{
+				height: 32;
+				width: 32;
+			}
+		}
+	}
+	&.small {
+		.actions-cont {
+			spacing: 10;
+		}
+	}
+}
+
+resolution-winner-banner {
+	layout: vertical;
+	content-align: top middle;
+	spacing: 10;
+
+	#voteWinnerName {
+		.bold-22;
+	}
+
+	#winnerIllustration {
+		scale: 0.7;
+		align: top middle;
+
+		&.support {
+			src: "UI/HUD/landsraad_agree.png";
+		}
+
+		&.decline {
+			src: "UI/HUD/landsraad_disagree.png";
+		}
+	}
+
+	>flow {
+		layout: horizontal;
+		content-align: middle middle;
+		spacing: 6;
+		.left-line, .right-line {
+			height: 1;
+			width: 30;
+			background: @color-ui-text-light;
+		}
+		#voteWinnerAmount {
+			.bold-18;
+		}
+	}
+}
+
+generic-resolution-card.phase-result {
+	>#card {
+		align: middle top;
+	}
+	spacing: 10;
+	resolution-vote-results{
+		resolution-vote-summary{
+			content-align: middle middle;
+			width: 250;
+			visible: false;
+			.faction-votes-list { visible: false; }
+			&.winning-vote{
+				visible: true;
+			}
+		}
+		votes-bar-graph.high-turnout {
+			margin-right: -40;
+			margin-left: -40;
+		}
+	}
+}
+
+resolution-vote-results{
+	padding-top: 24;
+	layout: vertical;
+}
+
+votes-bar-graph {
+	spacing: 10;
+	>.bar-cont {
+		layout: vertical;
+		spacing: 5;
+		content-halign: middle;
+
+		>#gauges {
+			vertical: true;
+			body-width: 37;
+			body-height: 60;
+			color: white;
+			empty-color: white;
+			floating-progress: false;
+
+			.label {
+				layout: vertical;
+				>.val-text {
+					align: top middle;
+					offset-y: -25;
+					color: @color-ui-text-light;
+				}
+			}
+
+			#barBody {
+				padding: 2;
+				background-type: dynamic;
+				#background {
+					background: @color-hud-bg;
+					outline: 0.5 #504940;
+				}
+				#emptyBar {
+					background: hgrid("UI/HUD/factionVerticalGauge.png", @ui-faction-count);
+				}
+				#fillBar {
+					valign: top;
+					background: @color-hud-bg;
+				}
+			}
+			.tiled-faction(background-tile-pos-x, ~'#barBody #emptyBar');
+			#emptyBar {
+				alpha: 1;
+			}
+
+			&.support #barBody #emptyBar {
+				background: hgrid("UI/HUD/landsraad_agreeDisagree_gauge.png", 2);
+				background-tile-pos-x: 0;
+			}
+
+			&.decline #barBody #emptyBar {
+				background: hgrid("UI/HUD/landsraad_agreeDisagree_gauge.png", 2);
+				background-tile-pos-x: 1;
+			}
+
+			#fillBar {
+				alpha: 1;
+			}
+
+			#floatingCont {
+				content-align: middle middle;
+				layout: stack;
+				.mid-emblem {
+					width: 26;
+					margin: -14;
+				}
+				.dotted-line {
+					src: "UI/elements/gauge_dotted_line.png";
+					height: 1;
+					width: 37;
+				}
+			}
+		}
+	}
+}
+
+
+resolution-vote-summary{
+	background: @panel-bg;
+	background-tile-pos-y: 2;
+	padding: 8;
+	width: 300;
+	layout: vertical;
+	spacing: 4;
+	>.choice{
+		spacing: 5;
+		content-align: middle middle;
+		.vote-total{
+			alpha: 0.6;
+		}
+		>bitmap {
+			height: 18;
+			margin-top: -1;
+		}
+	}
+	fmt-text{
+		color: @color-ui-text-dark;
+	}
+	&.winning-vote{
+		fmt-text{
+			color: @color-ui-text-light;
+		}
+		background-tile-pos-x: 1;
+		background-tile-pos-y: 0;
+		>.choice{
+			bitmap {
+				height: 24;
+			}
+		}
+		.vote-choice{
+			.bold-16 !important;
+		}
+		.vote-total{
+			.bold-16 !important;
+			color: @color-gold;
+			alpha: 1;
+		}
+	}
+	.faction-votes-list{
+		margin-left: 10;
+	}
+}
+
+
+charter-card {
+	@card-width: 220;
+	@card-height: 160;
+	width: @card-width;
+	height: @card-height;
+	background: @charter-bg;
+	layout: vertical;
+
+	.thumbnail {
+		layout: stack;
+		content-align: top middle;
+		.illustration{
+			width: @card-width - 2;
+			src: vgrid("UI/landsraad/charters/charterBanner.png", (@ui-faction-count + 2));
+			margin: 1;
+		}
+		.state-icon{
+			src: grid("UI/landsraad/charters/diamondIcons.png", @ui-faction-count, 2);
+			height: 56;
+			margin-top: 3;
+		}
+	}
+	&.governor{
+		.illustration{
+			width: @card-width - 2;
+			src: vgrid("UI/landsraad/charters/duneGovBanner.png", (@ui-faction-count + 2));
+			margin: 1;
+			margin-top: -11;
+		}
+	}
+
+	//TODO-LANDSRAAD waiting UI mockup but for now is just a glow
+	&.chosen {
+		filter: glow(#dbc392, 1, 1, 4, 1, true);
+	}
+	//TODO-LANDSRAAD end
+
+	.title-header{
+		fill-width: true;
+		layout: vertical;
+		margin-top: 6;
+		spacing: 8;
+		content-align: top middle;
+		.charter-subtext{
+			text-transform: uppercase;
+			color: @color-ui-text-dark;
+			.bold-12;
+		}
+		.separator{
+			width: 80;
+			height: 1;
+			background: @color-ui-text-dark;
+			background-alpha: 0.3;
+			margin-bottom: 4;
+		}
+		.charter-name {
+			max-width-text: @card-width - 15;
+			.bold-17;
+			color: @color-ui-text-light;
+		}
+		#remainingText {
+			min-width: 115;
+		}
+	}
+
+	#factionsCont{
+		spacing: 5;
+		align: bottom middle;
+		margin-bottom: -10;
+		top-bar & {
+			visible: false;
+		}
+	}
+
+	.buttonContainer {
+		fill-width: true;
+		layout: vertical;
+		spacing: 4;
+		align: top middle;
+		margin-top: 8;
+		#separator {
+			background: "UI/elements/line_graphic_interface.png";
+			height: 1;
+			fill-width: true;
+			auto-size: 1;
+			margin: 0 0 0 0;
+		}
+
+		#addInvestmentButton {
+			.decorated-btn;
+			align: bottom middle;
+			margin-bottom: 6;
+			pad-focusable: false;
+		}
+	}
+
+	#currentInvested {
+		position: absolute;
+		align: top left;
+	}
+
+	#firstBonus {
+		position: absolute;
+		align: top right;
+		alpha: 0.5;
+		offset-x: -1;
+		offset-y: 1;
+
+		>bitmap {
+			src: "UI/landsraad/charter_first_bonus.png";
+			width: 40
+		}
+	}
+
+	&.unlocked{
+		.illustration{
+			src-pos-y: 1;
+		}
+		.state-icon{
+			src-pos-x: 1;
+		}
+		background-tile-pos-x: 1;
+		#firstBonus {
+			alpha: 1;
+		}
+	}
+
+	&.active{
+		.state-icon{
+			src-pos-y: 1;
+		}
+		background-tile-pos-x: 2;
+		&.governor{
+			background-tile-pos-x: 3;
+		}
+	}
+
+	&.spectator {
+		.buttonContainer {
+			visible: false;
+		}
+	}
+
+
+	.tiled-faction(src-pos-y, ~'.illustration', @offset: 2);
+	.tiled-faction(src-pos-x, ~'.state-icon', @offset: 0);
+}
+
+charter-faction{
+	bitmap{
+		src: hgrid("UI/landsraad/faction_banners.png", (@ui-faction-count + 1));
+		height: 25;
+	}
+	color-adjust: saturate(-0.8);
+	&.active {
+		color-adjust: none;
+	}
+	.tiled-faction(src-pos-x, ~'bitmap', @offset: 1);
+}
+
+faction-standing {
+	fill-width: true;
+
+	>.current{
+		align: middle left;
+		width: 180;
+		padding-right: 20;
+		spacing: 4;
+
+		#faction-banner {
+			width: 15;
+			height: 17;
+			.menu-emblem-Faction();
+		}
+	}
+
+	#faction {
+		align: middle left;
+	}
+
+	#amount, #separator {
+		align: middle right;
+	}
+
+	#separator {
+		width: 1;
+		height: 20;
+		margin-top: -7;
+		margin-bottom: -7;
+		alpha: 0.3;
+		background: @color-desert-darken;
+		fill-height: true;
+		auto-size: 1;
+	}
+
+	>#prevision{
+		align: middle right;
+	}
+}
+
+standing-tiers {
+	layout: vertical;
+	spacing: 7;
+
+	.standing-tier {
+		layout: stack;
+		@width: 276;
+		@height: 10;
+		height: @height;
+		fill-width: true;
+
+		.current-tier {
+			align: middle middle;
+			height: @height + 8;
+			margin-top: -3;
+			margin-left: -10;
+			margin-right: -10;
+			background: @color-hud-bg-tactical;
+			fill-width: true;
+		}
+
+		fmt-text {
+			color: @color-ui-text-dark;
+		}
+	}
+
+	.current {
+		fmt-text {
+			color: @color-text-yellow;
+		}
+	}
+
+
+
+	.tier-title {
+		halign: left;
+	}
+
+	.tier-range {
+		halign: right;
+	}
+
+
+}

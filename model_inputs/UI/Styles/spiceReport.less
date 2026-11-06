@@ -1,0 +1,314 @@
+@import "game.less";
+
+spice-report {
+	.main-window;
+
+	layout: vertical;
+	align: middle middle;
+	content-align: top middle;
+	auto-size: 1;
+	width: 460;
+	padding: 1;
+
+	&.pad {
+		fill-width: false;
+		fill-height: false;
+		align: top left;
+		scale: 1.2;
+		#contractReturn {
+			fill-width: true;
+			auto-size: 1;
+			.return-container {
+				fill-width: true;
+				auto-size: 1;
+			}
+		}
+	}
+
+	>.body-dark {
+		background: #121418;
+	}
+
+}
+
+player-spice-report {
+	fill-width: true;
+	auto-size: 1;
+	layout: vertical;
+	content-align: top middle;
+	max-width: 520;
+
+	margin-left: 2;
+	margin-right:2;
+	margin-bottom:2;
+
+	.block fmt-text {
+		color: @color-ui-text-light;
+	}
+
+	#baseline {
+		align : top middle;
+		position: absolute;
+		src: "UI/HUD/graphic_header.png";
+		scale: 0.8;
+	}
+
+	>.panel-bg{
+		background: @panel-bg;
+		fill-width:true;
+		fill-height:true;
+		auto-size:1;
+	}
+
+	>.block-separator {
+		background: "UI/HUD/spice_report_separator.png";
+
+		fill-width:true;
+		auto-size:1;
+		height: 3;
+		margin-bottom: 15;
+	}
+
+	.vertical-separation {
+		halign : middle;
+		height:1;
+		fill-width:true;
+		auto-size:1;
+		background: #7B6C51;
+		alpha: 0.3;
+	}
+
+
+	>.block {
+		layout: vertical;
+		content-align: middle middle;
+		padding: 15;
+		spacing: 15;
+		fill-width: true;
+		auto-size: 1;
+	}
+
+	>.block-light {
+		background-type: dynamic;
+			>#background {
+				background:#1B1E25 ;
+			}
+	}
+
+	>.block-dark {
+		background-type: dynamic;
+			>#background {
+				background:#121418;
+			}
+	}
+
+	.category{
+		content-align: middle middle;
+		fill-width:true;
+		auto-size:1;
+
+		>#barCont {
+			margin-left: 5;
+			min-width: 20;
+			min-height: 20;
+		}
+		>#taxBreakdown {
+			content-align: middle middle;
+			spacing: 3;
+		}
+	}
+	.time {
+		background-type: dynamic;
+		>#background {
+			background: @color-bg-dark-2;
+			outline: 0.5 black;
+		}
+		padding: 5;
+		fill-width:true;
+
+		content-align:middle left;
+		layout: horizontal;
+		spacing: 10;
+
+		>.remaining-time {
+			align : middle right;
+			content-align: middle right;
+			spacing : 5;
+		}
+
+		.contract-timer {
+			content-align: middle middle;
+			spacing: 5;
+		}
+
+		#remainingTimeText{
+			color: @color-text-timer;
+		}
+
+		.gauge-container{
+			background: "UI/elements/ic_small_chrono_border@2x.png";
+			filter: glow(#000000, 0.5, 4, 1.2, 1, true);
+			height: 17;
+			width: 15;
+			padding: 3;
+			#gauge {
+				src: "UI/elements/circle_64.png";
+				alpha: 0.95;
+				>bitmap{
+					width: 9;
+					height: 9;
+					tint: @color-warning;
+				}
+			}
+		}
+	}
+	.contract-details {
+		layout: horizontal;
+		spacing: 10;
+		content-align: middle middle;
+		>element {
+			content-align: middle middle;
+			spacing: 5;
+		}
+
+		.filler {
+			width: 200;
+		}
+
+		.horizontal-separation {
+			halign : middle;
+			height:25;
+			width: 1;
+			background: @color-ui-text-dark;
+		}
+
+		#contractTax{
+			align: middle right;
+			content-align: middle middle;
+		}
+
+		.expected-spice{
+			align: middle left;
+			content-align: middle middle;
+			#expectedSpiceStock{
+				fmt-text{
+					color: @color-good;
+				}
+				&.insufficient{
+					fmt-text{ color: @color-bad;}
+				}
+			}
+		}
+	}
+
+	.change {
+		layout: vertical;
+		content-align: middle middle;
+		fill-width:true;
+	}
+
+	.change-top{
+		background: vgrid("UI/HUD/spice_report_box_background.png", 2) 10 10;
+
+		fill-width:true;
+
+		content-align: middle left;
+		padding: 10;
+	}
+
+	.change-bottom{
+		background: vgrid("UI/HUD/spice_report_box_background.png", 2) 10 10;
+		background-tile-pos-y: 1;
+
+		fill-width:true;
+
+		layout:vertical;
+		padding: 10;
+		spacing: 10;
+
+		fmt-text {
+			align:middle left;
+		}
+		exchange-rate {
+			align: middle right;
+		}
+	}
+
+	#contractSolari, #contractTax{
+		fmt-text{
+			.bold-14;
+		}
+	}
+
+	#contractSolariPrevisions {
+		spacing: 4;
+	}
+
+	#contractSolari, #contractSolariPrevisions {
+		fill-width : true;
+	}
+
+	.senders{
+		background-type: dynamic;
+		>#background {
+			background: @color-hud-bg;
+			background-alpha: 0.8;
+			border-radius: 5;
+			outline: 0.5 @color-ui-text;
+			outline-alpha: 0.3;
+		}
+
+		layout: vertical;
+		spacing: 10;
+		>.header{
+			fmt-text{
+				.bold-17;
+				color: @color-ui-text;
+			}
+			fill-width: true;
+			auto-size: 1;
+			height: 35;
+			content-align: middle middle;
+			padding-left:10;
+			padding-right:10;
+
+			background-type: dynamic;
+			>#background {
+				background: #1B1E25;
+				background-alpha: 0.5;
+				border-radius: 6 6 0 0;
+			}
+
+			>#title {
+				halign: left;
+				margin-left: 32;
+			}
+			>#expectedSuppliersTribute {
+				halign: right;
+			}
+		}
+		.senders-list {
+			padding: 10;
+			layout: vertical;
+			spacing: 10;
+
+			fill-width:true;
+			auto-size: 1;
+
+		}
+	}
+
+	#patternMask{
+		position:absolute;
+		align: bottom middle;
+		width: 456;
+		height: 200;
+
+		.bottom-pattern{
+			position:absolute;
+			width: 650;
+			align: bottom middle;
+			src: "UI/HUD/quest_bg_pattern.png";
+		}
+	}
+}

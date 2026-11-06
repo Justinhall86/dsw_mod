@@ -1,0 +1,257 @@
+@import "game.less";
+
+spice-exchange {
+	content-align: left middle;
+	spacing : 5;
+	padding: 6;
+	width: 225;
+
+	fmt-text {
+		.bold-17;
+	}
+
+	#contractCommands{
+		content-align: middle middle;
+		spacing: 8;
+
+		#spiceProd{
+			layout: vertical;
+			background: "UI/HUD/spiceSlider.png";
+			width: 40;
+			height: 70;
+			content-align: middle middle;
+			margin-left: 0;
+			padding: 4;
+
+			.spice-icon {
+				width: 40;
+				margin-left: -5;
+				margin-right: -5;
+				offset-y: -4;
+			}
+
+			#spiceProdCounter{
+				content-align: middle middle;
+				fix-text: true;
+				#iconBmp, #tFlow{
+					visible: false;
+				}
+				#tf, #fixedTf{
+					.bold-17;
+				}
+				fixed-text {
+					max-width-text: 30;
+				}
+			}
+		}
+		#sliderCont{
+			halign: right;
+			#spiceDistSlider{
+				background: @comp-round-bg;
+				padding: 2;
+				margin: -1;
+				margin-right: 0;
+				s-width: 12;
+				s-height: 76;
+				#cursorElt {
+					min-width: 12;
+					min-height: 2;
+					>#cursorHandle{
+						width: 8;
+					}
+				}
+
+				base-gauge{
+					vertical: true;
+					#fillBar, #emptyBar {
+						background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+						background-tile-pos-x: 1;
+						alpha: 1;
+					}
+					#emptyBar {
+						background-id: true;
+						#background {
+							color-adjust: brightness(-0.15) saturate(-0.2);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#contractReturn {
+		layout: vertical;
+		content-align: left middle;
+		spacing: 5;
+		margin-left: 8;
+
+		.return-container {
+			background: @comp-round-bg;
+			padding-left: 10;
+			padding-right: 10;
+			margin-left: -6;
+			padding-top: 3;
+			content-align: left middle;
+			min-height: 35;
+			width: 140;
+			spacing: 7;
+
+			.return-icon{
+				layout: stack;
+				content-align: middle middle;
+				min-width: 26;
+				height: 26;
+				fmt-text{
+					filter: glow(#000000, 0.8, 3, 1.2, 1, true);
+					.bold-13;
+					max-width-text: 20;
+					margin-left: 1;
+				}
+
+			}
+			.return-header{
+				layout: vertical;
+				content-align: left middle;
+				min-width: 80;
+				>fmt-text{
+					.bold-14;
+					color: @color-desert;
+				}
+			}
+			&#solariR{
+				.return-header{
+					exchange-rate {
+						margin-left: -5;
+						bitmap{
+							width: 16;
+						}
+						fmt-text {
+							margin-left: -1;
+							.italic-12;
+							color: @color-desert;
+						}
+					}
+				}
+				.solari-gains{
+					align: top left;
+					margin-top: 4;
+					margin-left: -35;
+					@{opt-minfont} {
+						margin-left: -20;
+					}
+					fmt-text{
+						.bold-12;
+						color: @color-good;
+					}
+				}
+			}
+			&#spiceR{
+				.return-header{
+					spacing: 5;
+					margin-top: -3;
+					resource-counter{
+						bitmap{ visible: false; }
+						#tf{
+							color-adjust: brightness(0.15);
+							.bold-15;
+						}
+						#tFlow{
+							.bold-12;
+						}
+					}
+				}
+			}
+			@{opt-minfont} {
+				width: 150;
+			}
+		}
+	}
+
+	>.open-spice-window-btn {
+		pad-action: @padaction-spicereportwindow;
+		pad-always-clickable: true;
+	}
+
+	resource-counter, .return-res {
+		fmt-text {
+			.bold-17;
+		}
+	}
+	.return-icon{
+		fmt-text{
+			visible: false;
+		}
+	}
+
+	&.hovering{
+		base-gauge{
+			color-adjust: brightness(0.05);
+		}
+		.return-icon{
+			>bitmap{
+				alpha: 0.0;
+			}
+			fmt-text{
+				visible: true;
+			}
+		}
+	}
+
+	&.disabled {
+		alpha: 0.5;
+		color-adjust: saturate(-0.5) brightness(-0.1);
+		#fillBar, #emptyBar {
+			#background{
+				color-adjust: saturate(-0.9) brightness(-0.3) !important;
+			}
+		}
+		#spiceGains, #solariExchangeRate, .solari-gains{
+			visible: false;
+		}
+	}
+}
+
+contract-detail {
+	background: #000000;
+	background-alpha: 0.7;
+	layout : vertical;
+	padding: 5;
+	spacing : 10;
+	width : 190;
+	height : 175;
+
+	fmt-text {
+		.regular-14;
+	}
+
+	#title {
+		.bold-15;
+	}
+
+	#outcoming, #incoming {
+		layout: vertical;
+		spacing: 2;
+	}
+}
+
+row-resource {
+	background: #202020;
+	background-alpha: 0.7;
+	padding: 5;
+	spacing : 15;
+	width : 180;
+
+	#right {
+		content-align : left middle;
+		spacing : 5;
+	}
+
+	fmt-text {
+		.regular-14;
+	}
+
+	#title {
+		.bold-15;
+	}
+
+}

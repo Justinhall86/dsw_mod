@@ -1,0 +1,71 @@
+local-sietch {
+	width: @headquarter-width;
+	layout: vertical;
+	background: @color-hud-bg;
+	height: 300;
+	margin-bottom: -50;
+
+	.top-container{
+		content-align: bottom;
+		#traits {
+			multiline: true;
+		}
+	}
+	fmt-text{
+		color: @color-desert;
+	}
+	>entity-header{
+		content-align: top left;
+		fill-width: true;
+		// height: 78;
+		// padding: 5;
+		// background: @panel-bg;
+		// background-tile-pos-x: 2;
+		// background-tile-pos-y: 0;
+		.header-title {
+			fill-width: true;
+			padding: 8;
+			spacing: 5;
+			content-valign: middle;
+			fmt-text{
+				.bold-17;
+			}
+			entity-refund-button{
+				halign: right;
+			}
+		}
+	}
+	.header-bar{
+		// visible: false;
+		margin-top: -4;
+		width: @headquarter-width;
+		height: 4;
+		src: "UI/HUD/goldBorder01.png";
+	}
+	.header-shadow{
+		height: 60;
+		margin-bottom: -60;
+		background: "UI/HUD/structureBody_Gradient.png";
+		background-alpha: 0.25;
+	}
+	>.body{
+		// visible: false;
+		layout: vertical;
+		fill-width: true;
+		padding: 15;
+		spacing: 15;
+		content-halign: middle;
+		>#desc{
+			color: @color-tip-desc;
+		}
+
+		structure-extensions {
+			>#buildingsContainer {
+				max-width: 300;
+				multiline: false;
+			}
+		}
+
+	}
+
+}

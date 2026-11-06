@@ -1,0 +1,3180 @@
+// out: false
+@import "common.less";
+@import "spying.less";
+@import "landsraad.less";
+
+tip-content {
+	layout: vertical;
+	#content {
+		background : hgrid("UI/tool_bg.png", 2) 3 3;
+		background-tile-pos-x: 1;
+		padding : 10;
+		max-width: 300;
+	}
+	#nest{
+		alpha: 1;
+		&.fade-out{
+			alpha: 0;
+		}
+		background : hgrid("UI/tool_bg.png", 2) 3 3;
+		background-tile-pos-x: 1;
+		padding : 10;
+		max-width: 300;
+		align:top left;
+	}
+	@{opt-minfont} {
+		#content {
+			max-width: 450;
+		}
+	}
+	fmt-text{
+		color: @color-desert;
+	}
+	padding-bottom : 5;
+
+	.keys {
+		.tipKeysFormat;
+	}
+
+	&.agent{
+		border-spacing: 30;
+	}
+	&.imperial{
+		#content{
+			background : @color-tip-body-bg;
+			offset-x:-101;
+			offset-y: 5;
+		}
+	}
+}
+
+.tipKeysFormat() {
+	margin-top: 2;
+	layout: horizontal;
+	halign : right;
+	spacing: 15;
+	vspacing: 5;
+	fmt-text {
+		.italic-13;
+		color: @color-ui-text;
+		icon-size: 20;
+	}
+	tip-row-key {
+		layout: vertical;
+		content-halign: right;
+		vspacing: 5;
+		flow {
+			content-valign: middle;
+			spacing: 5;
+		}
+		&.pad {
+            #icon {
+                width: 18;
+            }
+        }
+	}
+}
+
+tip-mouse {
+	background : hgrid("UI/tool_bg.png", 2) 3 3;
+	background-tile-pos-x: 1;
+	padding : 10;
+	max-width: 300;
+
+	fmt-text{
+		color: @color-desert;
+	}
+	padding-bottom : 10;
+
+
+	.primary-body {
+		fill-width: true;
+		auto-size: 1;
+		.body-content {
+			fill-width: true;
+			auto-size: 1;
+			.body {
+				tip-ability {
+					margin-top: -10;
+					#titleText {
+						visible: false;
+					}
+				}
+			}
+		}
+	}
+	.keys {
+		.tipKeysFormat;
+	}
+
+	&.bad {
+		#fbody {
+			fmt-text {
+				color: @color-text-bad;
+			}
+		}
+		background-tile-pos-x: 1;
+	}
+}
+
+tip-trait {
+	layout : vertical;
+
+	.primary-body{
+		#title-header{
+			max-width: 280;
+			spacing: 20;
+			#rightTitleText{
+				alpha: 0.6;
+			}
+		}
+		>#titleName{
+			.bold-17;
+			color: @color-trait;
+		}
+		>#desc{
+			margin: 5;
+			alpha: 0.7;
+		}
+
+		#fattributes{
+			fill-width: true;
+			margin: -8;
+			margin-top: 0;
+			padding: 8;
+			padding-bottom: 15;
+			layout: vertical;
+
+			fmt-text { .sans-12; }
+		}
+	}
+
+}
+
+tip-unit {
+	.unit-type {
+		color: @color-unit-type;
+	}
+	#title-header{
+		max-width: 280;
+		spacing: 20;
+		#rightTitleText{
+			alpha: 0.6;
+		}
+	}
+
+	.primary-body {
+		fill-width: true;
+		auto-size: 1;
+		.body-content {
+			fill-width: true;
+			auto-size: 1;
+			.body {
+				spacing: 10;
+				.class-traits {
+					spacing: 10;
+					fill-width: true;
+					auto-size: 1;
+					content-align: left middle;
+				}
+
+				tip-trait{
+					#titleText{
+						color: @color-trait;
+					}
+					.primary-body {
+						.body-content {
+							// spacing: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+tip-unit-cost-base {
+	#title-header {
+		layout: vertical;
+		spacing: 10;
+
+		.upkeep {
+			align: middle right;
+			content-align: middle right;
+			spacing: 1;
+			resource-counter{
+				spacing: 0;
+				bitmap{
+					width: 22;
+				}
+				fmt-text{
+					.bold-13;
+					margin-bottom: 1;
+				}
+			}
+			fmt-text {
+				.bold-15;
+			}
+		}
+	}
+
+	.load {
+		content-align: middle left;
+		resource-counter {
+			bitmap{
+				width:22;
+			}
+		}
+		fmt-text {
+			.bold-30;
+		}
+	}
+
+	.separator {
+		halign: middle;
+		height: 1;
+		background: @color-desert;
+		alpha: 0.3;
+		margin-top: 5;
+		margin-bottom: 5;
+		&.sep-0 {
+			margin-top: -5;
+		}
+	}
+
+	#fheader {
+		spacing: 4;
+	}
+}
+
+tip-unit-recruited-cost {
+	#titleText {
+		align: middle left;
+	}
+
+	#title-header {
+		layout: horizontal;
+		spacing: 20;
+		.upkeep {
+			margin-top: 1;
+		}
+	}
+}
+
+tip-unit-cost {
+	#title-header {
+		.recruit-duration {
+			position: absolute;
+			align: top right;
+
+			offset-y: -5;
+
+			spacing: 0;
+			bitmap{
+				width: 22;
+			}
+			fmt-text{
+				.bold-13;
+				margin-bottom: 1;
+			}
+		}
+
+		.cost {
+			layout: horizontal;
+			fill-width: true;
+			auto-size: 1;
+
+			content-align: middle left;
+
+			.cost-detail {
+				offset-x: -5;
+			}
+		}
+	}
+}
+
+tip-unit-cost-pad {
+	#title-header {
+		.recruit-duration {
+			position: absolute;
+			align: top right;
+
+			offset-y: -5;
+
+			spacing: 0;
+			bitmap{
+				width: 22;
+			}
+			fmt-text{
+				.bold-13;
+				margin-bottom: 1;
+			}
+		}
+	}
+	#fheader {
+		vspacing: 0;
+		spacing: 0;
+		.training-time {
+			layout: horizontal;
+			fill-width: true;
+			content-align: middle left;
+			auto-size: 1;
+			background-type: dynamic;
+			>#background {
+				background: @color-tip-body-bg-dark;
+				outline: 0.5 black;
+			}
+			padding: 5;
+			.time {
+				halign: right;
+			}
+		}
+		.cost {
+			layout: horizontal;
+			fill-width: true;
+			auto-size: 1;
+
+			content-align: middle left;
+
+			.cost-detail {
+				offset-x: -5;
+				#iconBmp{
+					width: 22;
+				}
+			}
+		}
+		.load {
+			layout: horizontal;
+			fill-width: true;
+			auto-size: 1;
+			content-align: middle left;
+			no-stock-cost-detail {
+				halign: right;
+			}
+
+		}
+	}
+	.separator {
+		alpha: 1;
+		&.block{
+			background: "UI/HUD/spice_report_separator.png";
+			height: 3;
+		}
+
+		&.arrow {
+			height: 12;
+			background: "UI/HUD/baseline1.png";
+		}
+	}
+}
+
+tip-equipment {
+	>.primary-body {
+		>.body-content {
+			>.body {
+				tip-trait{
+					.title-header{
+						visible: false;
+					}
+				}
+			}
+		}
+	}
+	>.body {
+		layout: vertical;
+		margin: -8;
+		width: 300;
+		padding: 5;
+		fmt-text{
+			.bold-13;
+		}
+		>.header-bar{
+			margin: 0 -5 0 -5;
+			src: "UI/HUD/goldBorder01.png";
+			width: 300;
+			height: 4;
+		}
+		&.no-entity{
+			>.header-bar{
+				visible: false;
+			}
+		}
+		>.header{
+			content-align: middle left;
+			spacing: 3;
+			.icon{
+				bitmap{
+					scale: 0.5;
+				}
+			}
+			fmt-text{
+				.bold-15;
+				margin-bottom: 3;
+			}
+		}
+		>.body{
+			background: @color-tip-body-bg;
+			layout: vertical;
+			content-align: top left;
+			fill-width: true;
+			max-width: 290;
+			min-height: 110;
+			margin: -5;
+			margin-top: 2;
+			padding: 10;
+			padding-bottom: 15;
+			fmt-text{
+				.italic-14;
+			}
+			spacing: 16;
+			#desc{
+				color: @color-tip-desc !important;
+			}
+			>.attributes{
+				layout: vertical;
+				spacing: 8;
+				>.atb{
+					content-align: top left;
+					spacing: 3;
+					.bullet-point {
+						margin-top: 3;
+						src: "UI/dot_default.png";
+					}
+					text { .sans-12; }
+				}
+			}
+		}
+		.warning{
+			color: @color-bad;
+			align: bottom right;
+		}
+		.keys{
+			fmt-text{
+				color: @color-ui-text;
+			}
+			align: bottom right;
+		}
+	}
+	.footer{
+		layout: vertical;
+		background: @color-tip-body-bg;
+		width: 300;
+		padding: 10;
+		padding-top: 5;
+		margin: -8;
+		spacing: 5;
+
+		resource-counter {
+			spacing: 0;
+			margin-bottom: -6;
+			bitmap { width: 22; }
+			fmt-text{
+				.bold-13 !important;
+				margin-bottom: 1;
+			}
+		}
+	}
+
+}
+
+tip-building {
+	>.body {
+		layout: vertical;
+		margin: -8;
+		width: 300;
+		padding: 5;
+		fmt-text{
+			.bold-13;
+		}
+		#thumbnail{
+			margin: -5;
+			margin-bottom: 5;
+			width: 300;
+		}
+		>.header-bar{
+			margin: -5;
+			margin-bottom: 4;
+			src: "UI/HUD/goldBorder01.png";
+			width: 300;
+			height: 4;
+
+		}
+		&.no-entity{
+			>.header-bar{
+				visible: false;
+			}
+		}
+		>.header{
+			fill-width: true;
+			content-align: middle left;
+			padding: 4;
+			spacing: 3;
+			.domain-icon{
+				background: @comp-round-bg;
+				bitmap{
+					width: 16;
+				}
+			}
+			fmt-text{
+				.bold-15;
+				margin-bottom: 3;
+			}
+			.duration {
+				position: absolute;
+				align: top right;
+
+				offset-y: -5;
+
+				spacing: 0;
+				bitmap{
+					width: 22;
+				}
+				fmt-text{
+					.bold-13;
+					margin-bottom: 1;
+				}
+			}
+		}
+		>.cost-info{
+			multiline: true;
+			.cost{
+				visible: false;
+				spacing: 4;
+			}
+			content-align: middle left;
+			fill-width: true;
+			resource-counter{
+				spacing: 0;
+				bitmap{
+					width: 22;
+				}
+				fmt-text{
+					.bold-13 !important;
+					margin-bottom: 1;
+				}
+			}
+			.upkeep{
+				halign: right;
+				content-align: middle right;
+				spacing: 2;
+				resource-detail{
+					spacing: 4;
+				}
+				fmt-text{
+					margin-bottom: 2;
+				}
+			}
+		}
+		>.wonder-info{
+			content-valign: middle;
+			layout: horizontal;
+			fill-width: true;
+			padding-top: 5;
+			padding-bottom: 5;
+			padding-left: 2;
+			spacing: 5;
+			>.wonder-star{
+				align: left;
+				width: 19px;
+				height: 19px;
+				src: "UI/icons/ic_star.png";
+				src-pos-x: 0;
+			}
+			>fmt-text{
+				.bold-13;
+				margin-bottom: 1;
+				max-width: 260;
+			}
+		}
+		>.body{
+			background: @color-tip-body-bg;
+			layout: vertical;
+			content-align: top left;
+			fill-width: true;
+			max-width: 290;
+			min-height: 110;
+			margin: -5;
+			margin-top: 2;
+			padding: 10;
+			padding-bottom: 15;
+			fmt-text{
+				.italic-14;
+			}
+			spacing: 16;
+			#desc{
+				color: @color-tip-desc !important;
+			}
+			.load {
+				content-align: middle left;
+				resource-counter {
+					bitmap{
+						width:22;
+					}
+					fmt-text{
+						.bold-13;
+					}
+				}
+				fmt-text {
+					.regular-14;
+				}
+			}
+
+			.separator {
+				halign: middle;
+				height: 1;
+				fill-width: true;
+				background: @color-desert;
+				alpha: 0.3;
+				margin-top: -7;
+				margin-bottom: 5;
+				&.sep-0 {
+					margin-top: -5;
+				}
+			}
+
+			>.attributes{
+				layout: vertical;
+				spacing: 8;
+				>.atb{
+					content-align: top left;
+					spacing: 3;
+					.bullet-point {
+						margin-top: 3;
+						src: "UI/dot_default.png";
+					}
+					text { .sans-12; }
+				}
+			}
+		}
+		.build-info{
+			visible: false;
+			fmt-text{
+				color: @color-warning;
+			}
+			align: bottom right;
+		}
+		.warning{
+			color: @color-bad;
+			align: bottom right;
+		}
+		.keys{
+			fmt-text{
+				color: @color-ui-text;
+			}
+			align: bottom right;
+		}
+	}
+	.footer{
+		layout: vertical;
+		background: @color-tip-body-bg;
+		width: 300;
+		padding: 10;
+		padding-top: 5;
+		margin: -8;
+		spacing: 6;
+	}
+
+
+	&.buying{
+		.cost{
+			visible: true !important;
+		}
+	}
+	&.constructing{
+		.build-info{
+			visible: true !important;
+		}
+	}
+}
+
+tip-quest, tip-subquest{
+	>.body{
+		layout: vertical;
+		spacing: 12;
+		#thumbnail{
+			margin: -8;
+			width: 300;
+		}
+		>.header-bar{
+			margin: -8;
+			margin-top: -4;
+			margin-bottom: -2;
+			src: "UI/HUD/goldBorder01.png";
+			width: 300;
+			height: 4;
+		}
+		>.header{
+			content-align: middle left;
+			padding: 4;
+			spacing: 3;
+			margin-bottom: 2;
+			.icon{
+				background: @comp-round-bg;
+				bitmap{
+					width: 32;
+					margin: -4;
+				}
+			}
+			fmt-text{
+				.bold-16;
+			}
+		}
+	}
+}
+
+tip-quest{
+
+}
+
+tip-subquest{
+	>.body{
+		.conditions, .rewards{
+			layout: vertical;
+			spacing: 8;
+			>fmt-text{
+				color: @color-ui-text;
+				.bold-15;
+			}
+		}
+		#conditionsCont{
+			margin-left: 5;
+			layout: vertical;
+			spacing: 7;
+		}
+		.rewards-list{
+			margin-left: 5;
+			layout: vertical;
+			spacing: 7;
+		}
+	}
+	&.blocked{
+		.rewards{
+			alpha: 0.6;
+		}
+		.keys{
+			visible: false;
+		}
+	}
+}
+
+
+base-tip{
+	layout: vertical;
+	spacing: 5;
+	.footer{
+		align: bottom right;
+		content-align: bottom right;
+		#warningText{
+			color: @color-warning;
+		}
+	}
+	&.spectator-disabled {
+		tip-row-key {
+			visible: false;
+		}
+	}
+}
+
+tip-default {
+	.primary-body {
+		layout : vertical;
+		vspacing : 10;
+
+		.title-header {
+			fill-width: true;
+			margin-bottom: -2;
+			fmt-text{
+				.bold-17;
+			}
+			#titleCont{
+				layout: vertical;
+				spacing: 5 ;
+				#subTitleText{
+					.italic-14;
+					&.military{
+						color: @color-dev-military;
+					}
+					&.statecraft{
+						color: @color-dev-statecraft;
+					}
+					&.expansion{
+						color: @color-dev-expansion;
+					}
+					&.economy{
+						color: @color-dev-eco;
+					}
+				}
+			}
+
+			#rightTitleText{
+				halign: right;
+			}
+		}
+		.body-content{
+			layout : vertical;
+			background: @color-tip-body-bg;
+			fill-width: true;
+			margin: -8;
+			margin-top: 2;
+			padding: 10;
+			spacing: 10;
+			fmt-text {
+				.regular-14;
+			}
+			fmt-text.description {
+				.italic-14;
+			}
+			tip-trait {
+				.description {
+					visible: false;
+				}
+			}
+			&.empty {
+				visible: false;
+			}
+			&.contentOnly {
+				margin-top: -8;
+				#warningText, #infoText {
+					halign: left;
+				}
+			}
+		}
+
+		.body {
+			layout: vertical;
+			vspacing: 5;
+			>flow {
+				fill-width: true;
+			}
+
+			tip-default {
+				padding-top: 5;
+				.primary-body {
+					vspacing: 5;
+					.body-content {
+						padding-top: 0;
+						.body {
+							padding-top: 0 !important;
+							padding-bottom: 5 !important;
+							margin: 0 !important;
+						}
+					}
+				}
+			}
+
+			&#fattributes {
+				vspacing: 11;
+				fmt-text {
+					.sans-12;
+					&.attribute-indent {
+						margin-left: 12;
+					}
+				}
+
+				>element {
+					content-align: middle left;
+					spacing: 5;
+					offset-x: -4;
+					image {
+						src: hgrid("UI/multiplayer/ic_arrow_number_player.png", 2);
+						scale: 0.5;
+						alpha: 0.9;
+					}
+				}
+			}
+		}
+
+		.cost {
+			hspacing: 8;
+			align : right;
+			content-align: middle middle;
+		}
+		.upkeep {
+			hspacing: 8;
+			align : right;
+			content-align: middle middle;
+			resource-detail{
+				spacing: 3;
+				resource-counter{
+					spacing: 0;
+					bitmap{
+						width: 22;
+					}
+					fmt-text{
+						.bold-13 !important;
+						margin-bottom: 1;
+					}
+				}
+			}
+		}
+
+		#warningText, #infoText {
+			.italic-13;
+			halign : right;
+		}
+		.info{
+			color: @color-good;
+		}
+		.warning{
+			color: @color-warning;
+		}
+		.alert{
+			color: @color-bad;
+		}
+		.description{
+			color: @color-tip-desc;
+		}
+
+		.keys {
+			.tipKeysFormat;
+		}
+	}
+
+	&.development{
+		.title {
+			color: @color-development;
+		}
+		&.blacked-out {
+			#fattributes {
+				>fmt-text {
+					color-adjust: saturate(-0.5);
+					alpha: 0.6;
+				}
+			}
+			#fbody {
+				.description {
+					alpha: 0.6;
+				}
+			}
+			.info {
+				color: @color-text-blackout;
+			}
+		}
+	}
+	&.trait{
+		.title {
+			color: @color-trait;
+		}
+	}
+
+	&.siege-action{
+		#fbody {
+			vspacing: 20;
+		}
+	}
+
+	&.agent-tip {
+		>.primary-body {
+			>.body-content {
+				#fobj {
+					vspacing: 8;
+				}
+			}
+		}
+		.trait {
+			&.inactive {
+				alpha: 0.6;
+			}
+		}
+		.agentProduction {
+			layout: vertical;
+			padding-top: 5;
+			spacing: 4;
+		}
+		.description {
+			color: @color-ui-text;
+		}
+	}
+
+	&.infiltration-tip {
+		.nextLevel {
+			margin-bottom: 15;
+		}
+	}
+
+	.infiltrationProduction { // TEMP
+		layout: vertical;
+		padding-bottom: 5;
+		spacing: 4;
+	}
+
+	&.landsraadcouncil {
+		#fobj {
+			spacing: 5;
+			active-resolution-card {
+				margin-bottom: -5;
+				height: 0;
+				background: none;
+				.header {
+					background: none;
+					#factionBanner {
+						margin-left: 0;
+					}
+					.cancelBtns {
+						visible: false;
+					}
+				}
+				.effect {
+					visible: false;
+				}
+				#timerGauge {
+					visible: false;
+				}
+			}
+		}
+	}
+
+	&.councilor {
+		>.primary-body {
+			>.body-content {
+				>#fattributes {
+					>.passive-title {
+						.bold-15;
+					}
+				}
+			}
+		}
+
+		.complexity {
+			margin-top: 5;
+			padding: 3;
+			>.complexity-easy {
+				color: @color-text-easy;
+			}
+			>.complexity-medium {
+				color: @color-text-medium;
+			}
+			>.complexity-hard {
+				color: @color-text-hard;
+			}
+		}
+	}
+
+	&.reserved-resources {
+		element {
+			spacing: 10;
+			layout: vertical;
+		}
+	}
+
+	&.spectator-disabled {
+		tip-row-key {
+			visible: false;
+		}
+	}
+}
+
+tip-row-detail {
+	layout : vertical;
+	spacing: 8;
+	margin-bottom: 4;
+	fill-width: true;
+	background-alpha : 0.5;
+
+	.rowDetail {
+		fill-width: true;
+		content-align: left middle;
+		hspacing: 5;
+
+
+		#title, #dTitle {
+			.sans-13;
+			min-width: 100;
+		}
+		#value, #dValue{
+			content-align: right middle;
+			spacing: 5;
+			align: right;
+			#valueTxt {
+				align: left middle;
+				.sans-13;
+			}
+		}
+		&.positive-val{
+			fmt-text{ color: @color-text-good; }
+		}
+		&.negative-val{
+			fmt-text{ color: @color-text-bad; }
+		}
+		&.temp-negative-val{
+			fmt-text{ color: @color-text-tempbad; }
+		}
+		&.no-refund {
+			fmt-text{ color: @color-text-norefund; }
+		}
+	}
+}
+
+tip-information {
+	background: @color-tip-body-bg;
+	margin: -7;
+	@tip-width: 300;
+	width: @tip-width;
+
+	>.body{
+		fill-width: true;
+		auto-size: 1;
+		layout: vertical;
+		>.header{
+			fill-width: true;
+			auto-size: 1;
+			background: @color-hud-bg;
+			padding: 3;
+			content-align: middle left;
+			height: 30;
+			>.name {
+				.bold-16;
+				margin-left: 5;
+			}
+			>.icon {
+				background: @comp-round-bg;
+				padding: 2;
+				bitmap{
+					height: 24;
+				}
+			}
+		}
+		.main-content{
+			layout: vertical;
+			padding: 7;
+			spacing: 10;
+			.desc{
+				color: @color-ui-text-dark;
+				margin-bottom: 5;
+			}
+		}
+	}
+
+	>.footer{
+		padding: 7;
+	}
+}
+
+tip-mission-rewards {
+	layout: vertical;
+	margin: -10;
+	padding: 14;
+	background-type: dynamic;
+	>#background {
+		outline: 1 @color-ui-text;
+		outline-offset: 2;
+	}
+
+	conquest-mission-objective-effects {
+		#title {
+			color: @color-ui-text;
+		}
+		.list {
+			.bonus {
+				margin-top: 8;
+				margin-bottom: 8;
+				.bonuses {
+					visible: false;
+				}
+
+				.link {
+					visible: false;
+				}
+			}
+		}
+	}
+
+	.primary {
+		layout: vertical;
+		.mission-bonuses {
+			spacing: 4;
+			margin-top: 4;
+			layout: vertical;
+		}
+	}
+
+	.secondary {
+		layout: vertical;
+		.mission-bonuses {
+			spacing: 4;
+			margin-top: 4;
+			layout: vertical;
+		}
+	}
+}
+
+tip-battle-mission {
+	start-sfx: @UI_Conquest_Hovermission;
+	@width: 220;
+
+	bitmap.header-bar{
+		position: absolute;
+		src: "UI/HUD/goldBorder01.png";
+		width: @width + 16;
+		height: 2;
+		y: 2;
+		x: 2;
+	}
+
+	.hoverCont{
+		align: bottom middle;
+		background-type: dynamic;
+		margin: -10;
+		>#background {
+			background: @color-bg-dark-2;
+			outline: 2 #5B5036;;
+			outline-offset: 1;
+		}
+
+		width: @width;
+		height: 100;
+		padding: 10;
+		layout: vertical;
+		content-align: middle middle;
+		spacing: 4;
+		.battle-title {
+			.bold-18;
+			align:left middle;
+			color:#FCD28B;
+			margin: 0 0 4 4;
+		}
+		.owner {
+			padding-left: 2;
+			content-align: left middle;
+			width: @width;
+			background: @color-hud-bg;
+
+			spacing:8;
+			.emblem {
+				src: hgrid("UI/HUD/structure_flag_faction.png", (@ui-faction-count + 1));
+				src-pos-x: 0;
+				margin-top:-8;
+				margin-bottom: -6;
+			}
+			>fmt-text{
+				.regular-13;
+				margin-top: -4;
+				color: @color-ui-text-light;
+			}
+		}
+		.horizontal-separator {
+			halign: middle;
+			height: 2;
+			width: @width;
+			background: @color-ui-text-dark;
+			alpha: 0.3;
+			&.sep-0 {
+				margin-top: -5;
+			}
+		}
+		.battle-banner{
+			width: @width;
+			max-height:80;
+			height:80;
+			background-type: dynamic;
+			overflow: hidden;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 1 @color-ui-text-dark;
+				outline-offset: 0;
+			}
+
+			bitmap {
+				width: @width - 4;
+				align: middle middle;
+				scale: 1;
+			}
+		}
+		.battle-info{
+			background-type: dynamic;
+			padding:10;
+			spacing:10;
+			width: @width;
+			content-align:middle middle;
+			>#background {
+				background: @color-hud-bg;
+				outline: 1 @color-ui-text-dark;
+				outline-offset: 1;
+			}
+			.bonuses{
+				content-align:middle middle;
+				spacing:4;
+			}
+		}
+
+		.battle-background {
+			layout: vertical;
+			background: "UI/Quests/graphic_background.png";
+			padding: 10;
+			margin: -10;
+		}
+	}
+	.battle-desc-cont{
+		width: @width;
+		layout: vertical;
+		spacing: 10;
+		padding: 8 6 8 6;
+		.battle-name {
+			.bold-15;
+			color: @color-ui-text;
+			align: left;
+		}
+		.battle-desc{
+			.regular-13;
+			color: @color-ui-text-light;
+			align: left;
+		}
+	}
+
+	.councilors{
+		margin: -3;
+		spacing: 10;
+		align: top middle;
+		councilor-portrait{
+			recursive-propagate: true;
+			background: @panel-bg;
+			padding: 3;
+			bitmap {
+				scale: 1.4;
+			}
+		}
+	}
+
+	&.category-defense {
+		.hoverCont > #background {
+			// precising exactly what element should be filtered with glow
+			// otherwise it will apply on other elements when using overflow: hidden;
+			filter: glow(#ff1443, 1, 45, 1.1, 1, true);
+		}
+	}
+
+	.tiled-faction(src-pos-x, ~".owner .emblem", 1);
+}
+
+tip-infiltration {
+	background: @color-tip-body-bg;
+	margin: -7;
+	@tip-width: 420;
+	width: @tip-width;
+
+	>.body{
+		layout: vertical;
+		>.header{
+			fill-width: true;
+			auto-size: 1;
+			background: @color-hud-bg;
+			padding: 3;
+			content-align: middle left;
+			height: 30;
+			>.name {
+				.bold-16;
+				margin-left: 5;
+			}
+			>.icon {
+				background: @comp-round-bg;
+				padding: 2;
+				bitmap{
+					height: 24;
+				}
+			}
+		}
+
+		.main-content{
+			layout: vertical;
+			padding: 7;
+			spacing: 10;
+			.desc{
+				color: @color-ui-text-dark;
+				margin-bottom: 5;
+			}
+			.infil-prod{
+				layout: vertical;
+				spacing: 15;
+				.level-previsions {
+					layout: vertical;
+					margin-top: 3;
+					spacing: 6;
+					.level-time {
+						margin: 5;
+						.italic-13;
+					}
+				}
+			}
+			.slot-info{
+				layout: vertical;
+				spacing: 15;
+				.slot-prod{
+					layout: vertical;
+					spacing: 10;
+					.slot-prod-lines {
+						layout: vertical;
+						spacing: 5;
+						margin-left: 10;
+					}
+				}
+				.separator{
+					fill-width: true;
+					auto-size: 1;
+					margin-right: 20;
+					margin-left: 20;
+					background: @color-old-gold;
+					background-alpha: 0.5;
+					height: 1;
+					align: middle middle;
+				}
+
+				.traits{
+					layout: vertical;
+					spacing: 10;
+					fill-width: true;
+					#traitsCont{
+						margin-left: 10;
+						layout: vertical;
+						spacing: 10;
+					}
+				}
+			}
+
+			.unlocks {
+				layout: vertical;
+				spacing: 10;
+				.unlocks-cont {
+					fill-width: true;
+					auto-size: 1;
+					layout: vertical;
+					spacing: 5;
+					.unlock-level{
+						fill-width: true;
+						auto-size: 1;
+						background: @panel-bg;
+						padding: 10;
+						content-align: left middle;
+						spacing: 10;
+
+						.unlock-level-header{
+							background: @comp-round-bg;
+							width: 26;
+							height: 26;
+							content-align: middle middle;
+							fmt-text{
+								.bold-17;
+								color: @color-ui-text;
+								text-transform: uppercase;
+								margin-right: -1;
+							}
+						}
+						.unlock-level-content{
+							fill-width: true;
+							auto-size: 1;
+							layout: vertical;
+							spacing: 5;
+						}
+						&.locked{
+							color-adjust: brightness(-0.1) saturate(-0.8);
+							background-tile-pos-x: 2;
+						}
+					}
+				}
+			}
+
+			>flow{
+				background: @panel-bg;
+				background-tile-pos-x: 0;
+				background-tile-pos-y: 2;
+				background-alpha: 0.45;
+				width: @tip-width;
+				padding: 10;
+				padding-top: 15;
+				padding-bottom: 15;
+				margin-left: -7;
+				margin-right: -7;
+			}
+
+			.details {
+				layout: vertical;
+			}
+		}
+
+		tip-trait {
+			#titleText{
+				.bold-13;
+				color: @color-trait;
+			}
+			.body-content{
+				background: none;
+				margin: -3;
+				padding: 2;
+				margin-left: 3;
+				margin-top: -12;
+			}
+			&.inactive {
+				alpha: 0.6;
+			}
+		}
+	}
+
+
+}
+
+tip-infiltration-slot {
+	background: @color-tip-body-bg;
+	margin: -7;
+	@tip-width: 420;
+	width: @tip-width;
+
+	>.body{
+		fill-width: true;
+		auto-size: 1;
+
+		layout: vertical;
+		>.header{
+			fill-width: true;
+			auto-size: 1;
+
+			background: @color-hud-bg;
+			padding: 3;
+			content-align: middle left;
+			height: 30;
+			>.name {
+				.bold-16;
+				margin-left: 5;
+			}
+			>.icon {
+				background: @comp-round-bg;
+				padding: 2;
+				bitmap{
+					height: 24;
+				}
+			}
+		}
+
+		.main-content{
+			fill-width: true;
+			auto-size: 1;
+
+			layout: vertical;
+			padding: 7;
+			spacing: 5;
+			.desc{
+				color: @color-ui-text-dark;
+				margin-bottom: 5;
+			}
+			.slot-info{
+				layout: vertical;
+				spacing: 20;
+				.slot-prod{
+					layout: vertical;
+					spacing: 10;
+					.slot-prod-lines {
+						layout: vertical;
+						spacing: 5;
+						margin-left: 10;
+					}
+				}
+
+				.traits{
+					layout: vertical;
+					spacing: 10;
+					fill-width: true;
+					#traitsCont{
+						margin-left: 10;
+						layout: vertical;
+						spacing: 10;
+					}
+				}
+			}
+
+			>flow{
+				fill-width: true;
+				auto-size: 1;
+
+				background: @panel-bg;
+				background-tile-pos-x: 0;
+				background-tile-pos-y: 2;
+				background-alpha: 0.3;
+				padding: 10;
+				margin-left: -8;
+				margin-right: -8;
+			}
+
+			.details {
+				layout: vertical;
+			}
+		}
+
+		tip-trait {
+			#titleText{
+				.bold-13;
+				color: @color-trait;
+			}
+			.body-content{
+				background: none;
+				margin: -3;
+				padding: 2;
+				margin-left: 3;
+				margin-top: -12;
+			}
+			&.inactive {
+				alpha: 0.6;
+			}
+		}
+	}
+
+	>.footer{
+		padding: 7;
+	}
+
+	&.locked{
+		.slot-info {
+			visible: false;
+		}
+	}
+
+}
+
+tip-agent, tip-buyable-agent {
+	background: @color-tip-body-bg;
+	margin: -7;
+	@tip-width: 420;
+	>.body{
+		layout: vertical;
+		width: @tip-width;
+		>.header{
+			background: @color-hud-bg;
+			@size: 140;
+			agent-portrait{
+				align: bottom left;
+				margin-top: -100;
+				margin-right: -16;
+				large-portrait: true;
+
+				#body {
+					width: @size;
+					height: @size;
+				}
+				#overlays {
+					>bitmap {
+						height: @size;
+					}
+				}
+			}
+			>.body-container {
+				#body {
+					width: @size;
+					height: @size;
+				}
+			}
+			>.header-texts{
+				fill-width: true;
+				auto-size: 1;
+				>.title {
+					.bold-16;
+				}
+				layout: vertical;
+				padding: 10;
+				spacing: 8;
+				#baseTraitsCont{
+					layout: vertical;
+					spacing: 5;
+				}
+
+			}
+		}
+
+		.main-content{
+			fill-width: true;
+			auto-size: 1;
+
+			layout: vertical;
+			padding: 7;
+			spacing: 10;
+			#productionsCont{
+				layout: vertical;
+				fill-width: true;
+				auto-size: 1;
+				margin-right: 10;
+				.agent-production {
+					layout: vertical;
+					padding-top: 5;
+					spacing: 6;
+
+					>.total {
+						fill-width: true;
+						>.totalValue {
+							align: right;
+							.sans-13;
+						}
+					}
+
+					>.horizontal-separator {
+						fill-width: true;
+						height: 1;
+						background: @color-desert-darken;
+						alpha: 0.3;
+					}
+
+					tip-row-detail{
+						margin-left: 15;
+					}
+				}
+				spacing: 10;
+			}
+			.assignments{
+				layout: vertical;
+				spacing: 10;
+				.activity {
+					.italic-14;
+				}
+				.uncapturable {
+					.italic-14;
+					color: @color-text-good;
+				}
+				.assignment-traits{
+					layout: vertical;
+					background: @color-hud-bg-tactical;
+					padding: 10;
+					spacing: 10;
+					>fmt-text{
+						.bold-13;
+						color: @color-ui-text-light;
+					}
+					#assignmentTraitsCont{
+						layout: vertical;
+						spacing: 10;
+						tip-trait{
+							padding-left: 5;
+						}
+					}
+				}
+			}
+		}
+
+		tip-trait {
+			#titleText{
+				.bold-13;
+				color: @color-trait;
+			}
+			.body-content{
+				background: none;
+				margin: -3;
+				padding: 2;
+				margin-left: 3;
+				margin-top: -12;
+			}
+			&.inactive {
+				alpha: 0.6;
+			}
+		}
+		>.cost-info{
+			multiline: true;
+			padding: 9;
+			.cost{
+				spacing: 4;
+			}
+			content-align: middle right;
+			fill-width: true;
+			resource-counter{
+				spacing: 0;
+				bitmap{
+					width: 22;
+				}
+				fmt-text{
+					.bold-13 !important;
+					margin-bottom: 1;
+				}
+			}
+		}
+	}
+	>.footer{
+		padding: 7;
+	}
+
+}
+
+tip-mission {
+	.title {
+		color: @color-desert;
+	}
+}
+
+tip-mission, tip-ability {
+	.carac {
+		content-align: middle middle;
+		spacing: 10;
+	}
+	.primary-body {
+		.body-content{
+			spacing: 18;
+			.description{
+				color: @color-ui-text-dark;
+			}
+			#fbody{
+				spacing: 15;
+			}
+		}
+	}
+	.cooldown {
+		color: @color-text;
+	}
+	.duration {
+		color: @color-text;
+	}
+	.detection {
+		color: @color-text-light;
+		.regular-13 !important;
+	}
+	.capture {
+		color: @color-text-light;
+		.regular-13 !important;
+	}
+	.consumption {
+		color: @color-text-light;
+		.regular-13 !important;
+	}
+	#fcost{
+		margin-top: -20;
+	}
+	resource-counter {
+		&.good {
+			text { color: @color-good; }
+		}
+		&.bad {
+			text { color: @color-bad; }
+		}
+	}
+
+	tip-unit {
+		margin: 5;
+		padding: 5;
+		background:#000000;
+		background-alpha : 0.5;
+	}
+}
+
+tip-mission.has-operation, tip-ability.spying, tip-ability.hideDuration {
+	.primary-body {
+		.description{
+			color: @color-tip-desc;
+		}
+	}
+
+	base-gauge {
+		offset-y: -10;
+		body-width: 276;
+		body-height: 10;
+
+		color: @color-construction;
+		empty-color: @color-construction;
+	}
+}
+
+tip-ability.hide-duration {
+	.duration {
+		visible: false;
+	}
+}
+
+tip-treaty {
+	.duration {
+		color: @color-text;
+	}
+}
+
+
+tip-active-resolution{
+	resolution-vote-results{
+		spacing: 4;
+	}
+	.secondary-body{
+		visible: false;
+	}
+}
+
+tip-charter {
+	@card-width: 220;
+	>.body{
+		width: @card-width;
+		layout:vertical;
+		padding: 5;
+		spacing: 18;
+		background: @resolution-bg;
+		margin: -12;
+		padding: 15;
+		fmt-text{
+			.regular-13;
+		}
+		.charter-block{
+			fill-width: true;
+			layout:vertical;
+			content-align: top middle;
+			spacing: 12;
+			.block-title{
+				.bold-15;
+				color: @color-ui-text-light;
+			}
+			.block-content{
+				layout: vertical;
+				spacing: 5;
+				fmt-text{
+					color: @color-ui-text-dark;
+				}
+				.charter-desc{
+					color: @color-ui-text;
+				}
+				condition-check {
+					halign: left;
+					width: @card-width - 40;
+					fmt-text{
+						max-width: @card-width - 50;
+					}
+				}
+			}
+			.separator {
+				background: @color-ui-text-dark;
+				background-alpha: 0.4;
+				width: 100;
+				height: 1;
+				margin-top: -2;
+			}
+			&.availability-block {
+				visible: false;
+			}
+		}
+		#timeCont {
+			margin-top: 5;
+		}
+	}
+
+	.footer{
+		#warningText {
+			margin-top: 11;
+		}
+	}
+
+	&.pad {
+		spacing: 20;
+		>tip-default {
+			max-width: 205;
+			halign: middle;
+			margin: 0 -100 -2 -100;
+		}
+	}
+}
+
+condition-check{
+	content-align: top left;
+	spacing: 5;
+	#completionPin{
+		src: hgrid("UI/landsraad/box_check_charter.png", 2);
+		width: 16;
+		src-pos-x: 1;
+	}
+	fmt-text{
+		offset-y:3;
+		.italic-13;
+		alpha: 1;
+	}
+	&.active{
+		#completionPin{ src-pos-x: 0; }
+		fmt-text{
+			alpha: 0.6;
+		}
+	}
+}
+
+patience-bar {
+	base-gauge {
+		background: @comp-round-bg;
+		halign: right;
+		body-height: 6;
+		padding: 2;
+		color: @resource-stability;
+		empty-color: @color-hud-bg;
+	}
+}
+
+
+tip-references {
+	.description {
+		visible: true;
+	}
+	>.primary-body >.body-content {
+		padding: 0;
+		margin:-8;
+		>#fobj {
+			layout: vertical;
+			spacing: 5;
+			max-width:320;
+			min-width:320;
+
+			tip-trait{
+				#titleText{
+					color: @color-trait;
+				}
+				.primary-body {
+					.body-content {
+						margin-top: 2;
+						padding-top: 0;
+						spacing: 0;
+						margin: 0;
+					}
+				}
+			}
+			tip-unit, tip-treaty, tip-upgrade {
+				>.primary-body {
+					>.title {
+						.bold-15;
+					}
+					.body-content {
+						margin: 0;
+					}
+				}
+			}
+			tip-building {
+				#thumbnail{
+					visible: false;
+				}
+				.header-bar{
+					visible: false;
+				}
+				>.body{
+					min-height: 0;
+					margin:0;
+				}
+			}
+			.tip-resource {
+				.primary-body {
+					.body-content {
+						padding-top: 0;
+						spacing: 0;
+						margin: 0;
+						#fbody{
+							background: none;
+						}
+					}
+				}
+			}
+			tip-ability {
+				.primary-body {
+					.body-content {
+						margin-top: 2;
+						padding-top: 0;
+						spacing: 0;
+						margin: 0;
+					}
+				}
+			}
+			>tip-default {
+				>.primary-body {
+					>.title-header{
+						fill-width: true;
+						auto-size: 1;
+						background: @color-hud-bg;
+						padding: 5;
+						margin-top: -5;
+						max-width: 500;
+					}
+					>.body-content {
+						margin-top: 2;
+						padding-top: 0;
+						spacing: 5;
+						margin: 0;
+						padding: 10;
+					}
+				}
+			}
+		}
+	}
+
+	tip-default {
+		>.primary-body {
+			>.title-header{
+				margin-top: -5;
+			}
+			.body-content {
+				margin-top: 2;
+				padding-top: 0;
+				margin: 0;
+			}
+		}
+	}
+
+}
+
+
+tip-diplomacy {
+	width: 260;
+	layout: vertical;
+	spacing: 10;
+
+	>.header {
+		layout: horizontal;
+		align: middle left;
+		fill-width: true;
+		padding-left: 8;
+
+		>.currentRelationshipContent {
+			align: middle right;
+		}
+
+		>fmt-text {
+			.bold-20;
+			align: middle left;
+			text-align: left;
+		}
+	}
+
+	.categoryTitle {
+		.bold-17;
+	}
+
+	>.currentAffairsContainer, >.blockedAffairsContainer, >.respectableActionsContainer, >.reprehensibleActionsContainer, >.blockedActionsContainer {
+		fill-width: true;
+		background: #373636;
+		layout: vertical;
+		content-align: middle left;
+		spacing: 8;
+		padding: 8;
+
+		>hostile-action-desc {
+			spacing: 4;
+			>bitmap {
+				align: middle left;
+			}
+		}
+
+		&.negative {
+			background: #1b1a1a;
+		}
+	}
+
+	>.activeTreatiesContent {
+		layout: vertical;
+		fill-width: true;
+		min-height: 40;
+		spacing: 8;
+		padding: 8;
+		layout: vertical;
+		background: #373636;
+
+		>active-treaty {
+			fill-width: true;
+		}
+	}
+
+	>.relationships {
+		layout: vertical;
+		fill-width: true;
+		min-height: 40;
+		spacing: 8;
+		padding: 8;
+		layout: vertical;
+		background: #373636;
+
+		>relationship-bar {
+			padding-top: 4;
+			fill-width: true;
+		}
+	}
+
+	diplomacy-status {
+		>#diplomacyIcon {
+			width: 48;
+			height: 48;
+		}
+	}
+}
+
+tip-leader {
+	width: 260;
+	layout: vertical;
+	spacing: 10;
+
+	>.primary-body {
+		#titleText {
+			allow-over-rich-ids: false;
+		}
+		>.body-content {
+			padding-top: 0;
+			>.body {
+				>fmt-text {
+					margin-top: -8;
+				}
+			}
+		}
+	}
+
+
+	>.activeTreatiesContent {
+		layout: vertical;
+		fill-width: true;
+		min-height: 40;
+		padding: 0;
+		layout: vertical;
+
+		>fmt-text {
+			margin-bottom: 4;
+		}
+
+		>active-treaty {
+			margin-top: 4;
+			padding: 4;
+			fill-width: true;
+			>.treaty-card {
+				>.texts {
+					align: left middle;
+				}
+				>.timerContainer {
+					>#timerGauge{
+						margin-left: 4;
+					}
+				}
+
+				>bitmap {
+					align: left middle;
+					scale: 0.3;
+				}
+			}
+		}
+	}
+
+	>.relationships {
+		layout: vertical;
+		fill-width: true;
+		min-height: 40;
+		padding: 0;
+		layout: vertical;
+
+		>fmt-text {
+			margin-bottom: 4;
+		}
+
+		>relationship-bar {
+			margin-top: 4;
+			padding: 4;
+			padding-top: 8;
+			fill-width: true;
+			>.faction {
+				scale: 0.6;
+			}
+
+			>.lineDecorator {
+				width: 60;
+			}
+		}
+	}
+
+	diplomacy-status {
+		scale: 0.4;
+	}
+}
+
+tip-vote-option {
+	layout: vertical;
+	spacing: 6;
+
+	>fmt-text {
+		.regular-14;
+	}
+}
+
+tip-default.tip-res-action-costs {
+	#fcost {
+		align: middle middle;
+		resource-counter {
+			fmt-text {
+				offset-y: 2;
+			}
+		}
+
+		.reward-value {
+			#tf, #fixedTf {
+				color: @color-text-good;
+			}
+		}
+
+		.cost-value {
+			#tf, #fixedTf {
+				color: @color-text-bad;
+			}
+		}
+	}
+}
+
+tip-default.tip-standing {
+	#primary-body {
+		#title-header{
+			fill-width: true;
+			auto-size: 1;
+		}
+	}
+	#body-content {
+		spacing: 20;
+		padding-left: 15;
+		padding-right: 15;
+	}
+
+	#fheader {
+		fmt-text {
+			color: @color-text-yellow;
+			.regular-15;
+		}
+	}
+
+	#body-content {
+		spacing: 10;
+		#fattributes {
+			vspacing: 5;
+		}
+	}
+
+
+	#fobj {
+		margin-top: 5;
+		margin-bottom: 5;
+		vspacing: 10;
+
+		.separator {
+			height: 1;
+			alpha: 0.7;
+			background: @color-desert-darken;
+			fill-width: true;
+			auto-size: 1;
+		}
+		.separator1 {
+			height: 12;
+			background: "UI/HUD/baseline1.png";
+			//offset-y: -10;
+		}
+		.separator2 {
+			//offset-y: 10;
+		}
+
+		standing-tiers {
+			fill-width: true;
+			auto-size: 1;
+			margin-left: 6;
+			margin-right: 6;
+		}
+
+		.faction-standings {
+			align: middle middle;
+			layout: vertical;
+			spacing: 3;
+			margin-left: 6;
+			margin-right: 6;
+		}
+
+
+	}
+
+	#fbody {
+		fill-width: true;
+		auto-size: 1;
+		align: middle middle;
+		padding: 10;
+		background: @color-hud-bg;
+	}
+}
+
+tip-default.tip-resource {
+	&.res-details {
+		.title-header {
+			#titleCont{
+				#subTitleText{
+					visible: false;
+				}
+			}
+		}
+	}
+	.title-header {
+		#rightTitleText {
+			margin-right: 3;
+		}
+	}
+	#fbody {
+		fill-width: true;
+		auto-size: 1;
+		align: middle middle;
+		padding: 10;
+		background: @color-hud-bg;
+
+		.attack-description{
+			layout: vertical;
+			margin-top: 15;
+			fmt-text{
+				color: @color-tip-desc;
+				line-spacing: -5;
+				margin-top: -6;
+			}
+		}
+	}
+	.body-content {
+		.res-stock {
+			.sans-13;
+		}
+		#fobj {
+			.slot-prod{
+				layout: vertical;
+				spacing: 10;
+				.slot-prod-lines {
+					layout: vertical;
+					spacing: 5;
+					margin-left: 10;
+				}
+			}
+			fmt-text.no-refund-disclaimer {
+				color: @color-text-norefund;
+			}
+		}
+	}
+}
+
+tip-default.tip-resolution {
+	#fbody {
+		fill-width: true;
+		auto-size: 1;
+		align: middle middle;
+		padding: 10;
+		margin-top: 10;
+		background: @color-hud-bg;
+	}
+
+	resolution-details {
+		.name-header  {
+			.name{
+				.bold-17;
+			}
+		}
+	}
+}
+
+tip-default.tip-water {
+	.body-content {
+		#fobj{
+			spacing:15;
+			.supply{
+				.separator {
+					height: 1;
+					alpha: 0.7;
+					background: @color-desert-darken;
+					fill-width: true;
+					auto-size: 1;
+				}
+				layout:vertical;
+				spacing:10;
+				>fmt-text{
+					.sans-13;
+				}
+			}
+		}
+	}
+}
+
+tip-default.parameter-tip {
+	.body-content {
+		>.body {
+			spacing: 20;
+			>.description {
+				color: @color-ui-text-light;
+			}
+			choice-tip-line {
+				content-valign: middle;
+				spacing: 10;
+				layout: vertical;
+				fmt-text {
+					.italic-14;
+				}
+				.choice-title {
+					color: @color-text-medium;
+				}
+				.choice-desc {
+					color: @color-tip-desc;
+				}
+			}
+		}
+	}
+}
+
+.menu-tip() {
+	margin: -10;
+	padding: 30;
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-2;
+		outline: 0.5 #FCD28B;
+		outline-offset: 3;
+	}
+}
+
+tip-default.faction-flavor {
+	.menu-tip;
+
+	width: 500;
+	.primary-body {
+		.title-header {
+			content-valign: middle;
+			spacing: 8;
+			>image {
+				>bitmap {
+					width: 35;
+				}
+			}
+			#titleText {
+				.regular-18;
+				color: @color-ui-text-dark;
+			}
+			>.underline {
+				height: 2;
+				width: 410;
+				background: #4E4432;
+				position: absolute;
+				align: bottom middle;
+				offset-y: -4;
+			}
+		}
+		.body-content{
+			fmt-text.description {
+				.regular-16;
+				color: @color-ui-text-light;
+			}
+		}
+	}
+}
+
+tip-default.tip-pad-action {
+	#title-header {
+		content-halign: middle;
+	}
+}
+
+
+tip-councilor-menu {
+	.menu-tip;
+	width: 500;
+	.primary-body {
+		.passive-title {
+			color: @color-ui-text-dark;
+			letter-spacing: 1;
+		}
+		.title-header {
+			content-valign: middle;
+			spacing: 20;
+			#titleText {
+				color: @color-ui-text-light;
+			}
+			#rightTitleText{
+				.regular-14;
+				halign: left;
+				&.complexity-easy {
+					color: @color-text-easy;
+				}
+				&.complexity-medium {
+					color: @color-text-medium;
+				}
+				&.complexity-hard {
+					color: @color-text-hard;
+				}
+			}
+		}
+		.body-content {
+			#fobj {
+				fill-width: true;
+
+				.line-separator {
+					fill-width: false;
+					height: 2;
+					width: 350;
+					background: #4E4432;
+					align: bottom middle;
+					margin-top: 3;
+				}
+			}
+			fmt-text.description {
+				.regular-14;
+			}
+			#fattributes{
+				>element {
+					spacing: 4;
+					content-valign: top;
+					image.bullet {
+						src: hgrid("UI/multiplayer/ic_arrow_number_player.png", 2);
+						offset-y: -3;
+						scale: 0.5;
+						margin-bottom: -16;
+						alpha: 0.5;
+					}
+					fmt-text {
+						auto-size: 1;
+						.sans-13;
+						color: @color-ui-text-light;
+					}
+				}
+			}
+		}
+	}
+}
+
+tip-default.data-event {
+	#title-header {
+		spacing: 5;
+		#rightTitleText {
+			alpha: 0.6;
+		}
+	}
+}
+
+tip-imperial-tax {
+	layout: vertical;
+	auto-size: 1;
+	width: 320;
+	margin:-8;
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	background:@color-hud-bg;
+	.header {
+		.name {
+			valign: middle;
+		}
+	}
+
+	.body{
+		layout: vertical;
+		imperial-tax-content {
+			background:@color-tip-body-bg;
+		}
+	}
+
+	&.short{
+		.change, .tax-modifications{
+			visible:false;
+		}
+	}
+	&.disable{
+		.body{
+			visible:false;
+		}
+	}
+	.footer{
+		#warningText{
+			&.alert{
+				color: @color-bad;
+			}
+		}
+
+		padding: 10;
+		margin: 10;
+		fill-width:true;
+		content-align:middle left;
+		background:@color-hud-bg;
+		#desc{
+			color:@color-text-flavor-desc-dark;
+		}
+	}
+}
+
+imperial-tax-content {
+	layout: vertical;
+	.body{
+		>.header{
+			fill-width:true;
+			auto-size:1;
+			content-align:middle left;
+			padding: 2;
+			background:@color-hud-bg;
+			padding-left: 8;
+			spacing:5;
+			.name{
+				.bold-15;
+			}
+			.icon{
+				bitmap{
+					width:24;
+				}
+			}
+		}
+		background:@color-tip-body-bg;
+		layout: vertical;
+		margin:2;
+		>.block{
+			layout: vertical;
+			padding: 10;
+			spacing: 10;
+			fill-width: true;
+			.category{
+				content-align: left middle;
+				fill-width:true;
+				auto-size:1;
+				.senders{
+					layout: vertical;
+					>.header{
+						fmt-text{
+							.bold-17;
+							color: @color-ui-text;
+						}
+						fill-width: true;
+						padding:2;
+						auto-size: 1;
+						content-align: middle left;
+						background: vgrid("UI/HUD/spice_report_box_background.png", 2) 8 8;
+						>#title {
+							halign: left;
+							margin-left:34;
+							.bold-14;
+						}
+						>#expectedSuppliersTribute {
+							halign: right;
+							margin-right:8;
+							#iconBmp{
+								width:24;
+							}
+						}
+					}
+					.senders-list {
+						background: vgrid("UI/HUD/spice_report_box_background.png", 2) 10 10;
+						background-tile-pos-y: 1;
+						padding: 10;
+						layout: vertical;
+						spacing: 10;
+
+						fill-width:true;
+						auto-size: 1;
+
+					}
+				}
+			}
+			.time {
+				background-type: dynamic;
+					>#background {
+						background: @color-bg-dark-2;
+						outline: 0.5 black;
+					}
+				padding: 5;
+				fill-width:true;
+
+				content-align:middle left;
+				layout: horizontal;
+				spacing: 10;
+
+				>.remaining-time {
+					align : middle right;
+					content-align: middle right;
+					spacing : 5;
+					#remainingTimeText{
+						color: @color-text-timer;
+					}
+				}
+
+				.contract-timer {
+					content-align: middle middle;
+					spacing: 5;
+				}
+			}
+			.gauge-container{
+				background: "UI/elements/ic_small_chrono_border@2x.png";
+				filter: glow(#000000, 0.5, 4, 1.2, 1, true);
+				height: 17;
+				width: 15;
+				padding: 3;
+				#gauge {
+					src: "UI/elements/circle_64.png";
+					alpha: 0.95;
+					>bitmap{
+						width: 9;
+						height: 9;
+						tint: @color-warning;
+					}
+				}
+			}
+		}
+		.change{
+			layout: vertical;
+			content-align: middle middle;
+			fill-width:true;
+			background: @color-tip-body-bg-dark;
+			.change-top{
+
+				fill-width:true;
+				content-align: middle left;
+				padding: 10;
+				fmt-text {
+					.bold-14;
+					color: @color-eco;
+				}
+			}
+			.change-bottom{
+				fill-width:true;
+				layout:vertical;
+				padding-left:10;
+				padding-right:10;
+				padding-top:1;
+				padding-bottom:10;
+				spacing: 2;
+				align:top left;
+
+				fmt-text {
+					align:middle left;
+					max-width: 180;
+				}
+				exchange-rate {
+					align: middle right;
+
+					#tf{
+						.bold-12;
+					}
+					>resource-counter{
+						#iconBmp{
+							width:24;
+							height: 24;
+						}
+					}
+				}
+				#contractSolari, #contractSolariPrevisions {
+					fill-width : true;
+				}
+
+				#contractSolariPrevisions {
+					margin-top:5;
+				}
+			}
+		}
+		.imperial-contract{
+			fill-width:true;
+			content-align: middle left;
+			layout:vertical;
+			resource-counter{
+				#iconBmp{
+					width:28;
+					height:28;
+				}
+			}
+			#contractTax{
+				content-align: middle left;
+				margin-bottom:-5;
+				fill-width:true;
+				>fmt-text{ .regular-16;}
+				#impTaxSpiceCounter{
+					align:middle right;
+				}
+			}
+			.expected-spice{
+				align: middle left;
+				content-align: middle left;
+				fill-width:true;
+				>fmt-text{ .regular-16;}
+				#expectedSpiceStock{
+					align:middle right;
+					fmt-text{
+						color: @color-good;
+					}
+					&.insufficient{
+						fmt-text{ color: @color-bad;}
+					}
+				}
+			}
+		}
+		.horizontal-separator{
+			fill-width: true;
+			height: 1;
+			background: @color-desert-darken;
+			alpha: 0.3;
+		}
+		.vertical-separation{
+		}
+		>.block-separator {
+			background: "UI/HUD/spice_report_separator.png";
+
+			fill-width:true;
+			auto-size:1;
+			height: 3;
+		}
+	}
+}
+
+.corrino-tax-modifications {
+	background: "UI/HUD/border_corrino.png" 15 15;
+	layout:vertical;
+	fill-width: true;
+	padding: 14;
+	>.header{
+		visible:false;
+		fill-width:true;
+		auto-size:1;
+		background-type: dynamic;
+		content-align:middle left;
+		padding:5;
+		>#background {
+			background:@color-hud-bg;
+			outline: 0.5 black;
+		}
+	}
+	spacing:10;
+
+	>.faction-banner {
+		position: absolute;
+		align: top left;
+		width: 45;
+		height: 49;
+		offset-y: -18;
+		offset-x: -15;
+		alpha : 1;
+		.menu-emblem-Corrino;
+	}
+}
+
+faction-sender-report{
+	background-type: dynamic;
+	padding: 10;
+	align: middle middle;
+	layout: vertical;
+	spacing: 1;
+	>#background {
+		background: @color-tip-body-bg;
+		border-radius: 5;
+		outline: 0.5 @color-ui-text;
+	}
+
+	>.faction-header {
+
+		content-align: middle left;
+		fill-width: true;
+		layout:vertical;
+		>.faction-banner {
+			position:absolute;
+			height: 24;
+			y: -8;
+		}
+		>.horizontal-separator{
+			fill-width: true;
+			height: 1;
+			background: @color-desert-darken;
+			offset-x:24;
+			margin-top:5;
+			margin-right:24;
+		}
+
+		>.contract-name{
+			layout: vertical;
+			#title{
+				margin-left: 28;
+			}
+		}
+	}
+	content-align: top left;
+	.faction-body {
+		layout:vertical;
+		padding: 5;
+		spacing: 6;
+		fmt-text {
+			color:@color-text-flavor-desc;
+		}
+	}
+
+	.menu-emblem-Faction(~'.faction-banner');
+	&.faction-atreides{
+		>#background { outline: 0.5 @faction-atreides; }
+	}
+	&.faction-harkonnen{
+		>#background { outline: 0.5 @faction-harkonnen; }
+	}
+	&.faction-fremen{
+		>#background { outline: 0.5 @faction-fremen; }
+	}
+	&.faction-smugglers{
+		>#background { outline: 0.5 @faction-smugglers; }
+	}
+	&.faction-corrino{
+		>#background { outline: 0.5 @faction-corrino; }
+	}
+	&.faction-ecaz{
+		>#background { outline: 0.5 @faction-ecaz; }
+	}
+	&.faction-vernius{
+		>#background { outline: 0.5 @faction-vernius; }
+	}
+}
+
+tip-assassination{
+	background-type: dynamic;
+	margin:-8;
+	>#background {
+		background: @color-tip-body-bg;
+	}
+	.body{
+		layout:vertical;
+	}
+
+	.main-content{
+		layout:vertical;
+		spacing:4;
+
+
+		>.header{
+			margin:5;
+			background-type: dynamic;
+				>#background {
+					outline: 0.5 black;
+				}
+			padding: 5;
+			fill-width:true;
+
+			content-align:middle left;
+			layout: vertical;
+			spacing: 10;
+			>.title-cont{
+				fill-width:true;
+				.title-text{
+					align:left;
+					color:@color-text-yellow;
+					.bold-14;
+				}
+				.detected{
+					align:right;
+				}
+			}
+			.progress-cont{
+				fill-width:true;
+				content-align:middle middle;
+				spacing:5;
+				#progressGauge{
+					width: 145;
+					body-width: $width;
+					height: 8;
+					background: "UI/HUD/progressBar_bg.png" 4 4;
+					padding: 2;
+					use-fill-color: false;
+					empty-color: #A0864D;
+					#emptyBar{
+						fill-width:true;
+						alpha: 0.02;
+					}
+					#fillBar {
+						background: none;
+						background-type: dynamic;
+						#background {
+							background: @color-bad;
+							gradient: linear(-90, fade(@color-bg-dark-1, 60%), rgba(0,0,0,0));
+						}
+					}
+				}
+			}
+		}
+		>.block-separator {
+			background: "UI/HUD/spice_report_separator.png";
+
+			fill-width:true;
+			auto-size:1;
+			height: 3;
+		}
+		.progress-info{
+			padding:10;
+			layout:vertical;
+			spacing:10;
+			.progress{
+				.regular-14;
+				color: @color-ui-text;
+			}
+			.desc{
+				.italic-13;
+				color:@color-tip-desc;
+			}
+			.line{
+				layout: horizontal;
+				fill-width:true;
+				>fmt-text{
+					.regular-13;
+					color: @color-ui-text-light;
+				}
+				.val{
+					align:right;
+					.bold-13;
+					color: @color-ui-text;
+				}
+				&.bad {
+					>fmt-text {	color: @color-bad; }
+					.val { color: @color-bad; }
+				}
+			}
+		}
+		#agentContainer{
+			background: @color-bg-dark-2;
+			fill-width:true;
+			layout:vertical;
+			spacing:10;
+			padding:10;
+			#dotContainer{
+				spacing:15;
+				fill-width:true;
+				.horizontal-separator{
+					align:middle middle;
+					width:120;
+					height: 1;
+					background: @color-desert-darken;
+					alpha: 0.3;
+				}
+				#targetContainer{
+					align:right;
+				}
+				#byContainer,#targetContainer{
+					spacing:2;
+					content-align:middle middle;
+				}
+				#factionByBmp,#factionTargetBmp  {
+					scale: 0.5;
+					margin-right:5;
+				}
+				.agent-dot{
+					src: grid("UI/HUD/hudSlot.png", 3, 2);
+					src-pos-y: 1;
+					src-pos-x: 1;
+					&.agent-assigned{
+						src-pos-x: 0;
+					}
+				}
+			}
+			>.agent-assigned{
+				color:@color-text-yellow;
+				.bold-14;
+			}
+		}
+	}
+
+	.upkeep{
+		layout:vertical;
+		spacing:5;
+		padding:10;
+		.upkeepTxtCont{
+			content-align:middle left;
+			spacing:2;
+			image {
+				src: hgrid("UI/multiplayer/ic_arrow_number_player.png", 2);
+				scale: 0.5;
+				align:top;
+			}
+		}
+		.upkeep-desc{
+			.italic-13;
+			color:@color-tip-desc;
+		}
+		#upkeepContainer{
+			#counters{
+				bitmap{
+					width: 22;
+				}
+				fmt-text{
+					color:@color-bad;
+					.bold-12;
+				}
+			}
+
+		}
+	}
+	.footer{
+		content-align:left;
+		background: #23262D;
+		fill-width:true;
+		padding: 10;
+		align:left;
+		fmt-text{
+			.italic-13;
+		}
+	}
+
+
+}

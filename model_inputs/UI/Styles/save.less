@@ -1,0 +1,570 @@
+// out: false
+@import "common.less";
+@import "menu.less";
+
+empty-slot {
+	content-align: middle middle;
+	.empty-separator {
+		src: "UI/menu/goldBorder01.png";
+		width: 200;
+		height: 1;
+		margin-bottom: 10;
+	}
+	.empty-text {
+		.bold-16;
+		margin-bottom: -23;
+		color: #a0a0a0;
+	}
+}
+
+save-slot, empty-slot {
+	@width: 780;
+	@height: 140;
+	layout: stack;
+
+	click-sfx: @UI_Button_Release;
+	hover-sfx: @UI_Button_Rollover;
+
+	&.atreides {
+		background: "UI/menu/Atreides/save_background_sharp.jpg";
+		&.conquest-map { background: "UI/menu/Atreides/save_background_conquest.png"; }
+	}
+	&.harkonnen {
+		background: "UI/menu/Harkonnen/save_background_sharp.jpg";
+		&.conquest-map { background: "UI/menu/Harkonnen/save_background_conquest.png"; }
+	}
+	&.smugglers {
+		background: "UI/menu/Smugglers/save_background_sharp.jpg";
+		&.conquest-map { background: "UI/menu/Smugglers/save_background_conquest.jpg"; }
+	}
+	&.fremen {
+		background: "UI/menu/Fremen/save_background_sharp.jpg";
+		&.conquest-map { background: "UI/menu/Fremen/save_background_conquest.jpg"; }
+	}
+	&.corrino {
+		background: "UI/menu/Corrino/save_background_sharp.jpg";
+		&.conquest-map { background: "UI/menu/Corrino/save_background_conquest.png"; }
+	}
+	&.ecaz {
+		background: "UI/menu/Ecaz/save_background_sharp.png";
+		&.conquest-map { background: "UI/menu/Ecaz/save_background_conquest.png"; }
+	}
+	&.vernius {
+		background: "UI/menu/Vernius/save_background_sharp.jpg";
+		&.conquest-map { background: "UI/menu/Vernius/save_background_conquest.png"; }
+	}
+
+	cursor: button;
+	spectator-enabled: true;
+
+	>.border {
+		width: @width;
+		height: @height;
+		background-type: dynamic;
+		>#background {
+			border-radius: 6;
+			outline: 0.5 @color-ui-text-light;
+			outline-alpha: 0.7;
+			outline-thickness: 0.5;
+			outline-color: @color-ui-text-light;
+			outline-offset: 4;
+
+			transition: outline-thickness @hover-transition;
+			transition: outline-alpha @hover-transition;
+			transition: outline-color @hover-transition;
+		}
+	}
+
+	>.overlay {
+		layout: stack;
+		width: @width;
+		height: @height;
+		background: black;
+		background-id: true;
+		>#background {
+			alpha: 0.3;
+			.transition-hover-alpha;
+		}
+
+		>.gradient-left {
+			halign: left;
+			height: @height;
+			width: (@width * 0.7);
+			gradient: linear(270, fade(@color-hud-bg-middle, 100%), rgba(0,0,0,0));
+		}
+		>.gradient-right {
+			halign: right;
+			height: @height;
+			width: (@width * 1);
+			gradient: linear(90, fade(@color-hud-bg-middle, 100%), rgba(0,0,0,0));
+		}
+	}
+
+	fmt-text, fixed-text{
+		color: @color-ui-text-light;
+	}
+	>.titlePre {
+		.regular-16;
+		letter-spacing: 1;
+		.uppercase;
+		max-width-text: 100;
+		margin-left: 110;
+		offset-y: 19;
+	}
+	>.title {
+		.uppercase;
+		.bold-24;
+		max-width-text: 155;
+		letter-spacing: 1;
+		margin-left: 110;
+		offset-y: 35;
+	}
+
+
+
+	.line {
+		.label {
+			.regular-17;
+			alpha: 0.5;
+			margin-right: 12;
+		}
+
+		.time {
+			.bold-15;
+		}
+	}
+	>.times {
+		layout: horizontal;
+		valign: bottom;
+		content-halign: right;
+		margin-left: 20;
+		margin-bottom: 15;
+		spacing: 20;
+		max-width: 440;
+
+		.game-time {
+			.time {
+				color: @color-ui-text;
+			}
+		}
+		game-date {
+			fmt-text {
+				margin-bottom: 0;
+				color: @color-ui-text;
+			}
+			#tfYear{
+				alpha: 0.6;
+			}
+		}
+	}
+	.multi-separator {
+		align: bottom left;
+		margin-left: 20;
+		margin-bottom: 30;
+		width: 200;
+		height: 1;
+		background: @color-desert;
+		background-alpha: 0.3;
+	}
+	>.players {
+		valign: bottom;
+		margin-bottom: 13;
+		margin-left: 20;
+		content-valign: middle;
+
+		.label {
+			.regular-15;
+			alpha: 0.5;
+			margin-right: 10;
+		}
+
+		.players-list {
+			max-width: 700;
+			multiline: true;
+			vspacing: 5;
+			.player-name {
+				.player-text {
+					.bold-17;
+					&.defeated {
+						alpha: 0.4;
+					}
+				}
+				.player-separator {
+					.regular-17;
+					margin-right: 5;
+				}
+			}
+		}
+	}
+
+	.horizontal-sep {
+		margin-left: 20;
+		width: 535;
+		height: 1;
+		background: @color-text;
+		alpha: 0.3;
+		align: middle left;
+	}
+
+	.right-section {
+		align: middle right;
+		spacing: 15;
+		content-align: middle right;
+
+		.councilorsList {
+			councilor-button {
+				enable: false;
+				pad-focusable: false;
+				.councilor-dims(50, 100, 0);
+				>.portrait {
+					image-scale: 1.6;
+					image-offset-y: -110;
+				}
+			}
+		}
+		.vert-separator {
+			height: @height - 10;
+			width: 2;
+			background: "UI/CHOAM/separateur_achat.png";
+			alpha: 0.5;
+		}
+		.slot-btn{
+			margin-right: 20;
+			>button{
+				pad-focusable: false;
+				spectator-enabled: true;
+				.large-multi-btn;
+				width: 180;
+				height: 60;
+				fixed-text {
+					max-width-text: 160;
+				}
+			}
+		}
+	}
+
+	.mode {
+		align: top middle;
+		margin-right: 75;
+		margin-top: 30;
+		content-align: middle middle;
+		.mode-icon{
+			src: grid("UI/icons/icon_mode_jeu.png", 3, 2);
+			width: 26;
+			margin-right: 4;
+		}
+		.mode-name {
+			color: @color-ui-text;
+			.regular-17;
+			max-width-text: 130;
+		}
+	}
+
+	.game-date {
+		visible: false;
+	}
+
+	&.kanly {
+		.mode-icon{	src-pos-x: 1 !important; }
+	}
+	&.conquest {
+		.mode-icon{	src-pos-x: 2 !important; }
+		.game-time {
+			visible: false;
+		}
+		.game-date {
+			visible: true;
+		}
+	}
+
+	.file-name, .input-name {
+		align: bottom left;
+		margin-left: 20;
+		margin-bottom: 40;
+		fixed-text{
+			max-width-text: 250;
+			.regular-20;
+		}
+		.name-txt {
+			color: @color-ui-text-light;
+		}
+	}
+	.input-name{
+		content-align: middle right;
+		spacing: 8;
+		#fileNameInput {
+			pad-focusable: false;
+			>#background {
+				border-radius: 5;
+			}
+			.inner-cont {
+				padding: 4 5 3 5;
+				height: 0;
+			}
+			fmt-text-input {
+				.regular-20;
+				color: @color-ui-text;
+				width: 200;
+			}
+		}
+	}
+
+	>.emblem {
+		offset-x: 20;
+		offset-y: -5;
+		width: 72;
+	}
+	>.emblem {
+		src: hgrid("UI/Faction/Menu/decorated_banners.png", (@ui-faction-count + 2));
+		.tiled-faction(src-pos-x, @offset: 1);
+	}
+
+	>.all-emblems {
+		offset-x: 20;
+		offset-y: -5;
+		.emblem {
+			width: 58;
+			.menu-emblem-Faction();
+		}
+
+		.emblem.defeated {
+			color-adjust: brightness(-0.1) saturate(-0.9);
+		}
+	}
+
+	.dlc-ribbon {
+		visible: false;
+		layout: stack;
+		offset-x: 20;
+		offset-y: -5;
+		.ribbon {
+			src: "UI/menu/dlc_ribbon.png";
+			scale: 0.4;
+		}
+		.dlc-text {
+			max-width-text: 50;
+			offset-x: -8;
+			offset-y: 5;
+			align: middle middle;
+			.uppercase;
+			.bold-15;
+			color: @color-ui-text-light;
+			rotation: -45;
+		}
+	}
+	&.requires-dlc {
+		.dlc-ribbon {
+			visible: true;
+		}
+	}
+
+
+	>.all-emblems, .multi-separator, >.players {
+		visible: false;
+	}
+	&.multi {
+		@height: 150;
+		>.border {
+			height: @height;
+		}
+
+		>.overlay {
+			height: @height;
+			>.gradient-left, >.gradient-right {
+				height: @height;
+			}
+		}
+		.vert-separator {
+			height: @height - 10;
+		}
+
+		.horizontal-sep {
+			margin-bottom: 40;
+		}
+
+		>.times {
+			margin-bottom: 40;
+		}
+
+		.titlePre, .title, .councilorsList, >.emblem {
+			visible: false;
+		}
+
+		>.all-emblems, .multi-separator, >.players {
+			visible: true;
+		}
+		.file-name {
+			margin-bottom: 70;
+		}
+		.input-name {
+			margin-bottom: 60;
+		}
+
+		&.player-count-5 {
+			.mode {
+				margin-right: 65;
+			}
+		}
+		&.many-players {
+			.mode {
+				margin-top: 60;
+			}
+			.input-name {
+				margin-bottom: 35;
+			}
+		}
+	}
+
+	&.new-slot {
+		background-id: true;
+		>#background {
+			alpha: 0.7;
+		}
+		.titlePre, .title {
+			alpha: 0.5;
+		}
+		.times, .file-name, .councilorsList, .multi-separator {
+			visible: false;
+		}
+		.emblem {
+			color-adjust: brightness(-0.05) saturate(-0.5);
+		}
+	}
+
+	&:focus {
+		>.border {
+			>#background {
+				outline-alpha: 1;
+				outline-thickness: 1;
+				outline-color: @color-gold;
+			}
+		}
+		.slot-btn {
+			>button {
+				pad-click: @input-menu-leftclick;
+			}
+		}
+		#fileNameInput {
+			pad-click: @input-savefocustextinput;
+		}
+	}
+}
+
+save-slot {
+	pad-focusable: true;
+}
+
+conquest-save-list {
+	is-bind-layer: true;
+	layout: vertical;
+	padding: 10;
+	background-type: dynamic;
+	>#background {
+		background: @color-hud-bg-dark;
+		outline: 1 @color-ui-text;
+	}
+	>.header {
+		layout: stack;
+		align: top middle;
+		content-align: top middle;
+		margin-bottom: 10;
+		.group-name {
+			.regular-20;
+			color: @color-ui-text-light;
+		}
+	}
+	>.collapse-button {
+		.decorated-btn;
+		pad-click: @input-menu-back;
+		position: absolute;
+		align: top right;
+		reverse: true;
+		width: 80;
+		offset-x: -17;
+		offset-y: -4;
+		padding: 10 20 10 20;
+		icon: "cdb:icon.Exit.gfx";
+		#iconBmp {
+			width: 24;
+			margin: -8;
+			margin-left: -4;
+		}
+		fmt-text {
+			.uppercase;
+			color: @color-ui-text-light;
+		}
+	}
+	>.sub-slots-list {
+		fill-height: true;
+		auto-size: 1;
+	}
+}
+save-list {
+	layout: vertical;
+	content-align: middle middle;
+	spacing: 20;
+	>window-header{
+		.windowHeader;
+		width: 850;
+		background: none;
+		close-button{visible: false;}
+	}
+	>.title {
+		color: @color-ui-text-light;
+	}
+	.mode-tabs {
+		.menu-tabs();
+	}
+	.lists-cont {
+		layout: stack;
+		fill-height: true;
+		auto-size: 1;
+		padding-top: 5;
+
+		>#slotsList, .sub-slots-list {
+			layout: vertical;
+			spacing: 10;
+			width: 800;
+			overflow: scroll;
+			content-align: top middle;
+			padding-right: 20;
+			padding-top: 5;
+
+			>.scrollbar {
+				margin-right: -20;
+				background-alpha: 0.4;
+				.cursor {
+					background: "UI/elements/scrollbar.png";
+					background-alpha: 0.8;
+				}
+				&:hover {
+					background-alpha: 0.6;
+					.cursor {
+						background-alpha: 1;
+					}
+				}
+			}
+			>save-slot, >empty-slot{
+				transition: margin-top 0.1 ease-out;
+				transition: alpha 0.1 ease-out;
+				appear-delay: 0 0.01;
+				margin-top: -10;
+				alpha: 0;
+				&.appear {
+					margin-top: 0;
+					alpha: 1;
+				}
+				&.new-slot{
+					margin-top: 0;
+					alpha: 1;
+				}
+			}
+		}
+		#subListAnchor {
+			align: top middle;
+			conquest-save-list {
+				margin-bottom: -42;
+			}
+		}
+	}
+}
