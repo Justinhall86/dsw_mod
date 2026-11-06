@@ -46,7 +46,10 @@ def main():
     sheets = {s["name"]: s for s in data["sheets"]}
     changes = []
 
-    guard, demo = row(sheets, "unit", "Th_Special"), row(sheets, "unit", "A_Demo")
+    # the unit ids were renamed Th_ -> TH_ in the cdb; accept either
+    ids = {l.get("id") for l in sheets["unit"]["lines"]}
+    guard = row(sheets, "unit", "TH_Special" if "TH_Special" in ids else "Th_Special")
+    demo = row(sheets, "unit", "A_Demo")
     if guard.get("inherits") != "Demo":
         guard["inherits"] = "Demo"
         guard["stats"] = copy.deepcopy(demo["stats"])

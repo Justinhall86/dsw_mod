@@ -52,7 +52,7 @@ belongs in `house_ginaz/`. Numbers are as shown on the concept screen and are **
 - **Look:** dark swept hair, a trimmed beard, a long black coat with gold-trimmed shoulders over a rust tunic, a holstered pistol at the hip.
 - **Landsraad Patronage (Passive):** +10 Landsraad Standing and +5 Influence when any Resolution he voted on passes.
 - **Market Manipulation (Active):** buying CHOAM shares costs -15% less Solari, and +5 Influence for every 10% owned.
-- The top-bar Plascrete trade was briefly Nobru's; it now comes from the **Consignment Terminal** building (see `model_projects/thorvald_faction/SPEC.md`). Nobru's passive is back to the Corrino clone's.
+- The top-bar Plascrete trade was briefly Nobru's; it now comes from the **Consignment Terminal** building (see `model_projects/thorvald_faction/SPEC.md`). Nobru's passive no longer carries it.
 
 ## Envoy Theodoric Ein (proposed fifth, or Jool's replacement)
 - **Source:** the one named Thorvald character in Dune: Awakening ([lore.md](lore.md)). There he is the house's envoy on Arrakis, a War
