@@ -1,0 +1,23 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Crashed_shuttle",
+			"source": "Structure/Point_Of_Interest/Crashed_Shuttle/Crashed_shuttle.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.01,
+			"y": 0.08,
+			"z": -0.14,
+			"scaleX": 6.39,
+			"scaleY": 8.39,
+			"scaleZ": 1.26,
+			"rotationZ": -174.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

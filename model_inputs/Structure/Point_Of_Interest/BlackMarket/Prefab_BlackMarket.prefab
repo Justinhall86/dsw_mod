@@ -1,0 +1,50 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "BlackMarket",
+			"source": "Structure/Point_Of_Interest/BlackMarket/BlackMarket.fbx",
+			"z": 0.08,
+			"rotationZ": -51.7,
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 2,
+						"freq": 9.09
+					},
+					"targetMaterial": "Mat_BlackMarket_Wind",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.31,
+			"y": -0.22,
+			"scaleX": 8.02,
+			"scaleY": 8.02,
+			"scaleZ": 0.73,
+			"rotationZ": 51.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": 1.0824,
+			"y": -0.9762,
+			"z": 1.52907,
+			"scaleX": 2.18,
+			"scaleY": 2.18,
+			"scaleZ": 2.25
+		}
+	]
+}

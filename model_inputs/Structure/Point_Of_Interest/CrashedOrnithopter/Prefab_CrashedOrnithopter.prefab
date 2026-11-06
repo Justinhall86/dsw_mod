@@ -1,0 +1,47 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "CrashedOrnithopter",
+			"source": "Structure/Point_Of_Interest/CrashedOrnithopter/CrashedOrnithopter.fbx",
+			"x": -0.2,
+			"rotationZ": -177,
+			"children": [
+				{
+					"type": "shader",
+					"name": "SandBlend",
+					"source": "shaders/SandBlend.hx",
+					"props": {
+						"colorMask": "Structure/Point_Of_Interest/CrashedOrnithopter/CrashedOrnithopter_ColorMask.png"
+					}
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.24,
+			"y": 0.35,
+			"scaleX": 2.71,
+			"scaleY": 4.01,
+			"scaleZ": 0.42,
+			"rotationZ": -127.2,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"normalStrength": 1.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -0.5,
+			"y": 0.32,
+			"z": -0.07,
+			"scaleX": 0.17,
+			"scaleY": 0.21,
+			"scaleZ": 0.43,
+			"rotationZ": 41.3
+		}
+	]
+}

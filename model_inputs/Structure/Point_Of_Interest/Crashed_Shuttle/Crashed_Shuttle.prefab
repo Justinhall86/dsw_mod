@@ -1,0 +1,39 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Crashed_shuttle",
+			"source": "Structure/Point_Of_Interest/Crashed_Shuttle/Crashed_shuttle.fbx",
+			"z": -0.06,
+			"scaleX": 0.64,
+			"scaleY": 0.64,
+			"scaleZ": 0.64,
+			"rotationZ": -123.4
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.27,
+			"y": -0.52,
+			"scaleX": 6.6,
+			"scaleY": 2.92,
+			"scaleZ": 0.82,
+			"rotationZ": 129.1,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -0.15,
+			"y": 0.01,
+			"z": 0.04,
+			"scaleX": 0.17,
+			"scaleY": 0.21,
+			"scaleZ": 0.43,
+			"rotationZ": 41.3
+		}
+	]
+}
