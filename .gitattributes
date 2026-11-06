@@ -5,4 +5,11 @@
 # modified. To put a new project's large files on LFS, add a line for its folder before its
 # first commit, for example:
 #   model_projects/<project>/**/*.blend filter=lfs diff=lfs merge=lfs -text
-model_projects/thorvald_starport/**/*.blend filter=lfs diff=lfs merge=lfs -text
+# (2026-11-05) the Thorvald projects moved under model_projects/thorvald/; scoped per project, because the
+# projects that already have regular blends committed (sentinal, trooper, ranged, demolition, ...) must stay regular.
+model_projects/thorvald/thorvald_starport/**/*.blend filter=lfs diff=lfs merge=lfs -text
+model_projects/thorvald/thorvald_hero_1/**/*.blend filter=lfs diff=lfs merge=lfs -text
+model_projects/thorvald/thorvald_elite/**/*.blend filter=lfs diff=lfs merge=lfs -text
+model_projects/thorvald/thorvald_buildings/**/*.blend filter=lfs diff=lfs merge=lfs -text
+model_projects/thorvald/thorvald_hq/**/*.blend filter=lfs diff=lfs merge=lfs -text
+model_projects/thorvald/thorvald_ship/**/*.blend filter=lfs diff=lfs merge=lfs -text
