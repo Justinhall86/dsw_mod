@@ -1,0 +1,284 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "environment",
+			"name": "environment",
+			"hdrMax": 1,
+			"rotation": 173.64,
+			"sampleBits": 8,
+			"diffSize": 32,
+			"specSize": 64,
+			"ignoredSpecLevels": -2,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/fireplace_2k.hdr",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "CustomColor",
+					"tone": "Linear",
+					"occlusion": 1,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0,
+					"a": 2.51,
+					"b": 0.03,
+					"c": 2.43,
+					"d": 0.59,
+					"e": 0.14,
+					"skyColor": 0
+				},
+				"Default": {}
+			},
+			"children": [
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "UI/ConquestMenu/defaultLUTcorrino.png"
+				},
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"threshold": 0.64,
+					"blur": 2,
+					"saturation": 0.8,
+					"blurLinear": 0.51
+				},
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 1,
+					"threshold": 0.36,
+					"blur": 0.25,
+					"saturation": 0.76
+				},
+				{
+					"type": "rfx.Vignetting",
+					"name": "Vignetting",
+					"maskTex": "Fx/Gradients/circGrad05.jpg",
+					"darken": 0.28
+				},
+				{
+					"type": "rfx.distanceBlur",
+					"name": "distanceBlur",
+					"enableInEditor": false,
+					"nearStartDistance": 3.28,
+					"nearEndDistance": 100,
+					"nearStartIntensity": 0,
+					"nearEndIntensity": 2,
+					"farStartDistance": 4.92,
+					"farEndDistance": 30.68,
+					"blurTextureSize": 0.5,
+					"blurRange": 12
+				},
+				{
+					"type": "rfx.temporalFiltering",
+					"name": "temporalFiltering",
+					"amount": 0.6,
+					"jitterPattern": "Halton_2_3_x8",
+					"jitterScale": 2
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "LIGHTING",
+			"x": 1.65964,
+			"y": 1.069105,
+			"z": 2.7233650000000003,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_Lights_Harkonnen",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lights_Harkonnen.fx",
+					"x": -1.65964,
+					"y": -1.069105,
+					"z": -2.7233650000000003
+				},
+				{
+					"type": "light",
+					"name": "light_0",
+					"enabled": false,
+					"x": 0.47232,
+					"y": -0.01032,
+					"z": 0.01289,
+					"scaleX": 6,
+					"scaleY": 5.999999999999999,
+					"scaleZ": 5.999999999999999,
+					"rotationX": 12.7,
+					"rotationY": 114.9,
+					"rotationZ": 4,
+					"kind": "Spot",
+					"color": 9938328,
+					"power": 0.87,
+					"occlusionFactor": 0,
+					"isMainLight": true,
+					"range": 5,
+					"zNear": 0.02,
+					"angle": 46,
+					"fallOff": 20,
+					"debugDisplay": false,
+					"shadows": {
+						"mode": "Dynamic",
+						"size": 4096,
+						"radius": 0,
+						"quality": 1,
+						"bias": 0.01,
+						"samplingMode": {
+							"kind": "PCF",
+							"quality": 2,
+							"scale": 1,
+							"bias": 0.1
+						}
+					}
+				},
+				{
+					"type": "light",
+					"name": "light_2",
+					"enabled": false,
+					"x": -0.5388599999999999,
+					"y": 0.032424999999999926,
+					"z": 0.12750499999999976,
+					"scaleX": 6.9,
+					"scaleY": 11.951150572225249,
+					"scaleZ": 11.951150572225249,
+					"rotationX": -33.00000000000001,
+					"rotationY": 86.2,
+					"rotationZ": -124.6,
+					"kind": "Spot",
+					"color": 11671076,
+					"range": 6.9,
+					"size": 0,
+					"zNear": 0.02,
+					"angle": 120,
+					"fallOff": 24.6
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "VFX",
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_HologramsCircles_Harkonnen",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_HologramsCircles_Harkonnen.fx",
+					"enabled": false,
+					"x": 1,
+					"y": 1,
+					"z": 1
+				},
+				{
+					"type": "reference",
+					"name": "FX_UI_ConquestMap_Harkonnen",
+					"source": "Fx/UI/Conquest/FX_UI_ConquestMap_Harkonnen.fx",
+					"x": 2.09401,
+					"y": 0.47143,
+					"z": 0.11071,
+					"scaleX": 1.0000000000000002,
+					"scaleY": 1.0000000000000002,
+					"rotationZ": 89.99999999999999
+				},
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_Lines_Harkonnen",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lines_Harkonnen.fx",
+					"x": 0.972,
+					"y": 1,
+					"z": 0.997
+				},
+				{
+					"type": "object",
+					"name": "LED",
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Harkonnen01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Harkonnen01.fx",
+							"x": 0.99763,
+							"y": 2.15349,
+							"z": 1.07544
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Harkonnen01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Harkonnen01.fx",
+							"x": 0.44089,
+							"y": 2.15349,
+							"z": 1.07544
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Harkonnen01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Harkonnen01.fx",
+							"x": 1.5568,
+							"y": 2.15349,
+							"z": 1.07544
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Harkonnen01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Harkonnen01.fx",
+							"x": 0.99763,
+							"y": -0.15248,
+							"z": 1.07544
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Harkonnen01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Harkonnen01.fx",
+							"x": 0.44089,
+							"y": -0.15248,
+							"z": 1.07544
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Harkonnen01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Harkonnen01.fx",
+							"x": 1.5568,
+							"y": -0.15248,
+							"z": 1.07544
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"locked": true,
+			"x": 1.03907,
+			"y": 0.97216,
+			"z": 0.93637,
+			"scaleX": 3.9,
+			"scaleY": 3.9,
+			"scaleZ": 3.9,
+			"albedoMap": "Fx/Alphas/T_circle5.png",
+			"emissive": 0.1,
+			"renderMode": "BeforeTonemapping",
+			"blendMode": 5
+		},
+		{
+			"type": "model",
+			"name": "Table_Harkonnen",
+			"source": "UI/ConquestMenu/Assets/Harkonnen/Table_Harkonnen.fbx",
+			"x": 1,
+			"y": 1,
+			"z": 0.07077,
+			"scaleX": 0.99,
+			"scaleY": 0.99,
+			"scaleZ": 0.99,
+			"rotationZ": 90
+		}
+	]
+}
