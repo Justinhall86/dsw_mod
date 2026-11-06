@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_HarvestTent": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"SpiceCollector:Mat_SpiceCollector": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

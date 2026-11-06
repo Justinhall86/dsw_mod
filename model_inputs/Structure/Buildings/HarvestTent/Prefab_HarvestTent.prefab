@@ -1,0 +1,102 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": 0.03815,
+			"y": -0.04141,
+			"z": 0.76335,
+			"rotationZ": -61.7,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_5",
+					"source": "Fx/Smoke/FX_Smoke_Spice.fx",
+					"x": 0.07445750000000001,
+					"y": 0.575755,
+					"z": 2.7621675000000003,
+					"scaleX": 0.49999999999999994,
+					"scaleY": 0.49999999999999994,
+					"scaleZ": 0.5,
+					"rotationZ": 10.099999999999998
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -0.51375,
+					"y": 1.5795,
+					"z": -0.77335,
+					"scaleX": 20.3,
+					"scaleY": 20.3,
+					"scaleZ": 1.19,
+					"rotationZ": 129.1,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				},
+				{
+					"type": "model",
+					"name": "HarvestTent",
+					"source": "Structure/Buildings/HarvestTent/HarvestTent.fbx",
+					"x": -0.0381525,
+					"y": 0.04141499999999998,
+					"z": -0.7633525000000001,
+					"scaleX": 3,
+					"scaleY": 3.0000000000000004,
+					"scaleZ": 3.0000000000000004,
+					"children": [
+						{
+							"type": "fakeLight",
+							"name": "fakeLight",
+							"props": {},
+							"topIntensity": 0.42,
+							"topSpan": 0.17
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": -1.46139,
+			"y": 3.99184,
+			"scaleX": 3.76,
+			"scaleY": 3.97,
+			"scaleZ": 0.89,
+			"rotationZ": 117.4,
+			"albedoMap": "Structure/Resources/Decals/Carpet_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": -4.95659,
+			"y": -2.72399,
+			"scaleX": 6.09,
+			"scaleY": 3.25,
+			"scaleZ": 1.55,
+			"rotationZ": 117.4,
+			"albedoMap": "Structure/Resources/Decals/Carpet_01.png",
+			"normalMap": "Structure/Resources/Decals/Concrete_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.7978,
+			"y": -4.7519,
+			"scaleX": 6.09,
+			"scaleY": 3.25,
+			"scaleZ": 1.55,
+			"rotationZ": -148.6,
+			"albedoMap": "Structure/Resources/Decals/Carpet_01.png",
+			"normalMap": "Structure/Resources/Decals/Concrete_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		}
+	]
+}

@@ -1,0 +1,81 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "FuelCellFactory_Construction",
+			"source": "Structure/Buildings/FuelCellFactory/FuelCellFactory_Construction.fbx",
+			"scaleX": 1.14,
+			"scaleY": 1.14,
+			"scaleZ": 1.14,
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/FuelCellFactory/FuelCellFactory_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.26,
+			"scaleY": 0.25,
+			"scaleZ": 0.25
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.03773,
+			"scaleX": 0.44,
+			"scaleY": 0.59,
+			"scaleZ": 0.92
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "FuelCellFactory_Construction.Crane_drone.Crane_Base1.Crane_Top1.Crane_Cube1"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "FuelCellFactory_Construction.Crane_drone.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "FuelCellFactory_Construction.Crane_drone.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "FuelCellFactory_Construction.Crane_drone.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "FuelCellFactory_Construction.Crane_drone.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "FuelCellFactory_Construction.Crane_drone.Crane_Base1.Crane_Top1.Crane_Cube1"
+		}
+	]
+}

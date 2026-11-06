@@ -1,0 +1,36 @@
+{
+	"materials": {
+		"PBR": {
+			"Atlas_Metal03_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.91
+			},
+			"blinn2": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_FuelCellFactory": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			}
+		}
+	}
+}

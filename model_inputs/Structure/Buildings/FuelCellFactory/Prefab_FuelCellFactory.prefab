@@ -1,0 +1,68 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "FuelCellFactory",
+			"source": "Structure/Buildings/FuelCellFactory/FuelCellFactory.fbx",
+			"scaleX": 1.14,
+			"scaleY": 1.14,
+			"scaleZ": 1.14,
+			"rotationZ": 90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3,
+			"scaleY": 3,
+			"scaleZ": 0.25,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"y": 0.31522,
+			"scaleX": 1.61,
+			"scaleY": 1.94,
+			"scaleZ": 2.33,
+			"rotationZ": 90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": 0.83094,
+			"y": 0.95006,
+			"z": 0.15146
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_Grey_1",
+			"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+			"x": -0.94517,
+			"y": -0.05343,
+			"z": 0.5421,
+			"scaleX": 0.56,
+			"scaleY": 0.56,
+			"scaleZ": 0.56,
+			"rotationZ": 179.4
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_2",
+			"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+			"x": -0.25677,
+			"y": 0.11819,
+			"z": 0.75348,
+			"scaleX": 0.39,
+			"scaleY": 0.39,
+			"scaleZ": 0.39,
+			"rotationZ": 178.6
+		}
+	]
+}
