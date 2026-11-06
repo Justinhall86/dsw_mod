@@ -6406,7 +6406,7 @@
 					"values": [],
 					"props": {},
 					"comment": "Amount of Hegemony necessary for all players to activate Renegade drops",
-					"value": 5000
+					"value": -1
 				},
 				{
 					"id": "Raid_Renegades_Drop_ScoreThreshold_Bounds",
@@ -36635,10 +36635,6 @@
 					"color": 11693628,
 					"startResources": [
 						{
-							"res": "Solari",
-							"qty": 1000
-						},
-						{
 							"res": "Plascrete",
 							"qty": 500
 						},
@@ -36647,16 +36643,8 @@
 							"qty": 160
 						},
 						{
-							"res": "Authority",
-							"qty": 60
-						},
-						{
 							"qty": 50,
 							"res": "Influence"
-						},
-						{
-							"qty": 50,
-							"res": "Intel"
 						},
 						{
 							"res": "Standing",
@@ -36669,11 +36657,6 @@
 						{
 							"qty": 40,
 							"res": "GuildFavor"
-						},
-						{
-							"qty": 3000,
-							"res": "Solari",
-							"gameMode": "Kanly"
 						},
 						{
 							"qty": 1500,
@@ -36691,8 +36674,39 @@
 							"gameMode": "Kanly"
 						},
 						{
-							"qty": 50,
+							"res": "Solari",
+							"qty": 10000
+						},
+						{
+							"res": "Solari",
+							"qty": 10000,
+							"gameMode": "Kanly"
+						},
+						{
 							"res": "Intel",
+							"qty": 10000
+						},
+						{
+							"res": "Intel",
+							"qty": 10000,
+							"gameMode": "Kanly"
+						},
+						{
+							"res": "Authority",
+							"qty": 500
+						},
+						{
+							"res": "Authority",
+							"qty": 500,
+							"gameMode": "Kanly"
+						},
+						{
+							"res": "Knowledge",
+							"qty": 500
+						},
+						{
+							"res": "Knowledge",
+							"qty": 500,
 							"gameMode": "Kanly"
 						}
 					],
@@ -36789,6 +36803,14 @@
 							{
 								"trait": "AllFactions_Basics",
 								"displayed": false
+							},
+							{
+								"trait": "Th_RenegadePact",
+								"displayed": false
+							},
+							{
+								"trait": "Th_TestFreeArmy",
+								"displayed": true
 							}
 						],
 						"aiType": [
@@ -36817,7 +36839,7 @@
 								"traitBonus": "Thorvald_HegemonyBonus2"
 							}
 						],
-						"initials": "T",
+						"initials": "Th",
 						"locked": false,
 						"defaultDiplomaticStatus": [
 							{
@@ -36922,7 +36944,7 @@
 								"id": "Nobru"
 							},
 							{
-								"id": "ThJool"
+								"id": "ThEin"
 							},
 							{
 								"id": "Silva"
@@ -47688,7 +47710,7 @@
 				{
 					"id": "Karlin",
 					"firstname": "Karlin",
-					"lastname": "Mallenor",
+					"lastname": "Thorvald",
 					"color": 10592673,
 					"gfx": {
 						"file": "UI/Faction/councillors_all.png",
@@ -47702,12 +47724,12 @@
 						}
 					],
 					"props": {
-						"heroUnit": "Th_Hero_1"
+						"heroUnit": "TH_Hero_1"
 					},
 					"complexity": 2,
 					"passiveTrait": "KarlinPassive",
 					"flags": 0,
-					"desc": "Karlin Mallenor, a buff-and-support commander whose presence hardens the ranks around him. (working name)",
+					"desc": "Karlin Thorvald, commandant of the War Academy: a buff-and-support commander whose presence hardens the ranks around him.",
 					"images": {
 						"menuGfx": {
 							"file": "UI/Faction/Menu/menuCouncilors.png",
@@ -47789,7 +47811,7 @@
 						}
 					],
 					"props": {
-						"heroUnit": "Th_Hero_2"
+						"heroUnit": "TH_Hero_2"
 					},
 					"complexity": 0,
 					"passiveTrait": "VanePassive",
@@ -47860,25 +47882,25 @@
 				{
 					"images": {
 						"menuGfx": {
-							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"file": "UI/Faction/Menu/menuCouncilorsThorvald.png",
 							"size": 1,
-							"x": 1680,
-							"y": 2496,
+							"x": 336,
+							"y": 0,
 							"width": 336,
 							"height": 624
 						},
 						"tutoGfx": {
-							"file": "UI/Faction/Menu/councillorsCorrino.png",
+							"file": "UI/Faction/Menu/councillorsThorvald.png",
 							"size": 1,
-							"x": 900,
+							"x": 180,
 							"y": 0,
 							"width": 180,
 							"height": 320
 						}
 					},
-					"id": "ThJool",
-					"firstname": "Jool",
-					"lastname": "",
+					"id": "ThEin",
+					"firstname": "Theodoric",
+					"lastname": "Ein",
 					"gender": 0,
 					"aiTypes": [
 						{
@@ -47888,16 +47910,16 @@
 					"props": {},
 					"flags": 0,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
+						"file": "UI/Faction/councillors_thorvald.png",
 						"size": 128,
-						"x": 5,
-						"y": 4
+						"x": 1,
+						"y": 0
 					},
-					"desc": "Overseer Jool, the syndicate's military overseer: forces fighting near Thorvald territory gain Power and Armor.",
+					"desc": "Envoy Theodoric Ein, the War Academy-trained field envoy who speaks for the house on the ground: leaner payrolls, veteran recruits and armour where an operation is running.",
 					"color": 10592673,
 					"complexity": 2,
-					"passiveTrait": "ThJoolPassive",
-					"title": "Overseer"
+					"passiveTrait": "ThEinPassive",
+					"title": "Envoy"
 				},
 				{
 					"id": "Irulan",
@@ -47946,32 +47968,32 @@
 					"lastname": "",
 					"color": 10592673,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
+						"file": "UI/Faction/councillors_thorvald.png",
 						"size": 128,
 						"x": 0,
-						"y": 4
+						"y": 0
 					},
 					"aiTypes": [
 						{
-							"domain": "Economy"
+							"domain": "Statecraft"
 						}
 					],
 					"props": {},
 					"complexity": 0,
 					"passiveTrait": "NobruPassive",
 					"flags": 0,
-					"desc": "Adjutant Nobru, political and market manipulator: Landsraad patronage and cheaper CHOAM shares.",
+					"desc": "Adjutant Nobru, Earl Memnon's man on the Landsraad floor: he trades alloy contracts for votes and buys CHOAM shares cheaper than anyone.",
 					"images": {
 						"menuGfx": {
-							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"file": "UI/Faction/Menu/menuCouncilorsThorvald.png",
 							"size": 1,
 							"x": 0,
-							"y": 2496,
+							"y": 0,
 							"width": 336,
 							"height": 624
 						},
 						"tutoGfx": {
-							"file": "UI/Faction/Menu/councillorsCorrino.png",
+							"file": "UI/Faction/Menu/councillorsThorvald.png",
 							"size": 1,
 							"x": 0,
 							"y": 0,
@@ -48027,17 +48049,17 @@
 				{
 					"images": {
 						"menuGfx": {
-							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"file": "UI/Faction/Menu/menuCouncilorsThorvald.png",
 							"size": 1,
-							"x": 1344,
-							"y": 2496,
+							"x": 672,
+							"y": 0,
 							"width": 336,
 							"height": 624
 						},
 						"tutoGfx": {
-							"file": "UI/Faction/Menu/councillorsCorrino.png",
+							"file": "UI/Faction/Menu/councillorsThorvald.png",
 							"size": 1,
-							"x": 720,
+							"x": 360,
 							"y": 0,
 							"width": 180,
 							"height": 320
@@ -48046,21 +48068,21 @@
 					"id": "Silva",
 					"firstname": "Silva",
 					"lastname": "",
-					"gender": 1,
+					"gender": 0,
 					"aiTypes": [
 						{
-							"domain": "Statecraft"
+							"domain": "Economy"
 						}
 					],
 					"props": {},
 					"flags": 0,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
+						"file": "UI/Faction/councillors_thorvald.png",
 						"size": 128,
-						"x": 4,
-						"y": 4
+						"x": 2,
+						"y": 0
 					},
-					"desc": "Master Silva, infrastructure and logistics: cheaper, faster village buildings and lighter upkeep on infrastructure.",
+					"desc": "Master Silva, who ran the smelting decks of Heighforge: village buildings cost less Plascrete, go up faster and cost less Solari to keep.",
 					"color": 10592673,
 					"complexity": 0,
 					"passiveTrait": "SilvaPassive",
@@ -48115,10 +48137,10 @@
 					"lastname": "",
 					"color": 10592673,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
+						"file": "UI/Faction/councillors_thorvald.png",
 						"size": 128,
 						"x": 3,
-						"y": 4
+						"y": 0
 					},
 					"aiTypes": [
 						{
@@ -48131,18 +48153,18 @@
 					"complexity": 2,
 					"passiveTrait": "HarukaPassive",
 					"flags": 0,
-					"desc": "Lady Haruka, spymaster: agents working Arrakis or CHOAM bring in Intel and Influence.",
+					"desc": "Lady Haruka, spymaster: every infiltration level pays in Influence and Intel, and operations are cheaper and ready sooner.",
 					"images": {
 						"menuGfx": {
-							"file": "UI/Faction/Menu/menuCouncilors.png",
+							"file": "UI/Faction/Menu/menuCouncilorsThorvald.png",
 							"size": 1,
 							"x": 1008,
-							"y": 2496,
+							"y": 0,
 							"width": 336,
 							"height": 624
 						},
 						"tutoGfx": {
-							"file": "UI/Faction/Menu/councillorsCorrino.png",
+							"file": "UI/Faction/Menu/councillorsThorvald.png",
 							"size": 1,
 							"x": 540,
 							"y": 0,
@@ -50282,7 +50304,7 @@
 					"otherEffects": [
 						{
 							"props": {
-								"unit": "Th_Drone_Deployed"
+								"unit": "TH_Drone_Deployed"
 							},
 							"id": "UReplaceWith"
 						}
@@ -50290,7 +50312,7 @@
 					"display": {
 						"where": 8,
 						"alignment": 1,
-						"whereUnit": "Th_Drone"
+						"whereUnit": "TH_Drone"
 					},
 					"apply": {
 						"need": 6,
@@ -50314,7 +50336,7 @@
 						"y": 0
 					},
 					"name": "Install",
-					"desc": "Installs the [Th_Drone] in place and deploys its cannon, allowing it to fire at long range but blocking its movement."
+					"desc": "Installs the [TH_Drone] in place and deploys its cannon, allowing it to fire at long range but blocking its movement."
 				},
 				{
 					"id": "CDroneLeave",
@@ -50375,7 +50397,7 @@
 					"otherEffects": [
 						{
 							"props": {
-								"unit": "Th_Drone"
+								"unit": "TH_Drone"
 							},
 							"id": "UReplaceWith"
 						}
@@ -50383,7 +50405,7 @@
 					"display": {
 						"where": 8,
 						"alignment": 1,
-						"whereUnit": "Th_Drone_Deployed"
+						"whereUnit": "TH_Drone_Deployed"
 					},
 					"apply": {
 						"need": 6
@@ -50406,7 +50428,7 @@
 						"y": 0
 					},
 					"name": "Uninstall",
-					"desc": "Uninstalls the [Th_Drone] and pack its cannon, allowing it to move again."
+					"desc": "Uninstalls the [TH_Drone] and pack its cannon, allowing it to move again."
 				},
 				{
 					"id": "CFrigateDeploy",
@@ -50492,7 +50514,7 @@
 					"otherEffects": [
 						{
 							"props": {
-								"unit": "Th_Frigate_Deployed"
+								"unit": "TH_Frigate_Deployed"
 							},
 							"id": "UReplaceWith"
 						},
@@ -50506,7 +50528,7 @@
 					"display": {
 						"where": 8,
 						"alignment": 1,
-						"whereUnit": "Th_Frigate"
+						"whereUnit": "TH_Frigate"
 					},
 					"apply": {
 						"need": 6,
@@ -50530,7 +50552,7 @@
 						"y": 0
 					},
 					"name": "Airfield Configuration",
-					"desc": "Set up the [!Th_Frigate] as a military [!Airfield]."
+					"desc": "Set up the [!TH_Frigate] as a military [!Airfield]."
 				},
 				{
 					"id": "CFrigateLeave",
@@ -50597,7 +50619,7 @@
 					"otherEffects": [
 						{
 							"props": {
-								"unit": "Th_Frigate"
+								"unit": "TH_Frigate"
 							},
 							"id": "UReplaceWith"
 						},
@@ -50611,7 +50633,7 @@
 					"display": {
 						"where": 8,
 						"alignment": 1,
-						"whereUnit": "Th_Frigate_Deployed"
+						"whereUnit": "TH_Frigate_Deployed"
 					},
 					"apply": {
 						"need": 6
@@ -50634,7 +50656,7 @@
 						"y": 0
 					},
 					"name": "Mobile Configuration",
-					"desc": "Recover the [!Th_Frigate] mobility and offensive abilities."
+					"desc": "Recover the [!TH_Frigate] mobility and offensive abilities."
 				},
 				{
 					"id": "Disembark_Drone",
@@ -52268,16 +52290,16 @@
 							"props": {
 								"units": [
 									{
-										"unitRef": "Th_Trooper"
+										"unitRef": "TH_Trooper"
 									},
 									{
-										"unitRef": "Th_Trooper_Aramsham"
+										"unitRef": "TH_Trooper_Aramsham"
 									},
 									{
-										"unitRef": "Th_Soldier"
+										"unitRef": "TH_Soldier"
 									},
 									{
-										"unitRef": "Th_Soldier_Aramsham"
+										"unitRef": "TH_Soldier_Aramsham"
 									}
 								]
 							},
@@ -52298,7 +52320,7 @@
 					"display": {
 						"where": 8,
 						"alignment": 1,
-						"whereUnit": "Th_Hero_1"
+						"whereUnit": "TH_Hero_1"
 					},
 					"apply": {
 						"need": 6,
@@ -52457,7 +52479,7 @@
 					"display": {
 						"where": 8,
 						"alignment": 1,
-						"whereUnit": "Th_Hero_2"
+						"whereUnit": "TH_Hero_2"
 					},
 					"apply": {
 						"need": 6,
@@ -54232,6 +54254,150 @@
 					"duration": 3
 				},
 				{
+					"id": "GhostMarket",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [
+						{
+							"props": {
+								"structure": "Th_RenegadeBase"
+							},
+							"id": "SWorldEvent",
+							"comments": "engine: GhostMarket spawns this world event in the target region, owned by the caster"
+						}
+					],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 3,
+						"needSelector": true,
+						"alignment": 6,
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [
+						{
+							"trait": "RenegadeControl",
+							"apply": 0,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 2,
+						"y": 0
+					},
+					"name": "Renegade Takeover",
+					"desc": "Pay a Renegade crew to set their shuttle down next to a village. While their base stands the village is under Renegade control and cannot be attacked or annexed by anyone."
+				},
+				{
+					"id": "Th_RenegadeStrike",
+					"flags": 0,
+					"cooldowns": {},
+					"traits": [
+						{
+							"trait": "Th_RenegadeStrike_Signal",
+							"apply": 3,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 4,
+						"needSelector": true,
+						"alignment": 4,
+						"validDiplomaticStatuses": [
+							{
+								"ref": "War"
+							},
+							{
+								"ref": "Hostility"
+							}
+						],
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 2,
+						"y": 0
+					},
+					"name": "Renegade Strike",
+					"desc": "Sell a rival House's coordinates to the Renegade fleet. Target the main base of another player (not a neutral city): within a day their shuttles land on one of that House's villages and pillage it."
+				},
+				{
+					"id": "Th_IronLandfall",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 0,
+						"needSelector": true,
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"name": "Iron Landfall",
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 34,
+						"y": 0
+					},
+					"traits": [
+						{
+							"trait": "Th_IronLandfall",
+							"apply": 1,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"desc": "Renegade shuttles on the Thorvald payroll land a company of Thorvald troops in the chosen region: two Troopers, an Iron Ranger and an Iron Guard."
+				},
+				{
 					"id": "CeaseFire",
 					"flags": 0,
 					"cooldowns": {},
@@ -55454,35 +55620,6 @@
 						"y": 0
 					},
 					"traits": []
-				},
-				{
-					"id": "GhostMarket",
-					"flags": 0,
-					"cooldowns": {},
-					"otherEffects": [
-						{
-							"props": {
-								"structure": "GhostMarketDiscovery"
-							},
-							"id": "SWorldEvent"
-						}
-					],
-					"display": {
-						"where": 0,
-						"alignment": 0
-					},
-					"apply": {
-						"need": 0
-					},
-					"props": {},
-					"implemented": false,
-					"traits": [],
-					"gfx": {
-						"file": "UI/icons/skill_icons02.png",
-						"size": 30,
-						"x": 2,
-						"y": 0
-					}
 				},
 				{
 					"id": "NukeTargeting",
@@ -60179,11 +60316,11 @@
 					},
 					"mesh": [
 						{
-							"path": "Character/Imperial/Wensicia/Prefab_ImperialWensicia.prefab"
+							"path": "CharMOD/Male01_ThorvaldKarlin/Prefab_ThorvaldKarlin.prefab"
 						}
 					],
-					"inherit": "Wensicia",
-					"rigName": 1,
+					"inherit": "ThorvaldKarlin",
+					"rigName": 0,
 					"scale": 1.4,
 					"anim": []
 				},
@@ -62180,6 +62317,58 @@
 						}
 					],
 					"scale": 2.7,
+					"anim": [
+						{
+							"id": "Spawn",
+							"lock": false,
+							"animName": "RavagerShuttle_Arriving",
+							"loop": false,
+							"props": {
+								"cullSound": false
+							},
+							"sound": "Renegadebase_Arrive",
+							"animEvents": []
+						},
+						{
+							"id": "Death",
+							"props": {},
+							"lock": false,
+							"animName": "RavagerShuttle_Leaving",
+							"loop": false,
+							"sound": "Renegadebase_Leave",
+							"animEvents": []
+						}
+					]
+				},
+				{
+					"id": "Th_RenegadeBase",
+					"radius": 10,
+					"height": 8,
+					"audio": {
+						"start": "Villagesmall_Start",
+						"select": "Select_City"
+					},
+					"props": {
+						"conform": false,
+						"bannerIcon": {
+							"file": "UI/Faction/factionEmblem.png",
+							"size": 64,
+							"x": 11,
+							"y": 0
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/factionEmblem.png",
+						"size": 64,
+						"x": 11,
+						"y": 0
+					},
+					"mesh": [
+						{
+							"path": "Structure/Camp/RenegadeBase.prefab"
+						}
+					],
+					"scale": 2.2,
 					"anim": [
 						{
 							"id": "Spawn",
@@ -64523,6 +64712,193 @@
 							"blend": 0.2,
 							"lock": false,
 							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "Death",
+							"loop": false,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "DeathExplosion",
+							"loop": false,
+							"blend": 0.05,
+							"sound": "Dualsword_Deathexplosion",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightIdle",
+							"loop": true,
+							"blend": 0.15,
+							"animName": "DualSwords_FightIdle",
+							"randStartTime": true,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightRun",
+							"moveSpeed": 2.9,
+							"loop": true,
+							"blend": 0.3,
+							"animName": "DualSwords_FightRun",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightHitFront",
+							"loop": false,
+							"blend": 0.05,
+							"animName": "DualSwords_FightHit",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightHitBack",
+							"loop": false,
+							"blend": 0.05,
+							"animName": "DualSwords_FightHit",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightHitLeft",
+							"loop": false,
+							"blend": 0.05,
+							"animName": "DualSwords_FightHit",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightHitRight",
+							"loop": false,
+							"blend": 0.05,
+							"animName": "DualSwords_FightHit",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightDeath",
+							"loop": false,
+							"blend": 0.05,
+							"sound": "Dualsword_Fightdeath",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "IdleToFightIdle",
+							"loop": false,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "RunToFightRun",
+							"loop": false,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "FightIdletoIdle",
+							"loop": false,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "Deathworm",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						}
+					],
+					"props": {},
+					"audio": {
+						"select": "Select_Dualswords",
+						"remove": "Dualsword_Remove"
+					},
+					"rigName": 0
+				},
+				{
+					"id": "ThorvaldKarlin",
+					"radius": 0,
+					"height": 0,
+					"anim": [
+						{
+							"id": "Idle",
+							"animName": "DualSwords_Idle",
+							"loop": true,
+							"blend": 0.2,
+							"randStartTime": true,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "IdleVariant",
+							"loop": false,
+							"blend": 0.2,
+							"animName": "DualSwords_IdleStance",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "IdleStance",
+							"props": {},
+							"lock": false,
+							"blend": 0.2,
+							"loop": true,
+							"animEvents": []
+						},
+						{
+							"id": "Run",
+							"moveSpeed": 1.9,
+							"loop": true,
+							"blend": 0.3,
+							"animName": "DualSwords_Run",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "AttackMelee",
+							"loop": false,
+							"blend": 0.2,
+							"animName": "DualSwords_AttackMelee",
+							"minDuration": 0.9,
+							"startTime": 0.1,
+							"sound": "Dualsword_Attackmelee",
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "AttackLaunch",
+							"loop": false,
+							"blend": 0.2,
+							"lock": false,
+							"props": {},
+							"animEvents": []
+						},
+						{
+							"id": "Skill",
+							"props": {},
+							"lock": false,
+							"animName": "Nefud_Skill",
+							"blend": 0.1,
+							"loop": false,
 							"animEvents": []
 						},
 						{
@@ -73354,7 +73730,94 @@
 					],
 					"startUnits": [
 						{
-							"unit": "Th_Ornithopter"
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Ornithopter"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Soldier"
+						},
+						{
+							"unit": "TH_Trooper"
+						},
+						{
+							"unit": "TH_Trooper"
+						},
+						{
+							"unit": "TH_Trooper"
+						},
+						{
+							"unit": "TH_Trooper"
+						},
+						{
+							"unit": "TH_Trooper"
+						},
+						{
+							"unit": "TH_Special"
+						},
+						{
+							"unit": "TH_Special"
+						},
+						{
+							"unit": "TH_Special"
+						},
+						{
+							"unit": "TH_Elite"
+						},
+						{
+							"unit": "TH_Elite"
 						}
 					],
 					"flags": 49158
@@ -75362,41 +75825,41 @@
 						{
 							"composition": [
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8,
 									"condition": {
 										"minDifficulty": 1
 									}
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4,
 									"condition": {
 										"minDifficulty": 1
 									}
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4
 								},
 								{
@@ -75413,38 +75876,38 @@
 						{
 							"composition": [
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"threatProximity": -0.8,
 									"condition": {
 										"minDifficulty": 1
 									}
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"threatProximity": 0.4,
 									"condition": {
 										"minDifficulty": 1
@@ -75465,6 +75928,106 @@
 					"stats": [],
 					"startUnits": [],
 					"flags": 33280
+				},
+				{
+					"id": "Th_RenegadeBase",
+					"texts": {
+						"name": "Thorvald Renegade Base",
+						"plural": {
+							"name": "Thorvald Renegade Bases"
+						},
+						"desc": "A Renegade shuttle on the Thorvald payroll has set down here. While it stands, the [Renegades] hold the nearby [Village] and nobody can attack it.\n\nSend a unit to dismantle it and loot its [Solari]."
+					},
+					"model": "Th_RenegadeBase",
+					"props": {
+						"worldEvent": {
+							"spawnProba": 0,
+							"maxPerRegion": 1,
+							"group": 0,
+							"actions": [
+								{
+									"type": 1,
+									"desc": "Dismantle the Renegade Base",
+									"props": {
+										"duration": 2,
+										"notForCreator": true
+									},
+									"reward": {
+										"res": [
+											{
+												"res": "Solari",
+												"minQty": 500,
+												"maxQty": 700,
+												"time": 0
+											},
+											{
+												"res": "Solari",
+												"minQty": 900,
+												"maxQty": 1200,
+												"time": 500
+											}
+										]
+									},
+									"aiWeights": [
+										{
+											"value": 20,
+											"aiType": "Military"
+										}
+									]
+								}
+							]
+						},
+						"lootingValue": [
+							{
+								"res": "GuildFavor",
+								"list": [
+									{
+										"time": 0,
+										"qty": 30
+									},
+									{
+										"time": 1000,
+										"qty": 30
+									}
+								]
+							},
+							{
+								"res": "Scraps",
+								"list": [
+									{
+										"time": 0,
+										"qty": 50
+									},
+									{
+										"time": 1000,
+										"qty": 50
+									}
+								]
+							},
+							{
+								"res": "Solari",
+								"list": [
+									{
+										"time": 0,
+										"qty": 1000
+									},
+									{
+										"time": 1000,
+										"qty": 1000
+									}
+								]
+							}
+						],
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Discovery"
+						}
+					},
+					"militia": [],
+					"stats": [],
+					"startUnits": [],
+					"flags": 16
 				},
 				{
 					"id": "SpaceCruiserWreck",
@@ -80499,7 +81062,7 @@
 					"attacks": {}
 				},
 				{
-					"id": "G_GinazNeophyte",
+					"id": "G_Soldier",
 					"stats": [
 						{
 							"health": 250,
@@ -90412,7 +90975,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Ornithopter",
+					"id": "TH_Ornithopter",
 					"traits": [],
 					"stats": [],
 					"props": {},
@@ -90564,7 +91127,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Ornithopter_Scavenged",
+					"id": "TH_Ornithopter_Scavenged",
 					"traits": [
 						{
 							"ref": "NoHealthRegen"
@@ -90579,7 +91142,7 @@
 						}
 					],
 					"props": {
-						"baseUnit": "Th_Ornithopter"
+						"baseUnit": "TH_Ornithopter"
 					},
 					"gfx": {
 						"file": "UI/Faction/unitsSmall.png",
@@ -90730,7 +91293,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Ornithopter_Prototype",
+					"id": "TH_Ornithopter_Prototype",
 					"texts": {
 						"name": "Experimental Ornithopter",
 						"plural": {
@@ -90747,7 +91310,7 @@
 						}
 					],
 					"props": {
-						"baseUnit": "Th_Ornithopter"
+						"baseUnit": "TH_Ornithopter"
 					},
 					"aiWeights": [],
 					"gfx": {
@@ -90895,7 +91458,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Ornithopter_Lab",
+					"id": "TH_Ornithopter_Lab",
 					"texts": {
 						"name": "Labthopter",
 						"plural": {
@@ -90950,7 +91513,7 @@
 						]
 					},
 					"props": {
-						"baseUnit": "Th_Ornithopter"
+						"baseUnit": "TH_Ornithopter"
 					},
 					"aiWeights": [],
 					"gfx": {
@@ -91051,7 +91614,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Harvester",
+					"id": "TH_Harvester",
 					"traits": [],
 					"stats": [],
 					"props": {},
@@ -91253,7 +91816,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Trooper",
+					"id": "TH_Trooper",
 					"traits": [
 						{
 							"ref": "Th_Trooper_Trait"
@@ -91502,7 +92065,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Trooper_Aramsham",
+					"id": "TH_Trooper_Aramsham",
 					"texts": {
 						"name": "Thorvald Trooper",
 						"desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
@@ -91522,7 +92085,7 @@
 					"props": {
 						"squadSize": 3,
 						"excessWeight": 5,
-						"baseUnit": "Th_Trooper",
+						"baseUnit": "TH_Trooper",
 						"radius": 3.7,
 						"squadSpacing": 1.3
 					},
@@ -91792,7 +92355,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Soldier",
+					"id": "TH_Soldier",
 					"traits": [
 						{
 							"ref": "Th_Ranger_Trait"
@@ -92083,7 +92646,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Soldier_Aramsham",
+					"id": "TH_Soldier_Aramsham",
 					"texts": {
 						"name": "Iron Ranger",
 						"desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
@@ -92104,7 +92667,7 @@
 					"props": {
 						"squadSize": 3,
 						"excessWeight": 5,
-						"baseUnit": "Th_Soldier",
+						"baseUnit": "TH_Soldier",
 						"squadSpacing": 1.3,
 						"radius": 3.7
 					},
@@ -92363,7 +92926,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Special",
+					"id": "TH_Special",
 					"traits": [],
 					"stats": [
 						{
@@ -92662,7 +93225,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Drone",
+					"id": "TH_Drone",
 					"traits": [
 						{
 							"ref": "Th_Drone_Trait"
@@ -92969,7 +93532,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Drone_Deployed",
+					"id": "TH_Drone_Deployed",
 					"texts": {
 						"name": "Artillery Drone",
 						"desc": "Once stabilized, these remote-controlled mobile artilleries rain deafening shells on even well-defended positions. Make sure to keep the enemy away from them, as they are quite vulnerable at close range.",
@@ -93002,7 +93565,7 @@
 						"zOffset": 0,
 						"vibrationsFactor": 10,
 						"undeployAbility": "TDroneLeave",
-						"baseUnit": "Th_Drone",
+						"baseUnit": "TH_Drone",
 						"deployTime": 4,
 						"rotationSpeed": 5,
 						"rotationAcceleration": 1,
@@ -93200,7 +93763,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Elite",
+					"id": "TH_Elite",
 					"texts": {
 						"name": "Heavy Vanguard",
 						"desc": "Armoured Thorvald shock troops with a layered shield and a halberd, the syndicate's answer to elite infantry.",
@@ -93477,7 +94040,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Ship",
+					"id": "TH_Ship",
 					"texts": {
 						"name": "Hammer",
 						"plural": {
@@ -93856,7 +94419,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Frigate",
+					"id": "TH_Frigate",
 					"texts": {
 						"name": "Thorvald Frigate",
 						"plural": {
@@ -94269,7 +94832,7 @@
 							"y": 1
 						}
 					},
-					"id": "Th_Frigate_Deployed",
+					"id": "TH_Frigate_Deployed",
 					"texts": {
 						"name": "Thorvald Frigate",
 						"plural": {
@@ -94421,7 +94984,7 @@
 					},
 					"props": {
 						"targetPitching": 0,
-						"baseUnit": "Th_Frigate",
+						"baseUnit": "TH_Frigate",
 						"undeployAbility": "TFrigateLeave",
 						"rotationSpeed": 0,
 						"deployTime": 5,
@@ -94596,13 +95159,13 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Hero_1",
+					"id": "TH_Hero_1",
 					"texts": {
-						"name": "Karlin Mallenor",
+						"name": "Karlin Thorvald",
 						"plural": {
 							"name": "Karlin"
 						},
-						"desc": "Karlin is the third daughter of Memnon IV. She is trained in stewardship and takes care of much of the day to day logistics of the imperial palace. Her impulsiveness often causes trouble, but brings her to rapid success even more often."
+						"desc": "Karlin Thorvald commands the War Academy, where the Earl's officers learn tactics and logistics side by side. He fights with two blades at the head of the line, and the soldiers around him hold harder, hit harder and strike faster for it."
 					},
 					"traits": [
 						{
@@ -94616,8 +95179,7 @@
 						{
 							"health": 500,
 							"power": 16,
-							"armor": 2,
-							"range": 35
+							"armor": 2
 						}
 					],
 					"props": {
@@ -94644,7 +95206,7 @@
 						"events": [
 							{
 								"fxs": [],
-								"sound": "Move_Run_Wencisia",
+								"sound": "Move_Run_Iakinnefud",
 								"soundSource": 0,
 								"kind": 1
 							},
@@ -94652,7 +95214,7 @@
 								"kind": 3,
 								"fxs": [],
 								"soundSource": 0,
-								"sound": "Wencisia_Attackmelee"
+								"sound": "Nefud_Attackmelee"
 							},
 							{
 								"kind": 4,
@@ -94677,26 +95239,26 @@
 								],
 								"soundSource": 0,
 								"fxTarget": 1,
-								"sound": "Wencisia_Ability"
+								"sound": "Nefud_Ability"
 							}
 						],
 						"sound": {
 							"voices": [
 								{
 									"action": 2,
-									"event": "Voice_C_Wensicia_Attack"
+									"event": "Voice_H_Iakinnefud_Attack"
 								},
 								{
 									"action": 1,
-									"event": "Voice_C_Wensicia_Move"
+									"event": "Voice_H_Iakinnefud_Move"
 								},
 								{
 									"action": 0,
-									"event": "Voice_C_Wensicia_Select"
+									"event": "Voice_H_Iakinnefud_Select"
 								},
 								{
 									"action": 6,
-									"event": "Voice_C_Wensicia_Ability"
+									"event": "Voice_H_Iakinnefud_Abilityon"
 								}
 							]
 						}
@@ -94706,7 +95268,7 @@
 					"attacks": {
 						"combos": [
 							{
-								"ref": "Generic_Ranged"
+								"ref": "Generic_Flanker_Melee"
 							}
 						]
 					}
@@ -94874,7 +95436,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_LazaTiger",
+					"id": "TH_LazaTiger",
 					"texts": {
 						"name": "Laza Tiger",
 						"plural": {
@@ -95114,7 +95676,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Hero_2",
+					"id": "TH_Hero_2",
 					"texts": {
 						"name": "Vane Torrver",
 						"plural": {
@@ -95405,7 +95967,7 @@
 							"y": 0
 						}
 					},
-					"id": "Th_Soldier_Conquest",
+					"id": "TH_Soldier_Conquest",
 					"texts": {
 						"name": "Iron Ranger",
 						"desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
@@ -95482,7 +96044,7 @@
 					"props": {
 						"squadSize": 3,
 						"excessWeight": 5,
-						"baseUnit": "Th_Soldier",
+						"baseUnit": "TH_Soldier",
 						"squadSpacing": 1.3,
 						"radius": 3.7
 					},
@@ -95548,7 +96110,7 @@
 				},
 				{
 					"images": {},
-					"id": "Th_MissileShip",
+					"id": "TH_MissileShip",
 					"texts": {
 						"name": "",
 						"plural": {
@@ -100536,6 +101098,343 @@
 					}
 				},
 				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 1,
+							"y": 5
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 5,
+							"y": 5
+						}
+					},
+					"id": "ThR_Trooper",
+					"texts": {
+						"name": "Iron Corsair",
+						"plural": {
+							"name": "Iron Corsairs"
+						},
+						"desc": "Corsairs flying under no banner but paid in Thorvald Solari. They hitch on the Spacing Guild ships and land wherever the Earl's ledgers say a profit can be made."
+					},
+					"traits": [
+						{
+							"ref": "Renegade_Trait"
+						}
+					],
+					"stats": [
+						{
+							"power": 14,
+							"armor": 6,
+							"health": 600,
+							"speed": 4,
+							"maxSupply": 200,
+							"maxExpLevel": 0
+						}
+					],
+					"props": {
+						"squadSize": 3,
+						"radius": 4,
+						"squadSpacing": 1.5,
+						"vibrationsFactor": 0.1
+					},
+					"aiWeights": [],
+					"inherits": "Trooper",
+					"faction": "Renegades",
+					"flags": 40,
+					"effects": {
+						"models": [
+							{
+								"ref": "Th_Trooper",
+								"flags": 0
+							}
+						],
+						"favorsLoot": 2,
+						"events": [
+							{
+								"kind": 1,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Play_Common_Move"
+							}
+						]
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 1,
+							"y": 5
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 5,
+							"y": 5
+						}
+					},
+					"id": "ThR_Ranger",
+					"texts": {
+						"name": "Iron Corsair Marksman",
+						"plural": {
+							"name": "Iron Corsair Marksmen"
+						},
+						"desc": "Corsairs flying under no banner but paid in Thorvald Solari. They hitch on the Spacing Guild ships and land wherever the Earl's ledgers say a profit can be made."
+					},
+					"traits": [
+						{
+							"ref": "Renegade_Trait"
+						}
+					],
+					"stats": [
+						{
+							"power": 14,
+							"armor": 2,
+							"health": 450,
+							"speed": 4,
+							"maxSupply": 200,
+							"maxExpLevel": 0,
+							"range": 35
+						}
+					],
+					"props": {
+						"squadSize": 3,
+						"radius": 4,
+						"squadSpacing": 1.5,
+						"vibrationsFactor": 0.1
+					},
+					"aiWeights": [],
+					"inherits": "Ranged",
+					"faction": "Renegades",
+					"flags": 40,
+					"effects": {
+						"models": [
+							{
+								"ref": "Th_Soldier",
+								"flags": 0
+							}
+						],
+						"favorsLoot": 2,
+						"events": [
+							{
+								"kind": 1,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Play_Common_Move"
+							}
+						]
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 2,
+							"y": 5
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 6,
+							"y": 5
+						}
+					},
+					"id": "ThR_Guard",
+					"texts": {
+						"name": "Iron Corsair Gunner",
+						"plural": {
+							"name": "Iron Corsair Gunners"
+						},
+						"desc": "Corsairs flying under no banner but paid in Thorvald Solari. They hitch on the Spacing Guild ships and land wherever the Earl's ledgers say a profit can be made."
+					},
+					"traits": [
+						{
+							"ref": "Renegade_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 400,
+							"power": 23,
+							"armor": 0,
+							"speed": 4,
+							"maxSupply": 200,
+							"maxExpLevel": 0,
+							"range": 35
+						}
+					],
+					"props": {
+						"squadSize": 3,
+						"radius": 4,
+						"squadSpacing": 1.5,
+						"vibrationsFactor": 0.1
+					},
+					"aiWeights": [],
+					"inherits": "Demo",
+					"faction": "Renegades",
+					"flags": 40,
+					"effects": {
+						"models": [
+							{
+								"ref": "Th_Special",
+								"flags": 0
+							}
+						],
+						"favorsLoot": 2,
+						"events": [
+							{
+								"kind": 1,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Play_Common_Move"
+							}
+						]
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 6,
+						"y": 5
+					}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 1,
+							"y": 5
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 3,
+							"y": 5
+						}
+					},
+					"id": "ThR_Ship",
+					"texts": {
+						"name": "Iron Corsair Raider",
+						"plural": {
+							"name": "Iron Corsair Raiders"
+						},
+						"desc": "Corsairs flying under no banner but paid in Thorvald Solari. They hitch on the Spacing Guild ships and land wherever the Earl's ledgers say a profit can be made."
+					},
+					"traits": [
+						{
+							"ref": "Renegade_Ship_Trait"
+						},
+						{
+							"ref": "Demo_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 300,
+							"power": 16,
+							"armor": 5,
+							"speed": 4,
+							"maxExpLevel": 0,
+							"range": 35
+						}
+					],
+					"props": {
+						"squadSize": 1,
+						"vibrationsFactor": 0.1,
+						"flyAltitude": 15,
+						"zOffset": 5,
+						"bannerZOffset": -5
+					},
+					"aiWeights": [],
+					"inherits": "Ship",
+					"faction": "Renegades",
+					"flags": 40,
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 3,
+						"y": 5
+					},
+					"effects": {
+						"models": [
+							{
+								"ref": "Th_Ship",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"kind": 0,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Ravager/FX_Ravager_Reactors.fx",
+										"space": 0,
+										"attachTo": "B_Body",
+										"flags": 0
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Ravager/FX_Ravager_Death.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "B_Body"
+									},
+									{
+										"fx": "Fx/Vehicle/Ships/Ravager/FX_Ravager_Death_Floor.fx",
+										"space": 0,
+										"flags": 2
+									}
+								],
+								"soundSource": 0
+							}
+						],
+						"favorsLoot": 2,
+						"scrapLoot": 8
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {
+						"combos": [
+							{
+								"ref": "Th_Ship_Attack",
+								"weight": 1
+							}
+						]
+					}
+				},
+				{
 					"id": "Rebels",
 					"traits": [
 						{
@@ -105142,7 +106041,7 @@
 				},
 				{
 					"images": {},
-					"id": "Th_Nuke_Area",
+					"id": "TH_Nuke_Area",
 					"texts": {
 						"name": "",
 						"plural": {
@@ -119572,7 +120471,7 @@
 						},
 						{
 							"value": -10,
-							"unit": "Th_Drone"
+							"unit": "TH_Drone"
 						}
 					]
 				},
@@ -151094,6 +151993,186 @@
 					"name": "Thorvald"
 				},
 				{
+					"id": "Th_TestFreeArmy",
+					"name": "TEST: Free Army",
+					"type": 0,
+					"displayed": true,
+					"desc": "Test mode: every Thorvald unit is available at once, free, and trains almost instantly.",
+					"props": {
+						"tip": {
+							"allowed": true,
+							"padExpand": true
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"unit": "TH_Ornithopter"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Harvester"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Trooper"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Soldier"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Special"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Drone"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Elite"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Ship"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Frigate"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Hero_1"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {
+								"unit": "TH_Hero_2"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Unit_ImportCost_MRatio",
+							"val": 0,
+							"desc": "TEST: units cost nothing"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Unit_ImportTime_MRatio",
+							"val": 0.01,
+							"desc": "TEST: units train almost instantly"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Army_StockUpkeep_MRatio",
+							"val": 0,
+							"desc": "TEST: no military upkeep"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Mission_Cost_MRatio",
+							"val": 0,
+							"desc": "TEST: operations cost nothing"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Mission_PreparationTime_MRatio",
+							"val": 0.01,
+							"desc": "TEST: operations are ready almost at once"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "OperationSlot_Flat",
+							"val": 7,
+							"desc": "TEST: 7 extra operation slots"
+						}
+					],
+					"gfx": {
+						"file": "UI/Faction/factionButton00.png",
+						"size": 64,
+						"x": 4,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_RenegadePact",
+					"name": "Renegade Pact",
+					"type": 0,
+					"displayed": true,
+					"desc": "The Renegades are on the Thorvald payroll: their pillagers leave Thorvald villages alone.",
+					"props": {
+						"tip": {
+							"allowed": true,
+							"padExpand": true
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"raid": "Renegade_Pillagers"
+							},
+							"target2": {},
+							"ref": "TRaid_Block",
+							"desc": "Cannot be targeted by Renegade pillager raids"
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 42,
+						"y": 0
+					}
+				},
+				{
 					"id": "Corrino_HegemonyBonus1",
 					"desc": "",
 					"props": {
@@ -152562,11 +153641,11 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Elite"
+								"unit": "TH_Elite"
 							},
 							"target2": {},
 							"ref": "Unlock_TUnit",
-							"desc": "Unlocks the [Th_Elite] unit",
+							"desc": "Unlocks the [TH_Elite] unit",
 							"displayed": false
 						}
 					],
@@ -152777,7 +153856,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Hero_1"
+								"unit": "TH_Hero_1"
 							},
 							"target2": {
 								"trait": "General_HegemonyBonus_2_HeroInRecruitement"
@@ -152787,7 +153866,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Hero_2"
+								"unit": "TH_Hero_2"
 							},
 							"target2": {
 								"trait": "General_HegemonyBonus_2_HeroInRecruitement"
@@ -158606,9 +159685,9 @@
 							},
 							"ref": "Army_SetTTraitStacks_PerNearbyTUnit",
 							"target2": {
-								"unit": "Th_Trooper"
+								"unit": "TH_Trooper"
 							},
-							"desc": "Gain ::target_effects:: per ally [!Th_Trooper] at [Short_Range] (x::target_stacking_limit:: max)"
+							"desc": "Gain ::target_effects:: per ally [!TH_Trooper] at [Short_Range] (x::target_stacking_limit:: max)"
 						}
 					],
 					"type": 0,
@@ -158768,7 +159847,7 @@
 				},
 				{
 					"id": "Th_Trooper_Buff",
-					"desc": "This unit is protected by nearby [!Th_Trooper]s.",
+					"desc": "This unit is protected by nearby [!TH_Trooper]s.",
 					"props": {
 						"stackingLimit": 2,
 						"tip": {
@@ -158840,9 +159919,9 @@
 							},
 							"ref": "Army_SetTTraitStacks_PerNearbyTUnit",
 							"target2": {
-								"unit": "Th_Soldier"
+								"unit": "TH_Soldier"
 							},
-							"desc": "Gain ::target_effects:: per ally [!Th_Soldier] at [Short_Range] (x::target_stacking_limit:: max)"
+							"desc": "Gain ::target_effects:: per ally [!TH_Soldier] at [Short_Range] (x::target_stacking_limit:: max)"
 						}
 					],
 					"type": 0,
@@ -158884,7 +159963,7 @@
 				},
 				{
 					"id": "Th_Ranger_Buff",
-					"desc": "Coordinating with nearby [!Th_Soldier]s.",
+					"desc": "Coordinating with nearby [!TH_Soldier]s.",
 					"props": {
 						"stackingLimit": 2,
 						"tip": {
@@ -158967,7 +160046,7 @@
 							},
 							"ref": "Army_SetTTraitStacks_PerTrooperAtTRange2",
 							"val": 0,
-							"desc": "::target_effects:: for each ally [Th_Trooper] and [Th_Soldier] nearby (x::target_stacking_limit:: max)",
+							"desc": "::target_effects:: for each ally [TH_Trooper] and [TH_Soldier] nearby (x::target_stacking_limit:: max)",
 							"target2": {
 								"range": "Short_Range"
 							}
@@ -159213,7 +160292,7 @@
 				},
 				{
 					"id": "Th_Drone_Trait",
-					"desc": "[!Th_Drone]s anchor themselves to the ground to deliver high-caliber explosives to a long range.",
+					"desc": "[!TH_Drone]s anchor themselves to the ground to deliver high-caliber explosives to a long range.",
 					"props": {
 						"tip": {
 							"cat": "UnitTrait"
@@ -159403,7 +160482,7 @@
 				},
 				{
 					"id": "Th_Elite_Buff",
-					"desc": "This [Th_Elite] is supported by allied units.",
+					"desc": "This [TH_Elite] is supported by allied units.",
 					"props": {
 						"stackingLimit": 20,
 						"tip": {
@@ -159573,7 +160652,7 @@
 				},
 				{
 					"id": "Th_Ship_Debuff",
-					"desc": "This unit has been attacked by a [Th_Ship].",
+					"desc": "This unit has been attacked by a [TH_Ship].",
 					"props": {
 						"stackingLimit": 1,
 						"tip": {
@@ -164352,14 +165431,14 @@
 						},
 						{
 							"target": {
-								"unit": "G_GinazNeophyte"
+								"unit": "G_Soldier"
 							},
 							"target2": {
 								"trait": "G_Hero_2_UnitsBuff_1_Melee"
 							},
 							"ref": "TUnit_GainTTrait2",
 							"val": 0,
-							"desc": "[G_GinazNeophyte]s gain [G_Hero_2_UnitsBuff_1_Melee]"
+							"desc": "[G_Soldier]s gain [G_Hero_2_UnitsBuff_1_Melee]"
 						},
 						{
 							"target": {
@@ -166634,11 +167713,11 @@
 						},
 						{
 							"target": {
-								"unit": "Th_LazaTiger"
+								"unit": "TH_LazaTiger"
 							},
 							"ref": "Army_HandleSubTUnits_Count",
 							"val": 2,
-							"desc": "Is accompanied by ::value:: [Th_LazaTiger]",
+							"desc": "Is accompanied by ::value:: [TH_LazaTiger]",
 							"target2": {},
 							"displayed": false
 						},
@@ -166710,7 +167789,7 @@
 				},
 				{
 					"id": "Th_Hero_1_Buff",
-					"desc": "A nearby unit protect [!Th_Hero_1].",
+					"desc": "A nearby unit protect [!TH_Hero_1].",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -166787,24 +167866,24 @@
 					"attributes": [
 						{
 							"target": {
-								"unit": "Th_Trooper"
+								"unit": "TH_Trooper"
 							},
 							"ref": "TUnit_GainTTrait2",
 							"target2": {
 								"trait": "Th_Hero_1_AllySwordsman"
 							},
-							"desc": "[Th_Trooper]s gain [Th_Hero_1_AllySwordsman]",
+							"desc": "[TH_Trooper]s gain [Th_Hero_1_AllySwordsman]",
 							"displayed": false
 						},
 						{
 							"target": {
-								"unit": "Th_Soldier"
+								"unit": "TH_Soldier"
 							},
 							"target2": {
 								"trait": "Th_Hero_1_AllyRifleman"
 							},
 							"ref": "TUnit_GainTTrait2",
-							"desc": "[Th_Soldier]s gain [Th_Hero_1_AllyRifleman]",
+							"desc": "[TH_Soldier]s gain [Th_Hero_1_AllyRifleman]",
 							"displayed": false
 						}
 					],
@@ -166846,7 +167925,7 @@
 				},
 				{
 					"id": "Th_Hero_1_AllySwordsman",
-					"desc": "This [!Th_Trooper] is inspired by [!Th_Hero_1].",
+					"desc": "This [!TH_Trooper] is inspired by [!TH_Hero_1].",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -166898,7 +167977,7 @@
 				},
 				{
 					"id": "Th_Hero_1_AllyRifleman",
-					"desc": "This [!Th_Soldier] is inspired by [!Th_Hero_1].",
+					"desc": "This [!TH_Soldier] is inspired by [!TH_Hero_1].",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -166973,7 +168052,7 @@
 					"attributes": [
 						{
 							"target": {
-								"unit": "Th_Trooper"
+								"unit": "TH_Trooper"
 							},
 							"target2": {
 								"trait": "Th_Hero_1_FactionBuff_2"
@@ -166983,7 +168062,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Soldier"
+								"unit": "TH_Soldier"
 							},
 							"target2": {
 								"trait": "Th_Hero_1_FactionBuff_2"
@@ -167110,7 +168189,7 @@
 							"target": {},
 							"target2": {},
 							"ref": "CustomProperty",
-							"desc": "Heal instantly all [Th_Trooper] and [Th_Soldier] at [Long_Range] by ::percent_value:: of their max [Life]",
+							"desc": "Heal instantly all [TH_Trooper] and [TH_Soldier] at [Long_Range] by ::percent_value:: of their max [Life]",
 							"val": 0.5
 						},
 						{
@@ -167296,7 +168375,7 @@
 							"target": {},
 							"target2": {},
 							"ref": "CustomProperty",
-							"desc": "The execution threshold of [Th_Elite]s at [Long_Range] cannot be less than ::percent_value::",
+							"desc": "The execution threshold of [TH_Elite]s at [Long_Range] cannot be less than ::percent_value::",
 							"val": 0.25
 						},
 						{
@@ -167305,7 +168384,7 @@
 							},
 							"target2": {},
 							"ref": "Entity_OnKill_GainTTrait_InCombat",
-							"desc": "[!Th_Hero_2] gains [Th_Hero_2_Buff] until the end of combat every time a [Th_Elite] at [Long_Range] executes an enemy unit"
+							"desc": "[!TH_Hero_2] gains [Th_Hero_2_Buff] until the end of combat every time a [TH_Elite] at [Long_Range] executes an enemy unit"
 						}
 					],
 					"type": 0,
@@ -167346,7 +168425,7 @@
 				},
 				{
 					"id": "Th_Hero_2_Buff",
-					"desc": "[!Th_Hero_2] has entered his combat trance.",
+					"desc": "[!TH_Hero_2] has entered his combat trance.",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -167411,7 +168490,7 @@
 					"attributes": [
 						{
 							"target": {
-								"unit": "Th_Elite"
+								"unit": "TH_Elite"
 							},
 							"target2": {
 								"trait": "Th_Hero_2_SardaukarBuff"
@@ -167467,7 +168546,7 @@
 				},
 				{
 					"id": "Th_Hero_2_SardaukarBuff",
-					"desc": "This [!Th_Elite] is under direct command of [!Th_Hero_2].",
+					"desc": "This [!TH_Elite] is under direct command of [!TH_Hero_2].",
 					"props": {
 						"tip": {
 							"cat": "UnitInspiration"
@@ -167542,14 +168621,14 @@
 					"attributes": [
 						{
 							"target": {
-								"unit": "Th_Elite"
+								"unit": "TH_Elite"
 							},
 							"target2": {
 								"resource": "Manpower"
 							},
 							"ref": "TUnit_ImportCost_TRes2_MRatio",
 							"val": 0.8,
-							"desc": "[Th_Elite]s cost ::s_percent:: [Manpower]"
+							"desc": "[TH_Elite]s cost ::s_percent:: [Manpower]"
 						}
 					],
 					"type": 0,
@@ -169814,7 +170893,7 @@
 								"trait": "TExoticCompounds_Debuff"
 							},
 							"target2": {
-								"unit": "Th_Special"
+								"unit": "TH_Special"
 							},
 							"ref": "Unit_FightTarget_OnDamage_ApplyTTrait_AgainstMultipleTUnit2",
 							"val": 2,
@@ -184230,7 +185309,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Ornithopter"
+								"unit": "TH_Ornithopter"
 							},
 							"ref": "TUnit_ImportCost_MRatio",
 							"val": 1,
@@ -184474,7 +185553,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Ornithopter"
+								"unit": "TH_Ornithopter"
 							},
 							"ref": "TUnit_ImportCost_MRatio",
 							"val": 1,
@@ -184718,7 +185797,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Ornithopter"
+								"unit": "TH_Ornithopter"
 							},
 							"ref": "TUnit_ImportCost_MRatio",
 							"val": 1,
@@ -184962,7 +186041,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Ornithopter"
+								"unit": "TH_Ornithopter"
 							},
 							"ref": "TUnit_ImportCost_MRatio",
 							"val": 1,
@@ -189127,7 +190206,7 @@
 						},
 						{
 							"target": {
-								"unit": "Th_MissileShip"
+								"unit": "TH_MissileShip"
 							},
 							"ref": "Zone_Spawn_TUnit_MissileGen",
 							"displayed": false,
@@ -189144,6 +190223,87 @@
 						"y": 0
 					},
 					"name": "Orbital Strike"
+				},
+				{
+					"id": "Th_RenegadeStrike_Signal",
+					"name": "Renegade Strike",
+					"type": 2,
+					"displayed": true,
+					"desc": "House Thorvald has sold this faction's coordinates to the Renegades. Their shuttles are inbound.",
+					"props": {
+						"duration": 35,
+						"linkedAbility": "Th_RenegadeStrike",
+						"tip": {
+							"cat": "RegionalEffect"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"raid": "Th_RenegadeStrike"
+							},
+							"target2": {},
+							"ref": "TRaid_HostileSpawn_DaysFrequency",
+							"val": 0.01,
+							"desc": "Renegade shuttles land on one of this faction's structures"
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/missionsTraits.png",
+						"size": 32,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_IronLandfall",
+					"name": "Iron Landfall",
+					"type": 0,
+					"displayed": false,
+					"desc": "",
+					"props": {
+						"duration": 5,
+						"linkedAbility": "Th_IronLandfall",
+						"tip": {
+							"allowed": false,
+							"padExpand": false
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"unit": "TH_Trooper"
+							},
+							"target2": {},
+							"ref": "Operation_OnUsed_SpawnTUnit_Flat",
+							"val": 2,
+							"desc": "::value:: [TH_Trooper]s land in the target region"
+						},
+						{
+							"target": {
+								"unit": "TH_Soldier"
+							},
+							"target2": {},
+							"ref": "Operation_OnUsed_SpawnTUnit_Flat",
+							"val": 1,
+							"desc": "::value:: [TH_Soldier] lands in the target region"
+						},
+						{
+							"target": {
+								"unit": "TH_Special"
+							},
+							"target2": {},
+							"ref": "Operation_OnUsed_SpawnTUnit_Flat",
+							"val": 1,
+							"desc": "::value:: [TH_Special] lands in the target region"
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/missionsTraits.png",
+						"size": 32,
+						"x": 2,
+						"y": 0
+					}
 				},
 				{
 					"id": "ElaccaFog",
@@ -192121,21 +193281,21 @@
 					"attributes": [
 						{
 							"target": {
-								"unit": "Th_Elite"
+								"unit": "TH_Elite"
 							},
 							"target2": {},
 							"ref": "Unlock_TUnit",
-							"desc": "[Th_Elite]s are available from the start"
+							"desc": "[TH_Elite]s are available from the start"
 						},
 						{
 							"target": {
-								"unit": "Th_Elite"
+								"unit": "TH_Elite"
 							},
 							"target2": {
 								"trait": "Th_Elite_Aramsham_Buff"
 							},
 							"ref": "TUnit_GainTTrait2",
-							"desc": "[Th_Elite]s gain ::target_effects2::"
+							"desc": "[TH_Elite]s gain ::target_effects2::"
 						},
 						{
 							"target": {
@@ -192196,7 +193356,7 @@
 					"name": "Legitimate Violence"
 				},
 				{
-					"id": "ThJoolPassive",
+					"id": "ThEinPassive",
 					"desc": "",
 					"props": {
 						"tip": {
@@ -192206,32 +193366,37 @@
 					"attributes": [
 						{
 							"target": {
-								"treaty": "ImproveRelations"
+								"resource": "Solari"
 							},
 							"target2": {},
-							"ref": "Army_PowerPerTTreaty_ARatio",
-							"val": 0.15,
-							"desc": "Military Units have ::s_percent_value:: [Power] per faction in [Peace]"
+							"ref": "Army_TResUpkeep_MRatio",
+							"val": 0.9,
+							"desc": "::percent:: Military Unit [Solari] [!Upkeep]"
 						},
 						{
-							"target": {
-								"treaty": "ImperialMandate"
-							},
+							"target": {},
 							"target2": {},
-							"ref": "TTreaty_Cost_MRatio",
-							"val": 0,
-							"desc": "Proposing an [ImperialMandate] has no cost"
+							"ref": "Army_SpawnExperienceLevel_Flat",
+							"val": 1,
+							"desc": "Military Units start with ::value:: more [Experience] level"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "FactionArmy_InZoneWithOperation_Armor_Flat",
+							"val": 1,
+							"desc": "Units in a region with an active [Thorvald-adjective] operation gain ::s_value:: [Armor]"
 						}
 					],
 					"type": 0,
 					"displayed": false,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
+						"file": "UI/Faction/councillors_thorvald.png",
 						"size": 128,
-						"x": 5,
-						"y": 4
+						"x": 1,
+						"y": 0
 					},
-					"name": "Legitimate Violence"
+					"name": "Academy Doctrine"
 				},
 				{
 					"id": "IrulanPassive",
@@ -192274,22 +193439,27 @@
 						{
 							"target": {},
 							"target2": {},
-							"ref": "Faction_DuplicateEachBuildingLimit_Flat",
-							"val": 1,
-							"desc": ""
+							"ref": "FreeVotes_Resolution_Flat",
+							"val": 20,
+							"desc": "The first ::value:: votes placed on each resolution are free."
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CMarket_Share_BuyPrice_MRatio",
+							"val": 0.85,
+							"desc": "::s_percent:: [CHOAMShare] buying price"
 						}
 					],
 					"type": 0,
 					"displayed": false,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
-						"size": 32,
+						"file": "UI/Faction/councillors_thorvald.png",
+						"size": 128,
 						"x": 0,
-						"y": 16,
-						"width": 4,
-						"height": 4
+						"y": 0
 					},
-					"name": "Centralized Industry"
+					"name": "Market Patronage"
 				},
 				{
 					"id": "MohiamPassive",
@@ -192338,30 +193508,39 @@
 					"attributes": [
 						{
 							"target": {
-								"resAction": "ImperialEdict"
+								"resource": "Plascrete"
 							},
-							"ref": "TResAction_VoteValue_ARatio",
-							"desc": "Every [Thorvald-adjective] vote placed on a resolution affected by an [::target::] counts double",
-							"val": 1,
-							"target2": {}
+							"target2": {},
+							"ref": "Building_Village_TResCost_MRatio",
+							"val": 0.85,
+							"desc": "::s_percent:: [Plascrete] construction costs"
 						},
 						{
 							"target": {},
-							"ref": "Landsraad_CharterInvestmentScore_ARatio",
 							"target2": {},
-							"val": 1,
-							"desc": "Support to increase [AgendaPriority] counts double"
+							"ref": "Building_ConstructionSpeed_ARatio",
+							"val": 0.2,
+							"desc": "[!Building_Village]s are constructed ::percent_value:: faster"
+						},
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"target2": {},
+							"ref": "Building_TRes_Upkeep_MRatio",
+							"val": 0.8,
+							"desc": "::percent:: [Solari] [!Upkeep]"
 						}
 					],
 					"type": 0,
 					"displayed": false,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
+						"file": "UI/Faction/councillors_thorvald.png",
 						"size": 128,
-						"x": 4,
-						"y": 4
+						"x": 2,
+						"y": 0
 					},
-					"name": "Political Supremacy"
+					"name": "Supply Line Optimization"
 				},
 				{
 					"id": "FenringPassive",
@@ -192421,43 +193600,48 @@
 					},
 					"attributes": [
 						{
-							"target": {},
-							"ref": "WorldEvent_NoZoneOwner",
-							"desc": "Can investigate [Discovery]s quickly everywhere, no matter how many [Agent]s are on [IField]",
-							"target2": {}
-						},
-						{
-							"target": {},
-							"ref": "WorldEvent_NoFieldAgent",
-							"displayed": false,
-							"target2": {}
-						},
-						{
-							"target": {},
+							"target": {
+								"resource": "Influence"
+							},
 							"target2": {},
-							"ref": "WorldEvent_ForceFieldAgent_Flat",
-							"val": 4,
-							"displayed": false
-						},
-						{
-							"target": {},
-							"target2": {},
-							"ref": "WorldEvent_FieldAgentsResolve_GainAgentDays_Flat",
+							"ref": "TRes_ProdPerInfiltrationLevels_Flat",
 							"val": 1,
-							"desc": "Resolving any [Discovery] that way progresses [Agent] recruitment by ::value:: day"
+							"desc": "Produces ::s_value:: [Influence] per [!Infiltration] level in another faction"
+						},
+						{
+							"target": {
+								"resource": "Intel"
+							},
+							"target2": {},
+							"ref": "TRes_ProdPerInfiltrationLevels_Flat",
+							"val": 1,
+							"desc": "Produces ::s_value:: [Intel] per [!Infiltration] level in another faction"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Mission_PreparationTime_MRatio",
+							"val": 0.75,
+							"desc": "::s_percent:: mission preparation time"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Mission_Cost_MRatio",
+							"val": 0.85,
+							"desc": "::s_percent:: spying mission costs",
+							"scope": 2
 						}
 					],
 					"type": 0,
 					"displayed": false,
 					"gfx": {
-						"file": "UI/Faction/councillors_all.png",
-						"size": 32,
-						"x": 12,
-						"y": 16,
-						"width": 4,
-						"height": 4
+						"file": "UI/Faction/councillors_thorvald.png",
+						"size": 128,
+						"x": 3,
+						"y": 0
 					},
-					"name": "All-seeing Eye"
+					"name": "Corporate Espionage"
 				},
 				{
 					"id": "ImperialSupervisor",
@@ -219732,17 +220916,17 @@
 								},
 								{
 									"target": {
-										"unit": "Th_Ship"
+										"unit": "TH_Ship"
 									},
 									"ref": "Unlock_TUnit",
 									"faction": "Thorvald",
 									"scope": 2,
-									"desc": "Allows the deployment of [Th_Ship] and [Th_Frigate]",
+									"desc": "Allows the deployment of [TH_Ship] and [TH_Frigate]",
 									"target2": {}
 								},
 								{
 									"target": {
-										"unit": "Th_Frigate"
+										"unit": "TH_Frigate"
 									},
 									"ref": "Unlock_TUnit",
 									"faction": "Thorvald",
@@ -226556,11 +227740,11 @@
 						},
 						{
 							"target": {
-								"unit": "Th_Drone"
+								"unit": "TH_Drone"
 							},
 							"target2": {},
 							"ref": "Unlock_TUnit",
-							"desc": "Unlocks the [Th_Drone] unit",
+							"desc": "Unlocks the [TH_Drone] unit",
 							"faction": "Thorvald"
 						}
 					]
@@ -243112,11 +244296,11 @@
 						{
 							"composition": [
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"condition": {}
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"condition": {}
 								},
 								{
@@ -243124,22 +244308,22 @@
 									"condition": {}
 								},
 								{
-									"unit": "Renegade_Ship",
+									"unit": "ThR_Ship",
 									"condition": {
 										"minDifficulty": 2
 									}
 								},
 								{
-									"unit": "Renegade_Ship",
+									"unit": "ThR_Ship",
 									"condition": {}
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Ranger",
 									"minGameDays": 150,
 									"condition": {}
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"minGameDays": 200,
 									"condition": {
 										"minDifficulty": 1
@@ -243151,7 +244335,7 @@
 									"condition": {}
 								},
 								{
-									"unit": "Renegade_Ship",
+									"unit": "ThR_Ship",
 									"minGameDays": 300,
 									"condition": {
 										"minDifficulty": 1
@@ -243161,13 +244345,13 @@
 									"condition": {
 										"minDifficulty": 3
 									},
-									"unit": "Renegades_Trooper"
+									"unit": "ThR_Trooper"
 								},
 								{
 									"condition": {
 										"minDifficulty": 3
 									},
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"minGameDays": 200
 								}
 							],
@@ -243210,11 +244394,11 @@
 						{
 							"composition": [
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"condition": {}
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"condition": {}
 								},
 								{
@@ -243222,28 +244406,28 @@
 									"condition": {}
 								},
 								{
-									"unit": "Renegade_Ship",
+									"unit": "ThR_Ship",
 									"condition": {}
 								},
 								{
 									"condition": {
 										"minDifficulty": 1
 									},
-									"unit": "Renegades_Trooper"
+									"unit": "ThR_Trooper"
 								},
 								{
-									"unit": "Renegade_Ship",
+									"unit": "ThR_Ship",
 									"condition": {
 										"minDifficulty": 2
 									}
 								},
 								{
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Trooper",
 									"minGameDays": 150,
 									"condition": {}
 								},
 								{
-									"unit": "Renegades_Demo",
+									"unit": "ThR_Guard",
 									"minGameDays": 200,
 									"condition": {
 										"minDifficulty": 2
@@ -243255,7 +244439,7 @@
 									"condition": {}
 								},
 								{
-									"unit": "Renegade_Ship",
+									"unit": "ThR_Ship",
 									"minGameDays": 300,
 									"condition": {
 										"minDifficulty": 1
@@ -243265,13 +244449,13 @@
 									"condition": {
 										"minDifficulty": 3
 									},
-									"unit": "Renegades_Trooper"
+									"unit": "ThR_Trooper"
 								},
 								{
 									"condition": {
 										"minDifficulty": 3
 									},
-									"unit": "Renegades_Trooper",
+									"unit": "ThR_Ranger",
 									"minGameDays": 200
 								}
 							],
@@ -243309,6 +244493,78 @@
 						"y": 5
 					},
 					"flags": 66,
+					"steps": []
+				},
+				{
+					"id": "Th_RenegadeStrike",
+					"name": "Renegade Strike",
+					"armies": [
+						{
+							"weight": 0,
+							"composition": [
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ranger",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ship",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"minGameDays": 150,
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"minGameDays": 250,
+									"condition": {}
+								}
+							]
+						}
+					],
+					"effects": [
+						{
+							"target": 0,
+							"effect": {
+								"action": 3,
+								"actionDays": 3
+							},
+							"startConditions": {
+								"distance": 30
+							},
+							"endConditions": {}
+						}
+					],
+					"props": {
+						"apparitionRadius": 20,
+						"chaseTime": 5,
+						"maxDistanceWaitingTime": 10,
+						"victimAlerts": [
+							{
+								"alert": "IncomingRaid"
+							}
+						]
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					},
+					"flags": 1,
 					"steps": []
 				},
 				{
@@ -249235,6 +250491,135 @@
 					},
 					"aiWeights": [],
 					"flags": 9
+				},
+				{
+					"id": "Th_MRenegadeStrike",
+					"texts": [],
+					"effects": {
+						"ope": "Th_RenegadeStrike"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MIronLandfall",
+					"texts": [],
+					"effects": {
+						"ope": "Th_IronLandfall"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 3,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MRenegadeTakeover",
+					"texts": [],
+					"effects": {
+						"ope": "GhostMarket"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 4,
+						"y": 0
+					}
 				},
 				{
 					"id": "MAdministrativeBurden",
@@ -255776,9 +257161,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"traits": [],
@@ -255848,9 +257230,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -255919,9 +257298,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -255990,9 +257366,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256049,9 +257422,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256120,9 +257490,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256191,9 +257558,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256262,9 +257626,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256333,9 +257694,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256404,9 +257762,6 @@
 							"factions": [
 								{
 									"ref": "Corrino"
-								},
-								{
-									"ref": "Thorvald"
 								}
 							],
 							"priority": 0,
@@ -256426,6 +257781,209 @@
 						"x": 4,
 						"y": 1
 					}
+				},
+				{
+					"id": "Th1",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 0,
+						"y": 0
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 0,
+						"y": 0
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 1
+						}
+					],
+					"pickRatio": 1
+				},
+				{
+					"id": "Th2",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 1,
+						"y": 0
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 1,
+						"y": 0
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 1
+						}
+					],
+					"pickRatio": 1
+				},
+				{
+					"id": "Th3",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 2,
+						"y": 0
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 2,
+						"y": 0
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 1
+						}
+					],
+					"pickRatio": 1
+				},
+				{
+					"id": "Th4",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 3,
+						"y": 0
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 3,
+						"y": 0
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 1
+						}
+					],
+					"pickRatio": 1
+				},
+				{
+					"id": "Th5",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 4,
+						"y": 0
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 4,
+						"y": 0
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 1
+						}
+					],
+					"pickRatio": 0.1
+				},
+				{
+					"id": "Th6",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 0,
+						"y": 1
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 0,
+						"y": 1
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 2
+						}
+					],
+					"pickRatio": 1
+				},
+				{
+					"id": "Th7",
+					"gfx": {
+						"file": "UI/spying/agents/agents_thorvald.png",
+						"size": 80,
+						"x": 1,
+						"y": 1
+					},
+					"largeGfx": {
+						"file": "UI/spying/agents/agents_thorvald_big.png",
+						"size": 240,
+						"x": 1,
+						"y": 1
+					},
+					"overlays": [],
+					"need": [
+						{
+							"factions": [
+								{
+									"ref": "Thorvald"
+								}
+							],
+							"traits": [],
+							"priority": 0,
+							"genderIndex": 2
+						}
+					],
+					"pickRatio": 1
 				},
 				{
 					"id": "E1",
@@ -289537,6 +291095,9 @@
 									},
 									{
 										"ref": "Renegade_Pillagers"
+									},
+									{
+										"ref": "Th_RenegadeStrike"
 									}
 								]
 							}

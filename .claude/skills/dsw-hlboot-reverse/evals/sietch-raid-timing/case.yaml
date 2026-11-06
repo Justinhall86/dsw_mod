@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: sietch-raid-timing
+expected_outcome: |
+  Investigates hlboot.dat with the skill's tool, finds the sietch raid logic (logic.state.Raids.updateSietchRaids / startSietchRaid / pickRaidSietch), and maps the Raid_Sietch_* constants (score threshold bounds, daily gain, delay/grace days) to their roles, giving concrete tweak suggestions.

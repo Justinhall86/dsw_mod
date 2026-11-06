@@ -6,6 +6,29 @@ Four councillors with two abilities each, taken from the Codex screen
 [images/councillors_three_quarter.jpg](images/councillors_three_quarter.jpg). Separate from House Ginaz — nothing for this house
 belongs in `house_ginaz/`. Numbers are as shown on the concept screen and are **PROPOSED**.
 
+> **Status 2026-11-02:** in `data.cdb` the military slot is now **Envoy Theodoric Ein** (id `ThEin`), replacing Overseer Jool. His
+> effect is still Jool's copied Corrino one. The Jool section below is kept as a source of perks. A pool of alternative perks, one
+> Thorvald version per vanilla councillor, is in [councillor_ideas.md](councillor_ideas.md) (**ideas only**).
+
+> **Status 2026-11-03 (BUILT in `data.cdb`):** all four councillors have their own perks and portraits. Each one is a single passive
+> trait made only of attributes that vanilla traits already use, so nothing here needs a patch. Built by
+> `model_projects/thorvald/thorvald_councillors/08_scripts/20_councillors_cdb.py` (`--revert` restores the old rows). The **Active**
+> perks in the sections below (Sabotage Network, Market Manipulation, Hammer Brief) are **not** built: a councillor has one passive
+> trait slot and no active slot was found.
+>
+> | Councillor (portrait source) | Perk | In the game |
+> |---|---|---|
+> | Adjutant Nobru (banner bust) | Market Patronage | first 20 votes on each Landsraad resolution are free (`FreeVotes_Resolution_Flat`, Ecaz); CHOAM shares cost -15% (`CMarket_Share_BuyPrice_MRatio`) |
+> | Envoy Ein (`council_male_military_cape.jpg`) | Academy Doctrine | military Solari upkeep -10% (`Army_TResUpkeep_MRatio`); units start one level higher (`Army_SpawnExperienceLevel_Flat`); +1 Armor in a region with an active Thorvald operation (`FactionArmy_InZoneWithOperation_Armor_Flat`) |
+> | Master Silva (banner bust) | Supply Line Optimization | village buildings -15% Plascrete, built 20% faster, -20% Solari upkeep (`Building_Village_TResCost_MRatio`, `Building_ConstructionSpeed_ARatio`, `Building_TRes_Upkeep_MRatio`) |
+> | Lady Haruka (banner bust) | Corporate Espionage | +1 Influence and +1 Intel per infiltration level held in another faction (`TRes_ProdPerInfiltrationLevels_Flat`, IntelBroker's shape); operations prepare 25% faster and cost 15% less (`Mission_PreparationTime_MRatio`, `Mission_Cost_MRatio`) |
+>
+> Silva is now `gender 0` (the banner portrait is a man; it was set female by the Mohiam clone). Nobru's AI domain is Statecraft and
+> Silva's Economy, to match the perks. Portraits sit in **new** atlases (`UI/Faction/councillors_thorvald.png`,
+> `UI/Faction/Menu/menuCouncilorsThorvald.png`, `UI/Faction/Menu/councillorsThorvald.png`), so no vanilla atlas is overridden.
+> The seven unused concept images became the Thorvald **agent** portraits (`Th1`..`Th7`, `UI/spying/agents/agents_thorvald*.png`);
+> Thorvald no longer draws Corrino's agents. Jool's banner bust is one of them. Karlin (hero) keeps his old portrait cell.
+
 ## Overseer Jool
 - **Role:** military overseer (general type).
 - **Look:** grey-streaked hair and beard, a scar on the brow, dark plate with crossed rust-leather straps, a gold-lined stand-up collar.
@@ -78,6 +101,55 @@ Academy's showpiece officer and sit apart from the other four on the banner.
 - **If a 3D model is wanted later:** kitbash from game parts only (Commando or Duncan body, Idualis head, Thorvald orange recolour),
   using the `dsw-part-kitbash` skill, not hand-modelled.
 
+## Alternative set from the design notes (2026-11-01)
+
+The design notes give a different four archetypes: a **Trade** councillor (Spacing Guild), a **Military** councillor (called
+"Melody" in the notes, a placeholder), an **Infiltration** councillor (ex-Fremen stealth) and a **Political** councillor (Memnon's
+anti-Imperial line). They overlap the current roster, so the choice is open ([Open decisions](#open-decisions)). Each mechanic is
+checked against the vanilla data (`mod_files/data_vanilla_2026-10-28.cdb`) with a status:
+**BUILDABLE** = a vanilla attribute does it; **APPROX** = a vanilla attribute does a close version; **NOT FOUND** = no vanilla
+attribute, so it needs the patch or another design. "Used" = how many vanilla traits use the attribute ([attribute catalog](../docs/attribute_catalog.md)).
+
+### 1. Trade councillor (Spacing Guild)
+| Mechanic | Status | Vanilla basis |
+|---|---|---|
+| Passive Influence from off-world standing | BUILDABLE | `TRes_Prod_Flat` on `Influence` (the vanilla `Standing_High` trait does this; used 116) |
+| Reduced Spacing Guild costs and faster transport | APPROX | `Shuttle_MoveSpeed_ARatio` ("Shuttles are N% faster", used 0, test it); `Unlock_GuildQuests` unlocks Spacing Guild events (used 0). No vanilla Guild cost attribute was found |
+| Guild Favor converted into resources | NOT FOUND | `GuildFavor` is a resource (54 references), but no vanilla attribute converts it. The "resource trades" feature of Quinn's patch does ([patch notes](../docs/reference_cdb_attributes_traits.md)) |
+| Trade Plascrete/alloy to the Guild for Influence or Solari | NOT FOUND | As above; `FactionTrade` is a pad action, not a conversion |
+
+### 2. Military councillor ("Melody" in the notes)
+| Mechanic | Status | Vanilla basis |
+|---|---|---|
+| Last Stand for Honor: +Armor, +attack speed, +Power while engaged in melee | BUILDABLE | `Unit_EngagedInMelee_GainTTrait` (gives a trait while in melee); `Entity_Armor_Flat`, `Entity_AttackSpeed_MRatio`, `Entity_Power_ARatio` |
+| "Cannot retreat until the fight ends" | NOT FOUND | No retreat or disengage attribute found. Approximate with a big Armor bonus so the fight is worth staying in |
+| Phalanx blocks firearm/ranged damage, forcing melee | APPROX | `Entity_DamageReceived_FromRanged_MRatio` (the Fremen `F_Sneak_Trait` uses 0.7 this way, used 2); a real block is `Unit_RangedAttacks_Block` ("Cannot use ranged attacks") given to enemies in range with `Entity_GiveTTrait_UnitAtWar_AtTRange2`. Test that the aura reaches enemies |
+
+### 3. Infiltration councillor (ex-Fremen stealth)
+| Mechanic | Status | Vanilla basis |
+|---|---|---|
+| Passive stealth out of combat, so forces can move undetected | BUILDABLE | `Unit_Cloaked` ("cannot be seen outside of combat") with `Army_ImmobileCamouflagedNoCombat_GainTTrait` for the static case; the Fremen `F_Sneak_Trait` is the precedent |
+| Ex-Fremen flavour | lore question | Fremen is another house. Ask whether Thorvald can take a Fremen-trained agent (see [lore.md](lore.md)) |
+
+### 4. Political councillor (Memnon's anti-Imperial line)
+| Mechanic | Status | Vanilla basis |
+|---|---|---|
+| Immunity to harsh Imperial edicts | APPROX | `LandsraadImmunity` is a vanilla resolution action ("get immunity to this resolution", 2 rows). Use it on the resolutions Thorvald wants to ignore. Reducing Standing losses: `Res_Standing_HostileActionLoss_MRatio` (0.5 = half the loss; **used 0**, test it) |
+| Voting in line with Memnon's agenda grants Hegemony, Influence or Solari | APPROX | `Resolution_Win_Gain_TRes` (gain on a passed vote; Nobru's example) and `Resolution_Positive_GainTTrait`. "In line with Memnon" has no vanilla test, so count only positive resolutions |
+| Plascrete-consuming buildings generate Standing or Hegemony | APPROX | `TRes_Prod_Flat` with target `Standing` or `Hegemony` on a building whose upkeep is Plascrete (`TRes_Upkeep_*`). A true conversion of Plascrete into Standing has no vanilla attribute |
+
+### How the two sets compare
+| Role | Current roster | Notes set | Recommendation |
+|---|---|---|---|
+| Military | Overseer Jool | "Melody" (Last Stand, phalanx) | Give Jool the Last Stand and phalanx ideas. Both are buildable or close |
+| Economy | Master Silva | (none) | Keep |
+| Spy / infiltration | Lady Haruka | ex-Fremen stealth | Give Haruka the stealth passive. It is a spy skill and uses vanilla attributes |
+| Politics | Adjutant Nobru | Memnon's anti-Imperial line | Give Nobru the edict immunity and Memnon voting bonus |
+| Trade / Guild | Envoy Ein (proposed, or a hero) | Spacing Guild trade | Give Ein the Guild trade. He is the War Academy envoy who handles the Guild contracts |
+
+So all four notes fit inside the current roster, without a fifth councillor. The one thing lost is the separate "Melody" name. If the
+user prefers the notes' four, that is a straight swap; the mechanic table above still applies.
+
 ## Lore hooks (ours, built on [lore.md](lore.md))
 Canon names none of the four, so these backstories are our own. Each ties to a canon place or event.
 
@@ -104,6 +176,8 @@ market operator on its council and only one soldier.
   of buildings.
 - Portraits are concept art only. There are no models for these, so any in-game portrait would need new art.
 - The concept screen shows two abilities each, with no unlock levels or costs.
+- **Councillor set:** keep the current four plus Ein, or switch to the notes' four archetypes (see the section above). Recommended: keep
+  the current roster and fold the notes' ideas into it, as the table in that section shows.
 
 ## Superseded drafts (kept for reference)
 The first draft councillors, replaced by the roster above. Where an idea lives on:

@@ -1,0 +1,470 @@
+{
+ "characters": {
+  "Nobru": {
+   "id": "Nobru",
+   "firstname": "Nobru",
+   "lastname": "",
+   "color": 10592673,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 128,
+    "x": 0,
+    "y": 4
+   },
+   "aiTypes": [
+    {
+     "domain": "Economy"
+    }
+   ],
+   "props": {},
+   "complexity": 0,
+   "passiveTrait": "NobruPassive",
+   "flags": 0,
+   "desc": "Adjutant Nobru, political and market manipulator: Landsraad patronage and cheaper CHOAM shares.",
+   "images": {
+    "menuGfx": {
+     "file": "UI/Faction/Menu/menuCouncilors.png",
+     "size": 1,
+     "x": 0,
+     "y": 2496,
+     "width": 336,
+     "height": 624
+    },
+    "tutoGfx": {
+     "file": "UI/Faction/Menu/councillorsCorrino.png",
+     "size": 1,
+     "x": 0,
+     "y": 0,
+     "width": 180,
+     "height": 320
+    }
+   },
+   "gender": 0,
+   "title": "Adjutant"
+  },
+  "ThEin": {
+   "images": {
+    "menuGfx": {
+     "file": "UI/Faction/Menu/menuCouncilors.png",
+     "size": 1,
+     "x": 1680,
+     "y": 2496,
+     "width": 336,
+     "height": 624
+    },
+    "tutoGfx": {
+     "file": "UI/Faction/Menu/councillorsCorrino.png",
+     "size": 1,
+     "x": 900,
+     "y": 0,
+     "width": 180,
+     "height": 320
+    }
+   },
+   "id": "ThEin",
+   "firstname": "Theodoric",
+   "lastname": "Ein",
+   "gender": 0,
+   "aiTypes": [
+    {
+     "domain": "Military"
+    }
+   ],
+   "props": {},
+   "flags": 0,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 128,
+    "x": 5,
+    "y": 4
+   },
+   "desc": "Envoy Theodoric Ein, the War Academy-trained field envoy who speaks for the house on the ground. Effects are still Jool's (Power per treaty) until councillors are built.",
+   "color": 10592673,
+   "complexity": 2,
+   "passiveTrait": "ThEinPassive",
+   "title": "Envoy"
+  },
+  "Silva": {
+   "images": {
+    "menuGfx": {
+     "file": "UI/Faction/Menu/menuCouncilors.png",
+     "size": 1,
+     "x": 1344,
+     "y": 2496,
+     "width": 336,
+     "height": 624
+    },
+    "tutoGfx": {
+     "file": "UI/Faction/Menu/councillorsCorrino.png",
+     "size": 1,
+     "x": 720,
+     "y": 0,
+     "width": 180,
+     "height": 320
+    }
+   },
+   "id": "Silva",
+   "firstname": "Silva",
+   "lastname": "",
+   "gender": 1,
+   "aiTypes": [
+    {
+     "domain": "Statecraft"
+    }
+   ],
+   "props": {},
+   "flags": 0,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 128,
+    "x": 4,
+    "y": 4
+   },
+   "desc": "Master Silva, infrastructure and logistics: cheaper, faster village buildings and lighter upkeep on infrastructure.",
+   "color": 10592673,
+   "complexity": 0,
+   "passiveTrait": "SilvaPassive",
+   "title": "Master"
+  },
+  "Haruka": {
+   "id": "Haruka",
+   "firstname": "Haruka",
+   "lastname": "",
+   "color": 10592673,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 128,
+    "x": 3,
+    "y": 4
+   },
+   "aiTypes": [
+    {
+     "domain": "Expansion"
+    }
+   ],
+   "props": {
+    "aiDisabled": true
+   },
+   "complexity": 2,
+   "passiveTrait": "HarukaPassive",
+   "flags": 0,
+   "desc": "Lady Haruka, spymaster: agents working Arrakis or CHOAM bring in Intel and Influence.",
+   "images": {
+    "menuGfx": {
+     "file": "UI/Faction/Menu/menuCouncilors.png",
+     "size": 1,
+     "x": 1008,
+     "y": 2496,
+     "width": 336,
+     "height": 624
+    },
+    "tutoGfx": {
+     "file": "UI/Faction/Menu/councillorsCorrino.png",
+     "size": 1,
+     "x": 540,
+     "y": 0,
+     "width": 180,
+     "height": 320
+    }
+   },
+   "gender": 1,
+   "title": "Lady"
+  }
+ },
+ "traits": {
+  "NobruPassive": {
+   "id": "NobruPassive",
+   "desc": "",
+   "props": {
+    "tip": {
+     "cat": "Councillor"
+    }
+   },
+   "attributes": [
+    {
+     "target": {},
+     "target2": {},
+     "ref": "Faction_DuplicateEachBuildingLimit_Flat",
+     "val": 1,
+     "desc": ""
+    }
+   ],
+   "type": 0,
+   "displayed": false,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 32,
+    "x": 0,
+    "y": 16,
+    "width": 4,
+    "height": 4
+   },
+   "name": "Centralized Industry"
+  },
+  "ThEinPassive": {
+   "id": "ThEinPassive",
+   "desc": "",
+   "props": {
+    "tip": {
+     "cat": "Councillor"
+    }
+   },
+   "attributes": [
+    {
+     "target": {
+      "treaty": "ImproveRelations"
+     },
+     "target2": {},
+     "ref": "Army_PowerPerTTreaty_ARatio",
+     "val": 0.15,
+     "desc": "Military Units have ::s_percent_value:: [Power] per faction in [Peace]"
+    },
+    {
+     "target": {
+      "treaty": "ImperialMandate"
+     },
+     "target2": {},
+     "ref": "TTreaty_Cost_MRatio",
+     "val": 0,
+     "desc": "Proposing an [ImperialMandate] has no cost"
+    }
+   ],
+   "type": 0,
+   "displayed": false,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 128,
+    "x": 5,
+    "y": 4
+   },
+   "name": "Legitimate Violence"
+  },
+  "SilvaPassive": {
+   "id": "SilvaPassive",
+   "desc": "",
+   "props": {
+    "tip": {
+     "cat": "Councillor"
+    }
+   },
+   "attributes": [
+    {
+     "target": {
+      "resAction": "ImperialEdict"
+     },
+     "ref": "TResAction_VoteValue_ARatio",
+     "desc": "Every [Thorvald-adjective] vote placed on a resolution affected by an [::target::] counts double",
+     "val": 1,
+     "target2": {}
+    },
+    {
+     "target": {},
+     "ref": "Landsraad_CharterInvestmentScore_ARatio",
+     "target2": {},
+     "val": 1,
+     "desc": "Support to increase [AgendaPriority] counts double"
+    }
+   ],
+   "type": 0,
+   "displayed": false,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 128,
+    "x": 4,
+    "y": 4
+   },
+   "name": "Political Supremacy"
+  },
+  "HarukaPassive": {
+   "id": "HarukaPassive",
+   "desc": "",
+   "props": {
+    "tip": {
+     "cat": "Councillor"
+    }
+   },
+   "attributes": [
+    {
+     "target": {},
+     "ref": "WorldEvent_NoZoneOwner",
+     "desc": "Can investigate [Discovery]s quickly everywhere, no matter how many [Agent]s are on [IField]",
+     "target2": {}
+    },
+    {
+     "target": {},
+     "ref": "WorldEvent_NoFieldAgent",
+     "displayed": false,
+     "target2": {}
+    },
+    {
+     "target": {},
+     "target2": {},
+     "ref": "WorldEvent_ForceFieldAgent_Flat",
+     "val": 4,
+     "displayed": false
+    },
+    {
+     "target": {},
+     "target2": {},
+     "ref": "WorldEvent_FieldAgentsResolve_GainAgentDays_Flat",
+     "val": 1,
+     "desc": "Resolving any [Discovery] that way progresses [Agent] recruitment by ::value:: day"
+    }
+   ],
+   "type": 0,
+   "displayed": false,
+   "gfx": {
+    "file": "UI/Faction/councillors_all.png",
+    "size": 32,
+    "x": 12,
+    "y": 16,
+    "width": 4,
+    "height": 4
+   },
+   "name": "All-seeing Eye"
+  }
+ },
+ "agent_needs": {
+  "C1": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "traits": [],
+    "priority": 0,
+    "genderIndex": 1
+   }
+  ],
+  "C2": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 1
+   }
+  ],
+  "C3": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 2
+   }
+  ],
+  "C4": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 2
+   }
+  ],
+  "C5": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 1
+   }
+  ],
+  "C6": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 2
+   }
+  ],
+  "C7": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 2
+   }
+  ],
+  "C8": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 1
+   }
+  ],
+  "C9": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 1
+   }
+  ],
+  "C10": [
+   {
+    "factions": [
+     {
+      "ref": "Corrino"
+     },
+     {
+      "ref": "Thorvald"
+     }
+    ],
+    "priority": 0,
+    "genderIndex": 1
+   }
+  ]
+ }
+}

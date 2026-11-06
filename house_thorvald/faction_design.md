@@ -49,6 +49,9 @@ operations are the first thing to replace ([operations.md](operations.md)); the 
 
 ## Flags
 - ~~The mint's name may be a typo for "Highforge".~~ **Resolved:** "Heighforge" is the canon name of the house's orbital refinery ([lore.md](lore.md)).
+- **Councillors (2026-11-01):** the design notes propose four councillor archetypes (Trade, Military, Infiltration, Political). Each
+  mechanic is checked against vanilla in [counsellors.md](counsellors.md#alternative-set-from-the-design-notes-2026-11-01). Most fit
+  the current roster, so the faction does not need a fifth councillor.
 - Terms on the screen (Authority, Influence, Intel, Landsraad Standing, CHOAM, Fuel Cells, Plascrete) need checking against the real
   game attributes before we write any `data.cdb` entries.
 - Max Solari +5000 and the Sovereign Mint together are a very strong economy. Check balance when we get to numbers.

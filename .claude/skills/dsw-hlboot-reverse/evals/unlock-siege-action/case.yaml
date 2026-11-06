@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: unlock-siege-action
+expected_outcome: |
+  Says no: Unlock_TSiegeAction is never read by the engine and the siege actions offered to players are hard-coded in SiegeComponent.getAvailableOccupationActions; points to an alternative (the GhostMarket-based Renegade Takeover operation or a .dat patch as a last resort).
