@@ -1,0 +1,43 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Ambassade",
+			"source": "Structure/Buildings/Ambassade/Ambassade.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 2,
+						"freq": 9.09
+					},
+					"targetMaterial": "Mat_Ambassade_Wind",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.19163,
+			"y": -0.26584,
+			"z": -0.14923,
+			"scaleX": 5,
+			"scaleY": 5,
+			"scaleZ": 0.83,
+			"rotationZ": 1.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_FremenEmbassy",
+			"source": "Fx/Structure/FX_FremenEmbassy.fx"
+		}
+	]
+}

@@ -1,0 +1,211 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Airfield",
+			"source": "Structure/Buildings/Airfield/Airfield.fbx",
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/Airfield/Airfield.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3,
+			"scaleY": 3,
+			"scaleZ": 0.25,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.56397,
+			"y": 0.00544,
+			"z": 1.22998,
+			"scaleX": 0.78,
+			"scaleY": 0.78,
+			"scaleZ": 0.92
+		},
+		{
+			"type": "reference",
+			"name": "LightWhiteBlink03_Sphere",
+			"source": "Fx/Structure/Lights/LightWhiteBlink03_Sphere.fx",
+			"x": -0.5651,
+			"y": 0.00667,
+			"z": 1.69549,
+			"scaleX": 0.32,
+			"scaleY": 0.32,
+			"scaleZ": 0.32
+		},
+		{
+			"type": "reference",
+			"name": "LightWhiteBlink03_Sphere",
+			"source": "Fx/Structure/Lights/LightWhiteBlink03_Sphere.fx",
+			"x": -0.80281,
+			"y": -0.79207,
+			"z": 0.44374,
+			"scaleX": 0.22,
+			"scaleY": 0.22,
+			"scaleZ": 0.22
+		},
+		{
+			"type": "reference",
+			"name": "LightWhiteBlink03_Sphere",
+			"source": "Fx/Structure/Lights/LightWhiteBlink03_Sphere.fx",
+			"x": -0.80281,
+			"y": 0.77841,
+			"z": 0.44374,
+			"scaleX": 0.22,
+			"scaleY": 0.22,
+			"scaleZ": 0.22
+		},
+		{
+			"type": "object",
+			"name": "Lights",
+			"x": 0.13018,
+			"y": -0.00203,
+			"z": 0.46371,
+			"scaleX": 0.6,
+			"scaleY": 0.6,
+			"scaleZ": 0.6,
+			"children": [
+				{
+					"type": "reference",
+					"name": "LightWhite02_Flat",
+					"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+					"x": -0.4716666666666667,
+					"y": -0.38,
+					"z": 1.1102230246251565e-16,
+					"scaleX": 0.42000000000000004,
+					"scaleY": 0.42000000000000004,
+					"scaleZ": 0.42,
+					"rotationZ": 5.499999999999999
+				},
+				{
+					"type": "reference",
+					"name": "LightWhite02_Flat",
+					"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+					"x": -0.45166666666666666,
+					"y": 0.39,
+					"z": 1.1102230246251565e-16,
+					"scaleX": 0.41999999999999993,
+					"scaleY": 0.41999999999999993,
+					"scaleZ": 0.42,
+					"rotationZ": -7.1000000000000005
+				},
+				{
+					"type": "reference",
+					"name": "LightWhite02_Flat",
+					"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+					"x": -0.011666666666666686,
+					"y": 0.33,
+					"z": 1.1102230246251565e-16,
+					"scaleX": 0.41999999999999993,
+					"scaleY": 0.41999999999999993,
+					"scaleZ": 0.42,
+					"rotationZ": -7.1000000000000005
+				},
+				{
+					"type": "reference",
+					"name": "LightWhite02_Flat",
+					"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+					"x": 0.4783333333333334,
+					"y": 0.29,
+					"z": 1.1102230246251565e-16,
+					"scaleX": 0.42,
+					"scaleY": 0.42,
+					"scaleZ": 0.42,
+					"rotationZ": -3.2
+				},
+				{
+					"type": "reference",
+					"name": "LightWhite02_Flat",
+					"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+					"x": 0.4783333333333334,
+					"y": -0.29,
+					"z": 1.1102230246251565e-16,
+					"scaleX": 0.42000000000000004,
+					"scaleY": 0.42000000000000004,
+					"scaleZ": 0.42,
+					"rotationZ": 5.499999999999999
+				},
+				{
+					"type": "reference",
+					"name": "LightWhite02_Flat",
+					"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+					"x": -0.021666666666666667,
+					"y": -0.34,
+					"z": 1.1102230246251565e-16,
+					"scaleX": 0.42000000000000004,
+					"scaleY": 0.42000000000000004,
+					"scaleZ": 0.42,
+					"rotationZ": 5.499999999999999
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Airfield_Addon",
+			"source": "Structure/Buildings/Airfield/Airfield_Addon.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.80366,
+			"y": -0.78954,
+			"z": 0.02608,
+			"scaleX": 0.85,
+			"scaleY": 0.85,
+			"scaleZ": 0.85
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.80366,
+			"y": 0.77328,
+			"z": 0.02608,
+			"scaleX": 0.85,
+			"scaleY": 0.85,
+			"scaleZ": 0.85
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_03",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+			"x": 0.73842,
+			"y": -0.63636,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_03",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+			"x": 0.73842,
+			"y": 0.65102,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.02259,
+			"y": -0.03145,
+			"scaleX": 2.03,
+			"scaleY": 1.88,
+			"scaleZ": 0.34,
+			"rotationZ": -90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		}
+	]
+}

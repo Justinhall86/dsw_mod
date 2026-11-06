@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "GrueDrone",
+			"source": "Structure/Buildings/Construction/GrueDrone.fbx"
+		}
+	]
+}
