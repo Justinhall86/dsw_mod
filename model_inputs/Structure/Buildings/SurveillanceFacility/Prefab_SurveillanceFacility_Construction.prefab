@@ -1,0 +1,49 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SurveillanceFacility_Construction",
+			"source": "Structure/Buildings/SurveillanceFacility/SurveillanceFacility_Construction.fbx",
+			"x": 0.0005,
+			"y": 0.0084,
+			"animation": "Structure/Buildings/SurveillanceFacility/SurveillanceFacility_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"y": 0.79227,
+			"scaleX": 0.31,
+			"scaleY": 0.31,
+			"scaleZ": 0.31
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": 0.31456,
+			"scaleX": 0.58,
+			"scaleY": 1.05,
+			"scaleZ": 1.05
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.25566,
+			"y": 0.03887,
+			"scaleX": 3.95,
+			"scaleY": 4.51,
+			"scaleZ": 0.54,
+			"rotationZ": -108.2,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		}
+	]
+}

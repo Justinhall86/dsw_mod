@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"SupplyDepot_Ground_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true
+			},
+			"SupplyDepot_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1.44
+			}
+		}
+	}
+}

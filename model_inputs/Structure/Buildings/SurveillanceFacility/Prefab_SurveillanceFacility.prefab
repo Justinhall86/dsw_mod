@@ -1,0 +1,14 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SurveillanceFacility",
+			"source": "Structure/Buildings/SurveillanceFacility/SurveillanceFacility.fbx",
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"rotationZ": -90
+		}
+	]
+}

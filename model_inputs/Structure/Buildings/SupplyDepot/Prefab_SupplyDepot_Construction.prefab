@@ -1,0 +1,92 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SupplyDepot_Construction",
+			"source": "Structure/Buildings/SupplyDepot/SupplyDepot_Construction.fbx",
+			"rotationZ": 180,
+			"animation": "Structure/Buildings/SupplyDepot/SupplyDepot_Construction.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.26,
+			"y": -0.24,
+			"scaleX": 6.33,
+			"scaleY": 6.33,
+			"scaleZ": 0.56,
+			"rotationZ": 129.1,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.29,
+			"scaleY": 0.27,
+			"scaleZ": 0.27
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.10895,
+			"y": -0.0843,
+			"scaleX": 0.47,
+			"scaleY": 0.86,
+			"scaleZ": 1.56
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "SupplyDepot_Construction.Crane.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "SupplyDepot_Construction.Crane.Crane_Base1.Crane_Top1.Crane_Cube1"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "SupplyDepot_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "SupplyDepot_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "SupplyDepot_Construction.Crane.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "SupplyDepot_Construction.Crane.Crane_Base1.Crane_Top1.Crane_Cube1"
+		}
+	]
+}

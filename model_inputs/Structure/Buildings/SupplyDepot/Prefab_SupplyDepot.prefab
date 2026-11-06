@@ -1,0 +1,102 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "SupplyDepot",
+			"children": [
+				{
+					"type": "reference",
+					"name": "LightWhite01",
+					"source": "Fx/Structure/Lights/LightWhite01.fx",
+					"x": -0.06642,
+					"y": -0.50728,
+					"z": 0.58111,
+					"scaleX": 0.4,
+					"scaleY": 0.4,
+					"scaleZ": 0.4
+				},
+				{
+					"type": "reference",
+					"name": "LightBlue01",
+					"source": "Fx/Structure/Lights/LightBlue01.fx",
+					"x": 0.56382,
+					"y": -0.1315,
+					"z": 0.25454,
+					"scaleX": 0.4,
+					"scaleY": 0.64,
+					"scaleZ": 0.4,
+					"rotationZ": -0.6
+				},
+				{
+					"type": "reference",
+					"name": "LightBlueRedBlinkSlow03_Sphere",
+					"source": "Fx/Structure/Lights/LightBlueRedBlinkSlow03_Sphere.fx",
+					"x": 0.02378,
+					"y": 0.5814,
+					"z": 0.31232,
+					"scaleX": 0.1,
+					"scaleY": 0.1,
+					"scaleZ": 0.1
+				},
+				{
+					"type": "reference",
+					"name": "LightGreenBlink02_Flat",
+					"source": "Fx/Structure/Lights/LightGreenBlink02_Flat.fx",
+					"x": -0.06,
+					"y": 0.25851,
+					"z": 0.53705,
+					"scaleX": 0.3,
+					"scaleY": 0.3,
+					"scaleZ": 0.3,
+					"rotationY": 90
+				},
+				{
+					"type": "model",
+					"name": "SupplyDepot",
+					"source": "Structure/Buildings/SupplyDepot/SupplyDepot.fbx",
+					"rotationZ": 180,
+					"animation": "Structure/Buildings/SupplyDepot/Anim_SupplyDepot.fbx"
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.01,
+			"scaleY": 3.01,
+			"scaleZ": 0.25,
+			"rotationZ": 122,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.02259,
+			"y": -0.03145,
+			"scaleX": 2.03,
+			"scaleY": 1.88,
+			"scaleZ": 0.43,
+			"rotationZ": -180,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "model",
+			"name": "SupplyDepot_Addon",
+			"source": "Structure/Buildings/SupplyDepot/SupplyDepot_Addon.fbx",
+			"rotationZ": -180
+		}
+	]
+}
