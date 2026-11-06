@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_01",
+			"source": "UI/ConquestMenu/Assets/Pawn_01.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_CommonPawn_Atreides",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Atreides.fx",
+			"visible": false
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_CommonPawn_Appear",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Appear.fx",
+			"visible": false
+		}
+	]
+}

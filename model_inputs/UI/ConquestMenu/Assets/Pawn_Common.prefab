@@ -1,0 +1,15 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_01",
+			"source": "UI/ConquestMenu/Assets/Pawn_01.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_CommonPawn",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_CommonPawn_Appear.fx"
+		}
+	]
+}

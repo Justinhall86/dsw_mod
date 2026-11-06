@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_MainBase_Smugglers",
+			"source": "UI/ConquestMenu/Assets/Smugglers/Pawn_MainBase_Smugglers.fbx"
+		}
+	]
+}
