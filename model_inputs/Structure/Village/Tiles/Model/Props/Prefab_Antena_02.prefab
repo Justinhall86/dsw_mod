@@ -1,0 +1,11 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Antena_02",
+			"source": "Structure/Village/Tiles/Model/Props/Antena_02.fbx",
+			"animation": "Structure/Village/Tiles/Model/Props/Anim_Antena_02.fbx"
+		}
+	]
+}
