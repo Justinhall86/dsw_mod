@@ -1,0 +1,23 @@
+00:01.531  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald_starport\01_input\Meshy_Copper_Starport_Outpost.blend"
+D:\dsw_mod\model_projects\thorvald_starport\08_scripts\02_build_game_mesh.py:77: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+D:\dsw_mod\model_projects\thorvald_starport\08_scripts\02_build_game_mesh.py:82: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  high.data.materials[0].use_nodes = True
+D:\dsw_mod\model_projects\thorvald_starport\08_scripts\02_build_game_mesh.py:307: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world_data.use_nodes = True
+01:31.891  render           | Saved: 'D:\dsw_mod\model_projects\thorvald_starport\02_progress_photos\starport_reference_view.png'
+01:32.625  render           | Saved: 'D:\dsw_mod\model_projects\thorvald_starport\02_progress_photos\starport_front_right.png'
+01:33.422  render           | Saved: 'D:\dsw_mod\model_projects\thorvald_starport\02_progress_photos\starport_back_left.png'
+01:34.219  render           | Saved: 'D:\dsw_mod\model_projects\thorvald_starport\02_progress_photos\starport_back_right.png'
+01:35.031  render           | Saved: 'D:\dsw_mod\model_projects\thorvald_starport\02_progress_photos\starport_top.png'
+@@low tris 14999 verts 7200
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+@@palette copper [0.302 0.184 0.141] charcoal [0.22  0.196 0.196]
+@@texels 1464731, from the reference 20.0%
+@@glowing texels 0.12%
+Info: Saved as "Thorvald_Starport_v1.blend"
+@@saved D:/dsw_mod/model_projects/thorvald_starport\03_blender\Thorvald_Starport_v1.blend
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
