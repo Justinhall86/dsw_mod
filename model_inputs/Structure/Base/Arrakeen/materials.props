@@ -1,0 +1,55 @@
+{
+	"materials": {
+		"PBR": {
+			"OuterGround_MAT": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"Arrakeen_Ground_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1.5
+			},
+			"Arrakeen_Fortification_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 2.42
+			},
+			"Rays_MAT": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"Arrakeen_Assets_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1.52,
+				"parallax": 0
+			}
+		}
+	}
+}

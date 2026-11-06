@@ -1,0 +1,15 @@
+{
+	"materials": {
+		"PBR": {
+			"DistrictGround_MAT": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}
