@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"DistrictGround": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 2
+			},
+			"DistrictMeshs": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 2
+			}
+		}
+	}
+}

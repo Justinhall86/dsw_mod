@@ -1,0 +1,756 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "Root",
+			"x": -0.66369,
+			"y": -3.99519,
+			"children": [
+				{
+					"type": "object",
+					"name": "VerniusBase",
+					"children": [
+						{
+							"type": "object",
+							"name": "Decals",
+							"x": -3.02009,
+							"y": -2.73533,
+							"z": -4.04919,
+							"children": [
+								{
+									"type": "tdecal",
+									"name": "tdecal",
+									"x": 0.03483,
+									"y": -0.01476,
+									"scaleX": 96.27,
+									"scaleY": 96.27,
+									"scaleZ": 7.59,
+									"rotationZ": -48.099999999999994,
+									"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+									"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "District",
+							"children": [
+								{
+									"type": "model",
+									"name": "District_2_3",
+									"source": "Structure/Base/Vernius/District/District_7_1.fbx",
+									"rotationZ": -30
+								},
+								{
+									"type": "model",
+									"name": "District_2_2",
+									"source": "Structure/Base/Vernius/District/District_6_1.fbx",
+									"rotationZ": -30,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Big",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": 33.59952,
+											"y": 6.10991,
+											"z": 5.5,
+											"scaleX": 1.2,
+											"scaleY": 1.2,
+											"scaleZ": 1.2,
+											"rotationX": 2.5,
+											"rotationY": 4.499999999999998,
+											"rotationZ": 30.09999999999998,
+											"children": [
+												{
+													"type": "reference",
+													"name": "FX_Smoke_Big",
+													"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+													"scaleX": 2,
+													"scaleY": 2,
+													"scaleZ": 2,
+													"rotationX": 2.5,
+													"rotationY": 4.5,
+													"rotationZ": 30.1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "model",
+									"name": "District_2_1",
+									"source": "Structure/Base/Vernius/District/District_5_1.fbx",
+									"rotationZ": -30,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Big",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": 26.42007,
+											"y": 27.27389,
+											"z": 5.5,
+											"scaleX": 1.75,
+											"scaleY": 1.75,
+											"scaleZ": 1.75,
+											"rotationX": 2.5,
+											"rotationY": 4.499999999999998,
+											"rotationZ": 30.09999999999998,
+											"children": [
+												{
+													"type": "reference",
+													"name": "FX_Smoke_Big",
+													"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+													"scaleX": 2,
+													"scaleY": 2,
+													"scaleZ": 2,
+													"rotationX": 2.5,
+													"rotationY": 4.5,
+													"rotationZ": 30.1
+												}
+											]
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_09",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_09.fbx",
+											"x": 5.89848,
+											"y": 37.78989,
+											"scaleX": 0.56,
+											"scaleY": 0.56,
+											"scaleZ": 0.56,
+											"rotationZ": 29.999999999999993
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_07",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_07.fbx",
+											"x": 4.23906,
+											"y": 37.94222,
+											"z": -0.23712,
+											"scaleX": 0.57,
+											"scaleY": 0.57,
+											"scaleZ": 0.57,
+											"rotationY": -46.3,
+											"rotationZ": 129.7
+										}
+									]
+								},
+								{
+									"type": "model",
+									"name": "District_1_3",
+									"source": "Structure/Base/Vernius/District/District_4_1.fbx",
+									"rotationZ": -30
+								},
+								{
+									"type": "model",
+									"name": "District_1_2",
+									"source": "Structure/Base/Vernius/District/District_3_1.fbx",
+									"rotationZ": -30,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Big",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": -28.63618,
+											"y": 26.93805,
+											"z": 5.5,
+											"scaleX": 1.3,
+											"scaleY": 1.3,
+											"scaleZ": 1.3,
+											"rotationX": 2.4999999999999987,
+											"rotationY": 4.500000000000002,
+											"rotationZ": 30.09999999999998,
+											"children": [
+												{
+													"type": "reference",
+													"name": "FX_Smoke_Big",
+													"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+													"scaleX": 2,
+													"scaleY": 2,
+													"scaleZ": 2,
+													"rotationX": 2.5,
+													"rotationY": 4.5,
+													"rotationZ": 30.1
+												}
+											]
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_06",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_06.fbx",
+											"x": -37.16291,
+											"y": 12.87987,
+											"scaleX": 0.53,
+											"scaleY": 0.53,
+											"scaleZ": 0.53,
+											"rotationZ": -12.800000000000013
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_06",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_06.fbx",
+											"x": -37.31485,
+											"y": 11.83295,
+											"scaleX": 0.53,
+											"scaleY": 0.53,
+											"scaleZ": 0.53,
+											"rotationZ": -13.400000000000011
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_06",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_06.fbx",
+											"x": -36.32821,
+											"y": 11.03414,
+											"scaleX": 0.53,
+											"scaleY": 0.53,
+											"scaleZ": 0.53,
+											"rotationZ": -10.600000000000009
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_06",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_06.fbx",
+											"x": -35.79294,
+											"y": 13.08577,
+											"scaleX": 0.53,
+											"scaleY": 0.53,
+											"scaleZ": 0.53,
+											"rotationZ": -11.400000000000013
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_06",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_06.fbx",
+											"x": -36.06088,
+											"y": 12.106,
+											"scaleX": 0.53,
+											"scaleY": 0.53,
+											"scaleZ": 0.53,
+											"rotationZ": -12.000000000000007
+										}
+									]
+								},
+								{
+									"type": "model",
+									"name": "District_1_1",
+									"source": "Structure/Base/Vernius/District/District_2_1.fbx",
+									"rotationZ": -30,
+									"children": [
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_12",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_12.fbx",
+											"x": -38.46059,
+											"y": -11.47939,
+											"z": 1.11135,
+											"scaleX": 0.49,
+											"scaleY": 0.49,
+											"scaleZ": 0.49,
+											"rotationZ": 29.999999999999993
+										},
+										{
+											"type": "model",
+											"name": "VerniusBaseSingle_11",
+											"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_11.fbx",
+											"x": -37.7799,
+											"y": -8.43656,
+											"z": 1.30785,
+											"scaleX": 0.52,
+											"scaleY": 0.52,
+											"scaleZ": 0.52,
+											"rotationZ": 28.3
+										},
+										{
+											"type": "reference",
+											"name": "LightWhite02_Flat",
+											"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+											"x": -37.78216,
+											"y": -8.39359,
+											"z": 2.53348,
+											"scaleX": 7.81,
+											"scaleY": 7.81,
+											"scaleZ": 7.81,
+											"rotationZ": 26
+										},
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Big",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": -36.05754,
+											"y": 6.02525,
+											"z": 5.5,
+											"scaleX": 1.7,
+											"scaleY": 1.7,
+											"scaleZ": 1.7,
+											"rotationX": 2.4999999999999982,
+											"rotationY": 4.500000000000003,
+											"rotationZ": 29.999999999999993,
+											"children": [
+												{
+													"type": "reference",
+													"name": "FX_Smoke_Big",
+													"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+													"scaleX": 2,
+													"scaleY": 2,
+													"scaleZ": 2,
+													"rotationX": 2.5,
+													"rotationY": 4.5,
+													"rotationZ": 30.1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "model",
+									"name": "District_3_1",
+									"source": "Structure/Base/Vernius/District/District_1_1.fbx",
+									"rotationZ": -30,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Big",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": -11.95726,
+											"y": -27.06393,
+											"z": 5.5,
+											"scaleX": 1.9999999999999993,
+											"scaleY": 1.9999999999999998,
+											"scaleZ": 2,
+											"rotationX": 2.499999999999999,
+											"rotationY": 4.499999999999999,
+											"rotationZ": 30.09999999999998,
+											"children": [
+												{
+													"type": "reference",
+													"name": "FX_Smoke_Big",
+													"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+													"scaleX": 2,
+													"scaleY": 2,
+													"scaleZ": 2,
+													"rotationX": 2.5,
+													"rotationY": 4.5,
+													"rotationZ": 30.1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "model",
+									"name": "District_3_2",
+									"source": "Structure/Base/Vernius/District/District_9_1.fbx",
+									"rotationZ": -30
+								},
+								{
+									"type": "model",
+									"name": "District_3_3",
+									"source": "Structure/Base/Vernius/District/District_8_1.fbx",
+									"rotationZ": -29.999999999999993,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Big",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": 9.5639,
+											"y": -27.58745,
+											"z": 5.5,
+											"scaleX": 1.3,
+											"scaleY": 1.3,
+											"scaleZ": 1.3,
+											"rotationX": 2.5,
+											"rotationY": 4.5,
+											"rotationZ": -146.5,
+											"children": [
+												{
+													"type": "reference",
+													"name": "FX_Smoke_Big",
+													"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+													"scaleX": 2,
+													"scaleY": 2,
+													"scaleZ": 2,
+													"rotationX": 2.5,
+													"rotationY": 4.5,
+													"rotationZ": 30.1
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "model",
+							"name": "VerniusBase",
+							"source": "Structure/Base/Vernius/VerniusBase.fbx",
+							"rotationZ": -30,
+							"children": [
+								{
+									"type": "model",
+									"name": "VerniusBase_PivotEffect",
+									"source": "Structure/Base/Vernius/VerniusBase_PivotEffect.fbx",
+									"x": -1.64342,
+									"y": 5.58007,
+									"rotationZ": 30,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_VerniusNeuralCore_MainBase",
+											"source": "Fx/Structure/Vernius/FX_VerniusNeuralCore_MainBase.fx",
+											"enabled": false
+										}
+									]
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_07",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_07.fbx",
+									"x": 9.411667596590227,
+									"y": -7.172406461243926,
+									"z": 1.87247,
+									"scaleX": 0.7,
+									"scaleY": 0.7,
+									"scaleZ": 0.7,
+									"rotationZ": 29.999999999999986
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_13",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_13.fbx",
+									"x": -13.3712,
+									"y": -1.01634,
+									"z": 2.06401,
+									"scaleX": 0.56,
+									"scaleY": 0.56,
+									"scaleZ": 0.56,
+									"rotationZ": 18.4
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_09",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_09.fbx",
+									"x": -13.36706,
+									"y": -1.02041,
+									"z": 2.16401,
+									"scaleX": 0.64,
+									"scaleY": 0.64,
+									"scaleZ": 0.64,
+									"rotationZ": 18.4
+								},
+								{
+									"type": "model",
+									"name": "VerniusBase_Select",
+									"source": "Structure/Base/Vernius/VerniusBase_Select.fbx",
+									"rotationZ": 3.1805546814635168e-15,
+									"visible": false
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_07",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_07.fbx",
+									"x": -11.519125474021989,
+									"y": 13.896390579767022,
+									"z": 2.6071,
+									"scaleX": 0.7000000000000001,
+									"scaleY": 0.7000000000000001,
+									"scaleZ": 0.7,
+									"rotationX": -7.593570129856579e-14,
+									"rotationY": -91.20000000000003,
+									"rotationZ": -28.39999999999951
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_07",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_07.fbx",
+									"x": -12.535001388688666,
+									"y": 12.937079278155213,
+									"z": 1.6624,
+									"scaleX": 0.7,
+									"scaleY": 0.7,
+									"scaleZ": 0.7,
+									"rotationZ": 29.999999999999986
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_07",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_07.fbx",
+									"x": -11.158790433807233,
+									"y": 12.987291982367694,
+									"z": 1.73287,
+									"scaleX": 0.7,
+									"scaleY": 0.7,
+									"scaleZ": 0.7,
+									"rotationZ": -179.5
+								},
+								{
+									"type": "model",
+									"name": "VerniusBaseSingle_14",
+									"source": "Structure/Base/Vernius/VerniusBaseSingle/VerniusBaseSingle_14.fbx",
+									"x": -14.675408749911767,
+									"y": -2.5749064233119565,
+									"z": 2.05067,
+									"scaleX": 0.46,
+									"scaleY": 0.46,
+									"scaleZ": 0.46,
+									"rotationZ": 29.999999999999993
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_02",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab",
+									"x": -6.4861189159522725,
+									"y": -7.145332493637095,
+									"z": 1.35575,
+									"scaleX": 5.13,
+									"scaleY": 5.13,
+									"scaleZ": 5.13,
+									"rotationZ": 29.999999999999993
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "FX",
+							"children": [
+								{
+									"type": "object",
+									"name": "WindSand",
+									"x": -0.62115,
+									"y": -16.21139,
+									"z": 6.66015,
+									"scaleX": 13.66,
+									"scaleY": 13.66,
+									"scaleZ": 13.66,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_WindSand",
+											"source": "Fx/Smoke/FX_WindSand.fx",
+											"x": -1.21292,
+											"y": 2.84647,
+											"z": -0.44283,
+											"scaleX": 0.11,
+											"scaleY": 0.09,
+											"scaleZ": 0.01,
+											"rotationZ": 31.8
+										},
+										{
+											"type": "reference",
+											"name": "FX_WindSand",
+											"source": "Fx/Smoke/FX_WindSand.fx",
+											"x": -1.81496,
+											"y": 1.06603,
+											"z": -0.49654,
+											"scaleX": 0.15,
+											"scaleY": 0.07,
+											"scaleZ": 0.07,
+											"rotationZ": 90
+										},
+										{
+											"type": "reference",
+											"name": "FX_WindSand",
+											"source": "Fx/Smoke/FX_WindSand.fx",
+											"x": 1.96549,
+											"y": 1.53039,
+											"z": -0.48599,
+											"scaleX": 0.1,
+											"scaleY": 0.05,
+											"scaleZ": 0.05,
+											"rotationX": 6.4,
+											"rotationY": -0.1,
+											"rotationZ": 91.2
+										},
+										{
+											"type": "reference",
+											"name": "FX_WindSand",
+											"source": "Fx/Smoke/FX_WindSand.fx",
+											"x": -0.03577,
+											"y": 1.5045,
+											"z": -0.60565,
+											"scaleX": 0.14,
+											"scaleY": 0.14,
+											"scaleZ": 0.02,
+											"rotationZ": -1.535927020627995
+										}
+									]
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 2.48064,
+									"y": -0.70022,
+									"z": -12.22954,
+									"scaleX": 10,
+									"scaleY": 10,
+									"scaleZ": 13
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Destruction",
+					"x": -0.03,
+					"y": 0.31,
+					"scaleX": 7.68,
+					"scaleY": 7.68,
+					"scaleZ": 7.68,
+					"children": [
+						{
+							"type": "object",
+							"name": "Step_01",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Damage_Step01_NoPhotosensitive",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Damage_Step01.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								},
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Damage_Step01_PhotosensitiveOnly",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Damage_Step01_Photosensitive.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Step_02",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Damage_Step02_NoPhotosensitive",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Damage_Step02.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								},
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Damage_Step02_PhotosensitiveOnly",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Damage_Step02_Photosensitive.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Step_03",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Damage_Step03_NoPhotosensitive",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Damage_Step03.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								},
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Damage_Step03_PhotosensitiveOnly",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Damage_Step03_Photosensitive.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Final",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Destruction_NoPhotosensitive",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Destruction.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								},
+								{
+									"type": "reference",
+									"name": "FX_VerniusBase_Destruction_PhotosensitiveOnly",
+									"source": "Fx/Structure/Vernius/FX_VerniusBase_Destruction_Photosensitive.fx",
+									"x": 0.00312,
+									"y": -0.04399,
+									"scaleX": 0.13,
+									"scaleY": 0.13,
+									"scaleZ": 0.13,
+									"rotationZ": -30
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "FX",
+					"x": 0.03705,
+					"y": -0.13293,
+					"children": [
+						{
+							"type": "reference",
+							"name": "VerniusBase_Idle_NoPhotosensitive",
+							"source": "Fx/Structure/Vernius/VerniusBase_Idle.fx",
+							"x": -0.0247,
+							"y": 0.13184,
+							"rotationZ": -30
+						},
+						{
+							"type": "reference",
+							"name": "VerniusBase_Idle_Photosensitive_PhotosensitiveOnly",
+							"source": "Fx/Structure/Vernius/VerniusBase_Idle_Photosensitive.fx",
+							"x": -0.0247,
+							"y": 0.13184,
+							"rotationZ": -30
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_VerniusNeuralCore_MainBase_Prism",
+			"source": "Fx/Structure/Vernius/FX_VerniusNeuralCore_MainBase_Prism.fx",
+			"enabled": false,
+			"x": 0.75099,
+			"y": 1.63517
+		}
+	]
+}
