@@ -1,0 +1,27 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "District_1_1_1",
+			"source": "Structure/Base/Arrakeen/District/District_1_1_1.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "ConstructionShader",
+					"source": "shaders/ConstructionShader.hx",
+					"props": {
+						"numSteps": 8,
+						"progress": 0.56,
+						"zOffset": -1,
+						"dissolveTex": null,
+						"dissolveScale": 10,
+						"speed": 2,
+						"useDissolveTex": false
+					},
+					"isInstance": true
+				}
+			]
+		}
+	]
+}
