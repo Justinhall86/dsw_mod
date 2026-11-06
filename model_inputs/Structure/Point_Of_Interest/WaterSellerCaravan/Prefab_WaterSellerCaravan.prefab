@@ -1,0 +1,116 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": 1.28,
+			"y": 0.17,
+			"scaleX": 1.99,
+			"scaleY": 1.99,
+			"scaleZ": 1.99,
+			"rotationZ": -160.5,
+			"children": [
+				{
+					"type": "model",
+					"name": "WaterSellerCaravanTent",
+					"source": "Structure/Point_Of_Interest/WaterSellerCaravan/WaterSellerCaravanTent.fbx",
+					"x": -1.2,
+					"y": -0.8,
+					"rotationZ": -10.3
+				},
+				{
+					"type": "model",
+					"name": "Male01_Militia01",
+					"source": "Character/Common/Militia/Male01_Militia01.fbx",
+					"x": -1.5350000000000001,
+					"y": -0.45749999999999996,
+					"rotationZ": -79.8,
+					"animation": "Anim/Male01/Anim_Male01_Idle01.fbx",
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Structure/Point_Of_Interest/WaterSellerCaravan/Militia01_Albedo.png"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Kulon01",
+					"source": "Character/Fremen/Unit/CaravanKulon/Kulon/Kulon01.fbx",
+					"x": 1.36,
+					"y": -0.91,
+					"scaleX": 1.23,
+					"scaleY": 1.23,
+					"scaleZ": 1.23,
+					"rotationZ": -155,
+					"animation": "Character/Fremen/Unit/CaravanKulon/Kulon/Anim_Kulon_Idle.fbx",
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "PBR",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Structure/Point_Of_Interest/WaterSellerCaravan/Fremen_Kulon_01_Albedo.png"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 3.754378282025833,
+			"y": 2.1047174552672208,
+			"scaleX": 3.6019,
+			"scaleY": 3.6019,
+			"scaleZ": 1.1343000000000003,
+			"rotationZ": 129.10000000000002,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -1.7,
+			"y": 1.3699999999999997,
+			"scaleX": 3.189999999999999,
+			"scaleY": 4.529999999999999,
+			"scaleZ": 0.8299999999999998,
+			"rotationZ": 129.1,
+			"albedoMap": "Fx/Gradients/alphaCircular_black.png"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 2.44,
+			"y": 0.19,
+			"scaleX": 19.14,
+			"scaleY": 19.14,
+			"scaleZ": 0.05,
+			"rotationZ": -173.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

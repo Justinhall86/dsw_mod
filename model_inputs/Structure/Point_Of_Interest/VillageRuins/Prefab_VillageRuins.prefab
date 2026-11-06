@@ -1,0 +1,37 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "VillageRuins",
+			"source": "Structure/Point_Of_Interest/VillageRuins/VillageRuins.fbx",
+			"rotationZ": 108.9
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.23,
+			"y": 0.07,
+			"scaleX": 5.97,
+			"scaleY": 7.34,
+			"scaleZ": 0.41,
+			"rotationZ": -110.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5,
+			"normalStrength": 1.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -0.08,
+			"y": 0.03,
+			"z": -0.07,
+			"scaleX": 0.25,
+			"scaleY": 0.3,
+			"scaleZ": 0.62,
+			"rotationZ": 90
+		}
+	]
+}

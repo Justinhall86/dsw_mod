@@ -1,0 +1,81 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "TrafficHub",
+			"source": "Structure/Point_Of_Interest/TrafficHub/TrafficHub.fbx",
+			"x": 0.1577,
+			"y": 0.141,
+			"rotationZ": -48.2,
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 0.52,
+						"zamount": 2,
+						"freq": 4.02
+					},
+					"targetMaterial": "TrafficHub_Wind_MAT",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.019522108421767936,
+			"y": 0.10692095638786368,
+			"scaleX": 6.14,
+			"scaleY": 4.299999999999999,
+			"scaleZ": 0.45,
+			"rotationZ": 68.8,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_5",
+			"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+			"x": 0.95637,
+			"y": 0.13783,
+			"z": 0.10608,
+			"scaleX": 0.4,
+			"scaleY": 0.4,
+			"scaleZ": 0.4,
+			"rotationZ": -49.4
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_02",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab",
+			"x": 0.12583,
+			"y": -1.82285,
+			"scaleX": 1.56,
+			"scaleY": 1.56,
+			"scaleZ": 1.56
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_03",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+			"x": 0.64822,
+			"y": 0.57661,
+			"z": 1.40522
+		},
+		{
+			"type": "reference",
+			"name": "LightYellow03_Sphere",
+			"source": "Fx/Structure/Lights/LightYellow03_Sphere.fx",
+			"x": 0.6152,
+			"y": 0.57528,
+			"z": 1.82849,
+			"scaleX": 0.4,
+			"scaleY": 0.4,
+			"scaleZ": 0.4
+		}
+	]
+}

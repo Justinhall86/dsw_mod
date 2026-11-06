@@ -1,0 +1,291 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Thumper",
+			"source": "Structure/Point_Of_Interest/Thumper/Thumper.fbx",
+			"animation": "Structure/Point_Of_Interest/Thumper/Anim_Thumper.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "Alpha",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"depthWrite": "On"
+						}
+					},
+					"diffuseMap": "Structure/Point_Of_Interest/Thumper/Thumper_Albedo_Fremen.png"
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.15983,
+			"y": -0.03235,
+			"z": -0.08448,
+			"scaleX": 3.12,
+			"scaleY": 3.57,
+			"scaleZ": 0.43,
+			"rotationZ": -108.2,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		},
+		{
+			"type": "object",
+			"name": "Lights",
+			"children": [
+				{
+					"type": "model",
+					"name": "CylinderStraight_Bottom",
+					"source": "Fx/Meshes_Common/CylinderStraight_02_MoreVrtx.fbx",
+					"y": -0.01429,
+					"scaleX": 0.32,
+					"scaleY": 0.32,
+					"scaleZ": 0.04,
+					"rotationX": 89.99999999999999,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"colorMask": 255,
+									"emissive": 1
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8941176470588235,
+									0.5372549019607843,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Gradients/Cyl05u_A.jpg"
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "CylinderStraight_Bottom01",
+					"source": "Fx/Meshes_Common/CylinderStraight_02_MoreVrtx.fbx",
+					"y": -1.00981,
+					"scaleX": 0.26,
+					"scaleY": 0.26,
+					"scaleZ": 0.03,
+					"rotationX": 90,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"colorMask": 255,
+									"emissive": 2
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8941176470588235,
+									0.5372549019607843,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Gradients/Cyl05u_A.jpg"
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "CylinderStraight_Bottom04",
+					"source": "Fx/Meshes_Common/CylinderStraight_02_MoreVrtx.fbx",
+					"y": 0.28726,
+					"z": -0.00001,
+					"scaleX": 0.13,
+					"scaleY": 0.13,
+					"scaleZ": 0.02,
+					"rotationX": 90,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"colorMask": 255,
+									"emissive": 2
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8941176470588235,
+									0.5372549019607843,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Gradients/Cyl05u_A.jpg"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "CylinderStraight_Bottom02",
+			"source": "Fx/Meshes_Common/CylinderStraight_02_MoreVrtx.fbx",
+			"y": 0.15957,
+			"scaleX": 0.255,
+			"scaleY": 0.255,
+			"scaleZ": 0.03,
+			"rotationX": 90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Alpha",
+							"shadows": false,
+							"culling": "Back",
+							"colorMask": 255,
+							"emissive": 2
+						}
+					}
+				},
+				{
+					"type": "shader",
+					"name": "ColorSet",
+					"source": "shaders/ColorSet.hx",
+					"props": {
+						"amount": 1,
+						"color": [
+							0.8941176470588235,
+							0.5372549019607843,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"onDecal": false,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 1,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Gradients/Cyl05u_A.jpg"
+					}
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Lights",
+			"target": "Thumper.root.B_Root.B_Thumper"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "CylinderStraight_Bottom02",
+			"target": "Thumper.root.B_Root"
+		}
+	]
+}
