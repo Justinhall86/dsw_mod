@@ -230,6 +230,15 @@ any player or the state has `Block_RenegadesSpawn` (attr row 53):
   strings, so counting `Renegade_Drop`, `ThR_Trooper` or a mission id shows whether that raid, unit or operation existed.
 - `scripts/engine_preflight.py` checks a cdb against the rules in this file. Run it before every pak build.
 
+## 8f. HQ districts are prefab nodes named District_<group>_<slot>
+
+`ent.StructureModel.__constructor__` (`ent/StructureModel.hx:68-89`) loops over the structure's `props.districtSlots`
+(group g = 1..n) and each group's `nbSlots` (slot k = 1..nbSlots), builds the name `"District_" + g + "_" + k`, and calls
+`getObjectByName` on the HQ prefab. Found nodes are collected and shown by `updateDistricts` as slots are built; missing names
+are skipped (Corrino's prefab only has District_1_3, 2_2, 3_1). So a custom HQ can grow piece by piece with no cdb change:
+put one model per slot in the prefab under those names (FX children under a district node appear with it, as in Prefab_Arrakeen).
+Used by `model_projects/thorvald/thorvald_hq` (2026-11-03).
+
 ## 9. Hostility
 - `Entity.isAlly(a, b)`: true if forced allies (`stateData.forcedAllies`). Raid armies go through `Raid.isAlly`.
   - Neutral raids (owner null) are hostile to every owned entity. Origin-sietch allies are the only exception.
