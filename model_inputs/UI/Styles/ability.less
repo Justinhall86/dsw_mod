@@ -1,0 +1,119 @@
+@import "game.less";
+
+abilities-displayer {
+	align: middle;
+	hspacing: 5;
+	vspacing: 3;
+}
+
+ability-button {
+	layout: stack;
+	background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+	width: 40;
+	height: 40;
+	pad-action: @padaction-useabilityother;
+	selection-bar & {
+		pad-action: @padaction-useselectionability;
+	}
+
+	fmt-text {
+		color: @color-ui-text;
+		&.title {
+			text-align: multiline-center;
+		}
+	}
+
+	#gauge{
+		invert: true;
+		bitmap{
+			src: "UI/elements/abilitiesGauge.png";
+			tint: @color-time;
+			alpha: 0.6;
+		}
+		visible: false;
+	}
+	>.overlay {
+		fill-width: true;
+		fill-height: true;
+	}
+	&.in-cooldown, &.activated{
+		#gauge{
+			visible: true;
+		}
+	}
+
+	&.toggledOn {
+		filter: glow(#dbc392, 1, 1, 4, 1, true);
+	}
+
+	&.clickable {
+		&:hover {
+			background-tile-pos-y: 1;
+			&.not-spying {
+				.ability-icon { src-pos-y: 1}
+			}
+		}
+		&:active {
+			color-adjust: brightness(-0.05);
+		}
+	}
+	>#factionEmblem {
+		.faction-banner-small();
+		width: 16;
+		margin-top: -20;
+		margin-left: -22;
+	}
+	/* &.disabled {
+		background-tile-pos-y: 2;
+	} */
+}
+
+ability-choose-faction {
+	layout: vertical;
+	align: top middle;
+	background: @window-bg;
+	padding: 20;
+	padding-left: 36;
+	padding-right: 36;
+	spacing: 5;
+	offset-y: 40;
+
+	content-align: middle middle;
+	width: 400;
+
+	.closeBtn {
+		.filtered-btn;
+		background: "UI/elements/close.png";
+		width: 20;
+		height: 20;
+		align: top right;
+		position: absolute;
+		scale: 0.6;
+		offset-x: 14;
+	}
+
+	fmt-text {
+		color: @color-desert;
+	}
+
+	.name {
+		.bold-14;
+	}
+
+	.desc {
+		.italic-13;
+	}
+
+	.actionDesc {
+		.bold-13;
+		margin-top: 5;
+	}
+
+	faction-selector {
+		spacing: 2;
+		scale: 0.7;
+		faction-button {
+			style: 2;
+		}
+	}
+}
