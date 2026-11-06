@@ -51,8 +51,9 @@ def entries(data):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--out", default=os.path.join(HERE, "quinn_patcher"))
+    ap.add_argument("--archive", help="the patcher zip (default: the first Quinn*.zip or patcher*.zip in tool/)")
     args = ap.parse_args()
-    archive = glob.glob(os.path.join(HERE, "Quinn*.zip"))[0]
+    archive = args.archive or (glob.glob(os.path.join(HERE, "Quinn*.zip")) + glob.glob(os.path.join(HERE, "patcher*.zip")))[0]
     root = os.path.abspath(args.out)
     if os.path.isdir(root):
         shutil.rmtree(root)
