@@ -1,0 +1,95 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "CraftWorkshop",
+			"source": "Structure/Buildings/CraftWorkshop/CraftWorkshop.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.13622,
+			"y": -0.11707,
+			"z": -0.04376,
+			"scaleX": 4.02,
+			"scaleY": 3.84,
+			"scaleZ": 0.3,
+			"rotationZ": -174.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 0.52
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": 0.29902,
+			"y": -0.00153,
+			"z": 0.20094,
+			"scaleX": 0.4,
+			"scaleY": 0.69,
+			"scaleZ": 0.4,
+			"rotationZ": -0.6
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue02_Flat",
+			"source": "Fx/Structure/Lights/LightBlue02_Flat.fx",
+			"x": 0.21828,
+			"y": 0.38128,
+			"z": 0.55977,
+			"scaleX": 0.43,
+			"scaleY": 0.57,
+			"scaleZ": 0.99
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue02_Flat",
+			"source": "Fx/Structure/Lights/LightBlue02_Flat.fx",
+			"x": 0.21828,
+			"y": -0.38398,
+			"z": 0.55977,
+			"scaleX": 0.43,
+			"scaleY": 0.57,
+			"scaleZ": 0.99
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue02_Flat",
+			"source": "Fx/Structure/Lights/LightBlue02_Flat.fx",
+			"x": -0.63856,
+			"y": -0.38398,
+			"z": 0.55977,
+			"scaleX": 0.43,
+			"scaleY": 0.57,
+			"scaleZ": 0.99
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue02_Flat",
+			"source": "Fx/Structure/Lights/LightBlue02_Flat.fx",
+			"x": -0.64064,
+			"y": 0.38128,
+			"z": 0.55977,
+			"scaleX": 0.43,
+			"scaleY": 0.57,
+			"scaleZ": 0.99
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.02259,
+			"y": -0.03145,
+			"scaleX": 2.03,
+			"scaleY": 1.88,
+			"scaleZ": 0.34,
+			"rotationZ": -90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		}
+	]
+}

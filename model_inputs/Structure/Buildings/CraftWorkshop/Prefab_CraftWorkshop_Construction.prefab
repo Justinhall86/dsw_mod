@@ -1,0 +1,50 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "CraftWorkshop_Construction",
+			"source": "Structure/Buildings/CraftWorkshop/CraftWorkshop_Construction.fbx",
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/CraftWorkshop/CraftWorkshop_Construction.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.13622,
+			"y": -0.11707,
+			"z": -0.04376,
+			"scaleX": 5.13,
+			"scaleY": 4.9,
+			"scaleZ": 0.38,
+			"rotationZ": -174.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.47
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.27,
+			"scaleY": 0.26,
+			"scaleZ": 0.26
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"scaleX": 0.49,
+			"scaleY": 0.83,
+			"scaleZ": 0.72
+		}
+	]
+}
