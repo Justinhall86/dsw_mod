@@ -1,0 +1,69 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "RecruitmentOffice_Construction",
+			"source": "Structure/Buildings/RecruitmentOffice/RecruitmentOffice_Construction.fbx",
+			"x": -0.3,
+			"scaleX": 1.2,
+			"scaleY": 1.2,
+			"scaleZ": 0.95,
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/RecruitmentOffice/RecruitmentOffice_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.65,
+			"scaleY": 0.65,
+			"scaleZ": 0.65
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.26,
+			"scaleY": 0.25,
+			"scaleZ": 0.25
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.35,
+			"y": 0.02,
+			"z": -0.02,
+			"scaleX": 0.46,
+			"scaleY": 0.69,
+			"scaleZ": 0.93
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "RecruitmentOffice_Construction.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "RecruitmentOffice_Construction.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

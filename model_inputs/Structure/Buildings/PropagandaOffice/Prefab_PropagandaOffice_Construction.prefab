@@ -1,0 +1,48 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.65,
+			"scaleY": 0.65,
+			"scaleZ": 0.65
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.26,
+			"scaleY": 0.25,
+			"scaleZ": 0.25
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": -0.07792,
+			"y": 0.02,
+			"z": -0.02,
+			"scaleX": 0.46,
+			"scaleY": 1.33,
+			"scaleZ": 0.93
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "model",
+			"name": "PropagandaOffice_Construction",
+			"source": "Structure/Buildings/PropagandaOffice/PropagandaOffice_Construction.fbx",
+			"rotationZ": 180,
+			"animation": "Structure/Buildings/PropagandaOffice/PropagandaOffice_Construction.fbx"
+		}
+	]
+}

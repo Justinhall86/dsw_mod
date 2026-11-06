@@ -1,0 +1,68 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "RecruitmentOffice",
+			"source": "Structure/Buildings/RecruitmentOffice/RecruitmentOffice.fbx",
+			"x": -0.3,
+			"scaleX": 1.2,
+			"scaleY": 1.2,
+			"rotationZ": 90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"scaleX": 1.64,
+			"scaleY": 2.23,
+			"scaleZ": 0.5,
+			"rotationZ": 90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.00103,
+			"y": -0.89807,
+			"z": 0.29247,
+			"scaleX": 0.8,
+			"scaleY": 0.8,
+			"scaleZ": 0.8
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.00103,
+			"y": 0.90083,
+			"z": 0.29247,
+			"scaleX": 0.8,
+			"scaleY": 0.8,
+			"scaleZ": 0.8
+		},
+		{
+			"type": "reference",
+			"name": "LightRed03_Sphere",
+			"source": "Fx/Structure/Lights/LightRed03_Sphere.fx",
+			"x": -0.65169,
+			"y": -0.06761,
+			"z": 1.85778,
+			"scaleX": 0.32,
+			"scaleY": 0.32,
+			"scaleZ": 0.32
+		}
+	]
+}

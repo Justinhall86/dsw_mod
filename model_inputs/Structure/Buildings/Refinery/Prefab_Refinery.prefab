@@ -1,0 +1,67 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Refinery",
+			"source": "Structure/Buildings/Refinery/Refinery.fbx",
+			"rotationZ": -180
+		},
+		{
+			"type": "model",
+			"name": "Refinery_Ground",
+			"source": "Structure/Buildings/Refinery/Refinery_Ground.fbx",
+			"rotationZ": 180
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_2",
+			"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+			"x": 0.1073,
+			"y": -0.98474,
+			"z": 0.69705,
+			"scaleX": 0.44999999999999996,
+			"scaleY": 0.44999999999999996,
+			"scaleZ": 0.44999999999999996,
+			"rotationZ": -91.8
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_2",
+			"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+			"x": -0.70682,
+			"y": -0.20553,
+			"z": 1.40122,
+			"scaleX": 0.44999999999999996,
+			"scaleY": 0.44999999999999996,
+			"scaleZ": 0.44999999999999996,
+			"rotationZ": -91.8
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_2",
+			"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+			"x": -0.73992,
+			"y": 0.05062,
+			"z": 1.68592,
+			"scaleX": 0.44999999999999996,
+			"scaleY": 0.44999999999999996,
+			"scaleZ": 0.44999999999999996,
+			"rotationZ": -118.7
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "model",
+			"name": "Refinery_Addon",
+			"source": "Structure/Buildings/Refinery/Refinery_Addon.fbx"
+		}
+	]
+}

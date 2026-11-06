@@ -1,0 +1,91 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Refinery_Construction",
+			"source": "Structure/Buildings/Refinery/Refinery_Construction.fbx",
+			"rotationZ": -180,
+			"animation": "Structure/Buildings/Refinery/Refinery_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.2,
+			"scaleY": 0.21,
+			"scaleZ": 0.21
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.28,
+			"z": -0.18,
+			"scaleX": 0.37,
+			"scaleY": 0.66,
+			"scaleZ": 1.14
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "Refinery_Construction.Construction_asset_Crane_Base2.Construction_asset_Crane_Top2.Construction_asset_Crane_Cube2"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "Refinery_Construction.Construction_asset_Crane_Base1.Construction_asset_Crane_Top.Construction_asset_Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "Refinery_Construction.Construction_asset_Drone1"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "Refinery_Construction.Construction_asset_Drone1"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "Refinery_Construction.Construction_asset_Crane_Base1.Construction_asset_Crane_Top.Construction_asset_Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "Refinery_Construction.Construction_asset_Crane_Base2.Construction_asset_Crane_Top2.Construction_asset_Crane_Cube2"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.03819,
+			"y": -0.14736,
+			"scaleX": 4.58,
+			"scaleY": 4.58,
+			"scaleZ": 0.09,
+			"rotationZ": 129.1,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

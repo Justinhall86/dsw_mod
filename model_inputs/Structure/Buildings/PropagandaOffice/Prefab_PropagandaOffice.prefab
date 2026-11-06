@@ -1,0 +1,76 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "PropagandaOffice",
+			"source": "Structure/Buildings/PropagandaOffice/PropagandaOffice.fbx",
+			"rotationZ": 180
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 5.21,
+			"scaleY": 5.21,
+			"scaleZ": 0.31,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": 0.44174,
+			"y": -0.49033,
+			"z": 0.96137,
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7,
+			"rotationX": -0.4,
+			"rotationY": -155.3,
+			"rotationZ": 0.7
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": 0.43148,
+			"y": 0.51384,
+			"z": 0.96137,
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7,
+			"rotationX": -0.4,
+			"rotationY": -155.3,
+			"rotationZ": 0.7
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": -0.41959,
+			"y": 0.49835,
+			"z": 0.96137,
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7,
+			"rotationX": -0.4,
+			"rotationY": -155.3,
+			"rotationZ": 0.7
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": -0.42138,
+			"y": -0.49372,
+			"z": 0.96137,
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7,
+			"rotationX": -0.4,
+			"rotationY": -155.3,
+			"rotationZ": 0.7
+		}
+	]
+}

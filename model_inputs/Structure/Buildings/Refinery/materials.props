@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"Refinery_NoAlbedo": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true
+			}
+		}
+	}
+}
