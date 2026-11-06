@@ -1,0 +1,12 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SietchTuek",
+			"source": "Structure/Base/SietchTuek/SietchTuek.fbx",
+			"x": 0.07,
+			"rotationZ": 23.3
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"materials": {
+		"PBR": {
+			"SietchTuek_Buildings": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1.74
+			},
+			"SietchTuek_Mount": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}

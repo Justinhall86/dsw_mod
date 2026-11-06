@@ -1,0 +1,15 @@
+{
+	"materials": {
+		"PBR": {
+			"SietchTuek_District_Opacity_MAT": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": false,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}
