@@ -151073,6 +151073,14 @@
 							"desc": "[Authority] cost to [Annex] a [!Village] is increased ::percent:: more by distance from [ThorvaldCitadel].",
 							"val": 3,
 							"target2": {}
+						},
+						{
+							"target": {
+								"building": "Th_ConsignmentTerminal"
+							},
+							"target2": {},
+							"ref": "Unlock_TBuilding",
+							"desc": "Can build the [Th_ConsignmentTerminal]"
 						}
 					],
 					"type": 0,
@@ -192269,26 +192277,6 @@
 							"ref": "Faction_DuplicateEachBuildingLimit_Flat",
 							"val": 1,
 							"desc": ""
-						},
-						{
-							"target": {
-								"convertFrom": [
-									{
-										"val": 100,
-										"resource": "Plascrete"
-									}
-								]
-							},
-							"target2": {
-								"convertTo": [
-									{
-										"val": 150,
-										"resource": "Solari"
-									}
-								]
-							},
-							"ref": "Convert_TRes_To_TRes2",
-							"desc": "Trade [Plascrete] for [Solari] in the top bar"
 						}
 					],
 					"type": 0,
@@ -211470,6 +211458,62 @@
 						"x": 0,
 						"y": 0
 					}
+				},
+				{
+					"id": "TTh_ConsignmentTerminal",
+					"name": "Consignment Terminal",
+					"desc": "Thorvald alloy is sold here to whoever pays, in whatever they pay with.",
+					"props": {
+						"tip": {
+							"cat": "Buildings"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"convertFrom": [
+									{
+										"val": 100,
+										"resource": "Plascrete"
+									}
+								]
+							},
+							"target2": {
+								"convertTo": [
+									{
+										"val": 150,
+										"resource": "Solari"
+									},
+									{
+										"val": 8,
+										"resource": "Manpower"
+									},
+									{
+										"val": 24,
+										"resource": "Intel"
+									},
+									{
+										"val": 6,
+										"resource": "Influence"
+									},
+									{
+										"val": 4,
+										"resource": "Authority"
+									}
+								]
+							},
+							"ref": "Convert_TRes_To_TRes2",
+							"desc": "Trade [Plascrete] for other resources in the top bar"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/buildings_icons.png",
+						"size": 80,
+						"x": 0,
+						"y": 2
+					}
 				}
 			],
 			"props": {
@@ -223640,6 +223684,100 @@
 							"aiType": "Statecraft"
 						}
 					]
+				},
+				{
+					"id": "Th_ConsignmentTerminal",
+					"texts": {
+						"name": "Consignment Terminal",
+						"desc": "A Heighforge freight port. Plascrete goes up to the waiting tenders, and Solari, recruits, information and favours come back down.",
+						"plural": {
+							"name": "Consignment Terminals"
+						}
+					},
+					"domain": "Economy",
+					"states": [
+						{
+							"attributes": [
+								{
+									"target": {},
+									"target2": {},
+									"ref": "CustomProperty",
+									"desc": "Allows trading [Plascrete] for [Solari], [Manpower], [Intel], [Influence] and [Authority] in the top bar"
+								}
+							],
+							"cost": [
+								{
+									"res": "Solari",
+									"qty": 1000
+								},
+								{
+									"qty": 500,
+									"res": "Plascrete"
+								}
+							],
+							"upkeep": [
+								{
+									"qty": 20,
+									"res": "Solari"
+								},
+								{
+									"qty": 10,
+									"res": "Water"
+								}
+							],
+							"duration": 8,
+							"effects": []
+						}
+					],
+					"props": {
+						"factionLimit": 1,
+						"isWonder": true,
+						"buildingRadius": 5,
+						"scale": 3,
+						"maxHealth": 2000,
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"buildingTrait": "TTh_ConsignmentTerminal",
+						"tip": {
+							"cat": "MajorBuilding"
+						},
+						"noFactor": true,
+						"lootingValue": [
+							{
+								"qty": 200,
+								"res": "Solari"
+							}
+						]
+					},
+					"visuals": {
+						"model": [
+							{
+								"path": "Structure/Buildings/SpacingGuildBranch/Prefab_SpacingGuildBranch.prefab"
+							}
+						],
+						"thumbnail": {
+							"file": "UI/structures/SpacingGuildBranch.png",
+							"size": 1,
+							"x": 0,
+							"y": 0,
+							"width": 592,
+							"height": 168
+						}
+					},
+					"aiWeights": [
+						{
+							"value": -5
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/buildings_icons.png",
+						"size": 80,
+						"x": 6,
+						"y": 2
+					}
 				},
 				{
 					"id": "ALLBUILDINGS",

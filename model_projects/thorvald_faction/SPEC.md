@@ -45,6 +45,13 @@ It has two halves and needs both: the rows in `data.cdb`, and an `hlboot.dat` pa
 `python tool/unpack_quinn.py`, then `python tool/quinn.py build --base <the game's hlboot.dat> --ticks resource_trades --out <file>`, then `python tool/quinn.py install --built <file> --game <D4X folder>`.
 A Steam update can replace `hlboot.dat`, which removes the button until the patch is rebuilt.
 Script 54 (the Alloy Sale village button) is the data-only fallback; script 55 removed its rows.
+
+**Consignment Terminal (2026-11-05, script 57, untested in game).** The trade now comes from a building, not from Nobru. `Th_ConsignmentTerminal` is a Thorvald-only major
+building (one per faction, built like Fremen's Recycling Plant: 1000 Solari + 500 Plascrete, 8 days, upkeep 20 Solari + 10 Water), unlocked from the start by the
+`Thorvald` trait. Its `buildingTrait` `TTh_ConsignmentTerminal` holds one Convert line: 100 Plascrete for 150 Solari, 8 Manpower, 24 Intel, 6 Influence or
+4 Authority. Quinn's trade code reads lines off a faction's buildings, so the Convert button shows only while a terminal stands. Water and Fuel Cells are left
+out: they keep no stock, which needs Quinn's conversion-trait hooks. The AI weight is -5, because the AI cannot use the panel. The look is the Spacing Guild
+Branch until the starport in `model_projects/thorvald_starport` is exported. To check in game: whether the line shows while the building is still under construction.
 Patched binaries for the current `D:\Steam` game (build 19145763, older than `data.cdb`) are in `mod_files/hlboot_build19145763/`, with rebuild steps in its README.
 
 ## Revert
