@@ -1,0 +1,21 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "EcazSculpture_Military",
+			"source": "Structure/Buildings/EcazSculptures/EcazSculpture_Military.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -0.15,
+			"scaleX": 10,
+			"scaleY": 10,
+			"scaleZ": 1.01,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

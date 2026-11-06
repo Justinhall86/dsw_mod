@@ -1,0 +1,37 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "EcazSculpture_Military_Construction",
+			"source": "Structure/Buildings/EcazSculptures/EcazSculpture_Military_Construction.fbx",
+			"animation": "Structure/Buildings/EcazSculptures/EcazSculpture_Military_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.02344,
+			"y": -0.01275,
+			"z": 0.33566,
+			"scaleX": 1.9,
+			"scaleY": 3.38,
+			"scaleZ": 1.06
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 3.74,
+			"scaleY": 1.63,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 1.26,
+			"scaleY": 0.89
+		}
+	]
+}

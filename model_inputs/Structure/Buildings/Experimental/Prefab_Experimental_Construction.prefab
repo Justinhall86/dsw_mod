@@ -1,0 +1,35 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Experimental_Construction",
+			"source": "Structure/Buildings/Experimental/Experimental_Construction.fbx",
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/Experimental/Experimental_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"z": 0.54029,
+			"scaleX": 0.15,
+			"scaleY": 0.15,
+			"scaleZ": 0.15
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.02783,
+			"scaleX": 0.9,
+			"scaleY": 1.68,
+			"scaleZ": 2.57
+		}
+	]
+}

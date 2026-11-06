@@ -1,0 +1,20 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "EcazSculpture_Economy",
+			"source": "Structure/Buildings/EcazSculptures/EcazSculpture_Economy.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"z": -0.15,
+			"scaleX": 10,
+			"scaleY": 10,
+			"scaleZ": 1.01,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}
