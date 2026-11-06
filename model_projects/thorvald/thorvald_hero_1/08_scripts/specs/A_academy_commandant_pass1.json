@@ -1,0 +1,14 @@
+{
+ "name": "A_academy_commandant",
+ "base_blend": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/01_input/donors/Whitmore/Whitmore_E_Hero_1.blend",
+ "body": "Whitmore_E_Hero_1_00",
+ "rig": "Rig",
+ "out_dir": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/02_progress_photos/01_pass1_A_academy_commandant",
+ "body_maps": {
+  "albedo": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/A_academy_commandant/A_academy_commandant_Albedo.png",
+  "normal": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/A_academy_commandant/A_academy_commandant_Normal.png",
+  "mgao": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/A_academy_commandant/A_academy_commandant_MetallicGlossAO.png"
+ },
+ "drop": [],
+ "parts": []
+}

@@ -1,0 +1,14 @@
+{
+ "name": "C_kinsman_of_the_earl",
+ "base_blend": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/01_input/donors/Duncan/Duncan_A_Hero_1.blend",
+ "body": "Duncan_A_Hero_1_00",
+ "rig": "Rig",
+ "out_dir": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/02_progress_photos/02_pass2_C_kinsman_of_the_earl",
+ "body_maps": {
+  "albedo": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/C_kinsman_of_the_earl/C_kinsman_of_the_earl_Albedo.png",
+  "normal": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/C_kinsman_of_the_earl/C_kinsman_of_the_earl_Normal.png",
+  "mgao": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/C_kinsman_of_the_earl/C_kinsman_of_the_earl_MetallicGlossAO.png"
+ },
+ "drop": [],
+ "parts": []
+}

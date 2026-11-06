@@ -1,0 +1,14 @@
+{
+ "name": "B_foundry_warlord",
+ "base_blend": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/01_input/donors/Iakin/Iakin_H_Hero_2.blend",
+ "body": "Iakin_H_Hero_2_00",
+ "rig": "Rig",
+ "out_dir": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/02_progress_photos/01_pass1_B_foundry_warlord",
+ "body_maps": {
+  "albedo": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/B_foundry_warlord/B_foundry_warlord_Albedo.png",
+  "normal": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/B_foundry_warlord/B_foundry_warlord_Normal.png",
+  "mgao": "C:/Users/justi/Python/dsw_mod/model_projects/thorvald/thorvald_hero_1/04_textures/B_foundry_warlord/B_foundry_warlord_MetallicGlossAO.png"
+ },
+ "drop": [],
+ "parts": []
+}

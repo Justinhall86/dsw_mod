@@ -1,0 +1,83 @@
+{
+  "_comment": "Variant C, Kinsman of the Earl. Black high-collared coat (Memnon's line), blackened steel, oxblood sash, copper arm-patch trim.",
+  "palette": {
+    "black": [
+      22,
+      20,
+      22
+    ],
+    "oxblood": [
+      96,
+      30,
+      30
+    ],
+    "dark_rust": [
+      60,
+      30,
+      22
+    ],
+    "steel": [
+      40,
+      40,
+      44
+    ],
+    "copper": [
+      178,
+      110,
+      58
+    ],
+    "skin": [
+      149,
+      96,
+      77
+    ]
+  },
+  "recipe": {
+    "1": [
+      "skin",
+      0.0
+    ],
+    "2": [
+      "black",
+      0.0
+    ],
+    "3": [
+      "dark_rust",
+      0.15
+    ],
+    "4": [
+      "oxblood",
+      0.0
+    ],
+    "5": [
+      "steel",
+      0.0
+    ],
+    "6": [
+      "copper",
+      0.0
+    ]
+  },
+  "metallic": {
+    "2": [
+      0.6,
+      0.0
+    ],
+    "3": [
+      0.7,
+      0.0
+    ],
+    "4": [
+      0.3,
+      0.0
+    ],
+    "5": [
+      0.55,
+      0.0
+    ],
+    "6": [
+      1.0,
+      50.0
+    ]
+  }
+}

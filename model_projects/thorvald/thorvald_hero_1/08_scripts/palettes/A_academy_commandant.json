@@ -1,0 +1,83 @@
+{
+  "_comment": "Variant A, Academy Commandant. Gunmetal frock coat, rust under-layer, ember-orange trim (art_direction.md / counsellors.md Ein look).",
+  "palette": {
+    "coat": [
+      44,
+      40,
+      37
+    ],
+    "coat_dark": [
+      24,
+      22,
+      20
+    ],
+    "rust": [
+      72,
+      36,
+      26
+    ],
+    "gunmetal": [
+      58,
+      54,
+      50
+    ],
+    "ember": [
+      214,
+      98,
+      36
+    ],
+    "skin": [
+      136,
+      85,
+      54
+    ]
+  },
+  "recipe": {
+    "1": [
+      "skin",
+      0.0
+    ],
+    "2": [
+      "coat_dark",
+      0.0
+    ],
+    "3": [
+      "coat_dark",
+      0.15
+    ],
+    "4": [
+      "coat",
+      0.0
+    ],
+    "5": [
+      "gunmetal",
+      0.0
+    ],
+    "6": [
+      "ember",
+      0.0
+    ]
+  },
+  "metallic": {
+    "2": [
+      0.6,
+      0.0
+    ],
+    "3": [
+      0.7,
+      0.0
+    ],
+    "4": [
+      0.3,
+      0.0
+    ],
+    "5": [
+      0.55,
+      0.0
+    ],
+    "6": [
+      1.0,
+      40.0
+    ]
+  }
+}
