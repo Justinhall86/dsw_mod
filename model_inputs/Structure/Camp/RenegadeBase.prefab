@@ -1,0 +1,101 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "Root",
+			"rotationZ": 36,
+			"children": [
+				{
+					"type": "model",
+					"name": "RavagerShuttle",
+					"source": "Vehicle/Common/Ravager_Shuttle/RavagerShuttle.fbx"
+				},
+				{
+					"type": "object",
+					"name": "Camp",
+					"children": [
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -0.41442,
+							"y": -0.27908,
+							"scaleX": 10,
+							"scaleY": 10,
+							"rotationZ": -36,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "model",
+							"name": "Donation",
+							"source": "Structure/Point_Of_Interest/Donation/Donation.fbx",
+							"x": -2.08089,
+							"y": -1.2091200000000004,
+							"scaleX": 0.6000000000000001,
+							"scaleY": 0.6000000000000002,
+							"scaleZ": 0.6000000000000002,
+							"rotationZ": -71.6
+						},
+						{
+							"type": "model",
+							"name": "Forgotten_Donation",
+							"source": "Structure/Point_Of_Interest/Donation/Forgotten_Donation.fbx",
+							"x": -1.7030900000000002,
+							"y": 1.11539,
+							"scaleX": 0.6000000000000002,
+							"scaleY": 0.6000000000000002,
+							"scaleZ": 0.6000000000000002,
+							"rotationZ": -127.5
+						},
+						{
+							"type": "model",
+							"name": "Forgotten_Donation",
+							"source": "Structure/Point_Of_Interest/Donation/Forgotten_Donation.fbx",
+							"x": 0.22265000000000024,
+							"y": -1.9942700000000002,
+							"scaleX": 0.6000000000000001,
+							"scaleY": 0.6000000000000002,
+							"scaleZ": 0.6000000000000002,
+							"rotationZ": -25.300000000000008
+						},
+						{
+							"type": "model",
+							"name": "Donation",
+							"source": "Structure/Point_Of_Interest/Donation/Donation.fbx",
+							"x": 0.6988700000000001,
+							"y": 1.8303300000000005,
+							"scaleX": 0.6000000000000001,
+							"scaleY": 0.6000000000000003,
+							"scaleZ": 0.6000000000000002,
+							"rotationZ": -28.700000000000003
+						},
+						{
+							"type": "model",
+							"name": "Donation",
+							"source": "Structure/Point_Of_Interest/Donation/Donation.fbx",
+							"x": 1.8303100000000005,
+							"y": -1.1180500000000002,
+							"scaleX": 0.5999999999999999,
+							"scaleY": 0.6000000000000001,
+							"scaleZ": 0.6000000000000002,
+							"rotationZ": 46.7
+						},
+						{
+							"type": "reference",
+							"name": "FX_WindSand_Slow",
+							"source": "Fx/Smoke/FX_WindSand_Slow.fx",
+							"x": -0.02,
+							"y": 0.31,
+							"z": 0.08314,
+							"scaleX": 0.35999999999999993,
+							"scaleY": 0.35999999999999993,
+							"scaleZ": 0.36,
+							"rotationZ": 7.5
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "AbandonnedImperialBase",
+			"source": "Structure/Point_Of_Interest/AbandonnedImperialBase/AbandonnedImperialBase.fbx",
+			"z": 0.01,
+			"rotationZ": -141.7
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.44,
+			"y": 0.1,
+			"scaleX": 6.61,
+			"scaleY": 6.61,
+			"scaleZ": 0.58,
+			"rotationZ": 76.7,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -0.33,
+			"y": 0.05,
+			"z": 0.08,
+			"scaleX": 0.24,
+			"scaleY": 0.28,
+			"scaleZ": 0.43
+		}
+	]
+}

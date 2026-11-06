@@ -1,0 +1,25 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "BeneGesserit",
+			"source": "Structure/Point_Of_Interest/BeneGesseritChest/BeneGesserit.fbx",
+			"rotationZ": 180
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.15983,
+			"y": -0.03235,
+			"z": -0.08448,
+			"scaleX": 3.77,
+			"scaleY": 4.32,
+			"scaleZ": 0.52,
+			"rotationZ": -108.2,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		}
+	]
+}
