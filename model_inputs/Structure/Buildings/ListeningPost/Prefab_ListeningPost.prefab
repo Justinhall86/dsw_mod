@@ -1,0 +1,94 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"scaleX": 2.22,
+			"scaleY": 2.23,
+			"scaleZ": 0.5,
+			"rotationZ": 90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "model",
+			"name": "ListeningPost_Addon",
+			"source": "Structure/Buildings/ListeningPost/ListeningPost_Addon.fbx",
+			"rotationZ": -180
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue03_Sphere_Mid",
+			"source": "Fx/Structure/Lights/LightBlue03_Sphere.fx",
+			"x": 0.00055,
+			"y": 0.01001,
+			"z": -0.00567,
+			"scaleX": 0.28,
+			"scaleY": 0.28,
+			"scaleZ": 0.28,
+			"rotationX": 13.6,
+			"rotationY": -7.9,
+			"rotationZ": -1.7
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue03_Sphere_Side",
+			"source": "Fx/Structure/Lights/LightBlue03_Sphere.fx",
+			"x": -0.14189,
+			"y": -0.06087,
+			"z": 0.39739,
+			"scaleX": 0.28,
+			"scaleY": 0.28,
+			"scaleZ": 0.28,
+			"rotationX": 13.6,
+			"rotationY": -7.9,
+			"rotationZ": -1.7
+		},
+		{
+			"type": "model",
+			"name": "ListeningPost",
+			"source": "Structure/Buildings/ListeningPost/ListeningPost.fbx",
+			"scaleX": 1.2,
+			"scaleY": 1.2000000000000002,
+			"scaleZ": 1.2000000000000002,
+			"rotationZ": 180,
+			"animation": "Structure/Buildings/ListeningPost/Anim_ListeningPost_Idle.fbx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint - border in",
+			"object": "LightBlue03_Sphere_Mid",
+			"target": "ListeningPost.ListeningPost.JNT_Parabola_Base.JNT_Parabola_Arm.JNT_Parabola_Middle.JNT_Parabola_Outside"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint - border out",
+			"object": "LightBlue03_Sphere_Side",
+			"target": "ListeningPost.JNT_Parabola_Base.JNT_Parabola_Arm.JNT_Parabola_Middle.JNT_Parabola_Outside"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint - antena tip",
+			"object": "Lights.LightBlue03_Sphere - antenaTip",
+			"target": "ListeningPost.JNT_Parabola_Base.JNT_Parabola_Arm.JNT_Parabola_Middle"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint - antena base",
+			"object": "Lights.LightBlue02_Flat - base",
+			"target": "ListeningPost.JNT_Parabola_Base"
+		}
+	]
+}

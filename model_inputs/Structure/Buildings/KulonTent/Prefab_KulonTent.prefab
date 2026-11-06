@@ -1,0 +1,46 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"scaleX": 4,
+			"scaleY": 4,
+			"scaleZ": 4,
+			"rotationZ": -58.3,
+			"children": [
+				{
+					"type": "model",
+					"name": "KulonTent",
+					"source": "Structure/Buildings/KulonTent/KulonTent.fbx",
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"children": [
+						{
+							"type": "shader",
+							"name": "WindCloth",
+							"source": "shaders/WindCloth.hx",
+							"props": {
+								"speed": 2,
+								"amount": 0.52,
+								"zamount": 2,
+								"freq": 4.02
+							},
+							"targetMaterial": "KulonTent_Wind_MAT",
+							"recursiveApply": false
+						}
+					]
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"scaleX": 2.93,
+					"scaleY": 2.93,
+					"scaleZ": 0.22,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,85 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "ListeningPost_Construction.Cranes.Drone"
+		},
+		{
+			"type": "model",
+			"name": "ListeningPost_Construction",
+			"source": "Structure/Buildings/ListeningPost/ListeningPost_Construction.fbx",
+			"scaleX": 1.2,
+			"scaleY": 1.2,
+			"scaleZ": 1.2,
+			"rotationZ": 179.99999999999997,
+			"animation": "Structure/Buildings/ListeningPost/ListeningPost_Construction.fbx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "ListeningPost_Construction.Cranes.Crane_Base.Crane_Top_02.Crane_Cube_02"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.26,
+			"scaleY": 0.25,
+			"scaleZ": 0.25,
+			"rotationZ": 89.99999999999999
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68,
+			"rotationZ": 89.99999999999999
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.03023,
+			"scaleX": 0.46,
+			"scaleY": 0.96,
+			"scaleZ": 1.14,
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx",
+			"rotationZ": 89.99999999999999
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "ListeningPost_Construction.Cranes.Crane_Base1.Crane_Top_01.Crane_Cube_01"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "ListeningPost_Construction.Cranes.Crane_Base.Crane_Top_02.Crane_Cube_02"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "ListeningPost_Construction.Cranes.Crane_Base1.Crane_Top_01.Crane_Cube_01"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "ListeningPost_Construction.Cranes.Drone"
+		}
+	]
+}

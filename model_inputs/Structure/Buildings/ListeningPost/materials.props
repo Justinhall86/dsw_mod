@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"ListeningPost_Ground_MAT": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true
+			}
+		}
+	}
+}
