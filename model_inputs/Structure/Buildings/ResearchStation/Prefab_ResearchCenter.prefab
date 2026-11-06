@@ -1,0 +1,16 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ResearchCenter",
+			"source": "Structure/Buildings/ResearchStation/ResearchCenter.fbx",
+			"animation": "Structure/Buildings/ResearchStation/Anim_ResearchCenter.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ResearchStation",
+			"source": "Fx/Structure/FX_ResearchStation.fx"
+		}
+	]
+}

@@ -1,0 +1,39 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ResearchCenter_Construction",
+			"source": "Structure/Buildings/ResearchStation/ResearchCenter_Construction.fbx",
+			"animation": "Structure/Buildings/ResearchStation/ResearchCenter_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.2,
+			"scaleY": 0.21,
+			"scaleZ": 0.21
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.6799999999999999,
+			"scaleZ": 0.6799999999999999,
+			"rotationX": 89.99981451142213
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": -0.01562,
+			"y": -0.04193,
+			"z": -0.0378,
+			"scaleX": 0.38,
+			"scaleY": 0.72,
+			"scaleZ": 1.59
+		}
+	]
+}

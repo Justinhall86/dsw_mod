@@ -1,0 +1,66 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ShaiHulud_Construction",
+			"source": "Structure/Buildings/ShaiHulud/ShaiHulud_Construction.fbx",
+			"x": 0.026487500000000004,
+			"y": 0.0017949999999999997,
+			"z": -0.00066,
+			"scaleX": 1.0000000000000002,
+			"scaleY": 1.0000000000000007,
+			"scaleZ": 1.0000000000000004,
+			"rotationZ": 89.99999999999999,
+			"animation": "Structure/Buildings/ShaiHulud/ShaiHulud_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.6799999999999999,
+			"scaleY": 0.6799999999999999,
+			"scaleZ": 0.6799999999999998,
+			"rotationX": -6.004886592373393e-10,
+			"rotationY": -0.00018548857787245888,
+			"rotationZ": 0.00018548857783941684
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.2236075,
+			"y": -0.046995,
+			"z": -0.00066,
+			"scaleX": 1.87,
+			"scaleY": 2.09,
+			"scaleZ": 0.32,
+			"rotationZ": -180,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.10287,
+			"y": 0.22971,
+			"scaleX": 4.5,
+			"scaleY": 4.5,
+			"scaleZ": 0.54,
+			"rotationY": 3.6000000000000005,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.3
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.01476,
+			"scaleX": 0.49,
+			"scaleY": 0.83,
+			"scaleZ": 0.7200000000000001
+		}
+	]
+}

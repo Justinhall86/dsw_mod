@@ -1,0 +1,59 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"children": [
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"x": 0.2236075,
+					"y": -0.046995,
+					"z": -0.00066,
+					"scaleX": 1.87,
+					"scaleY": 2.09,
+					"scaleZ": 0.32,
+					"rotationZ": -180,
+					"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"pbrStrength": 0,
+					"renderMode": "Terrain"
+				},
+				{
+					"type": "windCloth",
+					"name": "windCloth",
+					"props": {
+						"speed": 1.5,
+						"amount": 0.35,
+						"freq": 10,
+						"zamount": 1.3
+					}
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -0.2765825,
+					"y": 0.043405,
+					"z": 0.00198,
+					"scaleX": 4.5,
+					"scaleY": 4.5,
+					"scaleZ": 0.54,
+					"rotationY": 3.6000000000000005,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"albedoStrength": 1.3
+				},
+				{
+					"type": "model",
+					"name": "ShaiHulud",
+					"source": "Structure/Buildings/ShaiHulud/ShaiHulud.fbx",
+					"z": -0.00066,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 89.99999999999999
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_ResearchCenter": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			}
+		}
+	}
+}
