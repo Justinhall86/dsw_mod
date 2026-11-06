@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_Mainbase_Harkonnen",
+			"source": "UI/ConquestMenu/Assets/Harkonnen/Pawn_Mainbase_Harkonnen.fbx",
+			"rotationZ": 25.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_CorrinoPawn",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_CorrinoPawn.fx",
+			"enabled": false
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_CarthagPawn",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_CarthagPawn.fx"
+		}
+	]
+}
