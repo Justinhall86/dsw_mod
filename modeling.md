@@ -610,3 +610,17 @@ Details: `model_projects/thorvald_faction/SPEC.md`; script `53_add_thorvald_fact
 - Clone-set gotchas found by `cdb_validate.py`: a cloned unit can reference a trait with the same id (`Nuke_Area`) - clone it too; characters link to hero units
   via `props.heroUnit`; faction landmarks (`city`, `region`, `territory`, `conquestCity`) are rewritten by the id map.
 - Always baseline `cdb_validate.py --vanilla <current vanilla>` before and after; the target is "NEW in modded: 0".
+
+## 18. Character export findings (Karlin Thorvald hero, 2026-11-03)
+
+- **Multi-material skinned HMDs: index group != material slot.** A skinned model's index groups are its skin splits, and each
+  split's `materialIndex` picks the material; the groups are NOT in material order. The game is right; the toolkit's
+  `hmd2fbx.py` (both `Models/` and `Animations/` copies) used the group number, so every round-trip FBX of a multi-material
+  character showed shuffled textures (Ginaz Captain too). Patched 2026-11-03 to use `split.materialIndex` (originals in
+  `HMD_toolkit/HMD_toolkit/Backup_2026-11-03/`). Check a package with `thorvald_hero_1/08_scripts/52_roundtrip_render.py`.
+- **Extra bones survive conversion.** `fbxfix` leaves bones that are not in the Male01 reference untouched, and the clips
+  drive them by name: a `B_Weapon_L` added under `B_lWristJ` (rest = the DualSwords clip's frame-0 transform) is animated by
+  the Male01 DualSwords tracks, so a male unit can dual-wield like Free Company (weapon baked into the mesh, 100 % that bone).
+- **Model props.json `hmd.animPaths`** decides where `animName` clips are found (e.g. `/Anim/Male01/DualSwords`). Run any
+  command that writes these from Git Bash with `MSYS_NO_PATHCONV=1`, or `/Anim/...` becomes `C:/Program Files/Git/Anim/...`.
+- Drop unused material slots before export (an empty slot is skipped by the converter).
