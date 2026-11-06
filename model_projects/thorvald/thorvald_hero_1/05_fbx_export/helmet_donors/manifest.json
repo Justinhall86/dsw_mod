@@ -1,0 +1,149 @@
+{
+ "Warden": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Warden_TRUE_FBX.fbx",
+  "albedos": {
+   "AtreideWarden": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Warden__AtreideWarden_Albedo.png"
+  }
+ },
+ "AtreidesSoldier": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\AtreidesSoldier_TRUE_FBX.fbx",
+  "albedos": {
+   "AtreideSoldier01": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\AtreidesSoldier__AtreideSoldier01_Albedo.png"
+  }
+ },
+ "HeavyWeapon": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HeavyWeapon_TRUE_FBX.fbx",
+  "albedos": {
+   "HeavyWeaponSquad": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HeavyWeapon__HeavyWeaponSquad_Albedo.png"
+  }
+ },
+ "HarkTrooper": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HarkTrooper_TRUE_FBX.fbx",
+  "albedos": {
+   "Harkonnen_Trooper": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HarkTrooper__Harkonnen_Trooper_Albedo.png"
+  }
+ },
+ "HarkHouseGuard": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HarkHouseGuard_TRUE_FBX.fbx",
+  "albedos": {
+   "HouseGuardShield": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HarkHouseGuard__HouseGuardShield_Albedo.png",
+   "HouseGuard": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HarkHouseGuard__HouseGuard_Albedo.png",
+   "Mat_HouseGuard_Damaged": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\HarkHouseGuard__Mat_HouseGuard_Damaged_Albedo.png"
+  }
+ },
+ "Vanguard": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Vanguard_TRUE_FBX.fbx",
+  "albedos": {
+   "Vanguard": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Vanguard__Vanguard_Albedo.png"
+  }
+ },
+ "Gunner": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Gunner_TRUE_FBX.fbx",
+  "albedos": {
+   "Gunner": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Gunner__Gunner_Albedo.png"
+  }
+ },
+ "Cerberus": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Cerberus_TRUE_FBX.fbx",
+  "albedos": {
+   "Cerberus": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Cerberus__Cerberus_Albedo.png",
+   "Cerberus_damage": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Cerberus__Cerberus_damage_Albedo.png",
+   "HouseGuardShield": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Cerberus__HouseGuardShield_Albedo.png",
+   "HouseGuard": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Cerberus__HouseGuard_Albedo.png",
+   "Mat_HouseGuard_Damaged": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Cerberus__Mat_HouseGuard_Damaged_Albedo.png"
+  }
+ },
+ "ImpTrooper": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\ImpTrooper_TRUE_FBX.fbx",
+  "albedos": {
+   "ImperialTrooper": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\ImpTrooper__ImperialTrooper_Albedo.png"
+  }
+ },
+ "ImpHouseGuard": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\ImpHouseGuard_TRUE_FBX.fbx",
+  "albedos": {
+   "HouseGuard": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\ImpHouseGuard__HouseGuard_Albedo.png"
+  }
+ },
+ "FlameThrower": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\FlameThrower_TRUE_FBX.fbx",
+  "albedos": {
+   "FlameThrower_Unit": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\FlameThrower__FlameThrower_Unit_Albedo.png",
+   "FlameThrower_Weapon": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\FlameThrower__FlameThrower_Weapon_Albedo.png"
+  }
+ },
+ "Knight": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Knight_TRUE_FBX.fbx",
+  "albedos": {
+   "KnightElite": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Knight__KnightElite_Albedo.png"
+  }
+ },
+ "Squire": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Squire_TRUE_FBX.fbx",
+  "albedos": {
+   "Squire": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Squire__Squire_Albedo.png"
+  }
+ },
+ "Musketeer": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Musketeer_TRUE_FBX.fbx",
+  "albedos": {
+   "MAT_EcazMusketeer": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Musketeer__MAT_EcazMusketeer_Albedo.png"
+  }
+ },
+ "FightEngineer": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\FightEngineer_TRUE_FBX.fbx",
+  "albedos": {
+   "Fight_Engineer": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\FightEngineer__Fight_Engineer_Albedo.png"
+  }
+ },
+ "Suboid": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Suboid_TRUE_FBX.fbx",
+  "albedos": {
+   "Suboid": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Suboid__Suboid_Albedo.png"
+  }
+ },
+ "Commando": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando_TRUE_FBX.fbx",
+  "albedos": {
+   "Commando": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Albedo.png",
+   "Commando_Atreides": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Atreides_Albedo.png",
+   "Commando_Corrino": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Corrino_Albedo.png",
+   "Commando_Ecaz": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Ecaz_Albedo.png",
+   "Commando_Fremen": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Fremen_Albedo.png",
+   "Commando_Harkonnen": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Harkonnen_Albedo.png",
+   "Commando_Smugglers": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Smugglers_Albedo.png",
+   "Commando_Vernius": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Commando__Commando_Vernius_Albedo.png"
+  }
+ },
+ "Marauder": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Marauder_TRUE_FBX.fbx",
+  "albedos": {
+   "Marauder": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Marauder__Marauder_Albedo.png"
+  }
+ },
+ "Militia": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Militia_TRUE_FBX.fbx",
+  "albedos": {
+   "Militia01": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Militia__Militia01_Albedo.png"
+  }
+ },
+ "Scout": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Scout_TRUE_FBX.fbx",
+  "albedos": {
+   "Smuggler_Scout": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Scout__Smuggler_Scout_Albedo.png"
+  }
+ },
+ "Mercenary": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Mercenary_TRUE_FBX.fbx",
+  "albedos": {
+   "Smuggler_Base": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Mercenary__Smuggler_Base_Albedo.png",
+   "Smuggler_Mercenary": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Mercenary__Smuggler_Mercenary_Albedo.png"
+  }
+ },
+ "Watcher": {
+  "fbx": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Watcher_TRUE_FBX.fbx",
+  "albedos": {
+   "FremenWatcher": "C:\\Users\\justi\\Python\\dsw_mod\\model_projects\\thorvald\\thorvald_hero_1\\05_fbx_export\\helmet_donors\\Watcher__FremenWatcher_Albedo.png"
+  }
+ }
+}

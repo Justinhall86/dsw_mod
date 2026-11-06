@@ -36,3 +36,5 @@ tool/hlboot_backups/
 mod_files/hlboot_build*/**/*.dat
 # Blender backups; the .blend files themselves are on Git LFS (see .gitattributes)
 model_projects/thorvald_starport/**/*.blend1
+model_inputs/Achievements/
+model_inputs/Fx/
