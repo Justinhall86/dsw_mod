@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_MainBase_Vernius",
+			"source": "UI/ConquestMenu/Assets/Vernius/Pawn_MainBase_Vernius.fbx"
+		}
+	]
+}

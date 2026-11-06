@@ -1,0 +1,319 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "environment",
+			"name": "environment",
+			"hdrMax": 1,
+			"rotation": 173.64,
+			"sampleBits": 8,
+			"diffSize": 32,
+			"specSize": 64,
+			"ignoredSpecLevels": -2,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/fireplace_2k.hdr",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "CustomColor",
+					"tone": "Linear",
+					"occlusion": 1,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0,
+					"a": 2.51,
+					"b": 0.03,
+					"c": 2.43,
+					"d": 0.59,
+					"e": 0.14,
+					"skyColor": 0
+				},
+				"Default": {}
+			},
+			"children": [
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "UI/ConquestMenu/defaultLUTcorrino.png"
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "defeatGrading",
+					"enabled": false,
+					"texturePath": "Environment/Resource/LUT/lut_defeat01.png",
+					"intensity": 0.75
+				},
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"threshold": 0.64,
+					"blur": 2,
+					"saturation": 0.8,
+					"blurLinear": 0.51
+				},
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 1,
+					"threshold": 0.36,
+					"blur": 0.25,
+					"saturation": 0.76
+				},
+				{
+					"type": "rfx.Vignetting",
+					"name": "Vignetting",
+					"maskTex": "Fx/Gradients/circGrad05.jpg",
+					"darken": 0.28
+				},
+				{
+					"type": "rfx.distanceBlur",
+					"name": "distanceBlur",
+					"enableInEditor": false,
+					"nearStartDistance": 3.28,
+					"nearEndDistance": 100,
+					"nearStartIntensity": 0,
+					"nearEndIntensity": 2,
+					"farStartDistance": 4.92,
+					"farEndDistance": 30.68,
+					"blurTextureSize": 0.5,
+					"blurRange": 12
+				},
+				{
+					"type": "rfx.temporalFiltering",
+					"name": "temporalFiltering",
+					"amount": 0.6,
+					"jitterPattern": "Halton_2_3_x8",
+					"jitterScale": 2
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "LIGHTING",
+			"x": 1.65964,
+			"y": 1.069105,
+			"z": 2.7233650000000003,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_Lights_Ecaz",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lights_Ecaz.fx",
+					"x": -1.65964,
+					"y": -1.069105,
+					"z": -2.7233650000000003,
+					"visible": false
+				},
+				{
+					"type": "reference",
+					"name": "FX_Lights_Defeat",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lights_Ecaz_Defeat.fx",
+					"x": -1.65964,
+					"y": -1.069105,
+					"z": -2.7233650000000003,
+					"visible": false
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "VFX",
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_UI_ConquestMap_Ecaz",
+					"source": "Fx/UI/Conquest/FX_UI_ConquestMap_Ecaz.fx",
+					"x": 1.92522,
+					"y": 0.43817,
+					"z": 0.22838,
+					"scaleX": 1.0000000000000002,
+					"scaleY": 1.0000000000000002,
+					"rotationZ": 89.99999999999999,
+					"visible": false
+				},
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_Lines_Ecaz",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lines_Ecaz.fx",
+					"x": 0.99921,
+					"y": 0.99918,
+					"z": 0.997,
+					"scaleX": 0.965,
+					"scaleY": 0.965,
+					"scaleZ": 0.965,
+					"visible": false,
+					"editMode": true
+				},
+				{
+					"type": "reference",
+					"name": "FX_Victory",
+					"source": "Fx/UI/Conquest/FX_ConquestMap_Victory.fx",
+					"x": 1.02721,
+					"y": 0.99918,
+					"z": 1.51653,
+					"scaleX": 0.965,
+					"scaleY": 0.965,
+					"scaleZ": 1.14,
+					"visible": false
+				},
+				{
+					"type": "reference",
+					"name": "FX_ConquestMap_Defeat",
+					"source": "Fx/UI/Conquest/FX_ConquestMap_Defeat_Ecaz.fx",
+					"x": 1.02721,
+					"y": 0.99918,
+					"z": 1.51653,
+					"scaleX": 0.965,
+					"scaleY": 0.965,
+					"scaleZ": 1.14,
+					"visible": false
+				},
+				{
+					"type": "object",
+					"name": "LEDs",
+					"x": 1,
+					"y": 1,
+					"z": 1,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz02",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz02.fx",
+							"x": -0.20291,
+							"y": 0.98415,
+							"z": 0.0953,
+							"scaleX": 2,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz02",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz02.fx",
+							"x": -0.20291,
+							"y": -0.98598,
+							"z": 0.0953,
+							"scaleX": 2,
+							"rotationZ": 180,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz02",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz02.fx",
+							"x": 0.1985,
+							"y": -0.98598,
+							"z": 0.0953,
+							"scaleX": 2,
+							"rotationZ": 180,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz02",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz02.fx",
+							"x": 0.1985,
+							"y": 0.98415,
+							"z": 0.0953,
+							"scaleX": 2,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz01.fx",
+							"x": -0.30619,
+							"y": 1.10948,
+							"z": 0.10537,
+							"rotationZ": 45,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz01.fx",
+							"x": 0.30809,
+							"y": 1.10792,
+							"z": 0.10537,
+							"rotationZ": -41.4,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz01.fx",
+							"x": 0.30809,
+							"y": -1.11238,
+							"z": 0.10537,
+							"rotationZ": -135,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Ecaz01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Ecaz01.fx",
+							"x": -0.30619,
+							"y": -1.11082,
+							"z": 0.10537,
+							"rotationZ": 138.6,
+							"visible": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"locked": true,
+			"x": 1.03907,
+			"y": 0.97216,
+			"z": 0.93637,
+			"scaleX": 3.9,
+			"scaleY": 3.9,
+			"scaleZ": 3.9,
+			"albedoMap": "Fx/Alphas/T_circle5.png",
+			"emissive": 0.1,
+			"renderMode": "BeforeTonemapping",
+			"blendMode": 5
+		},
+		{
+			"type": "model",
+			"name": "Table_Ecaz",
+			"source": "UI/ConquestMenu/Assets/Ecaz/Table_Ecaz.fbx",
+			"x": 1,
+			"y": 1,
+			"z": 0.07077,
+			"scaleX": 0.99,
+			"scaleY": 0.99,
+			"scaleZ": 0.99,
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "UI/ConquestMenu/Assets/Ecaz/Table_Ecaz_Albedo.png"
+				}
+			]
+		}
+	]
+}

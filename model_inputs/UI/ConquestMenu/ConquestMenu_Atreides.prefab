@@ -1,0 +1,241 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 1.33,
+			"hdrMax": 1,
+			"rotation": 190,
+			"sampleBits": 8,
+			"diffSize": 32,
+			"specSize": 64,
+			"ignoredSpecLevels": -2,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/thatch_chapel_2k.hdr",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "CustomColor",
+					"tone": "Linear",
+					"occlusion": 1,
+					"envColorHigh": 0,
+					"envColorLow": 0,
+					"envColorBack": 0,
+					"envColorBlend": 0,
+					"envColorSaturation": 0,
+					"envPower": 0,
+					"a": 2.51,
+					"b": 0.03,
+					"c": 2.43,
+					"d": 0.59,
+					"e": 0.14,
+					"skyColor": 0
+				},
+				"Default": {}
+			},
+			"children": [
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "UI/ConquestMenu/defaultLUTcorrino.png"
+				},
+				{
+					"type": "rfx.colorGrading",
+					"name": "defeatGrading",
+					"enabled": false,
+					"texturePath": "Environment/Resource/LUT/lut_defeat01.png",
+					"intensity": 0.75
+				},
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"threshold": 0.8,
+					"blur": 2,
+					"saturation": 0.8,
+					"blurLinear": 0.51
+				},
+				{
+					"type": "rfx.bloom",
+					"name": "bloom",
+					"enabled": false,
+					"size": 1,
+					"threshold": 0.36,
+					"blur": 0.25,
+					"saturation": 0.76
+				},
+				{
+					"type": "rfx.Vignetting",
+					"name": "Vignetting",
+					"maskTex": "Fx/Gradients/circGrad05.jpg",
+					"darken": 0.33
+				},
+				{
+					"type": "rfx.distanceBlur",
+					"name": "distanceBlur",
+					"enableInEditor": false,
+					"nearStartDistance": 3.28,
+					"nearEndDistance": 100,
+					"nearStartIntensity": 0,
+					"nearEndIntensity": 2,
+					"farStartDistance": 4.92,
+					"farEndDistance": 30.68,
+					"blurTextureSize": 0.5,
+					"blurRange": 12
+				},
+				{
+					"type": "rfx.temporalFiltering",
+					"name": "temporalFiltering",
+					"amount": 0.6,
+					"jitterPattern": "Halton_2_3_x8",
+					"jitterScale": 2
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "LIGHTING",
+			"x": 1.915505,
+			"y": 0.89838,
+			"z": 2.585125,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_Lights_Atreides",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lights_Atreides.fx",
+					"x": -1.915505,
+					"y": -0.89838,
+					"z": -2.585125,
+					"visible": false
+				},
+				{
+					"type": "reference",
+					"name": "FX_Lights_Defeat",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lights_Ecaz_Defeat.fx",
+					"x": -1.65964,
+					"y": -1.069105,
+					"z": -2.7233650000000003,
+					"visible": false
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "VFX",
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_UI_ConquestMap_Atreides",
+					"source": "Fx/UI/Conquest/FX_UI_ConquestMap_Atreides.fx",
+					"x": 1.91363,
+					"y": 0.40279,
+					"z": 0.17243,
+					"rotationZ": 89.99999999999999,
+					"visible": false
+				},
+				{
+					"type": "reference",
+					"name": "FX_ConquestMenu_Lines_Arrakeen",
+					"source": "Fx/UI/Conquest/FX_ConquestMenu_Lines_Atreides.fx",
+					"x": 0.972,
+					"y": 1,
+					"z": 0.997
+				},
+				{
+					"type": "reference",
+					"name": "FX_Victory",
+					"source": "Fx/UI/Conquest/FX_ConquestMap_Victory.fx",
+					"x": 1,
+					"y": 1,
+					"z": 1.51653,
+					"scaleZ": 1.14,
+					"visible": false
+				},
+				{
+					"type": "reference",
+					"name": "FX_ConquestMap_Defeat",
+					"source": "Fx/UI/Conquest/FX_ConquestMap_Defeat_Atreides.fx",
+					"x": 1,
+					"y": 1,
+					"z": 1.51653,
+					"scaleZ": 1.14,
+					"visible": false
+				},
+				{
+					"type": "object",
+					"name": "LEDs",
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Atreides01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Atreides01.fx",
+							"x": 0.88396,
+							"y": 2.10254,
+							"z": 1.05486,
+							"rotationZ": 1.3,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Atreides01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Atreides01.fx",
+							"x": 1.11288,
+							"y": 2.10773,
+							"z": 1.05486,
+							"rotationZ": 1.3,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Atreides01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Atreides01.fx",
+							"x": 0.88396,
+							"y": -0.0985,
+							"z": 1.05486,
+							"rotationZ": -3.8,
+							"visible": false
+						},
+						{
+							"type": "reference",
+							"name": "FX_Conquest_LED_Atreides01",
+							"source": "Fx/UI/Conquest/FX_Conquest_LED_Atreides01.fx",
+							"x": 1.11285,
+							"y": -0.09534,
+							"z": 1.05486,
+							"rotationZ": -0.8,
+							"visible": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"locked": true,
+			"x": 1.03907,
+			"y": 0.97216,
+			"z": 0.93637,
+			"scaleX": 3.9,
+			"scaleY": 3.9,
+			"scaleZ": 3.9,
+			"albedoMap": "Fx/Alphas/T_circle5.png",
+			"emissive": 0.1,
+			"renderMode": "BeforeTonemapping",
+			"blendMode": 5
+		},
+		{
+			"type": "model",
+			"name": "Table_Atreides",
+			"source": "UI/ConquestMenu/Assets/Atreides/Table_Atreides.fbx",
+			"x": 1,
+			"y": 1
+		}
+	]
+}
