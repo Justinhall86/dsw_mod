@@ -1,0 +1,8 @@
+# Git LFS: large binary files are stored on the LFS server, and clones fetch them on checkout.
+#
+# Patterns are scoped to project folders whose files are NOT yet committed. A broad `*.blend`
+# would make git report every blend already committed as a regular file (292 of them) as
+# modified. To put a new project's large files on LFS, add a line for its folder before its
+# first commit, for example:
+#   model_projects/<project>/**/*.blend filter=lfs diff=lfs merge=lfs -text
+model_projects/thorvald_starport/**/*.blend filter=lfs diff=lfs merge=lfs -text

@@ -34,6 +34,5 @@ tool/quinn_patcher/
 tool/hlboot_backups/
 # Game binaries: keep local, this repo is public
 mod_files/hlboot_build*/**/*.dat
-# Large Blender working files, kept local
-model_projects/thorvald_starport/**/*.blend
+# Blender backups; the .blend files themselves are on Git LFS (see .gitattributes)
 model_projects/thorvald_starport/**/*.blend1
