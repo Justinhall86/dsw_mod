@@ -1,0 +1,236 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "EcazMainBase",
+			"rotationZ": -20,
+			"children": [
+				{
+					"type": "model",
+					"name": "Select",
+					"source": "Structure/Base/Ecaz/Ecaz_MainBase_Select.fbx",
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"visible": false
+				},
+				{
+					"type": "object",
+					"name": "Districts",
+					"children": [
+						{
+							"type": "model",
+							"name": "District_1_1",
+							"source": "Structure/Base/Ecaz/District/District_1_1.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_2_1",
+							"source": "Structure/Base/Ecaz/District/District_2_1.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_2_2",
+							"source": "Structure/Base/Ecaz/District/District_2_2.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_2_3",
+							"source": "Structure/Base/Ecaz/District/District_2_3.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_3_1",
+							"source": "Structure/Base/Ecaz/District/District_3_1.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_3_2",
+							"source": "Structure/Base/Ecaz/District/District_3_2.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_4_1",
+							"source": "Structure/Base/Ecaz/District/District_4_1.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_4_2",
+							"source": "Structure/Base/Ecaz/District/District_4_2.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_4_3",
+							"source": "Structure/Base/Ecaz/District/District_4_3.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_5_1",
+							"source": "Structure/Base/Ecaz/District/District_5_1.fbx"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Ecaz_MainBase",
+					"source": "Structure/Base/Ecaz/Ecaz_MainBase.fbx"
+				},
+				{
+					"type": "object",
+					"name": "Decals",
+					"scaleX": 1.0000000000000002,
+					"scaleY": 1.0000000000000002,
+					"rotationZ": -178.70000000000002,
+					"children": [
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 20.53367,
+							"y": 3.67769,
+							"scaleX": 14.000000000000002,
+							"scaleY": 14.000000000000002,
+							"scaleZ": 7,
+							"rotationZ": 11.9,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 15.74416,
+							"y": -8.79042,
+							"scaleX": 24.04,
+							"scaleY": 15.9,
+							"scaleZ": 8.62,
+							"rotationZ": 45,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -1.15911,
+							"y": -16.91421,
+							"scaleX": 34.42,
+							"scaleY": 17.94,
+							"scaleZ": 8.98,
+							"rotationZ": -3.6,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -15.60347,
+							"y": -8.16998,
+							"scaleX": 27.42,
+							"scaleY": 14.29,
+							"scaleZ": 7.15,
+							"rotationZ": -53.5,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "FX",
+					"rotationZ": 20,
+					"children": [
+						{
+							"type": "reference",
+							"name": "Ecaz_Bustling01",
+							"source": "Fx/Structure/Ecaz/Ecaz_Bustling01.fx",
+							"scaleX": 0.9999999999999999,
+							"scaleY": 0.9999999999999999,
+							"rotationZ": -110
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Destruction",
+					"rotationZ": 20,
+					"children": [
+						{
+							"type": "object",
+							"name": "Step_01",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_EcazDamage_Step01_NoPhotosensitive",
+									"source": "Fx/Structure/Ecaz/FX_EcazDamage_Step01.fx",
+									"rotationZ": -135
+								},
+								{
+									"type": "reference",
+									"name": "FX_EcazDamage_Step01_PhotosensitiveOnly",
+									"source": "Fx/Structure/Ecaz/FX_EcazDamage_Step01_PhotosensitiveOnly.fx",
+									"rotationZ": -135
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Step_02",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_EcazDamage_Step02_NoPhotosensitive",
+									"source": "Fx/Structure/Ecaz/FX_EcazDamage_Step02.fx",
+									"rotationZ": -135
+								},
+								{
+									"type": "reference",
+									"name": "FX_EcazDamage_Step02_PhotosensitiveOnly",
+									"source": "Fx/Structure/Ecaz/FX_EcazDamage_Step02_PhotosensitiveOnly.fx",
+									"rotationZ": -135
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Step_03",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_EcazDamage_Step02_NoPhotosensitive",
+									"source": "Fx/Structure/Ecaz/FX_EcazDamage_Step03.fx",
+									"rotationZ": -135
+								},
+								{
+									"type": "reference",
+									"name": "FX_EcazDamage_Step03_PhotosensitiveOnly",
+									"source": "Fx/Structure/Ecaz/FX_EcazDamage_Step03_PhotosensitiveOnly.fx",
+									"rotationZ": -135
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Final",
+							"visible": false,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_EcazDestruction_NoPhotosensitive",
+									"source": "Fx/Structure/Ecaz/FX_EcazDestruction.fx",
+									"rotationZ": -135
+								},
+								{
+									"type": "reference",
+									"name": "FX_EcazDestruction_PhotosensitiveOnly",
+									"source": "Fx/Structure/Ecaz/FX_EcazDestruction_PhotosensitiveOnly.fx",
+									"rotationZ": -135
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
