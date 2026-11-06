@@ -99,28 +99,8 @@ Blender project, FBX export, and render; Test 03 preserves all three mesh compon
 See the notes for [Test 01](gabarit_test01/SPEC.md),
 [Test 02](gabarit_test02/SPEC.md), and [Test 03](gabarit_test03/SPEC.md).
 
-### [Thorvald Fighter (Renegade kitbash)](thorvald_fighter/)
+### Archived Thorvald explorations
 
-The vanilla Renegade frigate rebuilt for House Thorvald: copper accents (hue replacement that keeps the
-painted value) and the ventral keel fin removed. Added elements must be grafted from other existing game
-models (a hand-modelled set of top components was tried and rejected on those grounds).
-Current: `03_blender/Thorvald_Renegade_v3.blend`.
-See its [project notes](thorvald_fighter/SPEC.md) and the [renders](thorvald_fighter/02_progress_photos/).
-
-> Naming note: this folder is the **Renegade Frigate** project, not the fighter described
-> below. Renaming it to `thorvald_renegade_frigate/` is an outstanding cleanup.
-
-### [Thorvald Interceptor](thorvald_interceptor/)
-
-A **new** fighter-class vehicle kitbashed from vanilla donors to match a Shiro concept
-sheet: long charcoal slab hull with two copper **banded turbine drums** on outriggers.
-The drums are cut from the **Smuggler frigate** (Wraith) corner thruster.
-
-Four variants build and render (`interceptor_A_reference`, `B_kraken`, `C_quad`,
-`D_frigate`). Not yet exported or in the game.
-
-- **Start here: [HANDOFF.md](thorvald_interceptor/HANDOFF.md)** — full technical notes,
-  the nine traps that each cost a failed build, donor measurements, next steps.
-- Build spec: [variants.json](thorvald_interceptor/01_input/variants.json)
-- Builder: [10_build_variant.py](thorvald_interceptor/08_scripts/10_build_variant.py)
-- Renders: [02_progress_photos/](thorvald_interceptor/02_progress_photos/)
+`thorvald_fighter` (Renegade copper recolour), `thorvald_interceptor` (Wraith-drum hulls) and `thorvald_vehicles` (early drone and
+hauler kits) were superseded by `thorvald_frigate` and `thorvald_ship`, and are not used in the game. They now live in
+[_archive_unused/](_archive_unused/README.md).
