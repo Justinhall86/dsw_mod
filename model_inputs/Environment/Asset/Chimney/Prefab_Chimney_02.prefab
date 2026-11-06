@@ -1,0 +1,74 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"z": 0.4,
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"children": [
+				{
+					"type": "model",
+					"name": "Chimney_02",
+					"source": "Environment/Asset/Chimney/Chimney_02.fbx",
+					"x": 0.25249999999999995,
+					"y": -0.4224999999999999,
+					"z": -0.595,
+					"scaleX": 2,
+					"scaleY": 2,
+					"scaleZ": 2,
+					"children": [
+						{
+							"type": "shader",
+							"name": "SandBlend",
+							"source": "shaders/SandBlend.hx",
+							"props": {
+								"colorMask": "Environment/Asset/Chimney/Chimney_ColorMask.png"
+							}
+						}
+					]
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_5",
+					"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+					"x": 0.26249999999999996,
+					"y": -0.40249999999999986,
+					"z": 0.6450000000000001,
+					"scaleX": 0.4100000000000001,
+					"scaleY": 0.49000000000000005,
+					"scaleZ": 0.41,
+					"rotationX": 26.2,
+					"rotationZ": -90
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_5",
+					"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+					"x": -0.4375,
+					"y": 0.7575000000000003,
+					"z": 0.42500000000000004,
+					"scaleX": 0.2800000000000001,
+					"scaleY": 0.33000000000000007,
+					"scaleZ": 0.28,
+					"rotationX": 26.199999999999996,
+					"rotationZ": -90
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -0.0774999999999999,
+					"y": 0.06750000000000034,
+					"z": -0.475,
+					"scaleX": 6.99,
+					"scaleY": 8.64,
+					"scaleZ": 1.28,
+					"rotationZ": 4.6,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png"
+				}
+			]
+		}
+	]
+}

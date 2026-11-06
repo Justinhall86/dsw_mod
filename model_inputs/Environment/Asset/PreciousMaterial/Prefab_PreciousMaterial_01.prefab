@@ -1,0 +1,32 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "PreciousMaterial_01",
+			"source": "Environment/Asset/PreciousMaterial/PreciousMaterial_01.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "SandBlend",
+					"source": "shaders/SandBlend.hx",
+					"props": {
+						"colorMask": "Environment/Asset/PreciousMaterial/Minerals_06_Colormask.png"
+					}
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"y": -0.05,
+			"scaleX": 2.98,
+			"scaleY": 2.88,
+			"scaleZ": 0.07,
+			"rotationZ": -175.4,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		}
+	]
+}

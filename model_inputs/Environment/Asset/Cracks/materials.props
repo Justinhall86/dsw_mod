@@ -1,0 +1,16 @@
+{
+	"materials": {
+		"PBR": {
+			"Crack_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": false
+			}
+		}
+	}
+}

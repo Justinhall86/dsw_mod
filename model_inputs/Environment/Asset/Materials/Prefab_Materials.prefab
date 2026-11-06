@@ -1,0 +1,33 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Materials",
+			"source": "Environment/Asset/Materials/Materials.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "SandBlend",
+					"source": "shaders/SandBlend.hx",
+					"props": {
+						"colorMask": "Environment/Asset/Materials/Minerals_01_ColorMask.png"
+					}
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.11,
+			"y": -0.06,
+			"scaleX": 2.49,
+			"scaleY": 2.41,
+			"scaleZ": 0.09,
+			"rotationZ": -175.4,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		}
+	]
+}
