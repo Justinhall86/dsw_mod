@@ -1,0 +1,16 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_Mainbase_Corrino",
+			"source": "UI/ConquestMenu/Assets/Corrino/Pawn_Mainbase_Corrino.fbx",
+			"rotationZ": 21.1
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_CorrinoPawn",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_CorrinoPawn.fx"
+		}
+	]
+}
