@@ -1,0 +1,52 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "MissileBattery_Construction",
+			"source": "Structure/Buildings/MissileBattery/MissileBattery_Construction.fbx",
+			"scaleX": 0.76,
+			"scaleY": 0.76,
+			"scaleZ": 0.76,
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/MissileBattery/MissileBattery_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"z": 0.27197,
+			"scaleX": 0.27,
+			"scaleY": 0.26,
+			"scaleZ": 0.26
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": -0.07579,
+			"y": -0.00289,
+			"z": 0.01505,
+			"scaleX": 0.31,
+			"scaleY": 0.55,
+			"scaleZ": 1.29
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3,
+			"scaleY": 3,
+			"scaleZ": 0.25,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

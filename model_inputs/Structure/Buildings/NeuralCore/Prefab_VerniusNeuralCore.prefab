@@ -1,0 +1,169 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "NeuralCore",
+			"x": -0.4035177,
+			"y": 0.6825764916666667,
+			"z": -0.023308258333333335,
+			"scaleX": 1.1,
+			"scaleY": 1.1,
+			"scaleZ": 1.1,
+			"children": [
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_18",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_18.fbx",
+					"x": -0.6964823000000001,
+					"y": 1.6174235083333333,
+					"z": -0.07669174166666667
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_02",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_02.fbx",
+					"x": -1.6970423000000001,
+					"y": -0.39292649166666666,
+					"z": 0.023308258333333335,
+					"scaleX": 0.4,
+					"scaleY": 0.4,
+					"scaleZ": 0.4,
+					"rotationX": 1
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_22",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_22.fbx",
+					"x": 0.7962477,
+					"y": -2.5594364916666668,
+					"z": 0.023308258333333335,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 0.9999999999999999,
+					"rotationZ": 36.29999999999999
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_21",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_21.fbx",
+					"x": 0.6128077,
+					"y": -2.012676491666667,
+					"z": 0.023308258333333335,
+					"rotationZ": 17.799999999999997
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_10",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_10.fbx",
+					"x": 2.1053877,
+					"y": 0.6310735083333333,
+					"z": 0.023308258333333335,
+					"scaleX": 0.66,
+					"scaleY": 0.66,
+					"scaleZ": 0.66
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_02",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_02.fbx",
+					"x": -1.7368522999999998,
+					"y": -0.9978864916666667,
+					"z": 0.023308258333333335,
+					"scaleX": 0.4,
+					"scaleY": 0.4,
+					"scaleZ": 0.4
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_16",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_16.fbx",
+					"x": 1.8481177,
+					"y": 0.36137350833333326,
+					"z": -0.03464174166666667,
+					"scaleX": 0.55,
+					"scaleY": 0.55,
+					"scaleZ": 0.55,
+					"rotationZ": -57.3
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_05",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_05.fbx",
+					"x": 1.1763477,
+					"y": 1.4338935083333335,
+					"z": -0.07669174166666667,
+					"scaleX": 0.71,
+					"scaleY": 0.71,
+					"scaleZ": 0.71
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_12",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_12.fbx",
+					"x": -1.44601,
+					"y": -1.65211,
+					"z": 0.02331,
+					"rotationZ": 47.7
+				},
+				{
+					"type": "model",
+					"name": "VerniusNeuralCore",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusNeuralCore.fbx",
+					"x": 0.4035177,
+					"y": -0.6825764916666667,
+					"z": 0.023308258333333335
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipeSingle_05",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipeSingle_05.fbx",
+					"x": -1.37432,
+					"y": 0.01936,
+					"z": 0.00339,
+					"scaleX": 0.5041,
+					"scaleY": 0.5041,
+					"scaleZ": 0.5041
+				},
+				{
+					"type": "object",
+					"name": "FX_NeuralCore",
+					"x": -1.7169473000000002,
+					"y": -0.6954064916666667,
+					"z": 0.023308258333333335,
+					"children": [
+						{
+							"type": "reference",
+							"name": "LightWhite02_Flat",
+							"source": "Fx/Structure/Lights/LightWhite02_Flat.fx",
+							"x": 2.1204650000000003,
+							"y": 0.012830000000000008,
+							"z": 2.51691,
+							"scaleX": 3.5,
+							"scaleY": 3.5,
+							"scaleZ": 3.5
+						},
+						{
+							"type": "reference",
+							"name": "FX_WindSand_Slow",
+							"source": "Fx/Smoke/FX_WindSand_Slow.fx",
+							"x": 1.78556,
+							"y": -0.16608,
+							"scaleX": 0.33,
+							"scaleY": 0.27,
+							"scaleZ": 0.22,
+							"rotationZ": 79
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_Big_Grey_1",
+							"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+							"x": 0.8987550000000002,
+							"y": 0.10741999999999996,
+							"z": -0.1
+						}
+					]
+				}
+			]
+		}
+	]
+}

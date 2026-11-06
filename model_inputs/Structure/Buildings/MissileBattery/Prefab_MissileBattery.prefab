@@ -1,0 +1,91 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.02265,
+			"y": -0.10113,
+			"scaleX": 3.24,
+			"scaleY": 3.24,
+			"scaleZ": 0.56,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.02259,
+			"y": -0.03145,
+			"scaleX": 2.03,
+			"scaleY": 1.88,
+			"scaleZ": 0.34,
+			"rotationZ": -90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "model",
+			"name": "MissileBattery",
+			"source": "Structure/Buildings/MissileBattery/MissileBattery.fbx",
+			"rotationZ": 90,
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"y": 0.66894,
+					"z": -0.00713,
+					"rotationX": -0.4,
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"x": 0.15,
+							"y": 0.15,
+							"rotationX": -10,
+							"rotationY": 10
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB",
+							"x": -0.15,
+							"y": 0.15,
+							"rotationX": -10,
+							"rotationY": -10
+						},
+						{
+							"type": "object",
+							"name": "MuzzleC",
+							"x": 0.15,
+							"y": -0.15,
+							"rotationX": 5,
+							"rotationY": 10
+						},
+						{
+							"type": "object",
+							"name": "MuzzleD",
+							"x": -0.15,
+							"y": -0.15,
+							"rotationX": 5,
+							"rotationY": -10
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "MissileBattery_Socle",
+			"source": "Structure/Buildings/MissileBattery/MissileBattery_Socle.fbx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "MissileBattery.Muzzles",
+			"target": "MissileBattery.B_Root.B_Main.B_MainCanon_Rotation01"
+		}
+	]
+}
