@@ -94,9 +94,9 @@ Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_prog
 | `Th_Trooper` | `thorvald_trooper` (v13) | Gurney upper body, Duncan legs and sash, Commando head; `weapons/thorvald_katana`. User prefers v11's bulk, not skin-tight |
 | `Th_Soldier` Iron Ranger | `thorvald_ranged` (v2) | `weapons/thorvald_sniper` on B_Gun, MilitarySniper anims |
 | `Th_Special` Iron Guard | `thorvald_demolition` (v2) | `weapons/thorvald_bazooka`; the attack is still Corrino's flamer |
-| `Th_Elite` Heavy Vanguard | `thorvald_elite` (v2) | Hand-built tower shield and glaive; Gurney anim set (no Idle or death clips) |
+| `Th_Elite` Heavy Vanguard | `thorvald_elite` (v2; see its SPEC.md) | Hand-built tower shield and glaive; Gurney anim set (no Idle or death clips) |
 | `Th_Frigate` | `thorvald_frigate` (v13) | Renegade hull, rig RenegadeFrigate 29; no deploy animations |
-| `Th_Ship` fighter | `thorvald_ship` (f11) | Ravager host, Hawk wings and belly, twin chin barrels; Hammer rig 21, scale 1.6 |
+| `Th_Ship` fighter | `thorvald_ship` (v6, formerly f11; see its SPEC.md) | Ravager host, Hawk wings and belly, twin chin barrels; Hammer rig 21, scale 1.6 |
 
 None of the Thorvald units has been seen in game yet.
 
