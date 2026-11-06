@@ -1,0 +1,286 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "Destruction",
+			"scaleX": 7.68,
+			"scaleY": 7.68,
+			"scaleZ": 7.68,
+			"children": [
+				{
+					"type": "object",
+					"name": "Step_01",
+					"x": 0.845,
+					"y": 1.415,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDamage_Step01_NoPhotosensitive",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDamage_Step01.fx",
+							"x": -0.845,
+							"y": -1.415,
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						},
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDamage_Step01_PhotosensitiveOnly",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDamage_Step01_PhotosensitiveOnly.fx",
+							"x": -0.845,
+							"y": -1.415,
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Step_02",
+					"x": 0.845,
+					"y": 1.415,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDamage_Step02_NoPhotosensitive",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDamage_Step02.fx",
+							"x": -0.845,
+							"y": -1.415,
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						},
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDamage_Step02_PhotosensitiveOnly",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDamage_Step02_PhotosensitiveOnly.fx",
+							"x": -0.845,
+							"y": -1.415,
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Step_03",
+					"x": 0.845,
+					"y": 1.415,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDamage_Step03_NoPhotosensitive",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDamage_Step03.fx",
+							"x": -0.845,
+							"y": -1.415,
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						},
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDamage_Step03_PhotosensitiveOnly",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDamage_Step03_PhotosensitiveOnly.fx",
+							"x": -0.845,
+							"y": -1.415,
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Final",
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDestruction_NoPhotosensitive",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDestruction.fx",
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						},
+						{
+							"type": "reference",
+							"name": "FX_CorrinoBaseDestruction_PhotosensitiveOnly",
+							"source": "Fx/Structure/CorrinoBase/FX_CorrinoBaseDestruction_PhotosensitiveOnly.fx",
+							"scaleX": 0.1302,
+							"scaleY": 0.1302,
+							"scaleZ": 0.1302,
+							"rotationZ": 150
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Citadel",
+			"rotationZ": -101.3,
+			"children": [
+				{
+					"type": "object",
+					"name": "BaseThorvald",
+					"children": [
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"scaleX": 96.27,
+							"scaleY": 96.27,
+							"scaleZ": 7.59,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "model",
+							"name": "ThorvaldCitadel",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_Base.fbx"
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Districts",
+					"children": [
+						{
+							"type": "model",
+							"name": "District_1_1",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_District_1_1.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_1_2",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_District_1_2.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_1_3",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_District_1_3.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_2_1",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_District_2_1.fbx"
+						},
+						{
+							"type": "model",
+							"name": "District_2_2",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_District_2_2.fbx",
+							"children": [
+								{
+									"type": "object",
+									"name": "FX",
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke",
+											"source": "Fx/Smoke/FX_Smoke_Soft_Grey_2.fx",
+											"x": -12.4,
+											"y": -16.0,
+											"z": 11.232,
+											"scaleX": 1.2,
+											"scaleY": 1.2,
+											"scaleZ": 1.6
+										},
+										{
+											"type": "reference",
+											"name": "FX_Smoke",
+											"source": "Fx/Smoke/FX_Smoke_Soft_Grey_2.fx",
+											"x": -15.0,
+											"y": -14.8,
+											"z": 9.072,
+											"scaleX": 1.2,
+											"scaleY": 1.2,
+											"scaleZ": 1.6
+										},
+										{
+											"type": "reference",
+											"name": "FX_Smoke",
+											"source": "Fx/Smoke/FX_Smoke_Soft_Grey_2.fx",
+											"x": -11.8,
+											"y": -13.2,
+											"z": 7.776,
+											"scaleX": 1.2,
+											"scaleY": 1.2,
+											"scaleZ": 1.6
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "model",
+							"name": "District_3_1",
+							"source": "Structure/Base/Thorvald/ThorvaldCitadel_District_3_1.fbx"
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "FX",
+					"children": [
+						{
+							"type": "reference",
+							"name": "LightRedBlink03_Sphere",
+							"source": "Fx/Structure/Lights/LightRedBlink03_Sphere.fx",
+							"x": 13.4,
+							"y": -1.0,
+							"z": 24.9
+						},
+						{
+							"type": "reference",
+							"name": "LightYellow02_Flat",
+							"source": "Fx/Structure/Lights/LightYellow02_Flat.fx",
+							"x": 0.6,
+							"y": -6.6,
+							"z": 4.2
+						},
+						{
+							"type": "reference",
+							"name": "LightYellow02_Flat",
+							"source": "Fx/Structure/Lights/LightYellow02_Flat.fx",
+							"x": -15.8,
+							"y": 9.7,
+							"z": 0.3
+						},
+						{
+							"type": "reference",
+							"name": "Prefab_Antena_01",
+							"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+							"x": 12.4,
+							"y": -0.2,
+							"z": 24.6,
+							"scaleX": 2.5,
+							"scaleY": 2.5,
+							"scaleZ": 2.5
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "RIG_ThorvaldCitadel_Ships",
+					"source": "Structure/Base/Arrakeen/RIG_BaseArrakeen_Ships.fbx",
+					"animation": "Structure/Base/Thorvald/Anim_ThorvaldCitadel_Ships.fbx",
+					"scaleX": 3.5,
+					"scaleY": 3.5,
+					"scaleZ": 3.5
+				}
+			]
+		}
+	]
+}
