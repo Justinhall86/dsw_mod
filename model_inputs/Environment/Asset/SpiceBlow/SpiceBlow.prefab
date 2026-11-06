@@ -1,0 +1,14 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.36,
+			"rotationZ": 180,
+			"albedoMap": "Environment/Asset/SpiceBlow/SpiceBlow_Albedo.png",
+			"normalMap": "Environment/Asset/SpiceBlow/SpiceBlow_Normal.png",
+			"pbrMap": "Environment/Asset/SpiceBlow/SpiceBlow_MetallicGlossAO.png"
+		}
+	]
+}

@@ -1,0 +1,52 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Sandfall",
+			"source": "Environment/Asset/Sandfall/Sandfall.fbx",
+			"x": 0.57711,
+			"y": 1.23195,
+			"rotationZ": -0.8,
+			"children": [
+				{
+					"type": "shader",
+					"name": "SandBlend",
+					"source": "shaders/SandBlend.hx",
+					"props": {
+						"colorMask": "Environment/Asset/Sandfall/Sandfall_Mask_Albedo.png"
+					}
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"enabled": false,
+			"x": -0.0775,
+			"y": 0.0675,
+			"z": 0.15748,
+			"scaleX": 53.39,
+			"scaleY": 53.39,
+			"scaleZ": 2.57,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"albedoStrength": 2
+		},
+		{
+			"type": "model",
+			"name": "TerrainDeform",
+			"source": "Environment/Asset/Sandfall/Sandfall_TerrainDeform.fbx",
+			"x": 0.80179,
+			"y": 2.03752
+		},
+		{
+			"type": "reference",
+			"name": "FX_SandFall",
+			"source": "Fx/Environment/SandFall/FX_SandFall.fx",
+			"x": 0.57711,
+			"y": 1.23195,
+			"rotationZ": -0.8,
+			"editMode": true
+		}
+	]
+}
