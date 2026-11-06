@@ -1,0 +1,24 @@
+{
+	"materials": {
+		"PBR": {
+			"blinn1": {
+				"mode": "Overlay",
+				"blend": "None",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"Skybox_02_MAT": {
+				"mode": "BeforeTonemapping",
+				"blend": "None",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}
