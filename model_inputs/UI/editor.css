@@ -1,0 +1,1116 @@
+fake-text.sans-11 .font-to-load {
+  font: "Font/monda-regular.fnt" 11 multi 0.45 0.3;
+}
+.sans-11 {
+  font: "Font/monda-regular.fnt" 11 multi 0.45 0.3;
+  line-spacing: -4;
+  margin-top: -5;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-11 {
+  font: "Font/monda-regular.fnt" 17 multi 0.45 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-11 {
+  font: "Font/monda-regular.fnt" 15 multi 0.45 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+fake-text.sans-12 .font-to-load {
+  font: "Font/monda-regular.fnt" 12 multi 0.45 0.2;
+}
+.sans-12 {
+  font: "Font/monda-regular.fnt" 12 multi 0.45 0.2;
+  line-spacing: -5;
+  margin-top: -6;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-12 {
+  font: "Font/monda-regular.fnt" 17 multi 0.45 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-12 {
+  font: "Font/monda-regular.fnt" 15 multi 0.45 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+fake-text.sans-13 .font-to-load {
+  font: "Font/monda-regular.fnt" 13 multi 0.5 0.18;
+}
+.sans-13 {
+  font: "Font/monda-regular.fnt" 13 multi 0.5 0.18;
+  line-spacing: -6;
+  margin-top: -7;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-13 {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-13 {
+  font: "Font/monda-regular.fnt" 15 multi 0.5 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+fake-text.sans-14 .font-to-load {
+  font: "Font/monda-regular.fnt" 14 multi 0.5 0.18;
+}
+.sans-14 {
+  font: "Font/monda-regular.fnt" 14 multi 0.5 0.18;
+  line-spacing: -7;
+  margin-top: -7;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-14 {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-14 {
+  font: "Font/monda-regular.fnt" 15 multi 0.5 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+fake-text.sans-15 .font-to-load {
+  font: "Font/monda-regular.fnt" 15 multi 0.5 0.2;
+}
+.sans-15 {
+  font: "Font/monda-regular.fnt" 15 multi 0.5 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-15 {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-15 {
+  font: "Font/monda-regular.fnt" 15 multi 0.5 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+fake-text.sans-17 .font-to-load {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+}
+.sans-17 {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-2 .sans-17 {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-17 {
+  font: "Font/monda-regular.fnt" 17 multi 0.5 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+fake-text.sans-bold-13 .font-to-load {
+  font: "Font/monda-regular.fnt" 13 multi 0.4 0.18;
+}
+.sans-bold-13 {
+  font: "Font/monda-regular.fnt" 13 multi 0.4 0.18;
+  line-spacing: -4;
+  margin-top: -7;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-bold-13 {
+  font: "Font/monda-regular.fnt" 17 multi 0.4 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-bold-13 {
+  font: "Font/monda-regular.fnt" 15 multi 0.4 0.2;
+  line-spacing: -7;
+  margin-top: -8;
+  icon-size: 16;
+}
+fake-text.sans-bold-15 .font-to-load {
+  font: "Font/monda-regular.fnt" 15 multi 0.4 0.2;
+}
+.sans-bold-15 {
+  font: "Font/monda-regular.fnt" 15 multi 0.4 0.2;
+  line-spacing: -4;
+  margin-top: -8;
+  icon-size: 16;
+}
+.option-minfontsize-2 .sans-bold-15 {
+  font: "Font/monda-regular.fnt" 17 multi 0.4 0.2;
+  line-spacing: -8;
+  margin-top: -9;
+  icon-size: 18;
+}
+.option-minfontsize-1 .sans-bold-15 {
+  font: "Font/monda-regular.fnt" 15 multi 0.4 0.2;
+  line-spacing: -4;
+  margin-top: -8;
+  icon-size: 16;
+}
+.bold-shadow-12 {
+  font: "Font/noto_sans_bold_shadow_12.fnt";
+  line-spacing: 0;
+  margin-top: -3;
+}
+.bold-shadow-13 {
+  font: "Font/noto_sans_bold_shadow_13.fnt";
+  line-spacing: 0;
+  margin-top: -4;
+}
+fake-text.regular-11 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 11 multi 0.45 0.55;
+}
+.regular-11 {
+  font: "Font/philosopher-regular.fnt" 11 multi 0.45 0.55;
+  line-spacing: 0;
+  margin-top: -2;
+  icon-size: 16;
+}
+.option-minfontsize-2 .regular-11 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-11 {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+fake-text.regular-12 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 12 multi 0.45 0.55;
+}
+.regular-12 {
+  font: "Font/philosopher-regular.fnt" 12 multi 0.45 0.55;
+  line-spacing: 0;
+  margin-top: -2;
+  icon-size: 16;
+}
+.option-minfontsize-2 .regular-12 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-12 {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+fake-text.regular-13 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 13 multi 0.45 0.5;
+}
+.regular-13 {
+  font: "Font/philosopher-regular.fnt" 13 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -2;
+  icon-size: 16;
+}
+.option-minfontsize-2 .regular-13 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-13 {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+fake-text.regular-14 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 14 multi 0.45 0.5;
+}
+.regular-14 {
+  font: "Font/philosopher-regular.fnt" 14 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .regular-14 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-14 {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+fake-text.regular-15 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.4 0.5;
+}
+.regular-15 {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.4 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+.option-minfontsize-2 .regular-15 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.4 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-15 {
+  font: "Font/philosopher-regular.fnt" 15 multi 0.4 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+fake-text.regular-16 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 16 multi 0.45 0.5;
+}
+.regular-16 {
+  font: "Font/philosopher-regular.fnt" 16 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+.option-minfontsize-2 .regular-16 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-16 {
+  font: "Font/philosopher-regular.fnt" 16 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 18;
+}
+fake-text.regular-17 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+}
+.regular-17 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-2 .regular-17 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-17 {
+  font: "Font/philosopher-regular.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+fake-text.regular-18 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 18 multi 0.45 0.45;
+}
+.regular-18 {
+  font: "Font/philosopher-regular.fnt" 18 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-2 .regular-18 {
+  font: "Font/philosopher-regular.fnt" 18 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-18 {
+  font: "Font/philosopher-regular.fnt" 18 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+fake-text.regular-20 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 20 multi 0.45 0.4;
+}
+.regular-20 {
+  font: "Font/philosopher-regular.fnt" 20 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-2 .regular-20 {
+  font: "Font/philosopher-regular.fnt" 20 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+.option-minfontsize-1 .regular-20 {
+  font: "Font/philosopher-regular.fnt" 20 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 20;
+}
+fake-text.regular-23 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 22 multi 0.45 0.4;
+}
+.regular-23 {
+  font: "Font/philosopher-regular.fnt" 22 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 22;
+}
+.option-minfontsize-2 .regular-23 {
+  font: "Font/philosopher-regular.fnt" 22 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 22;
+}
+.option-minfontsize-1 .regular-23 {
+  font: "Font/philosopher-regular.fnt" 22 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 22;
+}
+fake-text.regular-25 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 25 multi 0.45 0.4;
+}
+.regular-25 {
+  font: "Font/philosopher-regular.fnt" 25 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 24;
+}
+.option-minfontsize-2 .regular-25 {
+  font: "Font/philosopher-regular.fnt" 25 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 24;
+}
+.option-minfontsize-1 .regular-25 {
+  font: "Font/philosopher-regular.fnt" 25 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 24;
+}
+fake-text.regular-28 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 28 multi 0.45 0.35;
+}
+.regular-28 {
+  font: "Font/philosopher-regular.fnt" 28 multi 0.45 0.35;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 28;
+}
+.option-minfontsize-2 .regular-28 {
+  font: "Font/philosopher-regular.fnt" 28 multi 0.45 0.35;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 28;
+}
+.option-minfontsize-1 .regular-28 {
+  font: "Font/philosopher-regular.fnt" 28 multi 0.45 0.35;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 28;
+}
+fake-text.regular-30 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 30 multi 0.45 0.3;
+}
+.regular-30 {
+  font: "Font/philosopher-regular.fnt" 30 multi 0.45 0.3;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 30;
+}
+.option-minfontsize-2 .regular-30 {
+  font: "Font/philosopher-regular.fnt" 30 multi 0.45 0.3;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 30;
+}
+.option-minfontsize-1 .regular-30 {
+  font: "Font/philosopher-regular.fnt" 30 multi 0.45 0.3;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 30;
+}
+fake-text.regular-32 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 32 multi 0.45 0.3;
+}
+.regular-32 {
+  font: "Font/philosopher-regular.fnt" 32 multi 0.45 0.3;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 32;
+}
+.option-minfontsize-2 .regular-32 {
+  font: "Font/philosopher-regular.fnt" 32 multi 0.45 0.3;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 32;
+}
+.option-minfontsize-1 .regular-32 {
+  font: "Font/philosopher-regular.fnt" 32 multi 0.45 0.3;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 32;
+}
+fake-text.regular-33 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 33 multi 0.45 0.25;
+}
+.regular-33 {
+  font: "Font/philosopher-regular.fnt" 33 multi 0.45 0.25;
+  line-spacing: 0;
+  margin-top: -8;
+  icon-size: 33;
+}
+.option-minfontsize-2 .regular-33 {
+  font: "Font/philosopher-regular.fnt" 33 multi 0.45 0.25;
+  line-spacing: 0;
+  margin-top: -8;
+  icon-size: 33;
+}
+.option-minfontsize-1 .regular-33 {
+  font: "Font/philosopher-regular.fnt" 33 multi 0.45 0.25;
+  line-spacing: 0;
+  margin-top: -8;
+  icon-size: 33;
+}
+fake-text.regular-35 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 35 multi 0.45 0.25;
+}
+.regular-35 {
+  font: "Font/philosopher-regular.fnt" 35 multi 0.45 0.25;
+  line-spacing: 0;
+  margin-top: -8;
+  icon-size: 35;
+}
+.option-minfontsize-2 .regular-35 {
+  font: "Font/philosopher-regular.fnt" 35 multi 0.45 0.25;
+  line-spacing: 0;
+  margin-top: -8;
+  icon-size: 35;
+}
+.option-minfontsize-1 .regular-35 {
+  font: "Font/philosopher-regular.fnt" 35 multi 0.45 0.25;
+  line-spacing: 0;
+  margin-top: -8;
+  icon-size: 35;
+}
+fake-text.regular-40 .font-to-load {
+  font: "Font/philosopher-regular.fnt" 40 multi 0.45 0.2;
+}
+.regular-40 {
+  font: "Font/philosopher-regular.fnt" 40 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -9;
+  icon-size: 40;
+}
+.option-minfontsize-2 .regular-40 {
+  font: "Font/philosopher-regular.fnt" 40 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -9;
+  icon-size: 40;
+}
+.option-minfontsize-1 .regular-40 {
+  font: "Font/philosopher-regular.fnt" 40 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -9;
+  icon-size: 40;
+}
+fake-text.italic-12 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 12 multi 0.4 0.45;
+}
+.italic-12 {
+  font: "Font/philosopher-italic.fnt" 12 multi 0.4 0.45;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .italic-12 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .italic-12 {
+  font: "Font/philosopher-italic.fnt" 15 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.italic-13 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 13 multi 0.4 0.5;
+}
+.italic-13 {
+  font: "Font/philosopher-italic.fnt" 13 multi 0.4 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .italic-13 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .italic-13 {
+  font: "Font/philosopher-italic.fnt" 15 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.italic-14 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 14 multi 0.4 0.4;
+}
+.italic-14 {
+  font: "Font/philosopher-italic.fnt" 14 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .italic-14 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .italic-14 {
+  font: "Font/philosopher-italic.fnt" 15 multi 0.4 0.4;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.italic-15 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 15 multi 0.5 0.4;
+}
+.italic-15 {
+  font: "Font/philosopher-italic.fnt" 15 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .italic-15 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .italic-15 {
+  font: "Font/philosopher-italic.fnt" 15 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.italic-17 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.5 0.4;
+}
+.italic-17 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-2 .italic-17 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .italic-17 {
+  font: "Font/philosopher-italic.fnt" 17 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+fake-text.italic-18 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 18 multi 0.5 0.4;
+}
+.italic-18 {
+  font: "Font/philosopher-italic.fnt" 18 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-2 .italic-18 {
+  font: "Font/philosopher-italic.fnt" 18 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .italic-18 {
+  font: "Font/philosopher-italic.fnt" 18 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+fake-text.italic-20 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 20 multi 0.5 0.4;
+}
+.italic-20 {
+  font: "Font/philosopher-italic.fnt" 20 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 20;
+}
+.option-minfontsize-2 .italic-20 {
+  font: "Font/philosopher-italic.fnt" 20 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 20;
+}
+.option-minfontsize-1 .italic-20 {
+  font: "Font/philosopher-italic.fnt" 20 multi 0.5 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 20;
+}
+fake-text.italic-25 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 25 multi 0.5 0.35;
+}
+.italic-25 {
+  font: "Font/philosopher-italic.fnt" 25 multi 0.5 0.35;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 25;
+}
+.option-minfontsize-2 .italic-25 {
+  font: "Font/philosopher-italic.fnt" 25 multi 0.5 0.35;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 25;
+}
+.option-minfontsize-1 .italic-25 {
+  font: "Font/philosopher-italic.fnt" 25 multi 0.5 0.35;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 25;
+}
+fake-text.italic-28 .font-to-load {
+  font: "Font/philosopher-italic.fnt" 28 multi 0.5 0.3;
+}
+.italic-28 {
+  font: "Font/philosopher-italic.fnt" 28 multi 0.5 0.3;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 28;
+}
+.option-minfontsize-2 .italic-28 {
+  font: "Font/philosopher-italic.fnt" 28 multi 0.5 0.3;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 28;
+}
+.option-minfontsize-1 .italic-28 {
+  font: "Font/philosopher-italic.fnt" 28 multi 0.5 0.3;
+  line-spacing: 0;
+  margin-top: -6;
+  icon-size: 28;
+}
+fake-text.bold-11 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 11 multi 0.45 0.6;
+}
+.bold-11 {
+  font: "Font/philosopher-bold.fnt" 11 multi 0.45 0.6;
+  line-spacing: 0;
+  margin-top: -2;
+  icon-size: 16;
+}
+.option-minfontsize-2 .bold-11 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-11 {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.bold-12 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 12 multi 0.45 0.5;
+}
+.bold-12 {
+  font: "Font/philosopher-bold.fnt" 12 multi 0.45 0.5;
+  line-spacing: 0;
+  margin-top: -2;
+  icon-size: 16;
+}
+.option-minfontsize-2 .bold-12 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-12 {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.bold-13 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 13 multi 0.4 0.5;
+}
+.bold-13 {
+  font: "Font/philosopher-bold.fnt" 13 multi 0.4 0.5;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .bold-13 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.4 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-13 {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.4 0.45;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.bold-14 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 14 multi 0.45 0.45;
+}
+.bold-14 {
+  font: "Font/philosopher-bold.fnt" 14 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+.option-minfontsize-2 .bold-14 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-14 {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -3;
+  icon-size: 16;
+}
+fake-text.bold-15 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.45 0.45;
+}
+.bold-15 {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 16;
+}
+.option-minfontsize-2 .bold-15 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-15 {
+  font: "Font/philosopher-bold.fnt" 15 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 16;
+}
+fake-text.bold-16 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 16 multi 0.45 0.45;
+}
+.bold-16 {
+  font: "Font/philosopher-bold.fnt" 16 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 16;
+}
+.option-minfontsize-2 .bold-16 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-16 {
+  font: "Font/philosopher-bold.fnt" 16 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 16;
+}
+fake-text.bold-17 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+}
+.bold-17 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-2 .bold-17 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-17 {
+  font: "Font/philosopher-bold.fnt" 17 multi 0.45 0.45;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+fake-text.bold-18 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 18 multi 0.45 0.4;
+}
+.bold-18 {
+  font: "Font/philosopher-bold.fnt" 18 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-2 .bold-18 {
+  font: "Font/philosopher-bold.fnt" 18 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+.option-minfontsize-1 .bold-18 {
+  font: "Font/philosopher-bold.fnt" 18 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -4;
+  icon-size: 18;
+}
+fake-text.bold-20 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 20 multi 0.45 0.4;
+}
+.bold-20 {
+  font: "Font/philosopher-bold.fnt" 20 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 20;
+}
+.option-minfontsize-2 .bold-20 {
+  font: "Font/philosopher-bold.fnt" 20 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 20;
+}
+.option-minfontsize-1 .bold-20 {
+  font: "Font/philosopher-bold.fnt" 20 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 20;
+}
+fake-text.bold-22 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 22 multi 0.45 0.4;
+}
+.bold-22 {
+  font: "Font/philosopher-bold.fnt" 22 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 22;
+}
+.option-minfontsize-2 .bold-22 {
+  font: "Font/philosopher-bold.fnt" 22 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 22;
+}
+.option-minfontsize-1 .bold-22 {
+  font: "Font/philosopher-bold.fnt" 22 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 22;
+}
+fake-text.bold-23 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 23 multi 0.45 0.4;
+}
+.bold-23 {
+  font: "Font/philosopher-bold.fnt" 23 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 23;
+}
+.option-minfontsize-2 .bold-23 {
+  font: "Font/philosopher-bold.fnt" 23 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 23;
+}
+.option-minfontsize-1 .bold-23 {
+  font: "Font/philosopher-bold.fnt" 23 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 23;
+}
+fake-text.bold-24 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 24 multi 0.45 0.4;
+}
+.bold-24 {
+  font: "Font/philosopher-bold.fnt" 24 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 24;
+}
+.option-minfontsize-2 .bold-24 {
+  font: "Font/philosopher-bold.fnt" 24 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 24;
+}
+.option-minfontsize-1 .bold-24 {
+  font: "Font/philosopher-bold.fnt" 24 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -5;
+  icon-size: 24;
+}
+fake-text.bold-30 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 30 multi 0.45 0.4;
+}
+.bold-30 {
+  font: "Font/philosopher-bold.fnt" 30 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 30;
+}
+.option-minfontsize-2 .bold-30 {
+  font: "Font/philosopher-bold.fnt" 30 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 30;
+}
+.option-minfontsize-1 .bold-30 {
+  font: "Font/philosopher-bold.fnt" 30 multi 0.45 0.4;
+  line-spacing: 0;
+  margin-top: -7;
+  icon-size: 30;
+}
+fake-text.bold-40 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 40 multi 0.45 0.2;
+}
+.bold-40 {
+  font: "Font/philosopher-bold.fnt" 40 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -9;
+  icon-size: 40;
+}
+.option-minfontsize-2 .bold-40 {
+  font: "Font/philosopher-bold.fnt" 40 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -9;
+  icon-size: 40;
+}
+.option-minfontsize-1 .bold-40 {
+  font: "Font/philosopher-bold.fnt" 40 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -9;
+  icon-size: 40;
+}
+fake-text.bold-45 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 45 multi 0.45 0.2;
+}
+.bold-45 {
+  font: "Font/philosopher-bold.fnt" 45 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -10;
+  icon-size: 45;
+}
+.option-minfontsize-2 .bold-45 {
+  font: "Font/philosopher-bold.fnt" 45 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -10;
+  icon-size: 45;
+}
+.option-minfontsize-1 .bold-45 {
+  font: "Font/philosopher-bold.fnt" 45 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -10;
+  icon-size: 45;
+}
+fake-text.bold-50 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 50 multi 0.45 0.2;
+}
+.bold-50 {
+  font: "Font/philosopher-bold.fnt" 50 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -12;
+  icon-size: 50;
+}
+.option-minfontsize-2 .bold-50 {
+  font: "Font/philosopher-bold.fnt" 50 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -12;
+  icon-size: 50;
+}
+.option-minfontsize-1 .bold-50 {
+  font: "Font/philosopher-bold.fnt" 50 multi 0.45 0.2;
+  line-spacing: 0;
+  margin-top: -12;
+  icon-size: 50;
+}
+fake-text.bold-60 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 60 multi 0.45 0.15;
+}
+.bold-60 {
+  font: "Font/philosopher-bold.fnt" 60 multi 0.45 0.15;
+  line-spacing: 0;
+  margin-top: -13;
+  icon-size: 60;
+}
+.option-minfontsize-2 .bold-60 {
+  font: "Font/philosopher-bold.fnt" 60 multi 0.45 0.15;
+  line-spacing: 0;
+  margin-top: -13;
+  icon-size: 60;
+}
+.option-minfontsize-1 .bold-60 {
+  font: "Font/philosopher-bold.fnt" 60 multi 0.45 0.15;
+  line-spacing: 0;
+  margin-top: -13;
+  icon-size: 60;
+}
+fake-text.bold-80 .font-to-load {
+  font: "Font/philosopher-bold.fnt" 80 multi 0.45 0.1;
+}
+.bold-80 {
+  font: "Font/philosopher-bold.fnt" 80 multi 0.45 0.1;
+  line-spacing: 0;
+  margin-top: -18;
+  icon-size: 80;
+}
+.option-minfontsize-2 .bold-80 {
+  font: "Font/philosopher-bold.fnt" 80 multi 0.45 0.1;
+  line-spacing: 0;
+  margin-top: -18;
+  icon-size: 80;
+}
+.option-minfontsize-1 .bold-80 {
+  font: "Font/philosopher-bold.fnt" 80 multi 0.45 0.1;
+  line-spacing: 0;
+  margin-top: -18;
+  icon-size: 80;
+}
+regions-editor .content {
+  layout: horizontal;
+  content-align: top middle;
+}
+regions-editor .content .button-bars {
+  layout: vertical;
+  align: right;
+  spacing: 50;
+}
+regions-editor .content .button-bars .biomes-container,
+regions-editor .content .button-bars .regions-container {
+  multiline: true;
+  max-width: 800;
+}
