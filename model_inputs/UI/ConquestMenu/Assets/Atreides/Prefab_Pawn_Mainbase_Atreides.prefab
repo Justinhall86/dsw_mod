@@ -1,0 +1,17 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Pawn_Mainbase_Atreides",
+			"source": "UI/ConquestMenu/Assets/Atreides/Pawn_Mainbase_Atreides.fbx",
+			"rotationZ": 27.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConquestMenu_ArrakeenPawn",
+			"source": "Fx/UI/Conquest/FX_ConquestMenu_ArrakeenPawn.fx",
+			"z": 0.00166
+		}
+	]
+}
