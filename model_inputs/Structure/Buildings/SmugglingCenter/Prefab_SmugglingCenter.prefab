@@ -1,0 +1,39 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SmugglingCenter",
+			"source": "Structure/Buildings/SmugglingCenter/SmugglingCenter.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 2,
+						"freq": 9.09
+					},
+					"targetMaterial": "Mat_SmugglingCenter_Wind",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.27658,
+			"y": 0.04341,
+			"z": -0.11352,
+			"scaleX": 4.5,
+			"scaleY": 4.5,
+			"scaleZ": 0.54,
+			"rotationY": 3.6,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.3
+		}
+	]
+}
