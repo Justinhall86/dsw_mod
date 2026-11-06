@@ -1,0 +1,65 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ConquestOutpost",
+			"source": "Structure/Base/ConquestOutpost/ConquestOutpost.fbx",
+			"rotationZ": -101.3
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.18192,
+			"y": 0.17244,
+			"z": 0.37165,
+			"scaleX": 43.35,
+			"scaleY": 51.36,
+			"scaleZ": 13,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "object",
+			"name": "Destruction",
+			"x": -0.03,
+			"y": 0.31,
+			"scaleX": 7.68,
+			"scaleY": 7.68,
+			"scaleZ": 7.68,
+			"children": [
+				{
+					"type": "object",
+					"name": "Final",
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_OutpostDestruction_NoPhotosensitive",
+							"source": "Fx/Conquest/FX_OutpostDestruction.fx",
+							"x": 0.00805,
+							"y": -0.03748,
+							"z": -0.01448,
+							"scaleX": 0.13,
+							"scaleY": 0.13,
+							"scaleZ": 0.13,
+							"rotationZ": 180
+						},
+						{
+							"type": "reference",
+							"name": "FX_OutpostDestruction_PhotosensitiveOnly",
+							"source": "Fx/Conquest/FX_OutpostDestruction_Photosensitive.fx",
+							"x": 0.00805,
+							"y": -0.03748,
+							"z": -0.01448,
+							"scaleX": 0.13,
+							"scaleY": 0.13,
+							"scaleZ": 0.13,
+							"rotationZ": 180
+						}
+					]
+				}
+			]
+		}
+	]
+}

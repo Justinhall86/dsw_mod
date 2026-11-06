@@ -1,0 +1,1006 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "Destruction",
+			"x": -0.03,
+			"y": 0.31,
+			"scaleX": 7.68,
+			"scaleY": 7.68,
+			"scaleZ": 7.68,
+			"children": [
+				{
+					"type": "object",
+					"name": "Explosion",
+					"enabled": false,
+					"x": -0.03678385416666666,
+					"y": 0.12109374999999994,
+					"z": 0.4055989583333333,
+					"scaleX": 0.13020833333333331,
+					"scaleY": 0.13020833333333331,
+					"scaleZ": 0.13020833333333331,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Explosion_High",
+							"source": "Fx/Explosion/FX_Explosion_High.fx",
+							"x": 10.82,
+							"y": -2.98,
+							"z": -0.04,
+							"scaleX": 0.2,
+							"scaleY": 0.2,
+							"scaleZ": 0.2
+						},
+						{
+							"type": "reference",
+							"name": "FX_Explosion_High",
+							"source": "Fx/Explosion/FX_Explosion_High.fx",
+							"x": -18.71,
+							"y": 2.92,
+							"z": 0.13,
+							"scaleX": 0.5,
+							"scaleY": 0.5,
+							"scaleZ": 0.5
+						},
+						{
+							"type": "reference",
+							"name": "FX_Explosion_Mid_Slow",
+							"source": "Fx/Explosion/FX_Explosion_Mid_Slow.fx",
+							"x": 1.74,
+							"y": -6.74,
+							"z": 14.51,
+							"scaleX": 0.3,
+							"scaleY": 0.3,
+							"scaleZ": 0.3
+						},
+						{
+							"type": "reference",
+							"name": "FX_Directional_Explosion_Low",
+							"source": "Fx/Explosion/FX_Directional_Explosion_Low.fx",
+							"x": -18.7,
+							"y": -11.29,
+							"z": 7.27
+						}
+					]
+				},
+				{
+					"type": "advancedDecal",
+					"name": "Decal_Large",
+					"enabled": false,
+					"x": -0.07,
+					"y": -0.35,
+					"scaleX": 12.64,
+					"scaleY": 12.64,
+					"scaleZ": 5.45,
+					"rotationZ": -141.3,
+					"albedoMap": "Structure/Base/Destruction/Destruction_Decal_Large_01_Albedo.png",
+					"albedoStrength": 1.5
+				},
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"enabled": false,
+					"x": 1.24,
+					"y": 2.2,
+					"scaleX": 3.76,
+					"scaleY": 3.76,
+					"scaleZ": 1.97,
+					"rotationZ": -31.4,
+					"albedoMap": "Structure/Base/Destruction/Destruction_Decal_01_Albedo.png"
+				},
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"enabled": false,
+					"x": -1.1,
+					"y": 2.33,
+					"scaleX": 2.9,
+					"scaleY": 3.76,
+					"scaleZ": 3.86,
+					"rotationZ": 24.5,
+					"albedoMap": "Structure/Base/Destruction/Destruction_Decal_01_Albedo.png"
+				},
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"enabled": false,
+					"x": 1.5,
+					"y": -1.19,
+					"scaleX": 3.76,
+					"scaleY": 3.76,
+					"scaleZ": 1.97,
+					"rotationZ": 23.9,
+					"albedoMap": "Structure/Base/Destruction/Destruction_Decal_01_Albedo.png"
+				},
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"enabled": false,
+					"x": -2.05,
+					"y": -0.14,
+					"scaleX": 5.849999999999999,
+					"scaleY": 5.849999999999999,
+					"scaleZ": 3.06,
+					"rotationZ": 55.5,
+					"albedoMap": "Structure/Base/Destruction/Destruction_Decal_01_Albedo.png"
+				},
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"enabled": false,
+					"x": 0.55,
+					"y": -1.04,
+					"z": 1.63,
+					"scaleX": 2.42,
+					"scaleY": 2.42,
+					"scaleZ": 2.62,
+					"rotationZ": 28.3,
+					"albedoMap": "Structure/Base/Destruction/Destruction_Decal_01_Albedo.png"
+				},
+				{
+					"type": "object",
+					"name": "Smoke",
+					"x": 0.029027777777777774,
+					"y": 0.16216145833333326,
+					"z": 0.4239930555555554,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_Slow",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_Slow.fx",
+							"x": -0.15,
+							"y": -0.26,
+							"z": -0.21,
+							"scaleX": 0.31,
+							"scaleY": 0.31,
+							"scaleZ": 0.16,
+							"rotationZ": 21.1
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_Slow",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_Slow.fx",
+							"x": -1.03,
+							"y": -1.83,
+							"z": -0.39,
+							"scaleX": 0.17,
+							"scaleY": 0.17,
+							"scaleZ": 0.17,
+							"rotationZ": -13.7
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_Slow",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_Slow.fx",
+							"x": -1.78,
+							"y": -0.15,
+							"z": -0.55,
+							"scaleX": 0.27,
+							"scaleY": 0.27,
+							"scaleZ": 0.15,
+							"rotationZ": 115.8
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_Slow",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_Slow.fx",
+							"x": 0.67,
+							"y": 0.92,
+							"z": -0.32,
+							"scaleX": 0.25,
+							"scaleY": 0.25,
+							"scaleZ": 0.21,
+							"rotationZ": 90.6
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": 1.37,
+							"y": -0.47,
+							"z": -0.34,
+							"scaleX": 0.1302083333333333,
+							"scaleY": 0.1302083333333333,
+							"scaleZ": 0.1302083333333333,
+							"rotationZ": 45.1
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": -2.46,
+							"y": 0.32,
+							"z": -0.09,
+							"scaleX": 0.1302083333333333,
+							"scaleY": 0.1302083333333333,
+							"scaleZ": 0.1302083333333333,
+							"rotationZ": 45.1
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": 1.51,
+							"y": 1.48,
+							"z": -0.09,
+							"scaleX": 0.1302083333333333,
+							"scaleY": 0.1302083333333333,
+							"scaleZ": 0.1302083333333333,
+							"rotationZ": 45.1
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": -1.4,
+							"y": 2.38,
+							"z": 0.04,
+							"scaleX": 0.1302083333333333,
+							"scaleY": 0.1302083333333333,
+							"scaleZ": 0.1302083333333333,
+							"rotationZ": 45.1
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": 2.25,
+							"y": 0.7,
+							"z": 0.94,
+							"scaleX": 0.14,
+							"scaleY": 0.14,
+							"scaleZ": 0.14,
+							"rotationZ": -105.8
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": 0.1,
+							"y": -0.7,
+							"z": 0.86,
+							"scaleX": 0.1,
+							"scaleY": 0.1,
+							"scaleZ": 0.1,
+							"rotationX": 30.7,
+							"rotationY": 7.8,
+							"rotationZ": -156.8
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": -2.48,
+							"y": -1.52,
+							"z": 0.95,
+							"scaleX": 0.1302083333333333,
+							"scaleY": 0.1302083333333333,
+							"scaleZ": 0.1302083333333333,
+							"rotationX": 30.7,
+							"rotationY": 7.8,
+							"rotationZ": -53.6
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "BaseCarthag_RIG",
+			"source": "Structure/Base/Carthag/BaseCarthag_RIG.fbx",
+			"scaleX": 7.699999999999997,
+			"scaleY": 7.699999999999997,
+			"scaleZ": 7.7,
+			"rotationZ": 114.99999999999997,
+			"animation": "Structure/Base/Carthag/Anim_BaseCarthag.fbx"
+		},
+		{
+			"type": "model",
+			"name": "BaseCarthag",
+			"source": "Structure/Base/Carthag/BaseCarthag.fbx",
+			"z": -0.06625000000000014,
+			"scaleX": 7.699999999999997,
+			"scaleY": 7.699999999999997,
+			"scaleZ": 7.7,
+			"rotationZ": 114.99999999999997
+		},
+		{
+			"type": "object",
+			"name": "Districts",
+			"z": -0.06625000000000014,
+			"scaleX": 7.699999999999997,
+			"scaleY": 7.699999999999997,
+			"scaleZ": 7.7,
+			"rotationZ": 114.99999999999997,
+			"children": [
+				{
+					"type": "model",
+					"name": "District_1_1",
+					"source": "Structure/Base/Carthag/District/District_1_1.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 0.9999999999999998,
+					"scaleZ": 0.9999999999999993,
+					"rotationZ": -3.180554681463517e-15,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 2.355,
+							"y": -2.115,
+							"z": 0.23,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": -0.07500000000000018,
+									"y": 0.5249999999999999,
+									"z": 0.20999999999999996,
+									"scaleX": 0.20000000000000012,
+									"scaleY": 0.2000000000000001,
+									"scaleZ": 0.2,
+									"rotationX": 6.399999999999998,
+									"rotationY": 7.399999999999998,
+									"rotationZ": 155
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_Grey_3",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_3.fx",
+									"x": 0.07500000000000062,
+									"y": -0.5250000000000004,
+									"z": -0.21000000000000005,
+									"scaleX": 0.5999999999999999,
+									"scaleY": 0.6000000000000001,
+									"scaleZ": 0.8,
+									"rotationX": -20.299999999999997,
+									"rotationY": -15.799999999999997,
+									"rotationZ": -173.3
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_1_2",
+					"source": "Structure/Base/Carthag/District/District_1_2.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 0.9999999999999997,
+					"rotationZ": -3.180554681463517e-15,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 1.0619458906337393,
+							"y": 3.3125720156297875,
+							"z": 0.27,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_3",
+									"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+									"x": 0.6180541093662604,
+									"y": 0.40742798437021266,
+									"z": 0.0799999999999999,
+									"scaleX": 0.27999999999999997,
+									"scaleY": 0.27999999999999997,
+									"scaleZ": 0.3999999999999999,
+									"rotationX": -21.5,
+									"rotationY": -3.8999999999999995,
+									"rotationZ": -145.8
+								},
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": -0.1761082187325218,
+									"y": 0.12514403125957552,
+									"z": -0.17000000000000004,
+									"scaleX": 0.11999999999999998,
+									"scaleY": 0.12,
+									"scaleZ": 0.11999999999999994,
+									"rotationZ": -90.90000000000002
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+									"x": -0.44194589063373935,
+									"y": -0.5325720156297873,
+									"z": 0.08999999999999991,
+									"scaleX": 0.11999999999999997,
+									"scaleY": 0.11999999999999995,
+									"scaleZ": 0.14999999999999997,
+									"rotationX": 14.300000000000002,
+									"rotationY": -16.099999999999998,
+									"rotationZ": -118.3
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_1_3",
+					"source": "Structure/Base/Carthag/District/District_2_1.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "District_2_1",
+					"source": "Structure/Base/Carthag/District/District_3_1.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 0.020000000000000018,
+							"y": -3.55,
+							"z": 0.35000000000000003,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_2",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": 3.469446951953614e-18,
+									"z": -1.1102230246251565e-16,
+									"scaleX": 0.19999999999999998,
+									"scaleY": 0.19999999999999996,
+									"scaleZ": 0.2,
+									"rotationX": 7.400000000000001,
+									"rotationY": 4.400000000000002,
+									"rotationZ": -89.2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_2_2",
+					"source": "Structure/Base/Carthag/District/District_4_1.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 0.8133194630022477,
+							"y": -2.929433854870198,
+							"z": 0.21500000000000002,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": 0.03668053699775231,
+									"y": 0.27943385487019823,
+									"z": 0.11499999999999994,
+									"scaleX": 0.10999999999999999,
+									"scaleY": 0.10999999999999999,
+									"scaleZ": 0.14999999999999994,
+									"rotationX": -4.6,
+									"rotationY": 11.5,
+									"rotationZ": -143.2
+								},
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": -0.03668053699775209,
+									"y": -0.2794338548701987,
+									"z": -0.11500000000000005,
+									"scaleX": 0.11999999999999998,
+									"scaleY": 0.12,
+									"scaleZ": 0.11999999999999994,
+									"rotationZ": -90.90000000000002
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_3_1",
+					"source": "Structure/Base/Carthag/District/District_4_2.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "District_4_1",
+					"source": "Structure/Base/Carthag/District/District_4_3.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 0.9999999999999999,
+					"scaleZ": 0.9999999999999997,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -2.0299999999999994,
+							"y": 2.256666666666667,
+							"z": 0.4766666666666667,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 0.3399999999999992,
+									"y": -0.12666666666666693,
+									"z": -0.1766666666666667,
+									"scaleX": 0.20000000000000007,
+									"scaleY": 0.20000000000000004,
+									"scaleZ": 0.3,
+									"rotationX": -15.5,
+									"rotationZ": 155
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 0.2299999999999991,
+									"y": -0.016666666666666607,
+									"z": -0.016666666666666663,
+									"scaleX": 0.20000000000000004,
+									"scaleY": 0.20000000000000007,
+									"scaleZ": 0.30000000000000004,
+									"rotationX": -44.4,
+									"rotationY": 1.5902773407317582e-15,
+									"rotationZ": 135.6
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+									"x": -0.5700000000000012,
+									"y": 0.14333333333333265,
+									"z": 0.19333333333333336,
+									"scaleX": 0.18000000000000002,
+									"scaleY": 0.18000000000000002,
+									"scaleZ": 0.2,
+									"rotationX": -2.9999999999999996,
+									"rotationY": 3.9999999999999996,
+									"rotationZ": -112.20000000000002
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_4_2",
+					"source": "Structure/Base/Carthag/District/District_4_4.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002,
+					"children": [
+						{
+							"type": "model",
+							"name": "District_6_1",
+							"source": "Structure/Base/Carthag/District/District_6_1.fbx",
+							"z": -3.469446951953614e-18,
+							"scaleY": 0.9999999999999999,
+							"scaleZ": 1.0000000000000002,
+							"children": [
+								{
+									"type": "object",
+									"name": "FX",
+									"x": -2.415,
+									"y": -0.945,
+									"z": 0.8000000000000003,
+									"children": [
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Soft_2",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": 0.1549999999999998,
+											"y": 0.07499999999999973,
+											"z": -2.220446049250313e-16,
+											"scaleX": 0.26999999999999996,
+											"scaleY": 0.27,
+											"scaleZ": 0.29999999999999993,
+											"rotationX": -13.8,
+											"rotationY": 3.975693351829396e-16,
+											"rotationZ": 155
+										},
+										{
+											"type": "reference",
+											"name": "FX_Smoke_Soft_2",
+											"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+											"x": -0.1549999999999998,
+											"y": -0.0750000000000004,
+											"z": -2.220446049250313e-16,
+											"scaleX": 0.26999999999999996,
+											"scaleY": 0.26999999999999996,
+											"scaleZ": 0.29999999999999993,
+											"rotationX": -16.799999999999997,
+											"rotationY": 9.300000000000002,
+											"rotationZ": 137.9
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -1.2900000000000003,
+							"y": -2.99,
+							"z": 0.4500000000000001,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+									"x": 4.440892098500626e-16,
+									"y": 4.440892098500626e-16,
+									"z": -1.6653345369377348e-16,
+									"scaleX": 0.15000000000000002,
+									"scaleY": 0.15000000000000002,
+									"scaleZ": 0.14999999999999997,
+									"rotationX": -2.9999999999999996,
+									"rotationY": 3.9999999999999996,
+									"rotationZ": -163.7
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_4_3",
+					"source": "Structure/Base/Carthag/District/District_5_1.fbx",
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -0.019999999999999796,
+							"y": 3.3000000000000003,
+							"z": 0.3400000000000001,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": -3.469446951953614e-18,
+									"z": -5.551115123125783e-17,
+									"scaleX": 0.19999999999999996,
+									"scaleY": 0.19999999999999998,
+									"scaleZ": 0.19999999999999996,
+									"rotationX": -25.8,
+									"rotationY": -27.400000000000002,
+									"rotationZ": -178.1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "BaseCarthag",
+			"x": 0.1,
+			"y": 0.23,
+			"z": 2.34,
+			"scaleX": 7.7,
+			"scaleY": 7.7,
+			"scaleZ": 7.7,
+			"children": [
+				{
+					"type": "object",
+					"name": "Decals",
+					"x": 0.295625,
+					"y": 0.695625,
+					"z": -0.3125,
+					"children": [
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 2.78,
+							"y": -1.44,
+							"scaleX": 2.0000000000000004,
+							"scaleY": 3.7400000000000007,
+							"rotationZ": -93.8,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"enabled": false,
+							"x": -0.15,
+							"y": -0.24,
+							"z": -0.17,
+							"scaleX": 11.59,
+							"scaleY": 11.59,
+							"scaleZ": 1.43,
+							"rotationZ": -93.8,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -0.03,
+							"y": -2.88,
+							"scaleX": 2,
+							"scaleY": 3.74,
+							"scaleZ": 0.61,
+							"rotationZ": -75.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -2.9475,
+							"y": -2.6925,
+							"scaleY": 3.740000000000001,
+							"rotationZ": 27.499999999999996,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -3.16,
+							"y": 0.25,
+							"scaleX": 2,
+							"scaleY": 3.74,
+							"scaleZ": 0.48,
+							"rotationZ": -22.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 1.41,
+							"y": 1.58,
+							"scaleY": 3.74,
+							"scaleZ": 0.63,
+							"rotationZ": 53.2,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 2.62,
+							"y": 0.65,
+							"scaleZ": 0.61,
+							"rotationZ": 11.9,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 1.04,
+							"y": 2.54,
+							"scaleZ": 0.62,
+							"rotationZ": 11.9,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -0.09,
+							"y": 1.85,
+							"scaleX": 4.36,
+							"scaleZ": 0.6,
+							"rotationZ": -1.2,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 1.66,
+							"y": -2.85,
+							"scaleX": 4.36,
+							"scaleZ": 0.56,
+							"rotationZ": 43.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -2.42,
+							"y": 1.81,
+							"scaleX": 3.6,
+							"rotationZ": 45.2,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -1.1775000000000002,
+							"y": 2.2775,
+							"rotationZ": 11.900000000000002,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "FX",
+					"x": -0.10187500000000002,
+					"y": -0.22687500000000002,
+					"z": -0.3125,
+					"children": [
+						{
+							"type": "object",
+							"name": "Animated",
+							"x": 0.32499999999999996,
+							"y": -0.08249999999999996,
+							"z": 0.3500000000000001,
+							"children": [
+								{
+									"type": "reference",
+									"name": "LightRed03_Sphere",
+									"source": "Fx/Structure/Lights/LightRed03_Sphere.fx",
+									"x": 0.11500000000000005,
+									"y": -0.8425,
+									"z": 0.7199999999999998,
+									"scaleX": 0.27,
+									"scaleY": 0.27,
+									"scaleZ": 0.27
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_03",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+									"x": -1.395,
+									"y": 2.3875,
+									"z": -0.41000000000000014,
+									"scaleX": 0.6,
+									"scaleY": 0.6,
+									"scaleZ": 0.6,
+									"rotationZ": 31.6
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_02",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab",
+									"x": 1.175,
+									"y": -0.6925000000000001,
+									"z": -0.7200000000000001,
+									"scaleX": 0.4,
+									"scaleY": 0.4,
+									"scaleZ": 0.4
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_01",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+									"x": 0.10500000000000004,
+									"y": -0.8525,
+									"z": 0.4099999999999997,
+									"scaleX": 0.6000000000000001,
+									"scaleY": 0.6000000000000001,
+									"scaleZ": 0.6,
+									"rotationZ": 111.80000000000001
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Smoke",
+							"x": -0.010000000000000009,
+							"y": 0.015000000000000013,
+							"z": -1.25,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+									"x": -2.38,
+									"y": -1.09,
+									"z": 1.31,
+									"scaleX": 0.2,
+									"scaleY": 0.2,
+									"scaleZ": 0.4,
+									"rotationX": 2.5,
+									"rotationY": 4.500000000000001,
+									"rotationZ": 30.099999999999998
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+									"x": 2.38,
+									"y": 1.11,
+									"z": 1.31,
+									"scaleX": 0.2,
+									"scaleY": 0.2,
+									"scaleZ": 0.4,
+									"rotationX": 2.5,
+									"rotationY": 4.500000000000001,
+									"rotationZ": 30.099999999999998
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_Grey_3",
+									"source": "Fx/Smoke/FX_Smoke_Soft_1.fx",
+									"x": 0.13,
+									"y": 0.11,
+									"z": -1.68,
+									"scaleX": 0.8,
+									"scaleY": 0.8,
+									"rotationX": 29.9,
+									"rotationY": 7.1,
+									"rotationZ": -150.8,
+									"visible": false
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "WindSand",
+							"x": -0.030000000000000027,
+							"y": 0.04500000000000004,
+							"z": -0.565,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": -0.89,
+									"y": 1.99,
+									"z": -0.28500000000000003,
+									"scaleX": 0.12,
+									"scaleY": 0.12,
+									"scaleZ": 0.12,
+									"rotationZ": 24.1
+								},
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": 0.89,
+									"y": -1.99,
+									"z": 0.2849999999999999,
+									"scaleX": 0.12,
+									"scaleY": 0.12,
+									"scaleZ": 0.12,
+									"rotationZ": 24.1
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

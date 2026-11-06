@@ -1,0 +1,1041 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "Destruction",
+			"x": -0.03,
+			"y": 0.31,
+			"scaleX": 7.68,
+			"scaleY": 7.68,
+			"scaleZ": 7.68,
+			"children": [
+				{
+					"type": "object",
+					"name": "Step_01",
+					"x": 0.8449999999999996,
+					"y": 1.4149999999999998,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 0.9999999999999998,
+					"scaleZ": 0.9999999999999998,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CarthagDamage_Step01_NoPhotosensitive",
+							"source": "Fx/Structure/Carthag/FX_CarthagDamage_Step01.fx",
+							"x": -0.8410937499999998,
+							"y": -1.4553645833333335,
+							"scaleX": 0.13020833333333337,
+							"scaleY": 0.13020833333333337,
+							"scaleZ": 0.13020833333333337
+						},
+						{
+							"type": "reference",
+							"name": "FX_CarthagDamage_Step01_PhotosensitiveOnly",
+							"source": "Fx/Structure/Carthag/FX_CarthagDamage_Step01_Photosensitive.fx",
+							"x": -0.8410937499999998,
+							"y": -1.4553645833333335,
+							"scaleX": 0.13020833333333337,
+							"scaleY": 0.13020833333333337,
+							"scaleZ": 0.13020833333333337
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Step_02",
+					"x": -1.5220746527777766,
+					"y": -0.08309895833333328,
+					"z": 0.19292534722222204,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 0.9999999999999998,
+					"scaleZ": 0.9999999999999998,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CarthagDamage_Step02_NoPhotosensitive",
+							"source": "Fx/Structure/Carthag/FX_CarthagDamage_Step02.fx",
+							"x": 1.5259809027777769,
+							"y": 0.04273437499999995,
+							"z": -0.19292534722222207,
+							"scaleX": 0.13020833333333337,
+							"scaleY": 0.13020833333333337,
+							"scaleZ": 0.13020833333333337
+						},
+						{
+							"type": "reference",
+							"name": "FX_CarthagDamage_Step02_PhotosensitiveOnly",
+							"source": "Fx/Structure/Carthag/FX_CarthagDamage_Step02_Photosensitive.fx",
+							"x": 1.5259809027777769,
+							"y": 0.04273437499999995,
+							"z": -0.19292534722222207,
+							"scaleX": 0.13020833333333337,
+							"scaleY": 0.13020833333333337,
+							"scaleZ": 0.13020833333333337
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Step_03",
+					"x": 0.8661118344907401,
+					"y": -1.667105034722221,
+					"z": 0.302423321759259,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 0.9999999999999998,
+					"scaleZ": 0.9999999999999998,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CarthagDamage_Step03_NoPhotosensitive",
+							"source": "Fx/Structure/Carthag/FX_CarthagDamage_Step03.fx",
+							"x": -0.8622055844907403,
+							"y": 1.626740451388888,
+							"z": -0.30242332175925907,
+							"scaleX": 0.13020833333333337,
+							"scaleY": 0.13020833333333337,
+							"scaleZ": 0.13020833333333337
+						},
+						{
+							"type": "reference",
+							"name": "FX_CarthagDamage_Step03_PhotosensitiveOnly",
+							"source": "Fx/Structure/Carthag/FX_CarthagDamage_Step03_Photosensitive.fx",
+							"x": -0.8622055844907401,
+							"y": 1.626740451388888,
+							"z": -0.30242332175925907,
+							"scaleX": 0.13020833333333334,
+							"scaleY": 0.13020833333333334,
+							"scaleZ": 0.13020833333333334
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Final",
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_CarthagDestruction_NoPhotosensitive",
+							"source": "Fx/Structure/Carthag/FX_CarthagDestruction.fx",
+							"x": 0.10521484374999997,
+							"y": -0.14013671874999997,
+							"z": -0.15374999999999994,
+							"scaleX": 0.13,
+							"scaleY": 0.13,
+							"scaleZ": 0.13
+						},
+						{
+							"type": "reference",
+							"name": "FX_CarthagDestruction_PhotosensitiveOnly",
+							"source": "Fx/Structure/Carthag/FX_CarthagDestruction_Photosensitive.fx",
+							"x": 0.003906250000000115,
+							"y": -0.040364583333333336,
+							"scaleX": 0.13020833333333331,
+							"scaleY": 0.13020833333333331,
+							"scaleZ": 0.13020833333333331
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_Big",
+							"source": "Fx/Smoke/FX_Smoke_Soft_CarthagSlowMo_Disparition.fx",
+							"x": -0.09296,
+							"y": 0.19788,
+							"z": -0.14634,
+							"scaleX": 1.7,
+							"scaleY": 1.7,
+							"scaleZ": 1.3,
+							"rotationX": 11.2,
+							"rotationY": 9.5,
+							"rotationZ": -46.5,
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMult",
+									"source": "shaders/AlphaMult.hx",
+									"props": {
+										"alpha": 0.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DepthBlend",
+									"source": "shaders/DepthBlend.hx",
+									"props": {
+										"REVERSE": false,
+										"range": 2,
+										"power": 2
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Destroyed",
+					"enabled": false,
+					"x": 1.319010416666666,
+					"y": 1.3645833333333328,
+					"z": 0.3932291666666666,
+					"scaleX": 0.13020833333333331,
+					"scaleY": 0.13020833333333331,
+					"scaleZ": 0.13020833333333331,
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_SietchTabrDestruction_Decal",
+							"source": "Fx/Structure/SietchTabr/FX_SietchTabrDestruction_Decal.fx",
+							"x": -10.1,
+							"y": -10.789999999999997,
+							"z": -3.02,
+							"scaleX": 7.68,
+							"scaleY": 7.68,
+							"scaleZ": 7.68
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_Slow",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion.fx",
+							"x": -9.598529911111113,
+							"y": -11.908365066666656,
+							"z": -2.3101888888888906,
+							"scaleX": 1.92,
+							"scaleY": 1.92,
+							"scaleZ": 1.92,
+							"rotationZ": 21.099999999999998
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion.fx",
+							"x": -2.84853,
+							"y": -19.8832,
+							"z": 1.8335,
+							"scaleX": 1.4999999999999982,
+							"scaleY": 1.4999999999999982,
+							"scaleZ": 1.499999999999999,
+							"rotationZ": 141.7
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": -18.55529,
+							"y": -21.43127,
+							"z": -1.39102,
+							"scaleX": 0.9999999999999992,
+							"scaleY": 0.9999999999999992,
+							"scaleZ": 0.9999999999999992,
+							"rotationX": 28,
+							"rotationZ": -86.7
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_LateExplosion_02",
+							"source": "Fx/Smoke/FX_Smoke_LateExplosion_02.fx",
+							"x": -23.30293,
+							"y": -9.11545,
+							"z": -1.94048,
+							"scaleX": 0.9999999999999991,
+							"scaleY": 0.9999999999999997,
+							"scaleZ": 0.9999999999999994,
+							"rotationX": 28,
+							"rotationZ": 76.1
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "BaseCarthag",
+			"source": "Structure/Base/Carthag/BaseCarthag.fbx",
+			"z": -0.06625000000000014,
+			"scaleX": 7.699999999999997,
+			"scaleY": 7.699999999999997,
+			"scaleZ": 7.7,
+			"rotationZ": 114.99999999999997
+		},
+		{
+			"type": "object",
+			"name": "Districts",
+			"z": -0.06625000000000014,
+			"scaleX": 7.699999999999997,
+			"scaleY": 7.699999999999997,
+			"scaleZ": 7.7,
+			"rotationZ": 114.99999999999997,
+			"children": [
+				{
+					"type": "model",
+					"name": "District_1_1",
+					"source": "Structure/Base/Carthag/District/District_1_1.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 0.9999999999999998,
+					"scaleZ": 0.9999999999999993,
+					"rotationZ": -3.180554681463517e-15,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 2.355,
+							"y": -2.115,
+							"z": 0.23,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": -0.07500000000000018,
+									"y": 0.5249999999999999,
+									"z": 0.20999999999999996,
+									"scaleX": 0.20000000000000012,
+									"scaleY": 0.2000000000000001,
+									"scaleZ": 0.2,
+									"rotationX": 6.399999999999998,
+									"rotationY": 7.399999999999998,
+									"rotationZ": 155
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_Grey_3",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_3.fx",
+									"x": 0.07500000000000062,
+									"y": -0.5250000000000004,
+									"z": -0.21000000000000005,
+									"scaleX": 0.5999999999999999,
+									"scaleY": 0.6000000000000001,
+									"scaleZ": 0.8,
+									"rotationX": -20.299999999999997,
+									"rotationY": -15.799999999999997,
+									"rotationZ": -173.3
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_1_2",
+					"source": "Structure/Base/Carthag/District/District_1_2.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 0.9999999999999997,
+					"rotationZ": -3.180554681463517e-15,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 1.0619458906337393,
+							"y": 3.3125720156297875,
+							"z": 0.27,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_3",
+									"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+									"x": 0.6180541093662604,
+									"y": 0.40742798437021266,
+									"z": 0.0799999999999999,
+									"scaleX": 0.27999999999999997,
+									"scaleY": 0.27999999999999997,
+									"scaleZ": 0.3999999999999999,
+									"rotationX": -21.5,
+									"rotationY": -3.8999999999999995,
+									"rotationZ": -145.8
+								},
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": -0.46917,
+									"y": -0.51232,
+									"z": -0.23101,
+									"scaleX": 0.11999999999999998,
+									"scaleY": 0.12,
+									"scaleZ": 0.11999999999999994,
+									"rotationZ": -90.9
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+									"x": -0.44194589063373935,
+									"y": -0.5325720156297873,
+									"z": 0.08999999999999991,
+									"scaleX": 0.11999999999999997,
+									"scaleY": 0.11999999999999995,
+									"scaleZ": 0.14999999999999997,
+									"rotationX": 14.300000000000002,
+									"rotationY": -16.099999999999998,
+									"rotationZ": -118.3
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_1_3",
+					"source": "Structure/Base/Carthag/District/District_2_1.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002
+				},
+				{
+					"type": "model",
+					"name": "District_2_1",
+					"source": "Structure/Base/Carthag/District/District_3_1.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 0.12214,
+							"y": -2.92943,
+							"z": 0.215,
+							"scaleX": 0.9999999999999998,
+							"scaleY": 0.9999999999999999,
+							"scaleZ": 0.9999999999999996,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": -0.50992,
+									"y": -0.02462,
+									"z": 0.56797,
+									"scaleX": 0.10999999999999999,
+									"scaleY": 0.10999999999999999,
+									"scaleZ": 0.14999999999999994,
+									"rotationX": -4.6,
+									"rotationY": 11.5,
+									"rotationZ": -143.2
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": -0.5138,
+									"y": -0.16425,
+									"z": 0.48502,
+									"scaleX": 0.10999999999999999,
+									"scaleY": 0.10999999999999999,
+									"scaleZ": 0.12,
+									"rotationX": -4.6,
+									"rotationY": 11.5,
+									"rotationZ": -143.2
+								},
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": -0.03668053699775209,
+									"y": -0.2794338548701987,
+									"z": -0.11500000000000005,
+									"scaleX": 0.11999999999999998,
+									"scaleY": 0.12,
+									"scaleZ": 0.11999999999999994,
+									"rotationZ": -90.90000000000002
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "FX",
+							"x": 0.020000000000000018,
+							"y": -3.55,
+							"z": 0.35000000000000003,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_2",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": 3.469446951953614e-18,
+									"z": -1.1102230246251565e-16,
+									"scaleX": 0.19999999999999998,
+									"scaleY": 0.19999999999999996,
+									"scaleZ": 0.2,
+									"rotationX": 7.400000000000001,
+									"rotationY": 4.400000000000002,
+									"rotationZ": -89.2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_2_2",
+					"source": "Structure/Base/Carthag/District/District_4_1.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 0.9999999999999997,
+					"rotationZ": -3.180554681463517e-15
+				},
+				{
+					"type": "model",
+					"name": "District_3_1",
+					"source": "Structure/Base/Carthag/District/District_4_2.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 0.9999999999999998,
+					"rotationZ": -3.180554681463517e-15
+				},
+				{
+					"type": "model",
+					"name": "District_4_1",
+					"source": "Structure/Base/Carthag/District/District_4_3.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 0.9999999999999999,
+					"scaleZ": 0.9999999999999997,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -2.0299999999999994,
+							"y": 2.256666666666667,
+							"z": 0.4766666666666667,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 0.3399999999999992,
+									"y": -0.12666666666666693,
+									"z": -0.1766666666666667,
+									"scaleX": 0.20000000000000007,
+									"scaleY": 0.20000000000000004,
+									"scaleZ": 0.3,
+									"rotationX": -15.5,
+									"rotationZ": 155
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 0.2299999999999991,
+									"y": -0.016666666666666607,
+									"z": -0.016666666666666663,
+									"scaleX": 0.20000000000000004,
+									"scaleY": 0.20000000000000007,
+									"scaleZ": 0.30000000000000004,
+									"rotationX": -44.4,
+									"rotationY": 1.5902773407317582e-15,
+									"rotationZ": 135.6
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+									"x": -0.5700000000000012,
+									"y": 0.14333333333333265,
+									"z": 0.19333333333333336,
+									"scaleX": 0.18000000000000002,
+									"scaleY": 0.18000000000000002,
+									"scaleZ": 0.2,
+									"rotationX": -2.9999999999999996,
+									"rotationY": 3.9999999999999996,
+									"rotationZ": -112.20000000000002
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_4_2",
+					"source": "Structure/Base/Carthag/District/District_4_4.fbx",
+					"z": 3.469446951953614e-18,
+					"scaleX": 0.9999999999999998,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 0.9999999999999997,
+					"rotationZ": -3.180554681463517e-15,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -1.2900000000000003,
+							"y": -2.99,
+							"z": 0.4500000000000001,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+									"x": 4.440892098500626e-16,
+									"y": 4.440892098500626e-16,
+									"z": -1.6653345369377348e-16,
+									"scaleX": 0.15000000000000002,
+									"scaleY": 0.15000000000000002,
+									"scaleZ": 0.14999999999999997,
+									"rotationX": -2.9999999999999996,
+									"rotationY": 3.9999999999999996,
+									"rotationZ": -163.7
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_5_1",
+					"source": "Structure/Base/Carthag/District/District_6_1.fbx",
+					"scaleX": 0.9999999999999998,
+					"rotationZ": -3.180554681463517e-15,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -2.415,
+							"y": -0.945,
+							"z": 0.8000000000000003,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 0.1549999999999998,
+									"y": 0.07499999999999973,
+									"z": -2.220446049250313e-16,
+									"scaleX": 0.26999999999999996,
+									"scaleY": 0.27,
+									"scaleZ": 0.29999999999999993,
+									"rotationX": -13.8,
+									"rotationY": 3.975693351829396e-16,
+									"rotationZ": 155
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Soft_2",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": -0.1549999999999998,
+									"y": -0.0750000000000004,
+									"z": -2.220446049250313e-16,
+									"scaleX": 0.26999999999999996,
+									"scaleY": 0.26999999999999996,
+									"scaleZ": 0.29999999999999993,
+									"rotationX": -16.799999999999997,
+									"rotationY": 9.300000000000002,
+									"rotationZ": 137.9
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "District_5_2",
+					"source": "Structure/Base/Carthag/District/District_5_1.fbx",
+					"z": 1.734723475976807e-18,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 1.0000000000000002,
+					"children": [
+						{
+							"type": "object",
+							"name": "FX",
+							"x": -0.019999999999999796,
+							"y": 3.3000000000000003,
+							"z": 0.3400000000000001,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Big_1.fx",
+									"x": -3.469446951953614e-18,
+									"z": -5.551115123125783e-17,
+									"scaleX": 0.19999999999999996,
+									"scaleY": 0.19999999999999998,
+									"scaleZ": 0.19999999999999996,
+									"rotationX": -25.8,
+									"rotationY": -27.400000000000002,
+									"rotationZ": -178.1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "BaseCarthag",
+			"x": 0.1,
+			"y": 0.23,
+			"z": 2.34,
+			"scaleX": 7.7,
+			"scaleY": 7.7,
+			"scaleZ": 7.7,
+			"children": [
+				{
+					"type": "object",
+					"name": "Decals",
+					"x": 0.295625,
+					"y": 0.695625,
+					"z": -0.3125,
+					"children": [
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 2.78,
+							"y": -1.44,
+							"scaleX": 2.0000000000000004,
+							"scaleY": 3.7400000000000007,
+							"rotationZ": -93.8,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"enabled": false,
+							"x": -0.15,
+							"y": -0.24,
+							"z": -0.17,
+							"scaleX": 11.59,
+							"scaleY": 11.59,
+							"scaleZ": 1.43,
+							"rotationZ": -93.8,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -0.03,
+							"y": -2.88,
+							"scaleX": 2,
+							"scaleY": 3.74,
+							"scaleZ": 0.61,
+							"rotationZ": -75.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -2.9475,
+							"y": -2.6925,
+							"scaleY": 3.740000000000001,
+							"rotationZ": 27.499999999999996,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -3.16,
+							"y": 0.25,
+							"scaleX": 2,
+							"scaleY": 3.74,
+							"scaleZ": 0.48,
+							"rotationZ": -22.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 1.41,
+							"y": 1.58,
+							"scaleY": 3.74,
+							"scaleZ": 0.63,
+							"rotationZ": 53.2,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 2.62,
+							"y": 0.65,
+							"scaleZ": 0.61,
+							"rotationZ": 11.9,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 1.04,
+							"y": 2.54,
+							"scaleZ": 0.62,
+							"rotationZ": 11.9,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -0.09,
+							"y": 1.85,
+							"scaleX": 4.36,
+							"scaleZ": 0.6,
+							"rotationZ": -1.2,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 1.66,
+							"y": -2.85,
+							"scaleX": 4.36,
+							"scaleZ": 0.56,
+							"rotationZ": 43.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -2.42,
+							"y": 1.81,
+							"scaleX": 3.6,
+							"rotationZ": 45.2,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						},
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": -1.1775000000000002,
+							"y": 2.2775,
+							"rotationZ": 11.900000000000002,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+							"renderMode": "Terrain"
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "FX",
+					"x": -0.10187500000000002,
+					"y": -0.22687500000000002,
+					"z": -0.3125,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_OrbitalDrones_Carthag",
+							"source": "Fx/Structure/Common/FX_OrbitalDrones_Carthag.fx",
+							"x": -0.41723,
+							"y": 1.22737,
+							"z": 1.45418,
+							"scaleX": 0.15,
+							"scaleY": 0.15,
+							"scaleZ": 0.15
+						},
+						{
+							"type": "object",
+							"name": "Animated",
+							"x": 0.32499999999999996,
+							"y": -0.08249999999999996,
+							"z": 0.3500000000000001,
+							"children": [
+								{
+									"type": "reference",
+									"name": "LightRed03_Sphere",
+									"source": "Fx/Structure/Lights/LightRed03_Sphere.fx",
+									"x": 0.11500000000000005,
+									"y": -0.8425,
+									"z": 0.7199999999999998,
+									"scaleX": 0.27,
+									"scaleY": 0.27,
+									"scaleZ": 0.27
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_03",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+									"x": -1.395,
+									"y": 2.3875,
+									"z": -0.41000000000000014,
+									"scaleX": 0.6,
+									"scaleY": 0.6,
+									"scaleZ": 0.6,
+									"rotationZ": 31.6
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_02",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab",
+									"x": 1.175,
+									"y": -0.6925000000000001,
+									"z": -0.7200000000000001,
+									"scaleX": 0.4,
+									"scaleY": 0.4,
+									"scaleZ": 0.4
+								},
+								{
+									"type": "reference",
+									"name": "Prefab_Antena_01",
+									"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+									"x": 0.10500000000000004,
+									"y": -0.8525,
+									"z": 0.4099999999999997,
+									"scaleX": 0.6000000000000001,
+									"scaleY": 0.6000000000000001,
+									"scaleZ": 0.6,
+									"rotationZ": 111.80000000000001
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "Smoke",
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": -2.28081,
+									"y": -0.8838,
+									"z": 1.42255,
+									"scaleX": 0.2,
+									"scaleY": 0.2,
+									"scaleZ": 0.2,
+									"rotationX": 2.5,
+									"rotationY": 4.5,
+									"rotationZ": 30.1
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Soft_2.fx",
+									"x": 2.48876,
+									"y": 1.29682,
+									"z": 1.40081,
+									"scaleX": 0.2,
+									"scaleY": 0.2,
+									"scaleZ": 0.2,
+									"rotationX": 2.5,
+									"rotationY": 4.5,
+									"rotationZ": -65.45
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big",
+									"source": "Fx/Smoke/FX_Smoke_Soft_CarthagSlowMo.fx",
+									"x": -0.09296,
+									"y": 0.19788,
+									"z": -0.14634,
+									"scaleX": 1.7,
+									"scaleY": 1.7,
+									"scaleZ": 1.3,
+									"rotationX": 11.2,
+									"rotationY": 9.5,
+									"rotationZ": -46.5,
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMult",
+											"source": "shaders/AlphaMult.hx",
+											"props": {
+												"alpha": 0.5
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DepthBlend",
+											"source": "shaders/DepthBlend.hx",
+											"props": {
+												"REVERSE": false,
+												"range": 2,
+												"power": 2
+											}
+										}
+									]
+								},
+								{
+									"type": "reference",
+									"name": "FX_Smoke_Big_Grey_3",
+									"source": "Fx/Smoke/FX_Smoke_Soft_1.fx",
+									"x": 0.13,
+									"y": 0.11,
+									"z": -1.68,
+									"scaleX": 0.8,
+									"scaleY": 0.8,
+									"rotationX": 29.9,
+									"rotationY": 7.1,
+									"rotationZ": -150.8,
+									"visible": false
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "WindSand",
+							"x": -0.03,
+							"y": 0.045,
+							"z": 0.70633,
+							"children": [
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": -0.72429,
+									"y": 2.25377,
+									"z": -0.65126,
+									"scaleX": 0.25,
+									"scaleY": 0.12,
+									"scaleZ": 0.12,
+									"rotationZ": 24.1
+								},
+								{
+									"type": "reference",
+									"name": "FX_WindSand",
+									"source": "Fx/Smoke/FX_WindSand.fx",
+									"x": 0.67785,
+									"y": -1.16263,
+									"z": -0.53757,
+									"scaleX": 0.12,
+									"scaleY": 0.12,
+									"scaleZ": 0.12,
+									"rotationZ": 24.1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Drones",
+			"children": [
+				{
+					"type": "model",
+					"name": "BaseCarthag_RIG",
+					"source": "Structure/Base/Carthag/BaseCarthag_RIG.fbx",
+					"scaleX": 7.699999999999996,
+					"scaleY": 7.699999999999996,
+					"scaleZ": 7.7,
+					"rotationZ": 114.99999999999997,
+					"animation": "Structure/Base/Carthag/Anim_BaseCarthag.fbx"
+				}
+			]
+		}
+	]
+}
