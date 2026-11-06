@@ -1,0 +1,43 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "InvestmentOffice_Construction",
+			"source": "Structure/Buildings/InvestmentOffice/InvestmentOffice_Construction.fbx",
+			"scaleX": 1.25,
+			"scaleY": 1.25,
+			"scaleZ": 1.25,
+			"rotationZ": -180,
+			"animation": "Structure/Buildings/InvestmentOffice/InvestmentOffice_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.26,
+			"scaleY": 0.25,
+			"scaleZ": 0.25,
+			"rotationZ": 89.99999999999999
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68,
+			"rotationZ": 89.99999999999999
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.03023,
+			"scaleX": 0.49,
+			"scaleY": 1.03,
+			"scaleZ": 1.22,
+			"rotationZ": 90
+		}
+	]
+}

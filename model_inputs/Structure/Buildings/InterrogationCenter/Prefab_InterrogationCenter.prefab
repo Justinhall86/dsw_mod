@@ -1,0 +1,28 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "InterrogationCenter",
+			"source": "Structure/Buildings/InterrogationCenter/InterrogationCenter.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.04349,
+			"y": -0.00121,
+			"z": -0.04915,
+			"scaleX": 4.29,
+			"scaleY": 3.67,
+			"scaleZ": 0.31,
+			"rotationZ": -8,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_InterrogationCenter",
+			"source": "Fx/Structure/FX_InterrogationCenter.fx"
+		}
+	]
+}

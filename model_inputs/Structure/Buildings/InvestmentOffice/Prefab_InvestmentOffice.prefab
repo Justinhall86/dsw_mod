@@ -1,0 +1,26 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "InvestmentOffice",
+			"source": "Structure/Buildings/InvestmentOffice/InvestmentOffice.fbx",
+			"scaleX": 1.25,
+			"scaleY": 1.25,
+			"scaleZ": 1.25,
+			"rotationZ": -180
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.10125,
+			"y": -0.01441,
+			"scaleX": 4.6,
+			"scaleY": 4.28,
+			"scaleZ": 0.29,
+			"rotationZ": -83.4,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

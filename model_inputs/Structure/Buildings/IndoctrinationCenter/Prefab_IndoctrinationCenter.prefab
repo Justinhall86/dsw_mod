@@ -1,0 +1,31 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "IndoctrinationCenter",
+			"source": "Structure/Buildings/IndoctrinationCenter/IndoctrinationCenter.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 1.1464,
+			"y": 0.78249,
+			"z": -0.20009,
+			"scaleX": 12,
+			"scaleY": 12,
+			"scaleZ": 1.01,
+			"rotationZ": 1.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

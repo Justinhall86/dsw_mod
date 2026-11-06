@@ -1,0 +1,33 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "InterrogationCenter_Construction",
+			"source": "Structure/Buildings/InterrogationCenter/InterrogationCenter_Construction.fbx",
+			"animation": "Structure/Buildings/InterrogationCenter/InterrogationCenter_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"z": 0.54029,
+			"scaleX": 0.15,
+			"scaleY": 0.15,
+			"scaleZ": 0.15
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"scaleX": 0.49,
+			"scaleY": 0.86,
+			"scaleZ": 1.15
+		}
+	]
+}
