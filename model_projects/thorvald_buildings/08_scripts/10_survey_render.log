@@ -1,0 +1,12 @@
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\IndoctrinationCenter.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\HarvestTent.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\KulonTent.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\WaterExtractor.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\Masterpiece_(RecruitmentOffice_model).gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\SpiceCollectors_FremenProcessingPlant_(SpiceCollector_model).gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\CorrinoBasePreview.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\TrafficHub.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\ConquestOutpost.gif
+OK C:\Users\justi\Python\dsw_mod\model_projects\thorvald_buildings\08_scripts\..\02_progress_photos\01_survey\TowerConquestOutpost.gif
+FAIL Stash_Smuggler - parent 'polySurface8' in C:\Users\justi\Python\dsw_mod\model_inputs\Structure\..\..\..\..\AppData\Local\Temp\dsw_vehicle_preview\bld\stash_src\Stash_Smuggler.fbx has a translation or scale
+FAILED: ['Stash_Smuggler']
