@@ -1,0 +1,121 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"y": -0.26,
+			"children": [
+				{
+					"type": "model",
+					"name": "WaterExtractor_Construction",
+					"source": "Structure/Buildings/WaterExtractor/WaterExtractor_Construction.fbx",
+					"rotationZ": 89.99999999999999,
+					"animation": "Structure/Buildings/WaterExtractor/WaterExtractor_Construction.fbx"
+				},
+				{
+					"type": "reference",
+					"name": "FX_Construction",
+					"source": "Fx/Structure/Common/FX_Construction.fx",
+					"x": 0.48,
+					"y": 0.25,
+					"scaleX": 0.24,
+					"scaleY": 0.24,
+					"scaleZ": 0.24,
+					"rotationZ": 129.1
+				},
+				{
+					"type": "reference",
+					"name": "FX_Construction",
+					"source": "Fx/Structure/Common/FX_Construction.fx",
+					"x": -0.49,
+					"y": -0.86,
+					"z": -0.33,
+					"scaleX": 0.24,
+					"scaleY": 0.24,
+					"scaleZ": 0.23999999999999996,
+					"rotationX": -21.80000000000001,
+					"rotationY": -24.500000000000007,
+					"rotationZ": -46.10000000000001
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.69,
+			"scaleY": 0.8,
+			"scaleZ": 0.69
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"z": 0.38957,
+			"scaleX": 0.26,
+			"scaleY": 0.25,
+			"scaleZ": 0.25
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.01,
+			"y": -0.28,
+			"scaleX": 0.46,
+			"scaleY": 0.68,
+			"scaleZ": 0.98
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "group.WaterExtractor_Construction.Crane.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "group.WaterExtractor_Construction.Crane.Crane_Base1.Crane_Top1.Crane_Cube1"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "group.WaterExtractor_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "group.WaterExtractor_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "group.WaterExtractor_Construction.Crane.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "group.WaterExtractor_Construction.Crane.Crane_Base1.Crane_Top1.Crane_Cube1"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

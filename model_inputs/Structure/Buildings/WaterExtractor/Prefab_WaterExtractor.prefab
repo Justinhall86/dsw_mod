@@ -1,0 +1,123 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "WaterExtractor",
+			"children": [
+				{
+					"type": "object",
+					"name": "group",
+					"x": -0.2612060575976649,
+					"y": 5.799939586329848e-17,
+					"z": 0.7059249877913258,
+					"scaleY": 0.9999999999999999,
+					"scaleZ": 0.9999999999999999,
+					"rotationX": 90.00012361041574,
+					"rotationZ": 89.99999999999999,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Smoke_Big_2",
+							"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+							"x": 0.51,
+							"y": -1.02,
+							"z": 0.39,
+							"scaleX": 0.33,
+							"scaleY": 0.33,
+							"scaleZ": 0.33,
+							"rotationX": -62.9,
+							"rotationY": 66.1,
+							"rotationZ": -2.5
+						},
+						{
+							"type": "reference",
+							"name": "FX_Smoke_Big_2",
+							"source": "Fx/Smoke/FX_Smoke_Big_2.fx",
+							"x": 0.65,
+							"y": -0.98,
+							"z": 0.12,
+							"scaleX": 0.3,
+							"scaleY": 0.3,
+							"scaleZ": 0.3,
+							"rotationX": -61.7,
+							"rotationY": 45.7,
+							"rotationZ": -1.4
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Model_IceExtractor",
+					"source": "Structure/Buildings/WaterExtractor/Model_IceExtractor.fbx",
+					"rotationZ": 89.99999999999999,
+					"animation": "Structure/Buildings/WaterExtractor/Anim_IceExtractor_Loop.fbx"
+				},
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "group",
+					"target": "Model_IceExtractor.B_ROOT.B_Base"
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.69,
+			"scaleY": 0.8,
+			"scaleZ": 0.69
+		},
+		{
+			"type": "model",
+			"name": "WaterExtractor_Addon",
+			"source": "Structure/Buildings/WaterExtractor/WaterExtractor_Addon.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue02_Flat",
+			"source": "Fx/Structure/Lights/LightBlue02_Flat.fx",
+			"x": 0.52474,
+			"y": 0.83692,
+			"z": 0.53497
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"y": 0.48648,
+			"scaleX": 2.01,
+			"scaleY": 1.15,
+			"scaleZ": 0.36,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": -0.2107,
+			"y": -0.49861,
+			"scaleX": 1.57,
+			"scaleY": 1.21,
+			"scaleZ": 0.36,
+			"rotationZ": -180,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3,
+			"scaleY": 3,
+			"scaleZ": 0.25,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 0.56
+		}
+	]
+}
