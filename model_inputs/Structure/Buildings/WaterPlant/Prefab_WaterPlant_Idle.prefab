@@ -1,0 +1,80 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "WaterPlant",
+			"source": "Structure/Buildings/WaterPlant/WaterPlant.fbx",
+			"animation": "Structure/Buildings/WaterPlant/Anim_WaterPlant_Idle.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_Grey_1",
+			"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+			"x": -0.99719,
+			"y": 0.23884,
+			"z": 1.33583,
+			"scaleX": 0.56,
+			"scaleY": 0.56,
+			"scaleZ": 0.56,
+			"rotationZ": 179.4
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_Grey_1",
+			"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+			"x": -1.002,
+			"y": -0.22082,
+			"z": 1.33583,
+			"scaleX": 0.56,
+			"scaleY": 0.56,
+			"scaleZ": 0.56,
+			"rotationZ": 179.4
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_Grey_1",
+			"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+			"x": -0.99258,
+			"y": 0.67957,
+			"z": 0.9483,
+			"scaleX": 0.56,
+			"scaleY": 0.56,
+			"scaleZ": 0.56,
+			"rotationZ": 179.4
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_Grey_1",
+			"source": "Fx/Smoke/FX_Smoke_Big_Grey_1.fx",
+			"x": -1.00627,
+			"y": -0.62811,
+			"z": 0.9483,
+			"scaleX": 0.56,
+			"scaleY": 0.56,
+			"scaleZ": 0.56,
+			"rotationZ": 179.4
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.34302,
+			"y": 0.78249,
+			"z": -0.21002,
+			"scaleX": 12,
+			"scaleY": 12,
+			"scaleZ": 1.01,
+			"rotationZ": -8,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7
+		}
+	]
+}

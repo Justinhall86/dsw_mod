@@ -1,0 +1,86 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "WindTrap_Construction",
+			"source": "Structure/Buildings/WindTrap/WindTrap_Construction.fbx",
+			"x": 0.049999999999999996,
+			"animation": "Structure/Buildings/WindTrap/WindTrap_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": -0.05,
+			"y": -0.07,
+			"scaleX": 0.56,
+			"scaleY": 0.97,
+			"scaleZ": 1.03
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"z": 0.25,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "WindTrap_Construction.Crane_Base1.Crane_Top_02.Crane_Cube_02"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "WindTrap_Construction.Crane_Base.Crane_Top_01.Crane_Cube_01"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "WindTrap_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "WindTrap_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "WindTrap_Construction.Crane_Base1.Crane_Top_02.Crane_Cube_02"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "WindTrap_Construction.Crane_Base.Crane_Top_01.Crane_Cube_01"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

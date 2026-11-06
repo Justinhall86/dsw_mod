@@ -1,0 +1,61 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_Windtrap_Wind",
+			"source": "Fx/Structure/WindTrap/FX_Windtrap_Wind.fx",
+			"scaleX": 1.02,
+			"scaleY": 1.02,
+			"scaleZ": 1.02
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.0553,
+			"scaleX": 3.61,
+			"scaleY": 1.84,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "model",
+			"name": "WindTrap_Addon",
+			"source": "Structure/Buildings/WindTrap/WindTrap_Addon.fbx"
+		},
+		{
+			"type": "model",
+			"name": "WindTrap",
+			"source": "Structure/Buildings/WindTrap/WindTrap.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "LightWhite01",
+			"source": "Fx/Structure/Lights/LightWhite01.fx",
+			"x": 0.14717,
+			"y": 0.00141,
+			"z": 0.65043
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"y": 0.00019,
+			"scaleX": 2.16,
+			"scaleY": 1.88,
+			"scaleZ": 2.33,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.8,
+			"scaleY": 0.8,
+			"scaleZ": 0.8
+		}
+	]
+}
