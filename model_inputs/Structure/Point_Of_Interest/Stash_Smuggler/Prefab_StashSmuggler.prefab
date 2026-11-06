@@ -1,0 +1,24 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Stash_Smuggler",
+			"source": "Structure/Point_Of_Interest/Stash_Smuggler/Stash_Smuggler.fbx",
+			"rotationZ": -140.2
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.03325,
+			"y": 0.06162,
+			"z": -0.08326,
+			"scaleX": 1.93,
+			"scaleY": 2.22,
+			"scaleZ": 0.5,
+			"rotationZ": -31.4,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

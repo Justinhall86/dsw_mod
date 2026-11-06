@@ -1,0 +1,101 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": 0.32,
+			"y": 0.08,
+			"z": 0.54,
+			"rotationZ": -7.9,
+			"children": [
+				{
+					"type": "reference",
+					"name": "LightRed03_Sphere",
+					"source": "Fx/Structure/Lights/LightRed03_Sphere.fx",
+					"x": 0.15875,
+					"y": 0.095,
+					"z": 1.19,
+					"scaleX": 0.24,
+					"scaleY": 0.24,
+					"scaleZ": 0.24,
+					"rotationZ": -44.8
+				},
+				{
+					"type": "reference",
+					"name": "LightRed03_Sphere",
+					"source": "Fx/Structure/Lights/LightRed03_Sphere.fx",
+					"x": -0.16124999999999998,
+					"y": 0.40499999999999997,
+					"z": 1.19,
+					"scaleX": 0.24,
+					"scaleY": 0.24,
+					"scaleZ": 0.24,
+					"rotationZ": -44.8
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_5",
+					"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+					"x": 0.24874999999999997,
+					"y": -0.34500000000000003,
+					"z": -0.10000000000000003,
+					"scaleX": 0.4,
+					"scaleY": 0.4,
+					"scaleZ": 0.4,
+					"rotationZ": -41.50000000000001
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_Antena_01",
+					"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+					"x": 0.15875,
+					"y": -0.9850000000000001,
+					"z": -0.54
+				},
+				{
+					"type": "reference",
+					"name": "Prefab_Antena_03",
+					"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+					"x": 0.5887500000000001,
+					"y": 0.9850000000000001,
+					"z": -0.010000000000000009
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -0.34,
+					"y": -0.02,
+					"z": -0.54,
+					"scaleX": 6.139999999999999,
+					"scaleY": 4.3,
+					"scaleZ": 0.25,
+					"rotationZ": 76.7,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				},
+				{
+					"type": "model",
+					"name": "MarauderCamp",
+					"source": "Structure/Point_Of_Interest/MarauderCamp/MarauderCamp.fbx",
+					"x": -0.32125,
+					"y": -0.07500000000000001,
+					"z": -0.54,
+					"rotationZ": -134.10000000000002
+				},
+				{
+					"type": "reference",
+					"name": "FX_WindSand",
+					"source": "Fx/Smoke/FX_WindSand.fx",
+					"x": -0.29125,
+					"y": -0.05500000000000001,
+					"z": -0.65,
+					"scaleX": 0.21,
+					"scaleY": 0.24,
+					"scaleZ": 0.37,
+					"rotationZ": -44.5
+				}
+			]
+		}
+	]
+}

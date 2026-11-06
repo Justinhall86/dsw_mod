@@ -1,0 +1,15 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_SmugglingCenter": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "None",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}

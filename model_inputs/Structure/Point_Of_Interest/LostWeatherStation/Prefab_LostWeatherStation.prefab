@@ -1,0 +1,55 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "LostWeatherstation",
+			"source": "Structure/Point_Of_Interest/LostWeatherStation/LostWeatherstation.fbx",
+			"x": -1.888,
+			"y": 1.6026,
+			"z": 0.3285,
+			"scaleX": 4,
+			"scaleY": 4,
+			"scaleZ": 4
+		},
+		{
+			"type": "object",
+			"name": "object",
+			"x": -0.10668333333333332,
+			"y": -0.3184666666666667,
+			"z": -0.08596666666666666,
+			"scaleX": 6,
+			"scaleY": 6,
+			"scaleZ": 6,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_WindSand",
+					"source": "Fx/Smoke/FX_WindSand.fx",
+					"x": -0.1846,
+					"y": 0.2635,
+					"z": -0.0404,
+					"scaleX": 0.21,
+					"scaleY": 0.24,
+					"scaleZ": 0.37,
+					"rotationZ": -44.5,
+					"children": [
+						{
+							"type": "tdecal",
+							"name": "tdecal",
+							"x": 0.27,
+							"y": -0.52,
+							"z": -0.2997,
+							"scaleX": 25.22,
+							"scaleY": 11.16,
+							"scaleZ": 3.13,
+							"rotationZ": 129.1,
+							"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+							"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+						}
+					]
+				}
+			]
+		}
+	]
+}

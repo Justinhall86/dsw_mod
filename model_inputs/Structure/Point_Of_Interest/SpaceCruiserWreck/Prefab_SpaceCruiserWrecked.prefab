@@ -1,0 +1,180 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SpaceCruiserWreck",
+			"source": "Structure/Point_Of_Interest/SpaceCruiserWreck/SpaceCruiserWreck.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -30.41258,
+			"y": -24.65326,
+			"z": 2.91671,
+			"scaleX": 5,
+			"scaleY": 5,
+			"scaleZ": 0.58,
+			"rotationX": 9.9,
+			"rotationY": -33.2,
+			"rotationZ": -14.4
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -19.88081,
+			"y": 49.21997,
+			"z": 13.90421,
+			"scaleX": 5,
+			"scaleY": 5,
+			"scaleZ": 0.58,
+			"rotationX": 8.8,
+			"rotationY": -20.3,
+			"rotationZ": -12
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"enabled": false,
+			"x": -15.68451,
+			"y": -46.00089,
+			"z": 9.92549,
+			"scaleX": 6.97,
+			"scaleY": 6,
+			"scaleZ": 0.58,
+			"rotationY": -14.4,
+			"rotationZ": -12.6
+		},
+		{
+			"type": "object",
+			"name": "GroundDecals",
+			"rotationZ": -36,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -2.54002,
+					"y": -17.70028,
+					"z": 0.05722,
+					"scaleX": 193.87,
+					"scaleY": 370.2,
+					"scaleZ": 70,
+					"rotationZ": -140.2,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"normalStrength": 0.25,
+					"pbrStrength": 0
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -19.32489,
+					"y": -110.80151,
+					"z": 0.94146,
+					"scaleX": 97.58,
+					"scaleY": 100.37,
+					"scaleZ": 6.8,
+					"rotationZ": -140.2,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"normalStrength": 0.5,
+					"pbrStrength": 0
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "CollisionSpheres",
+			"x": -0.19139,
+			"y": 2.68323,
+			"scaleX": 1.1,
+			"scaleY": 1.1,
+			"scaleZ": 1.1,
+			"visible": false,
+			"children": [
+				{
+					"type": "polygon",
+					"name": "FrontCollision",
+					"x": -0.019260000000000027,
+					"y": -67.11819,
+					"scaleX": 28,
+					"scaleY": 28,
+					"scaleZ": 0.05999999999999999,
+					"color": 855638015,
+					"kind": 3,
+					"args": [
+						24,
+						24
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "FrontMiddleCollision",
+					"x": -2.28156,
+					"y": -37.06568,
+					"scaleX": 34.99999999999999,
+					"scaleY": 34.99999999999999,
+					"scaleZ": 0.09,
+					"color": 855638015,
+					"kind": 3,
+					"args": [
+						24,
+						24
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "MiddleCollision",
+					"x": -1.1088599999999997,
+					"y": 0.2429800000000002,
+					"scaleX": 39.99999999999999,
+					"scaleY": 39.99999999999999,
+					"scaleZ": 0.09999999999999999,
+					"color": 855638015,
+					"kind": 3,
+					"args": [
+						24,
+						24
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "BackCollision",
+					"x": 1.63545,
+					"y": 32.19773,
+					"scaleX": 42,
+					"scaleY": 42,
+					"scaleZ": 0.11,
+					"color": 855638015,
+					"kind": 3,
+					"args": [
+						24,
+						24
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Ground",
+			"editorOnly": true,
+			"children": [
+				{
+					"type": "polygon",
+					"name": "polygon",
+					"scaleX": 300,
+					"scaleY": 300,
+					"scaleZ": 300,
+					"color": -7510478,
+					"kind": 0,
+					"args": [
+						0
+					]
+				}
+			]
+		}
+	]
+}

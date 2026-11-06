@@ -1,0 +1,43 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Thumper",
+			"source": "Structure/Point_Of_Interest/Thumper/Thumper.fbx",
+			"animation": "Structure/Point_Of_Interest/Thumper/Anim_Thumper.fbx",
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "Alpha",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false,
+							"depthWrite": "On"
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.15983,
+			"y": -0.03235,
+			"z": -0.08448,
+			"scaleX": 3.12,
+			"scaleY": 3.57,
+			"scaleZ": 0.43,
+			"rotationZ": -108.2,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		}
+	]
+}

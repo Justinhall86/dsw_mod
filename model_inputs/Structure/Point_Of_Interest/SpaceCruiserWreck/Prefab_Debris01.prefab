@@ -1,0 +1,35 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Debris_01",
+			"source": "Structure/Point_Of_Interest/SpaceCruiserWreck/Debris_01.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.54149,
+			"y": 7.13553,
+			"z": -1.76482,
+			"scaleX": 82.77,
+			"scaleY": 82.77,
+			"scaleZ": 12.42,
+			"rotationZ": 21.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": 0.33034,
+			"y": 2.2982,
+			"z": 1.27,
+			"scaleX": 2.08,
+			"scaleY": 2.08,
+			"scaleZ": 0.2,
+			"rotationZ": 41.3
+		}
+	]
+}
