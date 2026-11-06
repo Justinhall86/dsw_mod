@@ -1,0 +1,95 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"locked": true,
+			"x": -0.03284,
+			"y": 0.28428,
+			"z": -0.00201,
+			"scaleX": 4.1,
+			"scaleY": 4.1,
+			"scaleZ": 0.08,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"locked": true,
+			"x": 0.08389,
+			"y": 0.14658,
+			"z": -0.04377,
+			"scaleX": 3.39,
+			"scaleY": 3.89,
+			"scaleZ": 0.34,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		},
+		{
+			"type": "model",
+			"name": "Antena_02",
+			"source": "Structure/Village/Tiles/Model/Props/Antena_02.fbx",
+			"x": -0.75606,
+			"y": -0.33606,
+			"z": 0.31878,
+			"animation": "Structure/Village/Tiles/Model/Props/Anim_Antena_02.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": -0.5544,
+			"y": -0.73733,
+			"z": 1.34458,
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7,
+			"rotationZ": -0.6
+		},
+		{
+			"type": "model",
+			"name": "Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Antena_01.fbx",
+			"x": 0.55465,
+			"y": 0.35393,
+			"z": 0.41287,
+			"scaleX": 0.6,
+			"scaleY": 0.6,
+			"scaleZ": 0.6,
+			"animation": "Structure/Village/Tiles/Model/Props/Anim_Antena_01.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "LightGreenBlink02_Flat",
+			"source": "Fx/Structure/Lights/LightGreenBlink02_Flat.fx",
+			"x": 0.84536,
+			"y": -0.78852,
+			"z": 0.28248,
+			"scaleX": 0.3,
+			"scaleY": 0.3,
+			"scaleZ": 0.3,
+			"rotationY": 26.5
+		},
+		{
+			"type": "reference",
+			"name": "LightGreenBlink02_Flat",
+			"source": "Fx/Structure/Lights/LightGreenBlink02_Flat.fx",
+			"x": -0.35492,
+			"y": 0.35826,
+			"z": 2.34915,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5
+		},
+		{
+			"type": "model",
+			"name": "DataCenter_Animation",
+			"source": "Structure/Buildings/DataCenter/DataCenter_Animation.fbx",
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/DataCenter/DataCenter_Animation.fbx"
+		}
+	]
+}

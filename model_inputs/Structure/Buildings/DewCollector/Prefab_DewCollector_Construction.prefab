@@ -1,0 +1,40 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "DewCollector_Construction",
+			"source": "Structure/Buildings/DewCollector/DewCollector_Construction.fbx",
+			"animation": "Structure/Buildings/DewCollector/DewCollector_Construction.fbx",
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_ConstructionStart",
+					"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+					"scaleX": 0.68,
+					"scaleY": 0.68,
+					"scaleZ": 0.68
+				},
+				{
+					"type": "reference",
+					"name": "FX_Construction",
+					"source": "Fx/Structure/Common/FX_Construction.fx",
+					"scaleX": 0.54,
+					"scaleY": 0.52,
+					"scaleZ": 0.52
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.11903,
+			"y": -0.02125,
+			"z": -0.15425,
+			"scaleX": 0.5,
+			"scaleY": 0.89,
+			"scaleZ": 1.06
+		}
+	]
+}
