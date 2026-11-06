@@ -246,7 +246,11 @@ def convert(hmd_path: str, fbx_path: str, verbose: bool = True,
     poly_order = []  # flat polygon-vertex order for per-polyvertex layers
     tri_materials = []
     for gi, idxs in enumerate(index_groups):
-        mat_idx = gi  # local material slot (connection order defines mapping)
+        # 2026-11-03: a skinned model's index groups are its skin SPLITS, and split.materialIndex (not the group
+        # number) picks the material - groups are not in material order (Karlin, Ginaz Captain: textures came
+        # out shuffled in round trips although the game renders them right)
+        splits = model.skin.split if (model.skin is not None and model.skin.split) else None
+        mat_idx = splits[gi].materialIndex if splits and gi < len(splits) else gi
         for t in range(0, len(idxs), 3):
             a, b, c = idxs[t], idxs[t + 1], idxs[t + 2]
             pvi.extend((a, c, ~b))
