@@ -1,0 +1,25 @@
+{
+	"materials": {
+		"PBR": {
+			"CarthagGround_MAT": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"CarthagDistrict_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 2.27
+			}
+		}
+	}
+}
