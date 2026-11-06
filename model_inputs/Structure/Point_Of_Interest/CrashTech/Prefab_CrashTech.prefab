@@ -1,0 +1,53 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "CrashTech",
+			"source": "Structure/Point_Of_Interest/CrashTech/CrashTech.fbx",
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"scaleZ": 1.5,
+			"rotationZ": -124.9
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"y": -0.35,
+			"z": -0.01,
+			"scaleX": 9.36,
+			"scaleY": 9.36,
+			"scaleZ": 1.02,
+			"rotationZ": 151.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.04,
+			"y": -0.35,
+			"z": -0.08448,
+			"scaleX": 8.13,
+			"scaleY": 9.32,
+			"scaleZ": 0.82,
+			"rotationZ": -31.4,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -0.15,
+			"y": 0.01,
+			"z": -0.28048,
+			"scaleX": 0.39,
+			"scaleY": 0.48,
+			"scaleZ": 0.99,
+			"rotationZ": 6
+		}
+	]
+}

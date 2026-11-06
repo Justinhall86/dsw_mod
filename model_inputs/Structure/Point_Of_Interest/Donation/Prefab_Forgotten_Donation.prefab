@@ -1,0 +1,34 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Forgotten_Donation",
+			"source": "Structure/Point_Of_Interest/Donation/Forgotten_Donation.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.27,
+			"y": -0.52,
+			"scaleX": 6.6,
+			"scaleY": 2.92,
+			"scaleZ": 0.82,
+			"rotationZ": 129.1,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_WindSand",
+			"source": "Fx/Smoke/FX_WindSand.fx",
+			"x": -0.15,
+			"y": 0.01,
+			"z": 0.12317,
+			"scaleX": 0.17,
+			"scaleY": 0.21,
+			"scaleZ": 0.43,
+			"rotationZ": 41.3
+		}
+	]
+}

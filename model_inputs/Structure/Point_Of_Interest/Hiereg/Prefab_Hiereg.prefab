@@ -1,0 +1,28 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Hiereg",
+			"source": "Structure/Point_Of_Interest/Hiereg/Hiereg.fbx",
+			"x": 0.02,
+			"y": -0.18,
+			"scaleX": 1.25,
+			"scaleY": 1.25,
+			"scaleZ": 1.25,
+			"rotationZ": 34
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.21,
+			"y": -0.02,
+			"scaleX": 6.61,
+			"scaleY": 6.61,
+			"scaleZ": 0.27,
+			"rotationZ": -5.7,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

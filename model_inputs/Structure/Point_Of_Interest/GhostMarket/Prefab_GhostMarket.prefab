@@ -1,0 +1,34 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "GhostMarket",
+			"source": "Structure/Point_Of_Interest/GhostMarket/GhostMarket.fbx"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.15983,
+			"y": -0.03235,
+			"z": -0.09642,
+			"scaleX": 5,
+			"scaleY": 5,
+			"scaleZ": 0.64,
+			"rotationZ": -108.2,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.76178,
+			"y": 3.03055,
+			"scaleX": 3,
+			"scaleY": 3,
+			"scaleZ": 3
+		}
+	]
+}
