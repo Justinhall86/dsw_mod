@@ -1,0 +1,1403 @@
+{
+	"params": {
+		"spiceSteepLow": 0.25,
+		"rmStructInnerBlur": 2,
+		"rmInnerShrinkHigh": 1,
+		"pathMapThresh2": 0.2,
+		"structCavityCurve": 1.5,
+		"structMinRock": 0.1,
+		"rmInnerShrinkSpan": 5,
+		"structCheckRad": 0.01,
+		"minEdgeSize": 0.03,
+		"poleStampsMaxDist": 0.11,
+		"structSteepBlur": 0,
+		"shieldWallOffset": 3,
+		"poleSize": 0.06,
+		"rmStructInnerThresh": 0.85,
+		"structCavitySlope": 0.6,
+		"structSteepHigh": 0.15,
+		"scaleWarpOffset": 2,
+		"rmVariationAmountInner": 0.4,
+		"rmStructInnerBlend": 0.4,
+		"zoneMinDist": 0.09,
+		"scaleWarpFactor": 0,
+		"pathMapBlur": 5,
+		"pathMapThresh": 0.2,
+		"structCavityPower": 4.5,
+		"structSteepLow": 0,
+		"pathMapResolution": 700,
+		"rmOuterPower": 0.5,
+		"spiceSteepHigh": 0.3,
+		"poleStampsMinDist": 0.09,
+		"rmVariationScale": 16,
+		"rmInnerShrinkLow": 0.4,
+		"structMaxSteep": 12,
+		"rmStructInnerShrink": 4,
+		"rmVariationAmountOuter": 0,
+		"structAvoidSlopes": 0.5,
+		"worldSize": 60,
+		"structCavityRad": 4,
+		"zoneInnerMargin": 30,
+		"structPrecision": 300,
+		"poleStamps": 5,
+		"poleStampsZRand": 0.1
+	},
+	"seed": 13026661,
+	"size": 2000,
+	"regions": {
+		"zones": [
+			{
+				"id": 1,
+				"region": "DeepDesert"
+			},
+			{
+				"id": 2,
+				"region": "DeepDesert"
+			},
+			{
+				"id": 3,
+				"region": "DeepDesert"
+			},
+			{
+				"id": 4,
+				"region": "DeepDesert"
+			},
+			{
+				"id": 5,
+				"region": null
+			},
+			{
+				"id": 6,
+				"region": "DeepDesert"
+			},
+			{
+				"id": 7,
+				"region": "ObservatoryM"
+			},
+			{
+				"id": 8,
+				"region": null
+			},
+			{
+				"id": 9,
+				"region": null
+			},
+			{
+				"id": 10,
+				"region": null
+			},
+			{
+				"id": 11,
+				"region": "Plain"
+			},
+			{
+				"id": 12,
+				"region": "Plain"
+			},
+			{
+				"id": 13,
+				"region": "Plain"
+			},
+			{
+				"id": 14,
+				"region": "Plain"
+			},
+			{
+				"id": 15,
+				"region": "Plain"
+			},
+			{
+				"id": 16,
+				"region": "Crater"
+			},
+			{
+				"id": 17,
+				"region": "ImperialBasin"
+			},
+			{
+				"id": 18,
+				"region": "Plain"
+			},
+			{
+				"id": 19,
+				"region": null
+			},
+			{
+				"id": 20,
+				"region": "Plain"
+			},
+			{
+				"id": 21,
+				"region": "AcidLake"
+			},
+			{
+				"id": 22,
+				"region": "Plain"
+			},
+			{
+				"id": 23,
+				"region": "ShieldWall"
+			},
+			{
+				"id": 24,
+				"region": "Plain"
+			},
+			{
+				"id": 25,
+				"region": "Plain"
+			},
+			{
+				"id": 26,
+				"region": "Plain"
+			},
+			{
+				"id": 27,
+				"region": null
+			},
+			{
+				"id": 28,
+				"region": "Plain"
+			},
+			{
+				"id": 29,
+				"region": "Arrakeen"
+			},
+			{
+				"id": 30,
+				"region": "Plain"
+			},
+			{
+				"id": 31,
+				"region": null
+			},
+			{
+				"id": 32,
+				"region": null
+			},
+			{
+				"id": 33,
+				"region": "Plain"
+			},
+			{
+				"id": 34,
+				"region": "Plain"
+			},
+			{
+				"id": 35,
+				"region": "Plain"
+			},
+			{
+				"id": 36,
+				"region": "STabr"
+			},
+			{
+				"id": 37,
+				"region": "ObservatoryM"
+			},
+			{
+				"id": 38,
+				"region": "WhitePlains"
+			},
+			{
+				"id": 39,
+				"region": "Plain"
+			},
+			{
+				"id": 40,
+				"region": "Plain"
+			},
+			{
+				"id": 41,
+				"region": "Plain"
+			},
+			{
+				"id": 42,
+				"region": "Plain"
+			},
+			{
+				"id": 43,
+				"region": "Plain"
+			},
+			{
+				"id": 44,
+				"region": null
+			},
+			{
+				"id": 45,
+				"region": "RichMountain"
+			},
+			{
+				"id": 46,
+				"region": "TheDesolation"
+			},
+			{
+				"id": 47,
+				"region": "Plain"
+			},
+			{
+				"id": 48,
+				"region": "Plain"
+			},
+			{
+				"id": 49,
+				"region": null
+			},
+			{
+				"id": 50,
+				"region": "TheDesolation"
+			},
+			{
+				"id": 51,
+				"region": "Plain"
+			},
+			{
+				"id": 52,
+				"region": "Plain"
+			},
+			{
+				"id": 53,
+				"region": "RedChasm"
+			},
+			{
+				"id": 54,
+				"region": "Volcano"
+			},
+			{
+				"id": 55,
+				"region": "Plain"
+			},
+			{
+				"id": 56,
+				"region": "MountIdaho"
+			},
+			{
+				"id": 57,
+				"region": "Plain"
+			},
+			{
+				"id": 58,
+				"region": "Plain"
+			},
+			{
+				"id": 59,
+				"region": "Plain"
+			},
+			{
+				"id": 60,
+				"region": "Plain"
+			},
+			{
+				"id": 61,
+				"region": null
+			},
+			{
+				"id": 62,
+				"region": "Plain"
+			},
+			{
+				"id": 63,
+				"region": "Plain"
+			},
+			{
+				"id": 64,
+				"region": "MoonDewVale"
+			},
+			{
+				"id": 65,
+				"region": null
+			},
+			{
+				"id": 66,
+				"region": "Plain"
+			},
+			{
+				"id": 67,
+				"region": "Plain"
+			},
+			{
+				"id": 68,
+				"region": "Plain"
+			},
+			{
+				"id": 69,
+				"region": null
+			},
+			{
+				"id": 70,
+				"region": "Plain"
+			},
+			{
+				"id": 71,
+				"region": "Plain"
+			},
+			{
+				"id": 72,
+				"region": null
+			},
+			{
+				"id": 73,
+				"region": "Carthag"
+			},
+			{
+				"id": 74,
+				"region": null
+			},
+			{
+				"id": 75,
+				"region": "Plain"
+			},
+			{
+				"id": 76,
+				"region": null
+			},
+			{
+				"id": 77,
+				"region": "Plain"
+			},
+			{
+				"id": 78,
+				"region": "STuek"
+			},
+			{
+				"id": 79,
+				"region": null
+			},
+			{
+				"id": 85,
+				"region": "Plain"
+			}
+		],
+		"cells": [
+			{
+				"groupId": 1,
+				"biome": "DeepDesert",
+				"id": 149,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 61,
+				"biome": "Default",
+				"id": 148,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 62,
+				"biome": "Default",
+				"id": 56,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 225,
+				"height": 2,
+				"type": 2
+			},
+			{
+				"groupId": 63,
+				"biome": "Mesa",
+				"id": 237,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 20,
+				"height": 2,
+				"type": 2
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 30,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 4,
+				"biome": "DeepDesert",
+				"id": 73,
+				"height": 2,
+				"type": 2
+			},
+			{
+				"groupId": 77,
+				"biome": "Salar",
+				"id": 36,
+				"height": 2,
+				"type": 2
+			},
+			{
+				"groupId": 80,
+				"biome": "Default",
+				"id": 92,
+				"height": 4,
+				"type": 2
+			},
+			{
+				"groupId": 64,
+				"biome": "MoonDewVale",
+				"id": 98,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 8,
+				"biome": "Default",
+				"id": 176,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 60,
+				"biome": "Default",
+				"id": 145,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 30,
+				"biome": "Mesa",
+				"id": 53,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 43,
+				"biome": "Red",
+				"id": 105,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 18,
+				"biome": "Default",
+				"id": 118,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 52,
+				"biome": "Red",
+				"id": 104,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 1,
+				"biome": "DeepDesert",
+				"id": 178,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 1,
+				"biome": "DeepDesert",
+				"id": 129,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 66,
+				"biome": "Default",
+				"id": 18,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 69,
+				"biome": "Default",
+				"id": 24,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 86,
+				"biome": "Default",
+				"id": 156,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 23,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 210,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 7,
+				"biome": "Mountain",
+				"id": 142,
+				"height": 6,
+				"type": 1
+			},
+			{
+				"groupId": 14,
+				"biome": "Mesa",
+				"id": 172,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 67,
+				"biome": "Mesa",
+				"id": 190,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 48,
+				"biome": "Mesa",
+				"id": 230,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 72,
+				"biome": "Default",
+				"id": 202,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 15,
+				"biome": null,
+				"id": 193,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 30,
+				"biome": "Red",
+				"id": 45,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 53,
+				"biome": "Default",
+				"id": 29,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 14,
+				"biome": "Mesa",
+				"id": 160,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 12,
+				"biome": "Red",
+				"id": 68,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 38,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 9,
+				"biome": "Volcanic",
+				"id": 91,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 51,
+				"biome": "Default",
+				"id": 99,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 13,
+				"biome": "Default",
+				"id": 111,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 65,
+				"biome": "Default",
+				"id": 122,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 18,
+				"biome": "Default",
+				"id": 107,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 23,
+				"biome": "Default",
+				"id": 185,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 19,
+				"height": 2,
+				"type": 2
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 216,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 56,
+				"biome": "Default",
+				"id": 182,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 69,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 50,
+				"biome": "Default",
+				"id": 213,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 1,
+				"biome": "DeepDesert",
+				"id": 152,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 82,
+				"biome": null,
+				"id": 194,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 44,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 81,
+				"biome": "Default",
+				"id": 101,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 227,
+				"height": 4,
+				"type": 2
+			},
+			{
+				"groupId": 58,
+				"biome": "Default",
+				"id": 219,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 23,
+				"biome": "Default",
+				"id": 171,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 29,
+				"biome": "Default",
+				"id": 183,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 19,
+				"biome": "Salar",
+				"id": 43,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 78,
+				"biome": null,
+				"id": 207,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 4,
+				"biome": "DeepDesert",
+				"id": 93,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 83,
+				"biome": "Default",
+				"id": 86,
+				"height": 4,
+				"type": 2
+			},
+			{
+				"groupId": 4,
+				"biome": "DeepDesert",
+				"id": 89,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 68,
+				"biome": "Default",
+				"id": 234,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 48,
+				"biome": "Mesa",
+				"id": 236,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 5,
+				"biome": "Default",
+				"id": 37,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 87,
+				"biome": "Default",
+				"id": 108,
+				"height": 4,
+				"type": 2
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 218,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 201,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 19,
+				"biome": null,
+				"id": 55,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 4,
+				"biome": "Volcanic",
+				"id": 77,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 6,
+				"biome": "DeepDesert",
+				"id": 71,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 41,
+				"biome": "Mountain",
+				"id": 170,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 80,
+				"biome": "Default",
+				"id": 80,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 8,
+				"biome": "Default",
+				"id": 188,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 43,
+				"biome": "Default",
+				"id": 110,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 12,
+				"biome": "Red",
+				"id": 72,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 83,
+				"biome": "Default",
+				"id": 95,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 73,
+				"biome": null,
+				"id": 100,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 57,
+				"biome": "Mountain",
+				"id": 191,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 85,
+				"biome": null,
+				"id": 154,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 41,
+				"biome": "Mountain",
+				"id": 184,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 88,
+				"biome": "Default",
+				"id": 157,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 21,
+				"biome": "Default",
+				"id": 31,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 26,
+				"biome": "Default",
+				"id": 48,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 38,
+				"biome": "Salar",
+				"id": 35,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 54,
+				"biome": "Volcanic",
+				"id": 81,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 70,
+				"biome": "Default",
+				"id": 134,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 1,
+				"biome": "DeepDesert",
+				"id": 167,
+				"height": 4,
+				"type": 2
+			},
+			{
+				"groupId": 55,
+				"biome": "Mesa",
+				"id": 153,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 45,
+				"biome": "Mesa",
+				"id": 209,
+				"height": 6,
+				"type": 1
+			},
+			{
+				"groupId": 24,
+				"biome": "Volcanic",
+				"id": 63,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 71,
+				"biome": "Default",
+				"id": 115,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 53,
+				"biome": "Mesa",
+				"id": 41,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 84,
+				"biome": null,
+				"id": 39,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 3,
+				"biome": "DeepDesert",
+				"id": 54,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 11,
+				"biome": "Mesa",
+				"id": 222,
+				"height": 6,
+				"type": 1
+			},
+			{
+				"groupId": 24,
+				"biome": "Volcanic",
+				"id": 52,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 9,
+				"biome": "Volcanic",
+				"id": 102,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 25,
+				"biome": "Default",
+				"id": 200,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 33,
+				"biome": "Default",
+				"id": 166,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 226,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 5,
+				"biome": "Default",
+				"id": 51,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 45,
+				"biome": "Mesa",
+				"id": 204,
+				"height": 6,
+				"type": 1
+			},
+			{
+				"groupId": 2,
+				"biome": "DeepDesert",
+				"id": 206,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 11,
+				"biome": "Mesa",
+				"id": 231,
+				"height": 6,
+				"type": 1
+			},
+			{
+				"groupId": 39,
+				"biome": "Mountain",
+				"id": 139,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 40,
+				"biome": "Default",
+				"id": 147,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 31,
+				"biome": "Default",
+				"id": 112,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 58,
+				"biome": "Default",
+				"id": 221,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 42,
+				"biome": "Default",
+				"id": 214,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 56,
+				"biome": "Default",
+				"id": 181,
+				"height": 6,
+				"type": 1
+			},
+			{
+				"groupId": 6,
+				"biome": "DeepDesert",
+				"id": 59,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 39,
+				"biome": "Mountain",
+				"id": 146,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 57,
+				"biome": "Mountain",
+				"id": 203,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 20,
+				"biome": "Red",
+				"id": 87,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 20,
+				"biome": "Red",
+				"id": 85,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 52,
+				"biome": "Red",
+				"id": 119,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 6,
+				"biome": "DeepDesert",
+				"id": 76,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 36,
+				"biome": null,
+				"id": 65,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 64,
+				"biome": "MoonDewVale",
+				"id": 109,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 35,
+				"biome": "Mesa",
+				"id": 177,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 72,
+				"biome": "Default",
+				"id": 192,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 37,
+				"biome": "Mountain",
+				"id": 168,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 47,
+				"biome": "Salar",
+				"id": 50,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 49,
+				"biome": "Red",
+				"id": 70,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 17,
+				"biome": "Default",
+				"id": 163,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 22,
+				"biome": "Default",
+				"id": 94,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 35,
+				"biome": "Mesa",
+				"id": 186,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 79,
+				"biome": null,
+				"id": 116,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 4,
+				"biome": "DeepDesert",
+				"id": 75,
+				"height": 3,
+				"type": 2
+			},
+			{
+				"groupId": 17,
+				"biome": "Default",
+				"id": 159,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 26,
+				"biome": "Default",
+				"id": 64,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 16,
+				"biome": "Default",
+				"id": 84,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 27,
+				"biome": "Mountain",
+				"id": 151,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 49,
+				"biome": "Red",
+				"id": 90,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 74,
+				"biome": "Default",
+				"id": 175,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 10,
+				"biome": "Mountain",
+				"id": 189,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 40,
+				"biome": "Default",
+				"id": 155,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 59,
+				"biome": null,
+				"id": 74,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 6,
+				"biome": "DeepDesert",
+				"id": 62,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 42,
+				"biome": "Default",
+				"id": 208,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 34,
+				"biome": "Mesa",
+				"id": 199,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 37,
+				"biome": "Default",
+				"id": 164,
+				"height": 3,
+				"type": 1
+			},
+			{
+				"groupId": 27,
+				"biome": "Default",
+				"id": 165,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 75,
+				"biome": "Volcanic",
+				"id": 83,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 28,
+				"biome": "Volcanic",
+				"id": 60,
+				"height": 4,
+				"type": 1
+			},
+			{
+				"groupId": 46,
+				"biome": "Mountain",
+				"id": 195,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 55,
+				"biome": "Mesa",
+				"id": 141,
+				"height": 5,
+				"type": 1
+			},
+			{
+				"groupId": 46,
+				"biome": "Mountain",
+				"id": 174,
+				"height": 2,
+				"type": 1
+			},
+			{
+				"groupId": 28,
+				"biome": "Default",
+				"id": 67,
+				"height": 3,
+				"type": 1
+			}
+		]
+	},
+	"version": 1
+}

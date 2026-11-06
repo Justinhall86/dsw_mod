@@ -1,0 +1,170 @@
+{
+	"renderers" : {
+		"D4X" : "lib.MaterialSetup"
+	},
+	"defaultRenderer" : "D4X",
+
+	"scene.renderProps" : "Environment/hidepreview.l3d",
+	"sceneeditor.xyzPrecision": 0.00001,
+	"plugins": [
+		"../tools/hide-plugin.js",
+		"../tools/hide.css"
+	],
+
+	"cdb.langAttributes" : {
+		"element" : {
+			"woman" : "$root.skin.woman"
+		},
+		"tutorial@popupPages" : {
+			"notes": "notes"
+		},
+		"tutorial@popupPages@overrides" : {
+			"notes": "notes"
+		},
+		"speech@speechesPerSpeaker@pool@speeches" : {
+			"notes": "translation_notes"
+		}
+	},
+
+	"fx.shaders": [
+		"shaders/AlphaCycle.hx",
+		"shaders/AlphaGradient.hx",
+		"shaders/AlphaKill.hx",
+		"shaders/AlphaMap.hx",
+		"shaders/AlphaMult.hx",
+		"h3d.shader.AnimatedTexture",
+		"shaders/AutoAlpha.hx",
+		"shaders/ColorAdd.hx",
+		"shaders/ColorMap.hx",
+		"shaders/ColorMap3.hx",
+		"shaders/ColorMult.hx",
+		"shaders/ColorSet.hx",
+		"shaders/DepthBlend.hx",
+		"shaders/Dissolve.hx",
+		"shaders/DissolveMap.hx",
+		"shaders/DistortionMap.hx",
+		"shaders/DistortionNormal.hx",
+		"shaders/EnvColorMult.hx",
+		"h3d.shader.Dither",
+		"h3d.shader.Emissive",
+		"shaders/Fresnel.hx",
+		"shaders/Level.hx",
+		"shaders/NightEmissive.hx",
+		"shaders/SandBlend.hx",
+		"shaders/UVGradient.hx",
+		"shaders/UVMultiply.hx",
+		"shaders/UVDistortion.hx",
+		"shaders/UVSweep.hx",
+		"shaders/UVTransform.hx",
+		"shaders/VertexDisplacement.hx",
+		"shaders/WindCloth.hx",
+		"shaders/WorldUV.hx",
+		"shaders/GradientMap.hx",
+		"hrt.shader.ParticleColorLife",
+		"hrt.shader.ParticleColorRandom",
+		"hrt.shader.ParticleFade"
+	],
+
+	"shadergraph.libfolders": ["Fx/ShaderNodes"],
+
+	"fx.tags": [
+		{ "id": "TURN OFF BEFORE SAVE", "color": "#802B2A" },
+		{ "id": "LifeTiming", "color": "#3EA2B9" },
+		{ "id": "WIP", "color": "#9A7400" },
+		{ "id": "Used by code", "color": "#749A00" }
+	],
+
+	"material.drawOrder": [
+		{ "name": "Terrain", "value" : -100 },
+		{ "name": "Terrain2", "value" : -90 },
+		{ "name": "Terrain3", "value" : -80 },
+		{ "name": "Default", "value" : 0 },
+		{ "name": "Layer1", "value" : 100 },
+		{ "name": "Layer2", "value" : 110 },
+		{ "name": "Layer3", "value" : 120 }
+	],
+
+	"fs.config": "default",
+	"fs.convert" : {
+		"^.+_16\\.png$" : { "convert": "dds", "format": "R32F", "priority": 2 },
+		"^.+_raw\\.png$" : { "convert": "none", "priority": 2 },
+		"^.+_height\\.png$" : { "convert": "dds", "format": "R32F", "priority": 2 },
+		"^Environment/Stamps/.+_height\\.png$" : { "convert": "dds", "format": "R32F", "priority": 2 },
+		"^Environment/Texture/Ground/.+\\.png$" : { "convert" :  "dds", "mips": true, "format" : "BC3", "priority": 2 },
+		"^.+/Leader/.+\\.fbx$": { "convert" : "hmd", "precise" : true }
+	},
+
+	"fs.convert.compressed" : {
+		"jpg" : { "convert" : "dds", "format" : "BC1" },
+		"png" : { "convert" : "dds", "format" : "BC3" },
+		"^.+_16\\.png$" : { "convert": "dds", "mips": false, "format": "R32F", "priority": 10 },
+		"^.+_height\\.png$" : { "convert": "dds", "mips": false, "format": "R32F", "priority": 10 },
+		"^.+_raw\\.png$" : { "convert": "none", "mips": false, "priority": 10 },
+		"^(Structure|Character|Vehicle)/.+\\.png$" : { "convert" : "dds", "mips": true, "format" : "BC3", "priority": 1 },
+		"^Environment/.+\\.png$" : { "convert" : "dds", "format" : "BC1", "priority": 1 },
+		"^Environment/Asset/.+\\.png$" : { "convert" : "dds", "mips": true, "format" : "BC3", "priority": 2 },
+		"^Environment/Stamps/.+_height\\.png$" : { "convert": "dds", "format": "R32F", "priority": 2 },
+		"^Environment/Stamps/.+_basecolor\\.png$" : { "convert": "dds", "format": "BC3", "priority": 2 },
+		"^Environment/Stamps/.+_normal\\.png$" : { "convert": "dds", "format": "BC3", "priority": 2 },
+		"^Environment/Texture/Ground/.+\\.png$" : { "convert" :  "dds", "mips": true, "format" : "BC3", "priority": 2 },
+		"^Environment/Resource/LUT" : { "convert" : "none", "priority": 2 },
+		"^(UI|Font)/.+\\.(png|jpg)$" : { "convert" : "none", "priority": 1 },
+		"^UI/Faction.+\\.(png|jpg)$" : { "convert" : "dds", "format": "RGBA", "mips": true, "priority": 2 },
+		"^UI/Faction/units_large\\.png$" : { "convert" : "dds", "format": "BC3", "mips": true, "priority": 3 },
+		"^UI/tuto/tumbnails/.+\\.(png|jpg)$" : { "convert" : "dds", "format": "BC3", "mips": false, "priority": 3 },
+		"^Audio\/.+": { "convert" : "remove" },
+		"^.+/Leader/.+\\.fbx$": { "convert" : "hmd", "precise" : true },
+		"^.+/Leader/.+\\.png$": { "convert" : "dds", "format" : "BC3", "mips": false, "priority": 2 },
+		"^Character/.+\\.fbx$": { "convert" : "hmd", "maxBones": 56 },
+		"^Fx/PostProcess/.+\\.png$": { "convert" : "dds", "format": "RGBA", "mips": false, "priority": 2 }
+	},
+
+	"fs.convert.server" : {
+		"fbx": { "convert" : "remove", "priority": 100 },
+		"mkv": { "convert" : "remove", "priority": 100 },
+		"^UI/(backgrounds|MainMenu|Videos)\/.+" : { "convert" : "remove", "priority": 100 },
+		"^(Audio|Character|Environment|Fx|Structure|Vehicle)\/.+\\.(png|jpg)$": { "convert" : "remove", "priority": 100 }
+	},
+
+	"filetree.excludes": [
+		"(^|\/)\\.[^.]*$",
+		"res/(Character|Environment|Fx|Structure)/.+\\.(png|jpg)$",
+		"Anim_[^.]+\\.fbx$"
+	],
+
+	"cdb.indicateRefs": [
+		"resource",
+		"attribute",
+		"trait",
+		"creditsGroup",
+		"condition",
+		"effect",
+		"model",
+		"resAction",
+		"information",
+		"event",
+		"constant",
+		"tutorial",
+		"quest",
+		"objective",
+		"territory",
+		"equipment"
+	],
+
+	"cdb.onChangeHooks": [
+		{
+			"cmd": "\"%PROJECTDIR%/tools/CDBLessGenerator.bat\"",
+			"sheets": [
+				"icon",
+				"color",
+				"resource",
+				"domain",
+				"faction",
+				"contract",
+				"need",
+				"input",
+				"padAction"
+			]
+		}
+	]
+}
