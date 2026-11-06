@@ -1,0 +1,102 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": -0.20192,
+			"y": -0.25532,
+			"children": [
+				{
+					"type": "object",
+					"name": "Lights",
+					"children": [
+						{
+							"type": "reference",
+							"name": "LightBlue01",
+							"source": "Fx/Structure/Lights/LightBlue01.fx",
+							"x": -0.04,
+							"y": -0.245,
+							"z": 0.645
+						},
+						{
+							"type": "reference",
+							"name": "LightBlue03_Sphere",
+							"source": "Fx/Structure/Lights/LightBlue03_Sphere.fx",
+							"x": 0.46,
+							"y": -0.19,
+							"z": 0.59,
+							"scaleX": 0.15,
+							"scaleY": 0.25,
+							"scaleZ": 0.15
+						},
+						{
+							"type": "reference",
+							"name": "LightBlue01 - 2",
+							"source": "Fx/Structure/Lights/LightBlue01.fx",
+							"x": 0.53,
+							"y": -0.58,
+							"z": 0.32,
+							"scaleX": 0.6,
+							"scaleY": 0.5,
+							"scaleZ": 0.6,
+							"rotationZ": -59
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "ResearchHub",
+					"source": "Structure/Buildings/ResearchHub/ResearchHub.fbx",
+					"rotationZ": 90,
+					"animation": "Structure/Buildings/ResearchHub/Anim_ResearchHub.fbx"
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"scaleX": 3.57,
+					"scaleY": 3.57,
+					"scaleZ": 0.3,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "model",
+			"name": "ResearchHub_Addon",
+			"source": "Structure/Buildings/ResearchHub/ResearchHub_Addon.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_02",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab",
+			"x": 0.61518,
+			"y": 0.64665,
+			"z": 0.29994,
+			"scaleX": 0.95,
+			"scaleY": 0.95,
+			"scaleZ": 0.95
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue03_Sphere",
+			"source": "Fx/Structure/Lights/LightBlue03_Sphere.fx",
+			"x": 0.61006,
+			"y": 0.64934,
+			"z": 0.92685,
+			"scaleX": 0.24,
+			"scaleY": 0.24,
+			"scaleZ": 0.24
+		}
+	]
+}
