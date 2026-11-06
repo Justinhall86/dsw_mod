@@ -1,0 +1,402 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "camera",
+			"name": "camera_start",
+			"x": 9.4491,
+			"y": -31.51951,
+			"z": 9.78836,
+			"rotationY": -0.9,
+			"rotationZ": -92.1,
+			"fovY": 16.36
+		},
+		{
+			"type": "camera",
+			"name": "camera_stop",
+			"x": 9.042469999999994,
+			"y": -42.63896999999986,
+			"z": 9.962679999999978,
+			"scaleX": 0.9999999999999999,
+			"scaleY": 0.9999999999999999,
+			"rotationX": -9.940459709418998e-17,
+			"rotationY": 0.8999999999999984,
+			"rotationZ": 87.90000000000002,
+			"fovY": 16.36
+		},
+		{
+			"type": "object",
+			"name": "Scene",
+			"children": [
+				{
+					"type": "model",
+					"name": "Arrakis",
+					"source": "UI/MainMenu/Model/Arrakis.fbx",
+					"scaleY": 1.3,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "100"
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "MenuPlanet",
+							"source": "shaders/MenuPlanet.hx",
+							"props": {
+								"patternTex": "UI/MainMenu/Texture/Planet_Tiling.png",
+								"direction": 0.58,
+								"speed": 0.002,
+								"scale": 1.25,
+								"lightenTex": "UI/MainMenu/Texture/Planet_Shading_Overlay.png",
+								"lightenAlpha": 0.8,
+								"darkenTex": "UI/MainMenu/Texture/Planet_Shading_Multiply.png",
+								"darkenAlpha": 1,
+								"windSpeed": 0.02,
+								"windNoise1": "UI/MainMenu/FX/Wind/Wind_Layer01_Texture.png",
+								"windDir1": 0.54,
+								"windSpeed1": 0.11,
+								"windNoise2": "UI/MainMenu/FX/Wind/Wind_Layer03_Texture.png",
+								"windDir2": 2.65,
+								"windSpeed2": 0.19,
+								"windScale1": 3.94,
+								"globalAlpha": 0.17,
+								"windScale2": 10,
+								"windNoise3": "Fx/Wind/Wind_MainMenu_01.png",
+								"windDir3": 0.54,
+								"windSpeed3": 0.1,
+								"windScale3": 0.05,
+								"camAngleMin": 0.1,
+								"camAngleMax": 0.29,
+								"windAlpha": 1,
+								"windColor": [
+									1,
+									0.615686274509804,
+									0.2784313725490196
+								],
+								"windBlend1": 1,
+								"windBlend2": 0,
+								"windBlend3": 0,
+								"windRotate1": 0.42,
+								"windRotate2": 0.7,
+								"windRotate3": 1
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Overlay",
+					"source": "UI/MainMenu/Model/Arrakis.fbx",
+					"enabled": false,
+					"scaleX": 1.02,
+					"scaleY": 1.02,
+					"scaleZ": 1.02,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "110"
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "MenuPlanetWind",
+							"source": "shaders/MenuPlanetWind.hx",
+							"enabled": false,
+							"props": {
+								"globalSpeed": 0.05,
+								"noise1": "Fx/Wind/Wind_MainMenu_01.png",
+								"direction1": 0,
+								"speed1": 0.17,
+								"noise2": "Fx/Wind/Wind_MainMenu_01.png",
+								"direction2": 0.4,
+								"speed2": 0.5,
+								"scale1": 7.95,
+								"globalAlpha": 0.5,
+								"scale2": 1,
+								"noise3": "Fx/Wind/Wind_Layer04_Texture.png",
+								"direction3": 0.54,
+								"speed3": 0.1,
+								"scale3": 0,
+								"camAngleMin": 0.1,
+								"camAngleMax": 0.29
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Moon_Large",
+					"source": "UI/MainMenu/Model/Moon_Large.fbx",
+					"scaleX": 0.89,
+					"scaleY": 0.89,
+					"scaleZ": 0.89,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-90"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Moon_Small",
+					"source": "UI/MainMenu/Model/Moon_Small.fbx",
+					"z": 0.05,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-90"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Arrakis_Bleed",
+					"source": "UI/MainMenu/Model/Arrakis_Bleed.fbx",
+					"x": -0.05,
+					"z": -0.15,
+					"scaleX": 100,
+					"scaleY": 100,
+					"scaleZ": 100,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-80"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Arrakis_Bleed",
+					"source": "UI/MainMenu/Model/Arrakis_Bleed.fbx",
+					"x": -0.11277,
+					"visible": false,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-80"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Line_Large",
+					"source": "UI/MainMenu/Model/Line_Large.fbx",
+					"scaleX": 0.89,
+					"scaleY": 0.89,
+					"scaleZ": 0.89,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-100"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Line_Small",
+					"source": "UI/MainMenu/Model/Line_Small.fbx",
+					"x": 8.443,
+					"z": 3.41527,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationY": -13.7,
+					"visible": false,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-100"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Line_Small",
+					"source": "UI/MainMenu/Model/Line_Small.fbx",
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-100"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Lines",
+					"source": "UI/MainMenu/Model/Lines.fbx",
+					"visible": false,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "AfterTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"depthTest": "Always",
+									"colorMask": 15,
+									"enableStencil": false,
+									"drawOrder": "-100"
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "BG",
+			"source": "UI/MainMenu/Model/BG.fbx",
+			"x": 3.84395,
+			"y": 79.17969,
+			"z": 6.87865,
+			"scaleX": 1.4,
+			"scaleY": 1.4,
+			"scaleZ": 1.4,
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "None",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Always",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"editorOnly": true,
+			"y": -0.03,
+			"sourceMapPath": "Environment/Resource/Skymap/HDR/museum_of_ethnography_1k.hdr"
+		},
+		{
+			"type": "reference",
+			"name": "FX_UI_MainMenuScene",
+			"source": "Fx/UI/FX_UI_MainMenuScene.fx",
+			"x": 0.15284,
+			"y": 64.62777,
+			"z": 7.98767
+		}
+	]
+}

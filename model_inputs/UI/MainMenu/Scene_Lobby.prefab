@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_UI_Lobby_Scene",
+			"source": "Fx/UI/FX_UI_Lobby_Scene.fx"
+		}
+	]
+}

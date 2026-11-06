@@ -1,0 +1,20 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_UI_Lobby_Scene_Foreground_State1",
+			"source": "Fx/UI/FX_UI_Lobby_Scene_Foreground_State1.fx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_UI_Lobby_Scene_Foreground_State2",
+			"source": "Fx/UI/FX_UI_Lobby_Scene_Foreground_State2.fx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_UI_Lobby_Scene_Foreground_State3",
+			"source": "Fx/UI/FX_UI_Lobby_Scene_Foreground_State3.fx"
+		}
+	]
+}

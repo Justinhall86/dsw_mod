@@ -1,0 +1,42 @@
+{
+	"materials": {
+		"PBR": {
+			"Arrakis_MAT": {
+				"mode": "BeforeTonemapping",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"blinn1": {
+				"mode": "BeforeTonemapping",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"OuterPlanet_MAT": {
+				"mode": "AfterTonemapping",
+				"blend": "Alpha",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"Planet_Tiling": {
+				"mode": "AfterTonemapping",
+				"blend": "Alpha",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}

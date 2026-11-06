@@ -1,0 +1,26 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_UI_SandTransition_Continuous",
+			"source": "Fx/UI/FX_UI_SandTransition_Continuous.fx",
+			"enabled": false,
+			"y": -1.15746,
+			"z": -2.63215,
+			"scaleX": 4,
+			"scaleY": 4,
+			"scaleZ": 4,
+			"children": [
+				{
+					"type": "shader",
+					"name": "AlphaMult",
+					"source": "shaders/AlphaMult.hx",
+					"props": {
+						"alpha": 2
+					}
+				}
+			]
+		}
+	]
+}
