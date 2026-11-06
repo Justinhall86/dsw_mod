@@ -1,0 +1,389 @@
+@import "game.less";
+
+@pannels-width: 280;
+@pannels-height: 560;
+@resolution-bg: hgrid("UI/landsraad/container_resolution.png", 3) 6 6;
+@card-bg: vgrid("UI/victory/box_victoire.png", 2) 10 10;
+
+victory{
+	layout:vertical;
+	align:right;
+	spacing: 19;
+}
+my-assassination-progress{
+	content-align:middle middle;
+	fill-width:true;
+	auto-size: 1;
+	tip-position: left;
+
+	#factionByBmp,#factionTargetBmp  {
+		width: 22;
+		align:top;
+		offset-y:5;
+	}
+	#progressContent{
+		layout:vertical;
+		content-align:middle middle;
+		#assassinationBmp {
+			scale: 0.15;
+		}
+
+		#gauge {
+			width: 118;
+			body-width: $width;
+			height: 8;
+			body-height: 8;
+			background: "UI/HUD/progressBar_bg.png" 4 4;
+			padding: 2;
+			use-fill-color: false;
+			empty-color: #A0864D;
+			#emptyBar{
+				fill-width:true;
+				alpha: 0.02;
+			}
+			#fillBar {
+				background: none;
+				background-type: dynamic;
+				#background {
+					background: @color-text-timer;
+					gradient: linear(-90, fade(@color-bg-dark-1, 55%), rgba(0,0,0,0));
+				}
+			}
+		}
+		#cancel{
+			background: "UI/HUD/btn01.png" 12 12;
+			width:80;
+			height:25;
+			margin-top:4;
+			margin-bottom: 2;
+			background-id: false;
+			fmt-text {
+				color: @color-ui-text-light;
+			}
+		}
+		#upper{
+			spacing:5;
+			margin-bottom:-3;
+		}
+		.horizontal-separator{
+			align:middle middle;
+			width:50;
+			height: 1;
+			background: @color-desert-darken;
+			alpha: 0.3;
+		}
+	}
+	&.has-detected {
+		#assassinationBmp {
+			color-adjust: gain(@color-bad, 1);
+		}
+	}
+}
+assassination-progress{
+	content-align:middle middle;
+	fill-width:true;
+	layout:vertical;
+	tip-position: left;
+
+	fmt-text{
+		offset-x:-10;
+	}
+	#progressContent{
+		layout:horizontal;
+		content-align:middle middle;
+		fill-width:true;
+		spacing:5;
+		#factionByBmp  {
+			width: 22;
+			align:top;
+			offset-y:5;
+		}
+		#gauge {
+			width: 145;
+			body-width: $width;
+			height: 8;
+			background: "UI/HUD/progressBar_bg.png" 4 4;
+			padding: 2;
+			use-fill-color: false;
+			empty-color: #A0864D;
+			#emptyBar{
+				fill-width:true;
+				alpha: 0.02;
+			}
+			#fillBar {
+				background: none;
+				background-type: dynamic;
+				#background {
+					background: @color-bad;
+					gradient: linear(-90, fade(@color-bg-dark-1, 60%), rgba(0,0,0,0));
+				}
+			}
+		}
+	}
+}
+assassinations-content, spectator-assassinations-content {
+	fill-width:true;
+	layout:vertical;
+	spacing:10;
+	content-align:middle middle;
+	padding-bottom: 3;
+	.separator{
+		offset-y:4!important;
+	}
+}
+spectator-assassinations-content {
+	padding-bottom: 5;
+	my-assassination-progress {
+		#cancel {
+			visible: false;
+		}
+		#assassinationBmp {
+			margin-top: -2;
+		}
+	}
+}
+
+victory-card {
+	layout: stack;
+	@card-width: 198;
+	@card-height: 122;
+	width: @card-width;
+	height: @card-height;
+
+	>.content {
+		layout: vertical;
+	}
+
+	.state-icon{
+		position: absolute;
+		src: grid("UI/victory/icon_condition_victoire.png", 4, @ui-faction-count);
+		width: 41;
+		align: top middle;
+		offset-y: 11;
+	}
+	.thumbnail {
+		position: absolute;
+		layout: stack;
+		align: top middle;
+		offset-y: -9;
+		.illustration{
+			scale: 0.5;
+			src: grid("UI/victory/banniere_top_faction.png", 4, @ui-faction-count);
+		}
+	}
+	.fx-foreground{
+		&.fx-bottom{
+			start-vfx:"Fx/UI/VictoryCards/FX_VictoryCard_Bottom.fx2d";
+		}
+	}
+	.fx-background.fx-middle{
+		start-vfx:"Fx/UI/VictoryCards/FX_BackgroundVictoryCard.fx2d";
+	}
+	&.governor{
+		start-vfx:"Fx/UI/VictoryCards/FX_GovernorshipVictory.fx2d";
+		>fx-element {
+			offset-y: -30;
+			scale: 0.95;
+		}
+		.state-icon{
+			src-pos-x:3;
+			offset-y: 14;
+		}
+		.illustration{
+			src-pos-x:3;
+		}
+		#governorContent{
+			layout:vertical;
+			>.remaining {
+				fill-width:true;
+				content-align: middle middle;
+				padding-bottom: 4;
+				spacing:10;
+				#remainingText{
+					offset-y: 1;
+					.regular-12;
+					color: @color-ui-text-light;
+				}
+				radial-fill-image{
+					width: 16;
+					height: 18;
+					background: "UI/elements/ic_full_chrono_border.png";
+					invert: true;
+					bitmap{
+						align: bottom middle;
+						margin-bottom: 3;
+						width: 10;
+						src: "UI/elements/circle_64.png";
+						tint: @color-warning;
+					}
+				}
+			}
+			.line{
+				fill-width:true;
+				margin-left:50;
+				margin-right:50;
+				height: 1;
+				background: @color-ui-text-dark;
+				margin-bottom: 4;
+			}
+		}
+		.tiled-faction(src-pos-y, ~'.state-icon');
+		.fx-foreground.fx-top{
+			start-vfx:"Fx/UI/VictoryCards/FX_VictoryCard_GovernorshipTop.fx2d";
+		}
+	}
+	&.choam{
+		.state-icon{
+			src-pos-x:1;
+		}
+		.illustration{
+			src-pos-x:1;
+		}
+		.content {
+			start-vfx:"Fx/UI/VictoryCards/FX_ChoamVictory.fx2d";
+			>fx-element {
+				offset-y: -40;
+				scale: 0.95;
+			}
+		}
+		.fx-foreground.fx-top{
+			start-vfx:"Fx/UI/VictoryCards/FX_VictoryCard_ChoamTop.fx2d";
+		}
+	}
+	&.hegemony{
+		start-vfx:"Fx/UI/VictoryCards/FX_HegemonyVictory.fx2d";
+		>fx-element {
+			offset-y: -44;
+			scale: 0.95;
+		}
+		.state-icon{
+			src-pos-x:2;
+			width: 44;
+			offset-y: 9;
+		}
+		.illustration{
+			src-pos-x:2;
+		}
+		.fx-foreground.fx-top{
+			start-vfx:"Fx/UI/VictoryCards/FX_VictoryCard_ChoamTop.fx2d";
+		}
+	}
+	&.assassination{
+		start-vfx:"Fx/UI/VictoryCards/FX_AssassinationVictory.fx2d";
+		>fx-element {
+			valign: top;
+			offset-y: 30;
+			scale: 0.95;
+		}
+		.state-icon{
+			src-pos-x:0;
+			offset-y: 12;
+			offset-x: 1;
+		}
+		.illustration{
+			src-pos-x:0;
+			src-pos-y:0 !important;
+		}
+		.fx-foreground.fx-top{
+			start-vfx:"Fx/UI/VictoryCards/FX_VictoryCard_AssassinationTop.fx2d";
+		}
+
+	}
+	.card-header{
+		fill-width: true;
+		layout: vertical;
+		padding-bottom: 10;
+		padding-top: 59;
+		content-align: bottom middle;
+		background: @card-bg;
+		background-tile-pos-y: 0;
+		.border4k;
+		.card-title {
+			color: @color-ui-text-light;
+			.bold-15;
+		}
+		.top-deco {
+			position: absolute;
+			y: 49;
+			src: "UI/victory/victory_graph.png";
+			scale: 0.5;
+
+		}
+	}
+	.separator{
+		fill-width: true;
+		margin-top: -1;
+		margin-left:6;
+		margin-right:6;
+		height: 1;
+		background: @color-ui-text-dark;
+		// background: "UI/conquest/smooth_separator.png";
+	}
+
+
+	.card-content{
+		fill-width: true;
+		layout: vertical;
+		content-align:top middle;
+		padding: 8;
+		background: @card-bg;
+		background-tile-pos-y: 1;
+		.border4k;
+		#playersBarContainer{
+			layout:vertical;
+			faction-bar {
+				>#factionBmp {
+					scale: 1;
+					width: 22;
+				}
+				>#gauge {
+					margin-left: 22;
+					body-height: 16;
+					#floatingCont {
+						margin-left: 5;
+						fixed-text#txt2 {
+							.bold-12;
+							.option-minfontsize-0 & { max-width-text: 300; use-ellipsis: false; }
+							.option-minfontsize-1 & { max-width-text: 68; use-ellipsis: true; }
+							.option-minfontsize-2 & { max-width-text: 58; use-ellipsis: true; }
+						}
+					}
+				}
+				>.textCont {
+					margin-top: 4;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.inner-border {
+		position: absolute;
+		width: @card-width;
+		// min-height: @card-height; // fill-height done through code
+		align: bottom middle;
+		background-type: dynamic;
+
+		>#background {
+			outline: 0.5 @color-ui-text;
+			outline-alpha: 0.7;
+			outline-offset: 5;
+			border-radius: 8;
+		}
+	}
+
+	.tiled-faction(src-pos-y, ~'.illustration');
+
+	.fx-top {
+		align: top middle;
+	}
+	.fx-middle {
+		align: middle middle;
+	}
+	.fx-bottom {
+		align: bottom middle;
+	}
+	.fx-background, .fx-foreground {
+
+	}
+}

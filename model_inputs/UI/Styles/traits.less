@@ -1,0 +1,58 @@
+@import "game.less";
+
+traits-displayer {
+	padding: 2;
+	spacing: 15;
+
+	>flow {
+		spacing: 3;
+	}
+
+	.cat-no-trait {
+		visible: false;
+	}
+}
+
+trait-icon {
+	layout: stack;
+	#gauge{
+		src: "UI/elements/square_4.png";
+		alpha: 0.4;
+		bitmap{
+			tint: @color-neutral;
+		}
+	}
+	&.malus {
+		filter: glow(@color-bad, 0.9, 6, 1, 0.1, true);
+		#gauge{	bitmap{	tint: @color-bad;	} }
+	}
+	&.bonus {
+		filter: glow(@color-good, 0.9, 6, 1, 1, true);
+		#gauge{	bitmap{	tint: @color-good;	} }
+	}
+	&.blocked {
+		alpha: 0.4;
+		filter: saturate(-0.6) brightness(-0.2 );
+		&.hide-blocked {
+			visible: false;
+		}
+	}
+	bitmap {
+		width: 32;
+		height: 32;
+	}
+}
+
+trait-preview {
+	layout: stack;
+	content-align: middle middle;
+	fmt-text{
+		.bold-15;
+		filter: glow(#000, 1.2, 4, 1, 1, true);
+		margin-bottom: 1;
+	}
+	bitmap {
+		width: 32;
+		height: 32;
+	}
+}

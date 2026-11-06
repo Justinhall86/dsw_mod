@@ -1,0 +1,395 @@
+@import "game.less";
+
+tutorials {
+	visible: false;
+	layout : vertical;
+	spacing : 5;
+	margin-left: 5;
+
+	/*tutorial-button {
+		background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+		layout : stack;
+		content-align : middle middle;
+		padding : 1;
+	}*/
+}
+
+// @tuto-window-width: 602;
+@tuto-window-width: 372;
+@pages-width: 340;
+
+.tuto-btn {
+	background: vgrid("UI/elements/buttons01.png", 2) 12 12;
+	background-tile-pos-y: 1;
+}
+
+.tuto-mini-icon-btn {
+	padding: 0;
+
+	&:hover{
+		background-tile-pos-x: 1;
+		bitmap{
+			src-pos-x: 1;
+		}
+	}
+	&:active{
+		background-tile-pos-x: 2;
+		bitmap{
+			src-pos-x: 2;
+		}
+	}
+}
+
+tutorial-detail {
+	width: @tuto-window-width;
+	background: @panel-bg;
+	background-tile-pos-x: 2;
+	layout: vertical;
+	margin-left: 60;
+	margin-top: 169;
+	padding : 1;
+	portrait-overflow: 20;
+	is-default-bind-layer: true;
+
+	&.pause-window-opened {
+		button, icon-button {
+			pad-binding-persistent: false !important;
+		}
+	}
+
+	&.pos-tutorialbar {
+		margin-left: 60;
+		margin-top: 151;
+	}
+	&.pos-bottomright {
+		align: bottom right;
+		margin-bottom: 50;
+		margin-right: 250 + 214;
+	}
+	&.pos-topcenter {
+		align: top middle;
+		margin-top: 85;
+	}
+	&.pos-right {
+		align: top right;
+		margin-top: 358;
+		margin-right: 260;
+	}
+	&.pos-objectifright {
+		align: top left;
+		margin-left: 340;
+	}
+	&.pos-structureup {
+		align: bottom left;
+		margin-left: 370;
+		margin-bottom: 260;
+	}
+
+	fmt-text {
+		.regular-14;
+		color: @color-text;
+	}
+
+	.header {
+		fill-width: true;
+		auto-size: 1;
+		layout: stack;
+		padding-left: 10;
+		content-align: middle middle;
+		background: "UI/tuto/tutoHeader.png" 2 2;
+
+		.header-pattern {
+			align: middle right;
+			src: "UI/tuto/tutoHeaderPattern.png";
+		}
+
+		#tutoTitle {
+			.bold-15;
+			transform-text-last: true;
+			.uppercase;
+			text-shadow : 0 1 #000 1;
+		}
+
+		.top-buttons {
+			visible: false;
+			align: middle right;
+			margin-right: 2;
+			margin-bottom: 1;
+			spacing: 2;
+			#collapseBtn {
+				.tuto-mini-icon-btn;
+				bitmap {
+					src: hgrid("UI/tuto/minimizeButton.png", 3);
+				}
+			}
+			#permaCloseBtn {
+				.tuto-mini-icon-btn;
+				bitmap {
+					src: hgrid("UI/tuto/closeButton.png", 3);
+				}
+			}
+		}
+	}
+	#tutoBody {
+		padding: 2;
+		padding-top: 0;
+		layout: stack;
+		fill-width: true;
+
+		#patternMask {
+			align: top left;
+			position: absolute;
+			.body-background {
+				src: "UI/tuto/tutobg_pattern.png";
+			}
+		}
+		.portrait-mask {
+			visible: false;
+			position: absolute;
+			align: bottom left;
+			width: 180;
+			#portraitBmp {
+				width: 180;
+			}
+		}
+
+		.dialog {
+			layout: vertical;
+			.pages {
+				margin: 15;
+				background: "UI/tuto/tuto_bg.png" 10 10;
+				min-height: 115;
+				width: @pages-width;
+				layout: vertical;
+				spacing: 20;
+				padding-bottom: 5;
+
+				#textCont {
+					content-valign: top;
+					margin: 18 15 0 20;
+
+					fmt-text {
+						.regular-15;
+						line-spacing: 1;
+					}
+				}
+
+				.page-footer {
+					margin: 0 13 0 13;
+					fill-width: true;
+					valign: bottom;
+					content-valign: middle;
+
+					#prevBtn, #nextBtn {
+						background: none;
+						pad-focusable: false;
+						>bitmap{
+							src: grid("UI/tuto/arrows.png", 3, 2);
+						}
+						&:hover{
+							>bitmap{
+								src-pos-x: 1;
+							}
+						}
+						&:active{
+							>bitmap{
+								src-pos-x: 2;
+							}
+						}
+						&.disabled{
+							bitmap{
+								alpha: 0;
+							}
+						}
+					}
+					#prevBtn {
+						>bitmap {
+							src-pos-y: 0;
+						}
+						align: left;
+						pad-click: @input-menu-tabprev;
+						pad-binding-persistent: true;
+					}
+
+					#pageIndicator {
+						align: middle;
+						tint: @color-text-light;
+					}
+
+					#nextBtn {
+						>bitmap {
+							src-pos-y: 1;
+						}
+						align: right;
+						pad-click: @input-menu-tabnext;
+						pad-binding-persistent: true;
+					}
+				}
+			}
+			.footer {
+				halign: middle;
+				spacing: 16;
+				>button {
+					.tuto-btn;
+					margin-bottom: 8;
+					margin-top: -5;
+					padding: 16;
+				}
+
+				#closeBtn {
+					pad-focusable: false;
+					pad-click: @input-tutorial-close;
+					pad-binding-persistent: true;
+				}
+
+				#actionButtons {
+					pad-focusable: false;
+					&.index-0 {
+						pad-click: @input-tutorial-option1;
+					}
+
+					&.index-1 {
+						pad-click: @input-tutorial-option2;
+					}
+				}
+			}
+		}
+	}
+	&.has-portrait {
+		#tutoBody {
+			.dialog {
+				margin-left: 165;
+			}
+			.portrait-mask {
+				visible: true;
+			}
+		}
+	}
+
+	.illus-anchor {
+		position: absolute;
+		align: top right;
+		offset-y: -1;
+		offset-x: 10;
+		#illustCont {
+			position: absolute;
+			align: top left;
+			background: @panel-bg;
+			background-tile-pos-x: 2;
+			layout: vertical;
+			padding : 1;
+			max-width: 500;
+			margin-right: -400;
+
+			.header {
+				fill-width: true;
+				auto-size: 1;
+			}
+			.illust-body {
+				margin: 20;
+				layout: stack;
+			}
+		}
+	}
+}
+
+tutorial-highlight {
+	position: absolute;
+	background: "UI/tuto/highlightEffect.png" 12 12;
+	// filter: glow(@color-warning-worm-danger, 1, 10, 1.1, 0.4, true);
+
+	transition: alpha 0.5s linear;
+	alpha: 1;
+	&.blink-off {
+		alpha: 0;
+	}
+	.option-photosensitive-true & {
+		alpha: 0.8;
+		&.blink-off {
+			alpha: 0.8;
+		}
+	}
+
+	.date & {
+		tuto-padding: 5;
+	}
+	#playBtn & {
+		tuto-padding: 5;
+	}
+
+	// game #world & {
+	// 	background: "UI/tuto/highlightEffect.png" 12 12;
+	// }
+
+	resource-counter >& {
+		tuto-padding-right: 4;
+	}
+
+	right-bar & {
+		.panel & {
+			tuto-padding: 5;
+		}
+	}
+
+	banner & {
+		tuto-padding: 3;
+	}
+
+
+	&.tuto-exploration, &.tuto-spiceharvesting_fremen {
+		tuto-padding: 5;
+	}
+
+	&.tuto-water {
+		tuto-padding-right: 0;
+	}
+
+	&.tutopage-se3 {
+		tuto-padding: 3;
+		tuto-padding-top: 0;
+	}
+
+	&.tutopage-sif2 {
+		tuto-padding: 4;
+	}
+
+	&.tuto-alertfeedback {
+		tuto-padding: 3;
+	}
+
+	&.tuto-mainbase {
+		tuto-padding: 10;
+		.districts-bonuses >& {
+			tuto-padding-top: 3;
+			tuto-padding-bottom: 4;
+		}
+	}
+
+	&.tuto-alertfeedback {
+		empty-width: 40;
+		empty-height: 40;
+	}
+
+	&.tuto-spicetrading.tutopage-st1 {
+		tuto-padding: 1;
+	}
+
+	&.tuto-landsraadcouncil.tutopage-lc1 {
+		tuto-padding-bottom: 10;
+	}
+
+	&.tutopage-di3 {
+		tuto-padding: 4;
+		tuto-padding-left: 2;
+		tuto-padding-bottom: 3;
+	}
+	&.tutopage-di4 {
+		tuto-padding: -1;
+	}
+	&.tutopage-cm2 {
+		tuto-padding: 5;
+	}
+	.info#wind & {
+		tuto-padding: 5;
+	}
+}

@@ -1,0 +1,33 @@
+.transition-alpha(@time) {
+	transition: alpha @time ease-out;
+}
+
+.transition-x(@time) {
+	transition: offset-x @time ease-out;
+}
+
+.transition-height(@time) {
+	transition: height @time ease-out;
+}
+
+@menu-anim-time: 0.5;
+
+.transition-alpha-quick { .transition-alpha(0.1); }
+.transition-x-quick { .transition-x(0.1); }
+
+.transition-hover-alpha {
+	.transition-alpha-quick;
+}
+
+.fade-in {
+	alpha: 0;
+	transition: alpha 0.5 ease-out;
+	alpha: 1;
+}
+.fade-out {
+	alpha: 1;
+	transition: alpha 0.5 ease-out;
+	alpha: 0;
+}
+
+@hover-transition: 0.3 ease-out;

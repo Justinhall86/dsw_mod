@@ -1,0 +1,307 @@
+@import "game.less";
+
+unit {
+	traits-displayer {
+		margin-left: 41;
+	}
+}
+
+unit-displayer {
+	layout: vertical;
+	content-align : top left;
+	width: @unit-display-width;
+	@{opt-minfont} {
+		width: @unit-display-width-minfont;
+	}
+	.header-top{
+		fill-width: true;
+		padding-left: 9;
+		padding-right: 5;
+		content-align : top left;
+		spacing: 10;
+		banner-button{
+			margin-top: -8;
+		}
+		.badge {
+			layout: vertical;
+			spacing: 5;
+		}
+		abilities-displayer, entity-refund-button{
+			align: middle right;
+			margin-top: 5;
+		}
+	}
+	.stats{
+		align: bottom left;
+		margin-left: 7;
+		margin-bottom: 5;
+		spacing: 8;
+		fmt-text{
+			text-shadow : 0 1 #000 0.7;
+		}
+		resource-counter{
+			spacing: -2;
+		}
+	}
+	>.body{
+		content-align : top left;
+		height: 164;
+		.portrait{
+			.portrait-icon{
+				width: 125;
+			}
+			align: middle left;
+		}
+		.desc{
+			padding: 15;
+			padding-top: 23;
+			padding-bottom: 10;
+			layout: vertical;
+			spacing: 8;
+		}
+		}
+}
+
+.unit-auto-action-btn {
+	.decorated-btn;
+	content-align: left middle;
+	min-width: 200;
+	padding: 6;
+	margin-right: -7;
+	#rightCont{
+	}
+	#subTf {
+		.italic-13;
+		color: @color-text-bad;
+	}
+	fmt-text{
+		.bold-15;
+	}
+
+	&.activated {
+		#subTf {
+			color: @color-text-good;
+		}
+		background: "UI/HUD/Border_container_active.png" 12 12;
+	}
+
+	pad-click: @input-selection-autoaction;
+}
+
+ornithopter {
+	#autoReconBtn {
+		.unit-auto-action-btn;
+		.lang-de & {
+			min-width: 230;
+		}
+		.lang-fr &{
+			min-width: 265;
+		}
+		.lang-es &{
+			min-width: 245;
+		}
+		.lang-it & {
+			min-width: 270;
+		}
+	}
+	.portrait{
+		margin-top: -20;
+	}
+	.desc > flow {
+		layout: vertical;
+		spacing: 8;
+		tip-trait {
+			max-width: @unit-display-width - 165;
+			@{opt-minfont} {
+				width: @unit-display-width-minfont - 165;
+				margin-bottom: -1;
+			}
+			padding: 0;
+			fmt-text{
+				.regular-12;
+			}
+			#titleText{
+				visible: false;
+				.bold-14;
+				margin-bottom: -5;
+			}
+			.body-content{
+				margin-top: -19;
+				background: none;
+			}
+			#fbody {
+				visible: false;
+			}
+
+		}
+	}
+}
+
+harvester {
+	>.body {
+		>.desc{
+			padding-top: 20;
+			padding-bottom: 0;
+			.harvester-info{
+				layout: vertical;
+				content-align: top middle;
+				spacing: 8;
+				.production{
+					spacing: 8;
+				}
+
+				tip-trait{
+					padding: 0;
+					margin-top: 20;
+					max-width: 250;
+					@{opt-minfont} {
+						width: 300;
+					}
+					fmt-text{
+						.regular-12;
+					}
+					#titleText{
+						.bold-14;
+					}
+					.body-content{
+						margin-top: -18;
+						background: none;
+					}
+					#fbody {
+						visible: false;
+					}
+				}
+			}
+		}
+	}
+
+	harvester-deploy-button {
+		.decorated-btn;
+		padding: 15;
+		min-width: 200;
+		// min-height: 50;
+
+		pad-click: @input-selection-deploy;
+	}
+	.deployment {
+		layout: vertical;
+		content-align: middle middle ;
+		spacing: 5;
+		min-width: 250;
+		.separator{
+			width: 230;
+			src: "UI/HUD/horizontalArrow.png";
+			halign: middle;
+		}
+		.toogle-cont{
+			spacing: 10;
+			#harvestSafeMode, #harvestGreedMode {
+				.unit-auto-action-btn;
+				min-width: 120;
+				min-height: 40;
+				margin-right: 0;
+				.lang-de & {
+					min-width: 280
+				}
+				.lang-pt-BR & {
+					min-width: 240;
+				}
+				.lang-pl & {
+					min-width: 225;
+				}
+				.lang-es & {
+					min-width: 260;
+				}
+				.lang-it &{
+					min-width: 270;
+				}
+				#rightCont{
+					align: middle middle;
+					fmt-text {
+						.regular-14;
+					}
+				}
+				&.activated {
+					start-vfx : "Fx/UI/HUD/FX_HarvestSafeMode_unlock.fx2d";
+				}
+				&.incoming {
+					start-vfx : "Fx/UI/HUD/FX_HarvestSafeMode_incoming.fx2d";
+				}
+			}
+			#harvestSafeMode{
+				pad-click: @input-selection-safemode;
+			}
+			#harvestGreedMode{
+				pad-click: @input-selection-greedmode;
+			}
+		}
+	}
+}
+
+crew-points{
+	background-tile-pos-x: 1;
+	padding: 3;
+	spacing: 2;
+	content-align: middle middle;
+	resource-counter{
+		margin-right: 2;
+		min-width: 40;
+		bitmap{
+			margin: -3;
+		}
+	}
+}
+
+unit-list {
+	bind-layer-cursor: snap;
+	.main-window;
+	halign: right;
+	margin-right: -4;
+
+	fmt-text{
+		color: @color-desert;
+		.bold-13;
+	}
+
+	&.pad{
+		background-alpha: 1;
+		fill-width: false;
+		margin-top: 125;
+	}
+	unit-button {
+		pad-focusable: true;
+		tip-position: left;
+	}
+	window-header {
+		visible: false;
+	}
+	armies-panel {
+		#armyBtnContainer.index-0 {
+			>army-button {
+				pad-default-focus: true;
+			}
+		}
+	}
+	.tiled-faction(background-tile-pos-y, ~'.unit-header');
+}
+
+.lang-de, .lang-it, .lang-fr, .lang-es {
+	ornithopter, harvester {
+		width: @unit-display-width + 43;
+		.desc > flow {
+			tip-trait {
+				max-width: @unit-display-width + 43 - 165;
+			}
+		}
+	}
+	&.option-minfontsize-1, &.option-minfontsize-2 {
+		ornithopter, harvester {
+			width: @unit-display-width-minfont + 53;
+			.desc > flow {
+				tip-trait {
+					max-width: @unit-display-width-minfont + 53 - 165;
+				}
+			}
+		}
+	}
+}
