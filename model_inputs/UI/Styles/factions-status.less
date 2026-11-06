@@ -1,0 +1,819 @@
+@inner-panel-outline-color: #32333E;
+
+menu-faction-effects {
+	layout: vertical;
+	spacing: 30;
+
+	>.hegemony-bonuses {
+		layout: vertical;
+		spacing: 30;
+	}
+
+	.group {
+		layout: vertical;
+		spacing: 13;
+		.bg-pattern {
+			visible: false;
+		}
+		>flow {
+			spacing: 5;
+			content-valign: top;
+			bitmap {
+				offset-y: 4;
+			}
+		}
+		fmt-text {
+			auto-size: 1;
+			.regular-16;
+			color: @color-ui-text-light;
+		}
+
+		>.title {
+			.bold-17;
+			transform-text-last: true;
+			.uppercase;
+			margin-bottom: 14;
+			color: @color-ui-text;
+		}
+
+		.bullet {
+			src: "UI/elements/square_4.png";
+			tint: @color-text;
+			alpha: 0.5;
+		}
+		bitmap.bonusStep {
+			visible: false;
+		}
+	}
+	>.group {
+		>.title {
+			.bold-23;
+		}
+		>flow {
+			spacing: 7;
+			bitmap {
+				src: hgrid("UI/elements/attributeArrow_large.png", 2);
+				scale: 0.5;
+				tint: #fff;
+				offset-y: 1;
+				&.positive {
+					src-pos-x: 1;
+				}
+			}
+		}
+	}
+	>.hegemony-bonuses {
+		>.group {
+			>.title {
+				margin-left: 29;
+			}
+			bitmap.bonusStep {
+				visible: true;
+				src: "cdb:resource.Hegemony.gfx";
+				align: top left;
+				position: absolute;
+				width: 24;
+				offset-y: -6;
+				offset-x: 2;
+			}
+			>flow {
+				bitmap.bullet {
+					src: hgrid("UI/multiplayer/ic_arrow_number_player.png", 2);
+					offset-y: 1;
+					tint: #fff;
+					scale: 0.5;
+				}
+			}
+		}
+	}
+	.separator {
+		background: white;
+		background-alpha: .25;
+
+		height: 1;
+		margin-top: 15;
+		margin-bottom: 15;
+		fill-width: true;
+	}
+}
+
+faction-status-button, empty-status-button {
+	click-sfx: @UI_Button_Release;
+	hover-sfx: @UI_Button_Rollover;
+	layout: stack;
+	pad-focusable: true;
+	spectator-enabled: true;
+	padding: 4;
+
+	@width: 254;
+	@height: 128;
+	@mid-height: 64;
+	width: @width;
+	height: @height;
+
+	background-type: dynamic;
+	>#background {
+		background: #181920;
+		border-radius: 5;
+		outline: 1 black;
+	}
+
+	>.bg-cont {
+		fill-width: true;
+		fill-height: true;
+		auto-size: 1;
+		padding-top: 1;
+
+		background-type: dynamic;
+		>#background {
+			border-radius: 3;
+			outline: 0.5 @color-ui-text-light;
+			outline-thickness: 0.5;
+			transition: outline-thickness @hover-transition;
+			outline-alpha: 0.6;
+			transition: outline-alpha @hover-transition;
+		}
+
+		.faction-bg-el {
+			height: @mid-height;
+			width: @width - 10;
+			align: top middle;
+
+			background-type: dynamic;
+			>#background {
+				border-radius: 3 3 0 0;
+				gradient: linear(-90, fade(@color-bg-dark-1, 100%), fade(@color-bg-dark-1, 10%));
+				smooth-span: 0;
+			}
+		}
+		&.atreides .faction-bg-el >#background { image: "UI/menu/Atreides/save_background_sharp.jpg" fit; }
+		&.harkonnen .faction-bg-el >#background { image: "UI/menu/Harkonnen/save_background_sharp.jpg" fit; }
+		&.smugglers .faction-bg-el >#background { image: "UI/menu/Smugglers/save_background_sharp.jpg" fit; }
+		&.fremen .faction-bg-el >#background { image: "UI/menu/Fremen/save_background_sharp.jpg" fit; }
+		&.corrino .faction-bg-el >#background { image: "UI/menu/Corrino/save_background_sharp.jpg" fit; }
+		&.ecaz .faction-bg-el >#background { image: "UI/menu/Ecaz/save_background_sharp.png" fit; }
+		&.vernius .faction-bg-el >#background { image: "UI/menu/Vernius/save_background_sharp.jpg" fit; }
+	}
+
+	.team-number {
+		layout: stack;
+		position: absolute;
+		align: top right;
+		offset-x: -8;
+
+		content-align: top middle;
+
+		#bg {
+			src: "UI/elements/nbr_players_hege.png";
+			scale: 0.5;
+		}
+
+		>fmt-text {
+			.regular-15;
+			offset-y: 4;
+			offset-x: 1;
+			color: @color-ui-text-light;
+		}
+	}
+
+	@pad: 10;
+
+	>.nameCont {
+		margin-left: @pad;
+		layout: stack;
+
+		@marginLeft: 65;
+		.emblem-cont {
+			margin-top: -8;
+			margin-left: 1;
+			layout: stack;
+			content-align: middle middle;
+			.decorated-emblem {
+				width: 56;
+				src: hgrid("UI/Faction/Menu/decorated_banners.png", (@ui-faction-count + 2));
+			}
+			.tiled-faction(src-pos-x, ~".decorated-emblem", @offset: 1);
+			.base-emblem {
+				visible: false;
+				width: 42;
+				margin-top: -1;
+			}
+		}
+
+		>.texts-cont {
+			fill-width: true;
+			auto-size: 1;
+
+			layout: vertical;
+			margin-left: @marginLeft;
+			margin-top: @pad - 3;
+			spacing: 6;
+			>.titlePre {
+				text-transform: uppercase;
+				.regular-16;
+				letter-spacing: 3;
+			}
+			>.title {
+				text-transform: uppercase;
+				.bold-20;
+				letter-spacing: 1;
+			}
+			fixed-text{
+				max-width-text: @width - 130;
+			}
+			>.multi {
+				min-height: 16;
+				padding-top: 3;
+				content-valign: top;
+				spacing: 5;
+				fill-width: true;
+				auto-size: 1;
+
+				.playerName {
+					spacing: 5;
+					#usernameTxt{
+						color: @color-text-description;
+						.bold-14;
+					}
+					#logo {
+						width: 16;
+					}
+				}
+
+				player-account-actions {
+					spacing: 0;
+					max-width: 40;
+					margin-right: 2;
+					multiline: true;
+					halign: right;
+					margin-top: -5;
+					margin-bottom: -3;
+					button {
+						min-width: 20;
+						min-height: 20;
+						padding: 0;
+
+						>#background {
+							alpha: 0.5;
+						}
+
+						binding-icon {
+							>bitmap {
+								scale: 0.4;
+							}
+						}
+					}
+					#reportBtn {
+						#iconBmp {
+							width: 16;
+						}
+					}
+					#muteBtn {
+						#iconBmp {
+							width: 20;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	>.political-win {
+		layout: stack;
+		align: bottom right;
+		margin-bottom: 5;
+
+		.governor-star {
+			src: "UI/elements/dune_governor_symbole.png";
+			scale: 0.5;
+			margin-bottom: 20;
+			margin-right: 5;
+		}
+
+		.overline {
+			align: bottom right;
+			height: 2;
+			width: 115;
+			margin-bottom: 18;
+			background: @color-ui-text;
+			background-alpha: 0.4;
+		}
+
+		>.timerContainer {
+			align: bottom right;
+			content-align: middle middle;
+			spacing: 6;
+			>fmt-text{
+				min-width: 50;
+				color: @color-text-timer;
+				.bold-14;
+			}
+			>#timerGauge {
+				width: 12;
+				height: 13;
+				background: "UI/elements/ic_full_chrono_border.png";
+				invert: true;
+				bitmap{
+					align: bottom middle;
+					margin-bottom: 3;
+					width: 6;
+					src: "UI/elements/circle_64.png";
+					tint: @color-text-timer;
+				}
+			}
+		}
+	}
+	>.horizontal-separator {
+		background: "UI/elements/line_graphic_interface.png";
+		height: 1;
+		fill-width: true;
+		auto-size: 1;
+		margin: @mid-height 5 0 5;
+	}
+	>.resources {
+		fill-width: true;
+		auto-size: 1;
+		min-height: 56;
+		valign: bottom;
+		layout: stack;
+		spacing: 10;
+		padding-left: @pad;
+		padding-bottom: 5;
+
+		flowing-resource {
+			margin-top: 7;
+			recursive-propagate: true;
+			#iconBmp {
+				width: 24;
+			}
+			&.hegemony {
+				align: top left;
+			}
+			&.standing {
+				margin-left: 125;
+				align: top left;
+			}
+			&.choamshare {
+				align: bottom left;
+			}
+		}
+	}
+
+	>.main-bases-cont {
+		layout: vertical;
+		margin-left: 67;
+		margin-top: -8;
+		health-bar {
+			body-height: 3;
+			body-width: 135;
+			empty-color: @color-lostbar;
+			background: @color-bg-dark-4;
+			padding: 1;
+			health-per-segment: 4000;
+			color: @color-construction;
+		}
+		.empty-mb-slot {
+			width: 137;
+			height: 5;
+			background-type: dynamic;
+			>#background {
+				background: @color-emptymbslot;
+				outline: 1 @color-bg-dark-4;
+				smooth-span: 0;
+				gradient: linear(-90, fade(@color-bg-dark-1, 40%), rgba(0,0,0,0));
+			}
+		}
+	}
+
+	>.selected-indicator {
+		align: middle right;
+		src: hgrid("UI/elements/hover_select_hege.png", 2);
+		margin-right: -13;
+		scale: 0.5;
+		alpha: 0;
+		transition: alpha 0.2 ease-out;
+	}
+
+	&.selected {
+		>.bg-cont {
+			>#background {
+				outline-alpha: 1.5;
+			}
+		}
+		>.selected-indicator {
+			src-pos-x: 1;
+			alpha: 1;
+		}
+	}
+	&:hover {
+		>.bg-cont {
+			>#background {
+				outline-alpha: 1.5;
+			}
+		}
+		>.selected-indicator {
+			alpha: 1;
+		}
+	}
+
+	&.dead {
+		color-adjust: brightness(-0.05) saturate(-0.6);
+		.emblem-cont {
+			color-adjust: brightness(-0.25) saturate(-0.8);
+		}
+	}
+
+	&.ai {
+		.nameCont {
+			.multi {
+				.playerName {
+					#usernameTxt{
+						color: @color-ai;
+					}
+				}
+			}
+		}
+	}
+
+	&.is-governor {
+		>.nameCont {
+			.emblem-cont {
+				.decorated-emblem {
+					src: "UI/elements/border_special_gouvernor.png";
+				}
+
+				.base-emblem {
+					visible: true;
+				}
+			}
+		}
+	}
+	&.pad:focus {
+		player-account-actions {
+			#reportBtn {
+				pad-click: @input-lobbyreport;
+			}
+			#muteBtn {
+				pad-click: @input-lobbymute;
+				&.local-muted {
+					pad-click: @input-lobbyunmute;
+				}
+				&.system-muted {
+					pad-click: @input-lobbyalreadymuted;
+				}
+			}
+			#profileBtn {
+				pad-click: @input-lobbyshowprofile;
+			}
+		}
+	}
+}
+
+empty-status-button {
+	.bg-cont {
+		>#background {
+			outline-alpha: 0.2;
+		}
+		.faction-bg-el {
+			visible: false;
+		}
+	}
+}
+
+ingame-mission-context, faction-effects {
+	layout: vertical;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	.group {
+		fill-width: true;
+		layout: stack;
+		background: @color-bg-dark-2;
+
+		.group-header {
+			fill-width: true;
+			padding: 11 20 11 20;
+			height: 32;
+
+			layout: vertical;
+
+			background: @color-hud-bg;
+			>fmt-text {
+				.bold-15;
+				text-transform: uppercase;
+				color: @color-ui-text;
+			}
+			.bottom-arrow {
+				position: absolute;
+				width: 336;
+				src: "UI/HUD/horizontalArrow.png";
+				valign: bottom;
+				offset-y: 21;
+			}
+		}
+		.list {
+			margin-top: 32;
+			padding: 20;
+			padding-bottom: 15;
+			spacing: 8;
+
+			layout: vertical;
+			.mod-container {
+				layout:horizontal;
+				spacing: 6;
+				.check {
+					valign: top;
+				}
+				fmt-text{
+					valign: middle;
+					color: @color-text;
+					auto-size: 1;
+				}
+			}
+		}
+	}
+}
+
+faction-effects {
+	layout: vertical;
+
+	height: 538;
+	background: @color-bg-dark-2;
+
+	>.hegemony-bonuses {
+		layout: vertical;
+	}
+	.group {
+		>.group-header {
+			.title {
+				margin-left: 20;
+				alpha: 0.6;
+			}
+			bitmap.bonusStep {
+				visible: true;
+				position: absolute;
+				src: hgrid("UI/landsraad/box_check_charter.png", 2);
+				src-pos-x: 1;
+				width: 24;
+				align: top left;
+				offset-x: -15;
+				offset-y: -8;
+			}
+		}
+		>.list {
+			layout: vertical;
+			spacing: 11;
+			.mod-container {
+				.check {
+					.bullet-arrow;
+					scale: 0.5;
+				}
+				fmt-text{
+					valign: top;
+				}
+			}
+		}
+		&.reached {
+			>.group-header {
+				.title {
+					alpha: 1;
+				}
+				bitmap.bonusStep {
+					src-pos-x: 0;
+				}
+			}
+		}
+	}
+}
+
+ingame-mission-context {
+	.group {
+		fill-height: true;
+		auto-size-height: 1;
+	}
+	.mod-container {
+		.check {
+			src: hgrid("UI/landsraad/box_check_charter.png", 2);
+			width: 16;
+			src-pos-x: 0;
+		}
+	}
+}
+
+factions-status {
+	content-align: top middle;
+	width: 630;
+	align: left top;
+	&.pc{
+		margin-top: 110;
+		margin-left: 10;
+	}
+	&.spectator{
+		margin-top: 35;
+		margin-left: 0;
+	}
+	&.pad{
+		fill-width: false;
+		>.main-body{
+			fill-height: true;
+			scale: 1.2;
+		}
+	}
+	layout: vertical;
+
+	@right-panel-width: 340;
+	@left-panel-width: 264;
+
+	spacing: -2;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+
+	>.main-body {
+		layout: vertical;
+		background: "UI/conquest/conquest_box_bg.png" 25 25;
+		.border4k;
+		background-alpha: 0.4;
+		background-id: true;
+		>#background {
+			color-adjust: brightness(-0.05);
+		}
+
+		>.top-buttons {
+			halign: middle;
+			.menu-tabs();
+			spacing: 34;
+			margin-top: 20;
+			margin-bottom: 2;
+		}
+		>.horizontal-separator {
+			background: "UI/elements/line_graphic_interface.png";
+			height: 1;
+			fill-width: true;
+			auto-size: 1;
+			margin: 2 80 2 80;
+		}
+		.factions-cont, .battle-cont {
+			>.right-panel {
+				width: @right-panel-width;
+				padding: 2;
+				fill-height: true;
+				auto-size: 1;
+
+				background-type: dynamic;
+				>#background {
+					background: @inner-panel-outline-color;
+					outline: 1 #000;
+					smooth-span: 0;
+				}
+			}
+		}
+
+		.factions-cont {
+			content-valign: top;
+			padding: 13;
+			spacing: 0;
+			>.buttons-list {
+				layout: vertical;
+				margin-right: 10;
+				spacing: 10;
+
+				max-height: 750;
+				overflow: scroll;
+				.scrollbar {
+					background-alpha: 0.4;
+					.cursor {
+						background: "UI/elements/scrollbar.png";
+						background-alpha: 0.8;
+					}
+					&:hover {
+						background-alpha: 0.6;
+						.cursor {
+							background-alpha: 1;
+						}
+					}
+				}
+
+				>.team-separator {
+					visible: false;
+					halign: middle;
+					margin-top: 4;
+					margin-bottom: 4;
+					background: "UI/multiplayer/ic_separateur_informations.png";
+					width: 312;
+					height: 8;
+				}
+			}
+
+			>.right-panel {
+				layout: stack;
+				>#factionDetails {
+					visible: false;
+					// alpha: 0;
+					// .transition-alpha-quick;
+					&.visible {
+						visible: true;
+						// alpha: 1;
+					}
+				}
+			}
+		}
+
+		.battle-cont {
+			padding: 10;
+			spacing: 6;
+			content-valign: top;
+			layout: horizontal;
+			.battle-desc{
+				content-align: top middle;
+				spacing: 10;
+				layout: vertical;
+				>fmt-text{
+					.bold-24;
+					color: @color-ui-text;
+				}
+				.mods{
+					>flow{
+						width: 270;
+					}
+				}
+			}
+
+			conquest-player-bonuses-detail {
+				position: auto;
+				width: @left-panel-width;
+				fill-height: true;
+				auto-size: 1;
+				padding: 0;
+				margin: 0;
+				spacing: 12;
+				background: none;
+				.header-cont {
+					padding: 1;
+					background-type: dynamic;
+					>#background {
+						outline: 1 #000;
+						smooth-span: 0;
+					}
+					window-header {
+						margin: 0;
+						height: 35;
+					}
+				}
+				close-button {
+					visible: false;
+				}
+				#title {
+					.bold-16;
+				}
+				.bonuses-title {
+					.bold-14;
+				}
+				conquest-bonus-display {
+					&:focus {
+						start-vfx: "Fx/UI/Conquest/FX_Conquest_BonusCards_ActiveBonus.fx2d";
+					}
+				}
+				.generic-list, .territories-list, .improvements-list, .plot-modes-list {
+					conquest-bonus-display {
+						.bonusDims(25);
+						&:focus {
+							start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Small.fx2d";
+						}
+					}
+				}
+				.bonuses-category {
+					background-type: dynamic;
+					padding: 1;
+					>#background {
+						background: @color-bg-dark-2;
+						outline: 1 black;
+						smooth-span: 0;
+					}
+
+					>.cat-content {
+						background-type: dynamic;
+						>#background {
+							outline: 1 @inner-panel-outline-color;
+							smooth-span: 0;
+						}
+						.title-separator {
+							width: 200;
+						}
+						.list {
+							spacing: 4;
+							max-width: 180;
+							min-height: 25;
+							margin-bottom: 10;
+						}
+					}
+					&.index-0 {
+						margin-top: -16;
+					}
+				}
+			}
+		}
+	}
+}

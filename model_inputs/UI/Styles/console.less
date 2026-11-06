@@ -1,0 +1,605 @@
+@import "game.less";
+
+console {
+    background: @window-bg;
+    align: middle middle;
+    layout: vertical;
+    min-width: 300;
+    min-height: 300;
+    padding: 15;
+
+    text {
+        .sans-13;
+    }
+
+    .group-name {
+        margin-bottom: 10;
+    }
+
+    .list {
+        max-width: 800;
+        margin-bottom: 20;
+        multiline: true;
+        hspacing: 5;
+        vspacing: 5;
+
+        base-button {
+            padding: 4;
+            background: #000;
+            background-alpha: 0.5;
+            text { color: #ccc; }
+        }
+    }
+}
+
+dropdown-list.faction-dropdown-list {
+    >base-button {
+        content-align: middle left;
+    }
+}
+
+debug-unit {
+    background: @window-bg;
+    align: middle left;
+    content-align: top middle;
+    layout: vertical;
+    min-width: 500;
+    height: 850;
+    padding: 10;
+    spacing: 10;
+    #header{
+        padding: 15;
+
+        fmt-text {
+            .bold-20;
+        }
+    }
+    #faction{
+        spacing: 10;
+        content-align: middle middle;
+        fmt-text {
+            .bold-17;
+        }
+        dropdown{
+            width: 300;
+            base-button{
+                spacing: 10;
+                content-align: middle left;
+            }
+            #selectIcon{
+                width: 40;
+                height: 40;
+            }
+        }
+    }
+
+    text {
+        .sans-13;
+    }
+
+    .group-name {
+        margin-bottom: 10;
+    }
+
+    #units {
+        max-width: 600;
+        margin-bottom: 20;
+        padding-right: 20;
+        layout: vertical;
+        hspacing: 5;
+        vspacing: 5;
+        spacing: 3;
+        overflow: scroll;
+		.scrollbar {
+			margin-right: -20;
+        }
+        >element {
+            min-width: 370;
+            layout: vertical;
+            padding: 8;
+            padding-top: 5;
+            spacing: 4;
+            background-alpha: 0.3;
+            fmt-text{
+                align: top left;
+            }
+            &.neutral{
+                background: @faction-locals;
+            }
+            &.atreides{
+                background: @faction-atreides;
+            }
+            &.harkonnen{
+                background: @faction-harkonnen;
+            }
+            &.fremen{
+                background: @faction-fremen;
+            }
+            &.smugglers{
+                background: @faction-smugglers;
+            }
+            &.corrino{
+                background: @faction-corrino;
+            }
+            &.ecaz{
+                background: @faction-ecaz;
+            }
+            &.vernius{
+                background: @faction-vernius;
+            }
+            > element {
+                multiline: true;
+            }
+        }
+        base-button {
+			.decorated-btn;
+            padding: 4;
+            bitmap {
+                width: 50;
+                height: 50;
+            }
+            &.uncontrollable {
+                alpha: 0.6;
+            }
+        }
+    }
+}
+
+
+debug-game-prefs {
+    background: @window-bg;
+    align: middle middle;
+    content-align: top middle;
+    layout: vertical;
+    width: 500;
+    height: 800;
+    padding: 10;
+    padding-bottom: 20;
+    spacing: 20;
+
+    >#header {
+        layout: horizontal;
+        spacing: 40;
+        padding-top: 10;
+        >fmt-text {
+            .bold-20;
+        }
+    }
+
+    >#prefs {
+        layout: vertical;
+        spacing: 5;
+        multiline: true;
+        hspacing: 50;
+        check-box {
+            filter: none;
+            fmt-text {
+                .regular-17;
+            }
+        }
+    }
+}
+
+
+debug-conquest-bonus {
+    layout: stack;
+
+    >bitmap {
+        width: 32;
+        height: 32;
+    }
+
+    fmt-text {
+        margin-bottom: 4;
+        margin-right: 2;
+        align: bottom right;
+    }
+
+    &.disabled {
+        alpha: 0.5;
+    }
+
+    &.common {
+        filter: glow(#635f5f, 1, 1, 1, 1, true);
+    }
+    &.rare {
+        filter: glow(#256eb2, 1, 1, 1, 1, true);
+    }
+    &.unique {
+        filter: glow(#e88a2d, 1, 1, 1, 1, true);
+    }
+}
+
+
+debug-conquest-bonuses {
+    align: middle middle;
+    background: @window-bg;
+    spacing: 32;
+    padding: 16;
+    layout: vertical;
+    width: 800;
+    height: 600;
+
+    >.active {
+        fill-width: true;
+        layout: vertical;
+        spacing: 8;
+        >#activeBonuses {
+            spacing: 8;
+        }
+    }
+
+    >.available {
+        layout: vertical;
+        spacing: 8;
+        >#availableBonuses {
+            fill-width: true;
+            multiline: true;
+            spacing: 8;
+        }
+    }
+}
+
+debug-sound, debug-events {
+    width: 1090;
+    height: 800;
+}
+debug-sound, debug-events, debug-attributes {
+    background: @window-bg;
+    align: middle middle;
+    content-align: middle middle;
+    layout: vertical;
+    padding: 10;
+    spacing: 10;
+    #header{
+        width: 1090;
+        padding: 15;
+        layout: horizontal;
+        fmt-text {
+            align: middle;
+            .bold-20;
+        }
+
+        button {
+            align: right;
+        }
+    }
+
+    #options {
+        layout: vertical;
+        content-align: middle middle;
+        padding: 10;
+        spacing: 10;
+
+        .filter-bar {
+            halign: middle;
+            spacing: 15;
+            content-valign: middle;
+
+            .filter-box {
+                width: 330;
+                height: 34;
+                fmt-text-input {
+                    width: 279;
+                }
+                .icon {
+                    visible: true;
+                    src: "UI/multiplayer/ic_recherche.png";
+                    scale: 0.5;
+                    margin: -1 0 -1 5;
+                    alpha: 0.4;
+                    transition: alpha @hover-transition;
+                }
+                &.focused {
+                    .icon {
+                        alpha: 1;
+                    }
+                }
+            }
+        }
+
+        #stopSoundButton {
+            width: 160;
+            height: 30;
+            click-sfx: none;
+        }
+    }
+
+    >#sounds, >#events, >#attributes {
+        overflow: scroll;
+
+        .soundList, .eventList, .attributeList {
+            width: 1070;
+            height: 778;
+            max-height: 778;
+            margin-bottom: 20;
+            multiline: true;
+            padding: 3;
+            spacing: 3;
+
+            >button, >.event, >attribute-info {
+                min-width: 350;
+                padding: 8;
+                padding-top: 5;
+                spacing: 4;
+                background-alpha: 0.3;
+                click-sfx: none;
+                fmt-text {
+                    align: middle;
+                }
+
+                &.filtered {
+                    visible: false;
+                }
+                &.displaying-info {
+                    min-width: 1050;
+                }
+            }
+            >.event {
+                background-type: dynamic;
+                >#background {
+                    background: @color-bg-dark-2;
+					outline: 1 @color-text;
+                }
+
+                >element {
+                    background-type: dynamic;
+                    >#background {
+                        background: @color-bg-dark-2;
+                        outline: 1 @color-text;
+                    }
+                }
+            }
+        }
+
+        .scrollbar {
+			align: right;
+			background-alpha: 0.4;
+			.cursor {
+				background: "UI/elements/scrollbar.png";
+				background-alpha: 0.8;
+			}
+			&:hover {
+				background-alpha: 0.6;
+				.cursor {
+					background-alpha: 1;
+				}
+			}
+		}
+    }
+
+    fmt-text {
+        .sans-13;
+        color: @color-ui-text-light;
+    }
+
+    base-button {
+        .decorated-btn;
+        padding: 4;
+    }
+}
+
+debug-attributes {
+    width: 1150;
+    fill-height: true;
+    auto-size: 1;
+    overflow: scroll;
+
+    #attributes {
+        margin: 30;
+    }
+
+    #current {
+        layout: vertical;
+        spacing: 5;
+    }
+    #options {
+
+        .factions-select {
+            spacing: 5;
+            content-valign: middle;
+        }
+
+        .blackboards {
+            layout: vertical;
+            spacing: 5;
+            padding: 10;
+            .bblist, .blackboard-box {
+                layout: vertical;
+                spacing: 5;
+                padding: 3;
+            }
+            background-type: dynamic;
+            >#background {
+                outline: 1 @color-text;
+            }
+        }
+        .context-options {
+            layout: vertical;
+            spacing: 5;
+
+            .ctx-line {
+                height: 40;
+                spacing: 5;
+                content-valign: middle;
+                dropdown {
+                    #select {
+                        padding: 5;
+                    }
+                }
+                input-box.kind-input {
+                    width: 330;
+                    fmt-text-input {
+                        width: 279;
+                    }
+                    .input-hint {
+                        max-width-text: 120;
+                    }
+
+                }
+                input-box.index-input {
+                    width: 100;
+                    fmt-text-input {
+                        width: 90;
+                    }
+                    .input-hint {
+                        max-width-text: 100;
+                    }
+                }
+                >fmt-text {
+                    min-width: 52;
+                }
+                .kind-hint {
+                    position: absolute;
+                    align: bottom middle;
+                }
+            }
+        }
+        .other-option {
+            layout: vertical;
+            spacing: 5;
+            >.factions {
+                >button {
+                    #iconBmp {
+                        width: 38;
+                    }
+                }
+            }
+        }
+    }
+}
+
+debug-entity-card {
+    layout: vertical;
+    spacing: 3;
+}
+
+attribute-info {
+    layout: vertical;
+    spacing: 2;
+
+    background-type: dynamic;
+    >#background {
+        background: @color-bg-dark-2;
+        outline: 1 @color-text;
+    }
+
+    .info-line {
+        halign: middle;
+        spacing: 5;
+
+        &.never-used {
+            .title {
+                alpha: 0.5;
+                color: @color-bad;
+            }
+        }
+        .apps {
+            layout: vertical;
+        }
+    }
+
+    &.selected {
+        >#background {
+            background: @color-good;
+        }
+    }
+}
+attribute-application-info {
+    layout: vertical;
+    spacing: 2;
+    padding: 3;
+
+    background-type: dynamic;
+    >#background {
+        outline: 0.5 @color-ui-text;
+    }
+    .app-info-line {
+        spacing: 3;
+    }
+}
+
+raids-debug-ui {
+    background: @window-bg;
+    align: middle left;
+    content-align: top left;
+    layout: vertical;
+    min-width: 300;
+    height: 400;
+    padding: 15;
+    spacing: 10;
+    fmt-text{
+        .regular-14;
+    }
+    >fmt-text{
+        align: top middle;
+        .bold-16;
+        color: @color-ui-text;
+    }
+    .faction-cont{
+        padding: 10;
+        layout:vertical;
+        spacing: 7;
+        #factionName{
+            .regular-14;
+        }
+        .active-raids{
+            layout:vertical;
+        }
+        .normal{
+            layout:vertical;
+            spacing: 5;
+        }
+        .renegades{
+            layout:vertical;
+            spacing: 2;
+        }
+    }
+}
+
+landsraad-debug-ui {
+    background: @window-bg;
+    align: middle left;
+    content-align: top left;
+    layout: vertical;
+    padding: 15;
+    spacing: 5;
+    fmt-text{
+        .regular-14;
+    }
+    >fmt-text{
+        align: top middle;
+        .bold-16;
+        color: @color-ui-text;
+    }
+    .resolution-cont{
+        padding: 10;
+        layout:vertical;
+        height: 250;
+        spacing: 15;
+        multiline: true;
+        #resolutionName{
+            .regular-14;
+        }
+    }
+
+    .options {
+        layout: horizontal;
+        button {
+            .decorated-btn;
+        }
+    }
+}
+
+network-profiler-window {
+	width: 1000;
+	position: absolute;
+	align: left middle;
+	layout: vertical;
+	>window-header{
+		.windowHeader;
+		auto-size: 1;
+		fill-width: true;
+		margin-bottom: 0;
+	}
+}

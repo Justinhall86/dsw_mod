@@ -1,0 +1,35 @@
+
+encyclopedia {
+	width: 1250;
+	height: 800;
+	.main-window;
+	layout: vertical;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+}
+pedia-button {
+	.decorated-btn;
+	spectator-enabled: true;
+	pad-focusable: true;
+	pad-cursor-icon: @icon-padtopbarcursor;
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+}
+pedia-content {
+	content-align: top left;
+	.left-bar {
+		layout: vertical;
+		content-align: top left;
+	}
+	.main-block {
+		fill-width: true;
+		auto-size: 1;
+
+		pedia-leaf {
+			margin: 20;
+		}
+	}
+}

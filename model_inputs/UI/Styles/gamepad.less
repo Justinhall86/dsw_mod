@@ -1,0 +1,843 @@
+@import "game.less";
+
+wheel-window {
+	layout: stack;
+	align: middle middle;
+	content-align: middle middle;
+	fill-width: false;
+	fill-height: false;
+	block-floating-cursor: true;
+
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+
+	.group-select, .side-cont {
+		align: bottom middle;
+		.group-btn, .side-box {
+			padding: 20;
+
+			background-type: dynamic;
+			>#background {
+				border-radius: 5;
+				margin: 10;
+				outline: 1.5 @color-ui-text;
+				outline-offset: -4;
+				outline-alpha: 0.4;
+				transition: outline-alpha @hover-transition;
+				transition: outline-offset @hover-transition;
+			}
+
+			>.title {
+				.regular-20;
+				color: @color-ui-text-light;
+			}
+
+			&.selected {
+				>#background {
+					outline-alpha: 1;
+					outline-offset: -8;
+				}
+			}
+			&.is-prev {
+				pad-click: @input-menu-tabprev;
+			}
+			&.is-next {
+				pad-click: @input-menu-tabnext;
+			}
+		}
+	}
+
+	&.select-all {
+		choice-wheel {
+			.inner-cont {
+				wheel-sector { // TODO
+					.inner-bmp {
+						scale: 0.5;
+					}
+				}
+			}
+		}
+	}
+}
+choice-wheel {
+	layout: stack;
+
+	@gradient-outer-radius: 440;
+	width: @gradient-outer-radius * 2 + 50;
+	height: @gradient-outer-radius * 2 + 50;
+
+	@radius: 277;
+	content-align: middle middle;
+	hover-radius-inner: 220;
+	hover-radius-outer: 380;
+	background-type: circle-gradient;
+	>#background {
+		grad-color1: fade(@color-hud-bg-dark, 75%);
+		grad-color2: fade(@color-hud-bg-dark, 75%);
+		grad-color3: fade(@color-hud-bg-dark, 65%);
+		grad-color4: fade(@color-hud-bg-dark, 0%);
+
+		grad-radius1: 190;
+		grad-radius2: 220;
+		grad-radius3: 350;
+		grad-radius4: @gradient-outer-radius;
+	}
+
+	&.stick-neutral {
+		.middle-cont {
+			.circle-bg {
+				src: grid("UI/console/btn_xbox_joystick.png", 2, 2);
+				src-pos-x: 1;
+				src-pos-y: 1;
+				scale: 0.8;
+				alpha: 1;
+			}
+		}
+	}
+
+	.middle-cont {
+		layout: stack;
+		content-align: middle middle;
+
+		>.circle-bg {
+			src: "UI/console/cercle_menu_rond.png";
+			scale: 0.5;
+			alpha: 0.5;
+			transition: alpha @hover-transition;
+		}
+		#circleMask {
+			width: 463;
+			height: 463;
+			background: "UI/console/cercle_menu_rond.png";
+		}
+		>.arc-cont {
+			>.selection-arc {
+				position: absolute;
+				align: middle middle;
+				src: "UI/console/cercle_menu_hover.png";
+				scale: 0.5;
+			}
+		}
+
+		.middle-info {
+			layout: vertical;
+			spacing: 10;
+			max-width: 300;
+			content-halign: middle;
+			>.texts {
+				visible: false;
+			}
+			.title {
+				.regular-20;
+			}
+			>.middle-sector-cont {
+				padding : 10;
+				layout: vertical;
+				content-align: middle middle;
+				height: 500;
+				tip-unit-cost {
+					.description {
+						visible: false;
+					}
+				}
+				tip-unit-cost-pad {
+					.description {
+						visible: false;
+					}
+					.arrow {
+						visible: false;
+					}
+				}
+			}
+			&.highlighted {
+				color-adjust: brightness(0.08);
+			}
+		}
+		&.has-content {
+			>.circle-bg {
+				alpha: 1;
+			}
+		}
+	}
+
+	wheel-layer {
+		.sector-cont {
+			position: absolute;
+			y: -@radius - 18;
+			content-align: middle middle;
+			sector-box {
+				margin: -150;
+			}
+		}
+		&.outer-cont {
+			.sector-cont {
+				y: -@radius - 150;
+				sector-box.empty {
+					visible: false;
+				}
+			}
+		}
+	}
+
+	>.side-cont {
+		width: 400;
+		.side-box {
+			&.index-0 {
+				wheel-sector {
+					pad-click: @input-mainwheelsides0;
+				}
+			}
+			&.index-1 {
+				halign: right;
+				wheel-sector {
+					pad-click: @input-mainwheelsides1;
+				}
+			}
+		}
+	}
+	&.stick-neutral {
+		.selection-arc {
+			visible: false;
+		}
+	}
+}
+
+sector-box {
+	layout: stack;
+	width: 164;
+	height: 97;
+	content-align: middle middle;
+	show-mask: true;
+
+	click-sfx: @UI_Button_Wheelsectorrelease;
+	hover-sfx: @UI_Button_Wheelsectorrollover;
+
+	background: vgrid("UI/console/box_cercle_menu.png", 3);
+	background-tile-pos-y: 2;
+
+	#sectorMask, #sectorPortraitMask {
+		width: 164;
+		height: 97;
+		background: vgrid("UI/console/box_cercle_menu.png", 3);
+		background-tile-pos-y: 1;
+	}
+
+	>.sector-outline {
+		visible: false;
+		width: 164;
+		height: 97;
+		background: grid("UI/console/box_cercle_menu_border.png", 2, 3);
+		background-tile-pos-y: 2;
+	}
+
+	>.highlighted-cont {
+		align: bottom middle;
+		.arrow {
+			src: "UI/console/cercle_menu_arrow_anim.png";
+			scale: 0.5;
+			offset-y: 15;
+			alpha: 0;
+			transition: alpha 0.15 ease-out;
+			transition: offset-y 0.15 ease-out;
+		}
+	}
+	.sector-box-outer {
+		halign: middle;
+		content-align: middle middle;
+		offset-y: -50;
+		padding: -25;
+		.outer-border {
+			layout: stack;
+			width: 48;
+			height: 48;
+			content-align: middle middle;
+
+			background-type: dynamic;
+			>#background {
+				background: @color-hud-bg-dark;
+				outline: 0.7 black;
+				outline-alpha: 0.4;
+				border-radius: 50;
+			}
+			.inner-border {
+				fill-width: true;
+				fill-height: true;
+				background-type: dynamic;
+				>#background {
+					outline: 0.7 @color-ui-text;
+					outline-alpha: 0.4;
+					border-radius: 50;
+					outline-offset: 4;
+				}
+			}
+			.outer-icon {
+				margin: -30;
+			}
+		}
+	}
+	.bound-click-content {
+		.bound-click {
+			offset-y: -75;
+			binding-icon {
+				>bitmap {
+					scale: 0.6;
+				}
+			}
+		}
+	}
+
+	wheel-sector, .sector-box-bg {
+		position: absolute;
+		align: middle middle;
+		fmt-text {
+			alpha: 0.5;
+		}
+		&.highlighted.enabled {
+			fmt-text {
+				alpha: 1;
+			}
+		}
+	}
+	&.highlighted.enabled {
+		color-adjust: contrast(0.2) brightness(0.05);
+	}
+	&.disabled {
+		.sector-bg {
+			color-adjust: saturate(-0.8);
+			alpha: 0.6;
+		}
+	}
+
+	.sector-bg {
+		scale: 0.5;
+		position: absolute;
+		align: middle middle;
+		visible: false;
+	}
+	&.has-background {
+		.sector-bg, >.sector-outline {
+			visible: true;
+		}
+	}
+
+	&.highlighted {
+		&, >#sectorMask, >#sectorPortraitMask, >.sector-outline {
+			background-tile-pos-y: 0;
+		}
+	}
+	&.enabled {
+		&, >#sectorMask, >#sectorPortraitMask, >.sector-outline {
+			background-tile-pos-y: 1;
+			transition: background-tile-pos-y 0.1 linear;
+		}
+		&.highlighted {
+			&, >#sectorMask, >#sectorPortraitMask, >.sector-outline {
+				background-tile-pos-y: 0;
+				.highlighted-cont {
+					.arrow {
+						offset-y: 0;
+						alpha: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&.action-factiontrade {
+		.sector-bg {
+			src: hgrid("UI/console/wheel_faction_bg.png", @ui-faction-count);
+			visible: true;
+		}
+		>.sector-outline {
+			visible: true;
+			background-tile-pos-x: 1;
+		}
+		&.enabled {
+			>.sector-outline {
+				background-tile-pos-y: 2;
+				transition: background-tile-pos-y 0.1 linear;
+			}
+			&.highlighted {
+				>.sector-outline {
+					background-tile-pos-y: 1;
+				}
+			}
+		}
+
+		.tiled-faction(src-pos-x, ~'.sector-bg');
+
+		#sectorPortraitMask {
+			width: 164;
+			height: 194;
+			margin-top: -97;
+			background: vgrid("UI/console/mask_cercle_menu_leader.png", 3);
+			color-adjust: brightness(1);
+		}
+
+		&.index-1 {
+			// &.harkonnen{
+			// 	wheel-sector {
+			// 		.inner-bmp {
+			// 			offset-x: 14;
+			// 			offset-y: 10;
+			// 		}
+			// 	}
+			// }
+			// &.ecaz {
+			// 	wheel-sector {
+			// 		.inner-bmp {
+			// 			offset-x: 11;
+			// 			offset-y: 10;
+			// 		}
+			// 	}
+			// }
+		}
+	}
+	&.action-recruitharvtent, &.action-recruitorni, &.action-baseunit, &.action-choosehero,
+	&.action-questwindow, &.action-questwheel, &.action-progresswindow, &.action-focuschatbox, &.action-equipmentwindow {
+		.outer-icon {
+			scale: 0.5;
+		}
+	}
+	&.action-choamwindow, &.action-devwindow, &.action-landsraadwindow, &.action-spyingwindow {
+		.outer-icon {
+			scale: 0.7;
+		}
+	}
+}
+
+wheel-sector {
+	layout: stack;
+	base-button {
+		pad-focusable: false;
+	}
+
+	.center-cont {
+		halign: middle;
+		layout: vertical;
+		content-halign: middle;
+		spacing: 5;
+		wheel-recruit-unit {
+			.visible-cont {
+				layout: stack;
+				content-align: middle middle;
+
+				>.icon {
+					filter: glow(#000000, 1, 4, 1, 1, true);
+					alpha: 0;
+				}
+				>.portrait {
+					scale: 0.5;
+				}
+			}
+			.hidden-cont {
+				visible: false;
+			}
+		}
+	}
+	&.has-background {
+		.center-cont {
+			visible: false;
+		}
+	}
+	&.action-factiontrade {
+		.inner-bmp {
+			scale: 0.5;
+		}
+	}
+
+	&.disabled {
+		wheel-recruit-unit {
+			.visible-cont {
+				color-adjust: brightness(-0.15) saturate(-0.8);
+			}
+		}
+	}
+}
+
+crosshair {
+	visible: false;
+	align: middle middle;
+	>#center {
+		scale: 0.5;
+		src: "UI/console/crosshair02.png";
+	}
+}
+pad-cursor {
+	position: absolute;
+}
+
+bindings-bar {
+	align: bottom right;
+	layout: stack;
+	content-align: middle right;
+
+	.bar-bg {
+		src: "UI/console/banniere_sommaire_xbox.png";
+		scale: 0.5;
+	}
+
+	.buttons {
+		reverse: true;
+		min-width: 100;
+		min-height: 40;
+		padding: 5;
+		padding-right: 22;
+		spacing: 12;
+		content-align: middle right;
+	}
+	binding-button {
+		pad-binding-persistent: true;
+		min-width: 100;
+		content-valign: middle;
+		spacing: 8;
+		padding: 5;
+		spectator-enabled: true;
+
+		>.title {
+			color: @color-ui-text;
+			transition: color 0.5 ease-in;
+			.bold-17;
+			text-shadow : 1.5 1.5 #000 0.7;
+			alpha: 0;
+		}
+		>.button-icon {
+			halign: left;
+			width: 24;
+			margin: -2;
+			color-adjust: brightness(-0.3) saturate(-0.8);
+			alpha: 0.5;
+		}
+		.vert-sep {
+			src: "UI/console/sommaire_separateur.png";
+			scale: 0.5;
+			margin-top: -20;
+			margin-bottom: -20;
+			margin-right: 16;
+		}
+		&.last {
+			.vert-sep {
+				alpha: 0;
+			}
+		}
+
+		&.activable {
+			>.title {
+				alpha: 1;
+			}
+			>.button-icon {
+				color-adjust: none;
+				alpha: 1;
+			}
+		}
+
+		&.Game_RightClick {
+			min-width: 141;
+			padding-right: 0
+		}
+		&.Menu_LeftClick {
+			min-width: 120;
+		}
+		&.LobbyChangeFaction, &.LobbyChooseFaction, &.LobbyAddAI {
+			min-width: 190;
+		}
+		&.Pad_Dpad {
+			.button-icon {
+				scale: 1.4;
+				margin-top: -5;
+				margin-bottom: -5;
+				margin-left: -5;
+			}
+		}
+	}
+	&.in-lobby {
+		binding-button.Menu_LeftClick {
+			min-width: 190;
+		}
+	}
+
+	&.env-Default {
+		binding-button {
+			.title {
+				// color: @color-ui-text-dark;
+			}
+		}
+	}
+}
+
+
+binding-icon {
+	position: absolute;
+	align: auto;
+
+	>bitmap {
+		position: absolute;
+		align: middle middle;
+		scale: 0.5;
+	}
+
+	&.not-valid {
+		visible: false;
+	}
+}
+
+wheel-center-info {
+	layout: vertical;
+	fill-height: true;
+	>.upper {
+		layout: vertical;
+		valign:top;
+		width: 463;
+		height: 320;
+		offset-y: -5;
+		background: @color-tip-body-bg;
+		padding-top: 50;
+		>.header {
+			align: bottom middle;
+			layout: vertical;
+			width: 300;
+			content-align: middle middle;
+			padding: 10;
+			fmt-text {
+				color:@color-ui-text-light;
+				.bold-20;
+			}
+		}
+		>.body{
+			halign: middle;
+			layout: vertical;
+			width: 300;
+			fill-height: true;
+			auto-size: 1;
+
+			.alert {
+				halign: right;
+				color: @color-bad;
+				.italic-14;
+			}
+		}
+	}
+	>.separator {
+		align:top middle;
+		width: 300;
+		height: 12;
+		offset-y: -5;
+		background: "UI/HUD/baseline1.png";
+	}
+	>.footer{
+		layout: vertical;
+		align:top middle;
+
+		.footer-cont {
+			align: top middle;
+			width: 310;
+			.description{
+				.italic-14;
+				color: @color-tip-desc;
+			}
+		}
+	}
+}
+
+wheel-center-dev {
+	tip-default {
+		valign: bottom;
+		.primary-body{
+			.body-content{
+				margin: 0;
+				#fattributes{
+					fill-height: false;
+				}
+				#fbody{
+					visible: false;
+				}
+			}
+		}
+	}
+}
+wheel-center-faction {
+	tip-leader {
+		margin-bottom: 10;
+		fill-width: true;
+		content-align: middle middle;
+		.title-header {
+			visible: false;
+		}
+		.body-content {
+			visible: false;
+		}
+	}
+}
+
+wheel-center-landsraad, wheel-center-spying, wheel-center-choam {
+	.upper{
+		#header {
+			valign: middle;
+		}
+		.body{
+			spacing: 10;
+			margin-bottom: 10;
+		}
+	}
+}
+resolution-short-display{
+	layout: vertical;
+	>.header{
+		content-align: middle middle;
+		spacing: 5;
+	}
+	#factionBanner{
+		src: hgrid("UI/landsraad/faction_banners.png", (@ui-faction-count + 1));
+		width: 18;
+		&.faction-all {
+			visible: false;
+		}
+		.tiled-faction(src-pos-x, @offset: 1);
+	}
+}
+
+wheel-center-landsraad {
+	.upper {
+		.separator {
+			halign: middle;
+			alpha: 1;
+			width: 322;
+			background: @color-desert-darken;
+			height: 2;
+			&.arrow {
+				height: 12;
+				background: "UI/HUD/baseline1.png";
+			}
+		}
+	}
+	.active-resolutions {
+		layout: vertical;
+		margin-top: 5;
+		.resolutions, .charters {
+			layout:vertical;
+			fill-width: true;
+			spacing: 5;
+			resolution-short-display {
+				margin-left: 10;
+			}
+		}
+	}
+
+}
+wheel-center-choam {
+	.upper{
+		#header {
+			valign: middle;
+		}
+		.body{
+			.alert {
+				valign: bottom;
+			}
+			spacing: 10;
+		}
+	}
+}
+
+
+wheel-center-unit {
+	.upper {
+		.body {
+			valign: bottom;
+			margin-bottom: 5;
+			spacing: 2;
+			fill-height: false;
+			.training-time {
+				layout: horizontal;
+				fill-width: true;
+				content-align: middle left;
+				auto-size: 1;
+				background-type: dynamic;
+				>#background {
+					background: @color-tip-body-bg-dark;
+					outline: 0.5 black;
+				}
+				padding: 2;
+				.time {
+					halign: right;
+				}
+				#iconBmp{
+					width: 22;
+				}
+			}
+			.cost {
+				layout: horizontal;
+				fill-width: true;
+				auto-size: 1;
+
+				content-align: middle left;
+				padding: 0 10 0 10;
+
+				.cost-detail {
+					offset-x: -5;
+					#iconBmp{
+						width: 22;
+					}
+				}
+				.upkeep {
+					content-align: middle left;
+					halign: right;
+					#iconBmp{
+						width: 22;
+					}
+				}
+			}
+			.load {
+				layout: horizontal;
+				fill-width: true;
+				auto-size: 1;
+				content-align: middle left;
+				padding: 0 10 0 10;
+				no-stock-cost-detail {
+					halign: right;
+					#iconBmp{
+						width: 22;
+					}
+				}
+
+			}
+			.class-traits {
+				padding: 0 10 10 10;
+				spacing: 10;
+				fill-width: true;
+				auto-size: 1;
+				content-align: left middle;
+			}
+
+			tip-trait{
+				padding: 10 10 0 10;
+				#titleText{
+					color: @color-trait;
+				}
+				.primary-body {
+					vspacing: 5;
+					.body-content {
+						margin-top: 2;
+						padding-top: 0;
+						spacing: 0;
+						margin: 0;
+					}
+				}
+			}
+		}
+		.separator {
+			halign: middle;
+			alpha: 1;
+			width: 322;
+			background: @color-desert-darken;
+			height: 2;
+			&.arrow {
+				height: 12;
+				background: "UI/HUD/baseline1.png";
+			}
+		}
+	}
+}
+
+
+

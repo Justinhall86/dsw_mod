@@ -1,0 +1,35 @@
+
+
+.circularGaugeContainer {
+	position: absolute;
+	layout : horizontal;
+	align: middle middle;
+	content-align : middle middle;
+	spacing: 20;
+}
+
+circular-gauge {
+	layout : stack;
+	content-align : middle middle;
+	#inner {
+		layout : vertical;
+		content-align : middle middle;
+		fmt-text {
+			.bold-13;
+		}
+		min-width: 60;
+		min-height: 60;
+	}
+	#gauge {
+		background-id: true;
+		background: "UI/elements/circle_hollow_20_64.png";
+		#background {
+			alpha: 0.2;
+		}
+		bitmap{
+			src: "UI/elements/circle_hollow_20_64.png";
+			width: 64;
+			height: 64;
+		}
+	}
+}

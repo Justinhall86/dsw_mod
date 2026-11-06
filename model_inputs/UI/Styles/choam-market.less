@@ -1,0 +1,948 @@
+@import "game.less";
+
+
+
+choam-market-comp{
+	fill-width:true;
+	auto-size:1;
+	content-align:middle middle;
+	#marketBtn{
+		fill-width:true;
+		auto-size:1;
+		image{
+			padding: 5;
+			bitmap {
+				height: 32;
+			}
+		}
+		pad-action: @padaction-choamwindow;
+	}
+	#trendDetail {
+		content-align: middle middle;
+		spacing: 5;
+		.trend{ src: grid("UI/icons/stability_icons.png",3 , 2); }
+		&.trend-up {
+			.trend{
+				src-pos-x:0;
+				src-pos-y:0;
+				tint: @color-bad;
+			}
+		}
+		&.trend-down {
+			.trend{
+				src-pos-x:0;
+				src-pos-y:1;
+				tint: @color-good;
+			}
+		}
+		&.trend-equal {
+			.trend{
+				src-pos-x:2;
+				src-pos-y:0;
+			}
+		}
+	}
+}
+
+choam-market{
+	.main-window;
+	width: 1070;
+	height: 580;
+	layout: vertical;
+	align: middle middle;
+	content-align: top middle;
+	spacing: 15;
+	padding-bottom: 20;
+	start-sfx: @Button_Choammarket_Open;
+	close-sfx: @Button_Choammarket_Close;
+
+	@{opt-minfont} {
+		width: 1120;
+	}
+
+	@curve-width: 640;
+	@curve-height: 220;
+	@curve-height-pad: 200;
+
+	&.pc.spectator {
+		margin-right: @spectator-rightcont-width;
+	}
+
+	&.pad{
+		fill-width: false;
+		.left .price-info {
+			scale:1.3;
+			#available {
+				.desc {
+					alpha:.8 !important;
+				}
+			}
+			.rates {
+				.desc {
+					alpha:.8 !important;
+				}
+			}
+			.curve{
+				min-height: @curve-height-pad + 24;
+				market-curve{
+					curve-height: @curve-height-pad;
+					min-height: @curve-height-pad;
+					.curve-main {
+						#curveCont{
+							min-height: @curve-height-pad;
+						}
+					}
+					#curveXAxis{
+						>element{
+							offset-y: @curve-height-pad + 4;
+							>element{
+								min-height: @curve-height-pad + 4;
+							}
+						}
+					}
+				}
+			}
+		}
+		.right {
+			auto-size: 1;
+
+			market-shares-pie {
+				scale: 1.3;
+			}
+			.threshold-cont {
+				.right-cont {
+					.title-text {
+						alpha: 1 !important;
+					}
+					.attribute {
+						.sans-12;
+						color: @color-ui-text !important;
+						alpha: 0.9 !important;
+					}
+				}
+			}
+			.shares-detail {
+				.title {
+					.bold-20;
+				}
+				padding-bottom: 30;
+				share-holder-detail {
+					height: 40;
+					.banner {
+						scale: 1.3;
+					}
+					#owner {
+						.italic-20;
+						color: @color-ui-text-dark;
+					}
+					#shareCount {
+						.regular-20;
+						color: @color-ui-text;
+					}
+				}
+			}
+		}
+	}
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	.main-body{
+		padding-left: 20;
+		padding-right: 20;
+		spacing: 15;
+		content-align: top middle;
+	}
+
+	>window-header {
+		auto-size: 1;
+	}
+
+	.left {
+		content-align: top middle;
+		spacing: 10;
+
+		.shares-info {
+			spacing: 14;
+			.rates{
+				spacing: 6;
+			}
+			#available, .buy-rate, .sell-rate {
+				width: 185;
+				padding: 10;
+				padding-top: 18;
+				spacing: 12;
+				layout: vertical;
+				content-align: middle left;
+				.texts{
+					layout: vertical;
+					spacing: 5;
+					.title{
+						text-transform: uppercase;
+						.bold-15;
+					}
+					.desc{
+						.regular-12;
+						alpha: 0.4;
+					}
+				}
+				.details {
+					fill-width: true;
+					content-align: middle left;
+					resource-counter {
+						bitmap {
+							width: 24;
+						}
+					}
+					spacing: 1;
+					.arrow{
+						src: "UI/CHOAM/arrow_conversion.png";
+						width: 60;
+						halign: middle;
+					}
+					.solari {
+						width: 60;
+					}
+					.choamshare {
+						spacing: 2;
+					}
+					.target {
+						halign: right;
+					}
+				}
+				>.sign {
+					position: absolute;
+					align: top right;
+					src: hgrid("UI/CHOAM/ic_sell_buy.png", 2);
+					width: 25;
+					offset-x: 3;
+					offset-y: -11;
+				}
+			}
+			#available {
+				width: 295;
+				background: "UI/CHOAM/box_faction.png";
+				.details {
+					width: 280;
+					spacing: 10;
+					resource-counter {
+						fmt-text{
+							color: @color-ui-text;
+						}
+					}
+					#availableTotal{
+						alpha: 0.6;
+						margin-left: -8;
+					}
+					.separator {
+						fill-width: true;
+						auto-size: 1;
+						margin: -5;
+						height: 1;
+						background: @color-ui-text-dark;
+						alpha: 0.7;
+						halign: middle;
+					}
+					#availablePercent{
+						.bold-15;
+						halign: right;
+					}
+				}
+			}
+			.buy-rate, .sell-rate {
+				background-type: dynamic;
+				>#background {
+					background: @color-bg-dark-2;
+					border-radius: 6;
+					outline: 0.5 #FCD28B;
+				}
+			}
+			.sell-rate {
+				.sign {
+					src-pos-x: 1;
+				}
+			}
+		}
+
+		.price-info {
+
+			content-align: top middle;
+			layout: vertical;
+			spacing: 10;
+			>flow{
+				min-width: @curve-width + 50;
+				content-align: middle middle;
+			}
+			.curve {
+				layout: vertical;
+				background-type: dynamic;
+				>#background {
+					background: @color-bg-dark-2;
+					border-radius: 6;
+					outline: 0.5 @color-text;
+					outline-alpha: 0.3;
+				}
+				min-height: @curve-height + 24;
+				spacing: 20;
+				padding: 10;
+				padding-bottom: 20;
+				padding-left: 13;
+
+				.header{
+					content-align: left middle;
+					fill-width: true;
+					auto-size: 1;
+					dropdown {
+						width: 120;
+						base-button {
+							spectator-enabled: true;
+							height: 30;
+						}
+						halign: right;
+					}
+					spacing: 10;
+					.title {
+						.bold-15;
+					}
+					.desc {
+						.regular-13;
+						color: @color-ui-text-dark;
+					}
+				}
+				market-curve{
+					curve-width: @curve-width;
+					curve-height: @curve-height;
+					min-width: @curve-width;
+					min-height: @curve-height;
+					margin-bottom: 20;
+					margin-left: 20;
+
+					curve-set {
+						render-scale: 2;
+						line-thickness: 2;
+						segment-count: 200;
+						segment-mode: timeaverageflat;
+					}
+
+					.curve-main {
+						#curveCont{
+							min-width: @curve-width;
+							min-height: @curve-height;
+							background-id: true;
+							#background { visible: false; }
+						}
+					}
+					#curveXAxis{
+						>element{
+							offset-y: @curve-height + 4;
+							>element{
+								min-height: @curve-height + 4;
+							}
+						}
+					}
+					#curveYAxis{
+						>element{
+							offset-x: @curve-width;
+							>element{
+								min-width: @curve-width + 2;
+							}
+						}
+					}
+				}
+			}
+		}
+		.actions {
+			spacing: 10;
+			content-align: top middle;
+			align: bottom middle;
+			&.spectator {
+				visible: false;
+			}
+		}
+
+	}
+	.right {
+		fill-height: true;
+		@right-width: 325;
+		width: @right-width;
+		padding: 1;
+		background-type: dynamic;
+		>#background {
+			background: #1D1F26;
+			border-radius: 6;
+			outline: 0.5 @color-ui-text;
+			outline-alpha: 0.3;
+		}
+		.header{
+			padding: 10;
+			padding-top: 8;
+			background-type: dynamic;
+			fill-width: true;
+			auto-size-width: 1;
+			>#background {
+				background: @color-bg-dark-2;
+				border-radius: 6 6 0 0;
+			}
+			>fmt-text{
+				.bold-15;
+				color: @color-ui-text;
+			}
+		}
+
+		content-align: top middle;
+		layout: vertical;
+		.distribution{
+			layout: vertical;
+			content-align: middle middle;
+			spacing: 30;
+			padding: 25;
+			padding-bottom: 5;
+			market-shares-pie {
+				align: middle middle;
+			}
+
+			>.threshold-cont {
+				layout: vertical;
+				spacing: 14;
+
+				#thresholdLines {
+					content-valign: middle;
+					spacing: 10;
+
+					bitmap.bonusStep {
+						src: hgrid("UI/landsraad/box_check_charter.png", 2);
+						src-pos-x: 1;
+						width: 19;
+					}
+					.percent-text {
+						alpha: 0.5;
+						.bold-16;
+						color: @color-ui-text;
+					}
+					.right-cont {
+						layout: vertical;
+						spacing: 5;
+
+						>.title-text {
+							color: @color-ui-text-light;
+							alpha: 0.5;
+						}
+						>.attribute {
+							.sans-12;
+							color: @color-ui-text-dark;
+							alpha: 0.6;
+						}
+					}
+
+					>.vertical-separator {
+						position: absolute;
+						height: 19;
+						width: 1;
+						background: @color-ui-text-dark;
+						align: top left;
+						offset-y: -17;
+						offset-x: 9;
+						alpha: 0.3;
+					}
+
+					&.active {
+						bitmap.bonusStep {
+							src-pos-x: 0;
+						}
+						.percent-text {
+							alpha: 1;
+						}
+						.right-cont {
+							>.title-text, >.attribute {
+								alpha: 1;
+							}
+						}
+						>.vertical-separator {
+							alpha: 1;
+						}
+					}
+				}
+			}
+			>.desc{
+				.regular-12;
+				alpha: 0.6;
+			}
+		}
+		>.shares-detail {
+			content-align: middle middle;
+			.title {
+				.bold-16;
+				margin-bottom: 11;
+			}
+			layout: vertical;
+			valign: bottom;
+			padding: 10;
+			padding-bottom: 20;
+			spacing: 3;
+			share-holder-detail {
+				width: @right-width - 30;
+				height: 32;
+			}
+		}
+	}
+
+}
+
+market-transaction-panel {
+	layout: vertical;
+	background-type: dynamic;
+	@transaction-width: 340;
+	@transaction-height: 207;
+	width: @transaction-width;
+	height: @transaction-height;
+	padding: 1;
+
+	>#background {
+		background: @color-bg-dark-2;
+		border-radius: 6;
+		outline: 0.5 @color-text;
+		outline-alpha: 0.3;
+	}
+	>.highlight-bg {
+		position: absolute;
+		width: @transaction-width + 4;
+		height: @transaction-height + 4;
+		x: -2;
+		y: -2;
+		border-radius: 8;
+		outline: 1.5 @color-good;
+		outline-alpha: 0;
+		transition: outline-alpha 0.2 ease-out;
+	}
+
+	>.header, >.auto-cont {
+		fill-width: true;
+		padding: 10;
+		content-align: middle left;
+		.texts {
+			layout: vertical;
+			spacing: 4;
+			.title {
+				text-transform: uppercase;
+				.bold-16;
+			}
+			.desc {
+				max-width: @transaction-width * 0.8;
+				alpha: 0.9;
+				.regular-13;
+			}
+		}
+	}
+	>.header {
+		background: hgrid("UI/CHOAM/img_box_achat.png", 2);
+		#cdGauge {
+			halign: right;
+			margin-top: 6;
+			padding: 1;
+			background: "UI/HUD/iconCircle.png";
+			invert: true;
+			bitmap {
+				height: 28;
+				src: "UI/elements/circle_64.png";
+				tint: black;
+				alpha: 0.6;
+			}
+		}
+	}
+	>.auto-cont {
+		background: hgrid("UI/CHOAM/background_auto.png", 2);
+		.auto-btn {
+			halign: right;
+			width: 36;
+			height: 21;
+			propagate-over-out: true;
+
+			#iconBmp {
+				width: 9;
+				height: 9;
+			}
+		}
+	}
+	>.separator-main, >.separator-auto {
+		fill-width: true;
+		auto-size: 1;
+		height: 1;
+		background: @color-hud-bg-tactical;
+	}
+	>.separator-main {
+		background: "UI/equipments/line_graphic_interface.png";
+	}
+	.body {
+		fill-width: true;
+		auto-size: 1;
+		height: 102;
+		.action-icon {
+			content-align: middle middle;
+			width: 100;
+			fill-height: true;
+			background: "UI/CHOAM/background_ic_sell.png";
+			background-alpha: 0.65;
+			bitmap {
+				src: hgrid("UI/CHOAM/ic_sell_buy.png", 2);
+				height: 55;
+			}
+		}
+		>.separator {
+			fill-height: true;
+			width: 2;
+			background: "UI/CHOAM/separateur_achat.png";
+			margin-top: 10;
+			margin-bottom: 10;
+		}
+		.buttons {
+			layout:vertical;
+			fill-width: true;
+			auto-size: 1;
+		}
+		.auto-btn {
+			position: absolute;
+			x: 3;
+			y: 3;
+			padding: 6;
+			.actionBtn;
+		}
+	}
+
+	&.sell {
+		.header, .auto-cont {
+			background-tile-pos-x: 1;
+		}
+		.action-icon {
+			>bitmap {
+				src-pos-x: 1;
+			}
+		}
+	}
+
+	&.auto-active {
+		>.highlight-bg {
+			outline-alpha: 1;
+		}
+	}
+
+	market-transaction-button{
+		fill-width: true;
+		fill-height: true;
+		auto-size: 1;
+		width: 223; // TODO: Fix fill-width not working
+		content-align: middle right;
+		spacing: 5;
+		padding-right: 10;
+		resource-counter{
+			bitmap{
+				height: 26;
+			}
+			&.choamshare{
+				width: 60;
+				spacing: 5;
+			}
+		}
+		base-button{
+			.actionBtn;
+			width: 130;
+			height: 40;
+			padding: 5;
+			padding-left: 13;
+			content-align: middle right;
+			fmt-text{
+				halign: left;
+				color: @color-ui-text;
+			}
+			.title {
+				halign: middle;
+			}
+			resource-counter{
+				content-align: middle middle;
+				halign: right;
+				res-tip: false;
+				height: 30;
+				width: 60;
+				fmt-text{
+					.bold-13 !important;
+				}
+				bitmap{
+					height: 23;
+				}
+			}
+		}
+		&.odd {
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-3;
+				border-radius: 0 0 6 0;
+			}
+		}
+		&.sell {
+			base-button{
+				>.separator {
+					fill-height: true;
+					auto-size: 1;
+					width: 1;
+					background: @color-ui-text;
+					margin-top: 5;
+					margin-bottom: 5;
+					margin-right: -1;
+					alpha: 0.3;
+				}
+				resource-counter{
+					background-type: dynamic;
+					>#background {
+						background: @color-bg-dark-2;
+						border-radius: 0 8 8 0;
+					}
+					fmt-text{
+						color: #FBD03D;
+					}
+				}
+			}
+		}
+	}
+}
+
+market-curve{
+	.curve-main {
+		market-curve-point {
+			position: absolute;
+		}
+	}
+}
+market-curve-point {
+	position: absolute;
+	>#point {
+		position: absolute;
+		align: middle middle;
+		content-align: middle middle;
+		width: 14;
+		height: 14;
+		filter: glow(#000000, 0.8, 4, 1, 1, true);
+	}
+	bitmap{
+		src: "UI/CHOAM/ellipse_courbe.png";
+		width: 12;
+	}
+	/*&.sell {
+		bitmap{
+			tint: @color-bad;
+		}
+	}*/
+}
+
+.market-pie-dims(@pie-diam: 180) {
+	width: @pie-diam;
+	height: @pie-diam;
+
+	hover-radius-inner: (@pie-diam * 0.5) - 30;
+	hover-radius-outer: (@pie-diam * 0.5);
+
+	>#background {
+		border-radius: (@pie-diam)*0.5;
+	}
+
+	market-pie-slice, pie-slice {
+		bitmap {
+			width: @pie-diam;
+		}
+	}
+	>.thresholds {
+		#thresholdConts {
+			y: -(@pie-diam * 0.5) - 12;
+		}
+	}
+	.texts{
+		fixed-text {
+			max-width-text: @pie-diam - 20;
+		}
+	}
+}
+market-shares-pie{
+	layout: stack;
+	content-align: middle middle;
+
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-2;
+	}
+	.market-pie-dims(180);
+
+	.middle-info {
+		layout: vertical;
+		content-align: middle middle;
+		spacing: 6;
+		margin-top: 15;
+		.texts{
+			layout: vertical;
+			content-align: middle middle;
+			spacing: 5;
+			fmt-text{
+				.bold-14;
+				color: @color-ui-text-light;
+			}
+			#title{
+				color: @color-ui-text;
+			}
+			#desc{
+				color: @color-ui-text-dark;
+				.regular-12;
+			}
+		}
+		.shares-info{
+			content-align: middle middle;
+			layout: vertical;
+			fmt-text{
+				.bold-16 !important;
+			}
+			.shares-detail{
+				content-align: middle middle;
+				resource-counter{
+					bitmap{
+						height: 32;
+					}
+					#resTxt {
+						width: 34;
+						#tf{
+							color: @color-ui-text;
+							alpha: 1;
+							halign: right;
+						}
+					}
+				}
+				fmt-text{
+					alpha: 0.5;
+				}
+			}
+			#sharePercent {
+				max-width: 35;
+				color: @color-ui-text;
+				text-align: right;
+			}
+		}
+	}
+	market-pie-slice {
+		position: absolute;
+		align: middle middle;
+	}
+	>.thresholds {
+		align: middle middle;
+		content-align: middle middle;
+		#thresholdConts {
+			position: absolute;
+			width: 16;
+			height: 16;
+			x: -8;
+
+			>bitmap {
+				src: hgrid("UI/landsraad/box_check_charter.png", 2);
+				src-pos-x: 1;
+				scale: 0.5;
+			}
+
+			&.active {
+				>bitmap {
+					src-pos-x: 0;
+				}
+			}
+		}
+	}
+
+}
+
+market-pie-slice {
+	radial-fill-image{
+		bitmap {
+			src: "UI/elements/circle_hollow_10_360.png";
+		}
+		&.faction-minor-houses { bitmap{ tint: @faction-minorhouses;} }
+		&.faction-atreides { bitmap{ tint: @faction-atreides;} }
+		&.faction-harkonnen { bitmap{ tint: @faction-harkonnen;} }
+		&.faction-smugglers { bitmap{ tint: @faction-smugglers;} }
+		&.faction-fremen { bitmap{ tint: @faction-fremen;} }
+		&.faction-corrino { bitmap{ tint: @faction-corrino;} }
+		&.faction-ecaz { bitmap{ tint: @faction-ecaz;} }
+		&.faction-vernius { bitmap{ tint: @faction-vernius;} }
+	}
+	&.hovered{
+		filter: glow(#000000, 0.6, 4, 1, 1, true);
+		radial-fill-image{
+			bitmap{
+				src: "UI/elements/circle_hollow_15_360.png";
+			}
+		}
+		scale: 1.015;
+	}
+}
+
+share-holder-detail {
+	spacing: 15;
+	content-align: left middle;
+	background-type: dynamic;
+	#background {
+		background: @color-bg-dark-2;
+		border-radius: 4 4 4 4;
+		outline: 0.5 #000000;
+	}
+	fmt-text{
+		.regular-13;
+		color: @color-ui-text-dark;
+		margin-top: -3 !important;
+	}
+	#shareCount {
+		halign: right;
+	}
+	#owner {
+		.italic-13;
+	}
+	.percent-container {
+		halign: right;
+		content-align: middle middle;
+		width: 50;
+		fill-height: true;
+		#sharePercent{
+			.bold-14;
+			color: @color-ui-text-light;
+		}
+		background-type: dynamic;
+		#background {
+			background: @color-bg-dark-3;
+			border-radius: 0 4 4 0;
+			outline: 0.5 #000000;
+		}
+	}
+	.banner{
+		align: top left;
+		height: 26;
+		margin-left: 5;
+		margin-bottom: -4;
+		src: hgrid("UI/landsraad/faction_banners.png", (@ui-faction-count + 1));
+	}
+	.tiled-faction(src-pos-x, ~'.banner', @offset: 1);
+	&.faction-atreides{
+		&.mine{	#background { outline: 0.5 @faction-atreides; } }
+	}
+	&.faction-harkonnen{
+		&.mine{	#background { outline: 0.5 @faction-harkonnen; } }
+	}
+	&.faction-smugglers{
+		&.mine{	#background { outline: 0.5 @faction-smugglers; } }
+	}
+	&.faction-fremen{
+		&.mine{	#background { outline: 0.5 @faction-fremen; } }
+	}
+	&.faction-corrino{
+		&.mine{	#background { outline: 0.5 @faction-corrino; } }
+	}
+	&.faction-ecaz{
+		&.mine{	#background { outline: 0.5 @faction-ecaz; } }
+	}
+	&.faction-vernius{
+		&.mine{	#background { outline: 0.5 @faction-vernius; } }
+	}
+	&.faction-minor-houses{
+		.banner{ src-pos-x: 0; }
+		margin-top: 10;
+	}
+}

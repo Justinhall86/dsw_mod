@@ -1,0 +1,364 @@
+// out: false
+@import "game.less";
+
+@building-width: 400;
+@building-height: 300;
+
+base-building{
+	layout: vertical;
+	width: @building-width;
+	height: @building-height;
+	background: @color-hud-bg;
+	margin-bottom: -50;
+
+	fmt-text{
+		color: @color-desert;
+	}
+	>.header{
+		fill-width: true;
+		height: 78;
+		layout: vertical;
+		padding: 5;
+		background: @panel-bg;
+		background-tile-pos-x: 2;
+		background-tile-pos-y: 0;
+		.header-title {
+			fill-width: true;
+			padding: 3;
+			spacing: 5;
+			.domain-icon{
+				background: @comp-round-bg;
+				bitmap{
+					width: 20;
+				}
+			}
+			content-valign: middle;
+			fmt-text{
+				.bold-17;
+			}
+			entity-refund-button{
+				halign: right;
+				margin: -3;
+			}
+			abilities-displayer{
+				halign: right;
+				margin: -3;
+				margin-right: 5;
+			}
+		}
+		.header-info{
+			fill-width: true;
+			align: bottom left;
+			hspacing: 10;
+			max-width: @building-width;
+			multiline: true;
+			.stats {
+				spacing: 5;
+				resource-counter {
+					spacing: -1;
+				}
+			}
+			.upkeep {
+				align: top right;
+				content-align: middle middle;
+			}
+		}
+	}
+	.header-bar{
+		visible: false;
+		width: @building-width;
+		height: 4;
+		src: "UI/HUD/goldBorder01.png";
+	}
+	.header-shadow{
+		height: 60;
+		margin-bottom: -60;
+		background: "UI/HUD/structureBody_Gradient.png";
+		background-alpha: 0.25;
+	}
+	>.body{
+		layout: vertical;
+		fill-width: true;
+		height: @building-height - 130;
+		padding: 15;
+
+		.build-info{
+			valign: bottom;
+			layout: vertical;
+			spacing: 5;
+			base-gauge{
+				body-width: @building-width - 30;
+				body-height: 5;
+				color: @color-construction;
+				empty-color: @color-construction;
+				#emptyBar{
+					alpha: 0.2;
+				}
+			}
+		}
+
+		>.load {
+			content-align: middle left;
+			resource-counter {
+				bitmap{
+					width:22;
+				}
+				fmt-text{
+					.bold-13;
+				}
+			}
+			fmt-text {
+				.regular-14;
+			}
+			margin-top: -10;
+		}
+
+		>.separator {
+			halign: middle;
+			height: 1;
+			fill-width: true;
+			background: @color-desert;
+			alpha: 0.3;
+			margin-top: 6;
+			margin-bottom: 10;
+		}
+	}
+}
+
+building{
+
+	>.body{
+		>.content{
+			spacing: 15;
+			layout: vertical;
+			fill-width: true;
+			>#desc{
+				color: @color-tip-desc;
+			}
+			>.attributes{
+				layout: vertical;
+				spacing: 8;
+				>.atb{
+					content-align: top left;
+					spacing: 3;
+					.bullet-point {
+						margin-top: 3;
+						src: "UI/dot_default.png";
+					}
+					fmt-text {
+						auto-size: 1;
+					}
+				}
+			}
+			>.traits {
+				margin: 10 0 0 10;
+			}
+		}
+	}
+}
+
+guild-branch, recycling-plant {
+	>.body{
+		>.content{
+			fill-width: true;
+			content-align: middle middle;
+			.trade{
+				fill-width: true;
+				content-align: middle middle;
+				spacing: 20;
+				.transaction{
+					max-width: 150;
+					min-height: 100;
+					layout: vertical;
+					>fmt-text{
+						.bold-15;
+						color: @color-ui-text-dark;
+						text-align: center;
+						align: middle middle;
+					}
+					spacing: 20;
+					.transaction-detail{
+						spacing: 10;
+						valign: bottom;
+						content-align: middle middle;
+						base-button {
+							.trade-btn;
+						}
+						.transaction-arrow{
+							src: "UI/equipments/arrow.png";
+							scale: 0.5;
+						}
+						&.empty {
+							resource-counter {
+								alpha: 0.5;
+							}
+							.transaction-arrow{
+								alpha: 0.5;
+							}
+						}
+						#giftSelectBtn {
+							pad-click: @input-building-guildtradegift;
+						}
+						#requestSelectBtn {
+							pad-click: @input-building-guildtraderequest;
+						}
+					}
+				}
+			}
+			.separator{
+				height: 100;
+				width: 1;
+				background: @color-ui-text;
+				alpha: 0.2;
+			}
+		}
+	}
+	.disabled-cont{
+		content-align: middle middle;
+		layout: vertical;
+		height: 100;
+		spacing: 20;
+		base-button {
+			.actionBtn;
+			padding: 15;
+			fmt-text {
+				.bold-14;
+				color: @color-ui-text;
+			}
+		}
+
+		visible: false;
+	}
+	&.disabled{
+		.trade{
+			visible: false;
+		}
+		.disabled-cont{
+			visible: true;
+		}
+	}
+}
+
+
+nuclear-silo{
+	#topRightAbilities {
+		visible: false;
+	}
+
+	ability-button {
+		width: 80;
+		padding: 5;
+	}
+	>.body{
+		>.content{
+			fill-width: true;
+			content-align: middle middle;
+			layout: vertical;
+			.launching-cont, .preparing-cont{
+				height: 120;
+				layout: vertical;
+				fill-width: true;
+				content-align: middle middle;
+				spacing: 12;
+				base-gauge{
+
+					color: @color-dev-military;
+					empty-color: @color-dev-military;
+					#fillBar, #emptyBar, #lagBar {
+						background: hgrid("UI/HUD/gaugeBGs.png", 5) 2 2;
+					}
+					#emptyBar{
+						alpha: 0.5;
+					}
+					body-width: 280;
+					body-height: 10;
+				}
+			}
+		}
+	}
+	.waiting-cont, .disabled-cont, .ready-cont{
+		content-align: middle middle;
+		layout: vertical;
+		height: 100;
+		spacing: 20;
+	}
+	.disabled-cont, .ready-cont, .launching-cont, .preparing-cont{
+		visible: false;
+	}
+	&.state-ready{
+		.waiting-cont{
+			visible: false;
+		}
+		.ready-cont{
+			visible: true;
+		}
+		&.neutral-nuke {
+			.ready-cont {
+				abilities-displayer {
+					visible: false;
+				}
+			}
+		}
+	}
+	&.state-disabled{
+		.waiting-cont{
+			visible: false;
+		}
+		.disabled-cont{
+			visible: true;
+		}
+	}
+	&.state-launching{
+		.waiting-cont{
+			visible: false;
+		}
+		.launching-cont{
+			visible: true;
+		}
+	}
+	&.state-preparing{
+		.waiting-cont{
+			visible: false;
+		}
+		.preparing-cont{
+			visible: true;
+		}
+	}
+}
+
+guild-trades, recycling-plant-trades {
+	position: absolute;
+	background: @panel-bg;
+	content-align: left middle;
+	padding : 6;
+	min-width: 60;
+	min-height: 60;
+	.list{
+		spacing: 2;
+		base-button {
+			.trade-btn;
+		}
+	}
+}
+
+.trade-btn {
+	.square-btn;
+	width: 80;
+	height: 50;
+	padding: 2;
+	resource-counter {
+		recursive-propagate: true;
+		fmt-text{
+			color: @color-ui-text;
+		}
+		res-tip: false;
+		bitmap{
+			width: 24;
+		}
+	}
+	&.disabled {
+		resource-counter {
+			alpha: 0.5;
+		}
+	}
+}

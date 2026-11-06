@@ -1,0 +1,870 @@
+@aiWidth: 650;
+
+resource-button {
+	layout: stack;
+	width: 32;
+	height: 32;
+}
+
+@totalWidth: 450;
+@totalHeight: 230;
+
+ai-resource-graph {
+	layout: vertical;
+	spacing: 10;
+
+	width: @totalWidth;
+	height: @totalHeight;
+
+	#resButtons {
+		layout: horizontal;
+		spacing: 5;
+		bitmap {
+			width: 24;
+			height: 24;
+		}
+	}
+
+	#main {
+		layout: stack;
+		padding-bottom: 30;
+
+		#grid {
+			layout: stack;
+		}
+
+		#data {
+			layout:stack;
+		}
+	}
+
+	#timeButtons {
+		layout: horizontal;
+		spacing: 5;
+	}
+}
+
+ai-military-gauge {
+	layout: horizontal;
+	spacing: 4;
+	width: 150;
+	height: 20;
+
+	>.left {
+		width: 100;
+		content-align: middle right;
+		valign: middle;
+
+		>fmt-text {
+			align: right;
+		}
+	}
+
+	>.right {
+		width: 400;
+		content-align: middle left;
+		spacing: 5;
+
+		>#unblockBtn {
+			width: 20;
+			height: 20;
+		}
+		>#gauge {
+			body-width: 150;
+			body-height: 20;
+
+			&.blocked {
+				filter: glow(#ff0000, 2, 2, 1, 1, true);
+			}
+		}
+	}
+}
+
+ai-military {
+	layout: horizontal;
+	spacing: 10;
+	padding-left: 15;
+	content-align: middle middle;
+
+	>.left {
+		layout: vertical;
+		content-align: middle bottom;
+		spacing: 10;
+
+		>#aggressivenessGauge {
+			vertical: true;
+			body-width: 40;
+			body-height: 150;
+			empty-color: #ffffff;
+			color: #f79a22;
+			full-color: #ff0000;
+		}
+	}
+
+	>.right {
+		layout: vertical;
+		spacing: 10;
+	}
+}
+
+
+ai-interactions {
+	layout: vertical;
+	spacing: 5;
+	padding: 5;
+}
+
+
+@toggleSize: 32;
+
+
+ai-history {
+	fill-width: true;
+	height: auto;
+	margin-top: 10;
+	background: #fdfdfd;
+	layout: vertical;
+	max-log-count: 15;
+	//active-color: #00ff22;
+	//inactive-color: #ff0000;
+
+	success-color: #00c1cf;
+	failure-color: #f79a22;
+
+	.logCommands {
+		padding-top: 5;
+		padding-bottom: 5;
+		fill-width: true;
+		layout: horizontal;
+		background: #525252;
+
+		>.selected {
+			filter: glow(#ffffff, 5, 3, 1, 1, true);
+		}
+
+		bitmap {
+			margin-left: 5;
+		}
+	}
+
+	#logHistory {
+		layout: vertical;
+		spacing: 5;
+		padding: 2;
+	}
+}
+
+ai-handler {
+	layout: horizontal;
+	width: 200;
+	background: "UI/HUD/squareBG01.png" 10 10;
+	spacing: 2;
+	content-align: middle left;
+
+	&.selected {
+		filter: glow(#ffffff, 5, 3, 1, 1, true);
+		>#aiNameCont {
+			>#aiName {
+				.bold-17;
+			}
+		}
+	}
+
+	>#toggle {
+		layout: stack;
+	}
+
+	>#aiNameCont {
+		width: 200;
+		align: middle middle;
+		content-align: middle left;
+		spacing: 5;
+
+		>#aiName {
+			.regular-17;
+		}
+	}
+
+	#difficultyDropdown {
+		width: 100;
+	}
+
+	#aiTypeDropdown {
+		width: 100;
+	}
+
+	.handlerSquare {
+		width: 38;
+		height: 38;
+	}
+
+	>.debugText {
+		margin-left: 16;
+		margin-right: 16;
+		//text-align: center;
+	}
+}
+
+spying-tab {
+	layout: vertical;
+	spacing: 5;
+}
+
+equipment-tab {
+	layout: vertical;
+	spacing: 5;
+	margin-left: 10;
+
+	bitmap {
+		width: 40;
+		height: 40;
+	}
+	>.unit-container {
+		layout: horizontal;
+		spacing: 10;
+	}
+	>#unitDetails {
+		layout: horizontal;
+		spacing: 10;
+		halign: middle;
+		>.unit-detail {
+			layout: vertical;
+			spacing: 5;
+			content-align: middle;
+			button {
+				&.selected {
+					filter: none;
+					#iconBmp {
+						src-pos-y: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+heatmaps {
+	faction-min-scale: 0.8;
+	faction-max-scale: 1.2;
+	zone-min-scale: 0.8;
+	zone-max-scale: 1.2;
+	structure-min-scale: 0.8;
+	structure-max-scale: 1.2;
+	unit-min-scale: 0.8;
+	unit-max-scale: 1.2;
+
+	spacing: 10;
+	padding: 2;
+	content-align: top left;
+
+	>#mapsDropdown {
+		max-width: 150;
+		>.dropdown-button {
+			min-width: 200;
+		}
+	}
+
+	>.params {
+		layout: vertical;
+		spacing: 5;
+		>.checkboxCategory {
+			spacing: 5;
+			>#aiOnlyCheckbox, >#aiChoiceCountCheckbox {
+				width: 24;
+				height: 24;
+			}
+			>#aiOnlyText, >#aiChoiceCountText {
+				align: middle left;
+			}
+		}
+
+		>input-value {
+			content-valign: middle;
+			@width: 40;
+			>#valueBtn {
+				width: @width;
+				content-align: middle;
+				over-icon: AddLinkCursor;
+				padding: 4;
+				&:hover {
+					background: #FFF;
+					background-alpha: 0.1;
+				}
+			}
+			>#value {
+				min-width: @width;
+				max-width: @width;
+			}
+			>#addBtn {
+				background: hgrid("UI/icons/add_sub.png", 2);
+			}
+			>#remBtn {
+				background: hgrid("UI/icons/add_sub.png", 2);
+				background-tile-pos-x: 1;
+			}
+			>button {
+				width: 20;
+				background: #222;
+				#iconBmp {
+					alpha: 0.5;
+				}
+			}
+		}
+	}
+}
+
+
+ai-int-input {
+	layout: horizontal;
+	padding:2;
+}
+
+ai-bool-input {
+	spacing: 4;
+	align: middle left;
+	content-align: middle left;
+}
+
+ai-units, ai-army-report {
+	layout: vertical;
+	spacing: 8;
+	margin-left: 8;
+	content-align: top left;
+
+	>.top {
+		spacing: 10;
+
+		>button {
+			.decorated-btn;
+		}
+	}
+
+	>.bottom {
+		>.query {
+			background: #525252;
+			align: top left;
+			content-align: middle middle;
+			spacing: 20;
+			padding: 4;
+
+			>.left, >.right {
+				layout: vertical;
+				spacing: 8;
+				content-align: top left;
+			}
+		}
+
+		>.results {
+			align: middle middle;
+			content-align: middle middle;
+			fill-width: true;
+			auto-size: 1;
+			spacing: 4;
+
+			>army-button {
+
+			}
+		}
+	}
+}
+
+ai-army-report {
+	>.bottom {
+		layout: vertical;
+		>.results {
+			margin-top: 10;
+			min-width: 200;
+			layout: vertical;
+			align: left middle;
+			content-align: left middle;
+		}
+	}
+
+	>.top {
+		content-align: middle middle;
+		>input-value {
+			spacing: -3;
+			content-valign: middle;
+			margin: 0 -5 0 -5;
+
+			>#valueBtn {
+				layout: stack;
+				margin-top: 4;
+				align: middle top;
+				content-valign: middle;
+				width: 28;
+				height: 20;
+
+				>.data {
+					halign: middle;
+					fmt-text {
+						.regular-12;
+						color: @color-ui-text-light;
+					}
+				}
+			}
+
+			>#remBtn, >#addBtn {
+				margin-top: 2;
+				valign: middle;
+				width: 14;
+				height: 14;
+				background: grid("UI/icons/valueArrows.png", 2, 2);
+				&.disabled {
+					color-adjust: none;
+					alpha: 0.22;
+				}
+			}
+			>#addBtn {
+				background-tile-pos-x: 1;
+			}
+		}
+	}
+}
+
+
+entity-displayer {
+	content-align: top middle;
+	layout: vertical;
+	>#portrait {
+		bitmap {
+			width: 40;
+			height: 40;
+		}
+	}
+	>#unitBars {
+		layout: vertical;
+		background: @color-hud-bg-dark;
+		spacing: -1;
+
+		>#health-bar {
+
+		}
+	}
+	base-gauge{
+		body-width: @unit-size - 2;
+		body-height: 2;
+		padding: 1;
+		&.low{
+			filter: glow(@color-warning-worm-danger, 1.6, 10, 0.9, 0.6, true);
+			empty-color: @color-bad;
+			#emptyBar{
+				alpha: 0.4;
+			}
+		}
+	}
+	health-bar{
+		body-width: @unit-size - 2;
+		body-height: 3;
+	}
+}
+
+
+warzone-faction-ui {
+	spacing: 4;
+
+	>#factionName {
+		min-width: 80;
+	}
+}
+
+
+warzone-ui {
+	layout: vertical;
+	background: "UI/HUD/squareBG01.png" 10 10;
+	filter: glow(#383838, 5, 3, 5, 3, true);
+	margin: 8;
+
+	>.top {
+		fill-width: true;
+		auto-size: 1;
+		content-align: top left;
+		background: #525252;
+		spacing: 20;
+
+		>#locationContainer {
+			>#location {
+				width: 40;
+				height: 40;
+			}
+		}
+		>.textContainer {
+			fill-width: true;
+			fill-height: true;
+			align: middle middle;
+			content-align: middle middle;
+			auto-size: 1;
+			>fmt-text {
+				valign: middle;
+			}
+		}
+		>#debugDrawToggle {
+			align: middle right;
+			width: 40;
+			height: 40;
+		}
+	}
+	>#factionContainer {
+		padding: 8;
+		layout: vertical;
+		spacing: 8;
+	}
+}
+
+warzones-ui {
+	multiline: true;
+	max-width: 750;
+	spacing: 16;
+}
+
+
+ai-order {
+	layout: vertical;
+	background: "UI/HUD/squareBG01.png" 10 10;
+	filter: glow(#383838, 5, 3, 5, 3, true);
+	width: 180;
+
+	>.top {
+		fill-width: true;
+		>.titles {
+			min-width: 120;
+			height: 40;
+			layout: vertical;
+			spacing: 2;
+			padding: 5;
+			align: middle middle;
+			content-align: middle middle;
+		}
+
+		>#targetBtn {
+			bitmap {
+				height: 36;
+				width: 36;
+			}
+		}
+		>#disbandBtn {
+			bitmap {
+				height: 32;
+				width: 32;
+			}
+		}
+	}
+
+	>.body {
+		layout: vertical;
+		spacing: 5;
+		padding: 5;
+		align: middle top;
+
+		>#orderPhaseDropdown {
+			min-width: 100;
+		}
+
+		>#unitsContainer {
+			multiline: true;
+			padding: 5;
+			spacing: 5;
+		}
+
+		>#abilitiesContainer {
+			layout: vertical;
+		}
+	}
+}
+
+
+/* army-order {
+	//layout: vertical;
+	background: "UI/HUD/squareBG01.png" 10 10;
+	filter: glow(#383838, 5, 3, 5, 3, true);
+	width: 180;
+
+	>.top {
+		fill-width: true;
+		>.titles {
+			width: 100;
+			height: 32;
+			layout: vertical;
+			spacing: 2;
+			padding: 5;
+			align: top middle;
+			>fmt-text {
+				text-align: center;
+			}
+		}
+
+		>#targetBtn {
+			bitmap {
+				height: 36;
+				width: 36;
+			}
+		}
+		>#disbandBtn {
+			bitmap {
+				height: 32;
+				width: 32;
+			}
+		}
+	}
+
+	>.body {
+		layout: vertical;
+		spacing: 5;
+		padding: 5;
+		align: middle top;
+
+		>#orderProgressDropdown {
+			max-width: 150;
+		}
+
+		>#armiesContainer {
+			multiline: true;
+			padding: 5;
+			spacing: 10;
+		}
+	}
+} */
+
+army-orders {
+	layout: vertical;
+	align: top left;
+	padding: 10;
+	fill-width: true;
+	min-height: 200;
+
+	>.realtimeDebug {
+		layout: horizontal;
+		content-align: middle top;
+		spacing: 5;
+		width: 50;
+		>#enableRealtimeDebugCheckbox {
+			background: "UI/HUD/btn01.png" 2 2;
+			width: 38;
+			height: 38;
+		}
+
+		>.mousePosContainer, >.costContainer {
+			layout: horizontal;
+			width: 200;
+			spacing: 10;
+			align: middle left;
+			content-align: middle left;
+		}
+	}
+
+	>#orderHistory {
+		content-align: top left;
+		padding: 10;
+		spacing: 10;
+		width: 50;
+		height: 50;
+	}
+}
+
+
+ai-trading {
+	layout: vertical;
+	spacing: 5;
+}
+
+
+build-request {
+	spacing: 5;
+	content-align: middle left;
+
+	>#structureBtn {
+		bitmap {
+			width: 40;
+			height: 40;
+		}
+	}
+	>#buildingImg {
+		width: 40;
+		height: 40;
+	}
+
+	>.text {
+		layout: vertical;
+		content-align: middle middle;
+		align: middle middle;
+	}
+}
+
+tip-default {
+	content-align: top left;
+
+	&.scoring {
+
+	}
+}
+
+ai-structure-building-pair {
+	background: "UI/HUD/squareBG01.png" 10 10;
+	auto-size: 1;
+	spacing: 4;
+	content-align: middle middle;
+	padding-left: 8;
+	padding-right: 8;
+
+	>#scoreContainer {
+		>fmt-text {
+			align: middle middle;
+			text-align: left;
+		}
+	}
+
+	>#structureNameText {
+		auto-size: 1;
+	}
+
+	>element {
+		>bitmap {
+			width: 32;
+			height: 32;
+		}
+	}
+
+	&.considered {
+		filter: glow(#37ac3d, 1, 2, 1, 2, true);
+	}
+
+	&.cooldown {
+		filter: glow(#b01b1b, 1, 2, 1, 2, true);
+	}
+}
+
+ai-buildings {
+	layout: vertical;
+	spacing: 10;
+	padding: 5;
+
+	>.top {
+		background: "UI/HUD/squareBG01.png" 10 10;
+		padding: 10;
+		spacing: 5;
+		content-align: middle left;
+		fill-width: true;
+
+		>.refreshBtn {
+			padding: 8;
+			background: "UI/HUD/btn01.png" 2 2;
+		}
+
+		>input-value {
+			margin-right: 16;
+		}
+
+		>dropdown {
+			min-width: 135;
+		}
+	}
+
+	>#content {
+		spacing: 15;
+		margin: 4;
+		fill-width: true;
+		multiline: true;
+		overflow: scroll;
+		max-height: 220;
+	}
+}
+
+dropdown-list {
+	&.buildings-filter {
+		max-height: 400;
+		fill-width: true;
+		overflow: scroll;
+
+		>base-button {
+			fmt-text {
+				align: left;
+			}
+		}
+	}
+}
+
+
+ai-gifts {
+	layout: vertical;
+	spacing: 10;
+	padding : 10;
+}
+
+
+ai-manager {
+	layout: stack;
+	content-align: top left;
+
+	dropdown {
+		height: 40;
+		>base-button {
+			fill-height: true;
+		}
+	}
+
+	>#scoresContainer {
+		position: absolute;
+		align: top left;
+		layout: stack;
+		element {
+			position: absolute;
+			fmt-text {
+				position: absolute;
+				align: middle middle;
+				font: @philosopher-regular 40 multi 0.4 0.3;
+			}
+		}
+	}
+
+	>.main {
+		margin-top: 100;
+		margin-left: 50;
+		spacing: 30;
+		layout: vertical;
+
+		>.aiHandlers {
+			background: "UI/HUD/squareBG01.png" 10 10;
+			filter: glow(#383838, 5, 3, 5, 3, true);
+			padding: 8;
+			layout: vertical;
+			spacing: 8;
+			max-height: 38;
+		}
+
+		>.content {
+			layout: vertical;
+			background: "UI/HUD/squareBG01.png" 10 10;
+			max-width: 800;
+			padding-bottom: 10;
+
+			>.header {
+				min-height: 20;
+				background: "UI/HUD/goldBorder01.png" 5 5;
+				fill-width: true;
+				>#factionName {
+					align: middle middle;
+					.regular-15;
+				}
+			}
+			>.tabs {
+				padding-top: 2;
+				padding-bottom: 2;
+				content-align: left middle;
+				multiline: true;
+				min-height: 30;
+				tab {
+					&.active {
+						filter: glow(#332e2e, 2, 2, 2, 2, true);
+					}
+
+					background: "UI/HUD/btn01.png" 2 2;
+					padding: 5;
+				}
+			}
+
+			>.body {
+				margin-top: 10;
+			}
+		}
+	}
+}

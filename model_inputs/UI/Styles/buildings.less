@@ -1,0 +1,288 @@
+// out: false
+@import "game.less";
+
+buildings {
+	background: @panel-bg;
+	position: absolute;
+	layout: vertical;
+	spacing : 10;
+	padding : 5;
+	bind-layer-cursor: snap;
+
+	>.header {
+		layout: vertical;
+		align: top middle;
+		content-align: top middle;
+		padding-top: 5;
+		.title{
+			.window-title;
+			color: @color-window-title;
+			transform-text-last: true;
+			.uppercase;
+		}
+		.title-highlight {
+			src: "UI/elements/titleDeco.png";
+			width: 130;
+		}
+	}
+	>.lists{
+		content-align: middle middle;
+		spacing: 5;
+		.separator{
+			width: 1;
+			height: 100;
+			background: @color-desert;
+			alpha: 0.1;
+		}
+		buildings-domain-displayer{
+			min-width: 210;
+		}
+	}
+	&.main-base {
+		>.lists {
+			buildings-domain-displayer{
+				min-width: 108;
+			}
+		}
+	}
+	&.mbuwhq {
+
+	}
+	&.local-sietch {
+
+	}
+}
+
+buildings-domain-displayer {
+	layout : vertical;
+	align : top left;
+	spacing : 10;
+	padding : 9;
+
+	.header{
+		content-align: middle left;
+		spacing: 3;
+		.header-icon {
+			background: @comp-round-bg;
+			.icon{
+				width: 16;
+			}
+		}
+		fmt-text{
+			margin-bottom: 2;
+			.bold-14;
+		}
+	}
+	#buildingsContainer {
+		max-width: 200;
+		multiline : true;
+		spacing : 10;
+	}
+	.main-base & {
+		#buildingsContainer {
+			max-width: 140;
+		}
+	}
+
+	&.economy {
+		fmt-text{ color: @color-building-eco; }
+	}
+	&.military {
+		fmt-text{ color: @color-building-military; }
+	}
+	&.statecraft {
+		fmt-text{ color: @color-building-statecraft; }
+	}
+}
+
+
+base-building-button {
+	layout: stack;
+	content-align : bottom middle;
+	text {
+		.bold-shadow-12;
+	}
+	.recruit-btn;
+	width: 40;
+	height: 40;
+	#icon{
+		width: 40;
+		height: 40;
+	}
+	#iconCont {
+		background: hgrid("UI/elements/BuildingsBackground.png", 3);
+		layout: stack;
+		content-align : bottom middle;
+		visible: false;
+	}
+	#gauge{
+		invert: true;
+		bitmap{
+			src: "UI/elements/square_4.png";
+			alpha: 0.7;
+			tint: @color-construction;
+
+			width: 40;
+			height: 40;
+		}
+		visible: false;
+	}
+	#star{
+		visible: false;
+		align: top right;
+		margin-top: -8px;
+		margin-right: -8px;
+		width: 19px;
+		height: 19px;
+		src: "UI/icons/ic_star.png";
+		src-pos-x: 0;
+	}
+
+	&.wonder {
+		#star {
+			visible: true;
+		}
+	}
+	&.disabled {
+		#iconCont {
+			alpha: 0.4;
+		}
+	}
+	background-id: true;
+
+	&.disabled-building {
+		#iconCont{
+			background-alpha: 0.4;
+		}
+		#icon{
+			color-adjust: brightness(-0.25) saturate(-0.5);
+		}
+	}
+
+	&.action-add, &.action-remove {
+		#iconCont{
+			background-alpha: 0.4;
+		}
+		#icon{
+			color-adjust: brightness(-0.25) saturate(-0.5);
+		}
+		#gauge{
+			visible: true;
+		}
+	}
+
+	&.economy {
+		#iconCont {
+			background-tile-pos-x: 0;
+			visible: true;
+		}
+	}
+	&.statecraft {
+		#iconCont {
+			background-tile-pos-x: 2;
+			visible: true;
+		}
+	}
+	&.military {
+		#iconCont {
+			background-tile-pos-x: 1;
+			visible: true;
+		}
+	}
+	&.action-remove {
+		#gauge{
+			bitmap{
+				tint: @color-demolition;
+				alpha: 0.7;
+			}
+		}
+	}
+}
+
+recruit-militia {
+	position: absolute;
+	layout: vertical;
+	background: @panel-bg;
+	padding: 12;
+	spacing: 10;
+	offset-x: 5;
+
+	>#title {
+		color: @color-ui-text-light;
+	}
+
+	#units {
+		layout: horizontal;
+		multiline: true;
+		max-width: 225;
+		spacing: 1;
+
+		recruit-unit-button {
+			.decorated-btn;
+			padding: 6;
+			#main {
+				width: 160;
+				spacing: 4;
+			}
+			#nameTxt {
+				.bold-14;
+				color: @color-desert;
+			}
+			#stats {
+				spacing: 7;
+				resource-counter{
+					width: 45;
+					spacing: 2;
+					bitmap{
+						width: 20;
+						height: 20;
+					}
+					fmt-text{
+						margin-top: 0;
+						.bold-shadow-12;
+						color: @color-desert-darken;
+					}
+				}
+			}
+			#icon {
+				width: 50; height: 50;
+				margin: -5;
+				margin-top: -8;
+				margin-left: -12;
+			}
+			#cost {
+				visible: false;
+			}
+		}
+	}
+}
+
+building-button, add-building-button {
+	padding: 0;
+	background: @comp-round-bg;
+	background-tile-pos-x: 1;
+	#iconCont {
+		visible: true;
+		content-align: middle middle;
+		>fmt-text {
+			font: @philosopher-regular 18 multi 0.4 0.2;
+			color: #ffffff;
+		}
+	}
+
+	&.disabled {
+		color-adjust: none;
+		#iconCont {
+			alpha: 0.5;
+			#icon {
+				alpha: 0.7;
+			}
+		}
+	}
+	&.blocked {
+		#iconCont {
+			color-adjust: brightness(-0.02) saturate(-1);
+			alpha: 0.3;
+		}
+	}
+}

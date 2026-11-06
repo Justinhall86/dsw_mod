@@ -1,0 +1,1011 @@
+@import "game.less";
+
+@banner-structure-width: 34;
+@banner-unit-small-width: 24;
+@banner-unit-width: 28;
+@banner-unit-big-width: 48;
+
+banner {
+	position: absolute;
+	align: middle bottom;
+	//offset-y: -8;
+	content-align: middle middle;
+	warning-sign{
+		recursive-propagate: true;
+		position: absolute;
+		align: top right;
+		offset-x: 20;
+		offset-y: -20;
+	}
+	banner-button {
+		pad-focusable: false;
+		&.banner-flicker {
+			freeze: false;
+		}
+	}
+	&.selected {
+		color-adjust: brightness(0.05);
+		banner-unit-base {
+			banner-button {
+				margin-top: 2;
+			}
+		}
+		banner-unit-base, banner-village, banner-sietch, banner-poi, banner-renegade-hub {
+			banner-button {
+				freeze: false;
+				// filter: glow(#e2cea6, 0.8, 1, 5, 1, true);
+				#selectionOutline {
+					visible: true;
+				}
+				&.no-select {
+					filter: none;
+					margin-top: 0;
+					#selectionOutline {
+						visible: false;
+					}
+				}
+			}
+		}
+		control-group-display {
+			alpha: 1
+		}
+	}
+	fmt-text{
+		color: @color-desert;
+	}
+
+	&.banner-detail-filter{
+		banner-army {
+			banner-button{ visible: false; }
+			base-gauge{
+				body-width: 32;
+			}
+			health-bar{
+				body-height: 4;
+			}
+			&.style-small {
+				base-gauge{	body-width: 26;	body-height: 3;}
+			}
+			&.style-big {
+				base-gauge{	body-width: 60;	}
+			}
+		}
+		banner-village {
+			background: none;
+			.label, .bg-pattern, .militia { visible: false; }
+			.flag-header{
+				align: bottom middle;
+			}
+			&.main-base{
+				banner-button{ visible: false; }
+				min-height: 0;
+				health-bar{
+					align: middle middle;
+					body-width: 150;
+					body-height: 5;
+				}
+				.flag-header{
+					offset-y: 10;
+				}
+			}
+		}
+		health-bar{
+			empty-color: @color-health;
+			#emptyBar{ alpha: 0.2; }
+		}
+		&.ally {
+			banner-army {
+				health-bar{
+					color: @color-health-ally;
+					lag-color: @color-health-ally-lag;
+					empty-color: @color-health-ally;
+				}
+			}
+		}
+		&.enemy {
+			banner-army {
+				health-bar{
+					color: @color-health-enemy;
+					lag-color: @color-health-enemy-lag;
+					empty-color: @color-health-enemy;
+				}
+			}
+		}
+	}
+}
+
+banner-button{
+	padding: 0;
+	background: none;
+	layout: stack;
+	content-align: top middle;
+
+	#selectionOutline {
+		visible: false;
+		margin: -2;
+		margin-bottom: -50;
+		src: "UI/HUD/structureoutline.png";
+	}
+
+	#bg{
+		src: hgrid("UI/HUD/structure_flag_border.png", 7);
+	}
+
+	#icon{
+		width: @banner-structure-width - 8;
+	}
+	&:hover {
+		color-adjust: brightness(0.05);
+	}
+
+	&.unit, &.army {
+		#bg{
+			src: hgrid("UI/HUD/unit_flag_controllable.png", (@ui-faction-count + 2));
+		}
+		#selectionOutline {
+			src: "UI/HUD/unitoutline_lv1.png";
+		}
+		&.banner-level-1 {
+			#selectionOutline {
+				src: "UI/HUD/unitoutline_lv2.png";
+			}
+		}
+		&.banner-level-2, &.banner-level-3, &.banner-level-4, &.banner-level-5, &.banner-level-6 {
+			#selectionOutline {
+				src: "UI/HUD/unitoutline_lv3.png";
+			}
+		}
+		#icon{
+			width: @banner-unit-width;
+		}
+	}
+	&.main-base, &.village {
+		padding-left: -2;
+		padding-right: -2;
+		#bg{
+			src: hgrid("UI/HUD/structure_flag_faction.png", (@ui-faction-count + 1));
+		}
+	}
+	&.sietch{
+		#icon{
+			width: @banner-structure-width - 2;
+		}
+	}
+	&.renegade-hub{
+		#icon{
+			width: @banner-structure-width - 2;
+			margin-top: -1;
+		}
+	}
+	&.natural-res, &.world-event, &.no-info{
+		padding-left: -4;
+		padding-right: -4;
+		#bg{
+			src: hgrid("UI/HUD/structure_flag_border.png", 7);
+		}
+		#selectionOutline {
+			src: "UI/HUD/structureoutline_round.png";
+		}
+		#icon{
+			margin-top: 3;
+			width: 24;
+		}
+	}
+	&.uncontrollable {
+		#bg{
+			src: hgrid("UI/HUD/unit_flag_uncontrollable.png", (@ui-faction-count + 2));
+		}
+		#selectionOutline {
+			src: "UI/HUD/unitoutline_uncontrollable.png";
+		}
+		#icon{
+			alpha: 1;
+		}
+	}
+	&.combat-warning{
+		.icon-cont{
+			enable-pulse: true;
+			pulse-color: #000000;
+			pulse-alpha: 0.8;
+			pulse-frequency: 0.6;
+		}
+	}
+	&.in-fog {
+		alpha: 0.7;
+	}
+	#levelFg{
+		src: hgrid("UI/HUD/unitFlagLevels.png", 6);
+		margin-bottom: -5;
+		&.banner-level-1 { src-pos-x: 1}
+		&.banner-level-2 { src-pos-x: 2}
+		&.banner-level-3 { src-pos-x: 3}
+		&.banner-level-4 { src-pos-x: 3}
+		&.banner-level-5 { src-pos-x: 4}
+		&.banner-level-6 { src-pos-x: 5}
+	}
+	&.natural-res{	#bg{ src-pos-x: 2; } }
+	&.world-event{	#bg{ src-pos-x: 3; } }
+
+	&.sietch{		#bg{ src-pos-x: 4; } }
+	&.kind-sietch-hostile{		#bg{ src-pos-x: 5; } }
+	&.renegade-hub{	#bg{ src-pos-x: 4; } }
+
+	.tiled-faction(src-pos-x, ~'#bg', 1);
+	&.unit, &.army {
+		.tiled-faction(src-pos-x, ~'#bg', 2);
+	}
+	&.raid-fremenraids{	#bg{ src-pos-x: 1; } }
+	&.raid-idualisraids{	#bg{ src-pos-x: 1; } }
+	&.raid-marauders{	#bg{ src-pos-x: 1; } }
+	&.raid-sardaukars{	#bg{ src-pos-x: 6; } }
+	&.lore-faction-renegades{	#bg{ src-pos-x: 1; } }
+
+	&.relic{ 		#bg{src-pos-x: 3; }}
+
+	&.no-info{
+		#bg{
+			src: hgrid("UI/HUD/structure_flag_border.png", 7);
+			src-pos-x: 1;
+			alpha: 0.5;
+		}
+		&.special{
+			#bg{
+				src-pos-x: 2;
+			}
+		}
+	}
+
+}
+
+control-group-display {
+	padding: 5;
+	alpha: .7;
+	fmt-text{
+		.bold-12;
+		color: @color-ui-text-light;
+		text-shadow : 1 1 #000 0.6;
+	}
+}
+
+banner-unit-base {
+	layout: vertical;
+	content-align: middle middle;
+	spacing: -1;
+	base-gauge{
+		body-width: @banner-unit-width - 2;
+		body-height: 2;
+		background: @color-hud-bg-dark;
+		background-alpha: 0.9;
+		padding: 1;
+	}
+	health-bar {
+		body-height: 3;
+	}
+	&.style-small{
+		base-gauge{
+			body-width: @banner-unit-small-width - 2;
+			body-height: 2;
+		}
+		banner-button{
+			scale: 0.85;
+		}
+
+	}
+	&.style-big{
+		base-gauge{
+			body-width: @banner-unit-big-width - 2;
+			body-height: 2;
+		}
+	}
+	&.cloaked {
+		banner-button{
+			#icon{
+				alpha: 0.8;
+			}
+			#bg{
+				alpha: 0.7;
+			}
+		}
+	}
+	.symbols {
+		layout: horizontal;
+		spacing: 2;
+		padding-bottom: 2;
+	}
+
+	#loot {
+		bitmap {
+			width: @banner-unit-width;
+		}
+	}
+	#orniFollow {
+		bitmap {
+			width: 20;
+		}
+	}
+	#ceaseFire {
+		bitmap {
+			width: 20;
+		}
+	}
+}
+
+
+banner-building{
+	content-align: middle middle;
+	health-bar{
+		body-width: 50;
+		body-height: 4;
+		padding: 1;
+		background: "UI/HUD/squareBGDark.png" 2 2;
+		color: @color-construction;
+		lag-color: @color-old-gold;
+		visible: false;
+	}
+	.construction-icon{
+		visible: false;
+		src: "UI/HUD/constructionIcon.png";
+		width: 10;
+	}
+	&.show-health{
+		health-bar{ visible: true; }
+	}
+	&.constructing{
+		.construction-icon{ visible: true}
+	}
+}
+
+
+banner-village{
+	background-id: true;
+	background: @cartouche-bg;
+	background-tile-pos-y: 0;
+	min-height: 30;
+	content-align: middle middle;
+	spacing: 6;
+
+	control-group-display {
+		padding: 0;
+		valign: middle;
+		padding-left: 10;
+	}
+
+	&.main-base {
+		control-group-display {
+			valign: bottom;
+			offset-y: -3;
+		}
+	}
+
+	.bg-pattern{
+		position: absolute;
+		align: middle right;
+		src: "UI/HUD/cartouchePattern.png";
+	}
+
+	siege-state {
+		position: absolute;
+		offset-y: -20;
+	}
+
+	resource-counter{
+		fmt-text{
+			margin-left: 1;
+			.bold-12 !important;
+		}
+	}
+	banner-button{
+		margin-bottom: -15;
+		recursive-propagate: true;
+	}
+	&:hover {
+		color-adjust: brightness(0.05);
+	}
+	#militia{
+		margin-top: 1;
+		padding-left: 12;
+		margin-right: -2;
+		fix-text: true;
+		layout: stack;
+		content-align: middle middle;
+		recursive-propagate: true;
+		bitmap {
+			src:"UI/HUD/militiaIcon.png";
+		}
+		#tf, #fixedTf {
+			offset-y: -2;
+		}
+		fixed-text {
+			max-width-text: 12;
+		}
+	}
+	.flag-header{
+		layout: vertical;
+		content-align: bottom left;
+		align: bottom left;
+		position: absolute;
+		offset-y: -27;
+		min-width: 38;
+		min-height: 14;
+
+		infiltration-cell {
+			padding-left:15;
+			layout:horizontal;
+			bitmap {
+				src: hgrid("UI/HUD/infiltration_cells.png", 7);
+			}
+			#infiltrationCellIcon {
+				bitmap { src-pos-x: 2; }
+				visible: false;
+			}
+			#investigateIcon {
+				bitmap { src-pos-x: 3; }
+				visible: false;
+			}
+			#cellCloseIcon {
+				bitmap { src-pos-x: 6; }
+				visible: false;
+			}
+			#cellFoundIcon {
+				bitmap { src-pos-x: 5; }
+				visible: false;
+			}
+
+			&.infiltrationCell {
+				#infiltrationCellIcon { visible:true; }
+			}
+			&.state-NotSearched {
+				#investigateIcon { visible:true; }
+			}
+			&.state-CellClose {
+				#cellCloseIcon { visible:true; }
+			}
+			&.state-CellFound {
+				#cellFoundIcon { visible:true; }
+			}
+		}
+		capture-state {
+			margin-bottom: -1;
+			margin-left: 3;
+		}
+	}
+	.label{
+		content-align: middle middle;
+		spacing: 6;
+		min-width: 78;
+		height: 16;
+		padding-right: 15;
+		.label-name {
+			.regular-14;
+			line-break: false;
+		}
+		outpost-stability-indicator {
+			align: middle right;
+			bitmap {
+				width: 16;
+				height: 16;
+			}
+			padding-right: -8;
+			recursive-propagate: true;
+		}
+	}
+	structure-res-list{
+		position: absolute;
+		align: bottom left;
+		offset-x: -10;
+		offset-y: 43;
+		spacing: 2;
+		fmt-text { visible: false; }
+		resource-counter{
+			content-align: top middle;
+			layout: vertical;
+			background: hgrid("UI/HUD/resBG.png", 2) 7 7;
+			padding-top: 1;
+			spacing: 2;
+			width: 22;
+			height: 37;
+			bitmap {
+				width: 20;
+			}
+			&.malus{
+				bitmap{
+					filter: glow(@color-bad, 0.9, 9, 1, 1, true);
+				}
+				fmt-text{
+					color: @color-bad;
+				}
+			}
+			&.bonus{
+				fmt-text{
+					color: @color-good;
+				}
+			}
+		}
+	}
+
+	.pride-icon {
+		position: absolute;
+		align: middle left;
+		offset-x: -6;
+		scale: 0.5;
+		visible: false;
+		src: "UI/HUD/cartoucheBG_ecazPrideTip.png";
+	}
+
+	&.main-base {
+		health-bar {
+			background: @color-hud-bg-dark;
+			padding: 1;
+			position: absolute;
+			align: top left;
+			offset-y: -1;
+			body-height: 3;
+			body-width: 100;
+			health-per-segment: 2000;
+			color: @color-construction;
+		}
+	}
+	&.uninteractible{
+		>#background, .label, #militia{
+			alpha: 0.5;
+		}
+	}
+	.neutral &{
+		structure-slots{
+			visible: false;
+		}
+	}
+
+	// Filters
+	&.far-filter{
+		.bg-pattern{
+			visible: false;
+		}
+		#militia{ visible: false; }
+		.label{ visible: false; }
+		construction-bar{ visible: false; }
+		&.main-base{
+			.label{ visible: true; }
+			construction-bar{ visible: true; }
+			structure-res-list{ visible: false; }
+		}
+	}
+	&.no-res-filter{
+		structure-res-list{ visible: false; }
+	}
+	&.zone-details{
+		structure-res-list{
+			resource-counter{
+				background-tile-pos-x: 1;
+				#tf { visible: true; }
+			}
+		}
+		.neutral &{
+			structure-slots{
+				visible: true;
+			}
+		}
+	}
+	&.has-uwhq{
+		background-tile-pos-y: 1;
+		.has-right-icon;
+	}
+	&.is-sanctuary {
+		background-tile-pos-y: 5;
+		.has-right-icon;
+	}
+
+
+	&.has-ecaz-pride {
+		background-tile-pos-y: 3;
+		&.has-uwhq{
+			background-tile-pos-y: 4;
+		}
+		.pride-icon {
+			visible: true;
+		}
+	}
+
+	&.on-neural-grid {
+		background-tile-pos-y: 6;
+		&.has-uwhq {
+			background-tile-pos-y: 7;
+		}
+	}
+}
+
+.has-right-icon {
+	.bg-pattern{
+		offset-x: -15;
+	}
+
+	.label{
+		min-width: 90;
+		padding-right: 25;
+	}
+}
+
+banner-renegade-hub{
+	background: @cartouche-bg;
+	background-tile-pos-y: 0;
+	min-height: 30;
+	content-align: middle middle;
+	spacing: 6;
+
+	.bg-pattern{
+		position: absolute;
+		align: middle right;
+		src: "UI/HUD/cartouchePattern.png";
+	}
+
+	siege-state {
+		position: absolute;
+		offset-y: -20;
+	}
+
+	banner-button{
+		margin-bottom: -15;
+		recursive-propagate: true;
+		#bg{ src-pos-x: 6; }
+	}
+	&:hover {
+		color-adjust: brightness(0.05);
+	}
+	#militia{
+
+		margin-top: 1;
+		padding-left: 12;
+		margin-right: -2;
+		layout: stack;
+		content-align: middle middle;
+		fix-text: true;
+		recursive-propagate: true;
+
+		bitmap {
+			src:"UI/HUD/militiaIcon.png";
+		}
+		#tf, #fixedTf {
+			offset-y: -2;
+			.bold-12 !important;
+			align: middle middle;
+			margin-left: 1;
+		}
+		fixed-text {
+			max-width-text: 12;
+		}
+	}
+	.flag-header{
+		layout: vertical;
+		content-align: bottom left;
+		align: bottom left;
+		position: absolute;
+		offset-y: -27;
+		min-width: 38;
+		min-height: 14;
+	}
+	.label{
+		content-align: middle middle;
+		spacing: 6;
+		min-width: 78;
+		height: 16;
+		padding-right: 15;
+		.label-name {
+			.regular-14;
+			line-break: false;
+		}
+	}
+	// Filters
+	&.far-filter{
+		.bg-pattern{
+			visible: false;
+		}
+		#militia{ visible: false; }
+		.label{ visible: false; }
+	}
+}
+
+banner-sietch {
+	background: @cartouche-bg;
+	min-height: 30;
+	content-align: middle left;
+	spacing: 1;
+	padding-right: 14;
+
+	banner-button{
+		margin-bottom: -15;
+		margin-right: -2;
+		recursive-propagate: true;
+	}
+	#militia {
+		margin-top: 5;
+		layout: stack;
+		content-align: middle middle;
+		fix-text: true;
+		recursive-propagate: true;
+		fmt-text {
+			margin-right: -2;
+			color: @color-text-black;
+		}
+		bitmap {
+			src:"UI/HUD/militiaIcon_sietch.png";
+		}
+		fixed-text {
+			max-width-text: 12;
+		}
+	}
+	.label {
+		margin-left: 3;
+	}
+
+	#tradingState {
+		visible: false;
+	}
+	&.trading {
+		background-tile-pos-x: 1;
+		padding-right: 5;
+
+		#tradingState {
+			visible: true;
+			align: middle middle;
+			>bitmap {
+				width: 24;
+			}
+		}
+	}
+
+	&.sietch-ancient {
+		filter: glow(#fad894, 1, 25, 1, 1, true);
+		fmt-text{
+			color: @color-ui-text;
+		}
+	}
+
+	&.is-ally.not-trading {
+		padding-right: 30;
+	}
+
+	&.ally-atreides {
+		background-tile-pos-x: 2;
+		background-tile-pos-y: 1;
+	}
+	&.ally-harkonnen {
+		background-tile-pos-x: 2;
+	}
+	&.ally-fremen {
+		background-tile-pos-x: 1;
+		background-tile-pos-y: 2;
+	}
+	&.ally-smugglers {
+		background-tile-pos-x: 1;
+		background-tile-pos-y: 1;
+	}
+	&.ally-corrino {
+		background-tile-pos-x: 2;
+		background-tile-pos-y: 2;
+	}
+	&.ally-ecaz {
+		background-tile-pos-x: 1;
+		background-tile-pos-y: 3;
+	}
+	&.ally-vernius {
+		background-tile-pos-x: 2;
+		background-tile-pos-y: 3;
+	}
+
+	.flag-header {
+		layout: vertical;
+		position: absolute;
+		align: bottom middle;
+		spacing: 0;
+		offset-y: -26;
+		offset-x: 15;
+	}
+}
+
+
+construction-bar {
+	>#body{
+		content-align: middle left;
+		spacing: -1;
+		.icon{
+			src: "UI/HUD/constructionIcon.png";
+		}
+		#gauge{
+			background:"UI/HUD/constructionProgressBG.png" 4 4;
+			body-width: 61;
+			body-height: 10;
+			padding: 1;
+			#fillBar{
+				background-tile-pos-x: 3;
+			}
+			#emptyBar{
+				alpha: 0;
+			}
+			color: @color-construction;
+		}
+	}
+}
+
+capture-state {
+	>#body {
+		content-align: middle left;
+		spacing: -1;
+		.icon-cont {
+			background: hgrid("UI/HUD/roundedBG03.png", 2) 4 4;
+			background-tile-pos-x: 1;
+			.icon {
+				color-adjust: brightness(0.25);
+				width: 14;
+			}
+		}
+		#gauge {
+			background:"UI/HUD/constructionProgressBG.png" 4 4;
+			body-width: 61;
+			body-height: 10;
+			padding: 1;
+			#fillBar {
+				background-tile-pos-x: 3;
+			}
+			#emptyBar {
+				alpha: 0;
+			}
+		}
+	}
+	&.ability-InstallUWHeadquarter {
+		#gauge {
+			color: @faction-smugglers;
+		}
+	}
+	&.ability-PeacefullyAnnex {
+		#gauge {
+			color: @faction-atreides;
+		}
+	}
+}
+
+siege-state {
+	layout: stack;
+	content-align: middle middle;
+	align: bottom middle;
+	spacing: 2;
+	#siegeBtn {
+		align: bottom middle;
+		layout: stack;
+		content-align: top middle;
+		&:hover{
+			color-adjust: brightness(0.05);
+		}
+		.state-icon {
+			src: hgrid("UI/HUD/siegeFlag.png", (@ui-faction-count + 1));
+		}
+		.tiled-faction(src-pos-x, ~'.state-icon', 1);
+	}
+	.action-display {
+		layout: vertical;
+		content-align: top middle;
+		base-gauge{
+			margin-top: 4;
+			margin-bottom: -2;
+			body-width: 32;
+			body-height: 3;
+			color: @color-desert;
+			empty-color: @color-desert;
+			#emptyBar{
+				alpha: 0.2;
+			}
+			padding: 2;
+			background: "UI/HUD/squareBGDark.png" 2 2;
+		}
+	}
+	#siegeIcon {
+		src: "UI/HUD/siegeIcon.png";
+		position: absolute;
+		align: top middle;
+	}
+	#actionIcon {
+		visible: false;
+		recursive-propagate: true;
+		margin-top: -2;
+		>bitmap{
+			width: 36;
+		}
+	}
+	#gauge{
+		visible: false;
+		pulse-color: @color-text-bad;
+		pulse-alpha: 0.8;
+		pulse-frequency: 0.9;
+		.option-photosensitive-true & {
+			pulse-alpha: 0.6;
+			pulse-frequency: 0.6;
+		}
+	}
+
+	occupation-actions{
+		visible: false;
+	}
+	&.action-in-progress{
+		#gauge{
+			visible: true;
+		}
+		#siegeIcon {
+			visible: false;
+		}
+		#actionIcon {
+			visible: true;
+		}
+	}
+	&.occupier-actions{
+		occupation-actions{
+			visible: true;
+		}
+	}
+}
+
+ability-state {
+	>#body {
+		content-align: middle left;
+		spacing: -1;
+		margin-bottom: 4;
+		margin-left: -28;
+		.icon-cont {
+			background: hgrid("UI/HUD/roundedBG03.png", 2) 4 4;
+			background-tile-pos-x: 1;
+			.icon {
+				color-adjust: brightness(0.25);
+				width: 14;
+			}
+		}
+		#gauge {
+			background:"UI/HUD/constructionProgressBG.png" 4 4;
+			body-width: 115;
+			body-height: 10;
+			padding: 1;
+			#fillBar {
+				background-tile-pos-x: 3;
+			}
+			#emptyBar {
+				alpha: 0;
+			}
+		}
+	}
+
+	&.ability-RestoreSietch {
+		#gauge {
+			color: @faction-fremen;
+		}
+	}
+}
+
+structure-slots{
+	content-align: middle middle;
+	spacing: 1;
+	bitmap {
+		src: grid("UI/HUD/hudSlot.png", 3, 2);
+		src-pos-x: 1;
+		&.full {
+			src-pos-x: 0;
+		}
+		&.constructing, &.disabled {
+			src-pos-x: 2;
+		}
+	}
+}
+
+banner-harvester {
+	offset-y: -10;
+}
+
+harvester-slots {
+	content-align: middle middle;
+	spacing: 1;
+	padding-bottom: 3;
+	bitmap {
+		src: grid("UI/HUD/hudSlot.png", 3, 2);
+		src-pos-y: 1;
+		src-pos-x: 1;
+		&.full {
+			src-pos-x: 0;
+		}
+	}
+}

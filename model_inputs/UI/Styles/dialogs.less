@@ -1,0 +1,814 @@
+// out: false
+@import "game.less";
+
+base-dialog {
+	align: middle middle;
+	width: 500;
+	min-height: 250;
+	layout: vertical;
+
+	>.top {
+		layout: stack;
+		background: grid("UI/HUD/genericDialogBackgroundTop.png", 1, 1) 27  27 27 0;
+		.border4k;
+		height: 140;
+		content-align: top middle;
+		padding-top: 5;
+
+		>.decoration {
+			src: "UI/HUD/genericDialogDecorator.png";
+			width: 500;
+			height: 100;
+		}
+
+		>.bodyCont {
+			layout: vertical;
+			@centerWidth: 400;
+			width: @centerWidth;
+			margin-top: 30;
+			margin-bottom: 10;
+			spacing: 10;
+
+			>.body {
+				width: @centerWidth;
+				layout: vertical;
+				spacing: 10;
+
+				>#titleTxt {
+					.bold-20;
+					text-align: center;
+					color: @color-ui-text;
+					max-width: @centerWidth;
+
+					margin-left: 30;
+					margin-right: 30;
+				}
+				>#descriptionTxt {
+					.regular-16;
+					text-align: center;
+					color: @color-ui-text-dark;
+					max-width: @centerWidth;
+
+					margin-left: 30;
+					margin-right: 30;
+				}
+				.text-box {
+					halign: middle;
+					.inner-cont {
+						width: 330;
+						fmt-text-input {
+							width: 300;
+						}
+					}
+				}
+			}
+
+			>#extra {
+				align: middle top;
+				content-align: middle top;
+				spacing: 20;
+
+				.disconnect-disclaimer {
+					color: @color-bad;
+					text-align: multiline-center;
+					.regular-16;
+				}
+			}
+		}
+	}
+
+	>.bottom {
+		layout: stack;
+		background: grid("UI/HUD/genericDialogBackgroundBottom.png", 1, 1) 27 0 27 27;
+		.border4k;
+		content-align: top middle;
+		min-height: 100;
+
+		>.arrow {
+			src: "UI/HUD/horizontalArrow.png";
+			width: 490;
+			height: 20;
+		}
+
+		fill-width: true;
+		>.buttons {
+			align: middle middle;
+			spacing: 25;
+
+			>button {
+				&.index-0 { pad-default-focus: true; }
+				pad-force-cursor: snap;
+				spectator-enabled: true;
+				background: vgrid("UI/buttons/buttons02.png", 2) 12 12;
+				fmt-text {
+					.bold-20;
+					color: @color-text;
+				}
+				width: 160;
+				height: 45;
+				padding-left: 10;
+				padding-right: 10;
+
+				#iconBmp {
+					width: 22;
+					height: 22;
+				}
+				#rightCont {
+					layout: horizontal;
+					content-align: middle middle;
+					spacing: 5;
+					.timer {
+						content-align: middle middle;
+						align: right;
+						spacing: 3;
+						>fmt-text{
+							color: @color-warning;
+							.bold-15;
+							min-width: 41;
+						}
+						.chrono{
+							layout: stack;
+							.chrono-bg{
+								src: "UI/elements/ic_full_chrono_border.png";
+								height: 24;
+							}
+
+							#chronoGauges{
+								invert: true;
+								bitmap{
+									src: "UI/elements/circle_64.png";
+									tint: @color-warning;
+									height: 15;
+								}
+								align: bottom middle;
+								margin-bottom: 3;
+							}
+						}
+					}
+				}
+				&.icon-Confirm {
+					&.disabled {
+						visible: false;
+					}
+				}
+			}
+		}
+	}
+
+	&.hostile-dialog {
+		fmt-text {
+			.regular-16;
+			color: @color-ui-text-dark;
+
+			&.category-title {
+				.bold-17;
+			}
+		}
+
+		#extra {
+			layout: vertical;
+			padding-top: 10;
+			padding-bottom: 10;
+		}
+	}
+	&.refund-dialog {
+		>.top {
+			#extra {
+				layout: vertical;
+				padding-top: 10;
+				spacing: 10;
+			}
+			fmt-text.no-refund-disclaimer {
+				color: @color-text-norefund;
+			}
+		}
+	}
+
+	&.btn-count-3 {
+		>.bottom {
+			>.buttons {
+				spacing: 15;
+				>button {
+					width: 130;
+				}
+			}
+		}
+	}
+}
+
+landsraad-announcement {
+	width: 445;
+	position: absolute;
+	margin-top: 100;
+	align: top middle;
+	layout: vertical;
+	content-align: middle middle;
+	.top-deco {
+		align: top middle;
+		position: absolute;
+		background: "UI/HUD/pause_top_arrow.png";
+		width: 213;
+		height: 17;
+		alpha: 0;
+	}
+	.bottom-deco {
+		margin-top: 0;
+		background: "UI/HUD/pause_bottom_line.png";
+		height: 6;
+		width: 30;
+		alpha: 0;
+	}
+
+	.message-cont {
+		content-align: middle middle;
+		align: middle middle;
+		fill-width: true;
+		min-height: 120;
+		background-type: dynamic;
+		>#background {
+			gradient: linear(180, fade(@color-hud-bg-middle, 0%), fade(@color-hud-bg-middle, 70%));
+		}
+
+		.lines {
+			padding-top: 20;
+			padding-bottom: 10;
+			layout: vertical;
+			spacing: 10;
+			content-align: left middle;
+			align: left middle;
+			fmt-text {
+				.bold-18;
+				color: @color-ui-text-light !important;
+				text-shadow : 0 1 #000 0.6;
+				text-align: center;
+			}
+			#firstLine {
+				.bold-22;
+			}
+			#fifthLine {
+				.bold-18;
+				color: @color-ui-text-light;
+				alpha: 0.7;
+				margin-bottom: -15;
+			}
+		}
+
+		alpha: 0;
+	}
+
+	&.paused {
+		.top-deco {
+			transition: alpha 0.5 ease-in;
+			appear-delay: 0.5 0;
+			&.appear {
+				alpha: 1;
+			}
+		}
+		.bottom-deco {
+			transition: width 0.5 linear;
+			transition: alpha 0.5 ease-in;
+			appear-delay: 0.1 0;
+			&.appear {
+				width: 444;
+				alpha: 1;
+			}
+		}
+		.message-cont {
+			transition: alpha 0.5 ease-in;
+			appear-delay: 0.8 0;
+			&.appear {
+				alpha: 1;
+			}
+		}
+		.bottom-cont {
+			transition: alpha 0.5 ease-in;
+			appear-delay: 1.1 0;
+			&.appear {
+				alpha: 1;
+			}
+		}
+	}
+}
+
+landsraad-opening-dialog {
+	fill-width: true;
+	fill-height: true;
+}
+
+list-dialog {
+	background: @panel-bg;
+	align: middle middle;
+	padding: 30;
+	layout: vertical;
+	spacing: 20;
+
+	.footer {
+		content-align: left middle;
+		spacing: 2;
+		layout: vertical;
+	}
+	button {
+		.decorated-btn;
+	}
+}
+
+report-player-dialog {
+	fmt-text {
+		allow-over-rich-ids: false;
+	}
+	>.top {
+		width: 500;
+	}
+	>.top >.bodyCont >.body {
+		content-halign: middle;
+		#titleTxt {
+			halign:left;
+		}
+		.player-selector-cont {
+			layout:vertical;
+			content-align : middle middle;
+			align: middle middle;
+			spacing: 15;
+
+			dropdown {
+				width: 240;
+
+				.dropdown-menu-audio;
+
+				base-button {
+					padding: 12;
+					background: "UI/buttons/dropdown_button.png" 12 12;
+					.border4k;
+					fmt-text {
+						offset-x:4;
+					}
+				}
+				text { .sans-15; }
+			}
+
+			#checkboxSelector {
+				layout : vertical;
+				spacing: 5;
+				#selectorLines {
+					spacing: 10;
+					content-valign: middle;
+
+					#checkboxes{
+						height: 20;
+						width: 20;
+						background : hgrid("UI/buttons/checkBox.png", 3) 1 1;
+							background-tile-pos-x: 0;
+					}
+
+					fmt-text {
+						color:@color-ui-text-light;
+						//color-adjust: brightness(0);
+
+						transition: color 0.5 ease-out;
+						//transition: color-adjust 0.2 ease-out;
+					}
+
+					&.hover {
+						fmt-text {
+							color: @color-bad;
+							//color-adjust: brightness(1);
+						}
+					}
+					&.selected{
+						fmt-text {
+							color: @color-bad;
+							//color-adjust: brightness(0);
+						}
+						#checkboxes {
+							background-tile-pos-x: 1;
+						}
+					}
+
+					&.otherSelected{
+						fmt-text {
+							//color:@color-ui-text-dark;
+							//alpha: 0.7;
+						}
+					}
+				}
+			}
+		}
+
+		.offenses-selection-cont {
+			layout:vertical;
+			content-halign: middle;
+		}
+
+		.desc-text {
+			color: @color-ui-text-dark;
+		}
+
+		.line-separator {
+			width: 300;
+			height: 2;
+			align: bottom middle;
+			background: "UI/elements/line_graphic_interface.png";
+		}
+
+		.minor {
+			width: 250;
+			alpha: 0.25;
+		}
+
+	}
+
+	>.top >.decoration {
+		visible: false;
+	}
+
+	>.bottom >.buttons {
+		button {
+			.decorated-btn;
+			padding: 13 25 14 25;
+
+			background: hgrid("UI/menu/btn_resets.png", 2) 20 20;
+			.border4k;
+
+			fmt-text {
+				.regular-18;
+				color: @color-ui-text;
+				alpha: 0.7
+			}
+		}
+	}
+}
+
+offenses-lines {
+	halign: middle;
+	margin-right: 30;
+	margin-left: 30;
+	layout: vertical;
+	content-halign: right;
+	spacing: 8;
+	margin-top: 20;
+
+	.line {
+		content-valign: middle;
+		spacing: 10;
+		.label {
+			click-sfx: @UI_Button_Release;
+			>fmt-text {
+				.regular-17;
+				color: @color-ui-text-light;
+			}
+		}
+
+		check-box {
+			offset-y: 1;
+		}
+		dropdown {
+			margin-right: -119;
+			max-width: 150;
+		}
+
+		>.display-line {
+			background: @color-ui-text-dark;
+			height: 1;
+			fill-width: true;
+			auto-size: 1;
+			halign: middle;
+		}
+	}
+}
+
+reveal-text {
+	fmt-text {
+		.regular-14;
+		color: @color-ui-text-light;
+		text-align: left;
+		line-spacing: 2;
+	}
+
+	@scroll-bar-offset: 20;
+	padding-right: @scroll-bar-offset;
+	margin-right: -@scroll-bar-offset;
+	.scrollbar {
+		margin-right: -@scroll-bar-offset;
+		position: absolute;
+		align:middle right;
+		alpha: 0.6;
+	}
+
+	speed-factor: 1.1;
+	pad-scroll-offset: 22;
+	skip-factor: 40;
+	multiline: true;
+	fill-width: true;
+	fill-height: true;
+}
+
+narration-dialog.speakerKind-piter {
+	reveal-text {
+		speed-factor: 1.05;
+	}
+}
+
+narration-dialog.speakerKind-fenring {
+	reveal-text {
+		speed-factor: 1.05;
+	}
+}
+
+conquest-screen {
+	narration-dialog {
+		offset-y: 36;
+		.narration-dialog-impl(500, 400);
+
+		#nameCont {
+			scale: 1.3;
+		}
+
+		#dialogCont {
+			margin: 48 48 48 48;
+
+			fmt-text {
+				.regular-18;
+			}
+		}
+
+		.body-container .footer  {
+			&.appear {
+				height: 16;
+				.transition-height(0.15);
+				height: 82;
+			}
+		}
+
+		.portraitCont {
+			offset-y: 64;
+			.councilor-dims(80, 298, 0);
+		}
+
+		&.has-portrait #dialogCont {
+			margin-top: 54;
+			margin-left: 78;
+		}
+	}
+}
+
+top-bar, spectator-top-bar {
+	narration-dialog {
+		offset: 2 -16;
+		.narration-dialog-impl(368, 300);
+	}
+}
+
+result-screen {
+	narration-dialog {
+		.narration-dialog-impl(368, 300);
+	}
+}
+
+.narration-dialog-impl(@width:368, @height: 300) {
+	.body-container {
+		layout: vertical;
+		background-type: dynamic;
+		>#background {
+			background: @color-hud-bg;
+			outline-offset: 2;
+			outline: 1 #584e35;
+		}
+
+		appear-delay: 0 0;
+		alpha: 0;
+		&.appear {
+			alpha: 1;
+			transition: alpha 0.5 ease-out;
+			start-sfx: @UI_Conquest_Voicepopup;
+		}
+
+		.body {
+			width: @width;
+			height: @height;
+			overflow: hidden;
+
+			.body-background {
+				src: "UI/HUD/speech_bg_pattern.png";
+				position: absolute;
+				align: top middle;
+				width: @width - 8;
+				offset-y: 4;
+			}
+
+			.container {
+				background-type: dynamic;
+				pad-click: @input-speech-skip;
+				pad-hide-icon: true;
+
+				>#background {
+					background: #32343c;
+					margin: 20;
+					border-radius: 5;
+					outline-offset: 0.5;
+					outline: 1 #474445;
+				}
+
+				#nameCont {
+					visible: false;
+					position: absolute;
+					align: top left;
+					min-width: 80;
+					height: 24;
+					offset: 36 16;
+					padding: 0 8 0 8;
+
+					background-type: dynamic;
+					>#background {
+						outline: 0.5 #26231e;
+						gradient: linear(-90, fade(#635639, 100%), fade(#99824c, 100%) );
+					}
+
+					fmt-text {
+						.bold-16;
+						color: @color-ui-text-light;
+						text-shadow : 1 1 #000 0.7;
+						//margin-left: 8;
+						align: left middle;
+					}
+				}
+
+				#dialogCont {
+					margin: 52 52 44 52;
+					fill-height: true;
+					content-align: middle left;
+
+					reveal-text {
+						padding-bottom: 10;
+						padding-top: 10;
+						overflow: scroll;
+						recursive-propagate: true;
+						scroll-speed: 0.4;
+						auto-scroll: true;
+					}
+				}
+
+				&:hover {
+					.scrollbar {
+						alpha: 1;
+					}
+				}
+			}
+		}
+
+		.separator {
+			src: "UI/conquest/smooth_separator.png";
+			width: @width;
+			height: 1;
+			offset-y: 3;
+		}
+
+		.arrow-separator {
+			position: absolute;
+			src: "UI/HUD/horizontalArrow_filled.png";
+			width: @width - 8;
+			halign: middle;
+		}
+
+		.footer {
+			content-align: middle middle;
+			align: middle middle;
+			width: @width - 8;
+			min-height: 16;
+			margin-bottom: 4;
+			padding-top: 14;
+			background: #1B1E25;
+			spacing: 8;
+
+			button {
+				fmt-text {
+					color: @color-ui-text-light;
+				}
+
+				min-height: 0;
+				offset-y: -4;
+				alpha: 0;
+			}
+
+			#closeBtn {
+				width: 112;
+			}
+
+			&.appear {
+				height: 16;
+				.transition-height(0.15);
+				height: 72;
+
+				button {
+					.decorated-btn;
+					height: 0;
+					.transition-height(0.15);
+					height: 40;
+					.fade-in;
+				}
+
+				#closeBtn {
+					pad-click: @input-speech-close;
+					pad-binding-persistent: true;
+				}
+
+				button.index-0 {
+					pad-click: @input-speech-option1;
+				}
+
+				button.index-1 {
+					pad-click: @input-speech-option2;
+				}
+			}
+		}
+	}
+
+	.portraitCont {
+		visible: false;
+		position: absolute;
+		align: top left;
+		offset-y: 50;
+		offset-x: -90;
+		alpha: 0;
+		appear-delay: 0.15 0;
+		&.appear {
+			alpha: 1;
+			offset-x: -30;
+			transition: offset-x 0.3 ease-out;
+			transition: alpha 0.3 ease-out;
+		}
+
+		.councilor-dims(80, 220, 0);
+		layout: stack;
+
+		>.portrait {
+			border-radius: 5;
+			outline: 0.5 black;
+			outline-alpha: 2; // to make a solid 1px line;
+
+			background: @color-hud-bg-middle;
+
+			image-mode: fit;
+			image-alpha: 1;
+			image-scale: 1;
+			color-adjust: none;
+		}
+
+		>.gradient-bottom {
+			valign: bottom;
+			margin-bottom: 3;
+
+			border-radius: 6;
+			gradient: linear(0, @color-hud-bg-middle, rgba(0,0,0,0));
+		}
+
+		>.lineInner {
+			outline: 1 @color-ui-text;
+			outline-alpha: 0.4;
+			outline-offset: 5;
+			border-radius: 10;
+		}
+
+		>.lineOuter {
+			outline: 1 @color-ui-text;
+			outline-alpha: 0;
+			outline-offset: 0;
+			border-radius: 8;
+		}
+	}
+
+
+	&.has-portrait {
+		.body-container {
+			.container #dialogCont {
+				margin-top: 54;
+				margin-left: 78;
+			}
+
+			.container #nameCont {
+				visible: true;
+			}
+		}
+
+		.portraitCont {
+			visible: true;
+		}
+	}
+
+	#scrollUp {
+		position: absolute;
+		align: right top;
+		offset-x: -37;
+		offset-y: 50;
+		pad-click: @input-speech-scrollup;
+		alpha: 0.6;
+	}
+
+	#scrollDown {
+		position: absolute;
+		align: right top;
+		offset-x: -37;
+		offset-y: 260;
+		pad-click: @input-speech-scrolldown;
+		alpha: 0.6;
+	}
+}

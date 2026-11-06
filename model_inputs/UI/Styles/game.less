@@ -1,0 +1,888 @@
+// out: false
+@import "common.less";
+
+@selection-content-height: 280;
+@unit-display-width: 422;
+@unit-display-width-minfont: 472;
+
+game {
+	layout: stack;
+	overflow: limit;
+	fill-width: true;
+	fill-height: true;
+
+	hud, spectator-hud, .layer {
+		layout: stack;
+		fill-width: true;
+		fill-height: true;
+	}
+
+	.safe-zone-box {
+		background: #000 0;
+	}
+	#safeZoneTop {
+		fill-width: true;
+		min-height: 120;
+	}
+	#safeZoneRight {
+		fill-height: true;
+		min-width: 260;
+		halign: right;
+	}
+	#safeZoneBottom {
+		fill-width: true;
+		min-height: 70;
+		valign: bottom;
+	}
+	#safeZoneLeft {
+		fill-height: true;
+		min-width: 100;
+	}
+
+	#alertsLayer{
+		layout: stack;
+	}
+
+	>#modals {
+		background: #000000;
+		background-alpha: 0.5;
+		visible: false;
+		&.show {
+			visible: true;
+		}
+	}
+
+	#worldShade{
+		fill-width: true;
+		fill-height: true;
+		background: @color-bg-dark-2;
+		alpha: 0.0;
+		.transition-alpha-quick;
+		&.show {
+			alpha: 0.7;
+		}
+	}
+	#worldGradient {
+		fill-height: true;
+		alpha: 0;
+		.transition-alpha-quick;
+		&.gradient-results {
+			alpha: 1;
+			halign: left;
+			width: 1000;
+			background-type: dynamic;
+			>#background {
+				gradient: linear(-90, fade(@color-bg-dark-1, 100%), rgba(0,0,0,0));
+			}
+		}
+	}
+	#pauseEffect {
+		fill-width: true;
+		fill-height: true;
+		&.show {
+			start-vfx: "Fx/UI/Pause_Fx2D.fx2d" false true;
+		}
+
+		&.show-landsraad {
+			start-vfx: "Fx/UI/Pause_Landsraad_Fx2D.fx2d" false true;
+		}
+
+		&.hide {
+			start-vfx: "Fx/UI/PauseOut_Fx2D.fx2d" false true;
+		}
+
+		&.hide-landsraad {
+			start-vfx: "Fx/UI/PauseOut_Landsraad_Fx2D.fx2d" false true;
+		}
+	}
+	#cursorLayer {
+		bitmap {
+			position: absolute;
+		}
+	}
+	>#world >#neuralGrid {
+		grid-segment {
+			layout: vertical;
+			.fade-segment {
+				visible: false;
+				rotation: 180;
+				height: 50;
+				offset-y: 49;
+			}
+			&.partial {
+				.fade-segment {
+					visible: true;
+				}
+			}
+		}
+		.grid-node {
+			src: "UI/Map/Vernius_NetworkNode.png";
+			scale: 0.5;
+			center-ratio: 0.5;
+		}
+	}
+
+	&.results-view {
+		#hudLayer {
+			>object {
+				visible: false;
+			}
+			>result-screen, >hud, >spectator-hud {
+				visible: true;
+				narration-dialog {
+					align: top right;
+					margin-right: 25;
+					margin-top: 140;
+				}
+			}
+			>hud, >spectator-hud {
+				>object {
+					visible: false;
+				}
+				top-bar, spectator-top-bar {
+					visible: true;
+
+					#topRightPopups {
+						visible: false;
+					}
+				}
+				game-state {
+					visible: true;
+				}
+			}
+		}
+		#world, #alertsLayer, #popups, #notifications {
+			visible: false;
+		}
+	}
+}
+
+game.layout-leader {
+	hud, spectator-hud {
+		>right-bar, >selection-bar, >tutorials {
+			visible: false;
+		}
+	}
+}
+
+hud-blocker {
+	visible: false;
+	&.blocked {
+		visible: true;
+	}
+
+	fill-width: true;
+	fill-height: true;
+	background: #000;
+	background-alpha: 0.3;
+}
+
+game-state {
+	fmt-text, text{
+		color: @color-desert;
+	}
+	align : top right;
+	content-align: middle right;
+	margin-top: 2;
+	@base-margin: 295;
+	margin-right: @base-margin;
+	spacing: 10;
+
+	.time-buttons {
+		margin-top: -1;
+		content-align: middle right;
+		base-button{
+			padding: 2;
+			background: none;
+			>bitmap{
+				src: hgrid("UI/HUD/option_icons.png", 4);
+			}
+		}
+	}
+
+	#pauseBtn{
+		>bitmap{
+			src-pos-x: 3;
+		}
+	}
+	#playBtn{
+		content-align: middle middle;
+		min-width: 28;
+		margin-right: 7;
+		filter: glow(@color-time-normal, .6, 9, 1, 1, true);
+
+		#speedText {
+			.bold-16;
+		}
+	}
+	#optionsBtn{
+		spectator-enabled: true;
+		>bitmap{
+			src-pos-x: 2;
+		}
+	}
+
+	&.accelerated {
+		text {
+			color: @color-time-sped-up;
+		}
+		#dayProgress {
+			color: @color-time-sped-up;
+			empty-color: @color-time-sped-up;
+		}
+
+		#playBtn{
+			filter: glow(@color-time-sped-up, .6, 12, 1, 1, true);
+		}
+	}
+
+	&.paused {
+		text {
+			color: @color-time-paused;
+		}
+		#dayProgress {
+			color: @color-time-paused;
+			empty-color: @color-time-paused;
+		}
+
+		#pauseBtn{
+			>bitmap{
+				color-adjust: brightness(0.3);
+				filter: glow(@color-time-paused, 1, 12, 1.1, 1, true);
+			}
+			pulse-alpha: 0.95;
+			pulse-frequency: 1;
+			pulse-color: #ffe1b0;
+			.option-photosensitive-false & {
+				enable-pulse: true;
+			}
+		}
+		#playBtn{
+			filter: none;
+		}
+	}
+	&.playercount-5 {
+		margin-right: @base-margin + 35;
+	}
+	&.playercount-6 {
+		margin-right: (@base-margin + 35 + 80);
+	}
+	&.playercount-7 {
+		margin-right: (@base-margin + 35 + 80 * 2);
+	}
+	&.playercount-8 {
+		margin-right: (@base-margin + 35 + 80 * 3);
+	}
+}
+
+action-choice {
+	action-button {
+		.decorated-btn;
+		bitmap {
+			height: 30;
+		}
+		padding: 8;
+	}
+}
+
+action-button {
+	background: none;
+	color-adjust: saturate(-0.2);
+	spacing: 10;
+	content-align: middle left;
+	fmt-text {
+		max-width: 80;
+		.bold-13;
+		color: @color-ui-text-light
+	}
+
+	pad-click: @input-confirm-attack;
+
+	binding-icon {
+		>bitmap {
+			scale: 1;
+		}
+	}
+}
+
+.iconButton {
+	background: none;
+}
+
+
+timer {
+	background: #000000;
+	background-alpha: 0.8;
+	layout : vertical;
+	spacing: 10;
+	margin-left: 10;
+	margin-top: 60;
+	padding : 6;
+	width : 120;
+
+	#info {
+		layout : vertical;
+		spacing : 5;
+		padding-bottom: 5;
+		#played, #real {
+			.regular-14;
+		}
+	}
+
+	#title {
+		text {
+			.regular-20;
+		}
+	}
+
+	#buttons {
+		content-align : middle;
+		spacing: 5;
+	}
+
+	#times {
+		layout: vertical;
+		spacing : 3;
+	}
+}
+
+
+chat-box{
+	@box-width: 330;
+	// @box-height: 315; // set from code in ChatBox.onResize
+	width: @box-width;
+
+	background-type: dynamic;
+	>#background {
+		background: #1D1F26;
+		outline: 0.5 #6C5D47;
+		alpha: 0.4;
+	}
+	layout: vertical;
+	content-align: bottom left;
+	overflow: hidden;
+	min-height: 30;
+
+	game & {
+		align: bottom right;
+		margin: 10;
+		margin-bottom: 30;
+		&.can-send-chat {
+			.input-box {
+				pad-action: @padaction-focuschatbox;
+			}
+		}
+		&.shift {
+			offset-x: -296;
+		}
+		&.pad {
+			margin-bottom: 53;
+		}
+	}
+
+	.fade-bg {
+		position: absolute;
+		align: bottom middle;
+		background: "UI/HUD/gradient_shadow_up.png";
+		width: @box-width;
+		// height: @box-height;
+		alpha: 0.4;
+	}
+	fmt-text{
+		text-shadow : 1 1 #000 0.3;
+	}
+
+	.msg-container{
+		layout: vertical;
+		padding-right: 2;
+		spacing: 3;
+		// max-height: @box-height - 40;
+		width: @box-width - 6;
+		overflow: scroll;
+		.scrollbar{
+			alpha: 0.6;
+		}
+		chat-message-box{
+			background: @panel-bg;
+			background-tile-pos-x: 2;
+			background-tile-pos-y: 2;
+			background-alpha: 0.1;
+			fill-width: true;
+			overflow: hidden;
+			padding: 8;
+			spacing: 8;
+			layout: vertical;
+
+			fmt-text {
+				allow-over-rich-ids: false;
+			}
+
+			.header{
+				spacing: 5;
+				.date{
+					.italic-12;
+					color: @color-ui-text-dark;
+					color-adjust: brightness(0.1) saturate(0.2);
+					//visible: false;
+				}
+				.user{
+					#usernameTxt {
+						.bold-13;
+						use-ellipsis: true;
+						max-width-text: 150;
+						color: @color-ui-text;
+					}
+					#logo{
+						width: 14;
+					}
+
+					&.faction-atreides, &.faction-harkonnen, &.faction-smugglers, &.faction-fremen, &.faction-corrino {
+						#usernameTxt { color-adjust: brightness(0.15) saturate(0.2); }
+					}
+					&.faction-atreides { #usernameTxt { color: @faction-atreides; } }
+					&.faction-harkonnen { #usernameTxt { color: @faction-harkonnen; } }
+					&.faction-smugglers { #usernameTxt { color: @faction-smugglers; } }
+					&.faction-fremen { #usernameTxt { color: @faction-fremen; } }
+					&.faction-corrino { #usernameTxt { color: @faction-corrino; } }
+					&.faction-ecaz { #usernameTxt { color: @faction-ecaz; } }
+					&.faction-vernius { #usernameTxt { color: @faction-vernius; } }
+				}
+			}
+			.text{
+				margin-left: 5;
+				color: @color-ui-text-light;
+				.regular-14;
+				.option-chatsize-1 & {
+					.regular-17;
+				}
+				.option-chatsize-2 & {
+					.regular-20;
+				}
+			}
+
+			appear-delay: 10;
+			alpha: 1;
+			transition: alpha 0.5 ease-out;
+			&.appear{
+				alpha: 0;
+			}
+			&.disappear{
+				alpha: 0;
+			}
+			&.hide{
+				visible: false;
+			}
+
+			.message-treaties {
+				layout: horizontal;
+				spacing: 3;
+				padding-left: 5;
+				image >bitmap {
+					width: 30;
+				}
+			}
+
+			.channel{
+				.regular-13;
+				alpha: 0.8;
+			}
+			&.channel-team {
+				.text,.channel{ color: @color-chat-team; }
+				.text{ color-adjust: brightness(0.6) }
+			}
+			&.channel-dead {
+				.text, .channel{ color: @color-chat-dead; }
+				.text{ color-adjust: brightness(0.2) }
+			}
+			&.channel-direct {
+				.text, .channel{ color: @color-chat-direct; }
+				.text{ color-adjust: brightness(0.6) }
+			}
+
+			&.type-system, &.type-lobby {
+				background-alpha: 0.1;
+				.header { visible: false; }
+				.text {
+					color: @color-ui-text;
+				}
+				padding-left: 3;
+			}
+			&.type-lobby {
+				.text {
+					color: @color-ui-text-dark;
+				}
+			}
+		}
+	}
+	.input-box {
+		content-align: left middle;
+		width: @box-width;
+		height: 30;
+		fmt-text-input {
+			width: 210;
+			color: @color-ui-text-light;
+			margin-top: 0;
+		}
+		spacing: 5;
+		background-type: dynamic;
+		pad-focusable: false;
+		>#background {
+			background: #1D1F26;
+			border-radius: 5 5 0 0;
+			outline: 0.5 #F0C885;
+			outline-alpha: 1;
+			alpha: 0.8;
+		}
+		alpha: 0.3;
+		padding: 0;
+		.inner-cont {
+			content-align: left middle;
+			padding: 0;
+			height: 30;
+		}
+		#channelChoice {
+			.decorated-btn;
+			min-width: 75;
+			spectator-enabled: true;
+			fixed-text {
+				color: @color-chat-all;
+				alpha: 0.8;
+				max-width-text: 55;
+				use-ellipsis: true;
+			}
+			&.channel-team {
+				fixed-text {
+					color: @color-chat-team;
+				}
+			}
+			&.channel-dead {
+				fixed-text {
+					color: @color-chat-dead;
+				}
+			}
+			&.channel-direct {
+				fixed-text {
+					color: @color-chat-direct;
+				}
+			}
+		}
+	}
+	.option-chatopacity-1 & {
+		>#background {
+			alpha: 1;
+		}
+		.fade-bg {
+			background: @color-hud-bg-dark;
+			alpha: 0.9;
+		}
+		.input-box {
+			alpha: 0.5;
+			background-tile-pos-x: 1;
+		}
+	}
+	&.focused {
+		.fade-bg {
+			alpha: 0.9;
+		}
+		chat-message-box{
+			visible: true !important;
+			alpha: 1 !important;
+		}
+		.input-box{
+			alpha: 1;
+		}
+	}
+}
+
+chat-box-channel-choice {
+	align: bottom right;
+	content-align: middle middle;
+	margin-right: 310;
+	margin-bottom: 33;
+	background: @panel-bg;
+	background-tile-pos-x: 2;
+	background-tile-pos-y: 0;
+	layout: vertical;
+	spacing: 2;
+	padding: 4;
+	max-width: 200;
+	button {
+		spectator-enabled: true;
+
+		.decorated-btn;
+		fill-width: true;
+		fmt-text {
+			color: @color-chat-all;
+			alpha: 0.8;
+		}
+		&.channel-team {
+			fmt-text {
+				color: @color-chat-team;
+			}
+		}
+		&.channel-dead {
+			fmt-text {
+				color: @color-chat-dead;
+			}
+		}
+		&.channel-direct {
+			fmt-text {
+				color: @color-chat-direct;
+			}
+		}
+	}
+}
+
+zone-info {
+
+	>#body{
+		@imgSize: 16;
+		position: absolute;
+		align: middle middle;
+		content-align: middle middle;
+		padding: 11;
+		spacing: 7;
+
+		background-type: dynamic;
+		>#background {
+			background: @color-hud-bg;
+			border-radius: 12;
+			background-alpha: 0.8;
+		}
+
+		&.special-region{
+			>#background {
+				outline: 2 @color-border-gold;
+				outline-alpha: 1;
+			}
+		}
+
+		.resources {
+			&.no-resources {
+				visible: false;
+			}
+		}
+
+
+		resource-counter {
+			bitmap{
+				width: @imgSize;
+				height: @imgSize;
+			}
+		}
+
+		special-region-icon {
+			bitmap{
+				width: @imgSize;
+				height: @imgSize;
+			}
+		}
+
+		traits-displayer{
+			padding: 0;
+			margin: -1;
+			spacing: 5;
+			bitmap{
+				width: @imgSize;
+				height: @imgSize;
+			}
+			&.no-trait {
+				visible: false;
+			}
+		}
+
+		.resources {
+			spacing: 5;
+			banner-button {
+				padding-left: 0;
+				padding-right: 0;
+				#bg {
+					visible: false;
+				}
+				#icon {
+					margin-top: 0;
+					width: 20;
+					height: 20;
+				}
+			}
+		}
+	}
+	&.mainbase {
+		visible: false;
+	}
+}
+
+zone-effects {
+	position: absolute;
+	content-align: middle middle;
+	align: middle middle;
+
+	&.empty {
+		visible: false;
+		blinker {
+			stopped: true;
+		}
+	}
+	#body {
+		freq: 0.5;
+
+		effect-comp {
+			offset-y: -47;
+			transition: offset-y 1 ease-in-out;
+			padding: 30;
+			min-width: 150;
+			min-height: 150;
+			layout: stack;
+
+			.glow {
+				align: middle middle;
+				position: absolute;
+				src: "UI/HUD/regionOperationsGlow.png";
+				transition: alpha 1 ease-in;
+
+				>bitmap {
+					blend: add;
+				}
+			}
+
+			.discMask {
+				position: absolute;
+				width: 200;
+				height: 200;
+				transition: alpha 0.2 ease-out;
+				x: 3;
+				y: 3;
+			}
+			#disc {
+				src: "UI/HUD/regionOperationsCircle.png";
+				align: middle middle;
+				x: 72;
+				y: 72;
+			}
+			.effect-icon {
+				align: middle middle;
+				position: absolute;
+			}
+		}
+		&.blink-off {
+			effect-comp {
+				offset-y: -33;
+				.glow {
+					alpha: 0.2;
+				}
+			}
+		}
+	}
+}
+
+
+action-choice {
+	position: absolute;
+	layout : stack;
+}
+
+loading-screen {
+	>#bg {
+		fill-width: true;
+		fill-height: true;
+	}
+
+	.black-bar{
+		background: #000;
+		fill-width: true;
+		height: 135;
+
+		&.top { align: top middle; }
+		&.bottom { align: bottom middle; }
+	}
+	.gradient{
+		fill-width: true;
+		height: 326;
+		offset-y: -135;
+		align: bottom middle;
+		background: "UI/menu/degrade_loading_screen.png";
+	}
+
+	.msgBox {
+		layout: stack;
+		content-align: middle middle;
+		.deco {
+			src: "UI/menu/loading.png";
+			scale: 0.5;
+		}
+
+		align: bottom middle;
+		offset-y: -170;
+		.message-cont {
+			offset-y: -1;
+			#messageTxt {
+				.regular-20;
+				color: @color-text;
+			}
+		}
+	}
+	.tip-cont {
+		align: middle middle;
+		#tipTxt {
+			.regular-16;
+			color: @color-text;
+			alpha: 0.9;
+		}
+	}
+
+	.title-bmp {
+		align: middle middle;
+		src: vgrid("UI/menu/title_faction_load_screen.png", @ui-faction-count);
+		scale: 0.5;
+		offset-y: 8;
+		margin-right: -500;
+		margin-left: -500;
+	}
+	.tiled-faction(src-pos-y, ~'.title-bmp', 0);
+
+	.fx-cont {
+		align: bottom right;
+		offset-y: -60;
+		offset-x: -125;
+		scale: 1.75;
+		start-vfx: "Fx/UI/FX_Loading.fx2d";
+	}
+	// Because it will still freeze at the end
+	&.cq-done/* , &.is-blocking */ {
+		.fx-cont {
+			visible: false;
+		}
+	}
+}
+
+game-logo {
+	layout: vertical;
+	#duneVideo {
+		offset-x: -22;
+		offset-y: -230;
+		scale: 0.45;
+	}
+	#spiceWars {
+		src: "UI/menu/spiceWars.png";
+		scale: 0.45;
+		margin-top: -270;
+	}
+}
+
+.player-spectator, .player-dead {
+	right-bar {
+		visible: false;
+	}
+	spectator-top-bar {}
+	top-bar {
+		#topContent {
+			#management, #mainInfos, #rightResources {
+				visible: false;
+			}
+		}
+
+		diplomacy-status {
+			visible: false;
+		}
+	}
+}

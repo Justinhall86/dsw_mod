@@ -1,0 +1,131 @@
+@import "game.less";
+
+army {
+	traits-displayer {
+		margin-left: 41;
+	}
+}
+
+army-displayer {
+	content-align : top left;
+	width: @unit-display-width;
+	@{opt-minfont} {
+		width: @unit-display-width-minfont;
+	}
+	layout: vertical;
+	.header-top{
+		fill-width: true;
+		padding-left: 9;
+		padding-right: 5;
+		content-align : top left;
+		spacing: 5;
+		banner-button{
+			margin-top: -8;
+		}
+		.badge {
+			layout: vertical;
+			spacing: 5;
+			margin-left: 5;
+		}
+		abilities-displayer{
+			height: 40;
+			width: 40;
+		}
+		abilities-displayer, entity-refund-button{
+			align: middle right;
+			margin-top: 5;
+		}
+	}
+	.stats{
+		align: bottom left;
+		margin-bottom: 5;
+		margin-left: 7;
+		spacing: 8;
+		fmt-text{
+			text-shadow : 0 1 #000 0.7;
+		}
+		resource-counter{
+			spacing: -2;
+		}
+	}
+	.infos{
+		height: 164;
+		content-align : top left;
+		.portrait {
+			offset-y: -10;
+			layout: vertical;
+			align: middle left;
+			content-align : top middle;
+			bitmap{
+				width: 125;
+			}
+		}
+		.desc{
+			padding: 25 0 0 15;
+			spacing: 8;
+			layout: vertical;
+			tip-trait{
+				padding: 0;
+				max-width: 250;
+				@{opt-minfont} {
+					width: 300;
+				}
+				fmt-text{
+					.regular-12;
+				}
+				#titleText{
+					.bold-14;
+				}
+				.body-content{
+					margin-top: -18;
+					background: none;
+				}
+				#fbody {
+					visible: false;
+				}
+			}
+			.traits{
+				spacing: 5;
+				trait-preview{
+					background: @comp-round-bg;
+					background-tile-pos-x: 1;
+					padding: 2;
+				}
+			}
+			.individual-equipment {
+				halign: middle;
+				margin-bottom: -10;
+				spacing: 10;
+			}
+		}
+	}
+}
+individual-equipment {
+	background: @panel-bg;
+	position: absolute;
+	layout: vertical;
+	spacing : 10;
+	padding : 15;
+	>.header {
+		layout: vertical;
+		align: top middle;
+		content-align: top middle;
+		padding-top: 5;
+		.title{
+			.window-title;
+			color: @color-window-title;
+			transform-text-last: true;
+			.uppercase;
+		}
+		.title-highlight {
+			src: "UI/elements/titleDeco.png";
+			width: 130;
+		}
+	}
+	>.list{
+		content-align: middle middle;
+		spacing: 5;
+		max-width: 180;
+		multiline : true;
+	}
+}

@@ -1,0 +1,23 @@
+@import "game.less";
+
+faction-button {
+	// Round buttons
+	&.style0 {
+
+	}
+
+	// Square buttons
+	&.style1 {
+		background: none;
+		color-adjust: brightness(-0.2) saturate(-0.5) gain(#000000, 0.3);
+		&.selected {
+			color-adjust: none;
+			filter: none;
+		}
+	}
+
+	// Square buttons
+	&.style2 {
+		background: none;
+	}
+}

@@ -1,0 +1,42 @@
+@import "game.less";
+
+filters-container {
+	position: absolute;
+	align: bottom middle;
+}
+
+
+filters {
+	spacing: 10;
+	>flow{
+		background-id: true;
+		padding: 10;
+		padding-top: -26;
+		padding-bottom: 15;
+		margin-bottom: -5;
+		spacing: 5;
+		background: grid("UI/HUD/slotBtn01.png", 2, 6) 10 10;
+		background-tile-pos-x: 1;
+		>#background{
+			color-adjust: brightness(0.05) saturate(0.5);
+		}
+
+		&#ecoFilters{ >#background{tint: @color-eco;} }
+		&#subterfugeFilters{ >#background{tint: @color-subterfuge;} }
+		&#militaryFilters{ >#background{tint: @color-military;} }
+	}
+
+}
+
+filter-toggle-button {
+	.decorated-btn;
+	spectator-enabled: true;
+	padding: 5;
+	bitmap{
+		width: 36;
+	}
+	&.selected{
+		color-adjust: brightness(0.1);
+		filter: glow(#fae9c8, 2, 3, 1, 1, true);
+	}
+}

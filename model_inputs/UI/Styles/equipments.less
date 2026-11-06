@@ -1,0 +1,312 @@
+@import "game.less";
+
+equipments {
+	.main-window;
+
+	layout: vertical;
+	align: middle middle;
+	content-align: top middle;
+	height: 590;
+	width: 1326;
+	&.pc.spectator {
+		margin-right: @spectator-rightcont-width;
+	}
+	&.pad{
+		>.main-body {
+			align: middle middle;
+			scale: 1.45;
+		}
+	}
+
+	start-sfx: @UI_Barracksmenu_Open;
+	close-sfx: @UI_Barracksmenu_Close;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	>.main-body {
+		fill-width: true;
+		fill-height: true;
+		auto-size: 1;
+
+		layout: vertical;
+		padding: 20 0 24 0;
+		content-align: middle middle;
+
+		>.all-units {
+			spacing: 14;
+		}
+	}
+}
+
+unit-equipments {
+	layout: stack;
+	content-halign: middle;
+	@unit-height: 497;
+	@unit-width: 240;
+	@unit-padding: 5;
+	height: @unit-height;
+	width: @unit-width;
+	padding: @unit-padding;
+
+	background: hgrid("UI/equipments/bg_box.png", 2) 20 20;
+	.border4k;
+	background-tile-pos-x: 0;
+
+	.bg-pattern {
+		src: "UI/equipments/bg_warm.png";
+		scale: 0.5;
+		margin-top: 70;
+	}
+	.portrait-cont {
+		width: @unit-width - (@unit-padding * 2);
+		height: @unit-height - (@unit-padding * 2);
+
+		#scene {
+			width: @unit-width - (@unit-padding * 2);
+			height: @unit-height - (@unit-padding * 2);
+			align: bottom middle;
+			background: #000;
+			background-alpha: 0.0;
+		}
+	}
+	>.header-texts {
+		margin-top: 30;
+		>fmt-text {
+			.bold-18;
+			text-align: multilinecenter;
+			max-width: 135;
+		}
+	}
+	>.equiped-cont {
+		visible: false;
+		align: top right;
+		layout: vertical;
+		>bitmap {
+			scale: 0.5;
+			src-pos-y: 2;
+		}
+	}
+	#hello2 {
+		margin-top: 40;
+	}
+	>.gradient-top {
+		valign: top;
+		fill-width: true;
+		height: 120;
+		background: "UI/equipments/gradient_top.png";
+	}
+	>.effects-cont {
+		valign: bottom;
+		content-halign: middle;
+		margin-bottom: 82;
+		layout: vertical;
+
+		>equipment-effects {
+			content-align: middle left;
+			fill-width: true;
+
+			>bitmap {
+				halign: left;
+				margin-left: 5;
+				scale: 0.5;
+				src-pos-y: 1;
+			}
+			>.effects-texts {
+				layout: vertical;
+				content-halign: left;
+				spacing: 8;
+				max-width: @unit-width - 47;
+				>fmt-text {
+					margin-left: 10;
+					margin-right: 10;
+					text-align: left;
+					.sans-12;
+				}
+			}
+		}
+		>.separator {
+			margin-top: 7;
+			margin-bottom: 7;
+			width: @unit-width - 22;
+			height: 1;
+			background: @color-desert;
+			background-alpha: 0.3;
+		}
+	}
+	>.gradient-bot {
+		valign: bottom;
+		fill-width: true;
+		height: 100;
+		background: "UI/equipments/gradient_bottom.png";
+	}
+
+	equipment-select {
+		layout: vertical;
+		valign: bottom;
+		fill-width: true;
+		auto-size: 1;
+		spectator-enabled: true;
+
+		>.body {
+			fill-width: true;
+			auto-size: 1;
+			background: @color-hud-bg-dark;
+
+			>.icon-cont {
+				halign: left;
+				background: "UI/equipments/bg_ic_warm.png";
+				background-tile-pos-y: 2;
+				width: 62;
+				height: 67;
+				content-align: middle middle;
+				>bitmap {
+					width: 50;
+					height: 50;
+				}
+			}
+			>.arrow {
+				background: "UI/equipments/arrow.png";
+				width: 8;
+				height: 17;
+				margin-right: -8;
+				valign: middle;
+			}
+
+			>.buttons {
+				align: middle middle;
+				spacing: 7;
+				equipment-button {
+					spectator-enabled: true;
+				}
+			}
+		}
+
+		>.separator {
+			valign: bottom;
+			fill-width: true;
+			height: 2;
+			background: "UI/elements/line_graphic_interface.png";
+		}
+
+		>#selector {
+			visible: false;
+			align: top middle;
+			position: absolute;
+			offset-y: 0;
+			transition: offset-y 0.15 ease-out;
+			width: @unit-width - (@unit-padding * 2) - 6;
+
+			layout: vertical;
+			padding: 5;
+			padding-bottom: 2;
+			background: "UI/equipments/choice.png" 16 16;
+			.border4k;
+
+			>.select-buttons {
+				halign: middle;
+				content-valign: middle;
+				spacing: 1;
+				>button {
+					color-adjust: none;
+					filter: none;
+					alpha: 0.7;
+					transition: alpha 0.15 ease-out;
+					#iconBmp {
+						width: 40;
+						src-pos-y: 0;
+					}
+					&.disabled {
+						alpha: 1;
+
+						#iconBmp {
+							src-pos-y: 2;
+						}
+					}
+					&.selected {
+						#iconBmp {
+							src-pos-y: 1;
+						}
+					}
+					&:hover {
+						alpha: 1;
+					}
+				}
+				>.separator {
+					background: #504940;
+					width: 1;
+					height: 18;
+				}
+			}
+		}
+		>.shadow-gradient {
+			align: bottom middle;
+			position: absolute;
+			offset-y: -47;
+			width: @unit-width - (@unit-padding * 2);
+			height: 165;
+			background: "UI/equipments/text_shadow.png";
+
+			alpha: 0;
+			transition: alpha 0.3 ease-out;
+		}
+
+		&.selecting {
+			>#selector {
+				is-bind-layer: true;
+				visible: true;
+				offset-y: -47;
+			}
+			>.shadow-gradient {
+				alpha: 1;
+			}
+		}
+	}
+
+	&.has-equipped {
+		>.gradient-bot {
+			height: 320;
+		}
+	}
+}
+
+equipment-button {
+	width: 40;
+	height: 40;
+
+	background: hgrid("UI/equipments/box_item.png", 2) 15 15;
+	.border4k;
+
+	color-adjust: none;
+	content-align: middle middle;
+	>#icon {
+		width: 32;
+		src-pos-y: 1;
+	}
+
+	&.empty {
+		.recruit-btn;
+		>#icon {
+			visible: false;
+		}
+		&.clickable {
+			&:hover {
+				color-adjust: brightness(0.08);
+			}
+		}
+	}
+	&.selected {
+		color-adjust: brightness(0.05);
+		filter: glow(#dbc392, 1, 1, 4, 1, true);
+	}
+
+	&.extra-slot {
+		&.faction-atreides { filter: glow(@faction-atreides, 1, 20, 1.3, 1, true); }
+		&.faction-harkonnen { filter: glow(@faction-harkonnen, 1, 20, 1.3, 1, true); }
+		&.faction-smugglers { filter: glow(@faction-smugglers, 1, 20, 1.3, 1, true);  }
+		&.faction-fremen { filter: glow(@faction-fremen, 1, 20, 1.3, 1, true); }
+		&.faction-corrino { filter: glow(@faction-corrino, 1, 20, 1.3, 1, true); }
+		&.faction-ecaz { filter: glow(@faction-ecaz, 1, 20, 1.3, 1, true); }
+		&.faction-vernius { filter: glow(@faction-vernius, 1, 20, 1.3, 1, true); }
+	}
+}

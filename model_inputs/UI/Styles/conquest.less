@@ -1,0 +1,3240 @@
+
+@import "game.less";
+@import "multi.less";
+
+@color-reward-title: #E3C114;
+@color-choose-bonus: #FFE684;
+
+@left-bar-width: 71;
+conquest-intro {
+	fill-width: true;
+	fill-height: true;
+	layout: horizontal;
+	background:black;
+	&.fade-out{
+		alpha: 1;
+		transition: alpha 2 ease-out;
+		alpha: 0;
+	}
+	.main-container{
+		fill-width: true;
+		fill-height: true;
+		margin-top: 100;
+		margin-bottom: 100;
+	}
+	.left{
+		auto-size-width: 1;
+		fill-width: true;
+		fill-height: true;
+		content-align: top middle;
+		background: #000;
+		#leftBitmap{
+			fill-height: true;
+			fill-width: true;
+		}
+	}
+	.separator{
+		width:2;
+		fill-height: true;
+		background: #000;
+	}
+	.right{
+		fill-height: true;
+		fill-width: true;
+		auto-size-width: 2;
+		background: #000;
+		#rightBitmap{
+			fill-height: true;
+			fill-width: true;
+		}
+	}
+	.text-cont {
+		position: absolute;
+		layout: vertical;
+		align: bottom;
+		spacing: 20;
+		padding:15;
+		background-type: dynamic;
+		>#background {
+			border-radius: 5;
+			alpha: 0;
+			gradient: linear(180, fade(@color-bg-dark-1, 75%), rgba(0,0,0,0));
+		}
+		&.fade-in{
+			transition: width 1 ease-out;
+			>#background{
+				alpha: 0;
+				transition: alpha 1 ease-out;
+				transition: width 1 ease-out;
+				alpha: 1;
+			}
+		}
+		#factionTxt{
+			alpha: 0;
+			.bold-30;
+			&.fade-in{
+				alpha: 0;
+				transition: alpha 2 ease-out;
+				transition: offset-x 1 ease-out;
+				alpha: 1;
+				offset-x: 0;
+			}
+		}
+		#baseCont{
+			layout:vertical;
+		}
+		#leaderCont{
+			alpha: 0;
+		}
+		#baseCont, #leaderCont {
+			spacing: 10;
+			padding-left: 0;
+			&.fade-in{
+				alpha: 0;
+				transition: alpha 2 ease-out;
+				transition: padding-left 1 ease-out;
+				padding-left: 32;
+				alpha: 1;
+			}
+			fmt-text{
+				.bold-24;
+				color: @color-ui-text;
+			}
+			#baseTxt , #leaderTxt {
+				.bold-24;
+				color: @color-ui-text-light;
+			}
+			#baseName{
+				spacing: 10;
+				alpha: 0;
+				&.fade-in{
+					alpha: 0;
+					transition: alpha 2 ease-out;
+					transition: padding-left 1 ease-out;
+					padding-left: 32;
+					alpha: 1;
+				}
+			}
+			#baseInfo{
+				max-width:600;
+				>fmt-text{
+					.italic-20;
+					color: @color-ui-text-light;
+				}
+				alpha: 0;
+				padding-left: 0;
+				&.fade-in{
+					alpha: 0;
+					transition: alpha 2 ease-out;
+					transition: padding-left 1 ease-out;
+					padding-left: 32;
+					alpha: 1;
+				}
+			}
+		}
+	}
+}
+conquest-screen {
+	bind-layer-cursor: float;
+	&.bonus-choice{
+		bind-layer-cursor: snap;
+	}
+	>#intro{
+		fill-width: true;
+		fill-height: true;
+	}
+	#black{
+		fill-width: true;
+		fill-height: true;
+		background: black;
+		&.fade-out-black{
+			alpha: 1;
+			transition: alpha 2 ease-out;
+			alpha: 0;
+		}
+	}
+	>map-scene {
+		fill-width: true;
+		fill-height: true;
+		visible: false;
+		&.visible {
+			visible: true;
+		}
+	}
+	menu-background: none;
+	>#backBtn{
+		visible: false;
+		margin-top: 100;
+	}
+	>.gradients {
+		fill-width: true;
+		fill-height: true;
+		layout: stack;
+
+		.gradient-top {
+			fill-width: true;
+			valign: top;
+			height: 200;
+			background-type: dynamic;
+			>#background {
+				gradient: linear(180, fade(@color-bg-dark-1, 75%), rgba(0,0,0,0));
+			}
+		}
+		.gradient-left {
+			fill-height: true;
+			halign: left;
+			width: 250;
+			background-type: dynamic;
+			>#background {
+				gradient: linear(-90, fade(@color-bg-dark-1, 75%), rgba(0,0,0,0));
+			}
+		}
+		.gradient-right {
+			fill-height: true;
+			halign: right;
+			width: 250;
+			background-type: dynamic;
+			>#background {
+				gradient: linear(90, fade(@color-bg-dark-1, 75%), rgba(0,0,0,0));
+			}
+		}
+	}
+	.options-cont {
+		position: absolute;
+		align: top right;
+		padding: 2;
+		margin-top: 2;
+		spacing: 15;
+		#optionsBtn{
+			pad-focusable: false;
+			background: none;
+			>bitmap{
+				src: hgrid("UI/HUD/option_icons.png", 4);
+				src-pos-x: 2;
+			}
+		}
+		>game-date {
+			valign: middle;
+			margin-bottom: -2;
+			fmt-text {
+				color: @color-time-normal;
+				text-shadow : 0.8 1 #000 0.7;
+			}
+
+			// visible: false;
+		}
+	}
+	.layout {
+		layout: stack;
+		fill-width: true;
+		fill-height: true;
+		.top-bar {
+			alpha: 0.3;
+			fill-width: true;
+			align: top left;
+			content-align: top left;
+			height: 40;
+			margin-top: -10;
+			padding: 10;
+			padding-left: 6;
+			spacing: 6;
+			>#topBg {
+				position: absolute;
+				align: top right;
+				fill-width: true;
+				content-align : top right;
+				margin-right: -10;
+				>#mainBarBg {
+					background: "UI/HUD/topbar.png";
+					background-alpha : 1;
+					min-height : 42;
+					min-width : 5000;
+					margin-left: -4170;
+				}
+				>#mainBarBgPattern {
+					background: "UI/HUD/topbar_pattern.png";
+					background-alpha : 1;
+					min-height : 41;
+					min-width : 592;
+					// background: "UI/HUD/topbar.png";
+					// min-height : 42;
+				}
+			}
+			.relation-gauge-container{
+				position: absolute;
+				align: middle top;
+				offset-y: 41;
+				spacing: 15;
+				conquest-relation-gauge{
+					valign: middle;
+					start-vfx :"Fx/UI/Conquest/FX_Conquest_GaugeGlowFremen.fx2d"; //Fremen bar Glow
+					>fx-element {
+						offset-y: -3;
+					}
+				}
+			}
+
+
+			#improvementPoints {
+				.bold-18;
+				color: @color-ui-text;
+				align: middle bottom;
+			}
+			.resources {
+				position: absolute;
+				align: top left;
+				offset-x: 85;
+				offset-y: 180;
+				background-type: dynamic;
+				padding:10;
+				fmt-text{
+					.regular-16;
+					color: @color-ui-text;
+				}
+
+				>#background {
+					background: @color-bg-dark-2;
+					outline: 1 @color-ui-text;
+					outline-offset: 1;
+				}
+			}
+			#plotCont {
+				align: top left;
+				spacing: 25;
+				width: 970;
+				>flow{
+					content-align: middle middle;
+				}
+				.plot-header{
+					align:left;
+					fmt-text{
+						.bold-18;
+						color: @color-ui-text;
+						text-transform: uppercase;
+					}
+					bitmap {
+						width: 32;
+					}
+				}
+				.line-sep {
+					background: @color-ui-text;
+					height: 1;
+					fill-width: true;
+					auto-size: 1;
+					align: middle middle;
+					alpha: 0.25;
+				}
+				.plot-bottom{
+					spacing: 10;
+					align: middle middle;
+					base-gauge {
+						body-width: 500;
+						body-height: 10;
+						color: white;
+						padding: 5;
+
+						start-vfx: "Fx/UI/Conquest/FX_Conquest_GaugeGlow.fx2d"; //Plot bar Glow
+
+						background-type: dynamic;
+						>#background {
+							background: @color-bg-dark-2;
+							border-radius: 3;
+							outline: 1.2 @color-ui-text;
+							outline-alpha: 0.6;
+						}
+						#fillBar{
+							#tracker{
+								visible:true;
+							}
+						}
+						#fillBar {
+							background: vgrid("UI/HUD/factionHegemonyGauge.png", @ui-faction-count);
+							background-tile-pos-y: 1;
+						}
+
+						empty-color: @color-tip-body-bg;
+						#emptyBar { alpha: 1; }
+					}
+				}
+				.maluses{
+					position: absolute;
+					align: middle left;
+					>element {
+						align: middle middle;
+						position: absolute;
+						margin-right: -10;
+						padding-right: 10;
+						margin-left: -10;
+						padding-left: 10;
+
+						offset-x: 5;
+						>.display {
+							height: 16;
+							width: 4;
+							background: #ea3e3e;
+							alpha: 0.3;
+						}
+						&.active >.display{
+							alpha: 1;
+							filter: glow(#ea3e3e, 1, 50, 1, 1, true);
+						}
+					}
+				}
+			}
+			resource-counter {
+				width: 80;
+				bitmap {
+					width: 32;
+				}
+				fmt-text{
+					.bold-14;
+					color: @color-ui-text-light;
+				}
+			}
+			.leader-cont {
+				layout: vertical;
+				#leaderBtn {
+					pad-focusable:false;
+					background: none;
+					padding: 0;
+					bitmap {
+						width: @left-bar-width;
+					}
+				}
+				.leader-deco {
+					src: "UI/conquest/leader_deco.png";
+					scale: 0.5;
+				}
+			}
+		}
+		.bottom-bar {
+			fill-width: true;
+			min-height: 1;
+			align: bottom left;
+		}
+
+		.left-bar{
+			alpha: 0.3;
+			fill-height: true;
+			align: top left;
+			content-align: top left;
+		}
+		.right-bar{
+			fill-height: true;
+			align: top right;
+			content-align: top right;
+		}
+		#nonBlockPopups {
+			alpha: 0.3;
+			fill-width: true;
+			fill-height: true;
+		}
+
+		#popups {
+			fill-width: true;
+			fill-height: true;
+			layout: stack;
+			background: #000000 0.5;
+		}
+	}
+	&.appear {
+		.top-bar, .left-bar, #nonBlockPopups {
+			alpha: 1;
+			transition: alpha 0.15 ease-in;
+		}
+	}
+	&.debrief-open {
+		.options-cont{
+			margin-right: 370;
+		}
+	}
+	&.intro-active {
+		bind-layer-cursor: none;
+	}
+	&.hidemode-KeepWorld {
+		.top-bar, .bottom-bar, .left-bar, .right-bar {
+			visible: false;
+		}
+	}
+	&.hidemode-All {
+		.layout {
+			visible: false;
+		}
+	}
+	&.result-intro, &.result-passed-intro, &.result-speech {
+		.layout {
+			>.top-bar, >.bottom-bar, >.left-bar, >.right-bar, >#nonBlockPopups {
+				visible: false;
+			}
+			#popups {
+				background: none;
+			}
+		}
+	}
+}
+
+conquest-victory-conditions {
+	layout: vertical;
+	spacing: 10;
+	padding: 22;
+	padding-top: 9;
+	padding-left: 20;
+
+	background: vgrid("UI/conquest/conquest_box_bg.png", 2) 25 0 25 25; // left top right bot for flow backgrounds
+	background-tile-pos-y: 1;
+	.border4k;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	.title{
+		.bold-18;
+		text-transform: uppercase;
+		color: @color-ui-text;
+	}
+	>.conditions {
+		layout: vertical;
+		spacing: 10;
+		margin-top: 5;
+		victory-condition {
+			content-align: middle left;
+			spacing: 4;
+			#check{
+				src: hgrid("UI/landsraad/box_check_charter.png", 2);
+				width: 16;
+				src-pos-x: 1;
+			}
+			&.validated{
+				#check{ src-pos-x: 0; }
+				fmt-text{
+					alpha: 0.7;
+				}
+			}
+			#conditions{
+				content-align: middle left;
+				condition-check{
+					fmt-text {
+						.regular-14;
+						offset-y: 0;
+					}
+				}
+			}
+			#completionPin{
+				visible: false;
+			}
+		}
+	}
+	.top-deco {
+		position:absolute;
+		width:230;
+		height:185;
+		offset-y:-10;
+		overflow: hidden;
+		align:top middle;
+
+		background: "UI/conquest/victory_bg_pattern.png";
+	}
+}
+
+conquest-result-screen {
+	fill-width: true;
+	fill-height: true;
+
+	is-bind-layer: true;
+
+	layout: stack;
+	spacing: 20;
+
+	@victory-transition: 1.6 ease-out;
+
+	&.started-intro-once {
+		&.victory {
+			>.content {
+				>.portrait-cont {
+					start-vfx : "Fx/UI/Conquest/Victory/FX_Conquest_Victory_Flag.fx2d";
+				}
+			}
+			&.on-intro {
+				.intro-deco {
+					start-vfx: "Fx/UI/Conquest/Victory/FX_Conquest_Victory_Banner.fx2d";
+					>fx-element {
+						scale: 0.986;
+					}
+				}
+			}
+		}
+		&.defeat {
+			>.content {
+				>.portrait-cont {
+					start-vfx : "Fx/UI/Conquest/Victory/FX_Conquest_Defeat_Flag.fx2d";
+				}
+			}
+			&.on-intro {
+				.intro-deco {
+					start-vfx: "Fx/UI/Conquest/Victory/FX_Conquest_Defeat_Banner.fx2d";
+					>fx-element {
+						scale: 0.986;
+					}
+				}
+			}
+			.result-title-cont {
+				layout: stack;
+				.result-title-fx {
+					align: middle middle;
+					start-vfx : "Fx/UI/Conquest/Victory/Conquest_DefeatFlare01.fx2d";
+					>fx-element {
+						offset-x: 185;
+					}
+				}
+			}
+		}
+	}
+
+	.result-title {
+		.bold-60;
+		color: #fff;
+		transition: color 0.1 ease-in;
+
+		&.victory {
+			filter: glow(@color-gold, 1, 4, 0.9, 1, true);
+		}
+
+		&.defeat {
+			filter: glow(@color-bad, 1, 7, 0.9, 1, true);
+		}
+	}
+
+	.bg-gradients {
+		fill-width: true;
+		fill-height: true;
+		.darken-left, .gradient-left, .gradient-right {
+			fill-height: true;
+			transition: width @victory-transition;
+			alpha: 1;
+			transition: alpha @victory-transition;
+			offset-x: 0;
+			transition: offset-x @victory-transition;
+			appear-delay: 0 0.01;
+
+			background-type: dynamic;
+			>#background {
+				smooth-span: 0;
+			}
+		}
+		.gradient-left {
+			width: 400;
+			>#background {
+				gradient: linear(-90, fade(@color-hud-bg-middle, 100%), fade(@color-hud-bg-middle, 0%));
+			}
+		}
+		.gradient-right {
+			halign: right;
+			width: 400;
+			>#background {
+				gradient: linear(90, fade(@color-hud-bg-middle, 100%), fade(@color-hud-bg-middle, 0%));
+			}
+		}
+		.darken-left {
+			width: 0;
+			>#background {
+				gradient: linear(-90, fade(@color-hud-bg-middle, 100%), fade(@color-hud-bg-middle, 100%));
+			}
+		}
+		&.appear {
+			.gradient-left {
+				width: 800;
+			}
+			.gradient-right {
+				width: 800;
+			}
+		}
+	}
+	.result-intro {
+		layout: stack;
+		fill-width: true;
+		height: 275;
+		valign: middle;
+
+		alpha: 0;
+		transition: alpha @victory-transition;
+		&.appear {
+			alpha: 1;
+		}
+
+		.bg {
+			fill-width: true;
+			fill-height: true;
+			layout: horizontal;
+			.gradient-left, .gradient-right {
+				fill-width: true;
+				fill-height: true;
+				auto-size-width: 1;
+				background-type: dynamic;
+				>#background {
+					smooth-span: 0;
+				}
+			}
+			.gradient-left {
+				>#background {
+					gradient: linear(-90, fade(@color-hud-bg-middle, 100%), fade(@color-hud-bg-middle, 30%));
+				}
+			}
+			.gradient-right {
+				>#background {
+					gradient: linear(90, fade(@color-hud-bg-middle, 100%), fade(@color-hud-bg-middle, 30%));
+				}
+			}
+		}
+		>.upper-line-deco, >.lower-line-deco {
+			halign: middle;
+			fill-width: true;
+			height: 2;
+		}
+		>.upper-line-deco {
+			background: "UI/elements/line_graphic_interface_left.png";
+			margin-top: -2;
+		}
+		>.lower-line-deco {
+			background: "UI/elements/line_graphic_interface_right.png";
+			valign: bottom;
+			margin-bottom: -2;
+		}
+
+		.intro-deco {
+			fill-width: true;
+			fill-height: true;
+			background: "UI/conquest/victoryConquest_bg_pattern.png";
+		}
+
+		.texts {
+			align: middle middle;
+			appear-delay: 0 0.155;
+			alpha: 0;
+			.result-title {
+				color: #000;
+			}
+			&.appear {
+				alpha: 1;
+				.result-title {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	>.content {
+		align: top left;
+		layout: horizontal;
+		spacing: 46;
+		margin-left: 75;
+
+		alpha: 0;
+		transition: alpha 1.6 ease-in;
+
+		>.portrait-cont {
+			margin-top: 35;
+			align: top left;
+			offset-y: -100;
+			alpha: 0;
+			transition: offset-y 1 ease-out;
+			transition: alpha 1 ease-out;
+
+			.portrait {
+				width: 405;
+			}
+		}
+
+		>.content-right {
+			layout: vertical;
+			spacing: 16;
+			align: middle left;
+
+			.fac-container {
+				#titlePre {
+					.regular-30;
+					letter-spacing: 4;
+				}
+				#title {
+					.bold-45;
+				}
+			}
+
+			.mid-cont {
+				layout: vertical;
+				spacing: 22;
+
+				.desc {
+					max-width: 400;
+					.regular-16;
+					align: bottom left;
+					color: @color-desert;
+				}
+				.text-sep {
+					width: 340;
+					height: 2;
+					background: "UI/conquest/smooth_separator.png";
+					margin-bottom: -5;
+				}
+			}
+			.summary-cont {
+				@summary-width: 575;
+				width: @summary-width;
+
+				background-type: dynamic;
+				>#background {
+					background: @color-bg-dark-2;
+					outline: 1 @color-ui-text;
+					outline-offset: 3;
+					smooth-span: 0;
+
+					outline-alpha: 0.6;
+				}
+
+				.summary-left {
+					layout: vertical;
+					fill-height: true;
+					auto-size: 1;
+					.summary-header {
+						align: top left;
+						margin: 30 0 10 25;
+						spacing: 11;
+						content-valign: bottom;
+						.title {
+							.bold-22;
+							color: @color-ui-text;
+							.uppercase;
+						}
+						>game-date {
+							#tfDate {
+								.bold-17;
+								color: @color-ui-text-light;
+							}
+							#tfYear {
+								.bold-17;
+								color: @color-ui-text-dark;
+								alpha: 0.8;
+							}
+							margin-bottom: -2;
+						}
+					}
+					conquest-victory-conditions {
+						align: bottom left;
+						background: none;
+
+						.title, #desc, .top-deco {
+							visible: false;
+						}
+						victory-condition {
+							fmt-text{
+								alpha: 0.7;
+							}
+							&.validated{
+								fmt-text{
+									alpha: 1;
+								}
+							}
+							#conditions{
+								content-align: middle left;
+								condition-check{
+									fmt-text {
+										.regular-14;
+										offset-y: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+				conquest-player-bonuses {
+					align: top left;
+					margin: 14;
+					margin-left: 0;
+					align: middle right;
+					width: 184;
+
+					.content {
+						>#background {
+							visible: false;
+						}
+						.faction-list, .generic-list {
+							layout: horizontal;
+
+							>#background, >.top-deco, >.bottom-deco {
+								visible: false;
+							}
+						}
+						.generic-list {
+							max-width: 184;
+							spacing: 4;
+						}
+						.horizontal-separator {
+							margin-right: 3;
+							margin-left: 3;
+						}
+					}
+				}
+
+				>.top-deco {
+					position: absolute;
+					width: @summary-width;
+					height: (@summary-width * 0.2);
+					align: top middle;
+					fill-width: true;
+					background: "UI/conquest/mission_rewards_bg_pattern.png";
+				}
+			}
+		}
+	}
+
+	.buttons {
+		position: absolute;
+		align: bottom right;
+		margin-right: 50;
+		margin-bottom: 50;
+		spacing: 20;
+
+		alpha: 0;
+		transition: alpha 1.6 ease-in;
+
+		button{
+			.generic-btn;
+			width: 200;
+			height: 50;
+			fmt-text{
+				.bold-16;
+				color: @color-ui-text;
+			}
+
+			&#continueBtn {
+				click-sfx: @UI_Button_Conquestconfirm;
+			}
+		}
+	}
+	&.on-intro {
+		.buttons, >.content {
+			visible: false;
+		}
+		.result-intro {
+			visible: true;
+		}
+
+		&.victory {
+			start-sfx: @UI_Conquest_Win;
+		}
+
+		&.defeat {
+			start-sfx: @UI_Conquest_Lose;
+		}
+
+		.result-intro {
+			appear-delay: 0 0.01;
+		}
+	}
+	&.passed-intro {
+		.buttons, >.content {
+			visible: true;
+			alpha: 1;
+		}
+		.result-intro {
+			transition: alpha 0.8 ease-out;
+			alpha: 0;
+		}
+		.bg-gradients {
+			.gradient-left {
+				width: 700;
+			}
+			.darken-left {
+				width: 600;
+			}
+			.gradient-right {
+				alpha: 0;
+				width: 0;
+			}
+		}
+		>.content {
+			>.portrait-cont {
+				appear-delay: 0.2;
+				&.appear {
+					offset-y: 0;
+					alpha: 1;
+				}
+			}
+		}
+	}
+
+	#speech-container {
+		align: right;
+	}
+}
+
+conquest-relation-gauge{
+	content-align: middle middle;
+
+	>image{
+		bitmap {
+			src: hgrid("UI/HUD/structure_flag_faction.png", (@ui-faction-count + 1));
+			src-pos-x: 0;
+			offset-y:4;
+		}
+		&.smuggler{
+			bitmap {
+				src: hgrid("UI/Faction/factionButtonsmall.png", 15);
+				src-pos-x: 10;
+				offset-y:-4;
+			}
+		}
+		&.fremen{
+			bitmap {src-pos-x: 3;}
+		}
+	}
+	spacing: 5;
+	.gauge-container{
+		layout: stack;
+		content-align: middle left;
+		margin-top: -6;
+		base-gauge{
+			padding: 4;
+			body-width: 400;
+			body-height: 10;
+			empty-color: @color-tip-body-bg;
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 1.2 @color-ui-text;
+				border-radius: 4;
+				outline-alpha: 0.6;
+			}
+			#fillBar{
+				#tracker{
+					visible: true;
+				}
+			}
+		}
+		>.bonuses {
+			width: 400;
+			content-align: middle right;
+			spacing: 98;
+			margin-left: 0;
+			>element {
+				margin-right: -20;
+				padding-right: 20;
+				margin-left: -20;
+				padding-left: 20;
+
+				offset-x: 5;
+				>.display {
+					height: 10;
+					width: 2;
+					background: #fbe6ba;
+					alpha: 0.3;
+				}
+				&.active >.display{
+					alpha: 1;
+					filter: glow(#fbe6ba, 1, 50, 1, 1, true);
+				}
+			}
+		}
+	}
+
+}
+
+tip-relation {
+	width: 450;
+	padding: 5;
+	.body {
+		layout: vertical;
+		spacing: 15;
+		.header{
+			content-align: middle middle;
+			fmt-text{
+				.bold-18;
+				color: @color-ui-text;
+			}
+			bitmap {
+				width: 32;
+			}
+		}
+		.desc{
+			margin-top: -7;
+			color: @color-ui-text-dark;
+		}
+		>#bonuses{
+			padding: 10;
+			layout: vertical;
+			spacing: 25;
+			#bonusConts {
+				layout: vertical;
+				padding: 10;
+				margin: -8;
+				.tip-bonus {
+					alpha: 0.5;
+				}
+				background-type: dynamic;
+				>#background {
+					background: @color-tip-body-bg;
+					outline: 1 @color-ui-text;
+					outline-alpha: 0.2;
+					smooth-span: 0;
+				}
+				.title-cont {
+					fill-width: true;
+					auto-size: 1;
+					>.title-text {
+						halign: right;
+						alpha: 0.4;
+					}
+				}
+				>tip-default {
+					.title-header {
+						visible: false;
+					}
+				}
+				&.active {
+					.title-cont {
+						>.title-text {
+							alpha: 0.8;
+						}
+					}
+					.tip-bonus {
+						alpha: 1;
+					}
+					>#background {
+						outline-alpha: 0.5;
+					}
+				}
+				&.highlighted {
+					>#background {
+						// outline: 1.5 @color-ui-text;
+						outline-alpha: 0.8;
+					}
+				}
+			}
+			.line-sep {
+				background: @color-ui-text;
+				height: 1;
+				fill-width: true;
+				auto-size: 1;
+				align: middle middle;
+				alpha: 0.25;
+				margin: 10;
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+tip-plot{
+	width: 600;
+	padding: 5;
+	.body {
+		layout: vertical;
+		spacing: 15;
+		.plot-header{
+			content-align: middle middle;
+			fmt-text{
+				.bold-18;
+				color: @color-ui-text;
+			}
+			bitmap {
+				width: 32;
+			}
+		}
+		.desc{
+			margin-top: -7;
+			color: @color-ui-text-dark;
+		}
+		>#effects{
+			padding: 10;
+			layout: vertical;
+			spacing: 20;
+			plot-trigger-effects {
+				layout: vertical;
+				spacing: 8;
+				#effects {
+					margin-left: 20;
+					spacing: 8;
+					layout: vertical;
+				}
+				>fmt-text{
+					.italic-15;
+				}
+			}
+		}
+	}
+
+}
+
+
+.bonusDims(@side) {
+	width: @side;
+	height: @side;
+	>bitmap {
+		width: @side;
+	}
+	& when(@side < 30) {
+		fmt-text{
+			.bold-17;
+		}
+	}
+}
+conquest-bonus-display {
+	layout: stack;
+	background-type: dynamic;
+	>#background {
+		outline: 1 #000;
+		smooth-span: 0;
+	}
+	>.inner-border {
+		margin: 1;
+		fill-width: true;
+		fill-height: true;
+		background-type: dynamic;
+		>#background {
+			outline: 1 @color-ui-text;
+			smooth-span: 0;
+			background: #181D29;
+		}
+	}
+	.bonusDims(32);
+	&.faction {
+		.bonusDims(50);
+	}
+
+	&.empty-slot {
+		>.inner-border {
+			>#background {
+				outline-alpha: 0.2;
+			}
+		}
+	}
+
+	fmt-text{
+		.bold-20;
+		filter: glow(#000, 1.2, 4, 1, 1, true);
+	}
+}
+
+conquest-bonus-attributes {
+	layout: vertical;
+	spacing: 8;
+	>.atb{
+		content-align: top left;
+		spacing: 3;
+		fmt-text {
+			.sans-12;
+			color: @color-ui-text-light;
+		}
+	}
+}
+
+
+conquest-bonus-card-select {
+	appear-delay: 0 0.2;
+	alpha: 0;
+	transition: alpha 0.5 ease-out;
+	@bonus-card-width: 250;
+	pad-focusable: true;
+	&.index-0 { pad-default-focus: true; }
+	&:hover {
+		button {
+			pad-click:@input-menu-leftclick;
+		}
+	}
+
+	&.appear {
+		alpha: 1;
+		start-vfx: "Fx/UI/Conquest/FX_Conquest_BonusCards.fx2d";
+		>fx-element {
+			offset-y: -4;
+		}
+		>.body >.header {
+			conquest-bonus-display {
+				start-vfx: "Fx/UI/Conquest/FX_Conquest_BonusCards_ActiveBonus.fx2d";
+			}
+		}
+	}
+	>.body {
+		layout: vertical;
+		width: @bonus-card-width;
+		padding: 2;
+		background-type: dynamic;
+
+		>#background {
+			outline: 2 @color-bg-dark-4;
+			border-radius: 8 8 0 0;
+		}
+
+		>.header{
+			layout: vertical;
+			background-type: dynamic;
+
+			conquest-bonus-display {
+				position: absolute;
+				align: top middle;
+				offset-y: -10;
+			}
+
+			.bonus-illus {
+				@bonus-card-illus-width: @bonus-card-width * 2;
+				align: middle middle;
+				border-radius: 10;
+				width: @bonus-card-illus-width;
+				height: @bonus-card-illus-width * 0.8;
+				scale: 0.5;
+				image-mode: fit;
+			}
+		}
+
+		>.body-cont{
+			width: @bonus-card-width;
+			background-type: dynamic;
+			>#background {
+				outline: 0.6 @color-border-gold;
+				outline-offset: 3;
+				background: @color-tip-body-bg;
+			}
+			layout: vertical;
+			min-height: 220;
+			margin-top: -5;
+			padding: 12 0 16 0;
+			spacing: 16;
+
+			>.bonus-title {
+				content-align: middle middle;
+				background-type: dynamic;
+				>#background {
+					outline: 0.6 @color-border-gold;
+					margin: -3 3 -3 3;
+					background: @color-tip-body-bg-dark;
+				}
+				fill-width: true;
+				margin-top: -10;
+				padding: 14;
+
+				>.name {
+					.bold-14;
+					color: @color-ui-text-light;
+				}
+			}
+
+			>bitmap.separator1 {
+				position: absolute;
+				align: top middle;
+				offset-y: -12;
+				offset-x: -1;
+				width: @bonus-card-width + 1;
+				height: 3;
+				src: "UI/HUD/pause_bottom_line.png";
+			}
+
+			>bitmap.separator2 {
+				position: absolute;
+				align: top middle;
+				offset-y: 27;
+				width: @bonus-card-width;
+				height: 1;
+				src: "UI/conquest/smooth_separator.png"
+			}
+
+			>conquest-bonus-attributes {
+				spacing: 12;
+				overflow: scroll;
+				max-height: 95;
+				padding-bottom: 3;
+				>.atb{
+					padding: 0 16 0 16;
+					spacing: 3;
+
+					fmt-text {
+						max-width: @bonus-card-width - 50;
+					}
+				}
+			}
+
+			>button {
+				.decorated-btn;
+				padding-left: 26;
+				padding-right: 26;
+				margin-top: -35;
+				align: bottom middle;
+				pad-focusable: false;
+
+				click-sfx: @UI_Conquest_Choosebonus;
+				fmt-text {
+					color: @color-ui-text;
+					.regular-18;
+					alpha: 0.6;
+				}
+
+				&:hover {
+					fmt-text {
+						alpha: 1;
+					}
+					pad-click:@input-menu-leftclick;
+				}
+			}
+		}
+	}
+	// &:hover {
+	// 	>.body >.body-cont{
+	// 		&, >.bonus-title {
+	// 			>#background {
+	// 				outline-thickness: 2;
+	// 			}
+	// 		}
+	// 	}
+	// }
+}
+
+.conquest-mission-bonus-fx() {
+	appear-delay: 0.5 0.2;
+	click-sfx: @UI_Button_Release;
+	hover-sfx: @UI_Button_Rollover;
+
+	>#background {
+		outline-alpha: 0.3;
+	}
+
+	>.body {
+		.atb {
+			fmt-text {
+				color: @color-text-description;
+			}
+		}
+	}
+
+	&:hover {
+		alpha: 1;
+		>#background {
+			outline: 1 @color-ui-text;
+			outline-alpha: 0.4;
+		}
+
+		>.body {
+			.atb {
+				fmt-text {
+					color: @color-ui-text-light;
+				}
+			}
+		}
+	}
+
+	.bottom-border, .top-border {
+		align: middle middle;
+	}
+
+	alpha: 0.6;
+	transition: alpha 0.3 ease-in;
+	&.selectable, &:hover {
+		alpha: 1;
+		transition: alpha 0.3 ease-in;
+		.top-border {
+			start-vfx: "Fx/UI/Conquest/FX_RewardSelectable_Conquest_Top.fx2d" 0 0.3;
+		}
+
+		.bottom-border {
+			start-vfx: "Fx/UI/Conquest/FX_RewardSelectable_Conquest_Bottom.fx2d" 0 0.3;
+		}
+	}
+
+	&.selectable {
+		alpha: 0;
+		transition: alpha 0.5 ease-in;
+		&.appear {
+			alpha: 1;
+			transition: alpha 0.5 ease-in;
+		}
+	}
+
+	&.selected {
+		alpha: 1;
+		transition: alpha 0.3 ease-in;
+		>#background {
+			outline: 1 @color-ui-text;
+			outline-alpha: 0.6;
+		}
+
+		>.body {
+			background-alpha: 1.0;
+			.atb {
+				fmt-text {
+					color: @color-ui-text-light;
+				}
+			}
+
+			.top-border {
+				start-vfx: "Fx/UI/Conquest/FX_RewardSelection_Conquest_Top.fx2d" 0 0.3;
+			}
+
+			.bottom-border {
+				start-vfx: "Fx/UI/Conquest/FX_RewardSelection_Conquest_Bottom.fx2d" 0 0.3;
+			}
+
+			start-vfx: "Fx/UI/Conquest/FX_RewardSelection_Conquest_Sides.fx2d" 0 0.3;
+			conquest-bonus-display {
+				start-vfx: "Fx/UI/Conquest/FX_RewardSelection_Conquest_Icon.fx2d" 0 0.3;
+				#bonusIcon {
+				}
+			}
+		}
+	}
+}
+
+conquest-mission-bonus-light {
+	@bonus-card-width: 300;
+	padding: 4;
+
+	layout: vertical;
+	spacing: 4;
+	width: @bonus-card-width;
+	>.atb{
+		content-align: middle left;
+		spacing: 2;
+		fmt-text {
+			.sans-12;
+			color: @color-ui-text-light;
+		}
+
+		.bullet-arrow {
+			offset-y: 1;
+		}
+
+		conquest-bonus-display {
+			scale: 0.75;
+		}
+	}
+}
+
+conquest-mission-bonus {
+	@bonus-card-width: 300;
+	padding: 3;
+	background-type: dynamic;
+	>#background {
+		background: @color-tip-body-bg;
+		outline: 1 #000;
+		smooth-span: 0;
+		outline-alpha: 0.5;
+	}
+
+	>.body {
+		layout: vertical;
+
+		fill-width: true;
+		background-type: dynamic;
+		>#background {
+			background: @color-tip-body-bg;
+			outline: 1 @color-ui-text;
+			smooth-span: 0;
+			outline-alpha: 0.5;
+		}
+
+		>.header{
+			layout: stack;
+			content-align: middle left;
+			>.name {
+				.regular-15;
+				color: @color-ui-text-light;
+				margin-left: 40;
+				margin-top: -10;
+			}
+			margin-top: 4;
+			margin-left: 8;
+
+			conquest-bonus-display {
+				recursive-propagate: true;
+				.inner-border {
+					>#background {
+						outline: 0 @color-ui-text;
+					}
+				}
+			}
+			>.header-bar2 {
+				src: "UI/HUD/goldBorder01.png";
+				width: @bonus-card-width - 20;
+				margin-left: 40;
+				margin-top: 20;
+				height: 2;
+			}
+		}
+
+		>.body-cont{
+			layout: vertical;
+			fill-width: true;
+			width: @bonus-card-width;
+			margin-left: 5;
+			margin-top: 10;
+			padding-bottom: 10;
+			fmt-text{
+				.regular-14;
+			}
+			.desc{
+				color: @color-tip-desc !important;
+			}
+		}
+	}
+}
+
+conquest-bonus-card {
+	@bonus-card-width: 300;
+	>.body {
+		layout: vertical;
+
+		tip-content & {
+			margin: -8;
+		}
+		width: @bonus-card-width;
+		padding: 5;
+		fmt-text{
+			.bold-13;
+		}
+		>.header{
+			content-align: middle left;
+			spacing: 8;
+			.icon{
+				bitmap{
+					scale: 0.5;
+				}
+			}
+			fmt-text{
+				.bold-15;
+				margin-bottom: 3;
+				color: @color-ui-text;
+			}
+		}
+
+		>.header-bar{
+			margin: -5;
+			margin-bottom: 0;
+			src: "UI/HUD/goldBorder01.png";
+			width: @bonus-card-width;
+			height: 4;
+		}
+		.bonus-illus {
+			margin: -5;
+			margin-top: 0;
+			width: @bonus-card-width;
+		}
+		>.cost-info{
+			multiline: true;
+			padding-bottom: 9;
+			padding-left: 3;
+			.cost{
+				spacing: 4;
+			}
+			content-align: middle left;
+			fill-width: true;
+			resource-counter{
+				spacing: 0;
+				bitmap{
+					width: 22;
+				}
+				fmt-text{
+					.bold-13 !important;
+					margin-bottom: 1;
+				}
+			}
+		}
+		>.body-cont{
+			background: @color-tip-body-bg;
+			layout: vertical;
+			content-align: top left;
+			fill-width: true;
+			max-width: @bonus-card-width - 10;
+			margin: -5;
+			margin-top: 2;
+			padding: 10;
+			padding-bottom: 15;
+			fmt-text{
+				.italic-14;
+			}
+			spacing: 16;
+			.desc{
+				color: @color-tip-desc !important;
+			}
+		}
+	}
+	&.tip-conquest-bonus-card {
+		conquest-bonus-display { //Bonus VFX Popup
+			&.has-owner {
+				start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Small_PopUp.fx2d";
+				&.faction {
+					start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Big.fx2d";
+				}
+			}
+		}
+	}
+}
+
+conquest-player-bonuses{
+	layout: vertical;
+	align: top left;
+	margin-top: 137;
+	margin-left: 6;
+	content-align: top middle;
+	width: @left-bar-width;
+
+	fmt-text {
+		.bold-20;
+		color: @color-ui-text;
+	}
+
+	.content {
+		content-align: top middle;
+		layout: vertical;
+		padding: 3;
+		padding-top: 1;
+		background-type: dynamic;
+		>#background {
+			background: @color-bg-dark-2;
+			outline: 1 #000;
+			smooth-span: 0;
+		}
+		.faction-list, .generic-list {
+			background-type: dynamic;
+			padding: 5;
+			width: @left-bar-width - 6;
+			content-halign: middle;
+			>#background {
+				outline: 1 @color-ui-text;
+				smooth-span: 0;
+				outline-alpha: 0.5;
+			}
+			conquest-bonus-display {
+				tip-position: right;
+
+				&.has-owner {
+					start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Small.fx2d";
+					&.faction {
+						start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Big.fx2d";
+					}
+				}
+			}
+			>.top-deco, >.bottom-deco {
+				src: "UI/conquest/bonuses_bg_pattern.png";
+				scale: 0.5;
+				position: absolute;
+			}
+			>.top-deco {
+				align: top middle;
+				offset-y: -9;
+			}
+			>.bottom-deco {
+				align: bottom middle;
+				offset-y: 9;
+			}
+		}
+		.faction-list {
+			padding-top: 10;
+			padding-bottom: 10;
+			spacing: 10;
+			layout: vertical;
+		}
+		.generic-list {
+			spacing: 3;
+			layout: horizontal;
+			multiline: true;
+			max-width: @left-bar-width;
+			margin-left: -1;
+			margin-right: -1;
+			conquest-bonus-display {
+				.bonusDims(25);
+			}
+		}
+		.horizontal-separator {
+			background: "UI/equipments/line_graphic_interface.png";
+			height: 2;
+			fill-width: true;
+			auto-size: 1;
+			margin: 2 -2 2 -2;
+		}
+	}
+}
+
+conquest-player-bonuses-detail {
+	position: absolute;
+	align: middle middle;
+	background: @panel-bg;
+
+	layout: vertical;
+	content-align: top middle;
+	padding: 3;
+	padding-bottom: 10;
+	margin: 30;
+	width: 450;
+
+	start-sfx: @UI_Conquest_Currentbonusopen;
+	close-sfx: @UI_Conquest_Currentbonusclose;
+	window-header {
+		.windowHeader;
+		height: 30;
+		fill-width: true;
+		margin: -1;
+	}
+	.bonuses-category {
+		fill-width: true;
+		>.cat-content {
+			layout: vertical;
+			fill-width: true;
+			content-align: top middle;
+			padding-bottom: 5;
+			.title-separator {
+				background: "UI/elements/line_graphic_interface.png";
+				height: 1;
+				margin-top: 10;
+				margin-bottom: 5;
+				width: 350;
+			}
+			.bonuses-title {
+				.bold-16;
+				margin-bottom: 10;
+				offset-y: 10;
+				color: @color-text;
+			}
+			>.list {
+				spacing: 8;
+				multiline: true;
+				max-width: 250;
+				min-width: 32;
+				min-height: 32;
+				margin-top: 10;
+				margin-bottom: 5;
+			}
+			.faction-list {
+				margin-bottom: 0;
+			}
+		}
+		&.index-0, &.index-2 {
+			background: @color-hud-bg-middle;
+		}
+	}
+	#exitBtn {
+		position: absolute;
+		offset-x: 5;
+		offset-y: -5;
+		align: top right;
+	}
+}
+
+conquest-faction-bonus-choice {
+	position: absolute;
+	layout: vertical;
+	align: middle middle;
+	content-align: middle middle;
+	spacing: 30;
+	width: 600;
+	height: 250;
+
+	start-sfx: @UI_Conquest_Bonuspopup;
+
+	#list {
+		spacing: 100;
+	}
+}
+
+conquest-mission-bonus-choice {
+	content-align: middle middle;
+	layout: vertical;
+	padding: 16;
+	background: grid("UI/conquest/conquest_box_border.png", 1, 1) 25 25 25 25;
+	background-alpha: 0.6;
+	.border4k;
+	> fmt-text{
+		align: middle left;
+		color: @color-ui-text;
+		margin-bottom:10;
+	}
+	#list {
+		layout:vertical;
+		spacing: 8;
+	}
+
+	conquest-mission-bonus {
+		.conquest-mission-bonus-fx();
+	}
+}
+
+conquest-map {
+	fill-width: true;
+	fill-height: true;
+	align: middle middle;
+	content-align: middle middle;
+	position: absolute;
+	align: top left;
+	#widgets{
+		fill-height: true;
+		fill-width: true;
+	}
+}
+
+conquest-map-territory{
+	position: absolute;
+	&.selected {
+		filter: glow(#ffffff, 5, 3, 1, 1, true);
+	}
+	&.faction-atreides { background: @faction-atreides; }
+	&.faction-harkonnen { background: @faction-harkonnen; }
+	&.faction-smugglers { background: @faction-smugglers; }
+	&.faction-fremen { background: @faction-fremen; }
+	&.faction-corrino { background: @faction-corrino; }
+	&.faction-ecaz { background: @faction-ecaz; }
+	&.faction-vernius { background: @faction-vernius; }
+
+	&.no-admin{
+		.intensity {
+			visible: false;
+		}
+	}
+}
+
+battle-mission {
+	position: absolute;
+	align: bottom middle;
+	content-align: top middle;
+	layout: vertical;
+	spacing: 10;
+	// rising up the size so the OnOver will be triggered when hovering the pawn
+	min-width: 50;
+	@clickable-height: 85;
+	x: -18;
+	margin-bottom: -@clickable-height;
+	padding-bottom: @clickable-height;
+	visible: false;
+	.banner {
+		content-align: top middle;
+		layout: vertical;
+		spacing: 3;
+		.intensity{
+			spacing: 1;
+			bitmap{
+				src: grid("UI/HUD/hudSlot.png", 3, 2);
+				tint: @color-bad;
+			}
+		}
+		>image{
+			bitmap {
+				scale: 0.5;
+			}
+		}
+	}
+
+	&.category-imperial { 	.battle-name{ color: #bd83ff; }	}
+	&.category-stability { 	.battle-name{ color: #adfb75; }	}
+	&.category-rivalry { 	.battle-name{ color: #ff6166; }	}
+	&.category-fremen { 	.battle-name{ color: #ffc861; }	}
+	&.category-defense {
+		.battle-name{
+			.bold-18;
+			color: #ff6166;
+		}
+		filter: glow(#ff1443, 1, 45, 1.1, 1, true);
+	}
+	&.category-milestone {
+		width: 170;
+		height: 120;
+		filter: glow(#81dfff, 1, 45, 1.1, 1, true);
+		.battle-name{
+			.bold-18;
+			color: #81dfff;
+		}
+	}
+}
+conquest-territory-header {
+	@width: @right-mission-width;
+
+	.portrait{
+		layout: stack;
+		overflow: hidden;
+		max-height: 50;
+		#image {
+			width: @right-mission-width;
+			margin-top: -120;
+		}
+		.main {
+			align: middle left;
+			margin: 15;
+			margin-left: 22;
+			fmt-text{
+				.bold-24;
+				color: @color-ui-text;
+			}
+		}
+		.gradient {
+			height: 50;
+			width: @right-mission-width;
+			align: bottom left;
+			gradient: linear(-90, fade(@color-hud-bg-middle, 80%), fade(#000, 0%));
+			smooth-span: 0;
+		}
+	}
+}
+
+conquest-territory-details {
+	@width: @right-mission-width;
+	padding: 4;
+	padding-top: 0;
+	margin-left: -2;
+	layout: vertical;
+
+	.props {
+		content-align: top left;
+		layout:vertical;
+		background: @color-bg-dark-2;
+		.owner {
+			padding-left: 15;
+			content-align: left middle;
+			width: @width;
+			background: @color-hud-bg;
+
+			spacing:8;
+			.emblem {
+				src: hgrid("UI/HUD/structure_flag_faction.png", (@ui-faction-count + 1));
+				src-pos-x: 0;
+				margin-top:-8;
+			}
+			>fmt-text{
+				.regular-16;
+				margin-top:-8;
+				color: @color-ui-text-light;
+			}
+
+			.bonus {
+				spacing: 4;
+				margin-right: 12;
+				align: middle right;
+				content-align: middle middle;
+				fmt-text{
+					.regular-15;
+					color: @color-ui-text-light;
+				}
+				fixed-text {
+					max-width-text: 98;
+				}
+
+				conquest-bonus-display {
+					#background {
+						visible: false;
+					}
+				}
+			}
+		}
+		.bonuses{
+			margin: 4;
+			margin-left: 15;
+			layout: vertical;
+		}
+
+		.sietch-activity{
+			margin-top:5;
+			margin-bottom:5;
+			spacing:5;
+			.title{
+				.regular-14;
+				color: @color-ui-text-light;
+			}
+			.activity{
+				.regular-14;
+				color: @color-ui-text-light;
+			}
+			&.none{ .activity{ color: @color-ui-text-light}}
+			&.low{ .activity{ color: @color-neutral}}
+			&.medium{ .activity{ color: @color-warning}}
+			&.high{ .activity{ color: @color-warning}}
+			&.veryhigh{ .activity{ color: @color-bad}}
+		}
+		.improvements{
+			margin-bottom: -5;
+			spacing: 4;
+			content-align: middle left;
+			fmt-text{
+				.regular-14;
+				color: @color-ui-text-light;
+			}
+			fixed-text {
+				max-width-text: 98;
+			}
+			.list {
+				spacing: 5;
+			}
+
+			.link {
+				fill-width: true;
+				margin-left: 10;
+				margin-right: 10;
+				height: 1;
+				auto-size: 1;
+
+				background: @color-ui-text;
+				alpha: 0.5;
+			}
+			#addBtn{
+				.recruit-btn;
+			}
+		}
+	}
+
+	.tiled-faction(src-pos-x, ~".owner .emblem", 1);
+}
+
+conquest-improvement {
+	margin: 2;
+	click-sfx: @UI_Conquest_Buyimprovement;
+	&.disabled {
+		conquest-bonus-display {
+			.inner-border {
+				>#background {
+					outline-alpha: 0.3;
+				}
+			}
+		}
+	}
+	&.enabled {
+		background: hgrid("UI/multiplayer/btn_menu.png", 3) 20 20;
+		background-tile-pos-x: 1;
+		.border4k;
+		>#background {
+			color-adjust: contrast(1.5) brightness(0.4);
+		}
+		conquest-bonus-display {
+			>#background, .inner-border {
+				visible: false;
+			}
+			#bonusIcon {
+				color-adjust: brightness(-0.1) saturate(-0.8);
+			}
+		}
+		&:hover {
+			>#background {
+				color-adjust: contrast(1.2) brightness(0.5);
+			}
+			conquest-bonus-display {
+				#bonusIcon {
+					color-adjust: none;
+				}
+			}
+		}
+		conquest-bonus-display {
+			#bonusIcon {
+				color-adjust: brightness(-0.1) saturate(-0.8);
+			}
+		}
+	}
+	&.unlocked {
+		filter: none;
+		background: none;
+		start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Small_PopUp.fx2d";
+
+		conquest-bonus-display {
+			>#background, .inner-border {
+				visible: true;
+			}
+			#bonusIcon {
+				color-adjust: none;
+			}
+		}
+	}
+}
+
+
+@right-mission-width: 380;
+conquest-mission-objective-list {
+	layout: vertical;
+	fill-width: true;
+	spacing: 12;
+	margin-top: 18;
+	margin-left: 11;
+	.title{
+		.bold-16;
+		text-transform: uppercase;
+		color: @color-ui-text-light;
+	}
+	.list{
+		layout: vertical;
+		conquest-mission-objective{
+			layout: vertical;
+			spacing: 5;
+			.step{
+				content-align: middle left;
+				spacing: 5;
+				#arrow{
+					.bullet-arrow;
+					offset-y: 1;
+					scale: 0.5;
+					margin-left: -6;
+					align: top left;
+				}
+				fmt-text{
+					alpha: 0.75;
+					auto-size: 1;
+				}
+			}
+		}
+	}
+}
+
+.mission-debrief-outside-outline() {
+	padding: 1;
+	background-type: dynamic;
+	>#background {
+		outline: 1 #000;
+		outline-offset: 0;
+		smooth-span: 0;
+	}
+}
+
+.mission-debrief-outline() {
+	background-type: dynamic;
+	>#background {
+		background: @color-bg-dark-2;
+		outline: 1 @color-ui-text;
+		outline-offset: 1;
+		smooth-span: 0;
+
+		outline-alpha: 0.3;
+	}
+}
+
+conquest-mission-objectives-recap {
+	layout: vertical;
+
+	spacing: 4;
+	.mission-debrief-outline();
+
+	>.primary, >.secondary {
+		max-width: @right-mission-width;
+		layout: vertical;
+
+		padding: 3;
+	}
+
+	conquest-mission-rewards, conquest-mission-objective-effects {
+		padding: 11;
+		margin: 11;
+		fill-width: true;
+
+		background-type: dynamic;
+		>#background {
+			background: @color-bg-dark-2;
+			outline: 1 @color-ui-text;
+			outline-offset: 3;
+			smooth-span: 0;
+			outline-alpha: 0.6;
+		}
+	}
+
+	.top-deco {
+		position: absolute;
+		width: @right-mission-width;
+		height: (@right-mission-width * 0.2);
+		align: top middle;
+		fill-width: true;
+		background: "UI/conquest/mission_rewards_bg_pattern.png";
+	}
+
+	.arrow-separator{
+		position:absolute;
+		y:-2;
+		width: @right-mission-width;
+		src: "UI/HUD/horizontalArrow.png";
+		halign: middle;
+	}
+
+	.separator{
+		src: "UI/conquest/smooth_separator.png";
+		halign: middle;
+		width: @right-mission-width;
+		margin-left: -20;
+		margin-right: -20;
+		margin-top: -10;
+		margin-bottom: -10;
+	}
+}
+
+conquest-territory-debrief{
+	align: top right;
+	content-align: top right;
+	fill-height: true;
+	spacing: 6;
+	padding-top: 20;
+	margin-top: 10;
+
+	appear-delay: 0 0;
+
+	&.no-mission {
+		start-sfx: @UI_Conquest_Selectnomission;
+	}
+	&.has-mission {
+		start-sfx: @UI_Conquest_Selectmission;
+		close-sfx: @UI_Conquest_Selectmissionclose;
+	}
+
+	transition: alpha 0.15 ease-out;
+	alpha: 0;
+	.right{
+		max-height: 0;
+		layout:vertical;
+		transition: max-height 0.3 ease-out;
+	}
+
+	&.appear{
+		alpha: 1;
+		.right{
+			overflow: hidden;
+			max-height: 1000;
+		}
+	}
+
+	.right{
+		max-width: @right-mission-width;
+		margin-top: -30;
+
+		>.territory-header {
+			layout: vertical;
+			padding-bottom: 1;
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 1 #000;
+			}
+		}
+		>.mission-desc-outer-border {
+			.mission-debrief-outside-outline();
+			>.mission-desc  {
+				layout: vertical;
+
+				.mission-debrief-outline();
+				>#background {
+					margin: -3 0 0 0;
+				}
+
+				>.separator {
+					//position: absolute;
+					//offset-y: 27;
+					width: @right-mission-width;
+					height: 1;
+					src: "UI/conquest/smooth_separator.png"
+				}
+			}
+		}
+		>.mission-objectives {
+			margin-top: 2;
+			.mission-debrief-outside-outline();
+		}
+	}
+
+	.left{
+		margin-top: 10;
+	}
+
+	.bottom {
+		spacing: 5;
+		.bottom-right {
+			layout: vertical;
+			spacing: 10;
+		}
+	}
+
+	#startBtn {
+		align: bottom right;
+		position: absolute;
+		margin-bottom: 60;
+		margin-right: 25;
+		.large-multi-btn;
+		&:hover {
+			fmt-text {
+				alpha: 1;
+			}
+		}
+		&.enabled {
+			fmt-text {
+				alpha: 1;
+				color: @color-ui-text-light;
+			}
+			start-vfx: "Fx/UI/MainMenu/FX_Start.fx2d";
+		}
+		#startBtn {
+			pad-click: @input-menu-startgame;
+		}
+	}
+
+	conquest-mission-rewards {
+		fill-width: true;
+	}
+}
+
+conquest-mission-context{
+	layout: vertical;
+
+	fmt-text{
+		color: @color-ui-text-light;
+	}
+	.mods{
+		layout: vertical;
+		spacing: 6;
+		>flow {
+			width: 220;
+			max-width: 220;
+			padding: 20;
+			padding-bottom: 25;
+			layout: vertical;
+			background: "UI/conquest/conquest_box_bg.png" 25 25;
+			.border4k;
+			background-alpha: 0.6;
+			background-id: true;
+			>#background {
+				color-adjust: brightness(-0.2);
+			}
+			>fmt-text {
+				.bold-15;
+				text-transform: uppercase;
+			}
+		}
+		.list {
+			layout: vertical;
+			.mod-container {
+				layout:horizontal;
+				content-valign: middle;
+				spacing: 6;
+				margin-top: 18;
+				min-height: 20;
+				padding-bottom: -10;
+				.check {
+					margin-left: -5;
+					src: hgrid("UI/landsraad/box_check_charter.png", 2);
+					width: 16;
+					src-pos-x: 0;
+				}
+				fmt-text{
+					color: @color-text;
+					auto-size: 1;
+				}
+			}
+		}
+	}
+}
+
+
+@mission-result-width: 400;
+.missionDescriptorWidth(@width) {
+	#header{
+		.portrait{
+			width: @width;
+			#image {
+				width: @width;
+			}
+			.gradient {
+				width: @width - 70;
+			}
+		}
+	}
+}
+
+conquest-mission-result-recap {
+	appear-delay: 0 0;
+	alpha: 0;
+	offset-x: -150;
+
+	&.appear {
+		alpha: 1;
+		offset-x: 0;
+		transition: alpha 0.5 ease-in;
+		transition: offset-x 0.3 ease-in;
+	}
+
+	layout: vertical;
+	padding: 0 0 1 1;
+	spacing: 16;
+	max-width: 380;
+
+	>.fac-container {
+		margin-bottom: 30;
+	}
+
+	.result-title {
+		margin-left: 15;
+		.bold-50;
+		color: #fff;
+
+		&.victory {
+			filter: glow(@color-good, 1, 10, 0.9, 1, true);
+		}
+
+		&.defeat {
+			filter: glow(@color-bad, 1, 10, 0.9, 1, true);
+		}
+	}
+
+	@conquest-recap-width: 340;
+	@conquest-recap-banner-height: 45;
+	.battle-description {
+		layout: vertical;
+		spacing: 12;
+		width: @conquest-recap-width;
+		.portrait{
+			layout: stack;
+			max-height: @conquest-recap-banner-height;
+			#image {
+				height: @conquest-recap-banner-height;
+				width: @conquest-recap-width;
+				outline: 2 @color-bg-dark-4;
+				outline-offset: -1;
+				gradient: linear(-90, fade(#000, 60%), fade(#000, 0%));
+			}
+			.battle-title {
+				align: middle left;
+				margin-left: 10;
+				fmt-text{
+					.bold-22;
+					color: @color-ui-text;
+				}
+			}
+		}
+
+		>fmt-text {
+			.regular-16;
+			margin-left: 15;
+			align: bottom left;
+			color: @color-desert;
+			max-width: @conquest-recap-width;
+		}
+	}
+
+	>bitmap.separator1 {
+		width: @conquest-recap-width;
+		height: 1;
+		src: "UI/conquest/smooth_separator.png";
+	}
+
+	conquest-mission-consequences {
+		margin-left: 15;
+		.ignored-missions {
+			layout: vertical;
+			spacing: 4;
+			#title {
+				visible: false;
+			}
+		}
+	}
+}
+
+@top-mission-width: 300;
+conquest-mission-result {
+	fill-width: true;
+	fill-height: true;
+
+	>conquest-mission-result-recap {
+		align: middle left;
+		margin-left: 160;
+		margin-top: -200;
+	}
+
+	>.conquest-mission-result-top {
+		appear-delay: 0 0;
+		alpha: 0;
+		offset-x: -16;
+		offset-y: 30;
+
+
+		&.smugglers{
+			min-width:1000;
+			#fremenRelationRecap{
+				halign: left;
+				offset-x: 140!important;
+			}
+			#fraufrelucheRelationRecap{
+				halign: right;
+				offset-x: -70;
+			}
+
+		}
+		#fremenRelationRecap{
+			offset-x: 30;
+		}
+		&.appear {
+			alpha: 1;
+			offset-y: 70;
+
+			transition: alpha 0.5 ease-in;
+			transition: offset-y 0.3 ease-in;
+		}
+
+		position: absolute;
+		align: top middle;
+
+		content-align: middle middle;
+		spacing: 15;
+
+		>.mission-fremen-relation-recap {
+			layout: vertical;
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 1 @color-ui-text;
+				outline-offset: 3;
+				smooth-span: 0;
+				outline-alpha: 0.6;
+			}
+
+			.top-deco {
+				position: absolute;
+				width: @top-mission-width;
+				height: (@top-mission-width * 0.2);
+				align: top middle;
+				background: "UI/conquest/mission_rewards_bg_pattern.png";
+			}
+		}
+	}
+
+
+	>.conquest-mission-result-right {
+		appear-delay: 0 0;
+		alpha: 0;
+		offset-x: 150;
+
+		&.appear {
+			alpha: 1;
+			offset-x: 0;
+			transition: alpha 0.5 ease-in;
+			transition: offset-x 0.3 ease-in;
+		}
+		layout: vertical;
+		align: bottom right;
+		margin-right: 50;
+		margin-bottom: 50;
+		max-width: @right-mission-width;
+		.mission-reward{
+			layout: vertical;
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 1 @color-ui-text;
+				outline-offset: 3;
+				smooth-span: 0;
+				outline-alpha: 0.6;
+			}
+
+			.top-deco {
+				position: absolute;
+				width: @right-mission-width;
+				height: (@right-mission-width * 0.2);
+				align: top middle;
+				fill-width: true;
+				background: "UI/conquest/mission_rewards_bg_pattern.png";
+			}
+
+			conquest-mission-rewards {
+				width: @right-mission-width;
+				padding: 18;
+				.bonus {
+					visible:false;
+				}
+			}
+		}
+
+		.bonus-choose{
+			width: @right-mission-width;
+			padding: 3;
+			padding-top: 3;
+			margin-top: 10;
+			layout: stack;
+
+			background-type: dynamic;
+			>#background {
+				background: @color-bg-dark-2;
+				outline: 1 #000;
+				outline-offset: 0;
+				smooth-span: 0;
+				background-alpha: 1;
+				outline-alpha: 0.6;
+			}
+
+			.arrow-separator{
+				position: absolute;
+				width: @right-mission-width;
+				src: "UI/HUD/horizontalArrow.png";
+				y: -3;
+			}
+		}
+
+		#confirmBtn {
+			.decorated-btn;
+			padding: 20;
+			align: middle right;
+			width: 200;
+			margin-top: 50;
+
+			fmt-text{
+				color: @color-ui-text;
+				.bold-18;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	&.defeat {
+		start-sfx: @UI_Conquest_Popupdefeat;
+		#confirmBtn {
+			click-sfx: @UI_Button_Conquestconfirm;
+		}
+	}
+	&.victory {
+		start-sfx: @UI_Conquest_Popupvictory;
+		#confirmBtn {
+			click-sfx: @UI_Conquest_Choosebonus;
+			&.enabled {
+			start-vfx : "Fx/UI/Conquest/FX_ConfirmButton.fx2d";
+			>fx-element {
+				offset-x: -20;
+			}
+			}
+		}
+	}
+}
+
+conquest-mission-fremen-relation-recap {
+	width: @top-mission-width;
+	layout: vertical;
+	padding: 14;
+	spacing: 16;
+	>.result-title {
+		fmt-text {
+			.bold-18;
+			color: @color-ui-text;
+		}
+	}
+
+	>.recap {
+		layout: vertical;
+		spacing: 8;
+		fmt-text {
+			.regular-14;
+			color: @color-ui-text-light;
+		}
+	}
+
+	>.result {
+		layout: stack;
+		fmt-text {
+			.regular-14;
+			color: @color-ui-text-light;
+			margin-top: 4;
+		}
+
+		.result-separator {
+			width: @top-mission-width;
+			src: "UI/conquest/smooth_separator.png";
+			margin-top: -4;
+		}
+	}
+}
+
+conquest-mission-fraufreluche-relation-recap {
+	width: @top-mission-width;
+	layout: vertical;
+	padding: 14;
+	spacing: 16;
+	>.result-title {
+		fmt-text {
+			.bold-18;
+			color: @color-ui-text;
+		}
+	}
+
+	>.recap {
+		layout: vertical;
+		spacing: 8;
+		fmt-text {
+			.regular-14;
+			color: @color-ui-text-light;
+		}
+	}
+
+	>.result {
+		layout: stack;
+		fmt-text {
+			.regular-14;
+			color: @color-ui-text-light;
+			margin-top: 4;
+		}
+
+		.result-separator {
+			width: @top-mission-width;
+			src: "UI/conquest/smooth_separator.png";
+			margin-top: -4;
+		}
+	}
+}
+
+conquest-mission-descriptor-header {
+	layout:vertical;
+
+	width: @right-mission-width;
+
+	padding-top: 10;
+	.main {
+		align: left middle;
+		margin-left: 23;
+		fmt-text{
+			.bold-20;
+			color: @color-ui-text;
+		}
+	}
+
+	#desc{
+		layout: vertical;
+		fill-width: true;
+		padding: 13;
+		padding-left: 23;
+		fmt-text {
+			color: @color-ui-text-light;
+			alpha: 0.75;
+		}
+	}
+}
+
+conquest-mission-rewards, conquest-mission-objective-effects {
+	layout:vertical;
+	#title{
+		.bold-16;
+		.uppercase;
+		color: @color-reward-title;
+	}
+	spacing: 10;
+	.reward{
+		layout:horizontal;
+		content-align:middle middle;
+		spacing:4;
+		.arrow{
+			.bullet-arrow;
+			offset-y: 1;
+			scale: 0.5;
+			margin-left: -6;
+		}
+	}
+
+	.list {
+		layout:vertical;
+		spacing: 4;
+		min-height: 16;
+		fmt-text{
+			color: @color-ui-text-light;
+		}
+		.effects{
+			layout: vertical;
+			spacing: 4;
+		}
+		.bonus {
+			content-align: middle left;
+			fill-width: true;
+			multiline: true;
+			fmt-text{
+				color: @color-choose-bonus;
+			}
+			.bonuses{
+				spacing: 5;
+				halign: right;
+				conquest-bonus-display{
+					.bonusDims(36);
+				}
+			}
+			.link {
+				fill-width: true;
+				margin-left: 10;
+				margin-right: 10;
+				height: 1;
+				auto-size: 1;
+
+				background: @color-ui-text;
+				alpha: 0.5;
+			}
+		}
+	}
+
+	.reward.link-or {
+		.arrow {
+			visible: false;
+		}
+		margin-top: 4;
+		margin-bottom: 4;
+		>fmt-text{
+			color: @color-ui-text;
+			.bold-14;
+		}
+	}
+}
+
+conquest-mission-consequences {
+	layout:vertical;
+	>fmt-text{
+		.bold-16;
+		color: @color-ui-text;
+	}
+	spacing: 10;
+	.list {
+		layout:vertical;
+		spacing: 8;
+		content-align: top left;
+
+		.results {
+			layout:vertical;
+			spacing: 8;
+			.reward {
+				layout:horizontal;
+				content-align:middle middle;
+				spacing:4;
+				.arrow{
+					.bullet-arrow;
+					offset-y: 1;
+					scale: 0.5;
+					margin-left: -6;
+				}
+			}
+		}
+
+		.deaths-recap{
+			spacing: 5;
+			.death {
+				spacing: 5;
+				content-align: middle left;
+				.death-icon {
+					background: @comp-round-bg;
+					padding: 2;
+					bitmap {
+						height: 26;
+						filter: glow(#b7112d, 0.8, 5, 1, 1, true);
+					}
+				}
+				fmt-text{
+					color: @color-bad;
+					.regular-16;
+				}
+			}
+		}
+
+		.others-objectives {
+			layout:vertical;
+			spacing: 8;
+			content-align: top left;
+
+			.consequence {
+				layout:horizontal;
+				content-align:middle middle;
+				spacing:4;
+				>fmt-text{
+					color: @color-ui-text-light;
+				}
+				.arrow{
+					.bullet-arrow;
+					offset-y: 1;
+					scale: 0.5;
+					margin-left: -6;
+				}
+			}
+		}
+	}
+}
+
+conquest-councilor-choice {
+	layout: vertical;
+	spacing: 5;
+	window-header {
+		.windowHeader;
+		height: 18;
+		padding: 0;
+		margin: 0 3 0 3;
+		fill-width: true;
+		>.name-cont {
+			>.name{
+				.bold-16;
+				color: @color-ui-text;
+			}
+		}
+		>.leftPattern, >.rightPattern {
+			height: 18;
+			offset-x: 0;
+		}
+	}
+	.info-text {
+		valign: bottom;
+		.bold-14;
+		margin-left: 23;
+		margin-top: 4;
+		color: @color-ui-text-light;
+	}
+	>.content {
+		margin-bottom: 8;
+		halign: middle;
+		layout: vertical;
+		#list {
+			spacing: 4;
+			content-align:middle middle;
+		}
+		#tipAnchor {
+			position: absolute;
+			align: bottom middle;
+			margin-bottom: 55;
+		}
+	}
+	conquest-councilor-button {
+		tutorial-highlight {
+			hidden: true;
+		}
+	}
+	&.highlight-clickable {
+		conquest-councilor-button.selectable {
+			tutorial-highlight {
+				hidden: false;
+			}
+		}
+	}
+}
+
+conquest-councilor-button{
+	pad-focusable: true;
+	&.index-0 { pad-default-focus: true; }
+
+	click-sfx: @UI_Mainmenu_Pickcouncelor;
+	hover-sfx: @UI_Mainmenu_Faction_Rollover;
+
+	.councilor-dims(80, 160, 2);
+	layout: stack;
+	content-align: middle middle;
+
+	>.portrait {
+		image-scale: 1.3;
+		image-offset-y: -75;
+	}
+
+	&.locked {
+		start-vfx: "Fx/UI/Conquest/FX_CouncilorsSelection_Conquest_Locked.fx2d";
+	}
+	&.dead {
+		alpha: 0.6;
+	}
+
+	alpha: 0.6;
+	transition: alpha 0.3 ease-in;
+	&.selectable {
+		alpha: 1;
+		start-vfx: "Fx/UI/Conquest/FX_CouncilorsSelectable_Conquest.fx2d" 0 0.3;
+	}
+
+	&.selected {
+		alpha: 1;
+		start-vfx: "Fx/UI/Conquest/FX_CouncilorsSelection_Conquest.fx2d" 0 0.3;
+		.portrait {
+			image-scale: 1.4;
+		}
+	}
+	&:hover {
+		.portrait {
+			image-scale: 1.4;
+		}
+	}
+}
+
+debug-battle-conquest{
+	position: absolute;
+	align: middle middle;
+	content-align: top middle;
+	fill-height: true;
+	spacing: 6;
+	padding-top: 20;
+	margin-top: 10;
+	layout:vertical;
+	background-type: dynamic;
+
+	width: 800;
+	.closeBtn {
+		.filtered-btn;
+		background: "UI/elements/close.png";
+		width: 20;
+		height: 20;
+		align: top right;
+		position: absolute;
+		offset-x: -10;
+		offset-y: -10;
+	}
+	>#background {
+		background: @color-tip-body-bg;
+		outline: 1 @color-ui-text;
+		outline-alpha: 0.2;
+		smooth-span: 0;
+		border-radius: 8;
+	}
+	.title{
+		color: @color-ui-text;
+		.bold-20;
+	}
+	#content{
+		layout:horizontal;
+		multiline: true;
+		vspacing:10;
+		hspacing:20;
+		padding: 15;
+		align: middle;
+		#battleStatus {
+			width: 160;
+			height: 60;
+			layout: vertical;
+			content-align: top middle;
+			background-type: dynamic;
+			padding: 5;
+			spacing: 10;
+			>#background {
+				background: @color-bg-dark-1;
+				outline: 1 @color-ui-text;
+				outline-alpha: 0.2;
+				smooth-span: 0;
+				border-radius: 8;
+			}
+			.battle {
+				align:top middle;
+				color: @color-ui-text-light;
+				.bold-16;
+			}
+			battle-reason-debug {
+				align:right bottom;
+				layout: vertical;
+				spacing: 2;
+			}
+			.reason {
+				align: right;
+				&.pickable{
+					color: @color-good;
+				}
+				&.alreadypicked{
+					color: @color-good;
+					alpha: 0.5;
+				}
+				&.cooldown{
+					color: @color-neutral;
+				}
+				&.notgeneric{
+					color: @color-desert;
+					alpha: 0.5;
+				}
+				&.intensity{
+					color: @color-bad;
+					alpha: 0.8;
+				}
+				&.conditions{
+					color: @color-warning;
+					alpha: 0.8;
+				}
+				&.noterritory{
+					color: @color-warning;
+					alpha: 0.8;
+				}
+			}
+			#intensity {
+				align: right;
+				>fmt-text{
+					color: rgb(250, 87, 87);
+				}
+			}
+		}
+		.separator{
+			visible: false;
+			height:2;
+			fill-width: true;
+			background: #fff;
+		}
+	}
+}
+
+conquest-stratagem-choice{
+	layout:vertical;
+	width: @right-mission-width;
+	padding-top: 10;
+
+	.stratagem{
+		padding-left: 10;
+		spacing: 15;
+		content-align: middle middle;
+		fixed-text {
+			valign:middle;
+			max-width-text: 98;
+			color: @color-ui-text-light;
+		}
+		.list {
+			spacing: 5;
+			margin-right:5;
+		}
+
+		.link {
+			fill-width: true;
+			margin-left: 10;
+			margin-right: 10;
+			height: 1;
+			auto-size: 1;
+
+			background: @color-ui-text;
+			alpha: 0.5;
+		}
+	}
+	#textCost{
+		margin:2 10 10 0;
+		halign:right;
+		max-width-text: @right-mission-width;
+		color: @color-ui-text-light;
+	}
+
+	conquest-stratagem{
+		margin: 2;
+		click-sfx: @UI_Conquest_Buyimprovement;
+		&.disabled {
+			conquest-bonus-display {
+				.inner-border {
+					>#background {
+						outline-alpha: 0.3;
+					}
+				}
+			}
+		}
+		&.enabled {
+			background: hgrid("UI/multiplayer/btn_menu.png", 3) 20 20;
+			background-tile-pos-x: 1;
+			.border4k;
+			>#background {
+				color-adjust: contrast(1.5) brightness(0.4);
+			}
+			conquest-bonus-display {
+				>#background, .inner-border {
+					visible: false;
+				}
+				#bonusIcon {
+					color-adjust: brightness(-0.1) saturate(-0.8);
+				}
+			}
+			&:hover {
+				>#background {
+					color-adjust: contrast(1.2) brightness(0.5);
+				}
+				conquest-bonus-display {
+					#bonusIcon {
+						color-adjust: none;
+					}
+				}
+			}
+			conquest-bonus-display {
+				#bonusIcon {
+					color-adjust: brightness(-0.1) saturate(-0.8);
+				}
+			}
+		}
+		&.unlocked {
+			filter: none;
+			background: none;
+			start-vfx: "Fx/UI/Conquest/FX_Conquest_ActiveBonus_Small_PopUp.fx2d";
+
+			conquest-bonus-display {
+				>#background, .inner-border {
+					visible: true;
+				}
+				#bonusIcon {
+					color-adjust: none;
+				}
+			}
+		}
+	}
+}

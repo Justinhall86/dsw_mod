@@ -1,0 +1,60 @@
+// out: false
+@import "game.less";
+
+
+active-treaty {
+	background: #222121;
+	>.treaty-card {
+		fill-width: true;
+		padding: 6;
+		>bitmap {
+			scale: 0.5;
+		}
+		>.texts {
+			spacing: 4;
+			layout: vertical;
+			align: middle middle;
+			padding: 10;
+			auto-size: 1;
+		}
+		>.timerContainer {
+			align: middle right;
+			content-align: middle middle;
+			>fmt-text{
+				color: @color-text-timer;
+				.bold-14;
+			}
+			>#timerGauge {
+				width: 22;
+				height: 25;
+				background: "UI/elements/ic_full_chrono_border.png";
+				invert: true;
+				bitmap{
+					align: bottom middle;
+					margin-bottom: 4;
+					width: 14;
+					src: "UI/elements/circle_64.png";
+					tint: @color-text-timer;
+				}
+			}
+		}
+	}
+}
+
+
+relationship-bar {
+	background: #222121;
+	content-align: middle middle;
+	spacing: 10;
+
+	>.faction {
+		width: 38;
+		height: 42;
+	}
+
+	>.lineDecorator {
+		src: "UI/HUD/lineSeparator.png";
+		width: 30;
+		height: 2;
+	}
+}

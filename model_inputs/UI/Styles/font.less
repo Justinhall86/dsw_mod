@@ -1,0 +1,164 @@
+// out: false
+@import "config.less";
+
+// Use Menu.showAllFonts to tweak margin adjustments
+@monda-regular: "Font/monda-regular.fnt";
+
+// @{opt-minfont} { width: 2; } // <- will apply for not-default font size
+@opt-minfont: ~'.option-minfontsize-1 &, .option-minfontsize-2 &';
+
+.def-font(@name, @face, @size, @cutoff, @smooth, @spacing, @margin, @icon-size: 16) {
+	._();
+	._() {
+		@_face: @face;
+		@_spacing: @spacing;
+	}
+	._() when (@cjk = true) {
+		@_face: "Font/noto_sans_cjk_large.fnt";
+		@_spacing: 0;
+	}
+	fake-text.@{name} .font-to-load {
+		font: @_face @size multi @cutoff @smooth;
+	}
+	.@{name} {
+		font: @_face @size multi @cutoff @smooth;
+		line-spacing: @_spacing;
+		margin-top: @margin;
+		icon-size: @icon-size;
+
+		// Needed for scope/priority reasons
+		.option-minfontsize-2 & when (@size >= 17) {
+			font: @_face @size multi @cutoff @smooth;
+			line-spacing: @_spacing;
+			margin-top: @margin;
+			icon-size: @icon-size;
+		}
+		.option-minfontsize-2 & when (@size < 17) {
+			._();
+			._() {
+				@_margin: -4;
+				@_smooth: 0.45;
+				@_icon: 18;
+			}
+			._() when (@face = @monda-regular) {
+				@_margin: -9;
+				@_smooth: 0.20;
+				@_spacing: -8;
+			}
+			._() when (@face = @philosopher-italic) {
+				@_smooth: 0.40;
+			}
+			._() when (@face = @philosopher-regular) {
+				@_icon: 20;
+			}
+			._() when (@cjk=true) {
+				@_spacing: 0;
+				@_margin: -5;
+			}
+			font: @_face 17 multi @cutoff @_smooth;
+			line-spacing: @_spacing;
+			margin-top: @_margin;
+			icon-size: @_icon;
+		}
+
+		// Needed for scope/priority reasons
+		.option-minfontsize-1 & when (@size >= 15) {
+			font: @_face @size multi @cutoff @smooth;
+			line-spacing: @_spacing;
+			margin-top: @margin;
+			icon-size: @icon-size;
+		}
+		.option-minfontsize-1 & when (@size < 15) {
+			._();
+			._() {
+				@_margin: -3;
+				@_smooth: 0.45;
+				@_icon: @icon-size;
+			}
+			._() when (@face = @monda-regular) {
+				@_margin: -8;
+				@_smooth: 0.20;
+				@_spacing: -7;
+			}
+			._() when (@face = @philosopher-italic) {
+				@_smooth: 0.40;
+			}
+			._() when (@face = @philosopher-regular) {
+				@_icon: 18;
+				@_smooth: 0.50;
+			}
+			._() when (@cjk=true) {
+				@_spacing: 0;
+				@_margin: -5;
+			}
+			font: @_face 15 multi @cutoff @_smooth;
+			line-spacing: @_spacing;
+			margin-top: @_margin;
+			icon-size: @_icon;
+		}
+	}
+}
+
+.def-font(sans-11, @monda-regular, 11, 0.45, 0.30, -4, -5);
+.def-font(sans-12, @monda-regular, 12, 0.45, 0.20, -5, -6);
+.def-font(sans-13, @monda-regular, 13, 0.50, 0.18, -6, -7);
+.def-font(sans-14, @monda-regular, 14, 0.50, 0.18, -7, -7);
+.def-font(sans-15, @monda-regular, 15, 0.50, 0.20, -7, -8);
+.def-font(sans-17, @monda-regular, 17, 0.50, 0.20, -8, -9, 18);
+
+.def-font(sans-bold-13, @monda-regular, 13, 0.40, 0.18, -4, -7);
+.def-font(sans-bold-15, @monda-regular, 15, 0.40, 0.20, -4, -8);
+
+.bold-shadow-12 { font: "Font/noto_sans_bold_shadow_12.fnt"; line-spacing: 0; margin-top: -3; }
+.bold-shadow-13 { font: "Font/noto_sans_bold_shadow_13.fnt"; line-spacing: 0; margin-top: -4; }
+
+@philosopher-regular: "Font/philosopher-regular.fnt";
+@philosopher-bold: "Font/philosopher-bold.fnt";
+@philosopher-italic: "Font/philosopher-italic.fnt";
+
+.def-font(regular-11, @philosopher-regular, 11, 0.45, 0.55, 0, -2);
+.def-font(regular-12, @philosopher-regular, 12, 0.45, 0.55, 0, -2);
+.def-font(regular-13, @philosopher-regular, 13, 0.45, 0.50, 0, -2);
+.def-font(regular-14, @philosopher-regular, 14, 0.45, 0.50, 0, -3);
+.def-font(regular-15, @philosopher-regular, 15, 0.40, 0.50, 0, -3, 18);
+.def-font(regular-16, @philosopher-regular, 16, 0.45, 0.50, 0, -3, 18);
+.def-font(regular-17, @philosopher-regular, 17, 0.45, 0.45, 0, -4, 20);
+.def-font(regular-18, @philosopher-regular, 18, 0.45, 0.45, 0, -4, 20);
+.def-font(regular-20, @philosopher-regular, 20, 0.45, 0.40, 0, -4, 20);
+.def-font(regular-23, @philosopher-regular, 22, 0.45, 0.40, 0, -5, 22);
+.def-font(regular-25, @philosopher-regular, 25, 0.45, 0.40, 0, -6, 24);
+.def-font(regular-28, @philosopher-regular, 28, 0.45, 0.35, 0, -6, 28);
+.def-font(regular-30, @philosopher-regular, 30, 0.45, 0.30, 0, -7, 30);
+.def-font(regular-32, @philosopher-regular, 32, 0.45, 0.30, 0, -7, 32);
+.def-font(regular-33, @philosopher-regular, 33, 0.45, 0.25, 0, -8, 33);
+.def-font(regular-35, @philosopher-regular, 35, 0.45, 0.25, 0, -8, 35);
+.def-font(regular-40, @philosopher-regular, 40, 0.45, 0.20, 0, -9, 40);
+
+.def-font(italic-12, @philosopher-italic, 12, 0.4, 0.45, 0, -3);
+.def-font(italic-13, @philosopher-italic, 13, 0.4, 0.50, 0, -3);
+.def-font(italic-14, @philosopher-italic, 14, 0.4, 0.40, 0, -3);
+.def-font(italic-15, @philosopher-italic, 15, 0.5, 0.40, 0, -3);
+.def-font(italic-17, @philosopher-italic, 17, 0.5, 0.40, 0, -4, 18);
+.def-font(italic-18, @philosopher-italic, 18, 0.5, 0.40, 0, -4, 18);
+.def-font(italic-20, @philosopher-italic, 20, 0.5, 0.40, 0, -5, 20);
+.def-font(italic-25, @philosopher-italic, 25, 0.5, 0.35, 0, -6, 25);
+.def-font(italic-28, @philosopher-italic, 28, 0.5, 0.30, 0, -6, 28);
+
+.def-font(bold-11, @philosopher-bold, 11, 0.45, 0.60, 0, -2);
+.def-font(bold-12, @philosopher-bold, 12, 0.45, 0.50, 0, -2);
+.def-font(bold-13, @philosopher-bold, 13, 0.40, 0.50, 0, -3);
+.def-font(bold-14, @philosopher-bold, 14, 0.45, 0.45, 0, -3);
+.def-font(bold-15, @philosopher-bold, 15, 0.45, 0.45, 0, -4);
+.def-font(bold-16, @philosopher-bold, 16, 0.45, 0.45, 0, -4);
+.def-font(bold-17, @philosopher-bold, 17, 0.45, 0.45, 0, -4, 18);
+.def-font(bold-18, @philosopher-bold, 18, 0.45, 0.40, 0, -4, 18);
+.def-font(bold-20, @philosopher-bold, 20, 0.45, 0.40, 0, -5, 20);
+.def-font(bold-22, @philosopher-bold, 22, 0.45, 0.40, 0, -5, 22);
+.def-font(bold-23, @philosopher-bold, 23, 0.45, 0.40, 0, -5, 23);
+.def-font(bold-24, @philosopher-bold, 24, 0.45, 0.40, 0, -5, 24);
+.def-font(bold-30, @philosopher-bold, 30, 0.45, 0.40, 0, -7, 30);
+.def-font(bold-40, @philosopher-bold, 40, 0.45, 0.20, 0, -9, 40);
+.def-font(bold-45, @philosopher-bold, 45, 0.45, 0.20, 0, -10, 45);
+.def-font(bold-50, @philosopher-bold, 50, 0.45, 0.20, 0, -12, 50);
+.def-font(bold-60, @philosopher-bold, 60, 0.45, 0.15, 0, -13, 60);
+.def-font(bold-80, @philosopher-bold, 80, 0.45, 0.10, 0, -18, 80);

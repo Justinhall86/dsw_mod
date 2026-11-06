@@ -1,0 +1,309 @@
+// out: false
+@import "game.less";
+
+counter, resource-counter, flowing-resource, unit-counter, resource-cost {
+	hspacing : 1;
+	content-align: left middle;
+
+	#prevResTxt {
+		fmt-text {
+			.bold-15;
+			color: @color-ui-text-light;
+		}
+
+	}
+
+	#resTxt {
+		fmt-text {
+			.bold-15;
+		}
+
+		#tFlow {
+			margin-left: 2;
+			.bold-13;
+			color: @color-good;
+			&.negative-flow {
+				color: @color-text-bad;
+			}
+			&.tempnegative-flow {
+				color: @color-text-tempbad;
+			}
+		}
+
+		#reservedRes {
+			width: 12;
+			height: 12;
+			background: "UI/dot_default.png" 10 10;
+		}
+	}
+
+	&.stocks-negative {
+		#tf, #fixedTf {
+			color: @color-text-bad;
+		}
+	}
+
+	&.stocks-positive {
+		#tf, #fixedTf {
+			color: @color-text-good;
+		}
+	}
+	&.stocks-tempnegative {
+		#tf, #fixedTf {
+			color: @color-text-tempbad;
+		}
+	}
+	&.stocks-replaced {
+		#tf, #fixedTf {
+			color: @color-progressbarincomplete;
+		}
+	}
+	&.stocks-full {
+		#tf, #fixedTf {
+			color: @color-warning;
+		}
+	}
+
+	&.hidden{
+		visible: false;
+		//alpha: 0.1;
+	}
+}
+
+unit-counter {
+	spacing: 5;
+	#iconBmp {
+		@size: 20;
+		width: @size;
+		height: @size;
+	}
+}
+
+hegemony-bar, faction-bar {
+	layout: stack;
+	content-valign: top;
+	> #factionBmp { scale: 0.75; }
+	>#gauge {
+		margin-left: 29;
+		margin-top: 1;
+		body-width: 278;
+		body-height: 20;
+
+		#fillBar {
+			background: vgrid("UI/HUD/factionHegemonyGauge.png", @ui-faction-count);
+		}
+
+		empty-color: @color-tip-body-bg;
+		#emptyBar { alpha: 1; }
+		color: white;
+		.tiled-faction(background-tile-pos-y, ~'#fillBar');
+
+		#floatingCont {
+			margin-left: 10;
+			halign: left;
+			spacing: 3;
+			#txt {
+				text-transform: uppercase;
+				.regular-13;
+				margin-top: -2;
+				color: @color-text;
+				text-shadow: 0.8 1 #000 0.7;
+			}
+			#txt2 {
+				text-transform: uppercase;
+				.bold-13;
+				margin-top: -2;
+				color: @color-text;
+				text-shadow: 0.8 1 #000 0.7;
+			}
+		}
+	}
+	>.textCont {
+		halign: right;
+		content-valign: middle;
+		margin-top: 6;
+		margin-right: 8;
+		spacing: 5;
+		#valueTxt {
+			color: #ffdf7f;
+			text-shadow : 1 1 #000 0.58;
+			.sans-12;
+		}
+	}
+
+	bitmap.icon {
+		margin-top: 2;
+		margin-right: 60;
+		align: right;
+		src: "cdb:resource.Hegemony.gfx";
+		scale: 0.6;
+	}
+
+	&.dead {
+		color-adjust: brightness(-0.2) saturate(-0.5) gain(#000000, 0.3);
+	}
+}
+
+faction-bar {
+	>#gauge {
+		body-width: 150;
+		empty-color: #24262E;
+
+		#floatingCont {
+			#txt {
+				visible:false;
+			}
+		}
+	}
+	>.textCont {
+		halign: right;
+		content-align: middle middle;
+		margin-top: 6;
+		margin-right: 4;
+		spacing: 5;
+
+		min-width:40;
+		#valueTxt {
+			align: top right;
+			color: #ffdf7f;
+			text-shadow : 1 1 #000 0.58;
+			.sans-12;
+		}
+		flow.sep {
+			height:22;
+			width:4;
+			background: @color-bg-dark-2;
+			align: left;
+			offset-y: -6;
+		}
+	}
+}
+
+tip-default.hegemony {
+	width: 320;
+	padding-top: 2;
+	#titleText, #rightTitleText {
+		margin-left: 5;
+		margin-right: 5;
+	}
+	.body-content {
+		spacing: 5;
+		padding: 5;
+		padding-top: 3;
+		.body {
+			margin: 5;
+			padding-left: 5;
+			padding-right: 5;
+			tip-row-detail {
+				.rowDetail {
+					layout: stack;
+					&.empty-value {
+						fmt-text {
+							color-adjust: brightness(-0.2) saturate(-0.5) gain(#000000, 0.3);
+						}
+					}
+					#title, #value {
+						margin-left: 8;
+						margin-right: 8;
+					}
+					&.hegemony-TotalProduction {
+						fmt-text {
+							color-adjust: none;
+						}
+						#value>#valueTxt {
+							.sans-bold-13;
+							color: @color-text-good;
+						}
+						&.empty-value {
+							#value>#valueTxt {
+								color: @color-desert;
+							}
+						}
+					}
+				}
+
+				&.group-0 {
+					.rowDetail {
+						background: vgrid("UI/HUD/factionHegemonyGauge.png", @ui-faction-count);
+						padding-top: 7;
+						padding-bottom: 7;
+						fmt-text {
+							color-adjust: none;
+						}
+					}
+					.tiled-faction(background-tile-pos-y, ~'#row');
+
+					#title {
+						.sans-bold-13;
+					}
+					#value {
+						#valueTxt {
+							.sans-bold-13;
+							color: @color-ui-text;
+						}
+					}
+					fmt-text {
+						text-shadow : 1 1 #000 0.58;
+					}
+				}
+			}
+			.horizontal-separator {
+				halign: middle;
+				height: 1;
+				background: @color-desert;
+				alpha: 0.3;
+				margin-top: 5;
+				margin-bottom: 5;
+				&.sep-0 {
+					margin-top: -5;
+				}
+			}
+			&#fbody {
+				background: @color-hud-bg;
+				padding-top: 15;
+				padding-bottom: 6;
+				.description {
+					margin-left: 8;
+					margin-bottom: 20;
+				}
+			}
+		}
+	}
+	fmt-text.productions {
+		.bold-14;
+		color: @color-ui-text;
+		margin: 8;
+		margin-top: 3;
+		margin-bottom: 12;
+	}
+}
+
+cost-detail, no-stock-cost-detail {
+	spacing: 5;
+	content-align: middle middle;
+
+	resource-counter {
+		&.insufficient {
+			#tf, #fixedTf {
+				color: @color-text-bad;
+			}
+		}
+	}
+}
+
+refund-detail, reward-detail {
+	layout: vertical;
+	spacing: 5;
+	content-align: middle middle;
+	fmt-text {
+		color: @color-ui-text-light;
+	}
+	.resList{
+		spacing: 5;
+		content-align: middle middle;
+		bitmap{
+			width: 24;
+			height: 24;
+		}
+	}
+}

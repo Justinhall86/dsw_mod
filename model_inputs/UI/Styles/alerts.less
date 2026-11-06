@@ -1,0 +1,116 @@
+@import "game.less";
+
+alerts {
+	#list{
+		spacing: 5;
+	}
+	alert-button {
+		padding: 0;
+		&.shadowed{
+			visible: false;
+		}
+	}
+	alert-pile {
+		spacing: -40;
+		#alertCount {
+			visible: false;
+			// filter: glow(#ffffff, 3, 1, 1, 1, true);
+			color: #000;
+			align: middle right;
+		}
+	}
+	&.has-buttons {
+		pad-action: @padaction-focusalerts;
+	}
+	&.hold-focus {
+		is-bind-layer: true;
+		bind-layer-cursor: snap;
+		alert-button {
+			pad-focusable: true;
+		}
+	}
+}
+
+alert-button {
+	layout : stack;
+	content-align : middle middle;
+	background: none; // grid("UI/icons/alert_backgrounds.png", 5, 2);
+	pad-cursor-icon: @icon-padalertscursor;
+	.alert-cont {
+		layout : stack;
+		content-align : middle middle;
+	}
+	&.blink{
+		.alert-cont {
+			pulse-alpha: 0.35;
+			pulse-frequency: 1;
+		}
+		&.game-not-paused {
+			.alert-cont {
+				.option-photosensitive-false & {
+					enable-pulse: true;
+				}
+			}
+		}
+		color-adjust: none !important;
+	}
+	&.clickable {
+		&:hover {
+			color-adjust: none;
+			.alert-cont { color-adjust: brightness(0.08);}
+		}
+		&.selected {
+			color-adjust: none;
+			filter: none;
+			.alert-cont {
+				color-adjust: brightness(0.05);
+				filter: glow(#dbc392, 1, 1, 4, 1, true);
+			}
+		}
+		&:active {
+			color-adjust: none;
+			.alert-cont { color-adjust: brightness(-0.05); }
+		}
+	}
+
+	>#glowBlinker {
+		background: "UI/HUD/regionOperationsGlow.png";
+		background-id: true;
+		margin: -53;
+		min-width: 106;
+		min-height: 106;
+		#background {
+			blend: add;
+		}
+		visible: false;
+		&.active {
+			.option-photosensitive-false & {
+				visible: true;
+			}
+		}
+	}
+}
+
+directional-alert-button {
+	position: absolute;
+	#arrow{
+		src: "UI/elements/pointer_arrow.png";
+		position: absolute;
+		tint: @color-ui-text-light;
+		filter: glow(#000000, 1, 4, 1, 1, true);
+	}
+	transition: alpha 0.4 ease-out;
+	alpha: 1;
+	&.hidden, &.shadowed {
+		alpha: 0;
+		transition: alpha 0.1 ease-out;
+	}
+	intersect-dist: 50;
+	arrow-dist: 35;
+	lerp: 0.5;
+
+	.over-window & {
+		alpha: 0.2;
+		padding: -50;
+	}
+}
