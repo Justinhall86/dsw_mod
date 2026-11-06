@@ -1,0 +1,34 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "MarketPlace_Construction",
+			"source": "Structure/Buildings/MarketPlace/MarketPlace_Construction.fbx",
+			"animation": "Structure/Buildings/MarketPlace/MarketPlace_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.00148,
+			"z": -0.33304,
+			"scaleX": 0.98,
+			"scaleY": 1.63,
+			"scaleZ": 2.27
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx"
+		}
+	]
+}

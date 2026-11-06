@@ -1,0 +1,48 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "MarketPlace",
+			"source": "Structure/Buildings/MarketPlace/MarketPlace.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 2,
+						"freq": 9.09
+					},
+					"targetMaterial": "Mat_MarketPlaceWind",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "LightBlue01",
+			"source": "Fx/Structure/Lights/LightBlue01.fx",
+			"x": 1.44992,
+			"y": 0.24588,
+			"z": 1.50615,
+			"scaleX": 2.18,
+			"scaleY": 2.18,
+			"scaleZ": 2.25
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.31,
+			"y": -0.22,
+			"scaleX": 8.02,
+			"scaleY": 8.02,
+			"scaleZ": 0.73,
+			"rotationZ": 51.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

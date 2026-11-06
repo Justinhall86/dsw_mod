@@ -1,0 +1,26 @@
+{
+	"materials": {
+		"PBR": {
+			"MilitaryBase_Ground": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"alphaKill": true
+			},
+			"MilitaryBase_MAT": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 10
+			}
+		}
+	}
+}

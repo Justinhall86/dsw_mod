@@ -1,0 +1,48 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "MilitaryBase",
+			"scaleX": 1.12,
+			"scaleY": 1.12,
+			"scaleZ": 1.12,
+			"children": [
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "Lights.LightBlue02_Flat",
+					"target": "MilitaryBase.JNT_Circular_Large"
+				},
+				{
+					"type": "model",
+					"name": "MilitaryBase",
+					"source": "Structure/Buildings/MilitaryBase/MilitaryBase.fbx",
+					"x": 0.013333333333333334,
+					"y": -0.02666666666666667,
+					"z": 0.006666666666666667,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": -180
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.67,
+			"scaleY": 0.67,
+			"scaleZ": 0.67
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}
