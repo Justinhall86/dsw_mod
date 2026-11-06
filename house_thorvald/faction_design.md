@@ -18,7 +18,7 @@ image, so the numbers are **PROPOSED** and the text is not final.
 
 | Tier | Name | Effect |
 |---|---|---|
-| Outset | **The Sovereign Mint** | Can build the "Heighforge Mint" in the Main Base, converting Spice and Plascrete directly into Solari. Max Solari cap +5000, but CHOAM standing -20%. |
+| Outset | **The Consignment Terminal** (screen label: "The Sovereign Mint") | Can build the **Consignment Terminal**, a building in the Main Base where Heighforge alloy is consigned and sold, turning Spice and Plascrete into Solari. Max Solari cap +5000, but CHOAM standing -20%. |
 | Outset | **The Iron Guard** | Units have **zero Manpower cost** but high initial and upkeep Solari cost. |
 | Outset | **Political Asylum** | +5 Manpower and +10 Intel when units die or villages are pillaged nearby. Unlocks the operation **"Supply Chain Holdout"** to force a truce. |
 | 5000 Hegemony | **Guild Sub-Contract** | Can buy Fuel Cells directly with Solari. Troops travel instantly between Owned Airfields, with no transit time. |
@@ -36,7 +36,7 @@ image, so the numbers are **PROPOSED** and the text is not final.
 ## Lore fit of each bonus
 | Bonus | Lore anchor |
 |---|---|
-| The Sovereign Mint | Heighforge is the house's real treasury; a mint in its name fits |
+| The Consignment Terminal | Heighforge, a moon-sized exotic-metals factory in orbit, is the house's real treasury. The Terminal is where its alloy is consigned and sold on Arrakis. There is no mint |
 | The Iron Guard | "The hammer of wealth": the house pays for soldiers instead of raising levies |
 | Political Asylum | Memnon backs anti-Imperial factions; the house shelters the Emperor's enemies |
 | Guild Sub-Contract | Heighforge alloys build the ships the Guild and the Houses fly; Thorvald has the contracts |
@@ -49,12 +49,13 @@ operations are the first thing to replace ([operations.md](operations.md)); the 
 
 ## Flags
 - ~~The mint's name may be a typo for "Highforge".~~ **Resolved:** "Heighforge" is the canon name of the house's orbital refinery ([lore.md](lore.md)).
+- **Naming (2026-11-03):** the faction screen says "Sovereign Mint" and "Heighforge Mint", but Heighforge is a massive exotic-metals factory and there is no mint. The building is the **Consignment Terminal** (2026-11-03): a building, where Heighforge's alloy is consigned and sold. The screen label is kept above only as the source. The person who runs it is a master operations manager ([councillor_ideas.md](councillor_ideas.md)).
 - **Councillors (2026-11-01):** the design notes propose four councillor archetypes (Trade, Military, Infiltration, Political). Each
   mechanic is checked against vanilla in [counsellors.md](counsellors.md#alternative-set-from-the-design-notes-2026-11-01). Most fit
   the current roster, so the faction does not need a fifth councillor.
 - Terms on the screen (Authority, Influence, Intel, Landsraad Standing, CHOAM, Fuel Cells, Plascrete) need checking against the real
   game attributes before we write any `data.cdb` entries.
-- Max Solari +5000 and the Sovereign Mint together are a very strong economy. Check balance when we get to numbers.
+- Max Solari +5000 and the Consignment Terminal together are a very strong economy. Check balance when we get to numbers.
 - The CHOAM standing penalty is deliberate. Haruka and Nobru, the CHOAM-facing councillors, soften it ([counsellors.md](counsellors.md)).
 - Political Asylum unlocks the operation "Supply Chain Holdout". It is drafted in [operations.md](operations.md); how a bonus unlocks
   an operation in the data is still to be found.

@@ -28,7 +28,7 @@ supply chains and commercial theory next to battlefield command.
 | Politics at the DSW era | Bitter critic of the Crown, drifting toward anti-Imperial factions |
 | Colour cue | Industrial orange trim (Dune: Awakening's House Thorvald stillsuit swatch) |
 
-"Heighforge" is the canon spelling, so the "Heighforge Mint" on the faction screen is correct and not a typo.
+"Heighforge" is the canon spelling. The faction screen's "Heighforge Mint" is misnamed: Heighforge is a massive exotic-metals factory, not a mint, so our docs call the building the **Consignment Terminal**: where Heighforge's alloy is consigned and sold.
 
 ## Timeline
 

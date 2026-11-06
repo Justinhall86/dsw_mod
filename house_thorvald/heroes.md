@@ -6,6 +6,7 @@ write-ups in `house_ginaz/leaders_and_councilors.md`). Flavor text, exact number
 to editing.
 
 ## Leader: Earl Memnon Thorvald
+
 Shown on the house selection screen ([images/faction_screen_thorvald.jpg](images/faction_screen_thorvald.jpg), details in
 [faction_design.md](faction_design.md)). Grey-streaked black hair and beard, a long black high-collared coat over a black wrap and
 sash, a cane, and the gear emblem on his chest and arm patch. He is the house leader, so he is separate from the two hero drafts below.
@@ -21,6 +22,7 @@ grieving, and certain that everything, including revenge, can be bought.
 hammer of wealth."
 
 ## Hero drafts (names under review)
+
 Karlin Mallenor and Vane Torrver are the original draft names and are being redone along with the rest of the roster.
 
 **Lore hooks (ours):** Karlin can be a War Academy commandant, the school that trains Thorvald nobles in tactics and logistics together,
@@ -28,40 +30,47 @@ which fits a commander whose power is making the army around him better. Vane ca
 crack planetoids with shaped charges and work in the dark of the belt, which explains both the rocket launcher and the camouflage.
 **Theodoric Ein**, the house's War Academy-trained envoy in Dune: Awakening, is a canon-flavoured name for either slot.
 
-## Karlin Mallenor
+## Karlin Thorvald
+
 - **Role:** Buff/support commander — an aura hero who strengthens the squads around him rather than fighting solo.
 - **Tags:** Leadership Aura, Armor, Power, Attack Speed
 
-| Ability | Type | Proposed effect |
-|---|---|---|
-| Rallying Presence | Passive | Aura (radius ~15m): nearby friendly units gain +armor, +damage ("power"), and +attack speed. |
-| Hardened Ranks | Passive | The armor bonus scales up the longer units stay inside the aura (stacking, capped). |
-| Warlord's Shout | Active | Burst version of the aura: briefly doubles the armor/power/attack-speed bonus for all units in range. Solari cost + cooldown, TBD. |
-| Steady Command | Passive | Karlin himself takes reduced damage while at least N allied units are within his aura (rewards staying with the army, punishes isolating him). |
+| Ability           | Type    | Proposed effect                                                                                                                                |
+| ----------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rallying Presence | Passive | Aura (radius ~15m): nearby friendly units gain +armor, +damage ("power"), and +attack speed.                                                   |
+| Hardened Ranks    | Passive | The armor bonus scales up the longer units stay inside the aura (stacking, capped).                                                            |
+| Warlord's Shout   | Active  | Burst version of the aura: briefly doubles the armor/power/attack-speed bonus for all units in range. Solari cost + cooldown, TBD.             |
+| Steady Command    | Passive | Karlin himself takes reduced damage while at least N allied units are within his aura (rewards staying with the army, punishes isolating him). |
 
 **Open questions:** exact aura radius and numbers; does the buff apply to all unit types or just infantry; is Warlord's Shout a
 cast-and-wait or a toggle; does he have any offensive ability of his own or is he pure support.
 
+
+House Thorvald with two attendant soldiers using the same mechanics as laza tigers.
+
 ## Vane Torrver
+
 - **Role:** Ranged/stealth specialist — rocket launcher damage dealer who opens fights from camouflage.
 - **Tags:** Rocket Launcher, Camouflage, Armor, Anti-Structure/Anti-Armor
 
-| Ability | Type | Proposed effect |
-|---|---|---|
-| Rocket Launcher | Active (basic attack) | Heavy single-target or small-splash damage; likely strong vs. armor/structures, slower fire rate than standard infantry. |
-| Camouflage | Passive | Vane (and possibly nearby squad) becomes hard to detect/invisible while stationary or out of combat; breaks on firing or taking damage. |
-| Reinforced Plating | Passive | Personal armor bonus, offsetting the fact that camo breaks once he opens fire. |
-| Ambush Shot | Active | First rocket fired from camouflage deals bonus damage (rewards the stealth-opener playstyle). Cooldown/Solari cost TBD. |
+| Ability            | Type                  | Proposed effect                                                                                                                         |
+| ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Rocket Launcher    | Active (basic attack) | Heavy single-target or small-splash damage; likely strong vs. armor/structures, slower fire rate than standard infantry.                |
+| Camouflage         | Passive               | Vane (and possibly nearby squad) becomes hard to detect/invisible while stationary or out of combat; breaks on firing or taking damage. |
+| Reinforced Plating | Passive               | Personal armor bonus, offsetting the fact that camo breaks once he opens fire.                                                          |
+| Ambush Shot        | Active                | First rocket fired from camouflage deals bonus damage (rewards the stealth-opener playstyle). Cooldown/Solari cost TBD.                 |
 
 **Open questions:** does Camouflage extend to his squad or only Vane himself; does it break on sighting an enemy or only on firing;
 is the armor bonus passive-always or only while camouflaged; splash radius and whether he's better vs. units, armor, or structures.
 
 ## Synergy (draft)
-| Combination | Effect |
-|---|---|
+
+| Combination   | Effect                                                                                                                                                   |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Karlin + Vane | Karlin's aura (armor/power/attack speed) stacks with Vane's own armor and ambush damage — a camouflaged rocket opener backed by a buffed-up main force. |
 
 ## Still needed
+
 - Portraits/looks, lore blurbs, and faction-fit tags (compare the Chirox/Jool/Aya/Ran format in `house_ginaz/leaders_and_councilors.md`).
 - Confirm whether these two are Grandmaster-style **leader** picks or on-map **hero units**, and how that interacts with the
   councilors in [counsellors.md](counsellors.md) (Jakob, Siora, Herbert, Nier).
