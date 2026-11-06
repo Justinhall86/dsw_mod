@@ -1,0 +1,29 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "PlastcreteFactory",
+			"source": "Structure/Buildings/PlascreteFactory/PlastcreteFactory.fbx",
+			"y": 0.27,
+			"rotationZ": -90,
+			"animation": "Structure/Buildings/PlascreteFactory/Anim_PlastcreteFactory_Idle.fbx"
+		},
+		{
+			"type": "model",
+			"name": "PlascreteFactory_Addon",
+			"source": "Structure/Buildings/PlascreteFactory/PlascreteFactory_Addon.fbx",
+			"y": 0.27,
+			"rotationZ": -90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

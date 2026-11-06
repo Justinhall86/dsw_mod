@@ -1,0 +1,22 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"animation": "Structure/Buildings/Anim_FuelCellFactory.fbx",
+			"type": "model",
+			"name": "FuelCellFactory",
+			"source": "Structure/Buildings/FuelCellFactory.fbx"
+		},
+		{
+			"x": 0.3,
+			"z": 0.65,
+			"scaleX": 0.73,
+			"scaleY": 0.73,
+			"scaleZ": 0.73,
+			"refpath": "/Fx/Environment/SmokeVillages/SmokeVillage_Straight01.fx",
+			"editMode": false,
+			"type": "reference",
+			"name": "SmokeVillage_Straight01"
+		}
+	]
+}

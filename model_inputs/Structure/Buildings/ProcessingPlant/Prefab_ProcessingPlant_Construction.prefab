@@ -1,0 +1,86 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ProcessingPlant_Construction",
+			"source": "Structure/Buildings/ProcessingPlant/ProcessingPlant_Construction.fbx",
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/ProcessingPlant/ProcessingPlant_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.67,
+			"scaleY": 0.67,
+			"scaleZ": 0.67
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"scaleX": 0.25,
+			"scaleY": 0.25,
+			"scaleZ": 0.25
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"scaleX": 0.5,
+			"scaleY": 0.81,
+			"scaleZ": 1.16
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_GrueHolo",
+			"source": "Fx/Structure/Common/FX_Construction_GrueHolo.fx"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_2",
+			"target": "ProcessingPlant_Construction.Cranes.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot",
+			"target": "ProcessingPlant_Construction.Cranes.Crane_Base1.Crane_Top_01.Crane_Cube_01"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.Cube_PivBot_3",
+			"target": "ProcessingPlant_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_LightDrone",
+			"target": "ProcessingPlant_Construction.Drone"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_1",
+			"target": "ProcessingPlant_Construction.Cranes.Crane_Base1.Crane_Top_01.Crane_Cube_01"
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "FX_Construction_GrueHolo.FXAnimation.group.lookAt_Light_2",
+			"target": "ProcessingPlant_Construction.Cranes.Crane_Base.Crane_Top.Crane_Cube"
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

@@ -1,0 +1,464 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ProcessingPlant",
+			"source": "Structure/Buildings/ProcessingPlant/ProcessingPlant.fbx",
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_5",
+			"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+			"x": -0.3043,
+			"y": -0.59098,
+			"z": 0.35,
+			"scaleX": 0.3,
+			"scaleY": 0.3,
+			"scaleZ": 0.22,
+			"rotationX": 31.1,
+			"rotationZ": 81.2
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_5",
+			"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+			"x": -0.3085,
+			"y": 0.63458,
+			"z": 0.35,
+			"scaleX": 0.3,
+			"scaleY": 0.3,
+			"scaleZ": 0.22,
+			"rotationX": 31.1,
+			"rotationZ": 90
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_5",
+			"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+			"x": 0.30635,
+			"y": 0.63458,
+			"z": 0.35,
+			"scaleX": 0.3,
+			"scaleY": 0.3,
+			"scaleZ": 0.22,
+			"rotationX": 31.1,
+			"rotationZ": 90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Spice",
+			"source": "Fx/Smoke/FX_Smoke_Spice.fx",
+			"x": -0.745,
+			"z": 0.8985,
+			"scaleX": 0.15,
+			"scaleY": 0.15,
+			"scaleZ": 0.15,
+			"rotationZ": -180
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"x": 0.02259,
+			"y": -0.03145,
+			"scaleX": 2.03,
+			"scaleY": 1.88,
+			"scaleZ": 0.34,
+			"rotationZ": -180,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		},
+		{
+			"type": "object",
+			"name": "Light_R",
+			"x": 0.42303,
+			"y": 0.00002,
+			"z": 1.04409,
+			"scaleX": 0.25,
+			"scaleY": 0.25,
+			"scaleZ": 0.25,
+			"rotationZ": 86.8,
+			"children": [
+				{
+					"type": "polygon",
+					"name": "polygon",
+					"x": -0.0003500000000000725,
+					"y": 0.01847999999999994,
+					"z": 0.0003300000000000525,
+					"scaleX": 2,
+					"scaleY": 2,
+					"scaleZ": 2,
+					"rotationX": 90,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "None",
+									"colorMask": 255,
+									"depthTest": "LessEqual",
+									"parallax": 0,
+									"emissive": 15
+								}
+							},
+							"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.05,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_Flare07_glow.png",
+								"onDecal": false
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "AlphaCycle",
+							"source": "shaders/AlphaCycle.hx",
+							"props": {
+								"minAlpha": 0,
+								"maxAlpha": 1,
+								"frequency": 2
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8392156862745098,
+									0.9764705882352941,
+									1
+								]
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "DepthBlend",
+							"source": "shaders/DepthBlend.hx",
+							"enabled": false,
+							"props": {
+								"REVERSE": false,
+								"range": 3,
+								"power": 0.8
+							}
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "polygon",
+					"x": 0.0003500000000000725,
+					"y": -0.018480000000000163,
+					"z": -0.00032999999999999696,
+					"scaleX": 2,
+					"scaleY": 2,
+					"scaleZ": 2,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "None",
+									"colorMask": 255,
+									"depthTest": "LessEqual",
+									"parallax": 0,
+									"emissive": 15
+								}
+							},
+							"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.05,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_Flare07_glow.png",
+								"onDecal": false
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "AlphaCycle",
+							"source": "shaders/AlphaCycle.hx",
+							"props": {
+								"minAlpha": 0,
+								"maxAlpha": 1,
+								"frequency": 2
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8392156862745098,
+									0.9764705882352941,
+									1
+								]
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "DepthBlend",
+							"source": "shaders/DepthBlend.hx",
+							"enabled": false,
+							"props": {
+								"REVERSE": false,
+								"range": 3,
+								"power": 0.8
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Light_R",
+			"x": -0.38942,
+			"y": 0.00002,
+			"z": 1.04409,
+			"scaleX": 0.25,
+			"scaleY": 0.25,
+			"scaleZ": 0.25,
+			"rotationZ": 86.8,
+			"children": [
+				{
+					"type": "polygon",
+					"name": "polygon",
+					"x": -0.0003500000000000725,
+					"y": 0.01847999999999994,
+					"z": 0.0003300000000000525,
+					"scaleX": 2,
+					"scaleY": 2,
+					"scaleZ": 2,
+					"rotationX": 90,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "None",
+									"colorMask": 255,
+									"depthTest": "LessEqual",
+									"parallax": 0,
+									"emissive": 15
+								}
+							},
+							"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.05,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_Flare07_glow.png",
+								"onDecal": false
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "AlphaCycle",
+							"source": "shaders/AlphaCycle.hx",
+							"props": {
+								"minAlpha": 0,
+								"maxAlpha": 1,
+								"frequency": 2
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8392156862745098,
+									0.9764705882352941,
+									1
+								]
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "DepthBlend",
+							"source": "shaders/DepthBlend.hx",
+							"enabled": false,
+							"props": {
+								"REVERSE": false,
+								"range": 3,
+								"power": 0.8
+							}
+						}
+					]
+				},
+				{
+					"type": "polygon",
+					"name": "polygon",
+					"x": 0.0003500000000000725,
+					"y": -0.018480000000000163,
+					"z": -0.00032999999999999696,
+					"scaleX": 2,
+					"scaleY": 2,
+					"scaleZ": 2,
+					"kind": 0,
+					"args": [
+						0
+					],
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "None",
+									"colorMask": 255,
+									"depthTest": "LessEqual",
+									"parallax": 0,
+									"emissive": 15
+								}
+							},
+							"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.05,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_Flare07_glow.png",
+								"onDecal": false
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "AlphaCycle",
+							"source": "shaders/AlphaCycle.hx",
+							"props": {
+								"minAlpha": 0,
+								"maxAlpha": 1,
+								"frequency": 2
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8392156862745098,
+									0.9764705882352941,
+									1
+								]
+							},
+							"isInstance": true
+						},
+						{
+							"type": "shader",
+							"name": "DepthBlend",
+							"source": "shaders/DepthBlend.hx",
+							"enabled": false,
+							"props": {
+								"REVERSE": false,
+								"range": 3,
+								"power": 0.8
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

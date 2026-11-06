@@ -1,0 +1,382 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"name": "Prefab_Airfield",
+			"source": "Structure/Buildings/Airfield/Prefab_Airfield.prefab",
+			"x": -1.34,
+			"y": -0.6632,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_CraftWorkshop",
+			"source": "Structure/Buildings/CraftWorkshop/Prefab_CraftWorkshop.prefab",
+			"x": -1.12139,
+			"y": -6.71782,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_DataCenter",
+			"source": "Structure/Buildings/DataCenter/Prefab_DataCenter.prefab",
+			"x": -5.01301,
+			"y": -8.61968,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_Experimental_Building_Idle",
+			"source": "Structure/Buildings/Experimental/Prefab_Experimental_Building_Idle.prefab",
+			"x": 3.41213,
+			"y": 13.78074,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_FuelCellFactory",
+			"source": "Structure/Buildings/FuelCellFactory/Prefab_FuelCellFactory.prefab",
+			"x": 5.41329,
+			"y": -0.77451,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_HarvestTent",
+			"source": "Structure/Buildings/HarvestTent/Prefab_HarvestTent.prefab",
+			"x": -9.59465,
+			"y": 14.3009,
+			"scaleX": 0.5,
+			"scaleY": 0.5,
+			"scaleZ": 0.5,
+			"visible": false,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_IndoctrinationCenter",
+			"source": "Structure/Buildings/IndoctrinationCenter/Prefab_IndoctrinationCenter.prefab",
+			"x": 0.31411,
+			"y": 8.59809,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_InvestmentOffice",
+			"source": "Structure/Buildings/InvestmentOffice/Prefab_InvestmentOffice.prefab",
+			"x": -5.4767,
+			"y": 7.53423,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_ListeningPost",
+			"source": "Structure/Buildings/ListeningPost/Prefab_ListeningPost.prefab",
+			"x": -4.97,
+			"y": -5.06,
+			"z": 0.03,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_MilitaryBase",
+			"source": "Structure/Buildings/MilitaryBase/Prefab_MilitaryBase.prefab",
+			"x": -4.96,
+			"y": -1.65,
+			"z": 0.03,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_MissileBattery",
+			"source": "Structure/Buildings/MissileBattery/Prefab_MissileBattery.prefab",
+			"x": -1.17562,
+			"y": 5.2701,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_PlascreteFactory",
+			"source": "Structure/Buildings/PlascreteFactory/Prefab_PlascreteFactory.prefab",
+			"x": -8.83,
+			"y": -1.33,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_ProcessingPlant",
+			"source": "Structure/Buildings/ProcessingPlant/Prefab_ProcessingPlant.prefab",
+			"x": -5.58,
+			"y": 1.43,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_RecruitmentOffice",
+			"source": "Structure/Buildings/RecruitmentOffice/Prefab_RecruitmentOffice.prefab",
+			"x": 2.24906,
+			"y": -0.01795,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_Refinery",
+			"source": "Structure/Buildings/Refinery/Prefab_Refinery.prefab",
+			"x": -9.17,
+			"y": -5.01,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_ResearchHub",
+			"source": "Structure/Buildings/ResearchHub/Prefab_ResearchHub.prefab",
+			"x": -9.58,
+			"y": 2.76,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_ShaiHuludTemple",
+			"source": "Structure/Buildings/ShaiHulud/Prefab_ShaiHuludTemple.prefab",
+			"x": 2.22006,
+			"y": -2.68431,
+			"visible": false,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SpacingGuildBranch",
+			"source": "Structure/Buildings/SpacingGuildBranch/Prefab_SpacingGuildBranch.prefab",
+			"x": -3.53059,
+			"y": 12.71902,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SpiceCollector",
+			"source": "Structure/Buildings/SpiceCollector/Prefab_SpiceCollector.prefab",
+			"x": 2.32252,
+			"y": -5.64368,
+			"visible": false,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SpiceSilo",
+			"source": "Structure/Buildings/SpiceSilo/Prefab_SpiceSilo.prefab",
+			"x": 1.96618,
+			"y": -3.35904,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_StealthTent",
+			"source": "Structure/Buildings/StealthTent/Prefab_StealthTent.prefab",
+			"x": 4.93486,
+			"y": -4.33909,
+			"visible": false,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SupplyDepot",
+			"source": "Structure/Buildings/SupplyDepot/Prefab_SupplyDepot.prefab",
+			"x": -1.12,
+			"y": 2.25,
+			"z": 0.11,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_WaterExtractor",
+			"source": "Structure/Buildings/WaterExtractor/Prefab_WaterExtractor.prefab",
+			"x": -5.47,
+			"y": 4.32,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_WaterPlant",
+			"source": "Structure/Buildings/WaterPlant/Prefab_WaterPlant.prefab",
+			"x": 5.5926,
+			"y": 3.52028,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_WindTrap",
+			"source": "Structure/Buildings/WindTrap/Prefab_WindTrap.prefab",
+			"x": -1.33,
+			"y": -3.52244,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_NukeSilo",
+			"source": "Structure/Buildings/NukeSilo/Prefab_NukeSilo.prefab",
+			"x": -1.27833,
+			"y": -9.84809,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SurveillanceFacility",
+			"source": "Structure/Buildings/SurveillanceFacility/Prefab_SurveillanceFacility.prefab",
+			"x": 5.79607,
+			"y": -5.04739,
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7,
+			"rotationZ": 180,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_ResearchCenter",
+			"source": "Structure/Buildings/ResearchStation/Prefab_ResearchCenter.prefab",
+			"x": 1.82016,
+			"y": -6.73142,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_DewCollector",
+			"source": "Structure/Buildings/DewCollector/Prefab_DewCollector.prefab",
+			"x": -9.87853,
+			"y": 7.36457,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_ConquestOutpost",
+			"source": "Structure/Base/ConquestOutpost/Prefab_ConquestOutpost.prefab",
+			"x": -9.53337,
+			"y": 12.86714,
+			"z": -0.1,
+			"scaleX": 0.14,
+			"scaleY": 0.14,
+			"scaleZ": 0.14,
+			"rotationZ": -46.1,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_MarketPlace",
+			"source": "Structure/Buildings/MarketPlace/Prefab_MarketPlace.prefab",
+			"x": 4.78597,
+			"y": 8.10264,
+			"type": "reference"
+		},
+		{
+			"name": "VillageMedium_01",
+			"source": "Structure/Village/Prefab/Village/VillageMedium_01.l3d",
+			"x": -14.89051,
+			"y": 6.83492,
+			"rotationZ": -2.9,
+			"type": "reference"
+		},
+		{
+			"name": "VillageMedium_02",
+			"source": "Structure/Village/Prefab/Village/VillageMedium_02.l3d",
+			"x": -16.15848,
+			"y": -3.58839,
+			"rotationZ": -11.2,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SmugglerBannerjee",
+			"source": "Character/Smuggler/Unit/Bannerjee/Prefab_SmugglerBannerjee.prefab",
+			"x": 5,
+			"y": -14,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SmugglersDrisq",
+			"source": "Character/Smuggler/Unit/Drisq/Prefab_SmugglersDrisq.prefab",
+			"x": 5,
+			"y": -12.10883,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_FreeCompany",
+			"source": "Character/Smuggler/Unit/FreeCompany/Prefab_FreeCompany.prefab",
+			"x": 5,
+			"y": -8,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_SmugglerMercenary",
+			"source": "Character/Smuggler/Unit/Mercenary/Prefab_SmugglerMercenary.prefab",
+			"x": 5,
+			"y": -10,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_Scout",
+			"source": "Character/Smuggler/Unit/Scout/Prefab_Scout.prefab",
+			"x": 5,
+			"y": -16.20163,
+			"z": -0.1,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_Skirmisher",
+			"source": "Character/Smuggler/Unit/Skirmisher/Prefab_Skirmisher.prefab",
+			"x": 5,
+			"y": -18.26047,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "prefab",
+			"type": "prefab",
+			"children": [
+				{
+					"name": "Prefab_CarryAll",
+					"source": "Vehicle/Atreide/CarryAll/Prefab_CarryAll.prefab",
+					"x": -9.85084,
+					"y": -9.7516,
+					"type": "reference"
+				},
+				{
+					"name": "Prefab_Ornithopter",
+					"source": "Vehicle/Atreide/Ornithopter/Prefab_Ornithopter.prefab",
+					"x": -8.67861,
+					"y": -12.8784,
+					"type": "reference"
+				},
+				{
+					"name": "Prefab_Ornithopter_Damage",
+					"source": "Vehicle/Atreide/Ornithopter/Ornithopter_damage/Prefab_Ornithopter_Damage.prefab",
+					"x": -8.6775,
+					"y": -13.94741,
+					"type": "reference"
+				},
+				{
+					"name": "Prefab_Ornithopter_Experimental",
+					"source": "Vehicle/Atreide/Ornithopter/Ornithopter_experimental/Prefab_Ornithopter_Experimental.prefab",
+					"x": -8.75882,
+					"y": -15.09491,
+					"type": "reference"
+				},
+				{
+					"name": "Prefab_SpiceFreighterDrone",
+					"source": "Vehicle/Atreide/SpiceFreighterDrone/Prefab_SpiceFreighterDrone.prefab",
+					"x": -8.63255,
+					"y": -16.05444,
+					"type": "reference"
+				}
+			]
+		},
+		{
+			"name": "Prefab_Banshee",
+			"source": "Vehicle/Smuggler/Banshee/Prefab_Banshee.prefab",
+			"x": -0.27506,
+			"y": -14.28717,
+			"z": 0.6499,
+			"rotationY": 22.1,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_DroneS",
+			"source": "Vehicle/Smuggler/DroneS/Prefab_DroneS.prefab",
+			"x": -6.13111,
+			"y": -14.11838,
+			"z": 0.67914,
+			"rotationZ": 90,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_StockDrone",
+			"source": "Vehicle/Smuggler/StockDrone/Prefab_StockDrone.prefab",
+			"x": -11.69906,
+			"y": -13.55193,
+			"z": 1,
+			"type": "reference"
+		},
+		{
+			"name": "Prefab_Wraith",
+			"source": "Vehicle/Smuggler/Wraith/Prefab_Wraith.prefab",
+			"x": -8.14662,
+			"y": -21.63093,
+			"z": 1.98653,
+			"type": "reference"
+		}
+	]
+}
