@@ -1,0 +1,35 @@
+{
+	"materials": {
+		"PBR": {
+			"VerniusPlaneTile": {
+				"mode": "PBR",
+				"blend": "Alpha",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			},
+			"VerniusPipe": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 1
+			},
+			"VerniusNeuralCore": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 3.33
+			}
+		}
+	}
+}
