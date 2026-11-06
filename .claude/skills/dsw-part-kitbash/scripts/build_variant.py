@@ -60,6 +60,8 @@ if a.mode != "posed":
     P.rest_pose(rig)
 
 comps = P.components(body)                               # ids from the untouched mesh
+if S.get("body_maps"):                                   # recoloured body textures: {"albedo", "normal", "mgao"}
+    P.set_textures(body, **S["body_maps"])
 for item in S.get("inflate", []):
     P.inflate(body, [i for c in item["components"] for i in comps[c]], item["dist"])
 
