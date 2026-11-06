@@ -1,0 +1,122 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "light",
+			"name": "light_0",
+			"z": 5.64,
+			"rotationY": 134.7,
+			"rotationZ": 79.8,
+			"kind": "Directional",
+			"color": 16772554,
+			"power": 1.75,
+			"isMainLight": true,
+			"range": 10,
+			"zNear": 0.02,
+			"maxDist": 300,
+			"minDist": 10,
+			"autoShrink": false,
+			"debugDisplay": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 4096,
+				"radius": 0,
+				"quality": 0,
+				"bias": 0.02,
+				"samplingMode": {
+					"kind": "PCF",
+					"quality": 3,
+					"scale": 4
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "light_1",
+			"rotationY": 17,
+			"rotationZ": 167.6,
+			"kind": "Directional",
+			"color": 8771839,
+			"power": 1.21,
+			"range": 10,
+			"zNear": 0.02,
+			"debugDisplay": false
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.6,
+			"rotation": 251.82,
+			"diffSize": 16,
+			"specSize": 16,
+			"sourceMapPath": "Environment/Resource/Skymap/Default.png",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Irrad",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 9190962,
+					"envColorLow": 2759965,
+					"envColorBack": 8730703,
+					"envColorBlend": 1,
+					"envColorSaturation": 0.79,
+					"envPower": 0.47
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.distortion",
+					"name": "distortion"
+				}
+			]
+		},
+		{
+			"type": "polygon",
+			"name": "terrain",
+			"locked": true,
+			"scaleX": 40,
+			"scaleY": 40,
+			"scaleZ": 40,
+			"rotationZ": 89.99999999999999,
+			"visible": false,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Fx/Gradients/z_FillWhite.jpg",
+					"mainPassName": "terrain",
+					"color": [
+						0.615686274509804,
+						0.615686274509804,
+						0.615686274509804,
+						1
+					]
+				}
+			]
+		}
+	]
+}

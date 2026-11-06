@@ -1,0 +1,258 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "light",
+			"name": "dirLight",
+			"z": 5.64,
+			"rotationY": 145.2,
+			"rotationZ": 63,
+			"kind": "Directional",
+			"color": 16772554,
+			"power": 1.8,
+			"isMainLight": true,
+			"range": 10,
+			"zNear": 0.02,
+			"maxDist": 300,
+			"minDist": 10,
+			"autoShrink": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 4096,
+				"radius": 0,
+				"quality": 0,
+				"bias": 0.01,
+				"samplingMode": {
+					"kind": "PCF",
+					"quality": 3,
+					"scale": 4
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "backLight",
+			"rotationY": 17,
+			"rotationZ": 167.6,
+			"kind": "Directional",
+			"color": 16765573,
+			"power": 1.21,
+			"range": 10,
+			"zNear": 0.02
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.6,
+			"rotation": 251.82,
+			"diffSize": 16,
+			"specSize": 16,
+			"sourceMapPath": "Environment/Resource/Skymap/Default.png",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Irrad",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 9190962,
+					"envColorLow": 4661794,
+					"envColorBack": 8730703,
+					"envColorBlend": 0.39,
+					"envColorSaturation": 0.79,
+					"envPower": 0.47
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"enabled": false,
+					"texturePath": "Environment/Resource/LUT/defaultLUT.png"
+				},
+				{
+					"type": "rfx.GameFog",
+					"name": "GameFog",
+					"maxDist": 500,
+					"maxDistClose": 700,
+					"distFogStart": -200,
+					"enableVolumetric": true,
+					"lightColor": 13612184,
+					"lightPower": 0.66,
+					"lowColor": 11238237,
+					"highColor": 14724488,
+					"ambPower": 1,
+					"borderColor": 5711634,
+					"opacityFactor": 0.45,
+					"opacityFactorClose": 0.5,
+					"colorTint": 0.05,
+					"worldMaskAmount": 0.5,
+					"worldMaskRotateSpeed": -0.5,
+					"zScale": 1,
+					"farColor": 16759916,
+					"farColorClose": 15056251,
+					"fullColor": 8670003,
+					"fullColorAlpha": 1,
+					"fullColorAlphaClose": 0.95,
+					"dimColor": 13212037,
+					"dimColorAlpha": 0.63,
+					"dimColorAlphaClose": 0.45,
+					"noiseScale": 7.73,
+					"noiseAmount": 0.06,
+					"noiseSpeed": 0.4
+				},
+				{
+					"type": "rfx.distanceBlur",
+					"name": "distanceBlur",
+					"enabled": false,
+					"enableInEditor": false,
+					"nearStartDistance": 20,
+					"nearEndDistance": 50,
+					"farStartDistance": 400,
+					"farEndDistance": 700,
+					"blurTextureSize": 0.5,
+					"blurRange": 6
+				},
+				{
+					"type": "rfx.temporalFiltering",
+					"name": "temporalFiltering",
+					"amount": 0.9,
+					"jitterPattern": "Halton_2_3_x8",
+					"jitterScale": 0.4
+				},
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"iterations": 4,
+					"threshold": 0.39,
+					"intensity": 0.65,
+					"blur": 20,
+					"saturation": 0.35
+				},
+				{
+					"type": "rfx.TacticalMap",
+					"name": "TacticalMap"
+				},
+				{
+					"type": "rfx.screenShaderGraph",
+					"name": "PostProcess",
+					"source": "Fx/PostProcess/Default_HDR.shgraph",
+					"usePrevTarget": true,
+					"props": {
+						"Vign_Tex": "Fx/PostProcess/PP_Vignette.png",
+						"Vign_Blend": 0.74,
+						"Power": 1,
+						"Vign_Multiply": 0.3,
+						"Vign_Lighten": 0.1,
+						"Contrast": 0.29
+					},
+					"renderMode": "BeforeTonemapping"
+				},
+				{
+					"type": "rfx.distortion",
+					"name": "distortion"
+				},
+				{
+					"type": "rfx.sharpen",
+					"name": "sharpen",
+					"intensity": 0.15
+				},
+				{
+					"type": "rfx.Vignetting",
+					"name": "PauseEffect1",
+					"enabled": false,
+					"maskTex": "Fx/PostProcess/Pause_Vignette2.png",
+					"desaturate": 0.05
+				},
+				{
+					"type": "rfx.Vignetting",
+					"name": "PauseEffect2",
+					"enabled": false,
+					"maskTex": "Fx/PostProcess/Pause_Vignette.png",
+					"darken": 0.8
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "SkyDome",
+			"children": [
+				{
+					"type": "model",
+					"name": "Planet_01",
+					"source": "Environment/Resource/Skymap/Planet_01.fbx",
+					"x": 2781.39,
+					"y": 912.57,
+					"z": 438.77,
+					"scaleY": 3.4,
+					"scaleZ": 3,
+					"rotationY": -180,
+					"rotationZ": 0.3,
+					"visible": false,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Background",
+					"source": "Environment/Resource/Skymap/SkyDome_01.fbx",
+					"x": 554.84,
+					"y": 2.91,
+					"scaleX": 0.8,
+					"scaleY": 1.5,
+					"scaleZ": 2,
+					"rotationY": -180,
+					"rotationZ": 0.3,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false,
+									"emissive": 0.15
+								}
+							},
+							"diffuseMap": "Environment/Resource/Skymap/EnvMap_day.jpg"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "sand",
+			"source": "Fx/Environment/SandAmbient/sand.prefab",
+			"visible": false,
+			"editMode": true
+		}
+	]
+}

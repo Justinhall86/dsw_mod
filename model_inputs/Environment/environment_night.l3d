@@ -1,0 +1,238 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "light",
+			"name": "dirLight",
+			"x": -7.36,
+			"y": -4.73,
+			"z": 29.42,
+			"rotationY": 161,
+			"rotationZ": 17.9,
+			"kind": "Directional",
+			"color": 2588927,
+			"power": 1.21,
+			"isMainLight": true,
+			"range": 10,
+			"zNear": 0.02,
+			"maxDist": 300,
+			"minDist": 10,
+			"autoShrink": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 4096,
+				"radius": 0,
+				"quality": 0,
+				"bias": 0.02,
+				"samplingMode": {
+					"kind": "PCF",
+					"quality": 3,
+					"scale": 4
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "backLight",
+			"x": -8.99,
+			"y": 1.98,
+			"z": 30.11,
+			"rotationY": 17,
+			"rotationZ": 160.4,
+			"kind": "Directional",
+			"color": 7778303,
+			"power": 0,
+			"range": 10,
+			"zNear": 0.02
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.3,
+			"rotation": 251.82,
+			"diffSize": 16,
+			"specSize": 16,
+			"sourceMapPath": "Environment/Resource/Skymap/Default.png",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Irrad",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 3816619,
+					"envColorLow": 1515157,
+					"envColorBack": 1516137,
+					"envColorBlend": 1,
+					"envColorSaturation": 0.39,
+					"envPower": 0.63
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.GameFog",
+					"name": "GameFog",
+					"maxDist": 439.39,
+					"maxDistClose": 840.91,
+					"distFogStart": 60,
+					"distFogStartClose": 60,
+					"enableVolumetric": true,
+					"lightColor": 10338021,
+					"lightPower": 1,
+					"lowColor": 6182018,
+					"highColor": 5330313,
+					"ambPower": 1,
+					"borderColor": 1776951,
+					"opacityFactor": 0.8,
+					"opacityFactorClose": 0.5,
+					"colorTint": 0.05,
+					"worldMaskAmount": 0.5,
+					"worldMaskRotateSpeed": -0.5,
+					"zScale": 1,
+					"farColor": 8033205,
+					"farColorClose": 5726138,
+					"fullColor": 5064056,
+					"fullColorAlpha": 0.7,
+					"fullColorAlphaClose": 0.5,
+					"dimColor": 7897310,
+					"dimColorAlpha": 0.5,
+					"dimColorAlphaClose": 0.45,
+					"noiseScale": 7.73,
+					"noiseAmount": 0.06,
+					"noiseSpeed": 0.4
+				},
+				{
+					"type": "gamebloom",
+					"name": "gamebloom",
+					"iterations": 4,
+					"threshold": 0.23,
+					"intensity": 5,
+					"blur": 20,
+					"saturation": 1
+				},
+				{
+					"type": "rfx.screenShaderGraph",
+					"name": "PostProcess",
+					"source": "Fx/PostProcess/Default_HDR.shgraph",
+					"usePrevTarget": true,
+					"props": {
+						"Vign_Tex": "Fx/PostProcess/PP_Vignette.png",
+						"Vign_Blend": 0.74,
+						"Power": 1,
+						"Vign_Multiply": 0.89,
+						"Vign_Lighten": 0.3,
+						"Contrast": 0.35
+					},
+					"renderMode": "BeforeTonemapping"
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "SkyDome",
+			"children": [
+				{
+					"type": "model",
+					"name": "Planet_01",
+					"source": "Environment/Resource/Skymap/Planet_01.fbx",
+					"x": 2781.39,
+					"y": 912.57,
+					"z": 438.77,
+					"scaleY": 3.4,
+					"scaleZ": 3,
+					"rotationY": -180,
+					"rotationZ": 0.3,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Planet_01",
+					"source": "Environment/Resource/Skymap/Planet_01.fbx",
+					"x": 2781.39,
+					"y": 1510.8,
+					"z": 164.08,
+					"scaleX": 0.2,
+					"scaleY": 0.69,
+					"scaleZ": 0.61,
+					"rotationY": -180,
+					"rotationZ": 0.3,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Background",
+					"source": "Environment/Resource/Skymap/SkyDome_01.fbx",
+					"scaleX": 1.7,
+					"scaleY": 1.7,
+					"scaleZ": 2,
+					"rotationX": -2.758691436281349e-33,
+					"rotationY": -180,
+					"rotationZ": 0.2999999999999999,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Resource/Skymap/EnvMap_night_raw.jpg"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "BaseArrakeen",
+			"source": "Structure/Base/Arrakeen/BaseArrakeen.fbx",
+			"editorOnly": true
+		}
+	]
+}

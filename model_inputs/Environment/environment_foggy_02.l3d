@@ -1,0 +1,179 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "light",
+			"name": "light_0",
+			"rotationX": 63.5,
+			"rotationY": 68.6,
+			"rotationZ": -0.6,
+			"kind": "Directional",
+			"color": 16768409,
+			"power": 0.76,
+			"isMainLight": true,
+			"range": 10,
+			"zNear": 0.02,
+			"maxDist": 300,
+			"minDist": 10,
+			"autoShrink": false,
+			"shadows": {
+				"mode": "Dynamic",
+				"size": 4096,
+				"radius": 0,
+				"quality": 0,
+				"bias": 0.02,
+				"samplingMode": {
+					"kind": "PCF",
+					"quality": 3,
+					"scale": 4
+				}
+			}
+		},
+		{
+			"type": "light",
+			"name": "light_1",
+			"rotationX": 0.1,
+			"rotationY": 10.7,
+			"rotationZ": 144.9,
+			"kind": "Directional",
+			"color": 16774632,
+			"power": 0.61,
+			"range": 10,
+			"zNear": 0.02
+		},
+		{
+			"type": "environment",
+			"name": "environment",
+			"power": 0.6,
+			"rotation": 251.82,
+			"diffSize": 16,
+			"specSize": 16,
+			"sourceMapPath": "Environment/Resource/Skymap/Default.png",
+			"configName": "Test"
+		},
+		{
+			"type": "renderProps",
+			"name": "renderProps",
+			"props": {
+				"PBR": {
+					"mode": "Pbr",
+					"emissive": 1,
+					"exposure": 0,
+					"sky": "Irrad",
+					"tone": "Linear",
+					"occlusion": 1,
+					"shadows": true,
+					"envColorHigh": 16748579,
+					"envColorLow": 8798995,
+					"envColorBack": 8074772,
+					"envColorBlend": 0.42,
+					"envColorSaturation": 0,
+					"envPower": 0.15
+				}
+			},
+			"children": [
+				{
+					"type": "rfx.colorGrading",
+					"name": "colorGrading",
+					"texturePath": "Environment/Resource/LUT/LUT_09.png"
+				},
+				{
+					"type": "rfx.GameFog",
+					"name": "GameFog",
+					"enableVolumetric": true,
+					"maxDist": 400,
+					"distFogStart": 30,
+					"lightColor": 15056029,
+					"lightPower": 0.3,
+					"lowColor": 6510675,
+					"highColor": 10262408,
+					"ambPower": 1,
+					"borderColor": 2696740,
+					"opacityFactor": 0.8,
+					"opacityFactorClose": 0.5,
+					"colorTint": 0.05,
+					"worldMaskTex": "Fx/Fog/FogMask_16.png",
+					"worldMaskAmount": 0.5,
+					"worldMaskRotateSpeed": -0.5,
+					"zScale": 1,
+					"shapeNoiseTex": "Fx/Fog/FogHeight_height.png",
+					"farColor": 7234394,
+					"fullColor": 7432288,
+					"fullColorAlpha": 0.7,
+					"fullColorAlphaClose": 0.5,
+					"dimColor": 5128250,
+					"dimColorAlpha": 0.5,
+					"dimColorAlphaClose": 0.45,
+					"noiseScale": 7.73,
+					"noiseAmount": 0.06,
+					"noiseSpeed": 0.4
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "SkyDome",
+			"children": [
+				{
+					"type": "model",
+					"name": "Planet_01",
+					"source": "Environment/Resource/Skymap/Planet_01.fbx",
+					"x": 2781.39,
+					"y": 912.57,
+					"z": 438.77,
+					"scaleY": 3.4,
+					"scaleZ": 3,
+					"rotationY": -180,
+					"rotationZ": 0.3,
+					"visible": false,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Background",
+					"source": "Environment/Resource/Skymap/SkyDome_01.fbx",
+					"scaleX": 1.7,
+					"scaleY": 1.7,
+					"scaleZ": 2,
+					"rotationX": -2.758691436281349e-33,
+					"rotationY": -180,
+					"rotationZ": 0.2999999999999999,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "None",
+									"shadows": true,
+									"culling": "Back",
+									"depthTest": "Less",
+									"colorMask": 15,
+									"enableStencil": false
+								}
+							},
+							"diffuseMap": "Environment/Resource/Skymap/EnvMap16_Foggy_02.png"
+						}
+					]
+				}
+			]
+		}
+	]
+}
