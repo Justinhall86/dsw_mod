@@ -38,7 +38,7 @@ THEMES = [
     (r"Champion", GI, "Appointment of a Duelist (the Champion)", {"unit": "G_Elite", "trait": "G_ChampionBuff"}),
     (r"Kanly|Rival", GI, "Kanly Retribution", {"trait": "G_KanlyFury"}),
     # Thorvald economy
-    (r"Solari|CHOAM|CMarket|Share|Dividend|Tax|Market|Trade", TH, "the Sovereign Mint / Adjutant Nobru's markets",
+    (r"Solari|CHOAM|CMarket|Share|Dividend|Tax|Market|Trade", TH, "the Consignment Terminal / Adjutant Nobru's markets",
      {"resource": "Solari", "building": "Marketplace", "trait": "Th_MintTrait"}),
     (r"ImportCost|Recruit|Manpower|ImportTime|ImportSpeed|Hireling|Temp|Disband|Refund", TH,
      "the Iron Guard (soldiers paid in Solari, not Manpower)",
