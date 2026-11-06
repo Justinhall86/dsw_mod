@@ -1,0 +1,27 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "BasicSietch_01",
+			"source": "Structure/Sietch/BasicSietch/BasicSietch_01.fbx",
+			"x": -0.88,
+			"scaleY": 1.44,
+			"rotationZ": -90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.19,
+			"y": -0.09,
+			"scaleX": 5.97,
+			"scaleY": 4.68,
+			"scaleZ": 0.2,
+			"rotationZ": 177.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5,
+			"normalStrength": 1.5
+		}
+	]
+}

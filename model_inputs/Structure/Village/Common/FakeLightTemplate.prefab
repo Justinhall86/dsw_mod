@@ -1,0 +1,29 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"scaleX": 0.75,
+			"scaleY": 0.75,
+			"scaleZ": 0.75,
+			"rotationZ": 180,
+			"type": "model",
+			"name": "VillageMedium_01",
+			"source": "Structure/Village/Common/VillageMedium_01.fbx",
+			"children": [
+				{
+					"type": "shader",
+					"name": "FakeLight",
+					"source": "shaders/FakeLight.hx",
+					"props": {
+						"intensity": 0,
+						"useEmissive": false,
+						"shadow": 0,
+						"shadowSpan": 0.14,
+						"useY": true,
+						"power": 10
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,143 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": -0.01,
+			"y": 0.04,
+			"z": 0.14,
+			"rotationZ": 17.8,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -0.5,
+					"y": 0.13,
+					"z": -0.14,
+					"scaleX": 9.42,
+					"scaleY": 8.75,
+					"scaleZ": 0.39,
+					"rotationZ": 1.4,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"normalStrength": 1.5
+				},
+				{
+					"type": "model",
+					"name": "Village_Small_01",
+					"source": "Structure/Village/Tiles/Model/Village_Small_01.fbx",
+					"x": -0.002706518271102838,
+					"y": -0.04114212875931661,
+					"z": -0.14,
+					"scaleX": 1.25,
+					"scaleY": 1.25,
+					"scaleZ": 1.25,
+					"rotationZ": 91.19999999999999,
+					"children": [
+						{
+							"type": "shader",
+							"name": "WindCloth",
+							"source": "shaders/WindCloth.hx",
+							"props": {
+								"speed": 2,
+								"amount": 3.64,
+								"zamount": 2,
+								"freq": 9.09
+							},
+							"targetMaterial": "VillageMisc_01_Wind_Neutral_MAT",
+							"recursiveApply": false
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Sockets",
+					"x": 0.22400000000000003,
+					"y": 1.2760000000000002,
+					"z": -0.14,
+					"children": [
+						{
+							"type": "model",
+							"name": "Socket",
+							"source": "Structure/Village/Tiles/Model/Socket.fbx",
+							"x": 1.18,
+							"y": 2.08,
+							"scaleZ": 1.0000000000000002,
+							"rotationZ": 90
+						},
+						{
+							"type": "model",
+							"name": "Socket",
+							"source": "Structure/Village/Tiles/Model/Socket.fbx",
+							"x": 2.99,
+							"y": -2.83,
+							"scaleZ": 1.0000000000000002,
+							"rotationZ": 90
+						},
+						{
+							"type": "model",
+							"name": "Socket",
+							"source": "Structure/Village/Tiles/Model/Socket.fbx",
+							"x": 3.036,
+							"y": -0.006000000000000005,
+							"scaleZ": 1.0000000000000002,
+							"rotationZ": 89.99999999999999
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "FX",
+					"x": -0.5646491523068267,
+					"y": -0.8427314725339157,
+					"z": 0.7100000000000001,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_Smoke_Big_5",
+							"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+							"x": 1.75,
+							"y": -0.57,
+							"z": -0.21,
+							"scaleX": 0.3499999999999999,
+							"scaleY": 0.3499999999999999,
+							"scaleZ": 0.35,
+							"rotationZ": -122.2
+						},
+						{
+							"type": "reference",
+							"name": "Prefab_Antena_01",
+							"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+							"x": -0.5268327066113139,
+							"y": 2.022887119748553,
+							"z": -0.47,
+							"rotationZ": -17.799999999999997
+						},
+						{
+							"type": "reference",
+							"name": "LightYellow03_Sphere",
+							"source": "Fx/Structure/Lights/LightYellow03_Sphere.fx",
+							"x": -0.5271831413898422,
+							"y": 2.054507954580448,
+							"z": 0.030000000000000027,
+							"scaleX": 0.32,
+							"scaleY": 0.32,
+							"scaleZ": 0.32,
+							"rotationZ": -17.799999999999997
+						},
+						{
+							"type": "reference",
+							"name": "Prefab_Antena_02",
+							"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_02.prefab",
+							"x": -0.712919002810317,
+							"y": 0.2656529605179351,
+							"z": -0.19999999999999996,
+							"rotationZ": -17.799999999999997
+						}
+					]
+				}
+			]
+		}
+	]
+}

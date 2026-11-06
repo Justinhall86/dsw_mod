@@ -1,0 +1,128 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "MajorSietch_01",
+			"source": "Structure/Sietch/MajorSietch/MajorSietch_01/MajorSietch_01.fbx",
+			"x": 0.176,
+			"y": 0.0984,
+			"scaleX": 2.8,
+			"scaleY": 2.8,
+			"scaleZ": 2.8,
+			"rotationZ": -180,
+			"children": [
+				{
+					"type": "shader",
+					"name": "SandBlend",
+					"source": "shaders/SandBlend.hx",
+					"props": {
+						"colorMask": "Structure/Sietch/MajorSietch/MajorSietch_01/SietchMajor_MASK_Albedo.png"
+					}
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": 0.2416,
+			"y": -1.2656,
+			"z": 0.1728,
+			"scaleX": 12.64,
+			"scaleY": 16.72,
+			"scaleZ": 6.72,
+			"rotationZ": 13.6,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_dark.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 2
+		},
+		{
+			"type": "object",
+			"name": "group",
+			"x": 0.392,
+			"y": -4.5384,
+			"scaleX": 8,
+			"scaleY": 8,
+			"scaleZ": 8,
+			"rotationZ": 80.3,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": -0.67598,
+					"y": -0.11575,
+					"scaleX": 2.68,
+					"scaleY": 6.74,
+					"scaleZ": 0.24,
+					"rotationZ": 5.9,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": 1.59515,
+					"y": -0.90043,
+					"scaleX": 3.44,
+					"scaleY": 4.76,
+					"scaleZ": 0.43,
+					"rotationZ": 92.9,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"albedoStrength": 1.5
+				},
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": 1.03707,
+					"y": 1.22156,
+					"scaleX": 2.4000000000000004,
+					"scaleY": 5,
+					"scaleZ": 0.43,
+					"rotationZ": 92,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+					"albedoStrength": 1.5
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Destruction",
+			"x": -0.24,
+			"y": 2.48,
+			"scaleX": 61.44,
+			"scaleY": 61.44,
+			"scaleZ": 61.44,
+			"children": [
+				{
+					"type": "object",
+					"name": "Final",
+					"visible": false,
+					"children": [
+						{
+							"type": "reference",
+							"name": "FX_MajorSietchDestruction_NoPhotosensitive",
+							"source": "Fx/Conquest/FX_MajorSietchDestruction.fx",
+							"x": 0.00390625,
+							"y": -0.040364583333333336,
+							"scaleX": 0.13020833333333331,
+							"scaleY": 0.13020833333333331,
+							"scaleZ": 0.13020833333333331
+						},
+						{
+							"type": "reference",
+							"name": "FX_MajorSietchDestruction_PhotosensitiveOnly",
+							"source": "Fx/Conquest/FX_MajorSietchDestruction_Photosensitive.fx",
+							"x": 0.00390625,
+							"y": -0.040364583333333336,
+							"scaleX": 0.13020833333333331,
+							"scaleY": 0.13020833333333331,
+							"scaleZ": 0.13020833333333331
+						}
+					]
+				}
+			]
+		}
+	]
+}

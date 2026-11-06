@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Village_Medium_01",
+			"source": "Structure/Village/Tiles/Model/Village_Medium_01.fbx"
+		}
+	]
+}

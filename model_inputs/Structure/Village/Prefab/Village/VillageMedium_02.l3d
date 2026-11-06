@@ -1,0 +1,182 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "object",
+			"name": "HasNeuralNode",
+			"x": 0.9365499999999998,
+			"y": 0.4651899999999999,
+			"z": 0.0032649999999999997,
+			"scaleX": 0.9999999999999997,
+			"scaleY": 0.9999999999999997,
+			"scaleZ": 0.9999999999999999,
+			"rotationZ": -1.5902773407317592e-15,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": 0.11063000000000034,
+					"y": -0.1090399999999998,
+					"z": -0.017825000000000004,
+					"scaleX": 9.000000000000004,
+					"scaleY": 9.000000000000004,
+					"scaleZ": 0.20000000000000007,
+					"rotationZ": 10.500000000000004,
+					"albedoMap": "Structure/Village/Tiles/VerniusPlaneTile_Albedo.png",
+					"renderMode": "Terrain"
+				},
+				{
+					"type": "model",
+					"name": "VerniusPipe_02",
+					"source": "Structure/Village/Tiles/Model/Vernius/VerniusPipe_02.fbx",
+					"x": 0.13562000000000007,
+					"y": -0.3148099999999999,
+					"z": 0.003264999999999994,
+					"scaleX": 0.9999999999999999,
+					"scaleY": 0.9999999999999999,
+					"rotationZ": 99.9
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Village_Medium_02",
+			"source": "Structure/Village/Tiles/Model/Village_Medium_02.fbx",
+			"x": 0.25,
+			"y": -0.16,
+			"scaleX": 1.25,
+			"scaleY": 1.25,
+			"scaleZ": 1.25,
+			"rotationZ": 99.9,
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 2,
+						"freq": 9.09
+					},
+					"targetMaterial": "VillageMisc_01_Wind_Neutral_MAT",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "FX",
+			"x": 1.0033333333333332,
+			"y": -0.7533333333333332,
+			"z": 1.3266666666666667,
+			"children": [
+				{
+					"type": "reference",
+					"name": "LightBlue03_Sphere",
+					"source": "Fx/Structure/Lights/LightBlue03_Sphere.fx",
+					"x": -0.6233333333333332,
+					"y": -0.3266666666666669,
+					"z": 0.8733333333333335,
+					"scaleX": 0.33,
+					"scaleY": 0.33,
+					"scaleZ": 0.33
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_3",
+					"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+					"x": 0.16666666666666674,
+					"y": -0.40666666666666673,
+					"z": -0.22666666666666657,
+					"scaleX": 0.3,
+					"scaleY": 0.3,
+					"scaleZ": 0.3
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_3",
+					"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+					"x": 0.4566666666666668,
+					"y": 0.7333333333333332,
+					"z": -0.6466666666666666,
+					"scaleX": 0.3,
+					"scaleY": 0.3,
+					"scaleZ": 0.3
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Decals",
+			"x": -0.19114686878771547,
+			"y": 0.30549138107338075,
+			"z": -0.0010526315789473606,
+			"rotationZ": 17.799999999999997,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": 0.96,
+					"y": -0.1,
+					"scaleX": 11.75,
+					"scaleY": 18.51,
+					"scaleZ": 1.09,
+					"rotationZ": -18.9,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Sockets",
+			"x": 3.3164788709696085,
+			"y": 2.06901936190682,
+			"rotationZ": 17.799999999999997,
+			"visible": false,
+			"children": [
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": -2.3075,
+					"y": 3.535000000000001,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 80.69999999999999
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 0.4524999999999997,
+					"y": 1.6349999999999996,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 80.69999999999999
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 0.2624999999999993,
+					"y": -3.925,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 79.20000000000002
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 1.5925000000000002,
+					"y": -1.2450000000000006,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 79.20000000000002
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,133 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "model",
+			"name": "Village_Medium_02",
+			"source": "Structure/Village/Tiles/Model/Village_Large_01.fbx",
+			"x": 0.25,
+			"y": -0.16,
+			"scaleX": 1.25,
+			"scaleY": 1.25,
+			"scaleZ": 1.25,
+			"rotationZ": 99.9,
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 0.39,
+						"freq": 9.09
+					},
+					"targetMaterial": "VillageMisc_01_Wind_Neutral_MAT",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "FX",
+			"x": 1.0033333333333332,
+			"y": -0.7533333333333332,
+			"z": 1.3266666666666667,
+			"children": [
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_3",
+					"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+					"x": 0.7637,
+					"y": -2.34576,
+					"z": -0.37036,
+					"scaleX": 0.3,
+					"scaleY": 0.3,
+					"scaleZ": 0.3
+				},
+				{
+					"type": "reference",
+					"name": "FX_Smoke_Big_3",
+					"source": "Fx/Smoke/FX_Smoke_Big_3.fx",
+					"x": 1.33196,
+					"y": 0.74717,
+					"z": 0.52139,
+					"scaleX": 0.3,
+					"scaleY": 0.3,
+					"scaleZ": 0.3
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Decals",
+			"x": -0.19114686878771547,
+			"y": 0.30549138107338075,
+			"z": -0.0010526315789473606,
+			"rotationZ": 17.799999999999997,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": 0.96,
+					"y": -0.1,
+					"scaleX": 8.12,
+					"scaleY": 9.18,
+					"scaleZ": 1.09,
+					"rotationZ": -18.9,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Sockets",
+			"x": 3.3164788709696085,
+			"y": 2.06901936190682,
+			"rotationZ": 17.799999999999997,
+			"children": [
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": -2.3075,
+					"y": 3.535000000000001,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 80.69999999999999
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 0.4524999999999997,
+					"y": 1.6349999999999996,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 80.69999999999999
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 0.2624999999999993,
+					"y": -3.925,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 79.20000000000002
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 1.5925000000000002,
+					"y": -1.2450000000000006,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 79.20000000000002
+				}
+			]
+		}
+	]
+}

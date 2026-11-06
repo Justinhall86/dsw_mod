@@ -1,0 +1,132 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": -0.01,
+			"y": 0.04,
+			"z": 0.14,
+			"rotationZ": 17.8,
+			"children": [
+				{
+					"type": "tdecal",
+					"name": "tdecal",
+					"x": 0.14,
+					"y": 0.02,
+					"z": -0.14,
+					"scaleX": 9.07,
+					"scaleY": 8.24,
+					"scaleZ": 0.62,
+					"rotationZ": -174.3,
+					"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+					"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 3.09,
+					"y": 0.66,
+					"z": -0.14,
+					"rotationZ": 90
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 2.59,
+					"y": 3.11,
+					"z": -0.14,
+					"rotationZ": 90
+				},
+				{
+					"type": "model",
+					"name": "Socket",
+					"source": "Structure/Village/Tiles/Model/Socket.fbx",
+					"x": 0.36,
+					"y": 3.98,
+					"z": -0.14,
+					"rotationZ": 90
+				}
+			]
+		},
+		{
+			"type": "model",
+			"name": "Village_Small_02",
+			"source": "Structure/Village/Tiles/Model/Village_Small_02.fbx",
+			"scaleX": 1.25,
+			"scaleY": 1.25,
+			"scaleZ": 1.25,
+			"rotationZ": 107.9,
+			"children": [
+				{
+					"type": "shader",
+					"name": "WindCloth",
+					"source": "shaders/WindCloth.hx",
+					"props": {
+						"speed": 2,
+						"amount": 3.64,
+						"zamount": 2,
+						"freq": 5
+					},
+					"targetMaterial": "VillageMisc_01_Wind_Neutral_MAT",
+					"recursiveApply": false
+				}
+			]
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_01",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_01.prefab",
+			"x": -0.23,
+			"y": -1.54,
+			"z": 0.41
+		},
+		{
+			"type": "reference",
+			"name": "LightYellow02_Flat",
+			"source": "Fx/Structure/Lights/LightYellow02_Flat.fx",
+			"x": 0.93,
+			"y": 0.52,
+			"z": 0.42,
+			"scaleX": 0.72,
+			"scaleY": 0.72,
+			"scaleZ": 0.72
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_5",
+			"source": "Fx/Smoke/FX_Smoke_Big_5.fx",
+			"x": 1.11,
+			"y": -1.02,
+			"z": 0.79,
+			"scaleX": 0.3499999999999999,
+			"scaleY": 0.3499999999999999,
+			"scaleZ": 0.35,
+			"rotationZ": -122.2
+		},
+		{
+			"type": "reference",
+			"name": "Prefab_Antena_03",
+			"source": "Structure/Village/Tiles/Model/Props/Prefab_Antena_03.prefab",
+			"x": 1.32,
+			"y": -0.1,
+			"z": 0.95,
+			"scaleX": 1.36,
+			"scaleY": 1.36,
+			"scaleZ": 1.36
+		},
+		{
+			"type": "reference",
+			"name": "LightRedBlink03_Sphere",
+			"source": "Fx/Structure/Lights/LightRedBlink03_Sphere.fx",
+			"x": -0.99,
+			"y": 0.1,
+			"z": 1.56,
+			"scaleX": 0.51,
+			"scaleY": 0.51,
+			"scaleZ": 0.51
+		}
+	]
+}
