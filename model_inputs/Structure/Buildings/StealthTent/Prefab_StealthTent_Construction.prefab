@@ -1,0 +1,39 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "StealthTent_Construction",
+			"source": "Structure/Buildings/StealthTent/StealthTent_Construction.fbx",
+			"rotationZ": 90,
+			"animation": "Structure/Buildings/StealthTent/StealthTent_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.68,
+			"scaleY": 0.68,
+			"scaleZ": 0.68
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 4.32,
+			"scaleY": 4.32,
+			"scaleZ": 0.36,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"y": -0.12,
+			"z": -0.03,
+			"scaleX": 0.48,
+			"scaleY": 0.76,
+			"scaleZ": 1.08
+		}
+	]
+}

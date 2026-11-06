@@ -1,0 +1,68 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SpiceCollector_Construction",
+			"source": "Structure/Buildings/SpiceCollector/SpiceCollector_Construction.fbx",
+			"x": 0.13,
+			"scaleX": 0.87,
+			"scaleY": 0.87,
+			"scaleZ": 0.87,
+			"animation": "Structure/Buildings/SpiceCollector/SpiceCollector_Construction.fbx"
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction_Holo",
+			"source": "Fx/Structure/Common/FX_Construction_Holo.fx",
+			"x": 0.05584,
+			"y": -0.11625,
+			"scaleX": 0.57,
+			"scaleY": 0.83,
+			"scaleZ": 0.98
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"x": 0.13,
+			"scaleX": 0.5915999999999999,
+			"scaleY": 0.5915999999999999,
+			"scaleZ": 0.5915999999999998,
+			"rotationX": -6.004886592373396e-10,
+			"rotationY": -0.00018548857787245896,
+			"rotationZ": 0.00018548857783941687
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"x": 1.06902,
+			"y": -0.16312,
+			"z": 0.18277,
+			"scaleX": 0.28,
+			"scaleY": 0.29,
+			"scaleZ": 0.29
+		},
+		{
+			"type": "reference",
+			"name": "FX_Construction",
+			"source": "Fx/Structure/Common/FX_Construction.fx",
+			"x": -0.74453,
+			"y": -0.16312,
+			"z": 0.18277,
+			"scaleX": 0.28,
+			"scaleY": 0.29,
+			"scaleZ": 0.29
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		}
+	]
+}

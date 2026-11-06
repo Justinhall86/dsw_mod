@@ -1,0 +1,34 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"rotationX": 89.99981451142213,
+			"rotationZ": 89.99999999999999,
+			"children": [
+				{
+					"type": "model",
+					"name": "SpiceSilo",
+					"source": "Structure/Buildings/SpiceSilo/SpiceSilo.fbx",
+					"x": -0.24855,
+					"z": -0.02104,
+					"scaleX": 0.91,
+					"scaleY": 0.91,
+					"scaleZ": 0.91,
+					"rotationX": -90
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.87,
+			"scaleY": 3.87,
+			"scaleZ": 0.17,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 1.5
+		}
+	]
+}

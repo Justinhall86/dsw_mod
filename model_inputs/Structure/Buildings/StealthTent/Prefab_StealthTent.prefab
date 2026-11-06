@@ -1,0 +1,68 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "object",
+			"name": "group",
+			"x": 0.1834125,
+			"y": -0.0892675,
+			"z": -0.000125,
+			"children": [
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"x": -0.04747,
+					"y": 0.6372,
+					"z": 0.00007,
+					"scaleY": 0.9100000000000001,
+					"scaleZ": 1.55,
+					"rotationZ": 90.9,
+					"albedoMap": "Structure/Resources/Decals/Carpet_01.png",
+					"normalMap": "Structure/Resources/Decals/Concrete_normal.png",
+					"pbrStrength": 0,
+					"renderMode": "Terrain"
+				},
+				{
+					"type": "advancedDecal",
+					"name": "advancedDecal",
+					"x": 0.28334,
+					"y": 0.14988,
+					"z": 0.00007,
+					"scaleX": 1.11,
+					"scaleY": 1.29,
+					"scaleZ": 1.55,
+					"rotationZ": 90.9,
+					"albedoMap": "Structure/Resources/Decals/Carpet_01.png",
+					"normalMap": "Structure/Resources/Decals/Concrete_normal.png",
+					"pbrStrength": 0,
+					"renderMode": "Terrain"
+				},
+				{
+					"type": "model",
+					"name": "StealthTent",
+					"source": "Structure/Buildings/StealthTent/StealthTent.fbx",
+					"x": -0.1834125,
+					"y": 0.0892675,
+					"z": 0.000125,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": 90
+				}
+			]
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.26659,
+			"y": -0.08927,
+			"z": -0.04376,
+			"scaleX": 4.38,
+			"scaleY": 4.810000000000001,
+			"scaleZ": 0.37,
+			"rotationZ": -174.5,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"albedoStrength": 2
+		}
+	]
+}

@@ -1,0 +1,60 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "SpiceCollector",
+			"source": "Structure/Buildings/SpiceCollector/SpiceCollector.fbx",
+			"x": 0.13,
+			"scaleX": 0.87,
+			"scaleY": 0.87,
+			"scaleZ": 0.87
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_2",
+			"source": "Fx/Smoke/FX_Smoke_Spice.fx",
+			"x": -0.63904,
+			"y": -0.13622,
+			"z": 0.57399,
+			"scaleX": 0.14,
+			"scaleY": 0.14,
+			"scaleZ": 0.09,
+			"rotationZ": 180
+		},
+		{
+			"type": "reference",
+			"name": "FX_Smoke_Big_2",
+			"source": "Fx/Smoke/FX_Smoke_Spice.fx",
+			"x": -0.63904,
+			"y": 0.09156,
+			"z": 0.57399,
+			"scaleX": 0.14,
+			"scaleY": 0.14,
+			"scaleZ": 0.09,
+			"rotationZ": 180
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"scaleX": 3.57,
+			"scaleY": 3.57,
+			"scaleZ": 0.3,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "advancedDecal",
+			"name": "advancedDecal",
+			"y": -0.03812,
+			"scaleX": 2.11,
+			"scaleY": 2.23,
+			"scaleZ": 0.5,
+			"rotationZ": 90,
+			"albedoMap": "Structure/Resources/Decals/Concrete_01.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png",
+			"pbrStrength": 0,
+			"renderMode": "Terrain"
+		}
+	]
+}
