@@ -51,6 +51,16 @@
 				"enableStencil": false,
 				"emissive": 0.1
 			},
+			"Mat_GinazGold": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
 			"MAT_WeaponEcazFencer": {
 				"mode": "PBR",
 				"blend": "None",
