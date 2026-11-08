@@ -1,0 +1,7 @@
+name: Attribute framework
+about: Allows creating custom attributes. Refer to the Word Builder tab, anything you can build there is actionable in-game.
+needs: All custom attributes must go BELOW the attribute with id "Invalid". Refer to the CDB section for an easier time adding new target columns.
+
+cdb: targetN columns in attribute, trait attributes, building states, development; quest:reference-quest in trait attributes targetN, building states attributes targetN, development attributes targetN; alert:reference-alert in trait attributes target2+, building states attributes targetN, development attributes targetN
+
+bundle: {} as a target

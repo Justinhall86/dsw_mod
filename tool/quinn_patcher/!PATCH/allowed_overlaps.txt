@@ -1,0 +1,25 @@
+# IDS THE GAME SHIPS THAT OUR GRAMMAR ALSO READS AS OURS. One per line, with the reason.
+# EACH ONE HERE WAITS ON THE USER'S CALL: RENAME OUR WORD, OR KEEP IT.
+#
+# WHY IT EXISTS (2026-09-16). For one build our shorter trait word was spelt `GainTTrait`, which
+# is the game's own word, and four of the game's attribute ids read as ours -- `Faction_GainTTrait`,
+# `Harvester_GainTTrait`, `Militia_GainTTrait` and `TUnit_GainTTrait2`, used 28 times across base
+# traits and developments. It was never live: our road refuses any row sitting at or above the
+# `Invalid` row of the attribute sheet, and a base row sits above it.
+#
+# THE USER'S CALL, AND IT IS THE BETTER ONE: rename rather than declare. The game's `GainTTrait`
+# can only ever grant ONE stack however many times it is applied, so ours sharing that name read
+# as a promise it does not keep. `GainTTraitStack` says what ours does and claims nothing of the
+# game's -- measured over all 1,692 shipped ids, not argued.
+#
+# WHAT ACTUALLY KEEPS US OFF THE GAME'S ROWS is still the sentinel, and that is a row ORDER. This
+# file is the second line: `_cases.py` refuses the build on any id the game ships that our grammar
+# reads as ours and that is not entered below with a reason.
+# AND THE SENTINEL DOES NOT PROTECT THE MODDER FROM US. A CUSTOM row spelt like a base one sits
+# BELOW the sentinel, so it is ours and it shadows the game's word of that name silently. Nothing
+# measures that, and no word of ours collides with one today.
+Agt_TResProd_ARatio | the game's "agents produce more"; `TResProd` dropped `Gain`; base row sits above the sentinel
+Army_TResUpkeep_ARatio | the game's army upkeep; ours is ResUpkeep
+Army_TResUpkeep_MRatio | the game's army upkeep; ours is ResUpkeep
+Mechanical_TResUpkeep_ARatio | the game's; ours is ResUpkeep
+Mechanical_TResUpkeep_MRatio | the game's; ours is ResUpkeep

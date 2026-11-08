@@ -1,0 +1,3 @@
+quest: The quest a quest word names (StartTQuest, OnStartTQuest)
+Quest as a target: Adds quests as a target option to all existing and future target columns
+Alert as a target: Adds alerts as a target option to all existing and future target columns
