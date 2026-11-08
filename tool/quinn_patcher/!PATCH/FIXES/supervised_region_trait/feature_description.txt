@@ -1,0 +1,4 @@
+name: Fix supervision attribute
+was: Supervised region trait
+about: Fixes the unfinished Allow_RegionAgentSupervision attribute.
+cdb: none

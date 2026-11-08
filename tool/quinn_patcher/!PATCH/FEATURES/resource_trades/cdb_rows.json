@@ -1,0 +1,6 @@
+{"name": "Conversion attribute",
+ "doc": "Convert_TRes_To_TRes2: Apply to a faction or anything it owns (building, unit, etc) with target=convertFrom and target2=convertTo. In one row, all convertFrom can be made to convertTo. Use separate rows for more granularity.",
+ "rows": [
+  {"id": "Convert_TRes_To_TRes2", "kinds": [], "val": 1, "scope": "Conversion",
+   "desc": "Trades any resource in target's convertFrom for any in target2's convertTo, at the amounts written"}
+]}

@@ -1,0 +1,6 @@
+tiers: Named tiers, lowest first: a faction in a tier holds its traits only while there, gets its alert on entering it, and the tooltip shows the ladder
+showCouncil: The tooltip lists each faction holding this and its gain at the next council
+from: The stock this tier starts at
+name: The tier's name on the ladder
+traits: Held only while in this tier
+alert: Shown on entering this tier

@@ -1,0 +1,4 @@
+name: Sietch buildings
+about: A Local Sietch accepts its own section's buildings.
+cdb: none
+optout: notInSietch in building props, under LocalSietch

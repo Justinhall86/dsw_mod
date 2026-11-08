@@ -1,0 +1,11 @@
+name: Permanent res actions
+
+about: A permanent res action stays on its resolution all game, fires again at each later vote on it, and marks the resolution it taints.
+
+bundle: resAction props
+
+cdb: permanent:props(removeOnDeath:bool:required,charter:props(image:image, frames:int, speed:float, fx2d:list(fx2dPath:file, loop:bool, replay:bool), tint:color, tip:text)) in resAction props
+
+cdb: mark:props(card:props(image:image, frames:int, speed:float, fx2d:list(fx2dPath:file, loop:bool, replay:bool), tint:color), details:props(image:image, frames:int, speed:float, fx2d:list(fx2dPath:file, loop:bool, replay:bool), tint:color)) in resAction props
+
+cdb: placeOn:props(resolutions:list(resolution:reference-resolution:required), notResolutions:list(resolution:reference-resolution:required)) in resAction props; placeAlert:reference-alert in resAction props

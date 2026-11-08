@@ -1,0 +1,4 @@
+name: Keybinds
+about: Ability_N keys start the Nth ability button; the same key cancels a cast or a capture.
+cdb: none
+numbered: Ability_ in input, with ability:list(ability:reference-ability:required)

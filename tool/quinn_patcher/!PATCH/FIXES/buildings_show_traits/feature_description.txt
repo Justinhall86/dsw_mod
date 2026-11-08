@@ -1,0 +1,3 @@
+name: Buildings show their own traits
+about: Village buildings, the main base and the underworld headquarters show their own traits.
+cdb: none

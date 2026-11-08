@@ -1,0 +1,3 @@
+convertFrom: the resources that may be paid, each at the amount written
+convertTo: the resources that may be got, each at the amount written; any pair from the two lists trades
+conversionTraits: the two traits an unstocked resource's production moves by, one stack per unit traded

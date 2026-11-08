@@ -1,0 +1,1 @@
+ability: The abilities this key starts, whatever the row is called; empty on an Ability_N key

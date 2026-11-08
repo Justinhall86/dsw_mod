@@ -1,0 +1,4 @@
+name: Trait stacks condition
+about: Adds the condition Entity_HasTTraitStacks: compares the entity's stacks of the target trait to VAL.
+needs: A condition row with id Entity_HasTTraitStacks, target Trait, one val.
+cdb: none

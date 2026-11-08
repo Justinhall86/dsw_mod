@@ -1,0 +1,5 @@
+name: Resource trades
+about: Convert_TRes_To_TRes2 rows open a top-bar panel to trade resources.
+cdb: convertFrom:list(val:float:required, resource:reference-resource:required) in trait attributes target; convertTo:list(val:float:required, resource:reference-resource:required) in trait attributes target2
+bundle: convertFrom, convertTo
+hooks: conversionTraits in resource props, where flags NoStocks

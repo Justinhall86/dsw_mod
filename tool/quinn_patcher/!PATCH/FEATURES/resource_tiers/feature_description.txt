@@ -1,0 +1,3 @@
+name: Tiered resources
+about: A resource's tiers give traits while in each, an alert on entering one, and Standing's ladder in its tooltip.
+cdb: tiers:list(from:int:required, name:text:required, traits:list(trait:reference-trait:required), alert:reference-alert) in resource props; showCouncil:bool in resource props

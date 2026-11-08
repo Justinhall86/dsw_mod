@@ -1,0 +1,3 @@
+name: Modder tools
+about: The interface inspector, and the interface error overlay hidden.
+cdb: none

@@ -1,0 +1,3 @@
+name: Quest trackers count only their own faction
+about: Me_Track_TPillages, Me_Track_LiberatesTTarget and Me_Track_Liberates count a pillage or liberation for a quest only when that quest's faction did it. Me_Track_TPillages with a structure subject counts only that structure.
+cdb: none

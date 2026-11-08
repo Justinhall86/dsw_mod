@@ -1,0 +1,41 @@
+permanent: Filled, this stays on its resolution for the whole game and cannot be applied to it again
+
+removeOnDeath: The action ends when its placer is eliminated, every faction loses the traits its effects granted
+
+mark: How the resolution looks while this is on it: all game when permanent, that council otherwise. An empty place is unchanged
+
+charter: How its node in the charter strip at the top of the politics menu looks; the image sits in its lower panel
+
+card: The resolution card's art, top half
+
+details: The resolution card's details window, bottom half
+
+charter image: A picture under this place's text, drawn from the top-left at its own size, never scaled. Size: 220 x 111
+card image: A picture under this place's text, drawn from the top-left at its own size, never scaled. Size: 278 x 290
+details image: A picture under this place's text, drawn from the top-left at its own size, never scaled. Size: 278 x 268; tooltip ~250 wide
+
+frames: How many frames the image holds side by side; above 1 it plays as a flipbook, so the image is frames x one frame wide
+
+speed: Flipbook frames per second; 15 when empty
+
+fx2d: The 2D interface effects played on this place, each its own row
+
+fx2dPath: A 2D interface effect (.fx2d), such as Fx/UI/VictoryCards/FX_BackgroundVictoryCard.fx2d; a world effect (.fx) is not played
+
+loop: The effect starts over each time it ends (def: N)
+
+replay: Plays every time the asset is redrawn (def: N)
+
+tint: Multiplies the colour by this
+
+tip: A line added to the charter's tooltip
+
+placeOn: Which resolutions this res action is offered on, on top of its target's nature and type; a resolution's own block still wins
+
+resolutions: Offered only on these; empty means any
+
+notResolutions: Never offered on these
+
+resolution: A resolution
+
+placeAlert: Raised to every faction once when this is placed

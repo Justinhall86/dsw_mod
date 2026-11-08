@@ -1,0 +1,8 @@
+{"label": "Conversion traits", "doc": "Gives every NoStocks resource the two traits a trade moves its production by, made where missing",
+ "keys": {"gain": 1, "loss": -1},
+ "skip": ["CrewPoint", "Overcharge"],
+ "row": {"id": "Trade_{res}_{Key}", "name": "Traded", "desc": "", "type": 0, "displayed": false,
+         "props": {"tip": {"cat": "ConquestBonus"}},
+         "gfx": {"file": "UI/icons/unitsTraits.png", "size": 64, "x": 23, "y": 1},
+         "attributes": [{"ref": "TRes_Prod_Flat_NoBoost", "val": "{val}", "desc": "::s_value:: [{res}]",
+                         "target": {"resource": "{res}"}, "target2": {}, "target3": {}, "target4": {}}]}}

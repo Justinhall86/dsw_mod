@@ -1,0 +1,3 @@
+name: Faction style files
+about: A faction's own UI/Styles/factions/<faction id>.css is read after the game's style sheet, so a new faction points its banners, flags and headers at its own images without touching the shared ones.
+cdb: none
