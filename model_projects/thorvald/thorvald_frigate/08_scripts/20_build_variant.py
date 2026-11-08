@@ -30,7 +30,9 @@ from mathutils import Matrix, Vector
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
-REPO = os.path.dirname(os.path.dirname(PROJ))
+REPO = PROJ
+while not os.path.isdir(os.path.join(REPO, "model_inputs")) and os.path.dirname(REPO) != REPO:
+    REPO = os.path.dirname(REPO)   # project may sit at model_projects/<x> or model_projects/thorvald/<x>
 sys.path.insert(0, HERE)
 import blender_scene as bs  # noqa: E402
 import preview_wiring as pw  # noqa: E402
@@ -38,6 +40,10 @@ import preview_wiring as pw  # noqa: E402
 VEH = os.path.join(REPO, "model_inputs", "Vehicle")
 
 DONORS = {
+    "dronebase":   ("Imperial/DroneI/preview_textures/ImperiumDroneBase_real.fbx", "Imperial/DroneI/ImperiumDroneBase"),
+    "dronecanon":  ("Imperial/DroneI/preview_textures/ImperiumDroneCanon_real.fbx", "Imperial/DroneI/ImperiumDroneCanon"),
+    "kuloncannon": ("Fremen/KulonTurret/preview_textures/KulonTurretCannon_real.fbx", "Fremen/KulonTurret/KulonTurret"),
+    "ravshuttle":  ("Common/Ravager_Shuttle/preview_textures/RavagerShuttle_real.fbx", "Common/Ravager_Shuttle/RavagerShuttle"),
     "chronos":  ("Imperial/Chronos/preview_textures/Chronos_real.fbx", "Imperial/Chronos/Chronos"),
     "carryall": ("Atreide/CarryAll/preview_textures/CarryAll_real.fbx", "Atreide/CarryAll/CarryAll"),
     "wraith":   ("Smuggler/Wraith/preview_textures/Wraith_real.fbx", "Smuggler/Wraith/Wraith"),
@@ -351,6 +357,37 @@ def drop_fragments(objs, min_faces):
     return removed_islands, removed_faces
 
 
+def drop_small_islands(objs, min_size):
+    """Delete connected islands whose largest bbox side is below min_size (donor units).
+    Face-count filters miss dense small parts (a strut ring has more faces than a blade)."""
+    gone = 0
+    for o in objs:
+        bm = bmesh.new(); bm.from_mesh(o.data); bm.verts.ensure_lookup_table()
+        seen, doomed = set(), []
+        for v0 in bm.verts:
+            if v0.index in seen:
+                continue
+            stack, mem = [v0], []
+            seen.add(v0.index)
+            while stack:
+                cur = stack.pop(); mem.append(cur)
+                for e in cur.link_edges:
+                    ov = e.other_vert(cur)
+                    if ov.index not in seen:
+                        seen.add(ov.index); stack.append(ov)
+            ext = max(max(v.co[k] for v in mem) - min(v.co[k] for v in mem) for k in range(3))
+            if ext < min_size:
+                doomed.extend({f for v in mem for f in v.link_faces})
+        if doomed:
+            gone += len(set(doomed))
+            bmesh.ops.delete(bm, geom=list(set(doomed)), context="FACES")
+            for v in [v for v in bm.verts if not v.link_faces]:
+                bm.verts.remove(v)
+        bm.to_mesh(o.data); bm.free(); o.data.update()
+    log("  dropped %d faces in islands smaller than %.2f" % (gone, min_size))
+    return gone
+
+
 def seal_holes(objs):
     """Close the boundary loops a cut leaves behind.
 
@@ -376,11 +413,59 @@ def seal_holes(objs):
     return filled
 
 
+def cleanup(objs):
+    """Roughness pass: weld coincident verts, drop degenerate (zero-area) faces and
+    stray loose verts/edges, make each object's normals consistent."""
+    welded = degen = 0
+    for o in objs:
+        bm = bmesh.new(); bm.from_mesh(o.data)
+        n0 = len(bm.verts)
+        bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=0.0008)
+        welded += n0 - len(bm.verts)
+        bad = [f for f in bm.faces if f.calc_area() < 1e-7]
+        degen += len(bad)
+        if bad:
+            bmesh.ops.delete(bm, geom=bad, context="FACES")
+        loose_e = [e for e in bm.edges if not e.link_faces]
+        if loose_e:
+            bmesh.ops.delete(bm, geom=loose_e, context="EDGES")
+        loose_v = [v for v in bm.verts if not v.link_faces]
+        if loose_v:
+            bmesh.ops.delete(bm, geom=loose_v, context="VERTS")
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
+        bm.to_mesh(o.data); bm.free(); o.data.update()
+    return {"welded_verts": welded, "degenerate_faces": degen}
+
+
+def bevel_edges(objs, cfg):
+    """Round off hard silhouette edges so the kitbash stops reading as the donors' crisp
+    boxes: angle-limited bevel, 2 segments, harden normals. cfg = {width, angle, segments, skip_roles}."""
+    w, ang, seg = cfg.get("width", 0.05), cfg.get("angle", 40), cfg.get("segments", 2)
+    skip = tuple(cfg.get("skip", []))
+    tris0 = tris1 = 0
+    for o in objs:
+        if skip and any(s in o.name for s in skip):
+            continue
+        o.data.calc_loop_triangles(); tris0 += len(o.data.loop_triangles)
+        m = o.modifiers.new("bevel", "BEVEL")
+        m.width, m.segments, m.limit_method = w, seg, "ANGLE"
+        m.angle_limit = math.radians(ang)
+        m.harden_normals = True
+        m.use_clamp_overlap = True
+        bpy.context.view_layer.objects.active = o
+        with bpy.context.temp_override(object=o, active_object=o):
+            bpy.ops.object.modifier_apply(modifier=m.name)
+        o.data.calc_loop_triangles(); tris1 += len(o.data.loop_triangles)
+    return {"tris_before": tris0, "tris_after": tris1}
+
+
 def texture_paths(stem):
     base = os.path.join(VEH, stem.replace("/", os.sep))
     d, name = os.path.dirname(base), os.path.basename(base)
     cands = {
-        "albedo": [os.path.join(d, name + "_Albedo.png")],
+        # 04_textures/clean/ holds de-greened, sigil-free albedos (29_clean_textures.py)
+        "albedo": [os.path.join(PROJ, "04_textures", "clean", name + "_Albedo.png"),
+                   os.path.join(d, name + "_Albedo.png")],
         "mgao": [os.path.join(d, name + "_MetallicGlossAOEmiss.png"),
                  os.path.join(d, name + "_MetallicGlossAO.png")],
         "normal": [os.path.join(d, name + "_Normal.png")],
@@ -634,6 +719,10 @@ def make_graft(g, host, idx):
     frag = g.get("min_island_faces", 8)
     if frag:
         drop_fragments(objs, frag)
+    if g.get("min_island_size"):
+        drop_small_islands(objs, g["min_island_size"])   # e.g. Banshee strut rings riding on the blades
+    if g.get("seal"):
+        seal_holes(objs)          # cap open backs (e.g. the Kulon pod is an open shell)
     mn, mx = bounds(objs)
     c = (mn + mx) / 2
     sc = g.get("scale", 1.0)
@@ -699,6 +788,25 @@ def build(spec):
     for sr in spec.get("host_scale", []):
         n = scale_region(host, sr)
         log("  host_scale %s moved %d verts" % (sr["scale"], n))
+    if spec.get("host_seal"):
+        # host_remove leaves open boundary loops (keel slit, wing roots); cap each loop
+        # with an n-gon so no hole shows the inside of the shell.
+        capped = 0
+        for o in host:
+            bm = bmesh.new()
+            bm.from_mesh(o.data)
+            bm.edges.ensure_lookup_table()
+            edges = [e for e in bm.edges if e.is_boundary]
+            if edges:
+                res = bmesh.ops.holes_fill(bm, edges=edges, sides=0)
+                newf = res.get("faces", [])
+                capped += len(newf)
+                if newf:
+                    bmesh.ops.triangulate(bm, faces=newf)
+            bm.to_mesh(o.data)
+            bm.free()
+            o.data.update()
+        log("  host_seal capped %d holes" % capped)
 
     mn, mx = bounds(host)
     c = (mn + mx) / 2
@@ -741,6 +849,16 @@ def build(spec):
     # final = donor-baked world - (host_c + c): export needs this to restore the vanilla frame
     bpy.context.scene["frigate_offset"] = [host_c.x + c.x, host_c.y + c.y, host_c.z + c.z]
     log("offset (final = original - offset)", [round(v, 4) for v in bpy.context.scene["frigate_offset"]])
+    fs = spec.get("final_scale", 1.0)
+    if fs != 1.0:
+        # uniform mesh scale after centring (a new-core design is built at its donor's native size)
+        xform(objects, lambda p, fs=fs: p * fs)
+        bpy.context.scene["final_scale"] = fs
+        log("final_scale x%.3f" % fs)
+    if spec.get("cleanup"):
+        log("cleanup", cleanup(objects))
+    if spec.get("bevel"):
+        log("bevel", bevel_edges(objects, spec["bevel"]))
     mn, mx = bounds(objects)
     dims = mx - mn
     for o in objects:

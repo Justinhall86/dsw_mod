@@ -19,7 +19,7 @@ import sys
 
 import numpy as np
 
-SK = r"C:\Users\justi\Python\dsw_mod\.claude\skills\dsw-model-modding\scripts"
+SK = r"D:\dsw_mod\.claude\skills\dsw-model-modding\scripts"
 sys.path.insert(0, SK)
 from dsw_common import cfg, editor_res  # noqa: E402
 import fix_normals  # noqa: E402

@@ -17,7 +17,10 @@ from PIL import Image, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
-VEH = os.path.join(os.path.dirname(os.path.dirname(PROJ)), "model_inputs", "Vehicle")
+_R = PROJ
+while not os.path.isdir(os.path.join(_R, "model_inputs")) and os.path.dirname(_R) != _R:
+    _R = os.path.dirname(_R)
+VEH = os.path.join(_R, "model_inputs", "Vehicle")
 TEX = os.path.join(PROJ, "04_textures")
 H = 512
 

@@ -1,0 +1,250 @@
+{
+ "variants": [
+  {
+   "name": "lancer_A_oxblood_fins",
+   "host": "carryall",
+   "host_role": "hull",
+   "res": 720,
+   "margin": 1.2,
+   "final_scale": 2.4615,
+   "pieces": [],
+   "grafts": [
+    {
+     "donor": "banshee",
+     "box_abs": [
+      0.75,
+      1.85,
+      -0.9,
+      4.65,
+      -0.3,
+      1.5
+     ],
+     "at": [
+      1.0,
+      1.55,
+      0.35
+     ],
+     "scale": 0.55,
+     "rot_deg": [
+      0,
+      0,
+      90
+     ],
+     "role": "oxblood",
+     "mirror_y": true,
+     "strict": true,
+     "sink": 0.1,
+     "min_island_faces": 6
+    },
+    {
+     "donor": "kraken",
+     "box_abs": [
+      -2.3,
+      2.3,
+      -3.6,
+      3.6,
+      1.15,
+      2.4
+     ],
+     "at": [
+      0.6,
+      0,
+      null
+     ],
+     "scale": [
+      0.4,
+      0.38,
+      0.6
+     ],
+     "rot_deg": [
+      0,
+      0,
+      90
+     ],
+     "role": "copper",
+     "mirror_y": false,
+     "strict": true,
+     "sink": 0.15,
+     "min_island_faces": 6
+    },
+    {
+     "donor": "kuloncannon",
+     "box_abs": [
+      -0.9,
+      -0.05,
+      -0.9,
+      1.0,
+      1.6,
+      2.4
+     ],
+     "at": [
+      -1.4,
+      0.95,
+      null
+     ],
+     "scale": 0.8,
+     "rot_deg": [
+      0,
+      0,
+      -90
+     ],
+     "role": "copper",
+     "mirror_y": true,
+     "strict": false,
+     "sink": 0.1,
+     "min_island_faces": 6
+    }
+   ],
+   "views": {
+    "tq": [
+     -0.78,
+     -0.78,
+     0.34
+    ],
+    "tq_rear": [
+     0.78,
+     -0.78,
+     0.34
+    ],
+    "top": [
+     -0.001,
+     0,
+     1
+    ],
+    "side": [
+     0,
+     -1,
+     0.06
+    ],
+    "front": [
+     -1,
+     0,
+     0.08
+    ]
+   }
+  },
+  {
+   "name": "lancer_B_copper_fins",
+   "host": "carryall",
+   "host_role": "hull",
+   "res": 720,
+   "margin": 1.2,
+   "final_scale": 2.4615,
+   "pieces": [],
+   "grafts": [
+    {
+     "donor": "banshee",
+     "box_abs": [
+      0.75,
+      1.85,
+      -0.9,
+      4.65,
+      -0.3,
+      1.5
+     ],
+     "at": [
+      1.0,
+      1.55,
+      0.35
+     ],
+     "scale": 0.55,
+     "rot_deg": [
+      0,
+      0,
+      90
+     ],
+     "role": "copper",
+     "mirror_y": true,
+     "strict": true,
+     "sink": 0.1,
+     "min_island_faces": 6
+    },
+    {
+     "donor": "kraken",
+     "box_abs": [
+      -2.3,
+      2.3,
+      -3.6,
+      3.6,
+      1.15,
+      2.4
+     ],
+     "at": [
+      0.6,
+      0,
+      null
+     ],
+     "scale": [
+      0.4,
+      0.38,
+      0.6
+     ],
+     "rot_deg": [
+      0,
+      0,
+      90
+     ],
+     "role": "oxblood",
+     "mirror_y": false,
+     "strict": true,
+     "sink": 0.15,
+     "min_island_faces": 6
+    },
+    {
+     "donor": "kuloncannon",
+     "box_abs": [
+      -0.9,
+      -0.05,
+      -0.9,
+      1.0,
+      1.6,
+      2.4
+     ],
+     "at": [
+      -1.4,
+      0.95,
+      null
+     ],
+     "scale": 0.8,
+     "rot_deg": [
+      0,
+      0,
+      -90
+     ],
+     "role": "steel",
+     "mirror_y": true,
+     "strict": false,
+     "sink": 0.1,
+     "min_island_faces": 6
+    }
+   ],
+   "views": {
+    "tq": [
+     -0.78,
+     -0.78,
+     0.34
+    ],
+    "tq_rear": [
+     0.78,
+     -0.78,
+     0.34
+    ],
+    "top": [
+     -0.001,
+     0,
+     1
+    ],
+    "side": [
+     0,
+     -1,
+     0.06
+    ],
+    "front": [
+     -1,
+     0,
+     0.08
+    ]
+   }
+  }
+ ]
+}

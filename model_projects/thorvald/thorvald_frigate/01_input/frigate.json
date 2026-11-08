@@ -2,8 +2,8 @@
   "_comment": "v9",
   "variants": [
     {
-      "name": "frigate_v13",
-      "_note": "v12: width x1.2, smaller dark jets, bigger front guns, two-tier superstructure. NOSE +X.",
+      "name": "frigate_v14",
+      "_note": "v14: holes sealed, gold domes removed, Tank spine cannon, Hammer pod drum arms. NOSE +X.",
       "host": "frigate",
       "host_role": "steel",
       "res": 900,
@@ -189,44 +189,48 @@
           "min_island_faces": 6
         },
         {
-          "donor": "wraith",
-          "role": "copper",
-          "disc_abs": [
-            0,
-            0,
-            1.9,
-            3.9,
-            6.2
+          "donor": "tank",
+          "role": "steel",
+          "box_abs": [
+            0.2,
+            2.2,
+            -0.2,
+            0.2,
+            1.05,
+            1.4
           ],
-          "scale": 0.6,
+          "scale": 2.3,
           "at": [
-            -3.4,
+            1.2,
             0.0,
             null
           ],
-          "min_island_faces": 8
+          "sink": 0.08,
+          "min_island_faces": 4
         },
         {
-          "donor": "wraith",
-          "role": "copper",
-          "disc_abs": [
-            0,
-            0,
-            1.9,
-            3.9,
-            6.2
+          "donor": "hammer",
+          "role": "steel",
+          "box_abs": [
+            0.38,
+            0.76,
+            -1.0,
+            -0.2,
+            -0.5,
+            0.3
           ],
           "scale": [
-            0.9,
-            0.4,
-            0.45
+            3.2,
+            1.7,
+            3.2
           ],
           "at": [
-            2.2,
-            0.0,
-            null
+            -3.1,
+            1.0,
+            -0.4
           ],
-          "min_island_faces": 8
+          "mirror_y": true,
+          "min_island_faces": 4
         }
       ],
       "host_scale": [
@@ -250,7 +254,8 @@
             1.9
           ]
         }
-      ]
+      ],
+      "host_seal": true
     }
   ]
 }

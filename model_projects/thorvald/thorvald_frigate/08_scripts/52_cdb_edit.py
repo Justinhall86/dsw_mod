@@ -11,7 +11,7 @@ import json
 import os
 import sys
 
-SK = r"C:\Users\justi\Python\dsw_mod\.claude\skills\dsw-model-modding\scripts"
+SK = r"D:\dsw_mod\.claude\skills\dsw-model-modding\scripts"
 sys.path.insert(0, SK)
 import cdb_tools as C  # noqa: E402
 from dsw_common import cdb_path  # noqa: E402

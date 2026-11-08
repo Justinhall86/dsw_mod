@@ -16,7 +16,7 @@ import numpy as np
 from mathutils import Matrix, Vector
 
 OUT = os.path.abspath(sys.argv[sys.argv.index("--") + 1])
-VEH = r"C:\Users\justi\Python\dsw_mod\model_inputs\Vehicle"
+VEH = r"D:\dsw_mod\model_inputs\Vehicle"
 REAL = os.path.join(VEH, "Common", "Renegade_Frigate", "preview_textures", "Renegade_Frigate_real.fbx")
 
 ship = bpy.data.objects["Thorvald_Frigate"]

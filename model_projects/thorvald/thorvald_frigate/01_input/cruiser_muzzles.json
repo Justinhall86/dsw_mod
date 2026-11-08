@@ -1,0 +1,77 @@
+{
+ "note": "barrel tips of the 4 shoulder cannons; mesh frame = cruiser_turrets.blend, game = mesh*0.09675 (before the export's B_Body transform). Th_Frigate_Attack fires 5: A,B,C,D,A.",
+ "muzzles": {
+  "MuzzleA": {
+   "turret": "turret_14_L",
+   "mesh": [
+    -9.043,
+    38.0,
+    3.932
+   ],
+   "game": [
+    -0.8749,
+    3.6765,
+    0.3805
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  },
+  "MuzzleB": {
+   "turret": "turret_14_R",
+   "mesh": [
+    -9.043,
+    -38.0,
+    3.932
+   ],
+   "game": [
+    -0.8749,
+    -3.6765,
+    0.3805
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  },
+  "MuzzleC": {
+   "turret": "turret_40_L",
+   "mesh": [
+    16.957,
+    38.0,
+    3.919
+   ],
+   "game": [
+    1.6406,
+    3.6765,
+    0.3791
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  },
+  "MuzzleD": {
+   "turret": "turret_40_R",
+   "mesh": [
+    16.957,
+    -38.0,
+    3.919
+   ],
+   "game": [
+    1.6406,
+    -3.6765,
+    0.3791
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  }
+ }
+}
