@@ -1,0 +1,15 @@
+{
+	"materials": {
+		"PBR": {
+			"Material": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": false,
+				"culling": true,
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false
+			}
+		}
+	}
+}
