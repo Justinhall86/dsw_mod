@@ -1,0 +1,163 @@
+# SPLICES ALLOWED TO CALL FROM INSIDE A LOOP OF THEIR OWN.
+#
+# A call in a loop is not one call -- it is one per row the loop walks. `tools/cost.py` counts
+# them off the built file and REFUSES any splice not named here, so a new one cannot arrive
+# quietly. This file is the user's, not the build's: a name is added when they say so.
+#
+# One name per line, exactly as the splice calls itself.
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The bake's loops walk the LETTERS of one authored id, once per application, at the moment the
+# game files one -- not per tick. It shipped as `BUILD = 53` and was played. Remove this line if
+# you disagree and the build will refuse it.
+the bake
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The road walks a faction's own store once per tick and calls 11 times inside that walk. It
+# shipped as `BUILD = 60`, ran a full 94-second match and faulted nowhere, so the cost is already
+# one you have run. Measured both ways the same day: the refusal is the road's alone, present with
+# and without the load-time count. Remove this line if you disagree and the build will refuse it.
+the `Faction` rules
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# One call, and it is the console's own command runner, once per line of `game/bench/cmds.txt` -- the
+# set-up lines you asked for. It runs on the bench's start-up step and never on a tick, and with
+# no `--cmds` switch the loop is not entered at all. Remove this line if you disagree and the
+# build will refuse it.
+the console lines
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The siege walks the besieging faction's own rows ONCE PER COMPLETED OCCUPATION ACTION -- when a
+# village is pillaged or annexed, not on a tick. It is the same walk `the Faction rules` above
+# already runs every tick, over the same fields, so the cost here is a fraction of one you have
+# been running since `BUILD = 60`. Remove this line if you disagree and the build will refuse it.
+a siege action finished
+
+# ADDED ON THE USER'S WORD: the same walk as the siege, once per successful assassination.
+an assassination succeeded
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The same walk again, once per faction knocked out by losing its last main base.
+a last base fell
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER: the same walk, once per development acquired.
+a development acquired
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The column walk asks a row for its own column names and reads each one back. It runs AT LOAD,
+# once per authored row of yours while the attribute table is baked -- 86 rows, twice a launch --
+# and never on a tick. Its 5 calls are per COLUMN NAME, not per row of the game's. This is the
+# same shape as `the bake` above. Remove this line if you disagree and the build will refuse it.
+the load-time count
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The same load-time walk as the line above, now written into all THREE of the game's authoring
+# routes instead of the trait one alone -- a development and a building author rows too, and
+# leaving their routes unwalked is why a development paid a trait's resource. Same cost per row,
+# three times the rows. Remove either line if you disagree and the build will refuse it.
+the load-time count, route 1 of 3
+the load-time count, route 2 of 3
+the load-time count, route 3 of 3
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# This loop is the GAME'S OWN, cloned instruction for instruction out of the same function -- it
+# walks the applications of one attribute row on the agent's owner faction and applies the named
+# trait to the supervised region. It runs when an agent is assigned to a region, never on a tick,
+# and with one authored use of that row it runs once. The 4 calls are the game's own, at the
+# arities the game uses. Remove this line if you disagree and the build will refuse it.
+the region supervision grant
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# This is the same column walk as `the load-time count` above, run where a description is DRAWN
+# rather than at the load -- it has to be, because the kind a column names is what the drawing
+# wants and only the drawing knows which row is on screen. It runs once per description drawn,
+# never on a tick, and its 6 calls are per COLUMN of that one row: about five. A tooltip you are
+# looking at is the only thing that pays it. Remove this line if you disagree and the build will
+# refuse it.
+a numbered column asked for
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# ⚠ THIS IS THE ONE TO LOOK AT. It is the same walk as `the Faction rules` above, over the same
+# fields, and the block is the same code -- but it runs ONCE PER UNIT PER TICK instead of once
+# per faction per tick, and a match has far more units than factions. The build reports what it
+# counts; nothing has measured what it costs in a running game, and the bench run on this build
+# is the first thing that will. Remove this line if you disagree and the build will refuse it.
+the `Unit` rules
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The same walk again, over the same fields and the same block, running once per BUILDING per
+# tick. Measured on this build: 402 of its calls sit inside its own loop, against 445 for
+# `the Unit rules` above -- so the code is the same size, and what differs is how many things
+# tick through it. A match has far fewer buildings than units, so this is the cheaper of the two
+# by the count of things, and nothing has measured either in a running game. ⚠ IT IS ALSO THE
+# FIRST ROAD WHOSE DRIVER SITS ON AN INHERITED UPDATE: every structure and headquarter ticks
+# through that site and fills a place only a building reads. Remove this line if you disagree
+# and the build will refuse it.
+the `Building` rules
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The same walk once more, over the same fields and the same block, running once per STRUCTURE per
+# tick. This build's own weigher, all four roads in one line: `Structure` 493 looped, `Unit` 497,
+# `Building` 496, `Faction` 481 -- the same code four times, and nothing here is larger than what
+# already ships; the weigher re-counts every build. AND IT IS THE CHEAPEST OF THE THREE BY THE THING
+# THAT MATTERS: a Kanly match holds FIVE structures -- four villages and one main base -- where it
+# holds dozens of units. Nothing has measured any of the three in a running game. Remove this line
+# if you disagree and the build will refuse it.
+the `Structure` rules
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The same walk again, once per ZONE per tick: 536 of its calls sit inside its own loop, against
+# `Structure` 493, `Unit` 497 and `Building` 496 on this same build -- the extra ones are the zone's
+# own owner question, which is named rather than inherited because a zone is not an entity. A Kanly
+# map has 45 zones of which 26 are playable, so this road ticks more things than the structure one
+# and fewer than the unit one. Nothing has measured any of them in a running game. Remove this line
+# if you disagree and the build will refuse it.
+the `Zone` rules
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# The same walk again, once per AGENT -- 556 of its calls sit inside its own loop, in line with the
+# other five roads on this build. AND IT IS THE CHEAPEST OF THEM ALL BY THE COUNT OF THINGS: a
+# faction has a handful of agents where it has dozens of units, and this road does not even run on
+# every tick -- the game's own call to `logic.faction.Agent.updateTraits` sits behind a comparison,
+# which is a limitation of the scope and not of the cost. Remove this line if you disagree and the
+# build will refuse it.
+the `Agt` rules
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# THIS IS THE CHEAPEST LOOP IN THE FILE AND IT IS WORTH SAYING WHY, because the raw number
+# looks like the roads above: 118 looped calls against their 480-550. Three things divide it.
+# It runs for the WORLD ALONE -- `logic.Logic` is a base class, so a faction reaches the same
+# body, and an exact-class question turns every one of them away in five instructions. It runs
+# once every THREE of the game's fixed-rate steps, not every step. And what it walks is not a
+# store of authored rows but the receivers one road granted to in the window before last: in a
+# Kanly match that is five structures, five regions and four agents, so low tens across all six
+# roads, against the dozens of units each road above walks a whole store for every step.
+# ⚠ WHAT IT BUYS is the only retraction S3-S6 can have: those receivers are reached by one
+# carrier's rows and by nothing else, so when that carrier leaves, no pass touches them ever
+# again and their marks cannot be taken back from inside a pass at all.
+# Remove this line if you disagree and the build will refuse it.
+the world's own sweep
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# Each walks ONE row's own columns while the game saves or loads that row: once per row per save
+# or load, never on a tick. One call per column written, two per column read back. Remove a
+# line if you disagree and the build will refuse it.
+a row's columns are written
+a row's columns are read back
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# Once per cdb load: one name compare per sheet until `plot`, per column until `flags`, per flag.
+the NoLoseAt100 bit, read when the cdb loads
+# The same walk once per cdb load: per sheet until `building`, then per separator until `LocalSietch`.
+the LocalSietch group, read when the cdb loads
+
+# The user's: per siege-menu build, one add per authored siege action its props offer.
+the authored siege actions join the menu
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER: per siege cost asked, one add per `cost` line.
+an authored siege action's own cost, in place of the game's
+
+# ADDED BY THE ASSISTANT AND FLAGGED FOR THE USER RATHER THAN ASSUMED.
+# At load, twice a launch, never on a tick: two calls per attribute a held word adds, the same
+# calls it made before as one straight run per attribute. Remove it and the build will refuse it.
+our attributes marked in use

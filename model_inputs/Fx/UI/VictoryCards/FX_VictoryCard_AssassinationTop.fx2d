@@ -1,0 +1,420 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "object",
+			"name": "GovTop",
+			"children": [
+				{
+					"type": "object",
+					"name": "Active",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "GlowOut",
+							"y": -5,
+							"scaleX": 68,
+							"scaleY": 9,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.5,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_CardTop_Assassination_03.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.0111029251185965e-16,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.040756914119359534
+													}
+												},
+												{
+													"time": 0.042212518195050945,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.014070839398350314
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.319262493934983
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -6926564
+													},
+													{
+														"position": 1,
+														"color": -603989348
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.2,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -16777216
+													},
+													{
+														"position": 0.3125,
+														"color": -1
+													},
+													{
+														"position": 0.67578125,
+														"color": -1
+													},
+													{
+														"position": 1,
+														"color": -16777216
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										},
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Border",
+							"y": -2,
+							"scaleX": 71,
+							"scaleY": 8,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.75,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_CardTop_Assassination_01.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.02175941053939323,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.3717594105393932,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8352941176470589,
+											0.5607843137254902
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.15,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -16777216
+													},
+													{
+														"position": 0.3125,
+														"color": -1
+													},
+													{
+														"position": 0.67578125,
+														"color": -1
+													},
+													{
+														"position": 1,
+														"color": -16777216
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										},
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "FlameBorder",
+							"y": -2,
+							"scaleX": 71,
+							"scaleY": 8,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_CardTop_Assassination_02.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.02175941053939323,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.3717594105393932,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.35,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1.5,
+										"uvScaleY": 0.5,
+										"texture": "Fx/noise/T_Fire.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0.1,
+											0.1
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.15,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -16777216
+													},
+													{
+														"position": 0.3125,
+														"color": -1
+													},
+													{
+														"position": 0.67578125,
+														"color": -1
+													},
+													{
+														"position": 1,
+														"color": -16777216
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										},
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

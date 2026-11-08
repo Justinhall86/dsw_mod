@@ -1,0 +1,144 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "Unlock",
+			"children": [
+				{
+					"type": "object",
+					"name": "Border",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "circuitV01",
+							"scaleX": 160,
+							"scaleY": 160,
+							"blendMode": "Alpha",
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": false,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.75,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_Vernius04.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"prevHandle": {
+														"dv": 7.0111029251185965e-16,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.040756914119359534
+													}
+												},
+												{
+													"time": 0.042212518195050945,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.014070839398350314
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.319262493934983
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": false,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.33,
+										"saturation": 1,
+										"width": 0.8,
+										"uvScaleX": 2,
+										"uvScaleY": 1,
+										"texture": "Fx/noise/T_Fire.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											-0.075
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -95737648
+													},
+													{
+														"position": 0.48828125,
+														"color": -191889153
+													},
+													{
+														"position": 0.8515625,
+														"color": -187921665
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

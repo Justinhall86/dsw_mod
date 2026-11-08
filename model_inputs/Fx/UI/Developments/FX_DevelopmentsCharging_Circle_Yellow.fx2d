@@ -1,0 +1,406 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"enabled": false,
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "Spinner_Circle",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "1_blurry",
+					"scaleX": 1.4,
+					"scaleY": 1.4,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 1,
+								"scaleY": 0.6,
+								"scaleTime": 0.2,
+								"timeOffset": 0.5,
+								"correctTextureNormals": false,
+								"numTrails": 1,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad02.jpg",
+								"timeTexture": null
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 2
+										},
+										{
+											"time": 4,
+											"value": 0.5,
+											"mode": 2
+										},
+										{
+											"time": 8,
+											"value": 0.2,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8196078431372549,
+									0.5294117647058824,
+									0.15294117647058825
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.48,
+								"saturation": 1,
+								"width": 0.8,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "1",
+					"scaleX": 1.4,
+					"scaleY": 1.4,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 1,
+								"scaleY": 0.12,
+								"scaleTime": 0.2,
+								"timeOffset": 0.5,
+								"correctTextureNormals": false,
+								"numTrails": 1,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 2
+										},
+										{
+											"time": 4,
+											"value": 0.5,
+											"mode": 2
+										},
+										{
+											"time": 8,
+											"value": 0.2,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.9254901960784314,
+									0.8274509803921568
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.48,
+								"saturation": 1,
+								"width": 0.45,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2_blurry",
+					"scaleX": 1.45,
+					"scaleY": 1.45,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 1,
+								"scaleY": 0.6,
+								"scaleTime": 0.2,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 1,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad02.jpg",
+								"timeTexture": null
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 2
+										},
+										{
+											"time": 4,
+											"value": 0.5,
+											"mode": 2
+										},
+										{
+											"time": 8,
+											"value": 0.2,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.8196078431372549,
+									0.5294117647058824,
+									0.15294117647058825
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.48,
+								"saturation": 1,
+								"width": 0.8,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"scaleX": 1.45,
+					"scaleY": 1.45,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.12,
+								"scaleTime": 0.2,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 1,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 2
+										},
+										{
+											"time": 4,
+											"value": 0.5,
+											"mode": 2
+										},
+										{
+											"time": 8,
+											"value": 0.2,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.9254901960784314,
+									0.8274509803921568
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.48,
+								"saturation": 1,
+								"width": 0.45,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

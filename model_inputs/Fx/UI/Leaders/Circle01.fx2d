@@ -1,0 +1,78 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"scaleX": 1500,
+			"scaleY": 844,
+			"color": 328966,
+			"src": "Fx/Gradients/z_FillWhite.jpg"
+		},
+		{
+			"type": "object",
+			"name": "FXRoot",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "bitmap",
+					"scaleX": 90,
+					"scaleY": 90,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Circle_1.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.43137254901960786,
+									0.2196078431372549,
+									0.10588235294117647
+								]
+							}
+						},
+						{
+							"type": "curve",
+							"name": "rotation",
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 100,
+									"value": 1,
+									"mode": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1299 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"scaleX": 1500,
+			"scaleY": 844,
+			"color": 328966,
+			"src": "Fx/Gradients/z_FillWhite.jpg"
+		},
+		{
+			"type": "object",
+			"name": "VBanner",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "Pattern",
+					"y": 7,
+					"scaleX": 486,
+					"scaleY": 243,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Add",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_VictoryBanner_2048x1024.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keys": [
+										{
+											"time": 0.7424237836252985,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.8866349259865023,
+											"value": 0.8,
+											"mode": 2
+										},
+										{
+											"time": 1.5405001503327596,
+											"value": 0,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8549019607843137,
+									0.611764705882353
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "PatternGlow",
+					"y": 7,
+					"scaleX": 486,
+					"scaleY": 243,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_VictoryBanner_2048x1024_01.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keys": [
+										{
+											"time": 0.7424237836252985,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.8866349259865023,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5405001503327596,
+											"value": 0,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8549019607843137,
+									0.611764705882353
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.796078431372549,
+									0.5647058823529412,
+									0.15294117647058825
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "amount",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.8866763265172031,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 1.540376326517203,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.011090865344158818,
+												"dt": -0.36905743515656786
+											},
+											"nextHandle": {
+												"dv": -0.011090865344158818,
+												"dt": 0.36905743515656786
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMult",
+							"source": "shaders/AlphaMult.hx",
+							"props": {
+								"alpha": 0.5
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 1,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_VictoryBanner_2048x1024_01.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "progress",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.8866763265172031,
+											"value": 0.5,
+											"mode": 2
+										},
+										{
+											"time": 1.540376326517203,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.21789999999999998
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.21789999999999998
+											}
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Flare1",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "Flare_anticipation",
+							"scaleX": 486,
+							"scaleY": 70,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Flare07_512.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0.5239198850752673,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 0.5339198850752673,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.9491666666666667,
+														"dt": -0.009815703460109293
+													},
+													"nextHandle": {
+														"dv": 0.02319128787878777,
+														"dt": 0.1415247124834219
+													}
+												},
+												{
+													"time": 0.6779609527219628,
+													"value": 0,
+													"mode": 0
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "curve",
+									"name": "scale.x",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.5529843745800895,
+											"value": 800,
+											"mode": 2
+										},
+										{
+											"time": 0.6779609527219628,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -21.86778665657431,
+												"dt": -0.12225725094577553
+											},
+											"nextHandle": {
+												"dv": 9.972387935709339,
+												"dt": 0.049989375265498404
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.y",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.5529843745800895,
+											"value": 132.6,
+											"mode": 2
+										},
+										{
+											"time": 0.6779609527219628,
+											"value": 110.4,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.1654394481588639,
+												"dt": -0.10208070617906684
+											},
+											"nextHandle": {
+												"dv": 0.1654394481588639,
+												"dt": 0.10208070617906684
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Flare_anticipationYellow",
+							"scaleX": 486,
+							"scaleY": 70,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 2,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Flare07_512.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0.5547179427468079,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 0.5837824322516301,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.9491666666666667,
+														"dt": -0.009815703460109293
+													},
+													"nextHandle": {
+														"dv": 0.016666666666666607,
+														"dt": 0.11722628443499605
+													}
+												},
+												{
+													"time": 0.7087590103935033,
+													"value": 0,
+													"mode": 0
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.796078431372549,
+											0.5647058823529412,
+											0.15294117647058825
+										]
+									}
+								},
+								{
+									"type": "curve",
+									"name": "scale.x",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.5837824322516301,
+											"value": 800,
+											"mode": 2
+										},
+										{
+											"time": 0.7087590103935033,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -21.86778665657431,
+												"dt": -0.12225725094577553
+											},
+											"nextHandle": {
+												"dv": 9.972387935709339,
+												"dt": 0.049989375265498404
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.y",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.5837824322516301,
+											"value": 132.6,
+											"mode": 2
+										},
+										{
+											"time": 0.7087590103935033,
+											"value": 110.4,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.1654394481588639,
+												"dt": -0.10208070617906684
+											},
+											"nextHandle": {
+												"dv": 0.1654394481588639,
+												"dt": 0.10208070617906684
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Flare",
+							"scaleX": 486,
+							"scaleY": 70,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Flare07_512.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.6203551257365849,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.06991453412662173,
+														"dt": -0.4999281970269867
+													},
+													"nextHandle": {
+														"dv": 0.016666666666666607,
+														"dt": 0.11917603000866973
+													}
+												},
+												{
+													"time": 0.7703551257365848,
+													"value": 0,
+													"mode": 0
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.984313725490196,
+											0.9333333333333333,
+											0.8470588235294118
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "amount",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.6203551257365849,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 0.7703551257365848,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.05000000000000001
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.05000000000000001
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.x",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.6203551257365849,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.7703551257365848,
+											"value": 800,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -21.86778665657431,
+												"dt": -0.12225725094577553
+											},
+											"nextHandle": {
+												"dv": 9.972387935709339,
+												"dt": 0.049989375265498404
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.y",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.6203551257365849,
+											"value": 110.36980965085459,
+											"mode": 2
+										},
+										{
+											"time": 0.7703551257365848,
+											"value": 132.6257733552082,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.1654394481588639,
+												"dt": -0.10208070617906684
+											},
+											"nextHandle": {
+												"dv": 0.1654394481588639,
+												"dt": 0.10208070617906684
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "elec",
+							"y": -15,
+							"scaleX": 486,
+							"scaleY": 70,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": false,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Wave01.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.6203551257365849,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.06991453412662173,
+														"dt": -0.4999281970269867
+													},
+													"nextHandle": {
+														"dv": 0.016666666666666607,
+														"dt": 0.11917603000866973
+													}
+												},
+												{
+													"time": 0.7703551257365848,
+													"value": 0,
+													"mode": 0
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.984313725490196,
+											0.9333333333333333,
+											0.8470588235294118
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "amount",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.6203551257365849,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 0.7703551257365848,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.05000000000000001
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.05000000000000001
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.x",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.6203551257365849,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.7703551257365848,
+											"value": 800,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -21.86778665657431,
+												"dt": -0.12225725094577553
+											},
+											"nextHandle": {
+												"dv": 9.972387935709339,
+												"dt": 0.049989375265498404
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.y",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.6203551257365849,
+											"value": 110.36980965085459,
+											"mode": 2
+										},
+										{
+											"time": 0.7703551257365848,
+											"value": 140,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.1654394481588639,
+												"dt": -0.10208070617906684
+											},
+											"nextHandle": {
+												"dv": 0.1654394481588639,
+												"dt": 0.10208070617906684
+											}
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.3,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1.5,
+										"uvScaleY": 1,
+										"texture": "Fx/Gradients/Cyl05v_A.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "FlareGlow",
+							"scaleX": 486,
+							"scaleY": 70,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_circle2.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.6203551257365847,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.06991453412662173,
+														"dt": -0.4999281970269867
+													},
+													"nextHandle": {
+														"dv": 0.016666666666666607,
+														"dt": 0.11917603000866973
+													}
+												},
+												{
+													"time": 0.7703551257365846,
+													"value": 0,
+													"mode": 0
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "curve",
+									"name": "scale.x",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.6203551257365847,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.7703551257365846,
+											"value": 555.9011242226271,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -21.86778665657431,
+												"dt": -0.12225725094577553
+											},
+											"nextHandle": {
+												"dv": 9.972387935709339,
+												"dt": 0.049989375265498404
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "scale.y",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0.6203551257365847,
+											"value": 90.75782476798375,
+											"mode": 2
+										},
+										{
+											"time": 0.7703551257365846,
+											"value": 113.0137884723374,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.1654394481588639,
+												"dt": -0.10208070617906684
+											},
+											"nextHandle": {
+												"dv": 0.1654394481588639,
+												"dt": 0.10208070617906684
+											}
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Slide",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "SlideR",
+							"x": 485,
+							"scaleX": 69.99,
+							"scaleY": 242,
+							"rotation": 90,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 0.75,
+										"color": [
+											0.5647058823529412,
+											0.40784313725490196,
+											0.14901960784313725
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "UVSweep",
+									"source": "shaders/UVSweep.hx",
+									"props": {
+										"saturation": 0.19,
+										"width": 1,
+										"useU": false,
+										"progress": 1
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.1414754319201832,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.3756503533882612
+													}
+												},
+												{
+													"time": 1.2977926525792243,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.06666666666666665,
+														"dt": -0.46530271085407393
+													},
+													"nextHandle": {
+														"dv": 0.025488549168562264,
+														"dt": 0.1782209141998324
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "width",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.14113229677433914,
+													"value": 2.0201354980468773,
+													"mode": 2
+												},
+												{
+													"time": 0.5039918321068899,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.200978621678591e-16,
+														"dt": -0.15815800790691775
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.4122534718087427
+													}
+												},
+												{
+													"time": 1.2929492626505759,
+													"value": 2.0201354980468773,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMult",
+									"source": "shaders/AlphaMult.hx",
+									"props": {
+										"alpha": 0.8
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.1414754319201832,
+													"value": 0.25,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.37698029804727934
+													}
+												},
+												{
+													"time": 1.2977926525792243,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.008397073349086348,
+														"dt": -0.4913039659210231
+													},
+													"nextHandle": {
+														"dv": -0.008397073349086348,
+														"dt": 0.4913039659210231
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "SlideL",
+							"x": -485,
+							"scaleX": 69.99,
+							"scaleY": 243,
+							"rotation": 90,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 0.75,
+										"color": [
+											0.5647058823529412,
+											0.40784313725490196,
+											0.14901960784313725
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "UVSweep",
+									"source": "shaders/UVSweep.hx",
+									"props": {
+										"saturation": 0.19,
+										"width": 1,
+										"useU": false,
+										"progress": 1
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.1414754319201832,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.3756503533882612
+													}
+												},
+												{
+													"time": 1.2977926525792243,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.11388888888888804,
+														"dt": -0.470786785614545
+													},
+													"nextHandle": {
+														"dv": -0.04259560050242215,
+														"dt": 0.17813244551701254
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "width",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.14113229677433914,
+													"value": 2.0201354980468773,
+													"mode": 2
+												},
+												{
+													"time": 0.5039918321068899,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.200978621678591e-16,
+														"dt": -0.15815800790691775
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.4122534718087427
+													}
+												},
+												{
+													"time": 1.2929492626505759,
+													"value": 2.0201354980468773,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMult",
+									"source": "shaders/AlphaMult.hx",
+									"props": {
+										"alpha": 0.8
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.1414754319201832,
+													"value": 0.25,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.37698029804727934
+													}
+												},
+												{
+													"time": 1.2977926525792243,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.008397073349086348,
+														"dt": -0.4913039659210231
+													},
+													"nextHandle": {
+														"dv": -0.008397073349086348,
+														"dt": 0.4913039659210231
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "Glow",
+					"editorOnly": true,
+					"scaleX": 486.1,
+					"scaleY": 70,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMult",
+							"source": "shaders/AlphaMult.hx",
+							"props": {
+								"alpha": 0.1
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

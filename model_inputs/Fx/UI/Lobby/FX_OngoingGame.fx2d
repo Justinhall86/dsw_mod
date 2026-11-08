@@ -1,0 +1,808 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "bitmap",
+			"name": "TestV4",
+			"scaleX": 194.8,
+			"scaleY": 21.2,
+			"src": "Fx/Gradients/z_FillWhite.jpg",
+			"blendMode": "Alpha",
+			"children": [
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"onDecal": false,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 0.8,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Gradients/z_FillWhite.jpg"
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "alpha",
+							"enabled": false,
+							"keyMode": 0,
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 0.99,
+									"value": 0.95,
+									"mode": 0,
+									"prevHandle": {
+										"dv": 0,
+										"dt": -0.33
+									},
+									"nextHandle": {
+										"dv": 0,
+										"dt": 0.3316666666666667
+									}
+								},
+								{
+									"time": 1.985,
+									"value": 0.04999999999999999,
+									"mode": 2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.5,
+						"saturation": 0,
+						"width": 1,
+						"uvScaleX": 8,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Alphas/Dust03.png",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0.12
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap_pattern",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.33,
+						"saturation": 1,
+						"width": 1,
+						"uvScaleX": 8,
+						"uvScaleY": 1,
+						"texture": "Fx/Alphas/Hextile_hex02-Both.png",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0.05
+						]
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "progress",
+							"enabled": false,
+							"keyMode": 0,
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0.7,
+									"mode": 0,
+									"prevHandle": {
+										"dv": 0,
+										"dt": -0.5
+									},
+									"nextHandle": {
+										"dv": 0,
+										"dt": 0.6666666666666666
+									}
+								},
+								{
+									"time": 2,
+									"value": 0.8,
+									"mode": 0,
+									"prevHandle": {
+										"dv": 0,
+										"dt": -0.6666666666666666
+									},
+									"nextHandle": {
+										"dv": 0,
+										"dt": 0.6666666666666666
+									}
+								},
+								{
+									"time": 4,
+									"value": 0.7,
+									"mode": 0,
+									"prevHandle": {
+										"dv": 0,
+										"dt": -0.6666666666666666
+									},
+									"nextHandle": {
+										"dv": 0,
+										"dt": 0.6666666666666666
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.33,
+						"saturation": 1,
+						"width": 1,
+						"uvScaleX": 10,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Gradients/vGrad_uneaven.png",
+						"uvShift": [
+							0,
+							0.15
+						],
+						"uvShiftSpeed": [
+							0.5,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.33,
+						"saturation": 0.5,
+						"width": 1,
+						"uvScaleX": 2,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Gradients/vGrad_uneaven.png",
+						"uvShift": [
+							0,
+							0.12
+						],
+						"uvShiftSpeed": [
+							-0.25,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "GradientMap",
+					"source": "hrt.shader.GradientMap",
+					"props": {
+						"USE_ALPHA": true,
+						"gradient": {
+							"type": "gradient",
+							"data": {
+								"stops": [
+									{
+										"position": 0.23828125,
+										"color": -13167085
+									},
+									{
+										"position": 1,
+										"color": -11117
+									}
+								],
+								"resolution": 64,
+								"isVertical": false,
+								"interpolation": "Linear",
+								"colorMode": 0
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "bitmap",
+			"name": "Test2_Bottom",
+			"enabled": false,
+			"scaleX": 194.8,
+			"scaleY": 21.2,
+			"src": "Fx/Gradients/z_FillWhite.jpg",
+			"blendMode": "Alpha",
+			"children": [
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"onDecal": false,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 2,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Gradients/z_FillWhite.jpg"
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "alpha",
+							"enabled": false,
+							"keyMode": 0,
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 0.99,
+									"value": 0.95,
+									"mode": 0,
+									"prevHandle": {
+										"dv": 0,
+										"dt": -0.33
+									},
+									"nextHandle": {
+										"dv": 0,
+										"dt": 0.3316666666666667
+									}
+								},
+								{
+									"time": 1.985,
+									"value": 0.04999999999999999,
+									"mode": 2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap_Lines",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.75,
+						"saturation": 0,
+						"width": 1,
+						"uvScaleX": 4,
+						"uvScaleY": 1,
+						"texture": "Fx/noise/Lines.png",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.75,
+						"saturation": 0,
+						"width": 1,
+						"uvScaleX": 2,
+						"uvScaleY": 20,
+						"texture": "Fx/Gradients/Cyl05u_A.jpg",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.33,
+						"saturation": 1,
+						"width": 1,
+						"uvScaleX": 10,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Gradients/vGrad_uneaven.png",
+						"uvShift": [
+							0,
+							0.15
+						],
+						"uvShiftSpeed": [
+							0.5,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.33,
+						"saturation": 0.5,
+						"width": 1,
+						"uvScaleX": 2,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Gradients/vGrad_uneaven.png",
+						"uvShift": [
+							0,
+							0.15
+						],
+						"uvShiftSpeed": [
+							-0.25,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "GradientMap",
+					"source": "hrt.shader.GradientMap",
+					"enabled": false,
+					"props": {
+						"USE_ALPHA": true,
+						"gradient": {
+							"type": "gradient",
+							"data": {
+								"stops": [
+									{
+										"position": 0.20703125,
+										"color": -15204273
+									},
+									{
+										"position": 1,
+										"color": -4600065
+									}
+								],
+								"resolution": 64,
+								"isVertical": false,
+								"interpolation": "Linear",
+								"colorMode": 0
+							}
+						}
+					}
+				},
+				{
+					"type": "shader",
+					"name": "GradientMap",
+					"source": "hrt.shader.GradientMap",
+					"props": {
+						"USE_ALPHA": true,
+						"gradient": {
+							"type": "gradient",
+							"data": {
+								"stops": [
+									{
+										"position": 0.2109375,
+										"color": -13167856
+									},
+									{
+										"position": 1,
+										"color": -11117
+									}
+								],
+								"resolution": 64,
+								"isVertical": false,
+								"interpolation": "Linear",
+								"colorMode": 0
+							}
+						}
+					}
+				},
+				{
+					"type": "shader",
+					"name": "MaskColorAlpha",
+					"source": "hrt.shader.MaskColorAlpha",
+					"enabled": false,
+					"props": {
+						"UVScale": [
+							6,
+							0.5
+						],
+						"alpha": 5,
+						"MULTIPLY": false,
+						"color": [
+							0.7254901960784313,
+							0.807843137254902,
+							1,
+							1
+						],
+						"mask": "Fx/Alphas/Dust04.png",
+						"UVOffset": [
+							0,
+							0
+						]
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "UVOffset.y",
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 4,
+									"value": 1,
+									"mode": 2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "shader",
+					"name": "MaskColorAlpha",
+					"source": "hrt.shader.MaskColorAlpha",
+					"props": {
+						"UVScale": [
+							6,
+							0.5
+						],
+						"alpha": 5,
+						"MULTIPLY": false,
+						"color": [
+							1,
+							0.8313725490196078,
+							0.5764705882352941,
+							1
+						],
+						"mask": "Fx/Alphas/Dust04.png",
+						"UVOffset": [
+							0,
+							0
+						]
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "UVOffset.y",
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 4,
+									"value": 1,
+									"mode": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "bitmap",
+			"name": "TestV2",
+			"enabled": false,
+			"scaleX": 194.8,
+			"scaleY": 21.2,
+			"src": "Fx/Gradients/z_FillWhite.jpg",
+			"blendMode": "Alpha",
+			"children": [
+				{
+					"type": "shader",
+					"name": "AlphaMap",
+					"source": "shaders/AlphaMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"onDecal": false,
+						"wrap": true,
+						"invert": false,
+						"replace": false,
+						"alpha": 2,
+						"uScale": 1,
+						"vScale": 1,
+						"uOffset": 0,
+						"vOffset": 0,
+						"texture": "Fx/Gradients/z_FillWhite.jpg"
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "alpha",
+							"enabled": false,
+							"keyMode": 0,
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 0.99,
+									"value": 0.95,
+									"mode": 0,
+									"prevHandle": {
+										"dv": 0,
+										"dt": -0.33
+									},
+									"nextHandle": {
+										"dv": 0,
+										"dt": 0.3316666666666667
+									}
+								},
+								{
+									"time": 1.985,
+									"value": 0.04999999999999999,
+									"mode": 2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap_Lines",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.75,
+						"saturation": 0,
+						"width": 1,
+						"uvScaleX": 4,
+						"uvScaleY": 1,
+						"texture": "Fx/noise/Lines.png",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.75,
+						"saturation": 0,
+						"width": 1,
+						"uvScaleX": 2,
+						"uvScaleY": 20,
+						"texture": "Fx/Gradients/Cyl05u_A.jpg",
+						"uvShift": [
+							0,
+							0
+						],
+						"uvShiftSpeed": [
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.67,
+						"saturation": 1,
+						"width": 1,
+						"uvScaleX": 10,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Gradients/vGrad_uneaven.png",
+						"uvShift": [
+							0,
+							0.45
+						],
+						"uvShiftSpeed": [
+							0.5,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "DissolveMap",
+					"source": "shaders/DissolveMap.hx",
+					"props": {
+						"useSourceUVs": true,
+						"useScale": true,
+						"wrap": true,
+						"progress": 0.67,
+						"saturation": 0.5,
+						"width": 1,
+						"uvScaleX": 2,
+						"uvScaleY": 0.5,
+						"texture": "Fx/Gradients/vGrad_uneaven.png",
+						"uvShift": [
+							0,
+							0.5
+						],
+						"uvShiftSpeed": [
+							-0.25,
+							0
+						]
+					}
+				},
+				{
+					"type": "shader",
+					"name": "GradientMap",
+					"source": "hrt.shader.GradientMap",
+					"enabled": false,
+					"props": {
+						"USE_ALPHA": true,
+						"gradient": {
+							"type": "gradient",
+							"data": {
+								"stops": [
+									{
+										"position": 0.20703125,
+										"color": -16770993
+									},
+									{
+										"position": 1,
+										"color": -4600065
+									}
+								],
+								"resolution": 64,
+								"isVertical": false,
+								"interpolation": "Linear",
+								"colorMode": 0
+							}
+						}
+					}
+				},
+				{
+					"type": "shader",
+					"name": "GradientMap",
+					"source": "hrt.shader.GradientMap",
+					"props": {
+						"USE_ALPHA": true,
+						"gradient": {
+							"type": "gradient",
+							"data": {
+								"stops": [
+									{
+										"position": 0.20703125,
+										"color": -15204273
+									},
+									{
+										"position": 1,
+										"color": -4600065
+									}
+								],
+								"resolution": 64,
+								"isVertical": false,
+								"interpolation": "Linear",
+								"colorMode": 0
+							}
+						}
+					}
+				},
+				{
+					"type": "shader",
+					"name": "MaskColorAlpha",
+					"source": "hrt.shader.MaskColorAlpha",
+					"props": {
+						"UVScale": [
+							6,
+							0.45
+						],
+						"alpha": 5,
+						"MULTIPLY": false,
+						"color": [
+							0.7254901960784313,
+							0.807843137254902,
+							1,
+							1
+						],
+						"mask": "Fx/Alphas/Dust04.png",
+						"UVOffset": [
+							0,
+							0
+						]
+					},
+					"children": [
+						{
+							"type": "curve",
+							"name": "UVOffset.y",
+							"loop": true,
+							"keys": [
+								{
+									"time": 0,
+									"value": 1,
+									"mode": 2
+								},
+								{
+									"time": 4,
+									"value": 0,
+									"mode": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

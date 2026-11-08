@@ -1,0 +1,318 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"enabled": false,
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "Bloc",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "Bloc",
+					"x": 1,
+					"scaleX": 44,
+					"scaleY": 22,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.5,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Border_256x128_01.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.1,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.03333333333333333
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.03333333333333333
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.10980392156862745,
+									0.6470588235294118,
+									0.4784313725490196
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.55,
+								"saturation": 0,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/noise/NoisyWave_01.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									-0.025,
+									-0.1
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.58,
+								"saturation": 0,
+								"width": 0.42,
+								"uvScaleX": 0.5,
+								"uvScaleY": 0.5,
+								"texture": "Fx/noise/Water_01.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0.1,
+									0.05
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap_IconMask",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.8,
+								"saturation": 1,
+								"width": 0.6,
+								"uvScaleX": 1.5,
+								"uvScaleY": 0.75,
+								"texture": "Fx/Alphas/T_circle3.png",
+								"uvShift": [
+									0.75,
+									0.4
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "BlocDetail",
+					"x": 1,
+					"scaleX": 40,
+					"scaleY": 20,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Add",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Border_256x128.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.1,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.03333333333333333
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.03333333333333333
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.58,
+								"saturation": 0,
+								"width": 0.42,
+								"uvScaleX": 0.5,
+								"uvScaleY": 0.5,
+								"texture": "Fx/noise/Water_01.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0.1,
+									0.05
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.51,
+								"saturation": 0,
+								"width": 1,
+								"uvScaleX": 0.75,
+								"uvScaleY": 0.75,
+								"texture": "Fx/noise/T_ElecNoise01.png",
+								"uvShift": [
+									0.1,
+									0
+								],
+								"uvShiftSpeed": [
+									-0.04,
+									-0.025
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "GradientMap",
+							"source": "hrt.shader.GradientMap",
+							"props": {
+								"USE_ALPHA": true,
+								"gradient": {
+									"type": "gradient",
+									"data": {
+										"stops": [
+											{
+												"position": 0,
+												"color": 4280067450
+											},
+											{
+												"position": 1,
+												"color": -202800
+											}
+										],
+										"resolution": 64,
+										"isVertical": false,
+										"interpolation": "Linear",
+										"colorMode": 0
+									}
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap_IconMask",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.8,
+								"saturation": 1,
+								"width": 0.6,
+								"uvScaleX": 1.5,
+								"uvScaleY": 0.75,
+								"texture": "Fx/Alphas/T_circle3.png",
+								"uvShift": [
+									0.75,
+									0.4
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

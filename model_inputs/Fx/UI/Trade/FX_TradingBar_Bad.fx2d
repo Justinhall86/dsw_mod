@@ -1,0 +1,235 @@
+{
+	"type": "fx2d",
+	"duration": 1,
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 5,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "Border",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "GaugeAura",
+					"scaleX": 4,
+					"scaleY": 4,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_GaugeElement_aura.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 0.15,
+											"value": 0,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.4980392156862745,
+									0.4980392156862745
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.7843137254901961,
+									0.22352941176470587,
+									0.22352941176470587
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "amount",
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.15,
+											"value": 1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "Gauge",
+					"scaleX": 4,
+					"scaleY": 4,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_GaugeElement.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.99,
+											"value": 0.95,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.33
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.3316666666666667
+											}
+										},
+										{
+											"time": 1.985,
+											"value": 0.04999999999999999,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.4980392156862745,
+									0.4980392156862745
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.7843137254901961,
+									0.22352941176470587,
+									0.22352941176470587
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "amount",
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.15,
+											"value": 1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "curve",
+							"name": "scale",
+							"enabled": false,
+							"keys": [
+								{
+									"time": 0,
+									"value": 3,
+									"mode": 2
+								},
+								{
+									"time": 0.1,
+									"value": 4,
+									"mode": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

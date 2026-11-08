@@ -1,0 +1,143 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_PreviewScene",
+			"source": "Fx/FX_PreviewScene.l3d",
+			"z": 0.5
+		},
+		{
+			"type": "polygon",
+			"name": "polygon",
+			"x": -0.52,
+			"y": 0.16,
+			"z": 0.7,
+			"scaleX": 50,
+			"scaleY": 50,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "BeforeTonemapping",
+							"blend": "Alpha",
+							"shadows": false,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Fx/Gradients/z_FillGrey50.jpg",
+					"children": [
+						{
+							"type": "wind",
+							"name": "wind",
+							"props": {
+								"layer1Tex": "Fx/Wind/Wind_Layer01_Texture.png",
+								"layer1Scale": 0.71,
+								"layer1Blend": 2,
+								"PREVIEW": true,
+								"layer1Add": false,
+								"layer1Speed": 0.23,
+								"worldSize": 20,
+								"layer2Tex": "Fx/Wind/Wind_Layer02_Texture.png",
+								"layer2Blend": 7,
+								"layer2Scale": 0.8,
+								"layer2Speed": 0.33,
+								"layer2Add": false,
+								"worldScale": 10,
+								"LAYER1": true,
+								"LAYER2": true,
+								"globalScale": 15,
+								"layer3Tex": "Fx/Wind/Wind_Layer03_Texture.png",
+								"layer3Add": false,
+								"LAYER3": true,
+								"layer3Blend": 0.68,
+								"layer3Scale": 0.39,
+								"layer3Speed": 0.02,
+								"globalSpeed": 0.15,
+								"dirAngleSharp": 0.85,
+								"heightTex": null,
+								"LAYER4": true,
+								"layer4Blend": 1.3,
+								"layer4Tex": "Fx/Wind/Wind_Layer04_Texture.png",
+								"layer4Scale": 1,
+								"layer4Speed": 0.65,
+								"layer4Add": false,
+								"adjustH": 0.01,
+								"adjustS": 0.05,
+								"adjustL": 1,
+								"pixelSize": 0,
+								"texelSize": 0,
+								"layer1Color": 16777215,
+								"layer2Color": 16777215,
+								"globalAlpha": 0.41,
+								"levelMax": 1,
+								"layer1Cycle": 1,
+								"layer1UseCycle": false,
+								"layer3Color": 16777215,
+								"layer4Color": 16777215,
+								"layer3UseCycle": false,
+								"layer3Cycle": 1,
+								"layer2Mult": false,
+								"layer3Mult": true,
+								"layer4UseCycle": true,
+								"layer4Mult": false,
+								"layer4Cycle": 2,
+								"layer2UseCycle": false,
+								"layer2Cycle": 3,
+								"layer1Levels": [
+									0,
+									1
+								],
+								"layer1Mult": false,
+								"layer2Levels": [
+									0,
+									1
+								],
+								"layer3Levels": [
+									0,
+									1
+								],
+								"layer4Levels": [
+									0,
+									0.5
+								],
+								"levelMin": 0,
+								"layer4MaskTex": "Fx/Wind/Wind_Layer04_Mask.png",
+								"layer4UseMask": true,
+								"layer4MaskScale": 0.86,
+								"layer4MaskSpeed": 1.5,
+								"layer1MaskTex": "Fx/Wind/Wind_Layer01_Texture.png",
+								"layer1UseMask": true,
+								"layer1MaskScale": 0.68,
+								"layer1MaskSpeed": 0.07,
+								"layer2MaskScale": 0.51,
+								"layer2MaskSpeed": 0.03,
+								"layer2MaskTex": "Fx/Wind/Wind_Layer02_Mask.png",
+								"layer2UseMask": true,
+								"alphaLevelMax": 1,
+								"alphaLevelMin": 0,
+								"layer3MaskTex": "Fx/Wind/Wind_Layer03_Mask.png",
+								"layer3MaskScale": 0.23,
+								"layer3MaskSpeed": 0.24,
+								"layer3UseMask": false,
+								"depthRange": 5,
+								"depthPower": 1,
+								"zOffset": 0.86,
+								"envColorBlend": 1.18
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,275 @@
+{
+	"type": "shgraph",
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Blend",
+			"type": [
+				"TFloat",
+				""
+			],
+			"defaultValue": 1,
+			"index": 0
+		},
+		{
+			"id": 1,
+			"name": "_pixelColor",
+			"type": [
+				"TVec",
+				"4,VFloat"
+			],
+			"defaultValue": [
+				0,
+				0,
+				0,
+				1
+			],
+			"index": 1
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 287,
+				"y": 473,
+				"id": 1,
+				"type": "hrt.shgraph.nodes.Split",
+				"properties": {}
+			},
+			{
+				"x": 1304,
+				"y": 622,
+				"id": 2,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"variable": "_sg_out_color"
+				}
+			},
+			{
+				"x": 852,
+				"y": 420,
+				"id": 3,
+				"type": "hrt.shgraph.nodes.Combine",
+				"properties": {}
+			},
+			{
+				"x": 615,
+				"y": 227,
+				"id": 8,
+				"type": "hrt.shgraph.nodes.SmoothStep",
+				"properties": {}
+			},
+			{
+				"x": 284,
+				"y": 213,
+				"id": 9,
+				"type": "hrt.shgraph.nodes.FloatConst",
+				"properties": {
+					"value": 0,
+					"name": ""
+				}
+			},
+			{
+				"x": 290,
+				"y": 285,
+				"id": 10,
+				"type": "hrt.shgraph.nodes.FloatConst",
+				"properties": {
+					"value": 1,
+					"name": ""
+				}
+			},
+			{
+				"x": 614,
+				"y": 335,
+				"id": 11,
+				"type": "hrt.shgraph.nodes.SmoothStep",
+				"properties": {}
+			},
+			{
+				"x": 613,
+				"y": 444,
+				"id": 12,
+				"type": "hrt.shgraph.nodes.SmoothStep",
+				"properties": {}
+			},
+			{
+				"x": 543,
+				"y": 851,
+				"id": 13,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 1086,
+				"y": 621,
+				"id": 14,
+				"type": "hrt.shgraph.nodes.Mix",
+				"properties": {}
+			},
+			{
+				"x": 79,
+				"y": 605,
+				"id": 15,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 1,
+					"perInstance": null
+				}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 15,
+				"nameOutput": "output",
+				"inputNodeId": 1,
+				"nameInput": "rgba",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 14,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "a",
+				"inputNodeId": 3,
+				"nameInput": "a",
+				"inputId": 3,
+				"outputId": 3
+			},
+			{
+				"outputNodeId": 8,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "r",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 11,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "g",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 12,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "b",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 9,
+				"nameOutput": "output",
+				"inputNodeId": 8,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 10,
+				"nameOutput": "output",
+				"inputNodeId": 8,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "r",
+				"inputNodeId": 8,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 9,
+				"nameOutput": "output",
+				"inputNodeId": 11,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 10,
+				"nameOutput": "output",
+				"inputNodeId": 11,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "g",
+				"inputNodeId": 11,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 1
+			},
+			{
+				"outputNodeId": 9,
+				"nameOutput": "output",
+				"inputNodeId": 12,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 10,
+				"nameOutput": "output",
+				"inputNodeId": 12,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "b",
+				"inputNodeId": 12,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 2
+			},
+			{
+				"outputNodeId": 13,
+				"nameOutput": "output",
+				"inputNodeId": 14,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 3,
+				"nameOutput": "output",
+				"inputNodeId": 14,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 15,
+				"nameOutput": "output",
+				"inputNodeId": 14,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			}
+		]
+	}
+}

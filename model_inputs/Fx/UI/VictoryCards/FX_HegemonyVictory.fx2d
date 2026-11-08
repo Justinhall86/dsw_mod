@@ -1,0 +1,225 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "object",
+			"name": "Flares",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "Flare",
+					"x": -0.25,
+					"y": 5,
+					"scaleX": 36,
+					"scaleY": 36,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Add",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_Flare07_glow.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keyMode": 1,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 7.0111029251185965e-16,
+												"dt": -0.5
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.040756914119359534
+											}
+										},
+										{
+											"time": 0.31033828627922916,
+											"value": 1,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.014070839398350314
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.319262493934983
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 6000,
+											"value": -360,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 0,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_Vcard_HegeMask.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8549019607843137,
+									0.611764705882353
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "fond",
+					"y": 5,
+					"scaleX": 7.5,
+					"scaleY": 7.5,
+					"rotation": 45,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Add",
+					"children": [
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8549019607843137,
+									0.611764705882353
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMult",
+							"source": "shaders/AlphaMult.hx",
+							"props": {
+								"alpha": 0.5
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keyMode": 1,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 7.0111029251185965e-16,
+												"dt": -0.5
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.040756914119359534
+											}
+										},
+										{
+											"time": 0.042212518195050945,
+											"value": 1,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.014070839398350314
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.319262493934983
+											}
+										},
+										{
+											"time": 1,
+											"value": 0.3,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.016666666666666663,
+												"dt": -0.9039301310043668
+											},
+											"nextHandle": {
+												"dv": -0.006145993105000916,
+												"dt": 0.33333290115329406
+											}
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

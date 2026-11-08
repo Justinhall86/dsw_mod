@@ -1,0 +1,352 @@
+{
+	"type": "shgraph",
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Vign_Tex",
+			"type": [
+				"TSampler2D",
+				""
+			],
+			"defaultValue": "Fx/PostProcess/PP_Vignette.png",
+			"index": 0
+		},
+		{
+			"id": 1,
+			"name": "Vign_Multiply",
+			"type": [
+				"TFloat",
+				""
+			],
+			"defaultValue": 1,
+			"index": 1
+		},
+		{
+			"id": 2,
+			"name": "Contrast",
+			"type": [
+				"TFloat",
+				""
+			],
+			"defaultValue": 1,
+			"index": 2
+		},
+		{
+			"id": 3,
+			"name": "Vign_Lighten",
+			"type": [
+				"TFloat",
+				""
+			],
+			"defaultValue": 0,
+			"index": 3
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 2380,
+				"y": 218,
+				"id": 0,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"variable": "_sg_out_color"
+				}
+			},
+			{
+				"x": 369,
+				"y": 11,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderInput",
+				"properties": {
+					"variable": "pixelColor"
+				}
+			},
+			{
+				"x": 585,
+				"y": 1052,
+				"id": 2,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 1333,
+				"y": 325,
+				"id": 3,
+				"type": "hrt.shgraph.nodes.Multiply",
+				"properties": {}
+			},
+			{
+				"x": 810,
+				"y": 1121,
+				"id": 4,
+				"type": "hrt.shgraph.nodes.Sampler",
+				"properties": {}
+			},
+			{
+				"x": 576,
+				"y": 1191,
+				"id": 5,
+				"type": "hrt.shgraph.ShaderInput",
+				"properties": {
+					"variable": "uv"
+				}
+			},
+			{
+				"x": 1606,
+				"y": 267,
+				"id": 6,
+				"type": "hrt.shgraph.nodes.Mix",
+				"properties": {}
+			},
+			{
+				"x": 1464,
+				"y": 463,
+				"id": 7,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 1,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 1725,
+				"y": 1,
+				"id": 10,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 2,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 1916,
+				"y": 209,
+				"id": 12,
+				"type": "hrt.shgraph.nodes.SubGraph",
+				"properties": {
+					"pathShaderGraph": "Fx/ShaderNodes/Color_Contrast.shgraph"
+				}
+			},
+			{
+				"x": 889,
+				"y": 320,
+				"id": 14,
+				"type": "hrt.shgraph.nodes.Multiply",
+				"properties": {}
+			},
+			{
+				"x": 749,
+				"y": 409,
+				"id": 15,
+				"type": "hrt.shgraph.nodes.Add",
+				"properties": {
+					"defaults": {
+						"b": "1"
+					}
+				}
+			},
+			{
+				"x": 1044,
+				"y": 260,
+				"id": 16,
+				"type": "hrt.shgraph.nodes.Mix",
+				"properties": {}
+			},
+			{
+				"x": 921,
+				"y": 503,
+				"id": 18,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 3,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 2187,
+				"y": 389,
+				"id": 19,
+				"type": "hrt.shgraph.nodes.StripAlpha",
+				"properties": {}
+			},
+			{
+				"x": 2432,
+				"y": 529,
+				"id": 20,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"variable": "_sg_out_alpha"
+				}
+			},
+			{
+				"x": 591,
+				"y": 89,
+				"id": 21,
+				"type": "hrt.shgraph.nodes.CombineAlpha",
+				"properties": {}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 19,
+				"nameOutput": "rgb",
+				"inputNodeId": 0,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 16,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 4,
+				"nameOutput": "RGBA",
+				"inputNodeId": 3,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 2,
+				"nameOutput": "output",
+				"inputNodeId": 4,
+				"nameInput": "texture",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 5,
+				"nameOutput": "output",
+				"inputNodeId": 4,
+				"nameInput": "uv",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 3,
+				"nameOutput": "output",
+				"inputNodeId": 6,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 16,
+				"nameOutput": "output",
+				"inputNodeId": 6,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 7,
+				"nameOutput": "output",
+				"inputNodeId": 6,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 10,
+				"nameOutput": "output",
+				"inputNodeId": 12,
+				"nameInput": "Blend",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 6,
+				"nameOutput": "output",
+				"inputNodeId": 12,
+				"nameInput": "_pixelColor",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 15,
+				"nameOutput": "output",
+				"inputNodeId": 14,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 21,
+				"nameOutput": "output",
+				"inputNodeId": 14,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 4,
+				"nameOutput": "RGBA",
+				"inputNodeId": 15,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 14,
+				"nameOutput": "output",
+				"inputNodeId": 16,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 18,
+				"nameOutput": "output",
+				"inputNodeId": 16,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 21,
+				"nameOutput": "output",
+				"inputNodeId": 16,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 12,
+				"nameOutput": "_sg_out_color",
+				"inputNodeId": 19,
+				"nameInput": "rgba",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 19,
+				"nameOutput": "a",
+				"inputNodeId": 20,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 1
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "output",
+				"inputNodeId": 21,
+				"nameInput": "rgb",
+				"inputId": 0,
+				"outputId": 0
+			}
+		]
+	}
+}

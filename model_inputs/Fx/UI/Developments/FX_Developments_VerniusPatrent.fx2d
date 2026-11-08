@@ -1,0 +1,148 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"name": "background",
+			"enabled": false,
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg",
+			"type": "bitmap"
+		},
+		{
+			"name": "gaugeinside",
+			"type": "object",
+			"children": [
+				{
+					"name": "bitmap",
+					"y": 0.5,
+					"scaleX": 16,
+					"scaleY": 0.5,
+					"blendMode": "Add",
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"type": "bitmap",
+					"children": [
+						{
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.35,
+								"saturation": 0,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/Cyl05v_A.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									-0.5,
+									0
+								]
+							},
+							"type": "shader"
+						},
+						{
+							"name": "AlphaMult",
+							"source": "shaders/AlphaMult.hx",
+							"props": {
+								"alpha": 1.5
+							},
+							"type": "shader"
+						},
+						{
+							"name": "GradientMap",
+							"source": "hrt.shader.GradientMap",
+							"props": {
+								"USE_ALPHA": true,
+								"gradient": {
+									"type": "gradient",
+									"data": {
+										"stops": [
+											{
+												"position": 0,
+												"color": -2979801
+											},
+											{
+												"position": 1,
+												"color": -1
+											}
+										],
+										"resolution": 64,
+										"isVertical": false,
+										"interpolation": "Linear",
+										"colorMode": 0
+									}
+								}
+							},
+							"type": "shader"
+						},
+						{
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.4,
+								"saturation": 0,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 0.025,
+								"texture": "Fx/Alphas/Dust06.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							},
+							"type": "shader"
+						},
+						{
+							"name": "GradientMap",
+							"source": "hrt.shader.GradientMap",
+							"enabled": false,
+							"props": {
+								"USE_ALPHA": true,
+								"gradient": {
+									"type": "gradient",
+									"data": {
+										"stops": [
+											{
+												"position": 0,
+												"color": -95737648
+											},
+											{
+												"position": 0.6015625,
+												"color": -191889153
+											},
+											{
+												"position": 1,
+												"color": -187921665
+											}
+										],
+										"resolution": 64,
+										"isVertical": false,
+										"interpolation": "Linear",
+										"colorMode": 0
+									}
+								}
+							},
+							"type": "shader"
+						}
+					]
+				}
+			]
+		}
+	]
+}
