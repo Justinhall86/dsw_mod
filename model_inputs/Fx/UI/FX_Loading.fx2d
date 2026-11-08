@@ -1,0 +1,590 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "Moons",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "MoonBig",
+					"scaleX": 21,
+					"scaleY": 21,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle_moon.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.27608557412790696,
+											"mode": 2
+										},
+										{
+											"time": 6,
+											"value": -0.275,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "MoonSmall",
+					"scaleX": 13.5,
+					"scaleY": 13.5,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle_moon_128.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.27608557412790696,
+											"mode": 2
+										},
+										{
+											"time": 3,
+											"value": -0.275,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"scaleX": 18,
+					"scaleY": 3,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Line_128x16.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Moons",
+			"enabled": false,
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "MoonBig",
+					"scaleX": 21,
+					"scaleY": 21,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle_moon.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.27608557412790696,
+											"mode": 2
+										},
+										{
+											"time": 6,
+											"value": -0.275,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "MoonSmall",
+					"scaleX": 13.5,
+					"scaleY": 13.5,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle_moon_128.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.27608557412790696,
+											"mode": 2
+										},
+										{
+											"time": 3,
+											"value": -0.275,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"scaleX": 18,
+					"scaleY": 3,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Line_128x16.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

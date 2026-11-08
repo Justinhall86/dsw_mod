@@ -1,0 +1,1239 @@
+{
+	"type": "fx2d",
+	"startLoop": 2.69,
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"enabled": false,
+			"editorOnly": true,
+			"scaleX": 20,
+			"scaleY": 10,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "PauseIn_Landsraad",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "01",
+					"y": 8,
+					"scaleX": 480,
+					"scaleY": 270,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Add",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 3,
+								"uScale": 11,
+								"vScale": 8,
+								"uOffset": 0.215,
+								"vOffset": 0.18,
+								"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03-1.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.94,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_PauseMask_512.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap_Bande",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 1,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/Cyl05u_A.jpg",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "progress",
+									"enabled": false,
+									"keys": [
+										{
+											"time": 0.24744897959183665,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.9974489795918366,
+											"value": 0.5,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "progress",
+									"keys": [
+										{
+											"time": 0.24744897959183665,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 1.25,
+											"value": 0.5,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.44,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 5,
+								"uvScaleY": 5,
+								"texture": "Fx/Alphas/Dust03.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "GradientMap",
+							"source": "hrt.shader.GradientMap",
+							"props": {
+								"USE_ALPHA": true,
+								"gradient": {
+									"type": "gradient",
+									"data": {
+										"stops": [
+											{
+												"position": 0,
+												"color": -12107989
+											},
+											{
+												"position": 0.4296875,
+												"color": -1
+											}
+										],
+										"resolution": 64,
+										"isVertical": false,
+										"interpolation": "Linear",
+										"colorMode": 0
+									}
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "GradientMap",
+							"source": "hrt.shader.GradientMap",
+							"enabled": false,
+							"props": {
+								"USE_ALPHA": true,
+								"gradient": {
+									"type": "gradient",
+									"data": {
+										"stops": [
+											{
+												"position": 0.15234375,
+												"color": -3985920
+											},
+											{
+												"position": 1,
+												"color": -1
+											}
+										],
+										"resolution": 64,
+										"isVertical": false,
+										"interpolation": "Linear",
+										"colorMode": 0
+									}
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"enabled": false,
+							"props": {
+								"amount": 1,
+								"color": [
+									0.7568627450980392,
+									0.16078431372549018,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "MaskColorAlpha",
+							"source": "hrt.shader.MaskColorAlpha",
+							"enabled": false,
+							"props": {
+								"UVScale": [
+									5,
+									5
+								],
+								"alpha": 1,
+								"MULTIPLY": false,
+								"color": [
+									1,
+									0.9294117647058824,
+									0.9058823529411765,
+									1
+								],
+								"mask": "Fx/Alphas/Dust03.png",
+								"UVOffset": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "01",
+					"enabled": false,
+					"y": 8,
+					"scaleX": 480,
+					"scaleY": 270,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Add",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 3,
+								"uScale": 11,
+								"vScale": 8,
+								"uOffset": 0.215,
+								"vOffset": 0.18,
+								"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.94,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_PauseMask_512.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap_Bande",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 1,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/Cyl05u_A.jpg",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "progress",
+									"enabled": false,
+									"keys": [
+										{
+											"time": 0.24744897959183665,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 0.9974489795918366,
+											"value": 0.5,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "progress",
+									"keys": [
+										{
+											"time": 0.24744897959183665,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 1.25,
+											"value": 0.5,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": true,
+								"wrap": true,
+								"progress": 0.44,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 5,
+								"uvScaleY": 5,
+								"texture": "Fx/Alphas/Dust03.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "GradientMap",
+							"source": "hrt.shader.GradientMap",
+							"props": {
+								"USE_ALPHA": true,
+								"gradient": {
+									"type": "gradient",
+									"data": {
+										"stops": [
+											{
+												"position": 0,
+												"color": -12107989
+											},
+											{
+												"position": 0.4296875,
+												"color": -1
+											}
+										],
+										"resolution": 64,
+										"isVertical": false,
+										"interpolation": "Linear",
+										"colorMode": 0
+									}
+								}
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"enabled": false,
+							"props": {
+								"amount": 1,
+								"color": [
+									0.7137254901960784,
+									0.7137254901960784,
+									0.7137254901960784
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "MotionIn",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "Motion1",
+							"y": 8,
+							"scaleX": 480,
+							"scaleY": 270,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.4,
+										"uScale": 11,
+										"vScale": 8,
+										"uOffset": 0.215,
+										"vOffset": 0.18,
+										"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03_Mask07.png"
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap_CenterMask",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.94,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/T_UI_PauseMask_512.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 11,
+										"uvScaleY": 8,
+										"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03_Mask.png",
+										"uvShift": [
+											0.215,
+											0.18
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 0
+												},
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 0
+												},
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.16666666666666666
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "width",
+											"keys": [
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.3333333333333333
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap_Bande",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Gradients/Cyl05u_A.jpg",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keys": [
+												{
+													"time": 0.24744897959183665,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 1.25,
+													"value": 0.5,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -12107989
+													},
+													{
+														"position": 0.4296875,
+														"color": -4483255
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"enabled": false,
+									"props": {
+										"amount": 1,
+										"color": [
+											0.7137254901960784,
+											0.7137254901960784,
+											0.7137254901960784
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"enabled": false,
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -3985920
+													},
+													{
+														"position": 1,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Motion1",
+							"y": 8,
+							"scaleX": 480,
+							"scaleY": 270,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.4,
+										"uScale": 11,
+										"vScale": 8,
+										"uOffset": 0.215,
+										"vOffset": 0.18,
+										"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03_Mask03.png"
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap_CenterMask",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.94,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/T_UI_PauseMask_512.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 11,
+										"uvScaleY": 8,
+										"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03_Mask.png",
+										"uvShift": [
+											0.215,
+											0.18
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 0
+												},
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.16666666666666666
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "width",
+											"keys": [
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 0.25,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 1.25,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.3333333333333333
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap_Bande",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Gradients/Cyl05u_A.jpg",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keys": [
+												{
+													"time": 0.24744897959183665,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 1.25,
+													"value": 0.5,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -12107989
+													},
+													{
+														"position": 0.4296875,
+														"color": -4483255
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"enabled": false,
+									"props": {
+										"amount": 1,
+										"color": [
+											0.7137254901960784,
+											0.7137254901960784,
+											0.7137254901960784
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"enabled": false,
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -3985920
+													},
+													{
+														"position": 1,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Motion2",
+							"y": 8,
+							"scaleX": 480,
+							"scaleY": 270,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.4,
+										"uScale": 11,
+										"vScale": 8,
+										"uOffset": 0.215,
+										"vOffset": 0.18,
+										"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03_Mask02.png"
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap_CenterMask",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.94,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/T_UI_PauseMask_512.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 11,
+										"uvScaleY": 8,
+										"texture": "Fx/Alphas/T_UI_PausePattern_Landsraad03_Mask.png",
+										"uvShift": [
+											0.215,
+											0.18
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keys": [
+												{
+													"time": 0.39148302400201995,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 1.39148302400202,
+													"value": 0,
+													"mode": 2
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "width",
+											"keys": [
+												{
+													"time": 0.39148302400201995,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 1.39148302400202,
+													"value": 0,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.4156862745098039,
+											0.3607843137254902,
+											0.25098039215686274
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap_Bande",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Gradients/Cyl05u_A.jpg",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keys": [
+												{
+													"time": 0.24744897959183665,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 1.25,
+													"value": 0.5,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -12107989
+													},
+													{
+														"position": 0.4296875,
+														"color": -4483255
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"enabled": false,
+									"props": {
+										"amount": 1,
+										"color": [
+											0.26666666666666666,
+											0.6352941176470588,
+											0.6705882352941176
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"enabled": false,
+									"props": {
+										"amount": 1,
+										"color": [
+											0.7137254901960784,
+											0.7137254901960784,
+											0.7137254901960784
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "hrt.shader.GradientMap",
+									"enabled": false,
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -3985920
+													},
+													{
+														"position": 1,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

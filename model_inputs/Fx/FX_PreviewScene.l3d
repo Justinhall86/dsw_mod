@@ -1,0 +1,36 @@
+{
+	"type": "level3d",
+	"children": [
+		{
+			"type": "polygon",
+			"name": "polygon",
+			"z": -0.32,
+			"scaleX": 19.91,
+			"scaleY": 19.91,
+			"scaleZ": 19.91,
+			"rotationZ": 90,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "Alpha",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Fx/Test/Map_Albedo_VFXTest.png"
+				}
+			]
+		}
+	]
+}

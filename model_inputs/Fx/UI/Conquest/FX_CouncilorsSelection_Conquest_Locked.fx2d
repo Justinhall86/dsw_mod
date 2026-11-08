@@ -1,0 +1,1851 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"enabled": false,
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "Unlock_Logo",
+			"children": [
+				{
+					"type": "object",
+					"name": "LogoBottom_animated_yellow",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "Flare",
+							"y": 53,
+							"scaleX": 40,
+							"scaleY": 40,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AnimatedTexture",
+									"source": "h3d.shader.AnimatedTexture",
+									"props": {
+										"startFrame": 0,
+										"texture": "Fx/Alphas/T_Flare_4x4.png",
+										"speed": 0.5,
+										"frameDivision": [
+											2,
+											2
+										],
+										"totalFrames": 4,
+										"startTime": 0,
+										"loop": true,
+										"useSourceUVs": true,
+										"blendBetweenFrames": true
+									}
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "scale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.01077303172809263,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 0.4866057135395425,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.013731489061812263,
+														"dt": -0.3818578041574999
+													},
+													"nextHandle": {
+														"dv": 0.013731489061812263,
+														"dt": 0.3818578041574999
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.7,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 2.75,
+										"uvScaleY": 2.75,
+										"texture": "Fx/Alphas/T_Logo_Lock01_128_mask01.png",
+										"uvShift": [
+											0.122,
+											0.168
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.5647058823529412,
+											0.40784313725490196,
+											0.14901960784313725
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Logo_Blurry",
+							"y": 45,
+							"scaleX": 12,
+							"scaleY": 12,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Logo_Lock01_128_glow.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0.01077303172809263,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 0.4866057135395425,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.013731489061812263,
+														"dt": -0.3818578041574999
+													},
+													"nextHandle": {
+														"dv": 0.013731489061812263,
+														"dt": 0.3818578041574999
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.5647058823529412,
+											0.40784313725490196,
+											0.14901960784313725
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Logo",
+							"y": 45,
+							"scaleX": 12,
+							"scaleY": 12,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.8,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Logo_Lock01_128.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.22012571481304385,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Unlock",
+			"children": [
+				{
+					"type": "object",
+					"name": "Border",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "Bloc",
+							"scaleX": 65,
+							"scaleY": 65,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.6,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_Border_Councilors_512_ConquestRESIZE03.png"
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.55,
+										"saturation": 0,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/noise/NoisyWave_01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											-0.025,
+											-0.1
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.58,
+										"saturation": 0,
+										"width": 0.42,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/noise/Water_01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0.1,
+											0.05
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 1,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 0.8,
+										"uvScaleY": 0.8,
+										"texture": "Fx/Alphas/T_UI_Border_Councilors_512_ConquestRESIZE02.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.5,
+													"mode": 2
+												},
+												{
+													"time": 0.75,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.01107309828201991,
+														"dt": -0.4452146221467935
+													},
+													"nextHandle": {
+														"dv": 0.004635738175162417,
+														"dt": 0.23800315594110993
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.5647058823529412,
+											0.40784313725490196,
+											0.14901960784313725
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "BorderExt",
+							"scaleX": 65,
+							"scaleY": 65,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.58,
+										"saturation": 0,
+										"width": 0.42,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/noise/Water_01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0.05,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.55,
+										"saturation": 0,
+										"width": 1,
+										"uvScaleX": 2,
+										"uvScaleY": 2,
+										"texture": "Fx/noise/NoisyWave_01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											-0.025,
+											-0.05
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.5647058823529412,
+											0.40784313725490196,
+											0.14901960784313725
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.28,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/T_UI_Border_Councilors_512_ConquestRESIZE01.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMult",
+									"source": "shaders/AlphaMult.hx",
+									"props": {
+										"alpha": 1
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.22012571481304385,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "BorderGlow",
+							"y": 0.5,
+							"scaleX": 65,
+							"scaleY": 65,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.6,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_Border_Councilors_512_ConquestRESIZE.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"enabled": false,
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.0111029251185965e-16,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.040756914119359534
+													}
+												},
+												{
+													"time": 0.042212518195050945,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.014070839398350314
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.319262493934983
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.016666666666666663,
+														"dt": -0.9039301310043668
+													},
+													"nextHandle": {
+														"dv": -0.006145993105000916,
+														"dt": 0.33333290115329406
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "alpha",
+											"enabled": false,
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 1
+												},
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.014070839398350314
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.319262493934983
+													}
+												},
+												{
+													"time": 0.9533819876034011,
+													"value": 0,
+													"mode": 0
+												},
+												{
+													"time": 0.9533819876034011,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.016666666666666663,
+														"dt": -0.9039301310043668
+													},
+													"nextHandle": {
+														"dv": -0.006145993105000916,
+														"dt": 0.33333290115329406
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "alpha",
+											"enabled": false,
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.014070839398350314
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.319262493934983
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.016666666666666663,
+														"dt": -0.9039301310043668
+													},
+													"nextHandle": {
+														"dv": -0.006145993105000916,
+														"dt": 0.33333290115329406
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.22012571481304385,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "fond",
+							"scaleX": 65,
+							"scaleY": 65,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.15,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_Border_Councilors_512_ConquestRESIZE03.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 1,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.014070839398350314
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.319262493934983
+													}
+												},
+												{
+													"time": 1,
+													"value": 0.8,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.016666666666666663,
+														"dt": -0.9039301310043668
+													},
+													"nextHandle": {
+														"dv": -0.006145993105000916,
+														"dt": 0.33333290115329406
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8352941176470589,
+											0.5607843137254902
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "reflection",
+					"x": 1.10605,
+					"y": -1,
+					"scaleX": 65,
+					"scaleY": 65,
+					"rotation": 45,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.6,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Border_Councilors_512_ConquestRESIZE04.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "UVSweep",
+							"source": "shaders/UVSweep.hx",
+							"props": {
+								"saturation": 1,
+								"width": 0.15,
+								"useU": false,
+								"progress": 1
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "progress",
+									"keyMode": 0,
+									"keys": [
+										{
+											"time": -0.0032299653063652123,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0,
+												"dt": -0.5
+											},
+											"nextHandle": {
+												"dv": 0,
+												"dt": 0.3333333333333333
+											}
+										},
+										{
+											"time": 0.95,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.8641666666666666,
+												"dt": -0.4726623559831007
+											},
+											"nextHandle": {
+												"dv": 0.9541164671079538,
+												"dt": 0.521373034295613
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMult",
+							"source": "shaders/AlphaMult.hx",
+							"props": {
+								"alpha": 0.2
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8549019607843137,
+									0.611764705882353
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Unlock_Backup",
+			"enabled": false,
+			"children": [
+				{
+					"type": "object",
+					"name": "Unlock_Logo",
+					"children": [
+						{
+							"type": "object",
+							"name": "LogoBottom_animated_yellow",
+							"children": [
+								{
+									"type": "bitmap",
+									"name": "Flare",
+									"y": 73,
+									"scaleX": 40,
+									"scaleY": 40,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AnimatedTexture",
+											"source": "h3d.shader.AnimatedTexture",
+											"props": {
+												"startFrame": 0,
+												"texture": "Fx/Alphas/T_Flare_4x4.png",
+												"speed": 0.5,
+												"frameDivision": [
+													2,
+													2
+												],
+												"totalFrames": 4,
+												"startTime": 0,
+												"loop": true,
+												"useSourceUVs": true,
+												"blendBetweenFrames": true
+											}
+										},
+										{
+											"type": "shader",
+											"name": "AutoAlpha",
+											"source": "shaders/AutoAlpha.hx",
+											"props": {
+												"scale": 1
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "scale",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0.01077303172809263,
+															"value": 0,
+															"mode": 2
+														},
+														{
+															"time": 0.4866057135395425,
+															"value": 1,
+															"mode": 0,
+															"prevHandle": {
+																"dv": -0.013731489061812263,
+																"dt": -0.3818578041574999
+															},
+															"nextHandle": {
+																"dv": 0.013731489061812263,
+																"dt": 0.3818578041574999
+															}
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": true,
+												"wrap": true,
+												"progress": 0.7,
+												"saturation": 1,
+												"width": 1,
+												"uvScaleX": 2.75,
+												"uvScaleY": 2.75,
+												"texture": "Fx/Alphas/T_Logo_Lock01_128_mask01.png",
+												"uvShift": [
+													0.122,
+													0.168
+												],
+												"uvShiftSpeed": [
+													0,
+													0
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													0.5647058823529412,
+													0.40784313725490196,
+													0.14901960784313725
+												]
+											}
+										}
+									]
+								},
+								{
+									"type": "bitmap",
+									"name": "Logo_Blurry",
+									"y": 65,
+									"scaleX": 12,
+									"scaleY": 12,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMap",
+											"source": "shaders/AlphaMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"onDecal": false,
+												"wrap": true,
+												"invert": false,
+												"replace": false,
+												"alpha": 1,
+												"uScale": 1,
+												"vScale": 1,
+												"uOffset": 0,
+												"vOffset": 0,
+												"texture": "Fx/Alphas/T_Logo_Lock01_128_glow.png"
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0.01077303172809263,
+															"value": 0,
+															"mode": 2
+														},
+														{
+															"time": 0.4866057135395425,
+															"value": 1,
+															"mode": 0,
+															"prevHandle": {
+																"dv": -0.013731489061812263,
+																"dt": -0.3818578041574999
+															},
+															"nextHandle": {
+																"dv": 0.013731489061812263,
+																"dt": 0.3818578041574999
+															}
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													0.5647058823529412,
+													0.40784313725490196,
+													0.14901960784313725
+												]
+											}
+										}
+									]
+								},
+								{
+									"type": "bitmap",
+									"name": "Logo",
+									"y": 65,
+									"scaleX": 12,
+									"scaleY": 12,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMap",
+											"source": "shaders/AlphaMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"onDecal": false,
+												"wrap": true,
+												"invert": false,
+												"replace": false,
+												"alpha": 0.8,
+												"uScale": 1,
+												"vScale": 1,
+												"uOffset": 0,
+												"vOffset": 0,
+												"texture": "Fx/Alphas/T_Logo_Lock01_128.png"
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.5
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.07337523827101462
+															}
+														},
+														{
+															"time": 0.22012571481304385,
+															"value": 1,
+															"mode": 1
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													1,
+													0.8549019607843137,
+													0.611764705882353
+												]
+											}
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Unlock",
+					"children": [
+						{
+							"type": "object",
+							"name": "Border",
+							"children": [
+								{
+									"type": "bitmap",
+									"name": "Bloc",
+									"scaleX": 65,
+									"scaleY": 65,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMap",
+											"source": "shaders/AlphaMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"onDecal": false,
+												"wrap": true,
+												"invert": false,
+												"replace": false,
+												"alpha": 0.6,
+												"uScale": 1,
+												"vScale": 1,
+												"uOffset": 0,
+												"vOffset": 0,
+												"texture": "Fx/Alphas/T_UI_Border_Councilors_512_Conquest03.png"
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": true,
+												"wrap": true,
+												"progress": 0.55,
+												"saturation": 0,
+												"width": 1,
+												"uvScaleX": 1,
+												"uvScaleY": 1,
+												"texture": "Fx/noise/NoisyWave_01.png",
+												"uvShift": [
+													0,
+													0
+												],
+												"uvShiftSpeed": [
+													-0.025,
+													-0.1
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": true,
+												"wrap": true,
+												"progress": 0.58,
+												"saturation": 0,
+												"width": 0.42,
+												"uvScaleX": 1,
+												"uvScaleY": 1,
+												"texture": "Fx/noise/Water_01.png",
+												"uvShift": [
+													0,
+													0
+												],
+												"uvShiftSpeed": [
+													0.1,
+													0.05
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": false,
+												"wrap": true,
+												"progress": 1,
+												"saturation": 1,
+												"width": 1,
+												"uvScaleX": 0.8,
+												"uvScaleY": 0.8,
+												"texture": "Fx/Alphas/T_UI_Border_Councilors_512_Conquest02.png",
+												"uvShift": [
+													0,
+													0
+												],
+												"uvShiftSpeed": [
+													0,
+													0
+												]
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "progress",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0,
+															"value": 0.5,
+															"mode": 2
+														},
+														{
+															"time": 0.75,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": -0.01107309828201991,
+																"dt": -0.4452146221467935
+															},
+															"nextHandle": {
+																"dv": 0.004635738175162417,
+																"dt": 0.23800315594110993
+															}
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													0.5647058823529412,
+													0.40784313725490196,
+													0.14901960784313725
+												]
+											}
+										}
+									]
+								},
+								{
+									"type": "bitmap",
+									"name": "BorderExt",
+									"scaleX": 65,
+									"scaleY": 65,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													1,
+													0.8549019607843137,
+													0.611764705882353
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": true,
+												"wrap": true,
+												"progress": 0.58,
+												"saturation": 0,
+												"width": 0.42,
+												"uvScaleX": 1,
+												"uvScaleY": 1,
+												"texture": "Fx/noise/Water_01.png",
+												"uvShift": [
+													0,
+													0
+												],
+												"uvShiftSpeed": [
+													0.05,
+													0
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": true,
+												"wrap": true,
+												"progress": 0.55,
+												"saturation": 0,
+												"width": 1,
+												"uvScaleX": 2,
+												"uvScaleY": 2,
+												"texture": "Fx/noise/NoisyWave_01.png",
+												"uvShift": [
+													0,
+													0
+												],
+												"uvShiftSpeed": [
+													-0.025,
+													-0.05
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													0.5647058823529412,
+													0.40784313725490196,
+													0.14901960784313725
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "DissolveMap",
+											"source": "shaders/DissolveMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"useScale": false,
+												"wrap": true,
+												"progress": 0.28,
+												"saturation": 1,
+												"width": 1,
+												"uvScaleX": 1,
+												"uvScaleY": 1,
+												"texture": "Fx/Alphas/T_UI_Border_Councilors_512_Conquest01.png",
+												"uvShift": [
+													0,
+													0
+												],
+												"uvShiftSpeed": [
+													0,
+													0
+												]
+											}
+										},
+										{
+											"type": "shader",
+											"name": "AlphaMult",
+											"source": "shaders/AlphaMult.hx",
+											"props": {
+												"alpha": 1
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.5
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.07337523827101462
+															}
+														},
+														{
+															"time": 0.22012571481304385,
+															"value": 1,
+															"mode": 1
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "bitmap",
+									"name": "BorderGlow",
+									"y": 0.5,
+									"scaleX": 65,
+									"scaleY": 65,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMap",
+											"source": "shaders/AlphaMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"onDecal": false,
+												"wrap": true,
+												"invert": false,
+												"replace": false,
+												"alpha": 0.6,
+												"uScale": 1,
+												"vScale": 1,
+												"uOffset": 0,
+												"vOffset": 0,
+												"texture": "Fx/Alphas/T_UI_Border_Councilors_512_Conquest.png"
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"enabled": false,
+													"keyMode": 1,
+													"keys": [
+														{
+															"time": 0,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 7.0111029251185965e-16,
+																"dt": -0.5
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.040756914119359534
+															}
+														},
+														{
+															"time": 0.042212518195050945,
+															"value": 1,
+															"mode": 1,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.014070839398350314
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.319262493934983
+															}
+														},
+														{
+															"time": 1,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0.016666666666666663,
+																"dt": -0.9039301310043668
+															},
+															"nextHandle": {
+																"dv": -0.006145993105000916,
+																"dt": 0.33333290115329406
+															}
+														}
+													]
+												},
+												{
+													"type": "curve",
+													"name": "alpha",
+													"enabled": false,
+													"keyMode": 1,
+													"keys": [
+														{
+															"time": 0,
+															"value": 1,
+															"mode": 1
+														},
+														{
+															"time": 0,
+															"value": 1,
+															"mode": 1,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.014070839398350314
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.319262493934983
+															}
+														},
+														{
+															"time": 0.9533819876034011,
+															"value": 0,
+															"mode": 0
+														},
+														{
+															"time": 0.9533819876034011,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0.016666666666666663,
+																"dt": -0.9039301310043668
+															},
+															"nextHandle": {
+																"dv": -0.006145993105000916,
+																"dt": 0.33333290115329406
+															}
+														}
+													]
+												},
+												{
+													"type": "curve",
+													"name": "alpha",
+													"enabled": false,
+													"keyMode": 1,
+													"keys": [
+														{
+															"time": 0,
+															"value": 1,
+															"mode": 1,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.014070839398350314
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.319262493934983
+															}
+														},
+														{
+															"time": 1,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0.016666666666666663,
+																"dt": -0.9039301310043668
+															},
+															"nextHandle": {
+																"dv": -0.006145993105000916,
+																"dt": 0.33333290115329406
+															}
+														}
+													]
+												},
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.5
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.07337523827101462
+															}
+														},
+														{
+															"time": 0.22012571481304385,
+															"value": 1,
+															"mode": 1
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													1,
+													0.8549019607843137,
+													0.611764705882353
+												]
+											}
+										}
+									]
+								},
+								{
+									"type": "bitmap",
+									"name": "fond",
+									"scaleX": 65,
+									"scaleY": 65,
+									"src": "Fx/Gradients/z_FillWhite.jpg",
+									"blendMode": "Alpha",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMap",
+											"source": "shaders/AlphaMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"onDecal": false,
+												"wrap": true,
+												"invert": false,
+												"replace": false,
+												"alpha": 0.15,
+												"uScale": 1,
+												"vScale": 1,
+												"uOffset": 0,
+												"vOffset": 0,
+												"texture": "Fx/Alphas/T_UI_Border_Councilors_512_Conquest03.png"
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 1,
+													"keys": [
+														{
+															"time": 0,
+															"value": 1,
+															"mode": 1,
+															"prevHandle": {
+																"dv": 0,
+																"dt": -0.014070839398350314
+															},
+															"nextHandle": {
+																"dv": 0,
+																"dt": 0.319262493934983
+															}
+														},
+														{
+															"time": 1,
+															"value": 0.8,
+															"mode": 0,
+															"prevHandle": {
+																"dv": 0.016666666666666663,
+																"dt": -0.9039301310043668
+															},
+															"nextHandle": {
+																"dv": -0.006145993105000916,
+																"dt": 0.33333290115329406
+															}
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													1,
+													0.8352941176470589,
+													0.5607843137254902
+												]
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "reflection",
+							"scaleX": 65,
+							"scaleY": 65,
+							"rotation": 45,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.6,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_UI_Border_Councilors_512_Conquest04.png"
+									}
+								},
+								{
+									"type": "shader",
+									"name": "UVSweep",
+									"source": "shaders/UVSweep.hx",
+									"props": {
+										"saturation": 1,
+										"width": 0.15,
+										"useU": false,
+										"progress": 1
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "progress",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": -0.0032299653063652123,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.3333333333333333
+													}
+												},
+												{
+													"time": 0.95,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.8641666666666666,
+														"dt": -0.4726623559831007
+													},
+													"nextHandle": {
+														"dv": 0.9541164671079538,
+														"dt": 0.521373034295613
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMult",
+									"source": "shaders/AlphaMult.hx",
+									"props": {
+										"alpha": 0.15
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

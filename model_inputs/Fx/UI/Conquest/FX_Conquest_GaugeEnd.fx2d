@@ -1,0 +1,469 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "GaugeEnd",
+			"children": [
+				{
+					"type": "object",
+					"name": "Border",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "BorderGlow",
+							"x": -0.2,
+							"y": -1.25,
+							"scaleX": 4,
+							"scaleY": 3.1,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.5,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Gradients/Cyl05v_A.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.22012571481304385,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.8431372549019608,
+											0.22745098039215686,
+											0.22745098039215686
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "AlphaCycle",
+									"source": "shaders/AlphaCycle.hx",
+									"props": {
+										"minAlpha": 0.5,
+										"maxAlpha": 1,
+										"frequency": 0.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.72,
+										"saturation": 0,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 0.7,
+										"texture": "Fx/Alphas/T_UI_GaugeBar_32_01.png",
+										"uvShift": [
+											0,
+											0.14
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.66,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0.41015625,
+														"color": -16777216
+													},
+													{
+														"position": 0.53515625,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										},
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "BorderGlow",
+							"x": -0.2,
+							"y": -1.25,
+							"scaleX": 7,
+							"scaleY": 3.1,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.7,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Gradients/Cyl05v_A.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.22012571481304385,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.8431372549019608,
+											0.22745098039215686,
+											0.22745098039215686
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "AlphaCycle",
+									"source": "shaders/AlphaCycle.hx",
+									"props": {
+										"minAlpha": 0.7,
+										"maxAlpha": 1,
+										"frequency": 0.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.72,
+										"saturation": 0,
+										"width": 1,
+										"uvScaleX": 1.5,
+										"uvScaleY": 0.7,
+										"texture": "Fx/Alphas/T_UI_GaugeBar_32_01.png",
+										"uvShift": [
+											0.75,
+											0.14
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.66,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0.41015625,
+														"color": -16777216
+													},
+													{
+														"position": 0.53515625,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										},
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "Border",
+							"x": -0.2,
+							"y": -1.5,
+							"scaleY": 3.25,
+							"src": "Fx/Gradients/z_FillWhite.jpg",
+							"blendMode": "Add",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.5,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Gradients/Cyl05v_A.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.07337523827101462
+													}
+												},
+												{
+													"time": 0.22012571481304385,
+													"value": 1,
+													"mode": 1
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8549019607843137,
+											0.611764705882353
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 0.5,
+										"color": [
+											0.8431372549019608,
+											0.22745098039215686,
+											0.22745098039215686
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": true,
+										"wrap": true,
+										"progress": 0.31,
+										"saturation": 1,
+										"width": 1,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0.4609375,
+														"color": -16777216
+													},
+													{
+														"position": 0.59765625,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": true,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										},
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "FX_Cursor",
+			"source": "Fx/Event/FX_Cursor.fx",
+			"enabled": false
+		}
+	]
+}

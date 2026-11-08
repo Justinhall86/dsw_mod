@@ -1,0 +1,58 @@
+{
+	"type": "fx2d",
+	"duration": 5,
+	"startLoop": 2.69,
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "bitmap",
+			"src": "Fx/Alphas/T_Target1.png",
+			"blendMode": "Alpha",
+			"children": [
+				{
+					"type": "shader",
+					"name": "AutoAlpha",
+					"source": "shaders/AutoAlpha.hx",
+					"props": {
+						"scale": 1
+					}
+				},
+				{
+					"type": "shader",
+					"name": "ColorSet",
+					"source": "shaders/ColorSet.hx",
+					"props": {
+						"amount": 1,
+						"color": [
+							1,
+							0,
+							0
+						]
+					}
+				},
+				{
+					"type": "curve",
+					"name": "scale",
+					"loop": true,
+					"keys": [
+						{
+							"time": 0,
+							"value": 0.6,
+							"mode": 2
+						},
+						{
+							"time": 1,
+							"value": 1,
+							"mode": 2
+						},
+						{
+							"time": 2,
+							"value": 0.6,
+							"mode": 2
+						}
+					]
+				}
+			]
+		}
+	]
+}

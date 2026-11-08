@@ -1,0 +1,5255 @@
+{
+	"type": "fx2d",
+	"children": [
+		{
+			"type": "bitmap",
+			"name": "background",
+			"editorOnly": true,
+			"x": -0.99435,
+			"scaleX": 10,
+			"scaleY": 5,
+			"color": 328966,
+			"src": "Fx/Gradients/Cyl01u_A.jpg"
+		},
+		{
+			"type": "object",
+			"name": "sun5",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "MoonBig",
+					"x": -300,
+					"scaleX": 17,
+					"scaleY": 17,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle_moon.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.3,
+											"mode": 2
+										},
+										{
+											"time": 6,
+											"value": -0.35,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "MoonSmall",
+					"x": -300,
+					"scaleX": 12,
+					"scaleY": 12,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle_moon.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.3,
+											"mode": 2
+										},
+										{
+											"time": 3,
+											"value": -0.35,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"x": -300,
+					"scaleX": 18,
+					"scaleY": 3,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Line_512x64_02.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"enabled": false,
+					"x": -300,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.15,
+								"scaleTime": 0,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 10,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"isInstance": true,
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.009542353250382435,
+												"dt": -0.49987380110854013
+											},
+											"nextHandle": {
+												"dv": 0.019745185290808737,
+												"dt": 0.9595306542767147
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 0.7,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.0004859935715847974,
+												"dt": -0.12927500257486646
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.010605210074412036,
+												"dt": -0.1312961949911169
+											},
+											"nextHandle": {
+												"dv": -0.010605210074412036,
+												"dt": 0.1312961949911169
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -3.603636302191934,
+												"dt": -0.29744694191308624
+											},
+											"nextHandle": {
+												"dv": 5.5799904545006695,
+												"dt": 0.4577043586581255
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.0910314552427458,
+												"dt": -0.8404411206377355
+											},
+											"nextHandle": {
+												"dv": 0.023416167277662936,
+												"dt": 0.1377457387707821
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "timeOffset",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.04252152161640825,
+												"dt": -0.4946562625212033
+											},
+											"nextHandle": {
+												"dv": 0.08703335500415604,
+												"dt": 1.0274496544423555
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.12955018863948087,
+												"dt": -0.8773688343581627
+											},
+											"nextHandle": {
+												"dv": 0.09722700221113736,
+												"dt": 0.6547924950674062
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -4.098854003770442,
+												"dt": -0.2026496949907678
+											},
+											"nextHandle": {
+												"dv": 6.17039258422521,
+												"dt": 0.3026972578543286
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.18239570228981528,
+												"dt": -1.1317228148825267
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.38,
+								"saturation": 1,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.9921568627450981,
+									0.8470588235294118,
+									0.6078431372549019
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "sun4",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "sun",
+					"x": -225,
+					"scaleX": 17,
+					"scaleY": 17,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle02.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"x": -225,
+					"scaleX": 18,
+					"scaleY": 3,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Line_512x64_03.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"x": -225,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.15,
+								"scaleTime": 0,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 10,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"isInstance": true,
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.009542353250382435,
+												"dt": -0.49987380110854013
+											},
+											"nextHandle": {
+												"dv": 0.019745185290808737,
+												"dt": 0.9595306542767147
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 0.7,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.0004859935715847974,
+												"dt": -0.12927500257486646
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.010605210074412036,
+												"dt": -0.1312961949911169
+											},
+											"nextHandle": {
+												"dv": -0.010605210074412036,
+												"dt": 0.1312961949911169
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -3.603636302191934,
+												"dt": -0.29744694191308624
+											},
+											"nextHandle": {
+												"dv": 5.5799904545006695,
+												"dt": 0.4577043586581255
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.0910314552427458,
+												"dt": -0.8404411206377355
+											},
+											"nextHandle": {
+												"dv": 0.023416167277662936,
+												"dt": 0.1377457387707821
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "timeOffset",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.04252152161640825,
+												"dt": -0.4946562625212033
+											},
+											"nextHandle": {
+												"dv": 0.08703335500415604,
+												"dt": 1.0274496544423555
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.12955018863948087,
+												"dt": -0.8773688343581627
+											},
+											"nextHandle": {
+												"dv": 0.09722700221113736,
+												"dt": 0.6547924950674062
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -4.098854003770442,
+												"dt": -0.2026496949907678
+											},
+											"nextHandle": {
+												"dv": 6.17039258422521,
+												"dt": 0.3026972578543286
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.18239570228981528,
+												"dt": -1.1317228148825267
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.38,
+								"saturation": 1,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.9921568627450981,
+									0.8470588235294118,
+									0.6078431372549019
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "sun3",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "sun",
+					"x": -150,
+					"scaleX": 17,
+					"scaleY": 17,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle02.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"x": -150,
+					"y": 3,
+					"scaleX": 18,
+					"scaleY": 3,
+					"rotation": 180,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Line_512x64.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"x": -150,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.15,
+								"scaleTime": 0,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 10,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"isInstance": true,
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.009542353250382435,
+												"dt": -0.49987380110854013
+											},
+											"nextHandle": {
+												"dv": 0.019745185290808737,
+												"dt": 0.9595306542767147
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 0.7,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.0004859935715847974,
+												"dt": -0.12927500257486646
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.010605210074412036,
+												"dt": -0.1312961949911169
+											},
+											"nextHandle": {
+												"dv": -0.010605210074412036,
+												"dt": 0.1312961949911169
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -3.603636302191934,
+												"dt": -0.29744694191308624
+											},
+											"nextHandle": {
+												"dv": 5.5799904545006695,
+												"dt": 0.4577043586581255
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.0910314552427458,
+												"dt": -0.8404411206377355
+											},
+											"nextHandle": {
+												"dv": 0.023416167277662936,
+												"dt": 0.1377457387707821
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "timeOffset",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.04252152161640825,
+												"dt": -0.4946562625212033
+											},
+											"nextHandle": {
+												"dv": 0.08703335500415604,
+												"dt": 1.0274496544423555
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.12955018863948087,
+												"dt": -0.8773688343581627
+											},
+											"nextHandle": {
+												"dv": 0.09722700221113736,
+												"dt": 0.6547924950674062
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -4.098854003770442,
+												"dt": -0.2026496949907678
+											},
+											"nextHandle": {
+												"dv": 6.17039258422521,
+												"dt": 0.3026972578543286
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.18239570228981528,
+												"dt": -1.1317228148825267
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.38,
+								"saturation": 1,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.9921568627450981,
+									0.8470588235294118,
+									0.6078431372549019
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "sun3*1",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "sun",
+					"x": -150,
+					"y": -50,
+					"scaleX": 17,
+					"scaleY": 17,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle02.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"x": -150,
+					"y": -50,
+					"scaleX": 18,
+					"scaleY": 3,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_Line_512x64_02.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"x": -150,
+					"y": -50,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.15,
+								"scaleTime": 0,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 10,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"isInstance": true,
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.009542353250382435,
+												"dt": -0.49987380110854013
+											},
+											"nextHandle": {
+												"dv": 0.019745185290808737,
+												"dt": 0.9595306542767147
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 0.7,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.0004859935715847974,
+												"dt": -0.12927500257486646
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.010605210074412036,
+												"dt": -0.1312961949911169
+											},
+											"nextHandle": {
+												"dv": -0.010605210074412036,
+												"dt": 0.1312961949911169
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -3.603636302191934,
+												"dt": -0.29744694191308624
+											},
+											"nextHandle": {
+												"dv": 5.5799904545006695,
+												"dt": 0.4577043586581255
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.0910314552427458,
+												"dt": -0.8404411206377355
+											},
+											"nextHandle": {
+												"dv": 0.023416167277662936,
+												"dt": 0.1377457387707821
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "timeOffset",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.04252152161640825,
+												"dt": -0.4946562625212033
+											},
+											"nextHandle": {
+												"dv": 0.08703335500415604,
+												"dt": 1.0274496544423555
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.12955018863948087,
+												"dt": -0.8773688343581627
+											},
+											"nextHandle": {
+												"dv": 0.09722700221113736,
+												"dt": 0.6547924950674062
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -4.098854003770442,
+												"dt": -0.2026496949907678
+											},
+											"nextHandle": {
+												"dv": 6.17039258422521,
+												"dt": 0.3026972578543286
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.18239570228981528,
+												"dt": -1.1317228148825267
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.38,
+								"saturation": 1,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.9921568627450981,
+									0.8470588235294118,
+									0.6078431372549019
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "sun2",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "sun",
+					"x": -75,
+					"scaleX": 17,
+					"scaleY": 17,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle02.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.33,
+								"saturation": 1,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/T_UI_Round_128.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"x": -75,
+					"y": 3,
+					"scaleX": 18,
+					"scaleY": 3,
+					"rotation": 180,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_CardBottom_01.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"x": -75,
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.15,
+								"scaleTime": 0,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 10,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"isInstance": true,
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.009542353250382435,
+												"dt": -0.49987380110854013
+											},
+											"nextHandle": {
+												"dv": 0.019745185290808737,
+												"dt": 0.9595306542767147
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 0.7,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.0004859935715847974,
+												"dt": -0.12927500257486646
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.010605210074412036,
+												"dt": -0.1312961949911169
+											},
+											"nextHandle": {
+												"dv": -0.010605210074412036,
+												"dt": 0.1312961949911169
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -3.603636302191934,
+												"dt": -0.29744694191308624
+											},
+											"nextHandle": {
+												"dv": 5.5799904545006695,
+												"dt": 0.4577043586581255
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.0910314552427458,
+												"dt": -0.8404411206377355
+											},
+											"nextHandle": {
+												"dv": 0.023416167277662936,
+												"dt": 0.1377457387707821
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "timeOffset",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.04252152161640825,
+												"dt": -0.4946562625212033
+											},
+											"nextHandle": {
+												"dv": 0.08703335500415604,
+												"dt": 1.0274496544423555
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.12955018863948087,
+												"dt": -0.8773688343581627
+											},
+											"nextHandle": {
+												"dv": 0.09722700221113736,
+												"dt": 0.6547924950674062
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -4.098854003770442,
+												"dt": -0.2026496949907678
+											},
+											"nextHandle": {
+												"dv": 6.17039258422521,
+												"dt": 0.3026972578543286
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.18239570228981528,
+												"dt": -1.1317228148825267
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.38,
+								"saturation": 1,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.9921568627450981,
+									0.8470588235294118,
+									0.6078431372549019
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "sun1",
+			"children": [
+				{
+					"type": "bitmap",
+					"name": "sun",
+					"scaleX": 17,
+					"scaleY": 17,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 2.5,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_selectedCircle01.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "TextureRotate",
+							"source": "hrt.shader.TextureRotate",
+							"props": {
+								"rotate": 360,
+								"rotateCenter": [
+									0.5,
+									0.5
+								]
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "rotate",
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 12,
+											"value": -1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.5,
+								"saturation": 1,
+								"width": 0.45,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/circGrad05.jpg",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.996078431372549,
+									0.8901960784313725,
+									0.7176470588235294
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "line",
+					"y": 3,
+					"scaleX": 18,
+					"scaleY": 2.75,
+					"rotation": 180,
+					"src": "Fx/Gradients/z_FillWhite.jpg",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/T_UI_CardBottom_01.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									1,
+									0.8666666666666667,
+									0.6509803921568628
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "bitmap",
+					"name": "2",
+					"blendMode": "Alpha",
+					"children": [
+						{
+							"type": "shader",
+							"name": "Spinner",
+							"source": "hrt.shader.Spinner",
+							"props": {
+								"scaleX": 0.8,
+								"scaleY": 0.15,
+								"scaleTime": 0,
+								"timeOffset": 1,
+								"correctTextureNormals": false,
+								"numTrails": 10,
+								"useTimeTexture": false,
+								"debugShowShape": false,
+								"shapeSDF": "Fx/Alphas/output.png",
+								"trailTexture": "Fx/Gradients/circGrad05.jpg",
+								"timeTexture": null
+							},
+							"isInstance": true,
+							"children": [
+								{
+									"type": "curve",
+									"name": "scaleX",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.009542353250382435,
+												"dt": -0.49987380110854013
+											},
+											"nextHandle": {
+												"dv": 0.019745185290808737,
+												"dt": 0.9595306542767147
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 0.7,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.0004859935715847974,
+												"dt": -0.12927500257486646
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": 0.010605210074412036,
+												"dt": -0.1312961949911169
+											},
+											"nextHandle": {
+												"dv": -0.010605210074412036,
+												"dt": 0.1312961949911169
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0.2,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -3.603636302191934,
+												"dt": -0.29744694191308624
+											},
+											"nextHandle": {
+												"dv": 5.5799904545006695,
+												"dt": 0.4577043586581255
+											}
+										},
+										{
+											"time": 1.007948159345292,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.0910314552427458,
+												"dt": -0.8404411206377355
+											},
+											"nextHandle": {
+												"dv": 0.023416167277662936,
+												"dt": 0.1377457387707821
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "timeOffset",
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 0,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.04252152161640825,
+												"dt": -0.4946562625212033
+											},
+											"nextHandle": {
+												"dv": 0.08703335500415604,
+												"dt": 1.0274496544423555
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -0.12955018863948087,
+												"dt": -0.8773688343581627
+											},
+											"nextHandle": {
+												"dv": 0.09722700221113736,
+												"dt": 0.6547924950674062
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"keyMode": 0,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 0,
+											"prevHandle": {
+												"dv": -4.098854003770442,
+												"dt": -0.2026496949907678
+											},
+											"nextHandle": {
+												"dv": 6.17039258422521,
+												"dt": 0.3026972578543286
+											}
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 1,
+											"prevHandle": {
+												"dv": -0.18239570228981528,
+												"dt": -1.1317228148825267
+											},
+											"nextHandle": {
+												"dv": -0.2823976393148778,
+												"dt": 0.12895806175094737
+											}
+										}
+									]
+								},
+								{
+									"type": "curve",
+									"name": "numTrails",
+									"enabled": false,
+									"loop": true,
+									"keys": [
+										{
+											"time": 0,
+											"value": 1,
+											"mode": 2
+										},
+										{
+											"time": 1.5,
+											"value": 15,
+											"mode": 2
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "shader",
+							"name": "AutoAlpha",
+							"source": "shaders/AutoAlpha.hx",
+							"props": {
+								"scale": 1
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.38,
+								"saturation": 1,
+								"width": 0.47,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/output.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorSet",
+							"source": "shaders/ColorSet.hx",
+							"props": {
+								"amount": 1,
+								"color": [
+									0.9921568627450981,
+									0.8470588235294118,
+									0.6078431372549019
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.69,
+								"saturation": 1,
+								"width": 0.3,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/vGrad.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Tests",
+			"enabled": false,
+			"children": [
+				{
+					"type": "object",
+					"name": "Test8",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -300,
+							"scaleX": 1.1,
+							"scaleY": 1.1,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Logo_128.png"
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -300,
+							"scaleX": 1.6,
+							"scaleY": 1.6,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.8,
+										"scaleY": 0.15,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 10,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad05.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.7,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 1.5,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "numTrails",
+											"enabled": false,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -3.603636302191934,
+														"dt": -0.29744694191308624
+													},
+													"nextHandle": {
+														"dv": 5.5799904545006695,
+														"dt": 0.4577043586581255
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 15,
+													"mode": 1,
+													"prevHandle": {
+														"dv": 0.0910314552427458,
+														"dt": -0.8404411206377355
+													},
+													"nextHandle": {
+														"dv": 0.023416167277662936,
+														"dt": 0.1377457387707821
+													}
+												},
+												{
+													"time": 1.5,
+													"value": 15,
+													"mode": 2
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 1.5,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "numTrails",
+											"enabled": false,
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -4.098854003770442,
+														"dt": -0.2026496949907678
+													},
+													"nextHandle": {
+														"dv": 6.17039258422521,
+														"dt": 0.3026972578543286
+													}
+												},
+												{
+													"time": 1.5,
+													"value": 15,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.18239570228981528,
+														"dt": -1.1317228148825267
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "numTrails",
+											"enabled": false,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 2
+												},
+												{
+													"time": 1.5,
+													"value": 15,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.38,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test7",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -230,
+							"scaleX": 1.25,
+							"scaleY": 1.25,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 1,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_Logo_128.png"
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -230,
+							"scaleX": 1.6,
+							"scaleY": 1.6,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.8,
+										"scaleY": 0.15,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 2,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad05.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.15,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.9,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.15,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 2,
+													"value": 2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.38,
+										"saturation": 1,
+										"width": 0.32,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test5",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -160,
+							"y": -60,
+							"scaleX": 2,
+							"scaleY": 2,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.45,
+										"scaleY": 0.1,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 2,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/Lozange.svg.output.png",
+										"trailTexture": "Fx/Gradients/T_Square03.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 1.2131410987530515,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": -0.025147949313480897,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.254910560763171e-17,
+														"dt": -0.49593543991342415
+													},
+													"nextHandle": {
+														"dv": -0.0009153003197613085,
+														"dt": 1.211806334356011
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.47485205068651926,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.0019682992482958905,
+														"dt": -1.302179767325248
+													},
+													"nextHandle": {
+														"dv": -1.895870587292657e-16,
+														"dt": 0.6600199272211645
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -160,
+							"y": -60,
+							"scaleX": 1.5,
+							"scaleY": 1.5,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -160,
+							"y": -60,
+							"scaleX": 0.5,
+							"scaleY": 0.5,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AnimatedTexture",
+									"source": "h3d.shader.AnimatedTexture",
+									"props": {
+										"useSourceUVs": false,
+										"blendBetweenFrames": false,
+										"startFrame": 1,
+										"texture": "Fx/Alphas/T_LogoHourglass_4x2.png",
+										"speed": 0,
+										"frameDivision": [
+											4,
+											2
+										],
+										"totalFrames": 8,
+										"startTime": 0,
+										"loop": false
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "startFrame",
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 1.25,
+													"value": 8,
+													"mode": 2
+												},
+												{
+													"time": 2,
+													"value": 8,
+													"mode": 2
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											0.8666666666666667,
+											0.6509803921568628
+										]
+									}
+								},
+								{
+									"type": "curve",
+									"name": "rotation",
+									"keyMode": 1,
+									"loop": true,
+									"keys": [
+										{
+											"time": 1.25,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 2,
+											"value": 0.5,
+											"mode": 1,
+											"prevHandle": {
+												"dv": 0.08819444444444446,
+												"dt": -0.615
+											},
+											"nextHandle": {
+												"dv": -0.7138888888888889,
+												"dt": 0.0050000000000003375
+											}
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test4",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -160,
+							"scaleX": 2,
+							"scaleY": 2,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.45,
+										"scaleY": 0.1,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 2,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/Lozange.svg.output.png",
+										"trailTexture": "Fx/Gradients/T_Square03.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 1.2131410987530515,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": -0.025147949313480897,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.254910560763171e-17,
+														"dt": -0.49593543991342415
+													},
+													"nextHandle": {
+														"dv": -0.0009153003197613085,
+														"dt": 1.211806334356011
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.47485205068651926,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.0019682992482958905,
+														"dt": -1.302179767325248
+													},
+													"nextHandle": {
+														"dv": -1.895870587292657e-16,
+														"dt": 0.6600199272211645
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -160,
+							"scaleX": 1.5,
+							"scaleY": 1.5,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test3",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -100,
+							"scaleX": 2,
+							"scaleY": 2,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.45,
+										"scaleY": 0.1,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 2,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/Lozange.svg.output.png",
+										"trailTexture": "Fx/Gradients/T_Square03.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.11449613707254043,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.254910560763171e-17,
+														"dt": -0.49593543991342415
+													},
+													"nextHandle": {
+														"dv": -0.0009153003197613085,
+														"dt": 1.211806334356011
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.6144961370725406,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.0019682992482958905,
+														"dt": -1.302179767325248
+													},
+													"nextHandle": {
+														"dv": -1.895870587292657e-16,
+														"dt": 0.6600199272211645
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test3*1",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -100,
+							"y": -60,
+							"scaleX": 2,
+							"scaleY": 2,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.45,
+										"scaleY": 0.1,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 2,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/Lozange.svg.output.png",
+										"trailTexture": "Fx/Gradients/T_Square03.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"enabled": false,
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.6,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"enabled": false,
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2020873605837126,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.254910560763171e-17,
+														"dt": -0.49593543991342415
+													},
+													"nextHandle": {
+														"dv": -0.0009153003197613085,
+														"dt": 1.211806334356011
+													}
+												},
+												{
+													"time": 2,
+													"value": 2.202087360583715,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.11449613707254043,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.254910560763171e-17,
+														"dt": -0.49593543991342415
+													},
+													"nextHandle": {
+														"dv": -0.0009153003197613085,
+														"dt": 1.211806334356011
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.6144961370725406,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.0019682992482958905,
+														"dt": -1.302179767325248
+													},
+													"nextHandle": {
+														"dv": -1.895870587292657e-16,
+														"dt": 0.6600199272211645
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -100,
+							"y": -60,
+							"scaleX": 1.5,
+							"scaleY": 1.5,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.85,
+										"scaleY": 0.1,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 2,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/Lozange.svg.output.png",
+										"trailTexture": "Fx/Gradients/T_Square03.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.11449613707254043,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 7.254910560763171e-17,
+														"dt": -0.49593543991342415
+													},
+													"nextHandle": {
+														"dv": -0.0009153003197613085,
+														"dt": 1.211806334356011
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.6144961370725406,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.0019682992482958905,
+														"dt": -1.302179767325248
+													},
+													"nextHandle": {
+														"dv": -1.895870587292657e-16,
+														"dt": 0.6600199272211645
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1.5
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.17,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/Lozange_alpha.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test2",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -230,
+							"y": -60,
+							"scaleX": 1.45,
+							"scaleY": 1.45,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.8,
+										"scaleY": 0.15,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 10,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad05.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.7,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 1.5,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 1.5,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.38,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test1*1",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -50,
+							"y": -60,
+							"scaleX": 1.45,
+							"scaleY": 1.45,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.8,
+										"scaleY": 0.15,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 1,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad05.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.6,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 2,
+													"value": 2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.38,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2_blurry",
+							"x": -50,
+							"y": -60,
+							"scaleX": 1.45,
+							"scaleY": 1.45,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 1,
+										"scaleY": 0.6,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 1,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad02.jpg",
+										"timeTexture": null
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"enabled": false,
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.15,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.5,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.15,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 2,
+													"value": 2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.6,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 0.8
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.34,
+										"saturation": 0.5,
+										"width": 0.8,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											1,
+											1
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.6705882352941176,
+											0.5568627450980392,
+											0.3254901960784314
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2_blurry",
+							"x": -50,
+							"y": -60,
+							"scaleX": 1.45,
+							"scaleY": 1.45,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 0.25
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.34,
+										"saturation": 0,
+										"width": 0.74,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											1,
+											1
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.6705882352941176,
+											0.5568627450980392,
+											0.3254901960784314
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "object",
+					"name": "Test1",
+					"children": [
+						{
+							"type": "bitmap",
+							"name": "2",
+							"x": -50,
+							"scaleX": 1.45,
+							"scaleY": 1.45,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 0.8,
+										"scaleY": 0.15,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 1,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad05.jpg",
+										"timeTexture": null
+									},
+									"isInstance": true,
+									"children": [
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.6,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 2,
+													"value": 2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.38,
+										"saturation": 1,
+										"width": 0.47,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.9921568627450981,
+											0.8470588235294118,
+											0.6078431372549019
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "bitmap",
+							"name": "2_blurry",
+							"x": -50,
+							"scaleX": 1.45,
+							"scaleY": 1.45,
+							"blendMode": "Alpha",
+							"children": [
+								{
+									"type": "shader",
+									"name": "Spinner",
+									"source": "hrt.shader.Spinner",
+									"props": {
+										"scaleX": 1,
+										"scaleY": 0.6,
+										"scaleTime": 0,
+										"timeOffset": 1,
+										"correctTextureNormals": false,
+										"numTrails": 1,
+										"useTimeTexture": false,
+										"debugShowShape": false,
+										"shapeSDF": "Fx/Alphas/output.png",
+										"trailTexture": "Fx/Gradients/circGrad02.jpg",
+										"timeTexture": null
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "timeOffset",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.04252152161640825,
+														"dt": -0.4946562625212033
+													},
+													"nextHandle": {
+														"dv": 0.08703335500415604,
+														"dt": 1.0274496544423555
+													}
+												},
+												{
+													"time": 2,
+													"value": 2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.12955018863948087,
+														"dt": -0.8773688343581627
+													},
+													"nextHandle": {
+														"dv": 0.09722700221113736,
+														"dt": 0.6547924950674062
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "scaleX",
+											"keyMode": 0,
+											"loop": true,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": -0.009542353250382435,
+														"dt": -0.49987380110854013
+													},
+													"nextHandle": {
+														"dv": 0.019745185290808737,
+														"dt": 0.9595306542767147
+													}
+												},
+												{
+													"time": 1.007948159345292,
+													"value": 0.6,
+													"mode": 1,
+													"prevHandle": {
+														"dv": -0.0004859935715847974,
+														"dt": -0.12927500257486646
+													},
+													"nextHandle": {
+														"dv": -0.2823976393148778,
+														"dt": 0.12895806175094737
+													}
+												},
+												{
+													"time": 2,
+													"value": 0.2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.010605210074412036,
+														"dt": -0.1312961949911169
+													},
+													"nextHandle": {
+														"dv": -0.010605210074412036,
+														"dt": 0.1312961949911169
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 0.8
+									}
+								},
+								{
+									"type": "shader",
+									"name": "DissolveMap",
+									"source": "shaders/DissolveMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"useScale": false,
+										"wrap": true,
+										"progress": 0.34,
+										"saturation": 0.5,
+										"width": 0.8,
+										"uvScaleX": 1,
+										"uvScaleY": 1,
+										"texture": "Fx/Alphas/output.png",
+										"uvShift": [
+											0,
+											0
+										],
+										"uvShiftSpeed": [
+											0,
+											0
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											1,
+											1,
+											1
+										]
+									}
+								},
+								{
+									"type": "shader",
+									"name": "ColorSet",
+									"source": "shaders/ColorSet.hx",
+									"props": {
+										"amount": 1,
+										"color": [
+											0.6705882352941176,
+											0.5568627450980392,
+											0.3254901960784314
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

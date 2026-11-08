@@ -1,0 +1,13 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "reference",
+			"name": "WormDust",
+			"source": "Fx/SandWorm/WormRide/WormDust.fx",
+			"scaleX": 2,
+			"scaleY": 2,
+			"scaleZ": 2
+		}
+	]
+}
