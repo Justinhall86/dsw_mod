@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APP_NAME</title>
+<style>
+:root{color-scheme:dark;--surface-1:#2c2c2a;--surface-2:#1f1e1b;--border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.3);--text-primary:#f1efe8;--text-secondary:#b4b2a9;--accent:#85b7eb}
+:root[data-theme="light"]{color-scheme:light;--surface-1:#f7f6f2;--surface-2:#fff;--border:rgba(0,0,0,.12);--border-strong:rgba(0,0,0,.25);--text-primary:#1f1e1b;--text-secondary:#5f5e5a;--accent:#185fa5}
+html,body{height:100%;margin:0;background:var(--surface-2);font-family:system-ui,sans-serif}
+body{display:flex;flex-direction:column}
+.tabs{display:flex;gap:6px;border-bottom:.5px solid var(--border);padding:12px 1.5rem 0}
+.tabs span{font-size:14px;font-weight:500;padding:7px 18px;border:.5px solid var(--border);border-bottom:none;border-radius:8px 8px 0 0;background:var(--surface-1);color:var(--text-secondary);cursor:pointer;margin-bottom:-.5px}
+.tabs span:hover{color:var(--text-primary);border-color:var(--border-strong)}
+.tabs span.on{background:var(--surface-2);color:var(--text-primary);border-color:var(--border-strong);box-shadow:inset 0 2px 0 var(--accent)}
+.tabs span.off{opacity:.45;cursor:default}.tabs span.off:hover{color:var(--text-secondary);border-color:var(--border)}
+iframe{flex:1;border:0;width:100%}
+.ver{margin-left:auto;align-self:center;text-align:right;line-height:1.3;margin-top:-6px;font-style:normal;font-size:11px;color:var(--text-secondary);opacity:.7}
+</style></head><body>
+<div class="tabs"><span class="on" data-tab="build">Build</span><span data-tab="cdb">CDB</span><span data-tab="words">Word builder</span><em class="ver">Version APP_VERSION<br>Made by APP_AUTHOR</em></div>
+<iframe id="build" src="/build"></iframe>
+<iframe id="cdb" src="/cdb" hidden></iframe>
+<iframe id="words" src="/words" hidden></iframe>
+<script>
+// a second or third click in a row marks no text; a click-and-drag still does
+document.addEventListener("mousedown",function(e){if(e.detail>1&&!e.target.closest("input,textarea,select"))e.preventDefault()});
+document.querySelector(".tabs").onclick=function(e){
+  var t=e.target.dataset.tab;if(!t)return;
+  document.querySelectorAll(".tabs span").forEach(function(s){s.classList.toggle("on",s===e.target)});
+  document.querySelectorAll("iframe").forEach(function(f){f.hidden=f.id!==t});
+  var w=document.getElementById(t).contentWindow;if(w.refresh)w.refresh();
+};
+</script>
+</body></html>

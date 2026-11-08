@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APP_NAME</title>
+<style>
+:root{color-scheme:dark;--surface-1:#2c2c2a;--surface-2:#1f1e1b;--border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.3);--text-primary:#f1efe8;--text-secondary:#b4b2a9;--text-muted:#888780;--accent:#85b7eb;--ok:#97c459;--bad:#f09595;--warn:#fac775;--bg-warn:#633806;--sure:#c0392b;--radius:8px;--mono:Consolas,monospace}
+:root[data-theme="light"]{color-scheme:light;--surface-1:#f7f6f2;--surface-2:#fff;--border:rgba(0,0,0,.12);--border-strong:rgba(0,0,0,.25);--text-primary:#1f1e1b;--text-secondary:#5f5e5a;--text-muted:#888780;--accent:#185fa5;--ok:#3b6d11;--bad:#a32d2d;--warn:#854f0b;--bg-warn:#faeeda}
+body{background:var(--surface-2);color:var(--text-primary);font-family:system-ui,sans-serif;margin:0;font-size:14px}
+select,button,input{font:inherit;font-size:13px;color:inherit;background:var(--surface-2);border:.5px solid var(--border-strong);border-radius:var(--radius);padding:3px 8px}
+button{cursor:pointer}button:disabled{opacity:.4;cursor:default}
+.card{background:var(--surface-2);padding:1rem 1.5rem;min-height:100vh;box-sizing:border-box}
+.tabs{display:flex;gap:16px;font-size:13px;border-bottom:.5px solid var(--border);padding-bottom:8px;margin-bottom:14px;color:var(--text-secondary)}
+.tabs b{color:var(--text-primary);font-weight:500}.tabs a{color:inherit;text-decoration:none}.tabs a:hover{color:var(--text-primary)}
+h3{font-size:12px;font-weight:500;color:var(--text-secondary);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.line{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.path{font-family:var(--mono);font-size:13px;word-break:break-all}
+.ok{color:var(--ok)}.bad{color:var(--bad)}.muted{color:var(--text-muted);font-size:12px}
+.i{position:relative;display:inline-block;width:16px;height:16px;vertical-align:text-bottom;font-size:0;margin-left:4px;cursor:help}
+.i::before{content:"";position:absolute;inset:0;background:var(--text-muted);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.25' fill='none' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='8' cy='4.75' r='1'/%3E%3Crect x='7.25' y='6.75' width='1.5' height='5.25' rx='.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.25' fill='none' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='8' cy='4.75' r='1'/%3E%3Crect x='7.25' y='6.75' width='1.5' height='5.25' rx='.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.tip{display:none;position:absolute;left:20px;top:-4px;z-index:5;width:260px;background:var(--surface-1);border:.5px solid var(--border-strong);border-radius:var(--radius);padding:6px 8px;font:12px/1.4 system-ui,sans-serif;color:var(--text-primary);font-style:normal;text-align:left}
+.i:hover .tip{display:block}.tip{white-space:pre-line}.i.up .tip{top:auto;bottom:-4px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{text-align:left;padding:5px 6px;border-bottom:.5px solid var(--border)}
+th{font-weight:500;color:var(--text-secondary);font-size:12px}
+td.acts{white-space:nowrap}td.acts button{font-size:12px;padding:1px 6px}
+code{font-family:var(--mono);font-size:12px}
+.n{display:inline-block;min-width:22px;text-align:center;font-family:var(--mono)}
+.flag{font-size:12px;color:var(--warn);background:var(--bg-warn);border-radius:var(--radius);padding:1px 6px}
+.chg{font-size:13px;margin:6px 0 0 18px;padding:0}
+.foot{margin-top:16px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.big{font-size:14px;padding:6px 16px;border-color:var(--accent);color:var(--accent)}
+.lbl{font-size:13px;color:var(--text-primary);font-weight:500}
+#tgt{table-layout:fixed}
+#tgt th:nth-child(2){width:220px}#tgt th:nth-child(3){width:150px}#tgt th:nth-child(4){width:110px}
+.flg{table-layout:fixed}.flg th:nth-child(2){width:180px}.flg th:nth-child(3){width:110px}.flg th:nth-child(4){width:130px}.flg th:nth-child(5){width:110px}
+button.rm:hover{color:var(--bad);border-color:var(--bad)}
+button.sure,button.sure:hover{background:var(--sure);border-color:var(--sure);color:#fff}
+details{border:.5px solid var(--border);border-radius:var(--radius);padding:6px 10px;margin-top:12px}
+summary{cursor:pointer;font-size:12px;font-weight:500;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.sum{text-transform:none;letter-spacing:0;font-weight:400;color:var(--text-muted)}.sum .bad{font-weight:500}
+.jump{position:sticky;top:0;z-index:4;background:var(--surface-2);display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;margin-top:8px;border-bottom:.5px solid var(--border)}
+.jump button{font-size:12px;padding:1px 8px}.jump button.miss{border-color:var(--bad);color:var(--bad)}.jump button.on{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+details[data-m]{scroll-margin-top:52px}
+.dock{position:sticky;bottom:0;z-index:4;background:var(--surface-2);border-top:.5px solid var(--border-strong);margin-top:16px;padding-bottom:8px}
+.dock h3{margin-top:8px}.dock .chg{max-height:22vh;overflow:auto}.dock .foot{margin-top:8px}
+.msg{font-size:12px}.msg.ok{color:var(--ok)}.msg.warn{color:var(--warn)}.msg.error{color:var(--bad)}
+</style></head><body>
+<div class="card">
+
+<h3>cdb</h3>
+<div class="line"><input class="path" id="path" style="flex:1" placeholder="Choose your data.cdb"><button id="pick">Choose…</button></div>
+<div class="msg" id="pathmsg"></div>
+
+<div class="jump" id="jump"></div>
+
+<details data-m="Target columns"><summary>Target columns <span class="sum" id="tgtsum"></span></summary>
+<table id="tgt"><tr><th>Sheet</th><th>Columns</th><th>Highest filled</th><th></th></tr></table>
+<div class="line" style="margin-top:8px"><span class="lbl">All sheets together:</span><button id="allm">−</button><button id="allp">+</button><button id="even">Even up</button><span class="muted" id="evn"></span></div>
+</details>
+
+<div id="mods"></div>
+
+<div class="dock">
+<h3>Changes to save</h3>
+<ul class="chg" id="chg"></ul>
+<div class="foot"><button id="undo">Discard</button><button class="big" id="save">Save</button><span class="msg" id="savemsg"></span></div>
+</div>
+</div>
+<script>
+// a second or third click in a row marks no text; a click-and-drag still does
+document.addEventListener("mousedown",function(e){if(e.detail>1&&!e.target.closest("input,textarea,select"))e.preventDefault()});
+(function(){
+var TGT=[],FLG=[],NUM=[],COM=[],REP=[],TPL=[],BUN={},OPT=[],ow=[],HK=[],hw=[],FIL={},DEP="",FW=false,tc=[],tc0=[],on=[],on0=[],nc=[],nc0=[],tw=[],OPEN={},ST={};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function say(el,d){el.className="msg "+(d.level||"");el.textContent=d.message||""}
+function ii(t){return '<span class="i">i<span class="tip">'+esc(t)+'</span></span>'}
+function load(c){
+  document.getElementById("path").value=c.path;
+  say(document.getElementById("pathmsg"),c.error?{level:"error",message:c.error}:c.path&&!c.exists?{level:"error",message:"Error: no file here."}:!c.path?{level:"warn",message:"Choose the data.cdb you edit."}:{});
+  TGT=c.targets;FLG=c.flags;NUM=c.numbered||[];COM=c.comments||[];REP=c.replaced||[];TPL=c.templates||[];BUN=c.bundles||{};DEP=c.deployed||"";FW=!!c.framework;
+  tw=TPL.map(function(){return 0});OPT=c.optouts||[];ow=OPT.map(function(){return 0});
+  HK=c.hooks||[];hw=HK.map(function(){return 0});
+  tc=TGT.map(function(t){return t.columns});tc0=tc.slice();
+  on=FLG.map(function(f){return f.present?1:0});on0=on.slice();
+  nc=NUM.map(function(n){return n.count});nc0=nc.slice();
+  draw();
+}
+// a bundle's key is its tick, or `tick|prop` for one of a `{}` bundle's lines
+function bundled(m){var p=m.split("|"),ks=[];FLG.forEach(function(x,k){if(x.tick==p[0]&&!x.add&&(!p[1]||x.name==p[1]))ks.push(k)});return ks}
+// places on one sheet share its name once: `siegeAction props/results`
+function sumOf(s){var a=[];if(s.p)a.push(s.p+" present");if(s.p||s.r)a.push(s.r+" row"+(s.r==1?"":"s"));var t=esc(a.join(", "));
+  if(s.m)t+=(t?", ":"")+'<span class="bad">'+s.m+" missing</span>";return t?"— "+t:""}
+function where(ws){var u=ws.filter(function(w,i,a){return a.indexOf(w)==i}),h=u.map(function(w){return w.split(" ")[0]});
+  // places that differ only by a trailing number share their name once: `trait attributes target(2)`
+  var p=u.reduce(function(a,w){while(w.lastIndexOf(a,0))a=a.slice(0,-1);return a}),n=u.map(function(w){return w.slice(p.length)});
+  if(u.length>1&&n.every(function(x){return /^\d*$/.test(x)}))return p+"("+n.filter(Boolean).join(",")+")";
+  return u.length>1&&h.every(function(x){return x==h[0]})?h[0]+" "+u.map(function(w){return w.split(" ").slice(1).join(" ")}).join("/"):u.join(", ")}
+// the top buttons filter: none picked shows every section, any picked shows only those
+function filter(){var any=Object.keys(FIL).length;
+  document.querySelectorAll("details[data-m]").forEach(function(d){var gone=d.dataset.m=="Target columns"&&!FW;
+    d.style.display=!gone&&(!any||FIL[d.dataset.m])?"":"none"})}
+function draw(){
+  var t=document.getElementById("tgt");while(t.rows.length>1)t.deleteRow(1);
+  TGT.forEach(function(s,k){var r=t.insertRow(),lock=tc[k]<=2;
+    r.innerHTML="<td>"+esc(s.label)+ii("Adds columns to the "+s.label+" sheet.")+'</td><td><span class="n">'+tc[k]+'</span> <span class="muted">target1-target'+tc[k]+"</span></td><td>"+(s.filled?"target"+s.filled:'<span class="muted">none</span>')+'</td><td class="acts"><span'+(lock?' title="target and target2 always stay"':"")+'><button data-k="'+k+'" data-d="-1"'+(s.used[tc[k]]?' class="rm"':"")+(lock?" disabled":"")+'>−</button></span> <button data-k="'+k+'" data-d="1">+</button></td>';});
+  if(!TGT.length){var r0=t.insertRow();r0.innerHTML='<td colspan="4" class="muted">Nothing to show until a cdb is chosen.</td>';}
+  var mx=Math.max.apply(null,tc),mn=Math.min.apply(null,tc);
+  document.getElementById("evn").innerHTML=!tc.length?"":mx==mn?'<span class="ok">Even: '+mx+" on every sheet</span>":'<span class="flag">Uneven: '+mn+" to "+mx+"</span>";
+  document.getElementById("tgtsum").textContent=!tc.length?"":mx==mn?"— even, "+mx+" on every sheet":"— uneven, "+mn+" to "+mx;
+  document.querySelector('details[data-m="Target columns"]').open=!!OPEN["Target columns"];
+  // one section per deployed module, its flags, props and numbered rows together
+  var mods=[],rows={};ST={};
+  function add(tick,html){if(!rows[tick]){rows[tick]=[];mods.push(tick);ST[tick]={p:0,m:0,r:0}}rows[tick].push(html);return ST[tick]}
+  // a module's attribute rows come first, its cornerstone, titled like the lines below them
+  FLG.forEach(function(x,k){if(!x.add)return;
+    var s=add(x.tick,"<tr><td>"+esc(x.name)+(x.doc?ii(x.doc):"")+"</td><td>"+esc(x.where)+"</td><td>"+(on[k]?'<span class="ok">Present</span>':'<span class="bad">Missing</span>')+"</td><td>"+(on[k]?x.rows+" row"+(x.rows==1?"":"s"):"-")+'</td><td class="acts">'+(on[k]?'<button class="rm" data-f="'+k+'">Remove</button>':'<button data-f="'+k+'">Add</button>')+"</td></tr>");
+    if(on[k]){s.p++;s.r+=x.rows}else s.m++;});
+  // a module that bundles its props shows them as one line, added and removed together; `{}` makes one line per prop
+  var lines=[];Object.keys(BUN).forEach(function(t){var B=BUN[t];
+    if(B.label.indexOf("{}")<0)return lines.push([t,t,B.label]);
+    bundled(t).map(function(k){return FLG[k].name}).filter(function(n,i,a){return a.indexOf(n)==i}).forEach(function(n){lines.push([t,t+"|"+n,B.label.replace("{}",n.charAt(0).toUpperCase()+n.slice(1))])});});
+  lines.forEach(function(L){var m=L[1],t=L[0],label=L[2],ks=bundled(m);if(!ks.length)return;
+    var all=ks.every(function(k){return on[k]}),none=!ks.some(function(k){return on[k]}),names=ks.map(function(k){return FLG[k].name}),seen={},used=ks.reduce(function(s,k){if(!on[k])return s;if(!FLG[k].owners)return s+FLG[k].rows;FLG[k].owners.forEach(function(o){if(!seen[o]){seen[o]=1;s++}});return s},0);
+    var B=BUN[t],s=add(t,"<tr><td>"+esc(label)+ii(B.about[label]||"Adds "+names.join(", ")+" with comments on what they do.")+"</td><td>"+esc(B.targets?"attribute targets":where(ks.map(function(k){return FLG[k].where})))+"</td><td>"+(all?'<span class="ok">Present</span>':none?'<span class="bad">Missing</span>':'<span class="flag">Partly</span>')+"</td><td>"+(none?"-":used+" row"+(used==1?"":"s"))+'</td><td class="acts">'+(all?'<button class="rm" data-b="'+esc(m)+'">Remove</button>':'<button data-b="'+esc(m)+'">Add</button>')+"</td></tr>");
+    ks.forEach(function(k){on[k]?s.p++:s.m++});if(!none)s.r+=used;});
+  TPL.forEach(function(x,k){var n=x.taken.length+tw[k];
+    add(x.tick,"<tr><td>"+esc(x.label)+(x.doc?ii(x.doc):"")+"</td><td>"+esc(x.sheet)+"</td><td>"+(n?'<span class="ok">Present</span>':'<span class="muted">none yet</span>')+"</td><td>"+(n?n+" row"+(n==1?"":"s"):"-")+'</td><td class="acts"><button data-t="'+k+'">Add</button></td></tr>');});
+  FLG.forEach(function(x,k){if(BUN[x.tick]||x.add)return;
+    var s=add(x.tick,"<tr><td><code>"+esc(x.name)+"</code>"+(x.doc?ii(x.doc):"")+"</td><td>"+esc(x.where)+"</td><td>"+(on[k]?'<span class="ok">Present</span>':'<span class="bad">Missing</span>')+"</td><td>"+(on[k]?x.rows+" row"+(x.rows==1?"":"s"):"-")+'</td><td class="acts">'+(on[k]?'<button class="rm" data-f="'+k+'">Remove</button>':'<button data-f="'+k+'">Add</button>')+"</td></tr>");
+    if(on[k]){s.p++;s.r+=x.rows}else s.m++;});
+  // an opt-out flag: unmarked rows are the module's own choice, never missing
+  OPT.forEach(function(x,k){var left=ow[k]?0:x.unmarked.length,done=x.rows-left;
+    var s=add(x.tick,"<tr><td><code>"+esc(x.flag)+"</code>"+ii((x.doc?x.doc+". ":"")+"Sets it on every "+x.where.replace(/s$/,"")+" that lacks it.")+"</td><td>"+esc(x.where)+"</td><td>"+(left?'<span class="flag">'+done+" of "+x.rows+" marked</span>":'<span class="ok">All marked</span>')+"</td><td>"+done+" row"+(done==1?"":"s")+'</td><td class="acts">'+(!x.unmarked.length?'<span class="muted">-</span>':ow[k]?'<button class="rm" data-o="'+k+'">Undo</button>':'<button data-o="'+k+'">Mark all</button>')+"</td></tr>");
+    s.p++;s.r+=done;});
+  // a hook: traits made from the module's template and named on every row its flag picks
+  HK.forEach(function(x,k){var left=hw[k]?0:x.unhooked.length,done=x.rows-left;
+    var s=add(x.tick,"<tr><td>"+esc(x.label)+ii((x.doc?x.doc+". ":"")+"Names them in "+x.prop+".")+"</td><td>"+esc(x.where)+"</td><td>"+(left?'<span class="bad">'+done+" of "+x.rows+" hooked</span>":'<span class="ok">All hooked</span>')+"</td><td>"+done+" row"+(done==1?"":"s")+'</td><td class="acts">'+(!x.unhooked.length?'<span class="muted">-</span>':hw[k]?'<button class="rm" data-h="'+k+'">Undo</button>':'<button data-h="'+k+'">Add</button>')+"</td></tr>");
+    left?s.m++:s.p++;s.r+=done;});
+  NUM.forEach(function(x,k){var keep=nc[k]>0||(x.has_column&&x.named.length);
+    add(x.tick,"<tr><td><code>"+esc(x.stem)+"1</code>…<code>N</code>"+ii("Rows numbered from 1 with no gap; the column below comes with the first and goes with the last.")+"</td><td>"+esc(x.where)+" rows</td><td>"+(nc[k]?'<span class="ok">Present</span>':'<span class="muted">none yet</span>')+"</td><td>"+(nc[k]?nc[k]+" row"+(nc[k]==1?"":"s"):"-")+'</td><td class="acts"><button data-nk="'+k+'" data-d="-1"'+(nc[k]<=nc0[k]?' class="rm"':"")+(nc[k]?"":" disabled")+'>−</button> <button data-nk="'+k+'" data-d="1">+</button></td></tr>');
+    var s=ST[x.tick];s.r+=nc[k];if(x.column){keep?s.p++:s.m++;s.r+=x.named.length}
+    if(x.column)add(x.tick,"<tr><td><code>"+esc(x.column)+"</code>"+(x.doc?ii(x.doc):"")+"</td><td>"+esc(x.where)+" column</td><td>"+(keep?'<span class="ok">Present</span>':'<span class="bad">Missing</span>')+"</td><td>"+(x.named.length?x.named.length+" row"+(x.named.length==1?"":"s"):"-")+'</td><td class="muted">with '+esc(x.stem)+"N</td></tr>");});
+  document.getElementById("mods").innerHTML=mods.length?mods.map(function(m){return'<details data-m="'+esc(m)+'"'+(OPEN[m]?" open":"")+'><summary>'+esc(m)+' <span class="sum">'+sumOf(ST[m])+'</span></summary><table class="flg"><tr><th>Name</th><th>Where</th><th>Status</th><th>Rows using it</th><th></th></tr>'+rows[m].join("")+"</table></details>"}).join(""):'<details open><summary>Modules</summary><div class="muted">'+(!TGT.length?"Nothing to show until a cdb is chosen.":!DEP?"Nothing to show until a build is deployed on the Build tab.":"The deployed build, "+esc(DEP)+", needs no flags, props or rows.")+"</div></details>";
+  document.getElementById("jump").innerHTML=(FW?["Target columns"]:[]).concat(mods).map(function(m){return'<button data-j="'+esc(m)+'" class="'+(FIL[m]?"on":ST[m]&&ST[m].m?"miss":"")+'">'+esc(m)+"</button>"}).join("");
+  filter();
+  var c=[];TGT.forEach(function(s,k){if(tc[k]>tc0[k])c.push(s.label+": add target"+(tc0[k]+1)+(tc[k]>tc0[k]+1?"-target"+tc[k]:""));if(tc[k]<tc0[k]){var lose=[];for(var n=tc[k]+1;n<=tc0[k];n++)if(s.used[n])lose.push(s.used[n]+(s.used[n]>1?" rows lose their ":" row loses its ")+"target"+n);c.push(s.label+": remove target"+(tc[k]+1)+(tc0[k]>tc[k]+1?"-target"+tc0[k]:"")+(lose.length?"\u0001"+lose.join(", "):""));}});
+  NUM.forEach(function(x,k){var a=nc0[k],b=nc[k],s=x.stem,w=" in "+x.where;
+    if(b>a)c.push("Add "+s+(a+1)+(b>a+1?"-"+s+b:"")+w+(!a&&x.column&&!x.has_column?", with the "+x.column+" column":""));
+    if(b<a)c.push("Remove "+s+(b+1)+(a>b+1?"-"+s+a:"")+w+(!b&&x.column&&x.has_column?(x.named.length?"; "+x.column+" stays":", with the "+x.column+" column"):"")+"\u0001"+(a-b>1?"their keys are":"its key is")+" lost"+(!b&&x.named.length?"; "+x.named.join(", ")+(x.named.length==1?" still uses ":" still use ")+x.column:""));});
+  OPT.forEach(function(x,k){if(ow[k])c.push("Mark "+x.unmarked.length+" "+x.where+" "+x.flag);});
+  HK.forEach(function(x,k){if(hw[k])c.push("Add "+x.label.toLowerCase()+" to "+x.unhooked.join(", "));});
+  if(COM.length)c.push("Write the comment on "+COM.join(", "));
+  REP.forEach(function(r){c.push(r);});
+  TPL.forEach(function(x,k){var ids=[],have=x.taken.slice();for(var i=0;i<tw[k];i++){var n=0;while(have.indexOf(x.base+(n||""))>=0)n++;ids.push(x.base+(n||""));have.push(x.base+(n||""))}
+    if(ids.length)c.push("Add the "+x.label.toLowerCase()+" as "+ids.join(", ")+" in "+x.sheet);});
+  // one line per prop and sheet: a sheet's target columns are named together
+  var grp=[],by={};FLG.forEach(function(x,k){if(on[k]==on0[k])return;var w=x.where.match(/^(.*) (target\d*)$/),h=w?w[1]:x.where,key=on[k]+"|"+x.name+"|"+h;
+    if(!by[key]){by[key]={add:on[k],name:x.name,host:h,cols:[],rows:0};grp.push(by[key])}if(w)by[key].cols.push(w[2]);by[key].rows+=x.rows;});
+  grp.forEach(function(g){c.push((g.add?"Add ":"Remove ")+g.name+" in "+g.host+(g.cols.length?" "+g.cols.join(", "):"")+(!g.add&&g.rows?"\u0001"+g.rows+(g.rows>1?" rows lose their ":" row loses its ")+g.name:""));});
+  document.getElementById("chg").innerHTML=c.length?c.map(function(s){var p=s.split("\u0001");return"<li>"+esc(p[0])+(p[1]?' <span class="msg warn">- '+esc(p[1])+"</span>":"")+"</li>"}).join(""):'<li class="muted" style="list-style:none">Nothing yet.</li>';
+  document.getElementById("chg").style.marginLeft=c.length?"":"0";
+}
+document.body.addEventListener("click",function(e){var b=e.target;
+  if(b.tagName==="BUTTON")say(document.getElementById("savemsg"),{});
+  document.querySelectorAll("button.sure").forEach(function(x){if(x!==b){x.classList.remove("sure");x.textContent=x.dataset.k!==undefined||x.dataset.nk!==undefined?"−":"Remove"}});
+  if(b.dataset.j!==undefined){if(FIL[b.dataset.j])delete FIL[b.dataset.j];else FIL[b.dataset.j]=1;
+    b.className=FIL[b.dataset.j]?"on":ST[b.dataset.j]&&ST[b.dataset.j].m?"miss":"";filter();}
+  if(b.dataset.b!==undefined){var ks=bundled(b.dataset.b),all=ks.every(function(k){return on[k]});
+    if(all&&ks.some(function(k){return FLG[k].rows})&&!b.classList.contains("sure")){b.classList.add("sure");b.textContent="Sure?";return;}
+    ks.forEach(function(k){on[k]=all?0:1});draw();}
+  if(b.dataset.o!==undefined){ow[+b.dataset.o]^=1;draw();}
+  if(b.dataset.h!==undefined){hw[+b.dataset.h]^=1;draw();}
+  if(b.dataset.t!==undefined){var tk=+b.dataset.t;tw[tk]++;
+    bundled(TPL[tk].tick).forEach(function(k){on[k]=1});draw();}
+  if(b.dataset.nk!==undefined){var q=+b.dataset.nk,dq=+b.dataset.d;
+    if(dq<0&&nc[q]<=nc0[q]&&!b.classList.contains("sure")){b.classList.add("sure");b.textContent="Sure?";return;}
+    nc[q]=Math.max(0,nc[q]+dq);draw();}
+  if(b.dataset.k!==undefined){var k=+b.dataset.k,d=+b.dataset.d;
+    if(d<0&&TGT[k].used[tc[k]]&&!b.classList.contains("sure")){b.classList.add("sure");b.textContent="Sure?";return;}
+    tc[k]=Math.max(2,tc[k]+d);draw();}
+  if(b.dataset.f!==undefined){
+    var k=+b.dataset.f;
+    if(on[k]&&FLG[k].rows&&!b.classList.contains("sure")){b.classList.add("sure");b.textContent="Sure?";return;}
+    on[k]^=1;draw();
+  }});
+document.addEventListener("mouseover",function(e){
+  var h=e.target.closest&&e.target.closest(".i");if(!h)return;
+  var tip=h.querySelector(".tip");if(!tip)return;h.classList.remove("up");
+  tip.style.display="block";var need=tip.offsetHeight;tip.style.display="";
+  if(h.getBoundingClientRect().bottom+need+24>window.innerHeight)h.classList.add("up");
+});
+// a section starts folded; the ones left open are kept in the settings, so they open again next time
+document.addEventListener("toggle",function(e){var m=e.target.dataset&&e.target.dataset.m;if(m===undefined||!!OPEN[m]===e.target.open)return;
+  if(e.target.open)OPEN[m]=1;else delete OPEN[m];
+  fetch("/api/cdbopen",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.keys(OPEN))})},true);
+function got(d){if(d.open){OPEN={};d.open.forEach(function(m){OPEN[m]=1})}load(d.cdb)}
+document.getElementById("allp").onclick=function(){tc=tc.map(function(x){return x+1});draw()};
+document.getElementById("allm").onclick=function(){tc=tc.map(function(x,k){return x>2&&!TGT[k].used[x]?x-1:x});draw()};
+document.getElementById("even").onclick=function(){var m=Math.max.apply(null,tc);tc=tc.map(function(){return m});draw()};
+document.getElementById("undo").onclick=function(){tc=tc0.slice();on=on0.slice();nc=nc0.slice();tw=tw.map(function(){return 0});ow=ow.map(function(){return 0});hw=hw.map(function(){return 0});draw()};
+document.getElementById("save").onclick=function(){
+  var t={},f={},n={},b=this;
+  TGT.forEach(function(s,k){if(tc[k]!=tc0[k])t[s.sheet]=tc[k]});
+  FLG.forEach(function(x,k){if(on[k]!=on0[k])f[x.name]=!!on[k]});
+  NUM.forEach(function(x,k){if(nc[k]!=nc0[k])n[x.stem]=nc[k]});
+  var p={};TPL.forEach(function(x,k){if(tw[k])p[x.folder]=tw[k]});
+  var o={};OPT.forEach(function(x,k){if(ow[k])o[x.folder]=true});
+  var h={};HK.forEach(function(x,k){if(hw[k])h[x.folder]=true});
+  if(!Object.keys(t).length&&!Object.keys(f).length&&!Object.keys(n).length&&!Object.keys(p).length&&!Object.keys(o).length&&!Object.keys(h).length&&!COM.length&&!REP.length)return say(document.getElementById("savemsg"),{level:"warn",message:"Nothing to save."});
+  b.disabled=true;
+  fetch("/api/cdbsave",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targets:t,flags:f,numbered:n,templates:p,optouts:o,hooks:h})})
+    .then(function(r){return r.json()}).then(function(d){load(d.cdb);say(document.getElementById("savemsg"),d);b.disabled=false});
+};
+function post(url){fetch(url,{method:"POST"}).then(function(r){return r.json()}).then(function(d){load(d.cdb)})}
+document.getElementById("pick").onclick=function(){post("/api/cdbpath")};
+document.getElementById("path").onchange=function(){post("/api/cdbpath?v="+encodeURIComponent(this.value))};
+fetch("/api/cdb").then(function(r){return r.json()}).then(got);
+// coming back to the tab reads the cdb and the deployed build again, unless changes wait to be saved
+window.refresh=function(){if(String(tc)===String(tc0)&&String(on)===String(on0)&&String(nc)===String(nc0)&&!tw.some(Number)&&!ow.some(Number)&&!hw.some(Number))fetch("/api/cdb").then(function(r){return r.json()}).then(got)};
+})();
+</script>
+</body></html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APP_NAME</title>
+<style>
+:root{color-scheme:dark;--surface-1:#2c2c2a;--surface-2:#1f1e1b;--border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.3);--text-primary:#f1efe8;--text-secondary:#b4b2a9;--text-muted:#888780;--accent:#85b7eb;--ok:#97c459;--bad:#f09595;--warn:#fac775;--bg-warn:#633806;--bg-bad:#501313;--bg-ok:#27500a;--sure:#c0392b;--radius:8px;--mono:Consolas,monospace}
+:root[data-theme="light"]{color-scheme:light;--surface-1:#f7f6f2;--surface-2:#fff;--border:rgba(0,0,0,.12);--border-strong:rgba(0,0,0,.25);--text-primary:#1f1e1b;--text-secondary:#5f5e5a;--text-muted:#888780;--accent:#185fa5;--ok:#3b6d11;--bad:#a32d2d;--warn:#854f0b;--bg-warn:#faeeda;--bg-bad:#fcebeb;--bg-ok:#eaf3de;--sure:#c0392b}
+body{background:var(--surface-2);color:var(--text-primary);font-family:system-ui,sans-serif;margin:0;font-size:14px}
+select,button,input{font:inherit;font-size:13px;color:inherit;background:var(--surface-2);border:.5px solid var(--border-strong);border-radius:var(--radius);padding:3px 8px}
+button{cursor:pointer}
+.card{background:var(--surface-2);padding:1rem 1.5rem;min-height:100vh;box-sizing:border-box}
+#saved{table-layout:fixed}#saved th:nth-child(2){width:80px}#saved th:nth-child(6){width:190px}#saved th:nth-child(7){width:250px}
+.lbl{font-size:13px;min-width:56px}
+.tri{position:relative;display:inline-block;width:16px;text-align:center;font-size:15px;cursor:help}.tri.warnc{color:var(--warn)}.tri.bad{color:var(--bad)}
+.tri:hover .tip{display:block}.tri .tip{left:22px;top:-2px}
+.flag.both{color:var(--ok);background:var(--bg-ok)}
+.tabs{display:flex;gap:16px;font-size:13px;border-bottom:.5px solid var(--border);padding-bottom:8px;margin-bottom:14px;color:var(--text-secondary)}
+.tabs b{color:var(--text-primary);font-weight:500}.tabs a{color:inherit;text-decoration:none}.tabs a:hover{color:var(--text-primary)}
+h3{font-size:12px;font-weight:500;color:var(--text-secondary);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.line{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.path{font-family:var(--mono);font-size:13px;word-break:break-all}
+.ok{color:var(--ok)}.bad{color:var(--bad)}.muted{color:var(--text-muted);font-size:12px}.muted.bad{color:var(--bad)}
+details{border:.5px solid var(--border);border-radius:var(--radius);padding:6px 10px;margin-top:8px}
+summary{cursor:pointer;font-size:12px;font-weight:500;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.04em}
+summary .cnt{text-transform:none;font-weight:400;color:var(--text-muted);margin-left:6px}
+.ticks{columns:2;column-gap:24px;font-size:13px;margin-top:8px}
+@media (max-width:640px){.ticks{columns:1}}
+.ticks .tk{margin-bottom:4px;break-inside:avoid}.ticks label{cursor:pointer}
+.i{position:relative;display:inline-block;width:16px;height:16px;vertical-align:text-bottom;font-size:0;margin-left:4px;cursor:help}
+.i::before{content:"";position:absolute;inset:0;background:var(--text-muted);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.25' fill='none' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='8' cy='4.75' r='1'/%3E%3Crect x='7.25' y='6.75' width='1.5' height='5.25' rx='.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.25' fill='none' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='8' cy='4.75' r='1'/%3E%3Crect x='7.25' y='6.75' width='1.5' height='5.25' rx='.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.tip{display:none;position:absolute;left:20px;top:-4px;z-index:5;width:260px;background:var(--surface-1);border:.5px solid var(--border-strong);border-radius:var(--radius);padding:6px 8px;font:12px/1.4 system-ui,sans-serif;color:var(--text-primary);font-style:normal;text-align:left}
+.i:hover .tip,.hov:hover .tip{display:block}
+.big{font-size:14px;padding:6px 16px;border-color:var(--accent);color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{text-align:left;padding:5px 6px;border-bottom:.5px solid var(--border)}
+th{font-weight:500;color:var(--text-secondary);font-size:12px}
+td.acts{white-space:nowrap}
+td.acts button{font-size:12px;padding:1px 6px}
+.hov{position:relative;cursor:help;text-decoration:underline dotted}
+.hov .tip{left:0;top:20px}
+.tip b{display:block;font-weight:500;color:var(--text-secondary);font-size:11px;margin-top:4px}
+.flag{font-size:12px;color:var(--warn);background:var(--bg-warn);border-radius:var(--radius);padding:1px 6px}.flag.urgent{color:var(--bad);background:var(--bg-bad);cursor:help}
+.wrap{overflow:visible}
+progress{width:220px;height:8px;accent-color:var(--accent)}
+.swap{display:inline-grid;justify-items:center}.swap>span{grid-area:1/1;visibility:hidden}
+.swap:not(.busy)>span:nth-child(1),.swap.busy:not(:hover)>span:nth-child(2),.swap.busy:hover>span:nth-child(3){visibility:visible}
+.swap.busy{color:var(--warn);border-color:var(--warn);background:var(--bg-warn)}
+.swap.busy:hover,button[data-act="remove"]:hover{color:var(--bad);border-color:var(--bad)}
+.swap.busy:hover{background:var(--bg-bad)}
+#barmsg{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+button.sure,button.sure:hover{background:var(--sure);border-color:var(--sure);color:#fff}
+.msg{font-size:12px;margin-left:6px}.msg.ok{color:var(--ok)}.msg.warn{color:var(--warn)}.msg.error{color:var(--bad)}
+.foot{margin-top:16px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+#saved td:nth-child(6) .msg{display:block;margin-left:0}
+#saved th:nth-child(4),#saved th:nth-child(5),#saved td:nth-child(4),#saved td:nth-child(5){text-align:center}
+.hov.up .tip{top:auto;bottom:20px}.i.up .tip{top:auto;bottom:-4px}
+.tip.wide{width:460px;overflow-y:auto}.hov .tip.wide{top:14px}.hov.up .tip.wide{top:auto;bottom:14px}.hov.right .tip{left:auto;right:0}
+.cols{columns:2;column-gap:14px}.cols>div{break-inside:avoid}
+.blk{font-weight:600;margin-top:8px;padding-bottom:2px;border-bottom:.5px solid var(--border)}
+</style></head><body>
+<div class="card">
+
+<h3>Game folder</h3>
+<div class="line"><input class="path" id="folder" style="flex:1"><button id="change">Choose…</button></div>
+<div class="msg error" id="state" style="margin-left:0"></div>
+<h3>Build from</h3>
+<div id="srcs"></div>
+
+<div id="groups"></div>
+
+<div class="line" style="margin-top:12px"><input id="name" value="My build" style="width:220px"><select id="which"><option value="both">Both</option><option value="opengl">OpenGL</option><option value="directx">DirectX</option></select><button class="big swap" id="build"><span>Build</span><span>Building…</span><span>Cancel</span></button><span class="muted" id="buildmsg"></span><progress id="bar" hidden></progress><span class="muted" id="barmsg"></span></div>
+
+<div class="foot"><button id="restore">Restore original</button><span class="muted" id="restoremsg">Restores the base game files</span></div>
+
+<h3>Saved builds</h3>
+<div class="wrap"><table id="saved">
+<tr><th>Name</th><th>Files</th><th>Features</th><th>Game version</th><th>App version</th><th>Status</th><th></th></tr>
+</table></div>
+<div class="msg" id="savedmsg" style="margin-left:0"></div>
+</div>
+<script>
+// a second or third click in a row marks no text; a click-and-drag still does
+document.addEventListener("mousedown",function(e){if(e.detail>1&&!e.target.closest("input,textarea,select"))e.preventDefault()});
+(function(){
+var GROUPS=[],GAME={},APP="";
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function show(d){
+  var g=d.game;GAME=g;APP=d.app;
+  document.getElementById("folder").value=g.folder;
+  document.getElementById("state").textContent=!g.folder?"Steam does not list the game; choose its folder.":g.installed?"":"The game is not in this folder.";
+  var box=document.getElementById("srcs");
+  box.innerHTML=d.sources.map(function(s){
+    var w=!s.exists?["bad","Error: no file here."]:s.ours||s.made?["bad","Error: this file already has "+d.patch+". Use 'Restore original' below, or choose a different file."]:null;
+    return '<div class="line" style="margin-top:4px"><span class="lbl">'+esc(s.label)+'</span><span class="tri '+(w?w[0]:"")+'">'+(w?'⚠<span class="tip">'+esc(w[1])+"</span>":"")+'</span><input class="path" data-src="'+s.key+'" style="flex:1" value="'+esc(s.path)+'"><button data-pick="'+s.key+'">Choose…</button></div>'}).join("");
+  box.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){post("/api/source/"+b.dataset.pick)}});
+  box.querySelectorAll("[data-src]").forEach(function(x){x.onchange=function(){post("/api/source/"+x.dataset.src+"?v="+encodeURIComponent(x.value))}});
+  document.getElementById("state").textContent&&(document.getElementById("state").textContent="Error: "+document.getElementById("state").textContent);
+  saved(d.builds||[]);
+}
+function showGroups(groups){
+  GROUPS=groups;
+  var box=document.getElementById("groups");
+  box.innerHTML=groups.map(function(gr){
+    var t=gr.ticks.map(function(k){
+      var tip=esc(k.about||"No description yet.")+(k.needs||k.cdb&&k.cdb!=="none"?"<b>Needs in the cdb</b>"+esc(k.needs||colnames(k.cdb)):"")+(k.missing?"<b>No feature_description.txt in "+esc(k.folder)+"</b>":"");
+      return '<div class="tk"><label><input type="checkbox" checked data-folder="'+esc(k.folder)+'"> '+esc(k.name)+'</label><span class="i">i<span class="tip">'+tip+'</span></span></div>';
+    }).join("");
+    return '<details open><summary>'+esc(gr.title)+'<span class="cnt"></span></summary><div class="ticks">'+t+'</div></details>';
+  }).join("");
+  function cnt(){box.querySelectorAll("details").forEach(function(d){var b=d.querySelectorAll("input"),n=0;b.forEach(function(x){n+=x.checked});d.querySelector(".cnt").textContent=n+" of "+b.length;});}
+  box.querySelectorAll("input").forEach(function(x){x.onchange=cnt});cnt();
+}
+function appcell(b){
+  if(b.app===APP&&!b.missing.length)return '<span class="ok">'+esc(b.app)+"</span>";
+  var tip=(b.app?"Made with "+esc(b.app)+"; this app is "+esc(APP)+".":"Made before the app recorded its version.")+[["New modules",true],["New words",false]].map(function(k){
+    var ms=b.missing.filter(function(m){return m[2]===k[1]});
+    return ms.length?'<div class="blk">'+k[0]+'</div><div class="cols">'+ms.map(function(m){return "<div><b>"+esc(m[0])+" ("+m[1].length+")</b>"+m[1].map(esc).join(", ")+"</div>"}).join("")+"</div>":"";
+  }).join("");
+  return '<span class="hov"><span class="flag">'+esc(b.app||"unknown")+'</span><span class="tip'+(b.missing.length?" wide":"")+'">'+tip+"</span></span>";
+}
+// the cdb list by column names only: each `:type(...)` after a name is left out
+function colnames(s){var o="",d=0,skip=false;for(var i=0;i<s.length;i++){var c=s[i];if(skip){if(c=="(")d++;else if(c==")")d--;else if(!d&&(c==","||c==" "||c==";")){skip=false;o+=c}continue}if(c==":"){skip=true;d=0;continue}o+=c}return o}
+function saved(builds){
+  var t=document.getElementById("saved");
+  while(t.rows.length>1)t.deleteRow(1);
+  var all=[];GROUPS.forEach(function(gr){gr.ticks.forEach(function(k){all.push([gr.title,k])})});
+  if(!builds.length){var r=t.insertRow();r.innerHTML='<td colspan="7" class="muted">No saved builds yet.</td>';return;}
+  builds.forEach(function(b){
+    var on=b.ticks||[],tip="";
+    GROUPS.forEach(function(gr){var n=gr.ticks.filter(function(k){return on.indexOf(k.folder)>=0}).map(function(k){return esc(k.name)});if(n.length)tip+="<b>"+esc(gr.title)+"</b>"+n.join("<br>")});
+    var old=b.game&&GAME.build&&b.game!==GAME.build;
+    var fs=Object.keys(b.files),both=fs.length>1,lab=function(k){return k=="directx"?"DirectX":"OpenGL"};
+    var st=b.on.length&&old?'<span class="flag urgent" title="The game has updated since this build was made, so the game is running an outdated file. Rebuild it, then deploy it again.">Deployed - Rebuild</span>':b.on.length==2?'<span class="ok">Deployed</span>':b.on.length?'<span class="flag">Deployed ('+lab(b.on[0])+")</span>":old?'<span class="flag">Game updated - Rebuild</span>':"";
+    var r=t.insertRow();
+    r.innerHTML="<td>"+esc(b.name)+'</td><td>'+(both?'<span class="flag both">Both</span>':'<span class="flag">'+lab(fs[0])+"</span>")+'</td><td><span class="hov">'+all.filter(function(p){return on.indexOf(p[1].folder)>=0}).length+" of "+all.length+'<span class="tip">'+tip+"</span></span></td><td>"+esc(b.game||"")+"</td><td>"+appcell(b)+"</td><td>"+st+'</td><td class="acts">'+["Deploy","Rebuild","Rename","Remove"].map(function(v){return '<button data-act="'+v.toLowerCase()+'" data-name="'+esc(b.name)+'"'+(old&&v==="Deploy"?" disabled":"")+(v==="Rebuild"?' class="swap"><span>Rebuild</span><span>Building…</span><span>Cancel</span>':">"+v)+"</button>"}).join(" ")+"</td>";
+  });
+}
+function post(url){fetch(url,{method:"POST"}).then(function(r){return r.json()}).then(show)}
+document.getElementById("change").onclick=function(){post("/api/folder")};
+document.getElementById("folder").onchange=function(){post("/api/folder?v="+encodeURIComponent(this.value))};
+document.getElementById("build").onclick=function(){
+  if(this.classList.contains("busy"))return cancel();
+  var on=[].map.call(document.querySelectorAll("#groups input:checked"),function(x){return x.dataset.folder});
+  building(this,"/api/make?name="+encodeURIComponent(document.getElementById("name").value)+"&ticks="+encodeURIComponent(on.join(","))+"&which="+document.getElementById("which").value,function(){return document.getElementById("buildmsg")});
+};
+function cancel(){fetch("/api/cancel",{method:"POST"})}
+function lock(on,keep){document.querySelectorAll(".card input,.card button,.card select").forEach(function(x){if(x!==keep)x.disabled=on})}
+function building(btn,url,where){
+  btn.classList.add("busy");lock(true,btn);var stop=watch();
+  function done(){stop();btn.classList.remove("busy");lock(false)}
+  fetch(url,{method:"POST"}).then(function(r){return r.json()}).then(function(d){done();show(d);say(where(),d)})
+    .catch(function(){done();fetch("/api/build").then(function(r){return r.json()}).then(show);say(where(),{level:"error",message:"Error: the build could not start."})});
+}
+function watch(){
+  var bar=document.getElementById("bar"),said=document.getElementById("barmsg");bar.hidden=false;bar.removeAttribute("value");said.textContent="Starting…";
+  var t=setInterval(function(){fetch("/api/progress").then(function(r){return r.json()}).then(function(p){
+    if(p.total&&p.parts){bar.max=p.parts;bar.value=p.index+Math.min(p.done,p.total)/p.total;}
+    if(p.step)said.textContent=said.title=(p.part?p.part+" · ":"")+(p.total&&p.done?p.done+" of "+p.total+" · ":"")+p.step;
+  })},500);
+  return function(){clearInterval(t);bar.hidden=true;said.textContent="";};
+}
+document.addEventListener("click",function(e){
+  if(!e.target.closest("button"))return;
+  say(document.getElementById("savedmsg"),{});
+  var rm=document.getElementById("restoremsg");rm.className="muted";rm.textContent="Restores the base game files";
+  document.querySelectorAll("#saved .msg").forEach(function(x){x.remove()});
+  var bm=document.getElementById("buildmsg");bm.className="muted";bm.textContent="";
+  document.querySelectorAll("button.sure").forEach(function(x){if(x!==e.target.closest("button")){x.classList.remove("sure");x.textContent="Remove"}});
+},true);
+function say(el,d){el.className="msg "+(d.level||"");el.textContent=d.message||""}
+function act(url,where){fetch(url,{method:"POST"}).then(function(r){return r.json()}).then(function(d){show(d);say(where(),d)})}
+document.getElementById("restore").onclick=function(){act("/api/restore",function(){return document.getElementById("restoremsg")})};
+function rowOf(name){
+  var b=[].filter.call(document.querySelectorAll("#saved [data-name]"),function(x){return x.dataset.name===name})[0];
+  if(!b)return document.getElementById("savedmsg");
+  var s=document.createElement("span");b.closest("tr").cells[5].appendChild(s);return s;
+}
+document.addEventListener("mouseover",function(e){
+  var h=e.target.closest&&e.target.closest(".hov,.i");if(!h)return;
+  var tip=h.querySelector(".tip");if(!tip)return;h.classList.remove("up","right");tip.style.maxHeight="";
+  tip.style.display="block";var need=tip.offsetHeight,wide=tip.offsetWidth;tip.style.display="";
+  var r=h.getBoundingClientRect(),below=window.innerHeight-r.bottom-24,above=r.top-24;
+  if(need>below&&above>below)h.classList.add("up");
+  if(need>Math.max(below,above))tip.style.maxHeight=Math.max(below,above)+"px";
+  if(r.left+wide+16>window.innerWidth)h.classList.add("right");
+});
+function run(verb,n,extra,after){act("/api/"+verb+"?name="+encodeURIComponent(n)+(extra||""),function(){return rowOf(after||n)})}
+document.getElementById("saved").onclick=function(e){
+  var b=e.target.closest("button")||e.target,n=b.dataset&&b.dataset.name,verb=b.dataset&&b.dataset.act;
+  if(!n||!verb)return;
+  if(verb==="deploy")return run("deploy",n);
+  if(verb==="rebuild"){
+    if(b.classList.contains("busy"))return cancel();
+    return building(b,"/api/rebuild?name="+encodeURIComponent(n),function(){return rowOf(n)});
+  }
+  if(verb==="remove"){
+    if(b.textContent!=="Sure?"){b.textContent="Sure?";b.classList.add("sure");return;}
+    return run("remove",n);
+  }
+  if(verb==="rename"){
+    var cell=b.closest("tr").cells[0];
+    cell.innerHTML='<input style="width:100%;box-sizing:border-box">';
+    var box=cell.firstChild;box.value=n;box.focus();box.select();
+    box.onkeydown=function(k){
+      if(k.key==="Enter")run("rename",n,"&to="+encodeURIComponent(box.value),box.value.trim());
+      if(k.key==="Escape")cell.textContent=n;
+    };
+  }
+};
+fetch("/api/build").then(function(r){return r.json()}).then(function(d){showGroups(d.groups);show(d)});
+})();
+</script>
+</body></html>

@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APP_NAME</title>
+<style>
+:root{color-scheme:dark;--surface-1:#2c2c2a;--surface-2:#1f1e1b;--border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.3);--text-primary:#f1efe8;--text-secondary:#b4b2a9;--text-muted:#888780;--accent:#85b7eb;--warn:#fac775;--bg-warn:#633806;--bad:#f09595;--bg-bad:rgba(240,149,149,.16);--cs:#85b7eb;--ct:#f09595;--ce:#97c459;--cs2:#c3dcf5;--ct2:#e0aaa0;--ce2:#c3dd9c;--ce3:#5dcaa5;--radius:8px;--mono:Consolas,monospace;--voice:Georgia,serif}
+:root[data-theme="light"]{color-scheme:light;--surface-1:#f7f6f2;--surface-2:#fff;--border:rgba(0,0,0,.12);--border-strong:rgba(0,0,0,.25);--text-primary:#1f1e1b;--text-secondary:#5f5e5a;--text-muted:#888780;--accent:#185fa5;--warn:#854f0b;--bg-warn:#faeeda;--bad:#a32d2d;--bg-bad:rgba(163,45,45,.1);--cs:#185fa5;--ct:#a32d2d;--ce:#3b6d11;--cs2:#4a8fd0;--ct2:#c4584a;--ce2:#5f9a2a;--ce3:#0f7a5c}
+body{background:var(--surface-2);color:var(--text-primary);font-family:system-ui,sans-serif;margin:0;font-size:14px}
+select,button,input{font:inherit;font-size:13px;color:inherit;background:var(--surface-2);border:.5px solid var(--border-strong);border-radius:var(--radius);padding:3px 6px}
+select{max-width:100%}
+button{cursor:pointer}button:disabled{opacity:.4;cursor:default}
+.card{background:var(--surface-2);padding:1rem 1.5rem;min-height:100vh;box-sizing:border-box}
+#head{font-family:var(--voice);font-size:16px;line-height:1.5;text-align:center}
+#sent{min-height:1.5em}
+#hold{display:flex;justify-content:center;margin-bottom:6px}
+#hold button{font-size:12px;padding:2px 12px;border-radius:0;color:var(--text-secondary)}
+#hold button:first-child{border-radius:var(--radius) 0 0 var(--radius)}#hold button:last-child{border-radius:0 var(--radius) var(--radius) 0;margin-left:-.5px}#hold button:only-child{border-radius:var(--radius);margin-left:0}
+#hold button.on{color:var(--accent);border-color:var(--accent);position:relative}
+#prev{font-family:var(--voice);font-size:14px;color:var(--text-secondary);margin-bottom:10px}
+.plist input{width:240px;max-width:100%;box-sizing:border-box}.plist .dd{display:block;max-width:240px}
+.pick{padding-right:22px;cursor:pointer;background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888780' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 8px center}
+.pick:focus{cursor:text}
+.cbm{width:100%;box-sizing:border-box;max-height:240px;overflow-y:auto;overflow-x:hidden}.cbm .ddi>span{min-width:0;overflow:hidden;text-overflow:ellipsis}.cbm .ddi>span:first-child{flex-shrink:0;max-width:100%}.cbm .ddi.on{background:var(--surface-1)}
+.lm{color:var(--text-muted);overflow:hidden;text-overflow:ellipsis}
+#rid{font-family:var(--mono);font-size:13px;text-align:center;margin:6px 0 2px;word-break:break-all}
+.plist{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 12px;align-items:center;font-size:12px}
+.plist>label{color:var(--text-secondary);font-family:var(--mono)}
+#pslots{display:contents}#pslots label{font-family:var(--mono)}
+#prac{border:.5px solid var(--border-strong);border-radius:var(--radius);padding:8px 10px;margin-top:14px}
+#prac summary{cursor:pointer;font-size:13px;font-weight:500;color:var(--text-secondary)}
+#prac[open] summary{margin-bottom:8px}
+.big{font-size:14px;padding:6px 16px;border-color:var(--accent);color:var(--accent)}.big.plain{border-color:var(--border-strong);color:inherit}
+#note,#cdbmsg{font-size:13px;color:var(--warn);background:var(--bg-warn);border-radius:var(--radius);padding:4px 10px;margin:6px 0;display:none}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:10px}
+@media (max-width:760px){.grid{grid-template-columns:minmax(0,1fr)}}
+.box{border:1.5px solid var(--k);border-radius:var(--radius);padding:8px 10px}
+.box h3{margin:0 0 6px;font-size:12px;font-weight:500;color:var(--k)}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:4px}
+.stk{position:relative;display:inline-flex}.stk>.nt:first-child{position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%)}.row:has(.stk){row-gap:20px}
+.x>.row:has(>.stk>.nt:first-child){padding-top:16px}
+.row label{font-size:12px;color:var(--text-secondary)}
+.x{position:relative;padding:4px 0 4px 12px;margin:8px 0}
+.x::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;border:2px solid var(--k);border-right:none;border-radius:7px 0 0 7px;box-sizing:border-box;pointer-events:none}
+.x .w{font-family:var(--mono);font-weight:500;color:var(--k)}
+.row.nts{align-items:flex-end}.row.nts input.pick,.stk>.w{line-height:18px}.stk>.w{padding:3px 0;border:.5px solid transparent;text-align:center}.row.nts>label{padding-bottom:4px}.stk{display:inline-flex;flex-direction:column;align-items:center;gap:2px}
+.nt{font-size:10px;line-height:1.2;padding:0 7px;border-radius:999px;border-color:var(--border);color:var(--text-muted);background:transparent;cursor:pointer}.nt:hover{border-color:var(--border-strong);color:var(--text-secondary)}.nt.on{color:var(--bad);border-color:var(--bad);background:var(--bg-bad)}.tp.on{color:var(--accent);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}.row.nts>.tp{margin-bottom:6px}.tp:disabled,.tp:disabled:hover{cursor:not-allowed;border-style:dashed;border-color:var(--border);color:var(--text-muted);background:transparent;opacity:.45}.tp.on:disabled{border-color:var(--accent);color:var(--accent);opacity:.55}
+.del{border:none;background:transparent;color:var(--text-muted);padding:0 4px}
+.und{display:inline-flex;flex-direction:column;align-items:center}.und>.pp{height:0;margin-top:2px;display:flex;align-items:flex-start;gap:4px;white-space:nowrap}.row.unds{padding-bottom:20px;row-gap:22px}.stk>.und>.w{display:inline-block;line-height:18px;padding:3px 0;border:.5px solid transparent;text-align:center}
+.x>.row{padding-right:24px}.x>.row>.del{position:absolute;top:6px;right:0}
+.add{font-size:12px;color:var(--k);border:.5px dashed var(--k);background:transparent;margin-top:6px}
+.add.small{font-size:11px;padding:1px 6px;margin-top:2px}
+.menu{border:.5px solid var(--border-strong);border-radius:var(--radius);padding:8px;margin:6px 0;background:var(--surface-2)}
+.menu h4{font-size:11px;font-weight:500;color:var(--text-secondary);margin:6px 0 3px}
+.opt{font-family:var(--mono);font-size:12px;margin:0 4px 4px 0}
+.mq{width:100%;box-sizing:border-box;margin-bottom:2px}.mk{display:flex;flex-wrap:wrap;gap:0 4px;align-items:baseline}.mf{display:inline-flex}.mw{display:none}.mf.on,.q .mf{display:flex;flex-basis:100%;align-items:baseline}.mf.on .mw,.q .mw{display:flex;flex-wrap:wrap;flex:1;min-width:0}
+.mf.on .mkl{color:var(--accent);border-color:var(--accent)}
+.mkl{font-size:12px;margin:0 4px 4px 0;color:var(--text-secondary);border-style:dashed}.mkl::after{content:" ▸"}.mf.on .mkl,.q .mkl{border-style:solid}.mf.on .mkl::after,.q .mkl::after{content:" ◂"}
+.why{font-size:12px;color:var(--text-muted);margin-top:6px}
+.why a{color:var(--text-muted);text-decoration:underline;cursor:pointer}
+.why ul{margin:4px 0 0;padding-left:16px}
+.ks{--k:var(--cs)}.kt{--k:var(--ct)}.ke{--k:var(--ce)}
+.ss{color:var(--cs)}.st{color:var(--ct)}.se{color:var(--ce)}.ss2{color:var(--cs2)}.st2{color:var(--ct2)}.se2{color:var(--ce2)}
+.se3{color:var(--ce3)}
+.ks .x{--k:var(--cs2)}.kt .x{--k:var(--ct2)}.ke .x{--k:var(--ce2)}
+.ind{margin-left:16px}
+.say{font-family:var(--voice);font-style:italic;font-size:12px;color:var(--text-muted);margin:0 0 4px}
+.msg.ok{color:var(--ce)}.msg.warn{color:var(--warn)}.msg.error{color:var(--bad)}
+.dd{position:relative;display:inline-block}.dd>button{display:inline-flex;justify-content:space-between;gap:8px;text-align:left}
+.ddm,.ddsub{position:absolute;z-index:5;background:var(--surface-2);border:.5px solid var(--border-strong);border-radius:var(--radius);padding:4px 0;min-width:140px}
+.ddm{top:100%;left:0;margin-top:2px;overscroll-behavior:contain}.ddsub{top:-5px;left:100%;display:none}
+.ddi{position:relative;padding:3px 10px;cursor:pointer;white-space:nowrap;display:flex;justify-content:space-between;gap:10px}
+.ddi:hover{background:var(--surface-1)}.ddi:hover>.ddsub{display:block}.ddi.on,.ddi.in{color:var(--accent)}.ddi.in>.ddsub{color:var(--text-primary)}
+.ddi.no{color:var(--text-muted);cursor:default}.ddi.no:hover{background:none}.ddi.hi{background:var(--surface-1)}
+.ddh{font-size:11px;color:var(--text-secondary);padding:4px 10px 2px}.ddf{min-width:100%;box-sizing:border-box;max-height:260px;overflow-y:auto}
+.foot{display:flex;gap:8px;margin-top:14px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--text-secondary)}
+</style></head><body>
+<div class="card">
+<div id="cdbmsg"></div>
+<div id="head"><div id="hold"></div><div id="sent"></div></div>
+<div id="rid"></div>
+<div id="note"></div>
+<div class="grid">
+<div class="box ks" id="bs"></div>
+<div class="box kt" id="bt"></div>
+<div class="box ke" id="be"></div>
+</div>
+<div class="foot"><button class="big plain" id="reset">Reset</button><button class="big plain" id="copy">Copy id</button><button class="big" id="write">Write to the attribute sheet</button><span class="msg" id="wmsg"></span></div>
+<details id="prac"><summary>Practice</summary>
+<div id="prev"></div>
+<div class="plist"><label>val</label><div><input id="val" type="number" step="any" value="" placeholder="(val)"></div><div id="pslots"></div></div>
+<div class="foot"><button id="pclear">Clear</button></div>
+</details>
+</div>
+<script>
+// a word may need any one of several kinds (`OfDomain`), so a need is met by any of them
+function MET(off,n){return [].concat(n||[]).some(function(k){return off[k]})}
+// a second or third click in a row marks no text; a click-and-drag still does
+document.addEventListener("mousedown",function(e){if(e.detail>1&&!e.target.closest("input,textarea,select"))e.preventDefault()});
+// the word menu: a family opens on its click and stays open; what is typed opens them all and hides every word, family and heading it does not match; Enter adds the first left
+var MF={};
+function VIS(el){return el.style.display!="none"}
+// every chip glides from where it stood to where the fold puts it, and the opened words fade in
+document.addEventListener("click",function(e){var b=e.target.closest("[data-mf]");if(!b)return;var ch=[].slice.call(b.closest(".menu").querySelectorAll(".mkl")),at=ch.map(function(c){return c.getBoundingClientRect()});
+MF[b.dataset.mf]=!MF[b.dataset.mf];b.parentNode.classList.toggle("on",MF[b.dataset.mf]);
+ch.forEach(function(c,k){var r=c.getBoundingClientRect(),dx=at[k].left-r.left,dy=at[k].top-r.top;if(dx||dy)c.animate([{transform:"translate("+dx+"px,"+dy+"px)"},{transform:"none"}],{duration:220,easing:"ease-out"});});
+if(MF[b.dataset.mf])b.nextSibling.animate([{opacity:0},{opacity:1}],{duration:220,easing:"ease-out"});});
+document.addEventListener("input",function(e){if(!e.target.classList.contains("mq"))return;var q=e.target.value.trim().toLowerCase(),m=e.target.parentNode;m.classList.toggle("q",!!q);
+m.querySelectorAll(".opt").forEach(function(b){b.style.display=!q||b.dataset.q.indexOf(q)>=0?"":"none"});
+m.querySelectorAll(".mf,.mg").forEach(function(g){g.style.display=[].some.call(g.querySelectorAll(".opt"),VIS)?"":"none"});});
+document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target.classList.contains("mq")){var b=[].filter.call(e.target.parentNode.querySelectorAll(".opt"),VIS)[0];if(b)b.click();}});
+document.addEventListener("click",function(){setTimeout(function(){var q=document.querySelector(".menu .mq");if(q&&document.activeElement==document.body)q.focus();});});
+(function(){
+var NAMES={};
+var NARROWS={},ONCE="already on this word";
+// scopes no neutral actor has: hidden while the owner is Neutral, and picking Neutral leaves them
+var NO_NEUTRAL={};
+// a neutral thing has no owner: what asks about the owner is greyed, what pays it defaults to everyone
+var NO_OWNER="a neutral thing has no owner",OWNER_TRIGS={},OWNED={pays:1,spawns:1,loses:1};
+function OUT(d,s){return !!d.only&&d.only.indexOf(s)<0}
+// the scopes and owners from their files: [word, noun, plural, the sheet its target names, 1 when none is neutral]
+var SCOPES=[];
+var OWNERS=[];
+// `Any` is offered only before a narrowing, and `All` everywhere but there
+function fitsBefore(o,fam){return fam=="narrow"?o!="All":o!="Any";}
+var OW={};
+var ON={};
+// the trigger words arrive from the framework's hook files with the cdb's names
+var NO_TRIG=["","none (all the time)",null,null,"",""],TRIGS=[NO_TRIG];
+// the marks: a scope's fifth field says no neutral one exists, a trigger's ninth that it asks about the owner
+SCOPES.forEach(function(x){if(x[4])NO_NEUTRAL[x[0]]=1});
+var EFFS=[];
+// an effect's sixth field: 0 always names a target, 1 a target that can be turned off, 2 never one; its thirteenth needs a ratio, its fourteenth reads one domain only, its fifteenth its `Not` wording
+// `SpawnNotTUnit`: `Not` goes in front of the target mark
+function enot(e){for(var i=0;i<e[1].length;i++)if(e[1][i]=="T"&&e[1].slice(0,i)+e[1].slice(i+1)==e[0])return e[1].slice(0,i)+"Not"+e[1].slice(i);return e[1];}
+var VERBS={};
+// an effect listed once, its `val` switch picking the word: on is the entry, off its partner
+var EPAIR={};
+function ehead(v){for(var k in EPAIR)if(EPAIR[k]==v)return k;return v;}
+// targeted, a pair spelled the same both ways (`GainTDev`) takes no `val`, so its switch goes
+function eone(hd){var t=function(w){return EFFS.filter(function(x){return x[0]==w})[0][1]};return EPAIR[hd]&&t(hd)==t(EPAIR[hd]);}
+function evOk(hd){return EPAIR[hd]&&!(S.eT&&eone(hd));}
+// a menu of the words sharing one slot (`one`), each by its file's label, after the choice of none
+function picks(one,none){return [["",none]].concat(Object.keys(W).filter(function(w){return W[w].one==one}).sort().map(function(w){return [w,W[w].lab||w]}));}
+function CMP(){return picks("cmp","at least");}
+function RATIO(){return picks("ratio","none");}
+// a word naming its kind (`OfTypeLandsraad`) is one menu word, `OfType`, its kind a dropdown
+function kin(w){var d=W[w];return d&&d.kind?w.slice(0,w.length-d.kind.length):null;}
+function kins(w){var g=kin(w);return Object.keys(W).filter(function(k){return g&&kin(k)==g}).sort();}
+// the picker beside `val` puts its word among the kids, in the old one's place
+function picked(list,one){var k=list.filter(function(k){return W[k.w].one==one})[0];return k?k.w:"";}
+function ratioOnly(e){return e[12]==1||e[12]==2&&!(e[5]!=2&&(!!S.eT||!e[5]));}
+function pick1(list,one,v){var i=list.map(function(k){return W[k.w].one}).indexOf(one);if(!v){if(i>=0)list.splice(i,1);return;}if(i>=0)list[i]=node(v);else list.push(node(v));}
+function mine(){return (S.o==""||S.o=="Own")&&!(S.scope=="Faction"&&S.sT);}
+// a neutral owner stamps nothing, so its plain word already works for everyone
+function neutral(){return S.o=="Neutral"&&!OWNED[ef()[11]];}
+// the riders from their files: [word, menu choice, receiver, stamps only, never offered]
+var RIDERS=[];
+// one kind of rider: no rider first, named as the one whose receiver is the default, then the rest offered
+function rlist(only,dflt){var r=RIDERS.filter(function(x){return !!x[3]==only}),d=r.filter(function(x){return x[2]==dflt})[0];return (d?[["",d[1]]]:[]).concat(r.filter(function(x){return !x[4]&&x[2]!=dflt}).map(function(x){return [x[0],x[1]]}));}
+function riders(){if(ef()[8])return rlist(0,"target").slice(0,1);if(neutral())return rlist(0,"all");if(S.o=="Neutral")return rlist(0,null);return rlist(0,mine()?"me":"target");}
+// a trait stays where it lands: its rider says only whose it counts as
+function stamps(){return rlist(1,"target");}
+var RIDE={};
+var RIDEPAY={};
+function names(k){return (NAMES[k]||[]).map(function(p){return p[0]});}
+function shown(k,x){var p=(NAMES[k]||[]).filter(function(p){return p[0]==x})[0];return p?p[1]:x;}
+function cmp(n){var c=n.kids.filter(function(k){return W[k.w].fam=="cmp"})[0];return c?W[c.w].p.replace("{smaller}",W[n.w].smaller||""):"at least ::value::";}
+// with no "you" wording of its own, its file's second verb says it of you
+function you(d,s){return d.nv&&d.nv[1]?s.replace(new RegExp("^if it "+d.nv[0][0]+"\\b"),"if you "+d.nv[1][0]):s;}
+function tail(n){var c=n.kids.filter(function(k){return W[k.w].fam=="cmp"})[0];return c&&W[c.w].tail?W[c.w].tail.replace("{smaller}",W[n.w].smaller):"";}
+function more(n,k2){k2=k2||"p";var seen={},l=n.kids.filter(function(k){return W[k.w].more&&W[k.w][k2]}).map(function(k){var d=W[k.w],x=seen[k.w]&&k.not&&d[k2+"a"]?d[k2+"a"]:seen[k.w]&&d.or?d.or:k.not&&d[k2+"n"]?d[k2+"n"]:d[k2];seen[k.w]=1;return x.replace(/::target::/g,k.t)});return trails(l).join("");}
+// quest types: any one named passes and a named one already leaves the others out: "of type A or B";
+// and a piece after a value takes a comma: "lasting at least 5 days, with weight at least 2"
+function trails(l){var pos=[],neg=[],ty;l=l.filter(function(x){var m=x.match(/^ of type (.+)$/),q=x.match(/^ of any type but (.+)$/);if(m)pos.push(m[1]);if(q)neg.push(q[1]);return !m&&!q;});ty=pos.length?" of type "+pos.join(" or "):neg.length?" of any type but "+neg.join(" or "):"";
+return (ty?[ty]:[]).concat(l).map(function(x,i,a){return i&&/::value::( \w+)?$/.test(a[i-1])&&/^ \w/.test(x)&&!/^ (that|if|and|or|unless) /.test(x)?","+x:x;});}
+// `Not` in front turns the whole question; after an owner word each faction picked is asked if it lacks it
+// turned, "doesn't hold at least 5" is "holds fewer than 5", in the word's own smaller word
+function say(n,f,at){if(n.not&&W[n.w].smaller&&W[n.w].ta==null&&!(n.not=="pre"&&lacks(n))){var up=said(Object.assign({},n,{not:""}),f,at);if(up.indexOf("at least ::value::")>=0)return up.replace("at least ::value::",W[n.w].smaller+" than ::value::");}
+var s=said(n,f,at);if(!n.not||W[n.w].ta!=null)return s;
+var nv=W[n.w].nv||[],hit=nv.length?new RegExp("\\bany of the factions ("+verbs(nv)+")\\b"):null;
+if(n.not=="pre"&&lacks(n)){if(hit&&hit.test(s))return s.replace(hit,"no faction "+nv[0][0]);return /\bany of /.test(s)?s.replace(/\bany of /,"none of "):s.replace(/^if /,"unless ");}
+return none(turn(s,nv));}
+// turned, "not with one of your allies" is "with none of your allies"
+function none(s){return s.replace(/\bnot with one of /,"with none of ").replace(/\bnot with an? /,"with no ").replace(/\bnot with another /,"with no other ").replace(/\bnot with any /,"with no ");}
+// said of your own things, "one of your allies" is just "an ally"
+function mates(x,w){return /\b(you|my faction) \w+$/.test(x)?w.replace(/\b(one|none) of (your|my faction's) (allies|enemies)\b/,function(m,a,b,c){return (a=="one"?"an ":"no ")+(c=="allies"?"ally":"enemy");}):w;}
+// a word's own verbs, from its file: each as its text says it, then turned; the first says one faction
+function verbs(nv){return nv.map(function(p){return p[0]}).join("|");}
+function turn(s,nv){if(!nv||!nv.length)return s;var to={};nv.forEach(function(p){to[p[0]]=p[1]});return s.replace(new RegExp("\\b("+verbs(nv)+")\\b"),function(v){return to[v];});}
+function said(n,f,at){var d=W[n.w];if(d.fam=="cmp")return d.p;
+// `at` is a trigger's place and the scope it is asked as: the condition is asked of it, not the holder
+var here=function(x){return at?x.replace(/^if it /,"if "+at[0]+" "):x;};
+if(d.refines){var who=n.o=="T"?"["+n.t+"]":ON[n.o][f=="h"?5:4];if(f=="h"&&mine())who=who.replace("the giver's","my faction's").replace("the giver","my faction");return (n.not&&!(d.nv||[]).length?"not ":"")+d[f=="h"?"h":"p"].replace("{partner}",who);}
+// an owner picked after the word is what it is about, never who asks: `BordersEnemy` speaks as the holder
+var no=d.after&&!d.ot?"":n.o,used=d.T=="req"||!!n.x,g=no?"p":f,s=used?d[g]||d.p:(g=="h"?d.hb:d.b)||d[g]||d.p;
+// `PerEnemyFaction`: a count naming no thing says the factions its owner word picks
+if(no&&d.pw)s=(d.pwx||{})[no]||d.pw;
+var own=S.o==""||S.o=="Own",sub=no?ON[no][(d.fam=="mult"?2:0)+(f=="h"?1:0)]:d.self&&!at?(S.scope=="Faction"&&own?"you":"it"):at?(at[1]=="Faction"?at[0]:at[0]=="it"?"its owner":at[0]+"'s owner"):own?"you":S.scope=="Faction"?"it":"its owner";
+if(f=="h"&&mine())sub=sub.replace("the giver's","my faction's").replace("the giver","my faction");
+if(!at&&f=="p"&&S.scope=="Faction"&&mine())s=you(d,s);
+if(n.not&&d.pn)s=g=="h"&&d.hn||d.pn;
+// `Not` before the owner word: the land of any faction but those it picks, or the one named
+if(d.after&&n.nb&&n.o&&d.po){var but=n.o=="T"?"["+n.t+"]":ON[n.o][f=="h"?3:2];if(f=="h"&&mine())but=but.replace("the giver's","my faction's").replace("the giver","my faction");s=(g=="h"?d.ho:d.po).replace("{owners}",but);if(!at&&f=="p"&&S.scope=="Faction"&&mine())s=you(d,s);}
+// an owner picked after the word names the land it holds
+if(d.after)s=s.replace("{owner}",n.o=="T"?"["+n.t+"]":TERR[n.o]);
+// `OfEnemy` names one faction it picks: "one of your enemies"
+if(d.after&&s.indexOf("{one}")>=0){var one=n.o=="T"?"["+n.t+"]":ON[n.o][f=="h"?5:4];if(f=="h"&&mine())one=one.replace("the giver's","my faction's").replace("the giver","my faction");s=s.replace("{one}",one);}
+if(n.t)s=s.replace(/::target::/g,n.t);var third=(no=="Own"&&f=="h")||(!no&&(!own||at))||/^(my|any) faction(?!')\b/.test(sub)||sub=="it";if(s.indexOf("{more}")<0&&s.indexOf("{pre}")<0)s+="{more}";s=s.replace("{amount}",cmp(n)).replace("{tail}",tail(n)).replace("{more}",more(n)).replace("{pre}",more(n,"pre")).replace("{subject}",sub).replace("{s}",third?"s":"").replace("{are}",third?"is":"are").replace("{have}",third?"has":"have");s=here(s);
+var kid=n.kids.filter(function(k){var kd=W[k.w];return kd.fam!="cmp"&&!kd.more;}).map(function(k){var kd=W[k.w];var tx=kd.th||(kd.narrows&&say(Object.assign({},k,{not:""}),"p",["it",d.kind||"Entity"]).replace(/^if it /,"that ").replace(/^if its owner /,"whose owner ")),th=tx?tx.replace(/::target::/g,k.t):"";return tx?(k.not?(kd.smaller&&th.indexOf("at least ::value::")>=0?th.replace("at least ::value::",kd.smaller+" than ::value::"):turn(th,kd.nv)):th):mates(s,say(k,f))});return s+(kid.length?" "+thats(s,kid):"");}
+// a second clause of the same kind joins the first: "that borders allied territory and has [x]";
+// the `that` clauses come before the `if` ones, so an `if` never splits the thing from its `that`
+function thats(s,kid){var had={that:/\bthat /.test(s),"if":/\bif /.test(s)},at=function(x){return /^that /.test(x)?1:/^if /.test(x)?2:0;};
+kid=kid.map(function(x){return x.trim();});kid=[0,1,2].reduce(function(o,r){return o.concat(kid.filter(function(x){return at(x)==r;}));},[]);
+kid=trails(kid.map(function(x){return " "+x;})).map(function(x){return x.charAt(0)==","?"\u0007"+x.slice(2):x.slice(1);});
+return kid.map(function(x){var w=(x.match(/^(that|if) /)||[])[1];if(!w)return x;if(had[w])return "and "+x.slice(w.length+1);had[w]=1;return x;}).join(" ").replace(/ \u0007/g,", ");}
+var W={};
+// each trigger's place and the scope it is asked as, off the trigger's own file in the framework
+var PLACE={},PLACE_IS={};
+var BOWN=OWNERS.filter(function(o){return o&&fitsBefore(o,"narrow")}).map(function(o){return [o,o]}).concat([["T","Named"]]);
+// an owner-after word offers only the owners it is spelled with, and a named faction where it takes a target
+// `With` reads after the word it refines among its siblings; with none there, after the trigger
+function lone(list){return list.filter(function(k){var d=W[k.w];return d.refines&&!list.some(function(s){return s.w==d.refines})});}
+function glued(list,f,sayer){return list.filter(function(k){return !W[k.w].refines}).map(function(n){var x=sayer(n);list.forEach(function(k){if(W[k.w].refines==n.w)x+=" "+mates(x,say(k,f));});return x;});}
+// your own faction or region never borders your own land: `Borders` counts land across a border
+function onOwn(){return mine()&&(S.scope=="Faction"||S.scope=="Region");}
+// a count's owner word picks whose things it counts: none is its default, and its target is its own
+function aown(d){if(d.ot)return [["","default"]].concat(BOWN.filter(function(p){return p[0]!="T"&&(!d.ow||d.ow.indexOf(p[0])>=0);}));return BOWN.filter(function(p){return p[0]=="T"?!!d.t:(!d.ow||d.ow.indexOf(p[0])>=0)&&!(p[0]=="Own"&&d.nb&&onOwn());});}
+var TERR={};
+// two conditions share only their subject: "if you own a development and have an active quest";
+// sharing a verb too would turn the second: "if you have not failed a quest and an active quest"
+function subj(w){var m=w.join(" ").match(/^(you|it|I|my faction|your faction|its owner|the [\w' ]*?(owner|village|killer))( |$)/);return m?m[1].split(" ").length:0;}
+function ifs(list){if(!list.length)return "";var pk=function(c){return c.charAt(0)=="\u0003"},un=function(c){return pk(c)?c.slice(1):c},ul=function(c){return /^unless /.test(un(c))},neg=list.filter(ul),out="";list=list.filter(function(c){return !ul(c)});
+if(list.length){var keep=pk(list[0]),fw=un(list[0]).replace(/^if /,"").split(" ");out=un(list[0]);list.slice(1).forEach(function(c){var cw=un(c).replace(/^if /,"").split(" "),n=0;while(!keep&&!pk(c)&&n<fw.length&&n<cw.length-1&&fw[n]==cw[n])n++;n=Math.min(n,subj(fw));out+=" and "+cw.slice(n).join(" ");});}
+return neg.length?out+(out?", ":"")+"unless "+neg.map(function(c){return un(c).replace(/^unless /,"")}).join(" or "):out;}
+// a neutral thing has no owner to ask, so a word asking an owner asks `Own`, the giver, instead
+function mineOwn(lists){lists.forEach(function(l){l.forEach(function(n){if(W[n.w].own&&!n.o)n.o="Own";mineOwn([n.kids]);});});}
+// the place is the holder's own faction when the trigger's actor is you: "if you have", not "if the acquiring faction has"
+function tsay(n){var t=tg(),sd=W[n.w].side;if(sd&&t&&t[18]&&t[18].indexOf(sd)>=0&&sd!=t[17])return say(n,"p",[sd,"Entity"]);var you=PLACE_IS[S.trig]=="Faction"&&S.scope=="Faction"&&!S.sT&&(S.o==""||S.o=="Own");return you?say(n,"p"):say(n,"p",[PLACE[S.trig],PLACE_IS[S.trig]]);}
+// a fresh word starts on the first scope and trigger the files list, and the effect whose file opens the builder
+function firstTrig(){var t=TRIGS.filter(function(x){return x[0]&&!OWNER_TRIGS[x[0]]})[0];return t?t[0]:null;}
+function fresh(){return {o:"",scope:SCOPES[0][0],sT:0,sN:0,sx:"",sk:[],trig:firstTrig(),tT:1,tN:0,tx:"",tk:[],eff:(EFFS.filter(function(e){return e[16]})[0]||EFFS.filter(function(e){return e[3]!="SUSTAINED"})[0])[0],ex:"",eT:1,eN:0,rider:"",stamp:"",ek:[],v:"",open:null,why:{}};}
+var S=fresh();
+function sc(){for(var i=0;i<SCOPES.length;i++)if(SCOPES[i][0]==S.scope)return SCOPES[i];}
+function tg(){var t=tg1(S.trig);return t.length?t:undefined;}
+function tg1(w){for(var i=0;i<TRIGS.length;i++)if(TRIGS[i][0]==w)return TRIGS[i];return [];}
+function ef(){for(var i=0;i<EFFS.length;i++)if(EFFS[i][0]==S.eff)return EFFS[i];}
+function effOk(e){return S.trig?e[3]!="SUSTAINED":e[3]!="LUMP";}
+function node(w){return {w:w,o:"",x:"",not:"",kids:[]};}
+function offered(parent){var o={};if(parent==="scope")return o;if(parent==="trig"){(tg()[13]||[]).forEach(function(k){o[k.replace(/^an? /,"")]=1});return o;}if(parent==="eff"){var e=ef(),named=e[5]==1&&S.eT;e[4].forEach(function(k){if(!(named&&(k=="random pick"||k=="development count")))o[k]=1});return o;}(W[parent.w].offers||[]).forEach(function(k){o[k]=1});return o;}
+function fits(w,parent){var d=W[w],off=offered(parent),sibs=parent==="scope"?S.sk:parent==="trig"?S.tk:parent==="eff"?S.ek:parent.kids;
+// a word its file asks of the row's own thing (`Inside`) fits only the scopes that thing can be
+if(d.hold&&d.hold.indexOf(S.scope)<0)return d.holdWhy;
+if(d.once&&sibs.some(function(k){return k.w==w}))return ONCE;
+if(d.one&&sibs.some(function(k){return W[k.w].one==d.one}))return "only one "+(d.one=="cmp"?"comparison":"ratio")+" per word";
+if(d.refines){if(sibs.some(function(k){return k.w==d.refines})||parent==="trig"&&d.trigs.indexOf(S.trig)>=0||typeof parent=="object"&&d.under.indexOf(parent.w)>=0)return "";return "it needs "+[d.refines].concat(d.trigs,d.under).join(", ")+" on its left";}
+if(parent==="trig"){if(d.fam!="narrow")return d.needs&&MET(off,d.needs)?"":"it is not a condition";if(!PLACE[S.trig])return "the trigger names no place";return OUT(d,PLACE_IS[S.trig])?"it cannot be asked of "+PLACE[S.trig]:"";}
+if(parent==="scope"){if(d.trigOnly)return d.trigOnly;if(d.fam!="narrow")return "it attaches to "+(d.needs?"a word offering "+d.needs:"the effect");if(OUT(d,S.scope))return d.onlyWhy;return "";}
+var once={};once[ef()[13]]=1;if(parent==="eff"&&ef()[13]&&MET(once,d.needs)&&sibs.some(function(k){return k.w==w}))return "only one "+ef()[13]+" on "+S.eff;
+if(parent==="eff"){if(!d.needs)return "it needs a word to attach to";return MET(off,d.needs)?"":"needs "+d.needs+", which "+S.eff+" does not give";}
+// a faction's question under a count of your own things asks you every time: it belongs on the row
+if(d.oa&&!off["faction count"]&&(parent.o==""||parent.o=="Own"))return d.oa;
+if(d.fam=="narrow")return d.narrows&&d.narrows.split("|").some(function(k){return off[k];})?"":"it does not narrow "+parent.w;
+if(d.needsT&&!parent.x)return "needs a target on "+parent.w;
+if(d.needsT&&parent.not)return "a count leaving a type out takes no second type";
+if(d.more&&d.ta!=null&&!d.all&&sibs.some(function(k){return k.w==w&&k.not}))return "only one of these once one is left out";
+return MET(off,d.needs)?"":"needs "+d.needs+", which "+parent.w+" does not give";}
+function prune(){var gone=[];function walk(list,parent){for(var i=list.length-1;i>=0;i--){var r=fits(list[i].w,parent);if(r&&r.indexOf("only one")<0&&r!=ONCE){gone.push(list[i].w+" ("+r+")");list.splice(i,1);}else walk(list[i].kids,list[i]);}}
+walk(S.sk,"scope");walk(S.tk,"trig");walk(S.ek,"eff");var n=document.getElementById("note");n.style.display=gone.length?"block":"none";n.textContent=gone.length?"Removed: "+gone.join("; "):"";}
+var col,pieces,FILL,KINDS,PRAC;
+function put(base,tform,useT,x,owner,cls,kind,set){var s=useT?tform:base,t="";if(useT){col++;KINDS.push(kind);t="::target"+(col>1?col:"")+"::";if(col>1)s+=col;PRAC.push({lab:"target"+(col>1?col:""),kind:kind,x:x,set:set,cls:cls});if(x&&x!="(blank)")FILL[t]=shown(kind,x);}pieces.push('<span class="'+cls+'">'+(owner||"")+s+"</span>");return t;}
+function lacks(n){return W[n.w].fam=="narrow"&&W[n.w].own&&n.o&&n.o!="Own";}
+// a word whose file takes `Not` puts it after its `ta` text; one with an optional target, once named
+function turns(n){var d=W[n.w];return !!d.nt&&(d.ta==null||d.T!="opt"||!!n.x);}
+function emit(list,cls){list.forEach(function(n){var d=W[n.w],set=function(v){n.x=v;},same=list.filter(function(k){return k.w==n.w}),left=same.filter(function(k){return k.not})[0];
+// a word turning its whole group (`all`): one name left out leaves them all out
+if(d.all&&left&&turns(n))n.not=left.not;else if(!turns(n)||d.more&&same.length>1)n.not="";if(n.not=="post"&&!lacks(n))n.not="pre";var ta=d.ta!=null&&n.not,o=ta?n.o:n.not=="pre"?"Not"+n.o:n.not?n.o+"Not":n.o,tf=ta&&d.t?d.ta+"Not"+d.t.slice(d.ta.length):d.t,bf=ta?d.ta+"Not"+n.w.slice(d.ta.length):n.w;var st=d.stem||n.w,mid=d.nb&&n.nb&&n.o?"Not":"",on=st+n.o+(n.not?"Not":"");n.t=d.ot?put(on+n.w.slice(st.length),d.t&&on+d.t.slice(st.length),d.T=="req"||!!n.x,n.x,"",cls,d.tk,set):d.after?put(st+mid+n.o+n.w.slice(st.length),d.t&&st+mid+d.t.slice(st.length),n.o=="T",n.x,n.not?"Not":"",cls,d.tk,set):put(bf,tf,d.T=="req"||!!n.x,n.x,o,cls,d.tk,set);emit(n.kids,cls);});}
+function esc(x){return x.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function fill(x){Object.keys(FILL).forEach(function(t){x=x.split("["+t+"-longname]").join(FILL[t]).split("["+t+"]").join(FILL[t]);});
+if(S.v!==""){var n=+S.v,sg=function(q){return (q>=0?"+":"")+q;};x=x.split("::s_percent_value::").join(sg(Math.round(n*100))+"%").split("::s_percent::").join(sg(Math.round((n-1)*100))+"%").split("::s_value::").join(sg(n)).split("::value::").join(n);}return x;}
+function line(parts){var out=[],first=1;parts.forEach(function(p){if(!p[0])return;var x=first?p[0].charAt(0).toUpperCase()+p[0].slice(1):p[0];first=0;out.push([x,p[1],p[2]]);});
+if(out.length>1&&out[1][1]=="se"&&out[0][2])out[1][2]=" ";return out;}
+function html(l,end){return l.map(function(p,i){return (i?(typeof p[2]=="string"?p[2]:", "):"")+'<span class="'+p[1]+'">'+esc(p[0]).replace(/\u0001/g,'<span class="se2">').replace(/\u0002/g,"</span>").replace(/\u0005/g,'<span class="se3">').replace(/\u0006/g,"</span>")+"</span>"}).join("")+(end?'<span class="se2">'+esc(end)+"</span>":"")+".";}
+// the whole sentence as text; named apart from the pills' `plain`, which a later one of that name hid
+function lplain(l,end){return l.map(function(p,i){return (i?(typeof p[2]=="string"?p[2]:", "):"")+p[0].replace(/[\u0001\u0002\u0005\u0006]/g,"")}).join("")+(end||"")+".";}
+function render(){if(!ef()[8])S.stamp="";if(S.rider&&!riders().some(function(r){return r[0]==S.rider}))S.rider="";if(S.o=="Neutral"&&!neutral()&&!S.rider)S.rider="ForAll";col=0;pieces=[];FILL={};KINDS=[];PRAC=[];var s=sc(),t=tg(),e=ef();
+S.stok=put(S.scope,(S.sT&&S.sN?"NotT":"T")+S.scope,S.sT,S.sx,S.o,"ss",s[3],function(v){S.sx=v;});emit(S.sk,"ss2");
+var tT=!!(S.trig&&S.tT&&t[2]);S.ttok=S.trig?put(S.tV&&t[20]?t[20][0]:S.trig,tT&&S.tN&&t[11]?"OnNot"+t[2].slice(2):t[2],tT,S.tx,"","st",t[3],function(v){S.tx=v;}):"";emit(S.tk,"st2");
+if(ratioOnly(e)&&!picked(S.ek,"ratio"))pick1(S.ek,"ratio",RATIO()[1][0]);
+var eT=e[5]!=2&&(!!S.eT||!e[5]);S.etok=put(S.eff,eT&&S.eN&&e[14]?enot(e):e[1],eT,S.ex,"","se",e[2],function(v){S.ex=v;});emit(S.ek,"se2");
+if(S.rider)pieces.push('<span class="se3">'+S.rider+"</span>");if(S.stamp)pieces.push('<span class="se3">'+S.stamp+"</span>");
+function who(){var o=OW[S.o],c=sc(),nouns=c[2]||c[1]+"s",but=" other than ["+S.stok+(S.scope=="Faction"?"-longname]":"]s");if(S.sT&&S.sN&&S.scope=="Faction"&&(S.o==""||S.o=="Own"))return o[1].replace("{name}","any "+c[1]+but);if(S.sT&&S.sN)return o[0].replace("{nouns}",nouns).replace("{noun}",c[1])+but;if(S.scope=="Faction"){if(S.sT)return o[1].replace("{name}","["+S.stok+"-longname]");return S.o==""||S.o=="Own"?"":o[0].replace("{nouns}",nouns).replace("{noun}",c[1]);}
+var noun=S.sT?"["+S.stok+"]":s[1],nouns=S.sT?noun+"s":(s[2]||s[1]+"s");return o[0].replace("{nouns}",nouns).replace("{noun}",noun);}
+// a trigger whose holder acts (`OnKill`) says "it" of a thing; its file may name what a faction loses
+function when(f){if(!S.trig)return "";var i=f=="p"?0:1,own=S.o==""||S.o=="Own";var a=i?"my faction":S.scope=="Faction"?(t[16]?t[16][own?0:1]:own?"you":"it"):t[15]?"it":own?"you":"its owner";var pt=lone(S.tk).map(function(k){return " "+say(k,f)}).join(""),x=tT?t[(S.tN&&t[11]?11:6)+i].replace(/::target::/g,S.ttok):(S.tV&&t[20]?t[20][1+i]:t[4+i])+more({kids:S.tk});
+var md=S.tk.filter(function(k){return W[k.w].fam=="mod"&&!W[k.w].more}).map(function(k){return say(k,f)}).join("");
+// on a scope under the trigger's place (a region), someone else acts there: "when something kills a unit in it"
+var ip=t[19],sc0=S.scope,k=0;while(ip&&sc0&&sc0!=ip[0]&&k++<9)sc0=NARROWS[sc0];var inp=ip&&sc0==ip[0];if(inp&&!i)a=ip[1];
+return ((x.indexOf("{with}")<0?x+pt:x.replace("{with}",pt))+md).replace("{where}",inp?ip[i?3:2]:"").replace("{who}",inp?ip[1]:"I").replace("{whos}",inp?"s":"").replace("{am}",inp?"is":"am").replace("{actor}",a).replace("{es}",a=="you"?"":"es").replace("{s}",a=="you"?"":"s");}
+// a trailing word on the trigger's own list is said with the trigger, never as an `if`
+function tcond(){return ifs(glued(S.tk.filter(function(k){return !W[k.w].more&&W[k.w].fam!="mod"}),"p",tsay));}
+function beside(k){return W[k.w].needs=="unit being made";}
+function what(f){var i=f=="p"?0:1,p=(eT?(S.eN&&e[14]?e[14][i]:e[6+i]):e[9+i]).replace(/::target::/g,S.etok);var wt=S.ek.filter(beside).map(function(k){return say(k,f)}).join(" "),rt=S.stamp?RIDE[S.stamp][i]:"",ins=(wt?" \u0001"+wt+"\u0002":"")+(rt?" \u0005"+rt+"\u0006":"");if(ins)p=p.indexOf("["+S.etok+"]")<0?p+ins:p.replace("["+S.etok+"]","["+S.etok+"]"+ins);var rp=S.rider?(RIDEPAY[e[11]]||{})[S.rider]:null;var own=S.o==""||S.o=="Own";if(!i){var v=(rp?rp[0]:VERBS[e[11]])[(S.scope=="Faction"?0:2)+(own?0:1)];if(/its owner/.test(when("p")))v=v.replace("its owner","that faction");p=v.replace("{x}",p);}
+else if(rp)p=e[11]=="spawns"?p.replace("for my faction",rp[1]):e[11]=="loses"?p.replace("from my faction","from "+rp[1]):p.replace(/give (my faction|it)\b/,"give "+rp[1]);var r=S.ek.filter(function(k){return W[k.w].val})[0];if(r)p=p.replace("::s_value::",W[r.w].val)+" "+W[r.w].p;
+var k=ekids(f);return p+(k.length?" "+k.join(" "):"");}
+function adds(f){var r=S.ek.filter(function(k){return W[k.w].val})[0];return (r?[W[r.w].p]:[]).concat(ekids(f)).join(" ");}
+// the effect's own words after it; a repeated one with an `or` text joins the first: "in [A] or [B]"
+function ekids(f){var seen={};return S.ek.filter(function(k){return !W[k.w].val&&!beside(k)}).map(function(k){var d=W[k.w],x=seen[k.w]&&(k.not?d.pa:d.or);seen[k.w]=1;return (x?x.replace(/::target::/g,k.t):say(k,f)).trim();});}
+function bare(x){return x.replace(/[\u0001\u0002\u0005\u0006]/g,"");}
+function base(f){var a=adds(f),w=what(f);return a&&w.slice(-a.length)==a?w.slice(0,-a.length-1):w;}
+function nar(f){return ifs(glued(S.sk,f,function(n){return (n.o&&n.o!="Own"?"\u0003":"")+say(n,f)}));}
+function conds(f){var nr=nar(f),tc=tcond(),both=nr&&tc,u=both&&(/^unless /.test(tc)||/unless /.test(nr));return [[nr,"ss2"],[both&&!u?tc.replace(/^if /,""):tc,"st2",both?(u?", ":" and "):undefined]];}
+var rd=["",""];
+// the holder's clause just before already named my faction: "I give it", never "I give my faction" again
+function hbase(){var b=base("h"),c=[when("h")].concat(conds("h").map(function(x){return x[0]})).filter(function(x){return x}).pop()||"";return /\bmy faction\b(?!')/.test(c)&&!/\b(I|me)\b/.test(c)?b.replace(/^I give my faction\b/,"I give it"):b;}
+var main=line([[who(),"ss",who().indexOf("As ")!=0],[when("p"),"st"]].concat(conds("p"),[[base("p"),"se"],[adds("p"),"se2"," "]])),hold=S.scope=="Faction"?null:line([[when("h"),"st"]].concat(conds("h"),[[hbase(),"se"],[adds("h"),"se2"," "]]));
+S._desc=lplain(main,rd[0]);S._who=who()||"your faction";S._tp=when("p")||"all the time";S._amt=bare(what("p"));
+var hv=!!(hold&&S.view=="h"),vl=hv?hold:main,ve=rd[hv?1:0];
+document.getElementById("sent").innerHTML=html(vl,ve);
+var bw=' style="min-width:'+(Math.max.apply(null,SCOPES.map(function(x){return x[0].length}))+2)+'ch"';
+document.getElementById("hold").innerHTML='<button data-view="p"'+bw+(hv?"":' class="on"')+'>Faction</button>'+(hold?'<button data-view="h"'+bw+(hv?' class="on"':"")+">"+esc(S.scope)+"</button>":"");
+document.getElementById("prev").textContent=fill(lplain(vl,ve));
+document.getElementById("rid").innerHTML=pieces.join("_");
+var rid=document.getElementById("rid").textContent;if(rid!==S.lastRid){S.lastRid=rid;var ex=(NAMES.attribute||[]).some(function(p){return p[0]==rid}),wm=document.getElementById("wmsg");wm.className="msg"+(ex?" warn":"");wm.textContent=ex?"Word already exists":"";}
+boxes();}
+var binds,nodes,dds;
+// a label's width in pixels, in the picks' own font
+function px(s){var c=px.c||(px.c=document.createElement("canvas").getContext("2d"));c.font="13px system-ui, sans-serif";return c.measureText(s).width;}
+// every pick on the page: o.up names an item's parent (it fans out beside it), o.grp its heading, o.w the narrowest face, o.fit sizes it to its longest label
+function B(opts,cur,on,o){o=o||{};var id=dds.length,its=opts.map(function(x){var a=Array.isArray(x),v=a?x[0]:x;return {v:v,l:a?x[1]:(x||"default"),no:a&&x[2]||"",up:o.up?o.up(v):"",g:o.grp?o.grp(v):""};});
+dds.push({its:its,on:on,cur:cur,first:o.first});var c=its.filter(function(t){return t.v==cur})[0],w=o.fit?Math.ceil(Math.max.apply(null,its.map(function(t){return px(t.l)}))+6)+"px":Math.max(o.w||0,Math.max.apply(null,its.map(function(t){return t.l.length}))+2)+"ch";
+return '<span class="dd"><input class="pick" autocomplete="off" spellcheck="false" data-dd="'+id+'" value="'+esc(c?c.l:cur).replace(/"/g,"&quot;")+'" style="width:'+w+'"></span>';}
+function dd(i){var d=dds[+i.dataset.dd],its=d.its,was=i.value,m=null,hi=-1,list=its,flat=0,fw=0;
+// the list opens where there is more room, and scrolls inside itself when even that is too little
+function fit(){var r=i.getBoundingClientRect(),dn=innerHeight-r.bottom-10,up=r.top-10,h=m.scrollHeight,flip=h>dn&&up>dn;
+if(flip){m.style.top="auto";m.style.bottom="100%";m.style.marginBottom="2px";}var room=flip?up:dn;if(h>room){m.style.maxHeight=Math.max(room,120)+"px";m.style.overflowY="auto";}}
+function close(){if(m){m.remove();m=null;}}
+function pick(t){close();if(t&&!t.no&&t.v!=d.cur){d.on(t.v);prune();render();}else i.value=was;}
+function path(t){var p=[],u=t.up,k=0;while(u&&k++<20){p.unshift(u);var n=its.filter(function(x){return x.v==u})[0];u=n?n.up:"";}return p.length?p.join(" ▸ "):t.g;}
+// the pick lights with all below it; what holds it lights alone
+function holds(v){var u=(its.filter(function(x){return x.v==d.cur})[0]||{}).up,k=0;while(u&&k++<20){if(u==v)return 1;var n=its.filter(function(x){return x.v==u})[0];u=n?n.up:"";}return 0;}
+function row(t,j,tail){return '<div class="ddi'+(t.v==d.cur?" on":holds(t.v)?" in":"")+(t.no?" no":"")+(j==hi?" hi":"")+'"'+(t.no?"":' data-j="'+j+'"')+"><span>"+esc(t.l)+"</span>"+tail+"</div>";}
+function kid(t,j,p){var kids=t.v!==""&&t.v!=p?tree(t.v):"";return row(t,j,t.no?'<span class="lm">'+esc(t.no)+"</span>":kids?"<span>▸</span><div class='ddsub'>"+kids+"</div>":"");}
+// each heading is a row of its own whose words fan out beside it, `o.first`'s heading first after the headless ones
+function tree(p){if(p)return its.map(function(t,j){return t.up==p?kid(t,j,p):""}).join("");
+var gs=[];its.forEach(function(t){if(gs.indexOf(t.g)<0)gs.push(t.g)});var at=gs.indexOf(d.first);if(at>0){gs.splice(at,1);gs.splice(gs[0]===""?1:0,0,d.first);}
+return gs.map(function(g){var h=its.map(function(t,j){return !t.up&&t.g==g?kid(t,j,""):""}).join("");if(!g)return h;
+return '<div class="ddi'+(its.some(function(t){return t.g==g&&t.v==d.cur})?" in":"")+'"><span>'+esc(g)+"</span><span>▸</span><div class='ddsub'>"+h+"</div></div>";}).join("");}
+function show(){close();m=document.createElement("div");
+if(flat){var f=i.value.trim().toLowerCase(),fl=f&&f!=was.toLowerCase()?f:"";list=its.filter(function(t){return !fl||t.l.toLowerCase().indexOf(fl)>=0||String(t.v).toLowerCase().indexOf(fl)>=0;});
+if(fl){var st=function(t){return t.l.toLowerCase().indexOf(fl)==0||String(t.v).toLowerCase().indexOf(fl)==0?0:1};list=list.filter(function(t){return !st(t)}).concat(list.filter(st));}
+var rows=function(a){return a.map(function(t,j){var s=t.no||path(t);return row(t,j,s?'<span class="lm">'+esc(s)+"</span>":"");}).join("")};
+m.className="ddm ddf";if(!fw){m.innerHTML=rows(its);i.parentNode.appendChild(m);fw=m.offsetWidth;}m.style.width=fw+"px";m.innerHTML=rows(list)||'<div class="ddi no">no match</div>';}
+else{list=its;m.className="ddm";m.innerHTML=tree("");}
+i.parentNode.appendChild(m);fit();var h=m.querySelector(".hi")||m.querySelector(".on");if(h)h.scrollIntoView({block:"nearest"});
+m.onmousedown=function(e){var r=e.target.closest("[data-j]");e.preventDefault();if(r)pick(list[+r.dataset.j]);};
+// a list fanning out past the window's foot rises until it fits
+m.onmouseover=function(e){var s=e.target.closest(".ddi");s=s&&s.querySelector(":scope>.ddsub");if(!s)return;s.style.top="-5px";var b=s.getBoundingClientRect().bottom-innerHeight+6;if(b>0)s.style.top=(-5-b)+"px";};}
+function step(n){if(!flat){flat=1;show();}var j=hi;for(var k=0;k<list.length;k++){j=Math.max(0,Math.min(list.length-1,j+n));if(!list[j].no){hi=j;break;}}show();}
+var fresh=0;i.onfocus=function(){flat=0;hi=-1;show();i.select();fresh=1;};
+i.onmouseup=function(e){if(fresh){e.preventDefault();i.select();}fresh=0;};
+i.onclick=function(){if(!m){was=i.value;flat=0;hi=-1;show();i.select();}};
+i.oninput=function(){flat=1;hi=-1;show();step(1);};
+i.onkeydown=function(e){if(e.key=="ArrowDown"||e.key=="ArrowUp"){e.preventDefault();step(e.key=="ArrowDown"?1:-1);}
+else if(e.key=="Enter"){e.preventDefault();var f=i.value.trim().toLowerCase(),ok=list.filter(function(t){return !t.no});pick(list[hi]||ok.filter(function(t){return t.l.toLowerCase()==f||String(t.v).toLowerCase()==f})[0]||(ok.length==1?ok[0]:null));}
+else if(e.key=="Escape"){pick(null);i.blur();}};
+i.onblur=function(){if(m)pick(null);};}
+// a kind word is listed once, as its first kind fitting here: `Per<Scope>`, under its kind's family
+function kfirst(w,parent){var k=kins(w);return k.filter(function(x){return !fits(x,parent)})[0]||k[0];}
+function klab(w){var d=W[w];return kin(w)?kin(w)+(d.kc?"<"+d.kc+">":""):d.after?w:d.t||w;}
+function kfam(w){return W[w].kc||W[w].kin||"Other";}
+function menu(parent,key){var ok=[],no=[];Object.keys(W).forEach(function(w){if(W[w].fold||kin(w)&&kfirst(w,parent)!=w)return;if((parent==="scope"||parent==="trig"&&!MET(offered("trig"),W[w].needs))&&W[w].fam!="narrow")return;if(parent==="eff"&&W[w].fam=="narrow")return;var r=fits(w,parent);(r?no:ok).push([w,r]);});
+if(!ok.length)return "";
+var h='<button class="add'+(parent==="scope"||parent==="trig"||parent==="eff"?"":" small")+'" data-open="'+key+'">'+(parent==="scope"||parent==="trig"?"+ add a condition":parent==="eff"?"+ add to the effect":"+ add to "+parent.w)+"</button>";
+if(S.open!==key)return h;
+var g={};ok.forEach(function(p){(g[W[p[0]].grp]=g[W[p[0]].grp]||[]).push(p[0]);});
+h+='<div class="menu"><input class="mq" placeholder="type to find a word" autocomplete="off" spellcheck="false">';Object.keys(g).forEach(function(k){var f={};g[k].forEach(function(w){(f[kfam(w)]=f[kfam(w)]||[]).push(w);});
+h+='<div class="mg"><h4>'+k+'</h4><div class="mk">'+Object.keys(f).sort().map(function(n){return '<div class="mf'+(MF[n]?" on":"")+'"><button class="mkl" data-mf="'+n+'">'+n+'</button><span class="mw">'+f[n].map(function(w){var l=klab(w);return '<button class="opt" data-addw="'+w+'" data-to="'+key+'" data-q="'+esc(l+" "+w+" "+n).toLowerCase()+'">'+esc(l)+"</button>"}).join("")+"</span></div>";}).join("")+"</div></div>";});
+h+='<div class="why"><a data-why="'+key+'">'+no.length+" words not offered here · why?</a>";
+if(S.why[key])h+="<ul>"+no.map(function(p){return "<li><code>"+(kin(p[0])||p[0])+"</code>: "+p[1]+"</li>"}).join("")+"</ul>";
+return h+"</div></div>";}
+// a target or val pill lights when on, locks when fixed, and its hover names the form each side reads
+// a main category's `not` pill sits above its `target` pill
+function stk(t,n){return n?'<span class="stk">'+n+t+'</span>':t;}
+function pl(lab,on,attr,lock,tip){return '<button class="nt tp'+(on?" on":"")+'" '+attr+(lock?" disabled":"")+' title="'+esc(tip).replace(/"/g,"&quot;")+'">'+lab+"</button>";}
+// a trigger's val pill: its with-`val` form (`EachDays`) switched on, or locked on when it always reads val (`OnDay`)
+function tval(t){if(t[20])return pl("val",!!S.tV,"data-fl='tV'",0,"on: "+plain(t[20][1],"")+"\noff: "+plain(t[4],""));return t[21]?pl("val",1,"",1,"always reads val: "+plain(t[4],"")):"";}
+function wk(n){var d=W[n.w];return d.tk||d.sw&&W[d.sw[1]].tk||"target";}
+function plain(s,k){return (typeof s=="string"?s:"").replace(/::target\d*::/g,function(t){return FILL[t]||k}).replace(/::s?_?(percent_)?(percent|value)::/g,S.v===""?"N":S.v).trim();}
+function alt(n,ch){var c=JSON.parse(JSON.stringify(n));ch(c);try{return plain(say(c,"p"),wk(c));}catch(e){return "";}}
+function flip(on,now,other,k){var a=on?now:other,b=on?other:now;return "on: "+plain(a,k)+"\noff: "+plain(b,k);}
+function erow(w){return EFFS.filter(function(r){return r[0]==w})[0]||[];}
+function eform(w){var x=EFFS.filter(function(r){return r[0]==w})[0];return x?(S.eT&&x[6]?x[6]:x[9]||x[6]):"";}
+function nodeHtml(n,parent,depth){var d=W[n.w],id=nodes.length;nodes.push({n:n,p:parent});
+// a pill over the owner turns the whole question, one over the condition asks each owner
+var nt=turns(n),pill=function(v,on,x){return '<span class="stk"><button class="nt'+(on?" on":"")+'" data-not="'+id+'" data-v="'+v+'">not</button>'+x+"</span>";};
+var h='<div class="x'+(depth?" ind":"")+'"><div class="row'+(nt?" nts":"")+'">';
+if(d.own){var ob=B(OWNERS.filter(function(o){return o!="Neutral"&&(o||S.o!="Neutral")&&fitsBefore(o,d.fam)}),n.o,function(v){n.o=v;});h+=nt&&lacks(n)?pill("pre",n.not=="pre",ob):ob;}
+// a switched pair shows its entry's name at its own width; the pills under it set the least width
+var nm=d.sw&&d.sw[2]?d.sw[1]:kin(n.w)||n.w,wd='<span class="w">'+nm+"</span>",pp="";
+if((!d.after||d.ot)&&d.T=="opt")pp+=pl("target",!!n.x,"data-tgt='"+id+"'",0,flip(!!n.x,say(n,"p"),alt(n,function(c){c.x=n.x?"":"(blank)";}),wk(n)));
+// a word only named keeps its pill lit; a counting form that names nothing keeps it dark
+else if((!d.after||d.ot)&&(d.T=="req"||d.sw&&W[d.sw[1]].T))pp+=pl("target",!!d.T,"",1,d.T?"always names one "+wk(n):"its counting form names nothing");
+if(d.sw){var no=fits(d.sw[1],parent);pp+=pl(d.sw[0],!!d.sw[2],"data-sw='"+id+"'",!!no,no||flip(!!d.sw[2],say(n,"p"),alt(n,function(c){c.w=d.sw[1];if(!W[c.w].T)c.x="";}),wk(n)));}
+// an added word's target and val pills hang under it, so they move nothing in its row
+if(pp){wd='<span class="und">'+wd+'<span class="pp">'+pp+"</span></span>";h=h.replace('<div class="row','<div class="row unds');}
+h+=nt?(lacks(n)?pill("post",n.not=="post",wd):pill("pre",!!n.not,wd)):wd;
+// `Not` before the owner word sits above the owner it leaves out
+if(d.after){var ab=B(aown(d),n.o,function(v){n.o=v;if(!d.ot)n.x="";});h+=d.nb&&n.o?'<span class="stk"><button class="nt'+(n.nb?" on":"")+'" data-nb="'+id+'">not</button>'+ab+"</span>":ab;}
+// each kind says why it does not fit here; a picked one drops the target and owner it does not take
+if(d.kind)h+=B(kins(n.w).map(function(k){return [k,W[k].kind,k==n.w?"":fits(k,parent)]}),n.w,function(v){n.w=v;if(!W[v].T)n.x="";if(n.o&&W[v].ow&&W[v].ow.indexOf(n.o)<0)n.o="";});
+if((d.offers||[]).indexOf("comparison")>=0)h+=B(CMP(),picked(n.kids,"cmp"),function(v){pick1(n.kids,"cmp",v);});
+h+='<button class="del" data-del="'+id+'" aria-label="Remove">✕</button></div><div class="say">'+esc(parent==="trig"?fill(tsay(n)):say(n,"p"))+"</div>";
+n.kids.forEach(function(k){h+=nodeHtml(k,n,depth+1);});
+return h+menu(n,"n"+id)+"</div>";}
+function scopeDD(){var r=[];(function under(p){SCOPES.forEach(function(x){if((NARROWS[x[0]]||"")==p&&!(S.o=="Neutral"&&NO_NEUTRAL[x[0]])){r.push([x[0],x[0]]);under(x[0]);}});})("");
+return B(r,S.scope,function(v){S.scope=v;S.sT=0;S.sx="";},{up:function(v){return NARROWS[v]||""},w:Math.max.apply(null,SCOPES.map(function(x){return x[0].length}))+2});}
+function boxes(){binds=[];nodes=[];dds=[];var s=sc(),t=tg(),e=ef();
+var h="<h3>Who · scope</h3><div class='row'><label>owner</label>"+B(OWNERS.filter(function(o){return fitsBefore(o,"scope")}),S.o,function(v){S.o=v;if(v!="Neutral")return;mineOwn([S.sk,S.tk,S.ek]);if(NO_NEUTRAL[S.scope]){S.scope=SCOPES.filter(function(x){return !NO_NEUTRAL[x[0]]})[0][0];S.sT=0;S.sx="";}if(OWNER_TRIGS[S.trig]){S.trig=firstTrig();S.tT=0;S.tx="";}})+scopeDD()+(s[3]?stk(pl("target",!!S.sT,"data-fl='sT'",0,"on: a named "+s[3]+"\noff: any "+s[3]),S.sT?'<button class="nt'+(S.sN?" on":"")+'" data-fl="sN" title="on: every '+s[3]+' but the named one">not</button>':""):"")+"</div>";
+h+='<div class="say">'+esc(S._who)+"</div>";S.sk.forEach(function(n){h+=nodeHtml(n,"scope",0);});h+=menu("scope","scope");
+document.getElementById("bs").innerHTML=h;
+h="<h3>When · trigger</h3><div class='row'>"+B(TRIGS.map(function(x){return [x[0],x[1],S.o=="Neutral"&&OWNER_TRIGS[x[0]]?NO_OWNER:""]}),S.trig,function(v){S.trig=v;S.tT=0;S.tN=0;S.tV=0;S.tx="";if(!effOk(ef())){var e2=EFFS.filter(effOk)[0];S.eff=e2[0];S.ex="";S.eT=1;}},{grp:function(v){return tg1(v)[14]||""}})+(t[2]?stk(pl("target",!!S.tT,"data-fl='tT'",0,"on: "+plain(t[6],t[2])+"\noff: "+plain(t[4],"")),S.tT&&t[11]?'<button class="nt'+(S.tN?" on":"")+'" data-fl="tN" title="'+esc(plain(t[11],t[2])).replace(/"/g,"&quot;")+'">not</button>':""):"")+tval(t)+"</div>";
+h+='<div class="say">'+esc(S._tp)+"</div>";S.tk.forEach(function(n){h+=nodeHtml(n,"trig",0);});
+document.getElementById("bt").innerHTML=h+menu("trig","trig");
+var hd=ehead(S.eff),ek=e[2]||erow(EPAIR[hd]||"")[2]||"target";
+h="<h3>What happens · effect</h3><div class='row'>"+B(EFFS.filter(function(x){return effOk(x)&&ehead(x[0])==x[0]}).map(function(x){return [x[0],x[0]]}),hd,function(v){S.eff=v;S.ex="";S.eT=1;S.eN=0;},{grp:function(v){return EFFS.filter(function(x){return x[0]==v})[0][15]},first:(EFFS.filter(function(x){return x[16]})[0]||[])[15]})+stk((e[5]==1?pl("target",!!S.eT,"data-fl='eT'",0,"on: "+plain(e[6],ek)+"\noff: "+plain(e[9],"")):!e[5]||EPAIR[hd]&&erow(S.eff==hd?EPAIR[hd]:hd)[5]<2?pl("target",!e[5],"",1,e[5]?"the counted form names no "+ek+"; turn val off to name one":"always names one "+ek):""),e[14]&&e[5]!=2&&(S.eT||!e[5])?'<button class="nt'+(S.eN?" on":"")+'" data-fl="eN" title="'+esc(plain(e[14][0],ek)).replace(/"/g,"&quot;")+'">not</button>':"")+(evOk(hd)?pl("val",S.eff==hd,"data-fl='eV'",0,"on: "+plain(eform(hd),ek)+"\noff: "+plain(eform(EPAIR[hd]),ek)):EPAIR[hd]?pl("val",S.eff==hd,"",1,"a named "+ek+" takes no amount; turn target off to count"):"")+"</div>"
++(e[4].indexOf("production rate")>=0?"<div class='row'><label>ratio:</label>"+B(ratioOnly(e)?RATIO().slice(1):RATIO(),picked(S.ek,"ratio"),function(v){pick1(S.ek,"ratio",v);})+"</div>":"")+(e[8]?"":"<div class='row'><label>given to:</label>"+B(riders(),S.rider,function(v){S.rider=v;},{fit:1})+"</div>")
++(e[8]?"<div class='row'><label>counts as:</label>"+B(stamps(),S.stamp,function(v){S.stamp=v;},{fit:1})+"</div>":"");
+h+='<div class="say">'+esc(S._amt)+"</div>";S.ek.forEach(function(n){h+=nodeHtml(n,"eff",0);});h+=menu("eff","eff");
+document.getElementById("be").innerHTML=h;
+var q=function(x){return esc(x).replace(/"/g,"&quot;")};
+document.getElementById("pslots").innerHTML=PRAC.map(function(p){var id=binds.length;binds.push(p.set);return "<label class='"+p.cls+"'>"+p.lab+"</label><div><span class='dd'><input class='pick' autocomplete='off' data-pick='"+id+"' data-kind=\""+q(p.kind||"")+"\" value=\""+(p.x&&p.x!="(blank)"?q(p.x):"")+"\" placeholder=\"("+q(p.kind||"target")+")\"></span></div>";}).join("");
+wire();}
+function combo(i){var k=i.dataset.kind,all=names(k),was=i.value,m=null,hi=-1,list=[],typed=0;
+function close(){if(m){m.remove();m=null;}}
+function commit(v){close();binds[+i.dataset.pick]((v||"").trim()||"(blank)");render();}
+function show(){close();var f=typed?i.value.trim().toLowerCase():"";list=all.filter(function(n){return !f||n.toLowerCase().indexOf(f)>=0||shown(k,n).toLowerCase().indexOf(f)>=0;});
+m=document.createElement("div");m.className="ddm cbm";m.innerHTML=list.map(function(n,j){var l=shown(k,n);return '<div class="ddi'+(j==hi?" on":"")+'" data-j="'+j+'"><span>'+esc(n)+"</span>"+(l!=n?'<span class="lm">'+esc(l)+"</span>":"")+"</div>";}).join("")||'<div class="ddi lm">no match</div>';
+i.parentNode.appendChild(m);if(m.children[hi])m.children[hi].scrollIntoView({block:"nearest"});else if(!typed&&all.indexOf(was)>=0)m.children[all.indexOf(was)].scrollIntoView({block:"center"});
+m.onmousedown=function(e){var d=e.target.closest("[data-j]");e.preventDefault();if(d)commit(list[+d.dataset.j]);};}
+i.onfocus=function(){typed=0;hi=-1;show();};
+i.oninput=function(){typed=1;hi=0;show();};
+i.onkeydown=function(e){if(e.key=="ArrowDown"||e.key=="ArrowUp"){e.preventDefault();hi=Math.max(0,Math.min(list.length-1,hi+(e.key=="ArrowDown"?1:-1)));show();}
+else if(e.key=="Enter"){e.preventDefault();commit(hi>=0&&list[hi]?list[hi]:i.value);}else if(e.key=="Escape"){i.value=was;close();i.blur();}};
+i.onblur=function(){if(m)commit(i.value);};}
+function wire(){document.querySelectorAll("[data-pick]").forEach(combo);
+document.querySelectorAll("input[data-dd]").forEach(dd);
+document.querySelectorAll("[data-view]").forEach(function(b){b.onclick=function(){S.view=b.dataset.view;render();};});
+document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=function(){S.open=S.open==b.dataset.open?null:b.dataset.open;render();};});
+document.querySelectorAll("[data-why]").forEach(function(a){a.onclick=function(){S.why[a.dataset.why]=!S.why[a.dataset.why];render();};});
+document.querySelectorAll("[data-addw]").forEach(function(b){b.onclick=function(){var to=b.dataset.to,list=to=="scope"?S.sk:to=="trig"?S.tk:to=="eff"?S.ek:nodes[+to.slice(1)].n.kids,nn=node(b.dataset.addw);if(W[nn.w].after)nn.o=aown(W[nn.w])[0][0];if(W[nn.w].own&&S.o=="Neutral")nn.o="Own";list.push(nn);S.open=null;render();};});
+document.querySelectorAll("[data-tgt]").forEach(function(c){c.onclick=function(){var n=nodes[+c.dataset.tgt].n;n.x=n.x?"":"(blank)";prune();render();};});
+document.querySelectorAll("[data-not]").forEach(function(c){c.onclick=function(){var at=nodes[+c.dataset.not],n=at.n,v=c.classList.contains("on")?"":c.dataset.v;nodes.forEach(function(o){if(o.n==n||W[n.w].all&&o.n.w==n.w&&o.p===at.p)o.n.not=v;});prune();render();};});
+document.querySelectorAll("[data-nb]").forEach(function(c){c.onclick=function(){var n=nodes[+c.dataset.nb].n;n.nb=!n.nb;prune();render();};});
+document.querySelectorAll("[data-sw]").forEach(function(c){c.onclick=function(){var n=nodes[+c.dataset.sw].n;n.w=W[n.w].sw[1];if(!W[n.w].T)n.x="";prune();render();};});
+document.querySelectorAll("[data-del]").forEach(function(b){b.onclick=function(){var r=nodes[+b.dataset.del],list=r.p==="scope"?S.sk:r.p==="trig"?S.tk:r.p==="eff"?S.ek:r.p.kids;list.splice(list.indexOf(r.n),1);S.open=null;render();};});
+[["sT",function(c){S.sT=c;S.sN=0;S.sx="";}],["sN",function(c){S.sN=c;}],["tT",function(c){S.tT=c;S.tN=0;S.tx="";}],["tN",function(c){S.tN=c;}],["tV",function(c){S.tV=c;}],["eN",function(c){S.eN=c;}],["eT",function(c){S.eT=c;S.eN=0;S.ex="";var hd=ehead(S.eff);if(c&&eone(hd))S.eff=EPAIR[hd];}],["eV",function(c){var hd=ehead(S.eff);S.eff=c?hd:EPAIR[hd];}]].forEach(function(p){var el=document.querySelector("[data-fl='"+p[0]+"']");if(el)el.onclick=function(){p[1](!el.classList.contains("on"));prune();render();};});}
+document.getElementById("val").onchange=function(){if(this.value===""){S.v="";render();return;}var n=+this.value;if(!isFinite(n)){this.value=S.v;return;}S.v=n;render();};
+document.getElementById("pclear").onclick=function(){PRAC.forEach(function(p){p.set("(blank)");});S.v="";document.getElementById("val").value="";render();};
+document.getElementById("reset").onclick=function(){S=fresh();document.getElementById("val").value="";prune();render();};
+document.getElementById("copy").onclick=function(){try{navigator.clipboard.writeText(document.getElementById("rid").textContent)}catch(e){}};
+document.getElementById("write").onclick=function(){var b=this,m=document.getElementById("wmsg"),r=S.ek.filter(function(k){return W[k.w].one=="ratio"})[0];
+// `val` only where the text says a value or a ratio reads one; the practice value when typed
+var takes=!!r||/::s?_?(percent_)?(percent|value)::/.test(S._desc),v=!takes?"":S.v!==""?S.v:r?W[r.w].ex:2;
+b.disabled=true;m.className="msg";m.textContent="";
+fetch("/api/writerow",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:document.getElementById("rid").textContent,desc:S._desc.replace(/\.$/,""),val:v,bonusDir:"Positive",scope:S.scope,scopes:SCOPES.map(function(x){return x[0]}),kinds:KINDS,stack:r?W[r.w].stack:""})})
+.then(function(x){return x.json()}).then(function(d){m.className="msg "+d.level;m.textContent=d.message;b.disabled=false;if(d.level=="ok")(NAMES.attribute=NAMES.attribute||[]).push([S.lastRid,S.lastRid]);});};
+window.refresh=function(){fetch("/api/names").then(function(r){return r.json()}).then(function(d){NAMES=d.names;NARROWS=d.narrows||{};TRIGS=[NO_TRIG].concat(d.triggers||[]);OWNER_TRIGS={};PLACE={};PLACE_IS={};TRIGS.forEach(function(x){if(x[8])OWNER_TRIGS[x[0]]=1;if(x[9]){PLACE[x[0]]=x[9];PLACE_IS[x[0]]=x[10];}});if(S.trig===null)S.trig=firstTrig();S.lastRid=null;var m=document.getElementById("cdbmsg");m.style.display=d.error?"block":"none";m.textContent=d.error;render();});};
+window.refresh();})();
+</script>
+</body></html>
