@@ -1,0 +1,55 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "MeteoParticlesObject",
+			"name": "sandObject",
+			"data": {
+				"type": "MeteoParticlesObject",
+				"version": 2,
+				"groups": [
+					{
+						"sortMode": 0,
+						"texture": "Fx/Alphas/T_Sandcloud.png",
+						"colorGradient": null,
+						"nparts": 4,
+						"size": 200,
+						"sizeRand": 0.1,
+						"life": 1.74,
+						"lifeRand": 1,
+						"speed": 8,
+						"speedXY": 2,
+						"speedZ": -1,
+						"speedRand": 0,
+						"speedDirRand": 0.2,
+						"timeDistorsion": 2,
+						"cameraEffect": 100,
+						"fadeIn": 0.5,
+						"fadeOut": 0.62,
+						"fadePower": 0,
+						"attachToCam": true,
+						"emitDist": 120,
+						"depthOffset": 20,
+						"camInertia": 1.21,
+						"distanceColorGradient": 500,
+						"minColorGradient": 0.2,
+						"boxSize": 150
+					}
+				],
+				"bounds": null
+			}
+		},
+		{
+			"type": "shader",
+			"name": "EnvColorMult",
+			"source": "shaders/EnvColorMult.hx",
+			"props": {
+				"sandBlend": 0.6,
+				"sandColorSet": false,
+				"envBlend": 0.5,
+				"envColorSet": false
+			},
+			"targetMaterial": "Group#1"
+		}
+	]
+}
