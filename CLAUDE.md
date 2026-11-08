@@ -43,6 +43,7 @@ Blender, converted with the HMD toolkit, wired into `data.cdb`, packed into a pa
 
 ## Project layout
 
+Each agreed final model has `Final/` (PNG/GIF copies + README), built by `model_projects/build_final_folders.py` (edit its MANIFEST when a final changes).
 Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_progress_photos/<stage>`, `03_blender`, `04_textures`,
 `05_fbx_export`, `06_game_ready`, `07_data_cdb`, `08_scripts`, plus `SPEC.md` or `HANDOFF.md`. Custom weapons live in `model_projects/weapons/<weapon>/`
 (`weapon.json` records the mount and who uses it) and are mounted with `weapons/scripts/mount_weapon.py`. Index: `weapons/README.md`.
@@ -95,7 +96,7 @@ Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_prog
 | `Th_Soldier` Iron Ranger | `thorvald_ranged` (v2) | `weapons/thorvald_sniper` on B_Gun, MilitarySniper anims |
 | `Th_Special` Iron Guard | `thorvald_demolition` (v2) | `weapons/thorvald_bazooka`; the attack is still Corrino's flamer |
 | `Th_Elite` Heavy Vanguard | `thorvald_elite` (v2; see its SPEC.md) | Hand-built tower shield and glaive; Gurney anim set (no Idle or death clips) |
-| `Th_Frigate` | `thorvald_frigate` (v13) | Renegade hull, rig RenegadeFrigate 29; no deploy animations |
+| `Th_Frigate` | `thorvald_frigate` (cruiser AD7, 2026-11-08) | SpaceCruiserWreck hull + 4 shoulder cannons on rig RenegadeFrigate 29 (scripts 80-84); own reactor FX `Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx`; staged, not packed. Old v13 in `06_game_ready/_archive/` |
 | `Th_Ship` fighter | `thorvald_ship` (v6, formerly f11; see its SPEC.md) | Ravager host, Hawk wings and belly, twin chin barrels; Hammer rig 21, scale 1.6 |
 
 None of the Thorvald units has been seen in game yet.
