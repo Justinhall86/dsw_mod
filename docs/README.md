@@ -14,6 +14,12 @@ mod for Dune: Spice Wars.
 | [reference_cdb_attributes_traits.md](./reference_cdb_attributes_traits.md) | What the cdb can express: sheet columns, attribute id grammar, trait wiring, proven/unimplemented attributes, and what needs Quinn's Unofficial Patch. Full list in [attribute_catalog.md](./attribute_catalog.md), with a Thorvald/Ginaz example and a vanilla row for each (hand-written examples in `attribute_examples.json`; regenerate with `gen_attribute_catalog.py`). | Designing a faction bonus, unit trait or mechanic, before writing cdb rows. |
 | [howto_reverse_engineering.md](./howto_reverse_engineering.md) | How to extract and compare `.pak` files from the vanilla game or community mods (e.g. Minx), use VS Code's Compare Files diff to inspect implementations, and translate findings to CDB JSON. | Stuck on how vanilla implements a mechanic; researching a community mod's approach; verifying a JSON structure before writing it. |
 
+## Specs
+
+| Spec | Description |
+|------|-------------|
+| [spec_duncan_head_swap.md](./spec_duncan_head_swap.md) | Put a donor model's head on Duncan's body and recolour it to Duncan's outfit green. Covers inputs, the mesh/skinning/recolour steps, the `data.cdb` hookup and acceptance checks. |
+
 ---
 
 ## Quick Decision Guide
