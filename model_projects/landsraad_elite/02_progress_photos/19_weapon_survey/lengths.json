@@ -1,0 +1,102 @@
+[
+ {
+  "name": "Landsraad_Halberd",
+  "length": 2.6,
+  "source": "Character/Common/Weapon/Landsraad_halberd/Landsraad_Halberd.fbx"
+ },
+ {
+  "name": "Atreide_Sword_01",
+  "length": 1.2,
+  "source": "Character/Atreide/Unit/Weapons/Atreide_Sword_01.fbx"
+ },
+ {
+  "name": "SardaukarSword",
+  "length": 2.4,
+  "source": "Character/Imperial/Weapon/SardaukarSword/SardaukarSword.fbx"
+ },
+ {
+  "name": "SardaukarSword02",
+  "length": 2.25,
+  "source": "Character/Imperial/Weapon/SardaukarSword_02/SardaukarSword02.fbx"
+ },
+ {
+  "name": "Aramsham_Sword",
+  "length": 2.28,
+  "source": "Character/Imperial/Weapon/AramshamSword/Aramsham_Sword.fbx"
+ },
+ {
+  "name": "SwordKnight",
+  "length": 1.89,
+  "source": "Character/Ecaz/Weapon/SwordKnight/SwordKnight.fbx"
+ },
+ {
+  "name": "SwordWhitmore",
+  "length": 1.1,
+  "source": "Character/Ecaz/Weapon/SwordWhitmore/SwordWhitmore.fbx"
+ },
+ {
+  "name": "TallSword",
+  "length": 1.67,
+  "source": "Character/Ecaz/Weapon/FencerDoubleKnife/TallSword.fbx"
+ },
+ {
+  "name": "LittleSword",
+  "length": 0.97,
+  "source": "Character/Ecaz/Weapon/FencerDoubleKnife/LittleSword.fbx"
+ },
+ {
+  "name": "CtairSword",
+  "length": 1.87,
+  "source": "Character/Vernius/Weapon/CtairSword/CtairSword.fbx"
+ },
+ {
+  "name": "LongKnife",
+  "length": 1.41,
+  "source": "Character/Idualis/Weapon/LongKnife.fbx"
+ },
+ {
+  "name": "DoubleKnife",
+  "length": 0.85,
+  "source": "Character/Idualis/Weapon/DoubleKnife.fbx"
+ },
+ {
+  "name": "KindJal_Harkonnen",
+  "length": 0.72,
+  "source": "Character/Harkonnen/Weapon/KindJal_Harkonnen.fbx"
+ },
+ {
+  "name": "Knife01",
+  "length": 7.51,
+  "source": "Character/Harkonnen/Weapon/Knife/Knife01.fbx"
+ },
+ {
+  "name": "Crysknife",
+  "length": 0.97,
+  "source": "Character/Fremen/Weapon/Crysknife/Crysknife.fbx"
+ },
+ {
+  "name": "SpearSquire",
+  "length": 2.2,
+  "source": "Character/Ecaz/Weapon/SpearSquire/SpearSquire.fbx"
+ },
+ {
+  "name": "EngineerSpear",
+  "length": 2.14,
+  "source": "Character/Vernius/Weapon/EngineerSpear/EngineerSpear.fbx"
+ },
+ {
+  "name": "GurneySet_Javelin",
+  "length": 1.92,
+  "source": "Character/Atreide/Unit/Weapons/GurneySet_Javelin.fbx"
+ },
+ {
+  "name": "MetalBar",
+  "length": 1.08,
+  "source": "Character/Idualis/Weapon/MetalBar.fbx"
+ },
+ {
+  "name": "NefudMace",
+  "length": 1.62,
+  "source": "Character/Harkonnen/Weapon/NefudMace.fbx"
+ }
+]

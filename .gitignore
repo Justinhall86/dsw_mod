@@ -1,40 +1,5 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Distribution / packaging
-build/
-dist/
-*.egg-info/
-
-# Virtual environments
-.venv/
-venv/
-
-# Editor files
-.vscode/
-*.swp
-
-!.vscode/
-.vscode/*
-!.vscode/mcp.json
-pak_archive/
-model_work/progress/
-mod_files/backups/data_a_landsraadguard_sword_model_20261019_080154.cdb
+*.pyc
 mod_files/backups
-model_projects/landsraad_elite/02_progress_8photos/
-*test*.*
-model_projects/landsraad_elite/02_progress_photos/06_animation_tests/
-model_projects/landsraad_elite/02_progress_photos/
-model_inputs/Vehicle/Atreide/CarryAll/CarryAll_Albedo.png
+model_inputs/Achievements
 
-# Third-party: Quinn patcher source unpacked by tool/unpack_quinn.py (no licence found), and game binaries
-tool/quinn_patcher/
-tool/hlboot_backups/
-# Game binaries: keep local, this repo is public
-mod_files/hlboot_build*/**/*.dat
-# Blender backups; the .blend files themselves are on Git LFS (see .gitattributes)
-model_projects/thorvald_starport/**/*.blend1
-model_inputs/Achievements/
-model_inputs/Fx/
+model_inputs/Environment/Asset/
