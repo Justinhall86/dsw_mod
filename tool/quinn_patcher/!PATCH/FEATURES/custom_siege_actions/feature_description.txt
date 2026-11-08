@@ -1,0 +1,6 @@
+name: Custom siege actions
+about: Allows creating custom siege actions.
+
+cdb: places:list(structure:reference-structure:required), factions:list(faction:reference-faction:required), target:enum(Neutral,Enemy), lockedByDefault:bool, hideLocked:bool, hideBlocked:bool, noVillageNeeded:bool, cost:list(qty:float:required, res:reference-resource:required) in siegeAction props; spawnOwned:bool in siegeAction results
+
+bundle: siegeAction props

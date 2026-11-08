@@ -1,0 +1,8 @@
+{"name": "hostLimit attributes", "rows": [
+  {"id": "Building_HostLimit_Flat", "kinds": [], "val": 2, "bonusDir": "Positive",
+   "scope": "HostBuilding",
+   "desc": "Allows building ::value:: additional copies of any building within any host"},
+  {"id": "TBuilding_HostLimit_Flat", "kinds": ["Building"], "val": 2, "bonusDir": "Positive",
+   "scope": "HostBuilding",
+   "desc": "Allows building ::value:: additional copies of [::target::] within any host"}
+]}

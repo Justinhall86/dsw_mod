@@ -1,0 +1,4 @@
+name: Equipment flags
+about: Makes all equipments take their costs from the cost prop in the cdb. Adds new flags costToEquip and cannotRemove.
+cdb: costToEquip:bool, cannotRemove:bool in equipment props
+replaces: alwaysCosts>costToEquip, alwaysCostsOverride in equipment props

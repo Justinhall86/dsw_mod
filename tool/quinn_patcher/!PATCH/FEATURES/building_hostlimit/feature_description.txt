@@ -1,0 +1,3 @@
+name: Building hostLimit
+about: hostLimit in building props sets how many a host may hold; HostLimit_Flat rows add to it.
+cdb: hostLimit:int in building props

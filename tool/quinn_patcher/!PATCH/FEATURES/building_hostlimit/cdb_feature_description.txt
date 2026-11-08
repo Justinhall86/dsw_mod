@@ -1,0 +1,1 @@
+hostLimit: Number of duplicates of this building allowed within a structure (e.g. Main Base, UHQ, Village). Default: 1

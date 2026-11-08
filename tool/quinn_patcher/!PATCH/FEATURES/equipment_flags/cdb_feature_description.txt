@@ -1,0 +1,2 @@
+costToEquip: Equipping charges the item's cost, and removing it is free (def: false: equipping is free, removing costs)
+cannotRemove: Whether this can be unequipped (def: false)

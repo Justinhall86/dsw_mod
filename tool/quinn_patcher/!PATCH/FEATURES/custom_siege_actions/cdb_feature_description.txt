@@ -1,0 +1,10 @@
+places: The structures whose siege menu offers it
+factions: Who can use it (def: all)
+target: Who must own the target (def: any)
+lockedByDefault: Locked for all, factions too, until unlocked
+hideLocked: Hide the button while locked
+hideBlocked: Hide the button while blocked
+spawnOwned: A spawned structure goes to the occupier
+
+noVillageNeeded: Offered before the besieger's first village
+cost: Paid at the start, refunded on cancel; greyed until affordable

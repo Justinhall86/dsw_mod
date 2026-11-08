@@ -1,0 +1,45 @@
+{
+	"sheet": "siegeAction",
+	"label": "Template siege action",
+	"doc": "Adds a template custom siege action to the cdb for you to modify",
+	"row": {
+		"id": "Template",
+		"name": "Template Siege Action",
+		"texts": {
+			"desc": "Template description",
+			"inProgress": "Templating..."
+		},
+		"results": {
+			"spawnStructure": "RenegadeBase",
+			"spawnOwned": true
+		},
+		"rewards": {
+			"effects": 2
+		},
+		"props": {
+			"bannerPosition": 2,
+			"tip": {
+				"cat": "SiegeAction"
+			},
+			"factions": [
+				{
+					"faction": "Atreides"
+				}
+			],
+			"target": "Neutral",
+			"places": [
+				{
+					"structure": "Village"
+				}
+			],
+			"noVillageNeeded": true
+		},
+		"gfx": {
+			"file": "UI/HUD/siegeActions.png",
+			"size": 40,
+			"x": 0,
+			"y": 0
+		},
+		"duration": 1
+	}
+}

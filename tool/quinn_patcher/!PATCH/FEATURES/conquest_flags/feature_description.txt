@@ -1,0 +1,3 @@
+name: Conquest flags
+about: NoLoseAt100 in plot flags: reaching 100 plot does not result in a loss.
+cdb: NoLoseAt100 in plot flags

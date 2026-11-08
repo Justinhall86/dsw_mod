@@ -1,0 +1,1 @@
+NoLoseAt100: A flagged plot does not end the Conquest when full
