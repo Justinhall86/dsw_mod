@@ -1,0 +1,1496 @@
+{
+	"type": "fx",
+	"duration": 3.5,
+	"cullingRadius": 50,
+	"children": [
+		{
+			"type": "polygon",
+			"name": "Floor",
+			"editorOnly": true,
+			"locked": true,
+			"scaleX": 50,
+			"scaleY": 50,
+			"scaleZ": 50,
+			"kind": 0,
+			"args": [
+				0
+			],
+			"children": [
+				{
+					"type": "material",
+					"name": "material",
+					"props": {
+						"PBR": {
+							"mode": "PBR",
+							"blend": "None",
+							"shadows": true,
+							"culling": "Back",
+							"depthTest": "Less",
+							"colorMask": 15,
+							"enableStencil": false
+						}
+					},
+					"diffuseMap": "Fx/Test/Map_Albedo_VFXTest.png"
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "Wensicia",
+			"editorOnly": true,
+			"scaleX": 5,
+			"scaleY": 5,
+			"scaleZ": 5,
+			"children": [
+				{
+					"type": "model",
+					"name": "Female01_ImperialWensicia",
+					"source": "Character/Imperial/Wensicia/Female01_ImperialWensicia.fbx",
+					"children": [
+						{
+							"type": "animEvent",
+							"name": "animEvent",
+							"animation": "Anim/Female01/Wensicia/Anim_Female01_Wensicia_Skill.fbx"
+						}
+					]
+				},
+				{
+					"type": "model",
+					"name": "Gun_Landsraad",
+					"source": "Character/Common/Landsraad/Weapon/Gun_Landsraad.fbx",
+					"x": -0.37666,
+					"y": -0.0232,
+					"z": 0.06688,
+					"scaleY": 1.0000000000000002,
+					"scaleZ": 1.0000000000000002,
+					"rotationZ": -90
+				},
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "FXAnimation.FXRoot.Wensicia.Gun_Landsraad",
+					"target": "FXAnimation.FXRoot.Wensicia.Female01_ImperialWensicia.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_lClavicleJ.B_lShoulderJ.B_lElbowJ.B_lWristJ.B_lPalmJ"
+				},
+				{
+					"type": "model",
+					"name": "Tiger_ImperialLazaTiger",
+					"source": "Character/Imperial/LazaTiger/Tiger_ImperialLazaTiger.fbx",
+					"x": 3.55548,
+					"y": 3.33047,
+					"rotationZ": 95,
+					"children": [
+						{
+							"type": "animEvent",
+							"name": "animEvent",
+							"animation": "Anim/Tiger/Anim_Tiger_FightIdle.fbx"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "object",
+			"name": "FXRoot",
+			"children": [
+				{
+					"type": "object",
+					"name": "Index",
+					"x": 0.18071,
+					"children": [
+						{
+							"type": "emitter",
+							"name": "Flarescreen",
+							"props": {
+								"emitType": "Burst",
+								"alignMode": "Screen",
+								"instScale": 2,
+								"lifeTime": 0.5,
+								"warmUpTime": -0.55
+							},
+							"scaleX": 0.09000000000000002,
+							"scaleY": 0.09000000000000004,
+							"scaleZ": 0.09000000000000002,
+							"rotationY": -1.6565388965955813e-15,
+							"children": [
+								{
+									"type": "polygon",
+									"name": "polygon",
+									"kind": 0,
+									"args": [
+										0
+									],
+									"children": [
+										{
+											"type": "material",
+											"name": "material",
+											"props": {
+												"PBR": {
+													"mode": "BeforeTonemapping",
+													"blend": "Alpha",
+													"shadows": false,
+													"culling": "None",
+													"colorMask": 255,
+													"depthTest": "LessEqual",
+													"enableStencil": false,
+													"parallax": 0
+												}
+											},
+											"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+										},
+										{
+											"type": "shader",
+											"name": "DepthBlend",
+											"source": "shaders/DepthBlend.hx",
+											"props": {
+												"REVERSE": false,
+												"range": 15,
+												"power": 1
+											},
+											"isInstance": true
+										},
+										{
+											"type": "shader",
+											"name": "AlphaMap",
+											"source": "shaders/AlphaMap.hx",
+											"props": {
+												"useSourceUVs": true,
+												"onDecal": false,
+												"wrap": true,
+												"invert": false,
+												"replace": false,
+												"alpha": 0.7,
+												"uScale": 1,
+												"vScale": 1,
+												"uOffset": 0,
+												"vOffset": 0,
+												"texture": "Fx/Alphas/T_circle2.png"
+											},
+											"isInstance": true,
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0,
+															"value": 0,
+															"mode": 2
+														},
+														{
+															"time": 0.337436981201172,
+															"value": 1,
+															"mode": 0,
+															"prevHandle": {
+																"dv": -1.1333333333333333,
+																"dt": -0.050000000000000044
+															},
+															"nextHandle": {
+																"dv": 0.6141901939981789,
+																"dt": 0.029366779035477106
+															}
+														},
+														{
+															"time": 1.0041889953613283,
+															"value": 0,
+															"mode": 0
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "shader",
+									"name": "GradientMap",
+									"source": "shaders/GradientMap.hx",
+									"props": {
+										"USE_ALPHA": true,
+										"gradient": {
+											"type": "gradient",
+											"data": {
+												"stops": [
+													{
+														"position": 0,
+														"color": -151464545
+													},
+													{
+														"position": 0.828125,
+														"color": -1
+													}
+												],
+												"resolution": 64,
+												"isVertical": false,
+												"interpolation": "Linear",
+												"colorMode": 0
+											}
+										}
+									}
+								},
+								{
+									"type": "shader",
+									"name": "NightEmissive",
+									"source": "shaders/NightEmissive.hx",
+									"props": {
+										"amount": 1,
+										"ATTENUATE": true,
+										"emissiveMap": "Fx/Gradients/z_FillBlack.jpg"
+									}
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "flare",
+							"scaleX": 0.6,
+							"scaleY": 0.6,
+							"scaleZ": 0.6,
+							"children": [
+								{
+									"type": "emitter",
+									"name": "emitter_FlareBlack",
+									"props": {
+										"lifeTime": 0.7,
+										"alignMode": "Screen",
+										"alignLockAxis": "Z",
+										"burstDelay": 0.5,
+										"instStretch": [
+											15,
+											8,
+											1
+										],
+										"instRotation_rand": [
+											0,
+											0,
+											0
+										],
+										"instStretch_rand": [
+											0,
+											0,
+											0
+										],
+										"instScale_rand": 0,
+										"useRandomColor": true,
+										"randomColor1": [
+											0.48627450980392156,
+											0.48627450980392156,
+											0.48627450980392156,
+											1
+										],
+										"emitType": "Burst",
+										"warmUpTime": -0.4,
+										"instScale": 0.75
+									},
+									"scaleX": 0.1,
+									"scaleY": 0.1,
+									"scaleZ": 0.1,
+									"children": [
+										{
+											"type": "polygon",
+											"name": "polygon",
+											"rotationX": 45,
+											"kind": 0,
+											"args": [
+												0
+											],
+											"children": [
+												{
+													"type": "material",
+													"name": "material",
+													"props": {
+														"PBR": {
+															"mode": "BeforeTonemapping",
+															"blend": "Alpha",
+															"shadows": false,
+															"culling": "None",
+															"colorMask": 255,
+															"depthTest": "LessEqual"
+														}
+													},
+													"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+												},
+												{
+													"type": "shader",
+													"name": "AlphaMap",
+													"source": "shaders/AlphaMap.hx",
+													"props": {
+														"useSourceUVs": false,
+														"onDecal": false,
+														"wrap": true,
+														"invert": false,
+														"replace": false,
+														"alpha": 1.25,
+														"uScale": 1,
+														"vScale": 1,
+														"uOffset": 0,
+														"vOffset": 0,
+														"texture": "Fx/Alphas/T_Flare06_512.png"
+													}
+												},
+												{
+													"type": "shader",
+													"name": "ColorSet",
+													"source": "shaders/ColorSet.hx",
+													"props": {
+														"amount": 1,
+														"color": [
+															0,
+															0,
+															0
+														]
+													},
+													"isInstance": true
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instScale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instStretch.x",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "emitter",
+									"name": "emitter_Flare",
+									"props": {
+										"lifeTime": 0.4,
+										"alignMode": "Screen",
+										"alignLockAxis": "Z",
+										"burstDelay": 0.45,
+										"instStretch": [
+											12,
+											4,
+											1
+										],
+										"instRotation_rand": [
+											0,
+											0,
+											0
+										],
+										"instStretch_rand": [
+											0,
+											0,
+											0
+										],
+										"instScale_rand": 0,
+										"useRandomColor": true,
+										"randomColor1": [
+											0.48627450980392156,
+											0.48627450980392156,
+											0.48627450980392156,
+											1
+										],
+										"warmUpTime": -0.45,
+										"emitType": "Burst",
+										"instScale": 0.75
+									},
+									"scaleX": 0.1,
+									"scaleY": 0.1,
+									"scaleZ": 0.1,
+									"children": [
+										{
+											"type": "polygon",
+											"name": "polygon",
+											"rotationX": 45,
+											"kind": 0,
+											"args": [
+												0
+											],
+											"children": [
+												{
+													"type": "material",
+													"name": "material",
+													"props": {
+														"PBR": {
+															"mode": "BeforeTonemapping",
+															"blend": "Alpha",
+															"shadows": false,
+															"culling": "None",
+															"colorMask": 255,
+															"depthTest": "LessEqual",
+															"emissive": 6,
+															"drawOrder": "100"
+														}
+													},
+													"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+												},
+												{
+													"type": "shader",
+													"name": "AlphaMap",
+													"source": "shaders/AlphaMap.hx",
+													"props": {
+														"useSourceUVs": false,
+														"onDecal": false,
+														"wrap": true,
+														"invert": false,
+														"replace": false,
+														"alpha": 1,
+														"uScale": 1,
+														"vScale": 1,
+														"uOffset": 0,
+														"vOffset": 0,
+														"texture": "Fx/Alphas/T_Flare06_512.png"
+													},
+													"children": [
+														{
+															"type": "curve",
+															"name": "alpha",
+															"keyMode": 0,
+															"keys": [
+																{
+																	"time": 0,
+																	"value": 0,
+																	"mode": 0,
+																	"prevHandle": {
+																		"dv": 0.06196351517869349,
+																		"dt": -0.49990757001492336
+																	},
+																	"nextHandle": {
+																		"dv": -0.01666666666666672,
+																		"dt": 0.13446288206139395
+																	}
+																},
+																{
+																	"time": 0.18100772585187647,
+																	"value": 1,
+																	"mode": 2
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instScale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instStretch.x",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "emitter",
+									"name": "Flarescreen",
+									"props": {
+										"emitType": "Burst",
+										"alignMode": "Screen",
+										"instScale": 5,
+										"lifeTime": 0.4,
+										"warmUpTime": -0.4
+									},
+									"scaleX": 0.1,
+									"scaleY": 0.1,
+									"scaleZ": 0.1,
+									"children": [
+										{
+											"type": "polygon",
+											"name": "polygon",
+											"kind": 0,
+											"args": [
+												0
+											],
+											"children": [
+												{
+													"type": "material",
+													"name": "material",
+													"props": {
+														"PBR": {
+															"mode": "BeforeTonemapping",
+															"blend": "Alpha",
+															"shadows": false,
+															"culling": "None",
+															"colorMask": 255,
+															"depthTest": "LessEqual",
+															"enableStencil": false,
+															"parallax": 0
+														}
+													},
+													"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+												},
+												{
+													"type": "shader",
+													"name": "DepthBlend",
+													"source": "shaders/DepthBlend.hx",
+													"props": {
+														"REVERSE": false,
+														"range": 15,
+														"power": 1
+													},
+													"isInstance": true
+												},
+												{
+													"type": "shader",
+													"name": "AlphaMap",
+													"source": "shaders/AlphaMap.hx",
+													"props": {
+														"useSourceUVs": true,
+														"onDecal": false,
+														"wrap": true,
+														"invert": false,
+														"replace": false,
+														"alpha": 0.7,
+														"uScale": 1,
+														"vScale": 1,
+														"uOffset": 0,
+														"vOffset": 0,
+														"texture": "Fx/Alphas/T_circle2.png"
+													},
+													"isInstance": true,
+													"children": [
+														{
+															"type": "curve",
+															"name": "alpha",
+															"keyMode": 0,
+															"keys": [
+																{
+																	"time": 0,
+																	"value": 0,
+																	"mode": 2
+																},
+																{
+																	"time": 0.337436981201172,
+																	"value": 1,
+																	"mode": 0,
+																	"prevHandle": {
+																		"dv": -1.1333333333333333,
+																		"dt": -0.050000000000000044
+																	},
+																	"nextHandle": {
+																		"dv": 0.6141901939981789,
+																		"dt": 0.029366779035477106
+																	}
+																},
+																{
+																	"time": 1.0041889953613283,
+																	"value": 0,
+																	"mode": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "GradientMap",
+											"source": "shaders/GradientMap.hx",
+											"props": {
+												"USE_ALPHA": true,
+												"gradient": {
+													"type": "gradient",
+													"data": {
+														"stops": [
+															{
+																"position": 0,
+																"color": -151464545
+															},
+															{
+																"position": 0.828125,
+																"color": -1
+															}
+														],
+														"resolution": 64,
+														"isVertical": false,
+														"interpolation": "Linear",
+														"colorMode": 0
+													}
+												}
+											}
+										},
+										{
+											"type": "shader",
+											"name": "NightEmissive",
+											"source": "shaders/NightEmissive.hx",
+											"props": {
+												"amount": 1,
+												"ATTENUATE": true,
+												"emissiveMap": "Fx/Gradients/z_FillBlack.jpg"
+											}
+										},
+										{
+											"type": "curve",
+											"name": "instScale",
+											"keys": [
+												{
+													"time": 0,
+													"value": 2,
+													"mode": 2
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.013591254720655976,
+														"dt": -0.6969167042896149
+													},
+													"nextHandle": {
+														"dv": -0.013591254720655976,
+														"dt": 0.6969167042896149
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "advancedDecal",
+									"name": "advancedDecal_Black",
+									"x": -0.15407000000000015,
+									"y": -0.026340000000000252,
+									"z": -0.011750000000000038,
+									"scaleX": 3.2,
+									"scaleY": 1.28,
+									"scaleZ": 1.02,
+									"rotationX": -86.19999999999999,
+									"rotationY": -4.299999999999999,
+									"rotationZ": 9.699999999999992,
+									"albedoMap": "Fx/Gradients/circGrad05.jpg",
+									"emissive": 1,
+									"renderMode": "BeforeTonemapping",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMult",
+											"source": "shaders/AlphaMult.hx",
+											"props": {
+												"alpha": 5
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0.40085874877591676,
+															"value": 0,
+															"mode": 2
+														},
+														{
+															"time": 0.41085874877591677,
+															"value": 1,
+															"mode": 2
+														},
+														{
+															"time": 0.48888888888888915,
+															"value": 0,
+															"mode": 2
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "ColorSet",
+											"source": "shaders/ColorSet.hx",
+											"props": {
+												"amount": 1,
+												"color": [
+													0,
+													0,
+													0
+												]
+											}
+										}
+									]
+								},
+								{
+									"type": "advancedDecal",
+									"name": "advancedDecal_White",
+									"x": -0.15407,
+									"y": -0.02634,
+									"z": -0.01175,
+									"scaleX": 3.2,
+									"scaleY": 1.28,
+									"scaleZ": 1.02,
+									"rotationX": -86.2,
+									"rotationY": -4.3,
+									"rotationZ": 9.7,
+									"albedoMap": "Fx/Gradients/circGrad05.jpg",
+									"emissive": 1,
+									"renderMode": "BeforeTonemapping",
+									"children": [
+										{
+											"type": "shader",
+											"name": "AlphaMult",
+											"source": "shaders/AlphaMult.hx",
+											"props": {
+												"alpha": 1
+											},
+											"children": [
+												{
+													"type": "curve",
+													"name": "alpha",
+													"keyMode": 0,
+													"keys": [
+														{
+															"time": 0.4945961225132902,
+															"value": 0,
+															"mode": 2
+														},
+														{
+															"time": 0.5264437320976021,
+															"value": 1,
+															"mode": 2
+														},
+														{
+															"time": 0.7913961082285372,
+															"value": 1,
+															"mode": 2
+														},
+														{
+															"time": 2,
+															"value": 0,
+															"mode": 0,
+															"prevHandle": {
+																"dv": -0.01666666666666672,
+																"dt": -0.7984643028355056
+															},
+															"nextHandle": {
+																"dv": 0.006969058877345186,
+																"dt": 0.33333261816762627
+															}
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "object",
+							"name": "flare2",
+							"scaleX": 0.9,
+							"scaleY": 0.9,
+							"scaleZ": 0.9,
+							"children": [
+								{
+									"type": "emitter",
+									"name": "emitter_FlareBlack",
+									"props": {
+										"lifeTime": 0.35,
+										"alignMode": "Screen",
+										"alignLockAxis": "Z",
+										"burstDelay": 0.5,
+										"instStretch": [
+											15,
+											8,
+											1
+										],
+										"instRotation_rand": [
+											0,
+											0,
+											0
+										],
+										"instStretch_rand": [
+											0,
+											0,
+											0
+										],
+										"instScale_rand": 0,
+										"useRandomColor": true,
+										"randomColor1": [
+											0.48627450980392156,
+											0.48627450980392156,
+											0.48627450980392156,
+											1
+										],
+										"emitType": "Burst",
+										"warmUpTime": -0.8
+									},
+									"scaleX": 0.1,
+									"scaleY": 0.1,
+									"scaleZ": 0.1,
+									"children": [
+										{
+											"type": "polygon",
+											"name": "polygon",
+											"rotationX": 45,
+											"kind": 0,
+											"args": [
+												0
+											],
+											"children": [
+												{
+													"type": "material",
+													"name": "material",
+													"props": {
+														"PBR": {
+															"mode": "BeforeTonemapping",
+															"blend": "Alpha",
+															"shadows": false,
+															"culling": "None",
+															"colorMask": 255,
+															"depthTest": "LessEqual"
+														}
+													},
+													"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+												},
+												{
+													"type": "shader",
+													"name": "AlphaMap",
+													"source": "shaders/AlphaMap.hx",
+													"props": {
+														"useSourceUVs": false,
+														"onDecal": false,
+														"wrap": true,
+														"invert": false,
+														"replace": false,
+														"alpha": 1.25,
+														"uScale": 1,
+														"vScale": 1,
+														"uOffset": 0,
+														"vOffset": 0,
+														"texture": "Fx/Alphas/T_Flare06_512.png"
+													}
+												},
+												{
+													"type": "shader",
+													"name": "ColorSet",
+													"source": "shaders/ColorSet.hx",
+													"props": {
+														"amount": 1,
+														"color": [
+															0,
+															0,
+															0
+														]
+													},
+													"isInstance": true
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instScale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instStretch.x",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "emitter",
+									"name": "emitter_Flare",
+									"props": {
+										"lifeTime": 0.2,
+										"alignMode": "Screen",
+										"alignLockAxis": "Z",
+										"burstDelay": 0.45,
+										"instStretch": [
+											12,
+											4,
+											1
+										],
+										"instRotation_rand": [
+											0,
+											0,
+											0
+										],
+										"instStretch_rand": [
+											0,
+											0,
+											0
+										],
+										"instScale_rand": 0,
+										"useRandomColor": true,
+										"randomColor1": [
+											0.48627450980392156,
+											0.48627450980392156,
+											0.48627450980392156,
+											1
+										],
+										"warmUpTime": -0.85,
+										"emitType": "Burst",
+										"instScale": 0.75
+									},
+									"scaleX": 0.1,
+									"scaleY": 0.1,
+									"scaleZ": 0.1,
+									"children": [
+										{
+											"type": "polygon",
+											"name": "polygon",
+											"rotationX": 45,
+											"kind": 0,
+											"args": [
+												0
+											],
+											"children": [
+												{
+													"type": "material",
+													"name": "material",
+													"props": {
+														"PBR": {
+															"mode": "BeforeTonemapping",
+															"blend": "Alpha",
+															"shadows": false,
+															"culling": "None",
+															"colorMask": 255,
+															"depthTest": "LessEqual",
+															"emissive": 6,
+															"drawOrder": "100"
+														}
+													},
+													"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+												},
+												{
+													"type": "shader",
+													"name": "AlphaMap",
+													"source": "shaders/AlphaMap.hx",
+													"props": {
+														"useSourceUVs": false,
+														"onDecal": false,
+														"wrap": true,
+														"invert": false,
+														"replace": false,
+														"alpha": 1,
+														"uScale": 1,
+														"vScale": 1,
+														"uOffset": 0,
+														"vOffset": 0,
+														"texture": "Fx/Alphas/T_Flare06_512.png"
+													},
+													"children": [
+														{
+															"type": "curve",
+															"name": "alpha",
+															"keyMode": 0,
+															"keys": [
+																{
+																	"time": 0,
+																	"value": 0,
+																	"mode": 0,
+																	"prevHandle": {
+																		"dv": 0.06196351517869349,
+																		"dt": -0.49990757001492336
+																	},
+																	"nextHandle": {
+																		"dv": -0.01666666666666672,
+																		"dt": 0.13446288206139395
+																	}
+																},
+																{
+																	"time": 0.18100772585187647,
+																	"value": 1,
+																	"mode": 2
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instScale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										},
+										{
+											"type": "curve",
+											"name": "instStretch.x",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 1.2334981930436706,
+														"dt": -0.4276798037244547
+													},
+													"nextHandle": {
+														"dv": -0.7166666666666667,
+														"dt": 0.24848342791614272
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5240317437099238
+													},
+													"nextHandle": {
+														"dv": -3.8880269028916045e-16,
+														"dt": 0.3333333333333333
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "emitter",
+									"name": "Flarescreen",
+									"props": {
+										"emitType": "Burst",
+										"alignMode": "Screen",
+										"instScale": 6,
+										"lifeTime": 0.2,
+										"warmUpTime": -0.8
+									},
+									"scaleX": 0.1,
+									"scaleY": 0.1,
+									"scaleZ": 0.1,
+									"children": [
+										{
+											"type": "polygon",
+											"name": "polygon",
+											"kind": 0,
+											"args": [
+												0
+											],
+											"children": [
+												{
+													"type": "material",
+													"name": "material",
+													"props": {
+														"PBR": {
+															"mode": "BeforeTonemapping",
+															"blend": "Alpha",
+															"shadows": false,
+															"culling": "None",
+															"colorMask": 255,
+															"depthTest": "LessEqual",
+															"enableStencil": false,
+															"parallax": 0
+														}
+													},
+													"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+												},
+												{
+													"type": "shader",
+													"name": "DepthBlend",
+													"source": "shaders/DepthBlend.hx",
+													"props": {
+														"REVERSE": false,
+														"range": 15,
+														"power": 1
+													},
+													"isInstance": true
+												},
+												{
+													"type": "shader",
+													"name": "AlphaMap",
+													"source": "shaders/AlphaMap.hx",
+													"props": {
+														"useSourceUVs": true,
+														"onDecal": false,
+														"wrap": true,
+														"invert": false,
+														"replace": false,
+														"alpha": 0.7,
+														"uScale": 1,
+														"vScale": 1,
+														"uOffset": 0,
+														"vOffset": 0,
+														"texture": "Fx/Alphas/T_circle2.png"
+													},
+													"isInstance": true,
+													"children": [
+														{
+															"type": "curve",
+															"name": "alpha",
+															"keyMode": 0,
+															"keys": [
+																{
+																	"time": 0,
+																	"value": 0,
+																	"mode": 2
+																},
+																{
+																	"time": 0.337436981201172,
+																	"value": 1,
+																	"mode": 0,
+																	"prevHandle": {
+																		"dv": -1.1333333333333333,
+																		"dt": -0.050000000000000044
+																	},
+																	"nextHandle": {
+																		"dv": 0.6141901939981789,
+																		"dt": 0.029366779035477106
+																	}
+																},
+																{
+																	"time": 1.0041889953613283,
+																	"value": 0,
+																	"mode": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "shader",
+											"name": "GradientMap",
+											"source": "shaders/GradientMap.hx",
+											"props": {
+												"USE_ALPHA": true,
+												"gradient": {
+													"type": "gradient",
+													"data": {
+														"stops": [
+															{
+																"position": 0,
+																"color": -151464545
+															},
+															{
+																"position": 0.828125,
+																"color": -1
+															}
+														],
+														"resolution": 64,
+														"isVertical": false,
+														"interpolation": "Linear",
+														"colorMode": 0
+													}
+												}
+											}
+										},
+										{
+											"type": "shader",
+											"name": "NightEmissive",
+											"source": "shaders/NightEmissive.hx",
+											"props": {
+												"amount": 1,
+												"ATTENUATE": true,
+												"emissiveMap": "Fx/Gradients/z_FillBlack.jpg"
+											}
+										},
+										{
+											"type": "curve",
+											"name": "instScale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 2,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.3333333333333333
+													}
+												},
+												{
+													"time": 1,
+													"value": 0.25,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.013591254720655976,
+														"dt": -0.6969167042896149
+													},
+													"nextHandle": {
+														"dv": -0.013591254720655976,
+														"dt": 0.6969167042896149
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "trails",
+							"name": "trails",
+							"x": -0.15,
+							"startWidth": 0.25,
+							"lifetime": 0.22,
+							"minSpeed": 1,
+							"uvRepeat": "EClamp",
+							"children": [
+								{
+									"type": "material",
+									"name": "material",
+									"props": {
+										"PBR": {
+											"mode": "BeforeTonemapping",
+											"blend": "Add",
+											"shadows": false,
+											"culling": "None",
+											"colorMask": 255,
+											"depthTest": "LessEqual",
+											"emissive": 2
+										}
+									},
+									"wrapRepeat": true,
+									"diffuseMap": "Fx/Gradients/uGrad_inv.png"
+								},
+								{
+									"type": "shader",
+									"name": "AutoAlpha",
+									"source": "shaders/AutoAlpha.hx",
+									"props": {
+										"scale": 1
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "scale",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 1.3157844448992702,
+													"value": 0,
+													"mode": 2
+												},
+												{
+													"time": 1.336390505505331,
+													"value": 0.8,
+													"mode": 2
+												},
+												{
+													"time": 2,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0.03333333333333333,
+														"dt": -0.23524444478964868
+													},
+													"nextHandle": {
+														"dv": -0.03174282714805705,
+														"dt": 0.2227897597883805
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "constraint",
+					"name": "constraint",
+					"object": "FXAnimation.FXRoot",
+					"target": "FXAnimation.Wensicia.Female01_ImperialWensicia.root.B_ROOTJ.B_Spine01J.B_Spine02J.B_SpineTopJ.B_rClavicleJ.B_rShoulderJ.B_rElbowJ.B_rWristJ.B_rPalmJ.B_rFinger1J1"
+				}
+			]
+		}
+	]
+}
