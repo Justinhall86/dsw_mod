@@ -1,0 +1,521 @@
+{
+	"type": "fx",
+	"cullingRadius": 5,
+	"children": [
+		{
+			"type": "object",
+			"name": "FXGroup",
+			"x": 0.887445,
+			"y": 0.791415,
+			"z": 2.0684,
+			"children": [
+				{
+					"type": "model",
+					"name": "SM_GodRayPlane01",
+					"source": "Fx/UI/SM_GodRayPlane01.fbx",
+					"x": -0.35706,
+					"y": -1.02816,
+					"z": 0.55335,
+					"scaleX": 61.01,
+					"scaleY": 80.37,
+					"scaleZ": 50,
+					"rotationX": -62.999999999999986,
+					"children": [
+						{
+							"type": "material",
+							"name": "material",
+							"props": {
+								"PBR": {
+									"mode": "BeforeTonemapping",
+									"blend": "Alpha",
+									"shadows": false,
+									"culling": "Back",
+									"colorMask": 255,
+									"textureWrap": true,
+									"emissive": 0.5
+								}
+							},
+							"diffuseMap": "Fx/Gradients/z_FillWhite.jpg"
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": false,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 1,
+								"uScale": 1.6,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Alphas/RaysDissolve_02_1024.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.62,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Gradients/T_Square03_1024.jpg.png"
+							}
+						},
+						{
+							"type": "shader",
+							"name": "UVTransform",
+							"source": "shaders/UVTransform.hx",
+							"props": {
+								"scaleX": 1,
+								"scaleY": 1,
+								"shiftX": 0,
+								"shiftY": 0,
+								"shiftSpeedX": 0.01,
+								"shiftSpeedY": 0,
+								"USE_SOURCE_UV": true
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.3,
+								"saturation": 0.65,
+								"width": 1,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Alphas/RaysDissolve_09_1024.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									-0.03,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "DissolveMap",
+							"source": "shaders/DissolveMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"useScale": false,
+								"wrap": true,
+								"progress": 0.44,
+								"saturation": 1,
+								"width": 0.64,
+								"uvScaleX": 1,
+								"uvScaleY": 1,
+								"texture": "Fx/Gradients/dGrad04.png",
+								"uvShift": [
+									0,
+									0
+								],
+								"uvShiftSpeed": [
+									0,
+									0
+								]
+							}
+						},
+						{
+							"type": "shader",
+							"name": "ColorMap",
+							"source": "shaders/ColorMap.hx",
+							"props": {
+								"USE_ALPHA": true,
+								"colorA": [
+									0.6980392156862745,
+									0.6627450980392157,
+									0.6196078431372549
+								],
+								"pointA": 0.75,
+								"colorB": [
+									0.5137254901960784,
+									0.4627450980392157,
+									0.4627450980392157
+								],
+								"pointB": 0
+							}
+						},
+						{
+							"type": "shader",
+							"name": "AlphaMap",
+							"source": "shaders/AlphaMap.hx",
+							"props": {
+								"useSourceUVs": true,
+								"onDecal": false,
+								"wrap": true,
+								"invert": false,
+								"replace": false,
+								"alpha": 0.62,
+								"uScale": 1,
+								"vScale": 1,
+								"uOffset": 0,
+								"vOffset": 0,
+								"texture": "Fx/Gradients/T_Square03_1024.jpg.png"
+							},
+							"children": [
+								{
+									"type": "curve",
+									"name": "alpha",
+									"keys": [
+										{
+											"time": 2.0178322601318364,
+											"value": 0,
+											"mode": 2
+										},
+										{
+											"time": 4.987807025909425,
+											"value": 1,
+											"mode": 2
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "emitter",
+					"name": "Dust",
+					"props": {
+						"lifeTime": 8,
+						"lifeTimeRand": 5,
+						"emitShape": "Box",
+						"alignMode": "Screen",
+						"instScale": 0.01,
+						"instScale_rand": 0.002,
+						"instSpeed_rand": [
+							0.02,
+							0.02,
+							0.01
+						],
+						"warmUpTime": 1,
+						"emitRate": 20,
+						"maxCount": 100,
+						"useRandomColor": true,
+						"randomColor1": [
+							0.6470588235294118,
+							0.6549019607843137,
+							0.49411764705882355,
+							1
+						],
+						"randomColor2": [
+							0.6313725490196078,
+							0.6549019607843137,
+							0.6666666666666666,
+							0.6941176470588235
+						],
+						"instSpeed": [
+							0,
+							0,
+							-0.02
+						]
+					},
+					"x": 0.03904,
+					"y": 1.1314,
+					"z": -0.31897,
+					"scaleX": 1.4199999999999997,
+					"scaleY": 2.29,
+					"scaleZ": 2.05,
+					"rotationY": 37.9,
+					"rotationZ": -89.2,
+					"children": [
+						{
+							"type": "polygon",
+							"name": "polygon",
+							"kind": 0,
+							"args": [
+								0
+							],
+							"children": [
+								{
+									"type": "material",
+									"name": "material",
+									"props": {
+										"PBR": {
+											"mode": "AfterTonemapping",
+											"blend": "Add",
+											"shadows": false,
+											"culling": "Back",
+											"colorMask": 255,
+											"depthTest": "LessEqual",
+											"emissive": 1
+										}
+									},
+									"color": [
+										0.5450980392156862,
+										0.027450980392156862,
+										0.027450980392156862,
+										1
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.9,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_circle.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												},
+												{
+													"time": 0.5,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.16666666666666666
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.16666666666666666
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "curve",
+							"name": "emitRate",
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 3,
+									"value": 1,
+									"mode": 2
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "emitter",
+					"name": "Dust",
+					"props": {
+						"lifeTime": 8,
+						"lifeTimeRand": 5,
+						"emitShape": "Box",
+						"alignMode": "Screen",
+						"instScale": 0.01,
+						"instScale_rand": 0.002,
+						"instSpeed_rand": [
+							0.02,
+							0.02,
+							0.01
+						],
+						"warmUpTime": 1,
+						"emitRate": 20,
+						"maxCount": 100,
+						"useRandomColor": true,
+						"randomColor1": [
+							0.7725490196078432,
+							0.6666666666666666,
+							0.592156862745098,
+							1
+						],
+						"randomColor2": [
+							0.7607843137254902,
+							0.7254901960784313,
+							0.615686274509804,
+							0.6941176470588235
+						],
+						"instSpeed": [
+							0,
+							0,
+							-0.02
+						]
+					},
+					"x": 0.03904,
+					"y": -0.28449,
+					"z": -0.60774,
+					"scaleX": 1.4199999999999997,
+					"scaleY": 2.29,
+					"scaleZ": 2.05,
+					"rotationY": 37.9,
+					"rotationZ": -89.2,
+					"children": [
+						{
+							"type": "polygon",
+							"name": "polygon",
+							"kind": 0,
+							"args": [
+								0
+							],
+							"children": [
+								{
+									"type": "material",
+									"name": "material",
+									"props": {
+										"PBR": {
+											"mode": "AfterTonemapping",
+											"blend": "Add",
+											"shadows": false,
+											"culling": "Back",
+											"colorMask": 255,
+											"depthTest": "LessEqual",
+											"emissive": 1
+										}
+									},
+									"color": [
+										0.6627450980392157,
+										0,
+										0,
+										1
+									]
+								},
+								{
+									"type": "shader",
+									"name": "AlphaMap",
+									"source": "shaders/AlphaMap.hx",
+									"props": {
+										"useSourceUVs": true,
+										"onDecal": false,
+										"wrap": true,
+										"invert": false,
+										"replace": false,
+										"alpha": 0.9,
+										"uScale": 1,
+										"vScale": 1,
+										"uOffset": 0,
+										"vOffset": 0,
+										"texture": "Fx/Alphas/T_circle.png"
+									},
+									"children": [
+										{
+											"type": "curve",
+											"name": "alpha",
+											"keyMode": 0,
+											"keys": [
+												{
+													"time": 0,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.5
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												},
+												{
+													"time": 0.5,
+													"value": 1,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.16666666666666666
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												},
+												{
+													"time": 1,
+													"value": 0,
+													"mode": 0,
+													"prevHandle": {
+														"dv": 0,
+														"dt": -0.16666666666666666
+													},
+													"nextHandle": {
+														"dv": 0,
+														"dt": 0.16666666666666666
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "curve",
+							"name": "emitRate",
+							"keys": [
+								{
+									"time": 0,
+									"value": 0,
+									"mode": 2
+								},
+								{
+									"time": 2,
+									"value": 1,
+									"mode": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
