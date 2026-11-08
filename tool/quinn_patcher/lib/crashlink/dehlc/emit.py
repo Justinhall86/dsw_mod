@@ -1,0 +1,467 @@
+"""
+Inspection-only materialisation of lifted events into HL-shaped instructions.
+
+Operand slots follow the wire schema, but placeholder register numbers are not
+recovered dataflow. Provenance and unknown operands are retained separately and
+rendered explicitly; these streams must never be attached as executable bodies.
+"""
+
+from __future__ import annotations
+
+from typing import Dict, List, Optional, Tuple
+
+from ..core import (
+    Bytecode,
+    InlineBool,
+    Opcode,
+    Reg,
+    Regs,
+    SerialisableF64,
+    SerialisableInt,
+    VarInt,
+    fIndex,
+    fieldRef,
+    floatRef,
+    gIndex,
+    intRef,
+)
+from ..opcodes import opcodes
+from .binary import HLCBinary, _resolve_plt_targets
+from .lift import LiftedOp
+
+# cc -> conditional opcode, reading the machine condition literally. Used as the
+# fallback when the idiom table below has nothing for a condition.
+_CC_TO_OP = {
+    "l": "JSLt",
+    "ge": "JSGte",
+    "g": "JSGt",
+    "le": "JSLte",
+    "b": "JULt",
+    "ae": "JUGte",
+    "e": "JEq",
+    "ne": "JNotEq",
+    "s": "JSLt",
+    "ns": "JSGte",  # sign-flag branches approximate
+}
+
+# (cc, compare-was-against-an-immediate) -> the HL opcode that most often
+# produced it.
+#
+# Reading the machine condition literally is wrong far more often than it is
+# right, because the spelling is not recoverable from the branch alone: hl2c
+# emits `if (cond) goto L;` and gcc is free to negate the condition so the
+# common path falls through, and to rewrite `a >= K` as `a > K-1`. Measured on
+# the corpus, one mnemonic covers several HL opcodes - `je` alone backs JNotEq,
+# JNotNull, JNull and JAlways - so no mapping can be exact.
+#
+# This table is therefore a prior over compiler idiom, not a derivation. It was
+# fitted on 40 corpus samples and validated on 20 disjoint ones, where it picks
+# the right opcode for 61.7% of conditional branches against 22.4% for the
+# literal reading. Entries need >=20 training instances, and only genuine
+# conditional opcodes are allowed - mapping a conditional branch onto JAlways
+# would score well on some rows and silently corrupt the CFG.
+_CC_IMM_TO_OP = {
+    ("ae", False): "JUGte",
+    ("b", False): "JSLt",
+    ("be", True): "JSLt",
+    ("e", False): "JNotEq",
+    ("e", True): "JNotEq",
+    ("g", False): "JSLt",
+    ("g", True): "JSGte",
+    ("ge", False): "JSGte",
+    ("l", False): "JSGte",
+    ("le", False): "JSGte",
+    ("le", True): "JSLt",
+    ("ne", False): "JNotEq",
+    ("ne", True): "JTrue",
+    ("ns", False): "JSGte",
+    ("s", False): "JSGte",
+}
+
+
+def cc_to_opcode(cc: str, imm: bool) -> str:
+    """HL conditional opcode for a machine condition code (see _CC_IMM_TO_OP)."""
+    hit = _CC_IMM_TO_OP.get((cc, bool(imm)))
+    if hit is not None:
+        return hit
+    return _CC_TO_OP.get(cc, "JNotEq")
+
+
+_ARITH_OPS = {
+    "Add": "Add",
+    "Sub": "Sub",
+    "Mul": "Mul",
+    "Shl": "Shl",
+    "SShr": "SShr",
+    "UShr": "UShr",
+    "And": "And",
+    "Or": "Or",
+    "SDiv": "SDiv",
+    "UDiv": "UDiv",
+}
+
+# Cold-path libhl prims that HL bytecode represents implicitly (checks the
+# compiler hoisted around accesses); emitting them would only desync streams.
+_PRIM_NOISE = {"null_access", "invalid_cast"}
+
+_FIELD_SIZES = {"i32": 4, "u32": 4, "f32": 4, "i16": 2, "u16": 2, "i8": 1, "u8": 1, "bool": 1}
+
+
+class RecoveredOpcode(Opcode):
+    """Schema-valid inspection record, not evidence of executable HL dataflow."""
+
+    __slots__ = ("src_addr", "confidence", "unknown_operands", "source_op", "source_args")
+
+    def __init__(self, opcode: Opcode, source: LiftedOp):
+        super().__init__(opcode.op, opcode.df)
+        self.src_addr = source.src_addr
+        self.confidence = "heuristic"
+        self.source_op = source.op
+        self.source_args = dict(source.args)
+        # The native-to-HL pass does not recover register identities, field
+        # indices, branch semantics or dynamic-call signatures.
+        self.unknown_operands = {
+            name: "HL operand not recovered"
+            for name, value in self.df.items()
+            if isinstance(value, (Reg, Regs, fieldRef)) or name == "offset"
+        }
+        if source.op == "InstanceClosure":
+            self.unknown_operands["fun"] = "closure target not recovered"
+        if source.op == "Bool" or (source.op in ("Int", "Float") and "value" not in source.args):
+            self.unknown_operands["value" if source.op == "Bool" else "ptr"] = "value not recovered"
+
+
+def format_recovered_ops(ops: List[Opcode]) -> str:
+    """Render approximate instructions without displaying invented value flow."""
+    lines = ["Inspection-only approximate lift; ? denotes an unrecovered operand (not executable bytecode)."]
+    for i, op in enumerate(ops):
+        if not isinstance(op, RecoveredOpcode):
+            raise ValueError("Expected recovered instructions with provenance")
+        operands = []
+        for name, value in op.df.items():
+            rendered = "?" if name in op.unknown_operands else repr(value.value)
+            operands.append(f"{name}={rendered}")
+        source = f"{op.source_op} {op.source_args!r}"
+        lines.append(f"{i:>4}. {op.src_addr:#x} [{op.confidence}] {op.op} {', '.join(operands)} ; {source}")
+    return "\n".join(lines)
+
+
+class EmitContext:
+    """Shared state for one image's emission pass."""
+
+    def __init__(self, code: Bytecode, bin_view: HLCBinary):
+        self.code = code
+        code.inspection_only = True
+        self.bin_view = bin_view
+        self.addr2findex: Dict[int, int] = {}
+        ps = bin_view.symbol("hl_functions_ptrs")
+        if ps is not None:
+            n = ps.size // bin_view.PTR
+            for k in range(n):
+                p = bin_view.read_ptr(ps.value + bin_view.PTR * k)
+                if p:
+                    self.addr2findex[p] = k
+        self._int_pool: Dict[int, int] = {int(i.value): k for k, i in enumerate(code.ints)}
+        self._float_pool: Dict[float, int] = {}
+        # libhl prim name (without the "hl_" prefix) -> native findex, so lifted
+        # `Prim:*` events materialise as real calls into the natives table.
+        # Recovered native names may or may not carry the prefix depending on
+        # how the hdll symbol table was parsed; normalise it away.
+        self.native_findex: Dict[str, int] = {}
+        for nat in code.natives or []:
+            try:
+                nm = str(nat.name.resolve(code))
+            except Exception:
+                continue
+            if nm.startswith("hl_"):
+                nm = nm[len("hl_") :]
+            if nm and nat.findex is not None:
+                self.native_findex[nm] = nat.findex.value
+        # Recovered global symbol names -> gindex (see globals.py).
+        self.global_index: Dict[str, int] = dict(getattr(code, "hlc_global_index", None) or {})
+        self._function_by_findex = {f.findex.value: f for f in (code.functions or []) if f.findex is not None}
+        # findex -> position in code.natives, for arity lookups of native calls.
+        self._native_pos_by_findex: Dict[int, int] = {
+            nat.findex.value: k for k, nat in enumerate(code.natives or []) if nat.findex is not None
+        }
+
+    def int_ref(self, value: int) -> intRef:
+        value &= 0xFFFFFFFF
+        if value not in self._int_pool:
+            si = SerialisableInt()
+            si.value = value
+            si.signed = False
+            si.length = 4
+            self.code.ints.append(si)
+            self.code.nints = VarInt(len(self.code.ints))
+            self._int_pool[value] = len(self.code.ints) - 1
+        return intRef(self._int_pool[value])
+
+    def float_ref(self, value: float) -> Optional[floatRef]:
+        if value not in self._float_pool:
+            sf = SerialisableF64()
+            sf.value = value
+            self.code.floats.append(sf)
+            self.code.nfloats = VarInt(len(self.code.floats))
+            self._float_pool[value] = len(self.code.floats) - 1
+        return floatRef(self._float_pool[value])
+
+    def arity_of(self, fidx: int) -> int:
+        """Arity of a module function OR a native, by findex."""
+        pos = self._native_pos_by_findex.get(fidx)
+        if pos is not None:
+            try:
+                d = self.code.types[self.code.natives[pos].type.value].definition
+                nargs = getattr(d, "nargs", None)
+                return int(nargs.value) if nargs is not None else 0
+            except (IndexError, AttributeError):
+                return 0
+        # `code.functions` is a list in file order - a function's position in it
+        # is not its findex, so it has to be looked up by index.
+        f = self._function_by_findex.get(fidx)
+        if f is None:
+            return 0
+        d = self.code.types[f.type.value].definition
+        nargs = getattr(d, "nargs", None)
+        return int(nargs.value) if nargs is not None else 0
+
+    def fields_by_offset(self, tidx: int) -> Dict[int, int]:
+        """Byte offset -> field index for one recovered type."""
+        try:
+            obj = self.code.types[tidx].definition
+        except IndexError:
+            return {}
+        out: Dict[int, int] = {}
+        off = 8  # hlobj header
+        for i, fld in enumerate(getattr(obj, "fields", []) or []):
+            out[off] = i
+            ftname = str(fld.t.name) if getattr(fld, "t", None) is not None else ""
+            size = _FIELD_SIZES.get(ftname, 8)
+            off += size
+        return out
+
+
+def emit_function(ctx: EmitContext, ops: List[LiftedOp], max_regs: int = 512) -> List[Opcode]:
+    """
+    Materialise one lifted stream; branch offsets are patched here using the
+    address provenance each LiftedOp carries.
+    """
+    out: List[Opcode] = []
+    addr_index: Dict[int, int] = {}  # src_addr -> emitted index
+    fixups: List[Tuple[int, int]] = []  # (emitted idx, branch target addr)
+    reg = 0
+    last_value = 0
+    last_obj = 0
+    last_type_fields: Optional[Dict[int, int]] = None
+
+    def new_reg() -> int:
+        nonlocal reg
+        reg += 1
+        if reg >= max_regs:
+            reg = 1
+        return reg
+
+    def materialise_call(fidx: int) -> None:
+        """Emit a Call0..4/N against findex `fidx`, arity from its signature."""
+        nonlocal last_value
+        dst = new_reg()
+        nargs = ctx.arity_of(fidx)
+        fun = fIndex(fidx)
+        if nargs == 0:
+            out.append(Opcode("Call0", {"dst": Reg(dst), "fun": fun}))
+        else:
+            df: dict = {"dst": Reg(dst), "fun": fun}
+            if nargs > 4:
+                rg = Regs()
+                rg.value = [Reg(new_reg()) for _ in range(nargs)]
+                df["args"] = rg
+                out.append(Opcode("CallN", df))
+            else:
+                for k in range(nargs):
+                    df[f"arg{k}"] = Reg(new_reg())
+                out.append(Opcode(f"Call{nargs}", df))
+        last_value = dst
+
+    for lo in ops:
+        start = len(out)
+        if lo.src_addr:
+            addr_index.setdefault(lo.src_addr, len(out))
+        nm, a = lo.op, lo.args
+
+        if nm == "Int":
+            r = new_reg()
+            out.append(Opcode("Int", {"dst": Reg(r), "ptr": ctx.int_ref(a.get("value", 0))}))
+            last_value = r
+        elif nm == "Float":
+            r = new_reg()
+            fr = ctx.float_ref(a.get("value", 0.0))
+            if fr is None:
+                continue
+            out.append(Opcode("Float", {"dst": Reg(r), "ptr": fr}))
+            last_value = r
+        elif nm == "New":
+            r = new_reg()
+            out.append(Opcode("New", {"dst": Reg(r)}))
+            last_obj = r
+            last_type_fields = None
+        elif nm == "CallMethod":
+            # Dynamic dispatch: the callee is not statically known, so arity
+            # cannot come from a signature. Emit the dispatch itself.
+            r = new_reg()
+            # args[0] is the receiver - CallMethod is not well-formed without
+            # one, and consumers index it directly.
+            recv = Regs()
+            recv.value = [Reg(last_obj or new_reg())]
+            out.append(Opcode("CallMethod", {"dst": Reg(r), "field": fieldRef(0), "args": recv}))
+            last_value = r
+        elif nm in ("Call", "CallVirtual"):
+            tgt = a.get("target_addr")
+            fidx = ctx.addr2findex.get(tgt) if tgt is not None else None
+            if fidx is not None:
+                materialise_call(fidx)
+        elif nm.startswith("Prim:"):
+            prim = nm[len("Prim:") :]
+            if prim == "throw":
+                out.append(Opcode("Throw", {"exc": Reg(last_value or new_reg())}))
+                last_value = 0
+            elif prim in _PRIM_NOISE:
+                pass
+            else:
+                nfidx = ctx.native_findex.get(prim)
+                if nfidx is not None:
+                    materialise_call(nfidx)
+        elif nm == "GetGlobal":
+            gi = ctx.global_index.get(str(a.get("gidx", "")))
+            if gi is not None:
+                r = new_reg()
+                out.append(Opcode("GetGlobal", {"dst": Reg(r), "global": gIndex(gi)}))
+                last_value = r
+        elif nm == "SetGlobal":
+            gi = ctx.global_index.get(str(a.get("gidx", "")))
+            if gi is not None:
+                src_v = last_value or new_reg()
+                out.append(Opcode("SetGlobal", {"global": gIndex(gi), "src": Reg(src_v)}))
+                # stores don't produce a value; keep last_value as-is
+        elif nm == "StoreField":
+            fi = last_type_fields.get(a.get("off", 0), 0) if last_type_fields else 0
+            src_v = last_value or new_reg()
+            out.append(Opcode("SetField", {"obj": Reg(last_obj), "field": fieldRef(fi), "src": Reg(src_v)}))
+        elif nm == "LoadField":
+            r = new_reg()
+            fi = last_type_fields.get(a.get("off", 0), 0) if last_type_fields else 0
+            out.append(Opcode("Field", {"dst": Reg(r), "obj": Reg(last_obj), "field": fieldRef(fi)}))
+            last_value = r
+        elif nm == "GetThis":
+            r = new_reg()
+            fi = last_type_fields.get(a.get("off", 0), 0) if last_type_fields else 0
+            out.append(Opcode("GetThis", {"dst": Reg(r), "field": fieldRef(fi)}))
+            last_value = r
+        elif nm == "SetThis":
+            fi = last_type_fields.get(a.get("off", 0), 0) if last_type_fields else 0
+            out.append(Opcode("SetThis", {"field": fieldRef(fi), "src": Reg(last_value or new_reg())}))
+        elif nm in ("JIfS", "JIfU"):
+            op_name = cc_to_opcode(a.get("cc", "ne"), a.get("imm", False))
+            b = last_value or new_reg()
+            fixups.append((len(out), a.get("target", 0)))
+            operands: Dict[str, VarInt] = {
+                name: Reg(b if i == 0 else new_reg())
+                for i, (name, kind) in enumerate(opcodes[op_name].items())
+                if kind == "Reg"
+            }
+            operands["offset"] = VarInt(0)
+            out.append(Opcode(op_name, operands))
+        elif nm == "JAlways":
+            fixups.append((len(out), a.get("target", 0)))
+            out.append(Opcode("JAlways", {"offset": VarInt(0)}))
+        elif nm == "Bool":
+            r = new_reg()
+            ib = InlineBool()
+            ib.value = True
+            out.append(Opcode("Bool", {"dst": Reg(r), "value": ib}))
+            last_value = r
+        elif nm == "Ret":
+            out.append(Opcode("Ret", {"ret": Reg(last_value or 0)}))
+        elif nm == "Throw":
+            out.append(Opcode("Throw", {"exc": Reg(last_value or new_reg())}))
+        elif nm == "Null":
+            r = new_reg()
+            out.append(Opcode("Null", {"dst": Reg(r)}))
+            last_value = r
+        elif nm == "InstanceClosure":
+            r = new_reg()
+            out.append(Opcode("InstanceClosure", {"dst": Reg(r), "fun": fIndex(0), "obj": Reg(last_obj)}))
+            last_value = r
+        elif nm in ("SafeCast", "ToVirtual"):
+            r = new_reg()
+            out.append(Opcode(nm, {"dst": Reg(r), "src": Reg(last_value or new_reg())}))
+            last_value = r
+        elif nm == "CallClosure":
+            r = new_reg()
+            out.append(
+                Opcode("CallClosure", {"dst": Reg(r), "fun": Reg(last_value or new_reg()), "args": Regs()})
+            )
+            last_value = r
+        elif nm in _ARITH_OPS:
+            r = new_reg()
+            out.append(
+                Opcode(_ARITH_OPS[nm], {"dst": Reg(r), "a": Reg(last_value or 0), "b": Reg(new_reg())})
+            )
+            last_value = r
+        # Unmapped events remain available in the original lifted stream.
+        for i in range(start, len(out)):
+            out[i] = RecoveredOpcode(out[i], lo)
+
+    # Branch fixup: offsets are relative to the instruction after the branch.
+    # A branch target frequently lands on machine instructions that produced no
+    # lifted op (spill reloads, padding), so resolve to the FIRST EMITTED op at
+    # or after the target address instead of requiring an exact match.
+    import bisect as _bisect
+
+    addrs = sorted(addr_index)
+    for idx, tgt_addr in fixups:
+        if not tgt_addr or not addrs:
+            continue
+        k = _bisect.bisect_left(addrs, tgt_addr)
+        if k < len(addrs):
+            out[idx].df["offset"].value = addr_index[addrs[k]] - (idx + 1)
+
+    for op in out:
+        op.validate()
+
+    return out
+
+
+def emit_image(code: Bytecode, bin_view: HLCBinary, lifter=None, verbose: bool = False) -> int:
+    """Lift inspection records by findex without replacing executable bodies."""
+    from .lift import FunctionLifter
+
+    plt = _resolve_plt_targets(bin_view)
+    if lifter is None:
+        lifter = FunctionLifter.for_binary(bin_view, plt)
+    ctx = EmitContext(code, bin_view)
+    count = 0
+    if not hasattr(code, "recovery_opcodes"):
+        code.recovery_opcodes = {}
+    if not hasattr(code, "recovery_lifts"):
+        code.recovery_lifts = {}
+    for addr, fidx in sorted(ctx.addr2findex.items()):
+        if fidx not in ctx._function_by_findex:
+            continue
+        if fidx in code.recovery_opcodes:
+            continue  # already populated
+        try:
+            stream = lifter.lift(addr)
+        except Exception as exc:
+            code.recovery_diagnostics = (
+                *getattr(code, "recovery_diagnostics", ()),
+                f"Lift failed for f@{fidx} at {addr:#x}: {exc}",
+            )
+            continue
+        if not stream:
+            continue
+        code.recovery_lifts[fidx] = stream
+        code.recovery_opcodes[fidx] = emit_function(ctx, stream)
+        count += 1
+    if verbose:
+        print(f"  emitted inspection-only approximations for {count} functions")
+    return count

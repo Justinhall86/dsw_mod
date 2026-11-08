@@ -1,0 +1,3994 @@
+"""
+Core bytecode format definitions.
+
+This module contains the definitions for HashLink bytecode structures, as well as the serialisation
+and deserialisation methods for them. You probably don't need to use too much of this file directly,
+besides Bytecode, Opcode, and Function. The decompiler will take care of a lot of abstraction for
+you.
+"""
+
+from __future__ import annotations
+
+import ctypes
+import gc
+import hashlib
+import struct
+from concurrent.futures import Future, ThreadPoolExecutor
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum as _Enum
+import threading
+
+_EnumBase = _Enum
+from io import BytesIO
+from itertools import chain
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Callable,
+    Dict,
+    ItemsView,
+    List,
+    Literal,
+    Optional,
+    Set,
+    Tuple,
+    TypeVar,
+)
+
+T = TypeVar("T", bound="VarInt")  # easier than reimplementing deserialise for each subclass
+
+if TYPE_CHECKING:
+    from .dehlc.binary import HLCBinary
+    from .dehlc.lift import LiftedOp
+
+from .errors import InvalidOpCode, MalformedBytecode, NoMagic
+from .globals import dbg_print, tell
+from .opcodes import opcodes, simple_calls
+
+_OPCODE_NAMES = tuple(opcodes)
+_OPCODE_IDS = {name: index for index, name in enumerate(_OPCODE_NAMES)}
+_SIMPLE_CALLS = frozenset(simple_calls)
+
+try:
+    import platform
+
+    if platform.python_implementation() == "PyPy":
+        dbg_print("Using PyPy, tqdm will only use ASCII chars")
+
+        def tqdm(*args: Any, **kwargs: Any) -> Any:
+            """
+            A wrapper around tqdm that uses ASCII characters for PyPy compatibility.
+            """
+            from tqdm import tqdm as _tqdm
+
+            return _tqdm(*args, **kwargs, ascii=True)  # type: ignore[call-overload]
+    else:
+        from tqdm import tqdm
+
+    USE_TQDM = True
+except ImportError:
+    dbg_print("Could not find tqdm. Progress bars will not be displayed.")
+    USE_TQDM = False
+
+ProgressCallback = Callable[[float, str], None]
+
+
+def _read_exact(f: BinaryIO | BytesIO, size: int) -> bytes:
+    if size < 0:
+        raise MalformedBytecode(f"Negative byte length: {size}")
+    data = f.read(size)
+    if len(data) != size:
+        raise MalformedBytecode(f"Truncated data at {tell(f)}: expected {size} bytes, got {len(data)}")
+    return data
+
+
+def _check_count(f: BinaryIO | BytesIO, count: int, minimum_size: int = 1) -> None:
+    """Reject negative counts and tables larger than the remaining input."""
+    if count < 0:
+        raise MalformedBytecode(f"Negative item count at {tell(f)}: {count}")
+    pos = f.tell()
+    end = f.seek(0, 2)
+    f.seek(pos)
+    if count * minimum_size > end - pos:
+        raise MalformedBytecode(f"Item count {count} exceeds remaining input at {tell(f)}")
+
+
+def destaticify(s: str) -> str:
+    """
+    Transforms a static Obj's name into the normal class name.
+    """
+    path, _, class_name = s.rpartition(".")
+    if class_name.startswith("$"):
+        class_name = class_name[1:]
+    # HL prefixes local/private types (e.g. an abstract's impl class) with
+    # their declaring module: `_Module.Type`. That prefix is an internal HL
+    # naming detail, not a real Haxe package -- packages never start with
+    # `_`. Strip it so the name is a valid, in-scope Haxe identifier.
+    if path.startswith("_") and "." not in path:
+        path = ""
+    return f"{path}.{class_name}" if path else class_name
+
+
+def is_static_name(s: str) -> bool:
+    """
+    Checks if the last qualifier of a name (the class name) is prefixed with a '$'.
+    """
+    return s.rpartition(".")[-1].startswith("$")
+
+
+class Serialisable:
+    """
+    Base class for all serialisable objects.
+    """
+
+    __slots__ = ("value",)
+
+    def __init__(self) -> None:
+        self.value: Any = None
+
+    def deserialise(self, f: BinaryIO | BytesIO, *args: Any, **kwargs: Any) -> "Serialisable":
+        raise NotImplementedError(f"{type(self).__name__} must override deserialise()")
+
+    def serialise(self) -> bytes:
+        raise NotImplementedError(f"{type(self).__name__} must override serialise()")
+
+    def __str__(self) -> str:
+        try:
+            return str(self.value)
+        except AttributeError:
+            return super().__repr__()
+
+    def __repr__(self) -> str:
+        try:
+            return str(self.value)
+        except AttributeError:
+            return super().__repr__()
+
+    def __eq__(self, other: object) -> Any:
+        if not isinstance(other, Serialisable):
+            return NotImplemented
+        try:
+            return self.value == other.value
+        except AttributeError:
+            # Fallback if a subclass doesn't define .value but also doesn't override __eq__
+            return NotImplemented
+
+    def __ne__(self, other: object) -> Any:
+        if not isinstance(other, Serialisable):
+            return NotImplemented
+        try:
+            return self.value != other.value
+        except AttributeError:
+            return NotImplemented
+
+    def __lt__(self, other: object) -> Any:
+        if not isinstance(other, Serialisable):
+            return NotImplemented
+        try:
+            return self.value < other.value
+        except AttributeError:
+            return NotImplemented
+
+
+class RawData(Serialisable):
+    """
+    A block of raw data.
+    """
+
+    __slots__ = ("length",)
+
+    def __init__(self, length: int):
+        self.value: bytes = b""
+        self.length = length
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "RawData":
+        self.value = _read_exact(f, self.length)
+        return self
+
+    def serialise(self) -> bytes:
+        return self.value
+
+
+class SerialisableInt(Serialisable):
+    """
+    Integer of the specified byte length.
+    """
+
+    __slots__ = ("length", "byteorder", "signed")
+
+    def __init__(self) -> None:
+        self.value: int = -1
+        self.length = 4
+        self.byteorder: Literal["little", "big"] = "little"
+        self.signed = False
+
+    def deserialise(
+        self,
+        f: BinaryIO | BytesIO,
+        length: int = 4,
+        byteorder: Literal["little", "big"] = "little",
+        signed: bool = False,
+    ) -> "SerialisableInt":
+        self.length = length
+        self.byteorder = byteorder
+        self.signed = signed
+        bytes_read = _read_exact(f, length)
+        self.value = int.from_bytes(bytes_read, byteorder, signed=signed)
+        return self
+
+    def serialise(self) -> bytes:
+        return self.value.to_bytes(self.length, self.byteorder, signed=self.signed)
+
+
+class SerialisableF64(Serialisable):
+    """
+    A standard 64-bit float.
+    """
+
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        self.value = 0.0
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "SerialisableF64":
+        self.value = struct.unpack("<d", _read_exact(f, 8))[0]
+        return self
+
+    def serialise(self) -> bytes:
+        return struct.pack("<d", self.value)
+
+
+_struct_short = struct.Struct(">H")  # big-endian unsigned short
+_struct_medium = struct.Struct(">I")  # big-endian unsigned int (for 3 bytes)
+
+
+def _read_varint_tail(f: BinaryIO | BytesIO, first: bytes) -> int:
+    """Decode a VarInt whose first byte (`first`, possibly empty at EOF) was
+    already read and is not a 1-byte value. Callers inline the 1-byte case."""
+    if not first:
+        raise MalformedBytecode(f"Truncated data at {tell(f)}: expected 1 bytes, got 0")
+    b = first[0]
+    if b < 0x80:
+        return b
+    if b < 0xC0:
+        val = ((b & 0x1F) << 8) | _read_exact(f, 1)[0]
+    else:
+        val = ((b & 0x1F) << 24) | int.from_bytes(_read_exact(f, 3), "big")
+    sign = (b >> 5) & 1
+    return (val ^ -sign) + sign
+
+
+class VarInt(Serialisable):
+    """
+    Variable-length integer - can be 1, 2, or 4 bytes.
+    """
+
+    __slots__ = ()
+
+    def __init__(self, value: int = 0):
+        self.value: int = value
+
+    def deserialise(self: T, f: BinaryIO | BytesIO) -> T:
+        data = f.read(1)
+        # Most VarInts on the wire are single-byte; decode those inline.
+        self.value = data[0] if data and data[0] < 0x80 else _read_varint_tail(f, data)
+        return self
+
+    def serialise(self) -> bytes:
+        if self.value < 0:
+            value = -self.value
+            if value < 0x2000:  # 13 bits
+                return bytes([(value >> 8) | 0xA0, value & 0xFF])
+            if value >= 0x20000000:
+                raise MalformedBytecode("The value of a VarInt can't be >= 0x20000000!")
+            # Optimized 4-byte case
+            return bytes(
+                [
+                    (value >> 24) | 0xE0,
+                    (value >> 16) & 0xFF,
+                    (value >> 8) & 0xFF,
+                    value & 0xFF,
+                ]
+            )
+
+        if self.value < 0x80:  # 7 bits
+            return bytes([self.value])
+        if self.value < 0x2000:  # 13 bits
+            return bytes([(self.value >> 8) | 0x80, self.value & 0xFF])
+        if self.value >= 0x20000000:
+            raise MalformedBytecode("The value of a VarInt can't be >= 0x20000000!")
+        # Optimized 4-byte case
+        return bytes(
+            [
+                (self.value >> 24) | 0xC0,
+                (self.value >> 16) & 0xFF,
+                (self.value >> 8) & 0xFF,
+                self.value & 0xFF,
+            ]
+        )
+
+
+class ResolvableVarInt(VarInt):
+    """
+    Base class for resolvable VarInts. Call `resolve` to get a direct reference to the object it points to.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> Any:
+        """
+        Resolve this reference to a specific reference in the bytecode.
+        """
+        raise NotImplementedError(f"{type(self).__name__} must override resolve()")
+
+
+class fIndex(ResolvableVarInt):
+    """
+    Abstract class based on VarInt to represent a distinct function index instead of just an arbitrary number.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> "Function|Native":
+        found = code.get_findex_map().get(self.value)
+        if found is None:
+            raise MalformedBytecode(f"Function index {self.value} not found.")
+        return found
+
+
+class tIndex(ResolvableVarInt):
+    """
+    Reference to a type in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> "Type":
+        return code.types[self.value]
+
+
+class gIndex(ResolvableVarInt):
+    """
+    Reference to a global object in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> "Type":
+        return code.global_types[self.value].resolve(code)
+
+    def partial_resolve(self, code: "Bytecode") -> tIndex:
+        return code.global_types[self.value]
+
+    def resolve_str(self, code: "Bytecode") -> str:
+        return code.const_str(self.value)
+
+
+class strRef(ResolvableVarInt):
+    """
+    Reference to a string in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> str:
+        return code.strings.value[self.value]
+
+
+class intRef(ResolvableVarInt):
+    """
+    Reference to an integer in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> SerialisableInt:
+        return code.ints[self.value]
+
+
+class floatRef(ResolvableVarInt):
+    """
+    Reference to a float in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> SerialisableF64:
+        return code.floats[self.value]
+
+
+class bytesRef(ResolvableVarInt):
+    """
+    Reference to a byte string in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> bytes:
+        if code.bytes:
+            return code.bytes.value[self.value]
+        else:
+            raise MalformedBytecode("No bytes block found.")
+
+
+class fieldRef(ResolvableVarInt):
+    """
+    Reference to a field in an object definition.
+    """
+
+    __slots__ = ("obj",)
+
+    def __init__(self, value: int = 0):
+        super().__init__(value)
+        self.obj: Optional["Obj|Virtual"] = None
+
+    def resolve(self, code: "Bytecode") -> "Field":
+        if self.obj:
+            return self.obj.resolve_fields(code)[self.value]
+        raise ValueError(
+            "Cannot resolve field without context. Try setting `field.obj` to an instance of `Obj`, or use `field.resolve_obj(code, obj)` instead."
+        )
+
+    def resolve_obj(self, code: "Bytecode", obj: "Obj|Virtual") -> "Field":
+        self.obj = obj
+        return obj.resolve_fields(code)[self.value]
+
+
+class Reg(ResolvableVarInt):
+    """
+    Reference to a register in the bytecode.
+    """
+
+    __slots__ = ()
+
+    def resolve(self, code: "Bytecode") -> "Type":
+        return code.types[self.value]
+
+
+class InlineBool(Serialisable):
+    """
+    Inline boolean value.
+    """
+
+    __slots__ = ("varint",)
+
+    def __init__(self) -> None:
+        self.varint = VarInt()
+        self.value: bool = False
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "InlineBool":
+        self.varint.deserialise(f)
+        self.value = bool(self.varint.value)
+        return self
+
+    def serialise(self) -> bytes:
+        self.varint.value = int(self.value)
+        return self.varint.serialise()
+
+
+class VarInts(Serialisable):
+    """
+    List of VarInts.
+    """
+
+    __slots__ = ("n",)
+
+    def __init__(self) -> None:
+        self.n = VarInt()
+        self.value: List[VarInt] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "VarInts":
+        self.n.deserialise(f)
+        _check_count(f, self.n.value)
+        for _ in range(self.n.value):
+            self.value.append(VarInt().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.n.value = len(self.value)
+        return b"".join([self.n.serialise(), b"".join([value.serialise() for value in self.value])])
+
+
+class Regs(Serialisable):
+    """
+    List of references to registers.
+    """
+
+    __slots__ = ("n",)
+
+    def __init__(self) -> None:
+        self.n = VarInt()
+        self.value: List[Reg] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Regs":
+        self.n.deserialise(f)
+        _check_count(f, self.n.value)
+        for _ in range(self.n.value):
+            self.value.append(Reg().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.n.value = len(self.value)
+        return b"".join([self.n.serialise(), b"".join([value.serialise() for value in self.value])])
+
+
+class StringsBlock(Serialisable):
+    """
+    Block of strings in the bytecode. Contains a list of strings and their lengths.
+    """
+
+    __slots__ = ("length", "lengths")
+
+    def __init__(self) -> None:
+        self.length = SerialisableInt()
+        self.length.length = 4
+        self.value: List[str] = []
+        self.lengths: List[VarInt] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO, nstrings: int) -> "StringsBlock":
+        self.length.deserialise(f, length=4)
+        size = self.length.value
+        _check_count(f, nstrings)
+        _check_count(f, size)
+        sdata = _read_exact(f, size)
+        strings: List[str] = []
+        lengths: List[VarInt] = []
+        curpos = 0
+
+        for _ in range(nstrings):
+            sz = VarInt().deserialise(f)
+            # Check if we can read string + null terminator
+            if sz.value < 0 or curpos + sz.value + 1 > size:
+                raise MalformedBytecode("Invalid string length")
+
+            # Verify null terminator
+            if sdata[curpos + sz.value] != 0:
+                raise MalformedBytecode("Missing string terminator")
+
+            str_value = sdata[curpos : curpos + sz.value]
+            strings.append(str_value.decode("utf-8", errors="surrogateescape"))
+            lengths.append(sz)
+
+            curpos += sz.value + 1  # Move past string and null terminator
+
+        if curpos != size:
+            raise MalformedBytecode("Unreferenced data in string block")
+
+        self.value = strings
+        self.lengths = lengths
+        return self
+
+    def serialise(self) -> bytes:
+        strings_data = bytearray()
+        for string in self.value:
+            encoded = string.encode("utf-8", errors="surrogateescape")
+            strings_data.extend(encoded)
+            strings_data.append(0)  # null terminator
+
+        self.length.value = len(strings_data)
+        self.lengths = [
+            VarInt(len(string.encode("utf-8", errors="surrogateescape"))) for string in self.value
+        ]
+
+        result = bytearray(self.length.serialise())
+        result.extend(strings_data)
+        for length in self.lengths:
+            result.extend(length.serialise())
+
+        return bytes(result)
+
+    def find_or_add(self, val: str) -> int:
+        """
+        Finds and returns the index of a string value in this block, or adds it to this block and returns its index.
+        """
+        try:
+            return self.value.index(val)
+        except ValueError:
+            self.value.append(val)
+            return len(self.value) - 1
+
+
+class BytesBlock(Serialisable):
+    """
+    Block of bytes in the bytecode. Contains a list of byte strings and their lengths.
+    """
+
+    __slots__ = ("size", "nbytes")
+
+    def __init__(self) -> None:
+        self.size = SerialisableInt()
+        self.size.length = 4
+        self.value: List[bytes] = []
+        self.nbytes = 0
+
+    def deserialise(self, f: BinaryIO | BytesIO, nbytes: int) -> "BytesBlock":
+        self.nbytes = nbytes
+        self.size.deserialise(f, length=4)
+        _check_count(f, nbytes)
+        _check_count(f, self.size.value)
+        raw = _read_exact(f, self.size.value)
+        positions: List[VarInt] = []
+        for _ in range(nbytes):
+            pos = VarInt()
+            pos.deserialise(f)
+            positions.append(pos)
+        positions_int = [pos.value for pos in positions]
+        if (positions_int and positions_int[0] != 0) or (not positions_int and raw):
+            raise MalformedBytecode("Unreferenced data in bytes block")
+        previous = 0
+        for position in positions_int:
+            if not previous <= position <= len(raw):
+                raise MalformedBytecode("Invalid bytes block offset")
+            previous = position
+        for i in range(len(positions_int)):
+            start = positions_int[i]
+            end = positions_int[i + 1] if i + 1 < len(positions_int) else len(raw)
+            self.value.append(raw[start:end])  # Append the extracted byte string
+        return self
+
+    def serialise(self) -> bytes:
+        raw_data = b"".join(self.value)
+        self.size.value = len(raw_data)
+        size_serialised = self.size.serialise()
+        positions = []
+        current_pos = 0
+        for byte_str in self.value:
+            positions.append(VarInt(current_pos))
+            current_pos += len(byte_str)
+        positions_serialised = b"".join([pos.serialise() for pos in positions])
+        return size_serialised + raw_data + positions_serialised
+
+
+class TypeDef(Serialisable):
+    """
+    Abstract class for all type definition fields.
+    """
+
+    __slots__ = ()
+
+
+class _NoDataType(TypeDef):
+    """
+    Base typedef for types with no data.
+    """
+
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        pass
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "_NoDataType":
+        return self
+
+    def serialise(self) -> bytes:
+        return b""
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, _NoDataType):
+            return NotImplemented
+        # Two _NoDataType objects are equal if they are of the same specific class.
+        return type(self) is type(other)
+
+
+class Void(_NoDataType):
+    """
+    Void type, no data. Used to discard data (eg. reg: Void = call f@**).
+    """
+
+    __slots__ = ()
+
+
+class U8(_NoDataType):
+    """
+    Unsigned 8-bit integer type, no data.
+    """
+
+    __slots__ = ()
+
+
+class U16(_NoDataType):
+    """
+    Unsigned 16-bit integer type, no data.
+    """
+
+    __slots__ = ()
+
+
+class I32(_NoDataType):
+    """
+    Signed 32-bit integer type, no data.
+    """
+
+    __slots__ = ()
+
+
+class I64(_NoDataType):
+    """
+    Signed 64-bit integer type, no data.
+    """
+
+    __slots__ = ()
+
+
+class F32(_NoDataType):
+    """
+    32-bit float type, no data.
+    """
+
+    __slots__ = ()
+
+
+class F64(_NoDataType):
+    """
+    64-bit float type, no data.
+    """
+
+    __slots__ = ()
+
+
+class Bool(_NoDataType):
+    """
+    Boolean type, no data.
+    """
+
+    __slots__ = ()
+
+
+class Bytes(_NoDataType):
+    """
+    Bytes type, no data.
+    """
+
+    __slots__ = ()
+
+
+class Dyn(_NoDataType):
+    """
+    Dynamic type, no data. Can store any type of data in a typed register as a pointer.
+    """
+
+    __slots__ = ()
+
+
+class Fun(TypeDef):
+    """
+    Stores metadata about a function (signatures). When referenced in conjunction with a Proto or Method, it can be used to reconstruct the full function signature. See `crashlink.disasm.func_header` for a working reference.
+    """
+
+    __slots__ = ("nargs", "args", "ret")
+
+    def __init__(self) -> None:
+        self.nargs = VarInt()
+        self.args: List[tIndex] = []
+        self.ret = tIndex()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Fun":
+        self.nargs.deserialise(f)
+        _check_count(f, self.nargs.value)
+        for _ in range(self.nargs.value):
+            self.args.append(tIndex().deserialise(f))
+        self.ret.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        self.nargs.value = len(self.args)
+        return b"".join(
+            [
+                self.nargs.serialise(),
+                b"".join([idx.serialise() for idx in self.args]),
+                self.ret.serialise(),
+            ]
+        )
+
+    def str_resolve(self, code: "Bytecode") -> str:
+        """
+        Returns a pretty-printed string representation of the function signature.
+        """
+        args_str = ", ".join([arg.resolve(code).str_resolve(code) for arg in self.args])
+        return f"({args_str}) -> {self.ret.resolve(code).str_resolve(code)}"
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Fun):
+            return NotImplemented
+        return self.nargs == other.nargs and self.args == other.args and self.ret == other.ret
+
+
+class Field(Serialisable):
+    """
+    Represents a field in a class definition.
+    """
+
+    __slots__ = ("name", "type")
+
+    def __init__(self, name: Optional[strRef] = None, type: Optional[tIndex] = None) -> None:
+        if not name:
+            self.name = strRef()
+        else:
+            self.name = name
+        if not type:
+            self.type = tIndex()
+        else:
+            self.type = type
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Field":
+        self.name.deserialise(f)
+        self.type.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return b"".join([self.name.serialise(), self.type.serialise()])
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Field):
+            return NotImplemented
+        res = self.name == other.name and self.type == other.type
+        assert isinstance(res, bool), "Field equality check must return a boolean"
+        return res
+
+
+class Proto(Serialisable):
+    """
+    Represents a prototype of a function
+    """
+
+    __slots__ = ("name", "findex", "pindex")
+
+    def __init__(self) -> None:
+        self.name = strRef()
+        self.findex = fIndex()
+        self.pindex = VarInt()  # unknown use
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Proto":
+        self.name.deserialise(f)
+        self.findex.deserialise(f)
+        self.pindex.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return b"".join([self.name.serialise(), self.findex.serialise(), self.pindex.serialise()])
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Proto):
+            return NotImplemented
+        res = self.name == other.name and self.findex == other.findex and self.pindex == other.pindex
+        assert isinstance(res, bool), "Proto equality check must return a boolean"
+        return res
+
+
+class Binding(Serialisable):
+    """
+    Represents a binding of a function to a field in an object.
+    """
+
+    __slots__ = ("field", "findex")
+
+    def __init__(self) -> None:
+        self.field = fieldRef()
+        self.findex = fIndex()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Binding":
+        self.field.deserialise(f)
+        self.findex.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return b"".join([self.field.serialise(), self.findex.serialise()])
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Binding):
+            return NotImplemented
+        res = self.field == other.field and self.findex == other.findex
+        assert isinstance(res, bool), "Binding equality check must return a boolean"
+        return res
+
+
+class Obj(TypeDef):
+    """
+    Represents a class definition.
+    """
+
+    __slots__ = (
+        "name",
+        "super",
+        "_global",
+        "nfields",
+        "nprotos",
+        "nbindings",
+        "fields",
+        "protos",
+        "bindings",
+        "_virtuals",
+        "_virtual_map",
+        "virtuals_initialized",
+        "_is_static",
+        "_static",
+        "_dynamic",
+    )
+
+    def __init__(self) -> None:
+        self.name = strRef()
+        """The name of this object type."""
+        self.super = tIndex()
+        """The superclass of this object type, or -1 if it has no superclass."""
+        self._global = gIndex()
+        """The global object index of this type."""
+        self.nfields = VarInt()
+        """Number of fields"""
+        self.nprotos = VarInt()
+        """Number of prototypes"""
+        self.nbindings = VarInt()
+        """Number of bindings"""
+        self.fields: List[Field] = []
+        """List of fields in this object type."""
+        self.protos: List[Proto] = []
+        """List of prototypes for this object type."""
+        self.bindings: List[Binding] = []
+        """List of bindings for this object type."""
+        self._virtuals: List[int] = []
+        self._virtual_map: Dict[str, int] = {}
+        self.virtuals_initialized: bool = False
+
+        self._is_static: Optional[bool] = None
+        self._static: "Optional[Obj]" = None
+        self._dynamic: "Optional[Obj]" = None
+
+    def get_containing_type(self, code: Bytecode) -> Type:
+        """Finds the Type object that contains this Obj definition."""
+        for t in code.types:
+            if t.definition is self:
+                return t
+        raise RuntimeError("Could not find containing Type for Obj instance.")
+
+    @property
+    def virtuals(self) -> List[int]:
+        """Returns the list of virtual function indices for this object type."""
+        if not self.virtuals_initialized:
+            raise ValueError("Virtuals not initialized. Call `code.init_virtuals()` after deserialisation.")
+        return self._virtuals
+
+    @property
+    def virtual_map(self) -> Dict[str, int]:
+        """Returns the map of method names to their virtual ID for this object type."""
+        if not self.virtuals_initialized:
+            raise ValueError("Virtuals not initialized. Call `code.init_virtuals()` after deserialisation.")
+        return self._virtual_map
+
+    @property
+    def is_static(self) -> bool:
+        """True if this Obj is static, else False. If True, you can get this Obj's dynamic counterpart with `Obj.dynamic`."""
+        if self._is_static is not None:
+            return self._is_static
+        raise ValueError(
+            "Static-dynamic object mapping not initialized. Call `code.map_statics()` after deserialisation."
+        )
+
+    @property
+    def static(self) -> "Obj":
+        """This Obj's static counterpart. Accessing will raise an exception if `Obj.is_static` is True."""
+        if self._static is not None:
+            return self._static
+        if self._is_static is not None and self._is_static:
+            raise ValueError("This Obj is static! Try `Obj.dynamic` for its counterpart instead.")
+        raise ValueError(
+            "Static-dynamic object mapping not initialized. Call `code.map_statics()` after deserialisation."
+        )
+
+    @property
+    def dynamic(self) -> "Obj":
+        """This Obj's dynamic counterpart. Accessing will raise an exception if `Obj.is_static` is False."""
+        if self._dynamic is not None:
+            return self._dynamic
+        if self._is_static is not None and not self._is_static:
+            raise ValueError("This Obj is static! Try `Obj.dynamic` for its counterpart instead.")
+        raise ValueError(
+            "Static-dynamic object mapping not initialized. Call `code.map_statics()` after deserialisation."
+        )
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Obj":
+        self.name.deserialise(f)
+        self.super.deserialise(f)
+        self._global.deserialise(f)
+        self.nfields.deserialise(f)
+        self.nprotos.deserialise(f)
+        self.nbindings.deserialise(f)
+        _check_count(f, self.nfields.value, 2)
+        _check_count(f, self.nprotos.value, 3)
+        _check_count(f, self.nbindings.value, 2)
+        for _ in range(self.nfields.value):
+            self.fields.append(Field().deserialise(f))
+        for _ in range(self.nprotos.value):
+            self.protos.append(Proto().deserialise(f))
+        for _ in range(self.nbindings.value):
+            self.bindings.append(Binding().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.nfields.value = len(self.fields)
+        self.nprotos.value = len(self.protos)
+        self.nbindings.value = len(self.bindings)
+        return b"".join(
+            [
+                self.name.serialise(),
+                self.super.serialise(),
+                self._global.serialise(),
+                self.nfields.serialise(),
+                self.nprotos.serialise(),
+                self.nbindings.serialise(),
+                b"".join([field.serialise() for field in self.fields]),
+                b"".join([proto.serialise() for proto in self.protos]),
+                b"".join([binding.serialise() for binding in self.bindings]),
+            ]
+        )
+
+    def resolve_fields(self, code: "Bytecode") -> List[Field]:
+        """
+        Resolves all fields across the class hierarchy. For instance:
+        class A {
+            var a: Int;
+        }
+        class B extends A {
+            var b: Int;
+        }
+        Where a is field 0 and b is field 1.
+        """
+        if self.super.value < 0:  # no superclass
+            return self.fields
+        fields: List[Field] = []
+        visited_types = set()
+        current_type: Optional[Obj] = self
+        while current_type:
+            if id(current_type) in visited_types:
+                raise ValueError("Cyclic inheritance detected in class hierarchy.")
+            visited_types.add(id(current_type))
+            fields = current_type.fields + fields
+            if current_type.super.value < 0:
+                current_type = None
+            else:
+                defn = current_type.super.resolve(code).definition
+                if not isinstance(defn, Obj):
+                    raise ValueError("Invalid superclass type.")
+                current_type = defn
+        return fields
+
+    def __str__(self) -> str:
+        return f"<Obj: s@{self.name}>"
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
+    def str_resolve(self, code: "Bytecode") -> str:
+        return f"<Obj: {self.name.resolve(code)}>"
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Obj):
+            return NotImplemented
+        return (
+            self.name == other.name
+            and self.super == other.super
+            and self._global == other._global
+            and self.fields == other.fields
+            and self.protos == other.protos
+            and self.bindings == other.bindings
+        )
+
+
+class Array(_NoDataType):
+    """
+    Array type, no data.
+    """
+
+    __slots__ = ()
+
+
+class TypeType(_NoDataType):
+    """
+    Type wrapping a type, no data.
+    """
+
+    __slots__ = ()
+
+
+class Ref(TypeDef):
+    """
+    Memory reference to an instance of a type.
+    """
+
+    __slots__ = ("type",)
+
+    def __init__(self) -> None:
+        self.type = tIndex()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Ref":
+        self.type.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return self.type.serialise()
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Ref):
+            return NotImplemented
+        res = self.type == other.type
+        assert isinstance(res, bool), "Ref equality check must return a boolean"
+        return res
+
+
+class Virtual(TypeDef):
+    """
+    Virtual type, used for virtual/abstract classes.
+    """
+
+    __slots__ = ("nfields", "fields")
+
+    def __init__(self) -> None:
+        self.nfields = VarInt()
+        self.fields: List[Field] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Virtual":
+        self.nfields.deserialise(f)
+        _check_count(f, self.nfields.value, 2)
+        for _ in range(self.nfields.value):
+            self.fields.append(Field().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.nfields.value = len(self.fields)
+        return b"".join(
+            [
+                self.nfields.serialise(),
+                b"".join([field.serialise() for field in self.fields]),
+            ]
+        )
+
+    def resolve_fields(self, code: "Bytecode") -> List[Field]:
+        return self.fields
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Virtual):
+            return NotImplemented
+        return self.fields == other.fields
+
+
+class DynObj(_NoDataType):
+    """
+    Dynamic object type, no data.
+    """
+
+    __slots__ = ()
+
+
+class Abstract(TypeDef):
+    """
+    Abstract class type.
+    """
+
+    __slots__ = ("name",)
+
+    def __init__(self) -> None:
+        self.name = strRef()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Abstract":
+        self.name.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return self.name.serialise()
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Abstract):
+            return NotImplemented
+        res = self.name == other.name
+        assert isinstance(res, bool), "Abstract equality check must return a boolean"
+        return res
+
+
+class EnumConstruct(Serialisable):
+    """
+    Construct of an enum.
+    """
+
+    __slots__ = ("name", "nparams", "params")
+
+    def __init__(self) -> None:
+        self.name = strRef()
+        self.nparams = VarInt()
+        self.params: List[tIndex] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "EnumConstruct":
+        self.name.deserialise(f)
+        self.nparams.deserialise(f)
+        _check_count(f, self.nparams.value)
+        for _ in range(self.nparams.value):
+            self.params.append(tIndex().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.nparams.value = len(self.params)
+        return b"".join(
+            [
+                self.name.serialise(),
+                self.nparams.serialise(),
+                b"".join([param.serialise() for param in self.params]),
+            ]
+        )
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, EnumConstruct):
+            return NotImplemented
+        return self.name == other.name and self.params == other.params
+
+
+class Enum(TypeDef):
+    """
+    Enum type.
+    """
+
+    __slots__ = ("name", "_global", "nconstructs", "constructs")
+
+    def __init__(self) -> None:
+        self.name = strRef()
+        self._global = gIndex()
+        self.nconstructs = VarInt()
+        self.constructs: List[EnumConstruct] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Enum":
+        self.name.deserialise(f)
+        self._global.deserialise(f)
+        self.nconstructs.deserialise(f)
+        _check_count(f, self.nconstructs.value, 2)
+        for _ in range(self.nconstructs.value):
+            self.constructs.append(EnumConstruct().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.nconstructs.value = len(self.constructs)
+        return b"".join(
+            [
+                self.name.serialise(),
+                self._global.serialise(),
+                self.nconstructs.serialise(),
+                b"".join([construct.serialise() for construct in self.constructs]),
+            ]
+        )
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Enum):
+            return NotImplemented
+        return self.name == other.name and self.constructs == other.constructs
+
+
+class Null(TypeDef):
+    """
+    Null of a certain type.
+    """
+
+    __slots__ = ("type",)
+
+    def __init__(self) -> None:
+        self.type = tIndex()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Null":
+        self.type.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return self.type.serialise()
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Null):
+            return NotImplemented
+        res = self.type == other.type
+        assert isinstance(res, bool), "Null equality check must return a boolean"
+        return res
+
+
+class Method(Fun):
+    """
+    Method type, identical to Fun.
+    """
+
+    __slots__ = ()
+
+
+class Struct(Obj):
+    """
+    Struct type, identical to Obj.
+    """
+
+    __slots__ = ()
+
+
+class Packed(TypeDef):
+    """
+    Holds an inner type index.
+    """
+
+    __slots__ = ("inner",)
+
+    def __init__(self) -> None:
+        self.inner = tIndex()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Packed":
+        self.inner.deserialise(f)
+        return self
+
+    def serialise(self) -> bytes:
+        return self.inner.serialise()
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Packed):
+            return NotImplemented
+        res = self.inner == other.inner
+        assert isinstance(res, bool), "Packed equality check must return a boolean"
+        return res
+
+
+class GUID(_NoDataType):
+    """
+    GUID type, no data.
+    """
+
+    __slots__ = ()
+
+
+class Type(Serialisable):
+    """
+    Type definition:
+
+    - kind: SerialisableInt
+    - definition: TypeDef
+    """
+
+    __slots__ = ("kind", "definition")
+
+    # fmt: off
+    TYPEDEFS: List[type] = [
+        Void,     # 0, no data
+        U8,       # 1, no data
+        U16,      # 2, no data
+        I32,      # 3, no data
+        I64,      # 4, no data
+        F32,      # 5, no data
+        F64,      # 6, no data
+        Bool,     # 7, no data
+        Bytes,    # 8, no data
+        Dyn,      # 9, no data
+        Fun,      # 10
+        Obj,      # 11
+        Array,    # 12, no data
+        TypeType, # 13, no data
+        Ref,      # 14
+        Virtual,  # 15
+        DynObj,   # 16, no data
+        Abstract, # 17
+        Enum,     # 18
+        Null,     # 19
+        Method,   # 20
+        Struct,   # 21
+        Packed,   # 22
+        GUID,     # 23, no data
+    ]
+    # fmt: on
+
+    class Kind(_Enum):
+        VOID = 0
+        U8 = 1
+        U16 = 2
+        I32 = 3
+        I64 = 4
+        F32 = 5
+        F64 = 6
+        BOOL = 7
+        BYTES = 8
+        DYN = 9
+        FUN = 10
+        OBJ = 11
+        ARRAY = 12
+        TYPETYPE = 13
+        REF = 14
+        VIRTUAL = 15
+        DYNOBJ = 16
+        ABSTRACT = 17
+        ENUM = 18
+        NULL = 19
+        METHOD = 20
+        STRUCT = 21
+        PACKED = 22
+        GUID = 23
+
+    def __init__(self) -> None:
+        self.kind = SerialisableInt()
+        self.kind.length = 1
+        self.definition: Optional[TypeDef] = None
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Type":
+        # dbg_print(f"Type @ {tell(f)}")
+        self.kind.deserialise(f, length=1)
+        try:
+            self.TYPEDEFS[self.kind.value]
+            _def = self.TYPEDEFS[self.kind.value]()
+            if isinstance(_def, TypeDef):
+                deserialised = _def.deserialise(f)
+                if isinstance(deserialised, TypeDef):
+                    self.definition = deserialised
+                else:
+                    raise MalformedBytecode(f"Invalid type definition found @{tell(f)}")
+            else:
+                raise MalformedBytecode(f"Invalid type definition found @{tell(f)}")
+        except IndexError:
+            raise MalformedBytecode(f"Invalid type kind found @{tell(f)}")
+        return self
+
+    def serialise(self) -> bytes:
+        return b"".join(
+            [
+                self.kind.serialise(),
+                self.definition.serialise() if self.definition else b"",
+            ]
+        )
+
+    def __str__(self) -> str:
+        return f"<Type: {self.kind.value} ({self.definition.__class__.__name__})>"
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
+    def str_resolve(self, code: "Bytecode") -> str:
+        if isinstance(self.definition, Obj):
+            return self.definition.str_resolve(code)
+        if isinstance(self.definition, Fun):
+            return self.definition.str_resolve(code)
+        return f"<Type: {self.kind.value} ({self.definition.__class__.__name__})>"
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Type):
+            return NotImplemented
+        if self is other:
+            return True
+        # Definitions can be None
+        if self.definition is None and other.definition is None:
+            res = self.kind == other.kind
+            return res if isinstance(res, bool) else False
+        if self.definition is None or other.definition is None:
+            return False
+        res = self.kind == other.kind and self.definition == other.definition
+        assert isinstance(res, bool), "Type equality check must return a boolean"
+        return res
+
+    def __hash__(self) -> int:
+        return hash(self.serialise())
+
+
+class Native(Serialisable):
+    """
+    Represents a native function.
+
+    - lib: strRef
+    - name: strRef
+    - type: tIndex
+    - findex: fIndex
+    """
+
+    __slots__ = ("lib", "name", "type", "findex")
+
+    def __init__(self) -> None:
+        self.lib = strRef()
+        self.name = strRef()
+        self.type = tIndex()
+        self.findex = fIndex()
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Native":
+        self.lib.deserialise(f)
+        self.name.deserialise(f)
+        self.type.deserialise(f)
+        self.findex.deserialise(f)
+        return self
+
+    def called_by(self, code: "Bytecode") -> List[fIndex]:
+        """
+        Resolves all functions that call this native.
+        """
+        caller_indices = []
+        for func in code.functions:
+            if any(call_idx.value == self.findex.value for call_idx in func.calls):
+                caller_indices.append(func.findex)
+        return caller_indices
+
+    def serialise(self) -> bytes:
+        return b"".join(
+            [
+                self.lib.serialise(),
+                self.name.serialise(),
+                self.type.serialise(),
+                self.findex.serialise(),
+            ]
+        )
+
+
+class Opcode(Serialisable):
+    """
+    Represents an opcode.
+    """
+
+    __slots__ = ("op", "df")
+
+    TYPE_MAP: Dict[str, type] = {
+        "Reg": Reg,
+        "Regs": Regs,
+        "RefInt": intRef,
+        "RefFloat": floatRef,
+        "InlineBool": InlineBool,
+        "RefBytes": bytesRef,
+        "RefString": strRef,
+        "RefFun": fIndex,
+        "RefField": fieldRef,
+        "RefGlobal": gIndex,
+        "JumpOffset": VarInt,
+        "JumpOffsets": VarInts,
+        "RefType": tIndex,
+        "RefEnumConstant": VarInt,
+        "RefEnumConstruct": VarInt,
+        "InlineInt": VarInt,
+    }
+
+    def __init__(self, op: Optional[str] = None, df: Optional[Dict[Any, Any]] = None) -> None:
+        self.op: Optional[str] = op if op else None
+        self.df: Dict[Any, Any] = df if df else {}
+
+    @property
+    def code(self) -> VarInt:
+        """Wire opcode id, derived from `op` (not stored: one fewer object per opcode)."""
+        if self.op is None or self.op not in _OPCODE_IDS:
+            raise InvalidOpCode(f"Unknown opcode: {self.op}")
+        return VarInt(_OPCODE_IDS[self.op])
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Opcode":
+        data = f.read(1)
+        code = data[0] if data and data[0] < 0x80 else _read_varint_tail(f, data)
+        if not 0 <= code < len(_OPCODE_NAMES):
+            raise InvalidOpCode(f"Unknown opcode at {tell(f)} - {code}")
+        op = self.op = _OPCODE_NAMES[code]
+        df = self.df
+        df.clear()
+        # Operands are built straight from the schema, so the only part of
+        # `validate()` that can fail here is the sign check.
+        for param, operand_type, sign_check in _OPCODE_WIRE[code]:
+            operand = operand_type().deserialise(f)
+            if sign_check == _SIGN_SCALAR:
+                if operand.value < 0:
+                    raise InvalidOpCode(f"Negative reference in {op}.{param}")
+            elif sign_check == _SIGN_REGS and any(reg.value < 0 for reg in operand.value):
+                raise InvalidOpCode(f"Negative register in {op}.{param}")
+            df[param] = operand
+        return self
+
+    def validate(self) -> str:
+        """Validate the wire schema and return the opcode name."""
+        if self.op is None or self.op not in opcodes:
+            raise InvalidOpCode(f"Unknown opcode: {self.op}")
+        schema = opcodes[self.op]
+        if self.df.keys() != schema.keys():
+            raise InvalidOpCode(
+                f"Invalid operands for {self.op}: expected {tuple(schema)}, got {tuple(self.df)}"
+            )
+        for name, kind in schema.items():
+            operand = self.df[name]
+            expected = self.TYPE_MAP[kind]
+            if not isinstance(operand, expected):
+                raise InvalidOpCode(f"{self.op}.{name} must be {expected.__name__}")
+            if isinstance(operand, (Regs, VarInts)):
+                element_type = Reg if isinstance(operand, Regs) else VarInt
+                if any(not isinstance(value, element_type) for value in operand.value):
+                    raise InvalidOpCode(f"Invalid list operand: {self.op}.{name}")
+                if isinstance(operand, Regs) and any(value.value < 0 for value in operand.value):
+                    raise InvalidOpCode(f"Negative register in {self.op}.{name}")
+            elif kind not in ("JumpOffset", "InlineInt", "InlineBool") and operand.value < 0:
+                raise InvalidOpCode(f"Negative reference in {self.op}.{name}")
+        return self.op
+
+    def serialise(self) -> bytes:
+        opcode_name = self.validate()
+        return VarInt(_OPCODE_IDS[opcode_name]).serialise() + b"".join(
+            self.df[name].serialise() for name in opcodes[opcode_name]
+        )
+
+    def __repr__(self) -> str:
+        return f"<Opcode: {self.op} {self.df}>"
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
+
+# Opcode operand sign rules, mirroring `Opcode.validate`.
+_SIGN_NONE, _SIGN_SCALAR, _SIGN_REGS = 0, 1, 2
+
+
+def _operand_sign_check(kind: str) -> int:
+    if kind == "Regs":
+        return _SIGN_REGS
+    if kind in ("JumpOffset", "JumpOffsets", "InlineInt", "InlineBool"):
+        return _SIGN_NONE
+    return _SIGN_SCALAR
+
+
+# Wire schema per opcode id: ((param, operand class, sign rule), ...).
+_OPCODE_WIRE: Tuple[Tuple[Tuple[str, type, int], ...], ...] = tuple(
+    tuple((param, Opcode.TYPE_MAP[kind], _operand_sign_check(kind)) for param, kind in opcodes[name].items())
+    for name in _OPCODE_NAMES
+)
+
+
+class fileRef(ResolvableVarInt):
+    """
+    Reference to a file in the debug info.
+    """
+
+    __slots__ = ("line",)
+
+    def __init__(self, fid: int = 0, line: int = -1) -> None:
+        self.value = fid  # VarInt.__init__ inlined: one of these per opcode
+        self.line = line
+
+    def resolve(self, code: "Bytecode") -> str:
+        """
+        Resolve to the filename of the reference.
+        """
+        if not code.debugfiles:
+            raise MalformedBytecode("No debug files found.")
+        return code.debugfiles.value[self.value]
+
+    def resolve_line(self, code: "Bytecode") -> int:
+        """
+        Resolve to the line number in the file of the reference.
+        """
+        return self.line
+
+    def resolve_pretty(self, code: "Bytecode") -> str:
+        """
+        Resolve a pretty-printed string: <filename>:<line number>
+        """
+        return f"{self.resolve(code)}:{self.line}"
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, fileRef):
+            return NotImplemented
+        return self.value == other.value and self.line == other.line
+
+
+class DebugInfo(Serialisable):
+    """
+    Represents debug information for a function, encoded with a delta encoding scheme for compression.
+
+    Deserialised consecutive opcodes on the same file:line share one `fileRef` instance (most
+    opcodes do: this avoids one object per opcode). Replace a list entry rather than mutating it.
+    """
+
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        self.value: List[fileRef] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO, nops: int) -> "DebugInfo":
+        tmp: List[fileRef] = []
+        currfile = -1
+        currline = 0
+        # fileRef for (currfile, currline); dropped whenever either changes.
+        ref: Optional[fileRef] = None
+        if nops < 0:
+            raise MalformedBytecode("Negative debug instruction count")
+        while len(tmp) < nops:
+            c = _read_exact(f, 1)[0]
+            if c & 1:
+                newfile = ((c >> 1) << 8) | _read_exact(f, 1)[0]
+                if newfile != currfile:
+                    currfile, ref = newfile, None
+            elif c & 2:
+                count = (c >> 2) & 15
+                if len(tmp) + count > nops:
+                    raise MalformedBytecode("Debug run exceeds instruction count")
+                if count:
+                    if ref is None:
+                        ref = fileRef(currfile, currline)
+                    tmp.extend([ref] * count)
+                if c >> 6:
+                    currline, ref = currline + (c >> 6), None
+            else:
+                if c & 4:
+                    newline = currline + (c >> 3)
+                else:
+                    rest = _read_exact(f, 2)
+                    newline = (c >> 3) | (rest[0] << 5) | (rest[1] << 13)
+                if newline != currline:
+                    currline, ref = newline, None
+                if ref is None:
+                    ref = fileRef(currfile, currline)
+                tmp.append(ref)
+        self.value = tmp
+        return self
+
+    def _flush_repeat(
+        self,
+        w: BinaryIO | BytesIO,
+        curpos: ctypes.c_size_t,
+        rcount: ctypes.c_size_t,
+        pos: int,
+    ) -> None:
+        if rcount.value > 0:
+            if rcount.value > 15:
+                w.write(ctypes.c_uint8((15 << 2) | 2).value.to_bytes(1, "little"))
+                rcount.value -= 15
+                self._flush_repeat(w, curpos, rcount, pos)
+            else:
+                delta = pos - curpos.value
+                delta = delta if 0 < delta < 4 else 0
+                w.write(ctypes.c_uint8(((delta << 6) | (rcount.value << 2) | 2)).value.to_bytes(1, "little"))
+                rcount.value = 0
+                curpos.value += delta
+
+    def serialise(self) -> bytes:
+        w = BytesIO()
+        curfile = -1
+        curpos = ctypes.c_size_t(0)
+        rcount = ctypes.c_size_t(0)
+
+        for ref in self.value:
+            f = ref.value
+            p = ref.line
+            if f != curfile:
+                self._flush_repeat(w, curpos, rcount, p)
+                curfile = f
+                w.write(ctypes.c_uint8(((f >> 7) | 1)).value.to_bytes(1, "little"))
+                w.write(ctypes.c_uint8(f & 0xFF).value.to_bytes(1, "little"))
+
+            if p != curpos.value:
+                self._flush_repeat(w, curpos, rcount, p)
+
+            if p == curpos.value:
+                rcount.value += 1
+            else:
+                delta = p - curpos.value
+                if 0 < delta < 32:
+                    w.write(ctypes.c_uint8((delta << 3) | 4).value.to_bytes(1, "little"))
+                else:
+                    w.write(ctypes.c_uint8((p << 3) & 0xFF).value.to_bytes(1, "little"))
+                    w.write(ctypes.c_uint8((p >> 5) & 0xFF).value.to_bytes(1, "little"))
+                    w.write(ctypes.c_uint8((p >> 13) & 0xFF).value.to_bytes(1, "little"))
+                curpos.value = p
+
+        self._flush_repeat(w, curpos, rcount, curpos.value)
+
+        return w.getvalue()
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, DebugInfo):
+            return NotImplemented
+        return self.value == other.value
+
+
+class Function(Serialisable):
+    """
+    Represents a function in the bytecode. Due to the interesting ways in which HashLink works, this does not have a name or a signature, but rather a return type and a list of registers and opcodes.
+    """
+
+    __slots__ = (
+        "type",
+        "findex",
+        "nregs",
+        "nops",
+        "regs",
+        "ops",
+        "has_debug",
+        "version",
+        "debuginfo",
+        "nassigns",
+        "assigns",
+        "calls",
+    )
+
+    def __init__(self) -> None:
+        self.type = tIndex()
+        self.findex = fIndex()
+        self.nregs = VarInt()
+        self.nops = VarInt()
+        self.regs: List[tIndex] = []
+        self.ops: List[Opcode] = []
+        self.has_debug: Optional[bool] = None
+        self.version: Optional[int] = None
+        self.debuginfo: Optional[DebugInfo] = None
+        self.nassigns: Optional[VarInt] = None
+        self.assigns: Optional[List[Tuple[strRef, VarInt]]] = None
+        self.calls: List[fIndex] = []
+
+    def called_by(self, code: "Bytecode") -> List[fIndex]:
+        """
+        Resolves all functions that call this function.
+        """
+        caller_indices = []
+        for func in code.functions:
+            if any(call_idx.value == self.findex.value for call_idx in func.calls):
+                caller_indices.append(func.findex)
+        return caller_indices
+
+    def resolve_fun(self, code: "Bytecode") -> Fun:
+        """
+        Resolves the function signature of this function.
+        """
+        ret = self.type.resolve(code).definition
+        assert ret is not None
+        assert isinstance(ret, Fun)
+        return ret
+
+    def resolve_file(self, code: "Bytecode") -> str:
+        """
+        Resolves (in the Bytecode's debugfiles blob) the name of the file this function originates from. Note that this assumes the first opcode's file is the only file this Function was derived from - Functions that derive from multiple files (such as compiler-generated closures or entrypoints) will be resolved to a single file, sometimes incorrectly.
+        """
+        if not self.has_debug or not self.debuginfo or not self.debuginfo.value:
+            raise ValueError("Cannot get file from non-debug or empty-debuginfo bytecode!")
+        return self.debuginfo.value[0].resolve(code)
+
+    def resolve_nargs(self, code: "Bytecode") -> int:
+        """
+        Resolves the number of arguments this function takes.
+        """
+        fun_type = self.type.resolve(code).definition
+        if isinstance(fun_type, Fun):
+            return fun_type.nargs.value
+        return 0
+
+    def deserialise(self, f: BinaryIO | BytesIO, has_debug: bool, version: int) -> "Function":
+        self.has_debug = has_debug
+        self.version = version
+        self.type.deserialise(f)
+        self.findex.deserialise(f)
+        self.nregs.deserialise(f)
+        self.nops.deserialise(f)
+        _check_count(f, self.nregs.value)
+        _check_count(f, self.nops.value)
+        self.regs = [tIndex().deserialise(f) for _ in range(self.nregs.value)]
+        ops = self.ops = [Opcode().deserialise(f) for _ in range(self.nops.value)]
+        self.calls = [op.df["fun"] for op in ops if op.op in _SIMPLE_CALLS and "fun" in op.df]
+        if self.has_debug:
+            self.debuginfo = DebugInfo().deserialise(f, self.nops.value)
+            if self.version >= 3:
+                self.nassigns = VarInt().deserialise(f)
+                _check_count(f, self.nassigns.value, 2)
+                self.assigns = []
+                for _ in range(self.nassigns.value):
+                    self.assigns.append((strRef().deserialise(f), VarInt().deserialise(f)))
+        return self
+
+    def insert_op(self, code: "Bytecode", idx: int, op: Opcode, debugRef: Optional[fileRef] = None) -> None:
+        """
+        Insert an Opcode into this function at the given position, adding a blank debug fileRef if none is passed.
+        """
+        self.ops.insert(idx, op)
+        if code.debugfiles and code.has_debug_info and self.has_debug and self.debuginfo:  # fucking typing...
+            if not debugRef:
+                debugRef = fileRef(
+                    fid=code.debugfiles.find_or_add("?"), line=42
+                )  # life, the universe, and everything
+            self.debuginfo.value.insert(idx, debugRef)
+
+    def push_op(self, code: "Bytecode", op: Opcode, debugRef: Optional[fileRef] = None) -> int:
+        """
+        Push an Opcode into this function at the start.
+        """
+        self.insert_op(code, 0, op, debugRef=debugRef)
+        return 0
+
+    def append_op(self, code: "Bytecode", op: Opcode, debugRef: Optional[fileRef] = None) -> int:
+        """
+        Append an Opcode to the end of this function.
+        """
+        self.insert_op(code, len(self.ops), op, debugRef=debugRef)
+        return len(self.ops) - 1
+
+    def serialise(self) -> bytes:
+        self.nops.value = len(self.ops)
+        self.nregs.value = len(self.regs)
+        if self.assigns:
+            self.nassigns = VarInt(len(self.assigns) if self.assigns else 0)
+        if self.has_debug and self.debuginfo:
+            assert len(self.debuginfo.value) == self.nops.value, (
+                f"Invalid number of debugrefs - {len(self.debuginfo.value)} (debuginfo) != {self.nops.value} (nops) - did you use insert_op?"
+            )
+        res = b"".join(
+            [
+                self.type.serialise(),
+                self.findex.serialise(),
+                self.nregs.serialise(),
+                self.nops.serialise(),
+                b"".join([reg.serialise() for reg in self.regs]),
+                b"".join([op.serialise() for op in self.ops]),
+            ]
+        )
+        if self.has_debug and self.debuginfo:
+            res += self.debuginfo.serialise()
+            if self.version and self.version >= 3:
+                # HL's loader always reads nassigns+assigns here for v>=3 with
+                # debug info; write an empty list if we have none to keep the
+                # stream aligned.
+                nassigns = self.nassigns if self.nassigns else VarInt(0)
+                assigns = self.assigns if self.assigns is not None else []
+                res += nassigns.serialise()
+                res += b"".join([b"".join([v.serialise() for v in assign]) for assign in assigns])
+        return res
+
+
+class Constant(Serialisable):
+    """
+    Represents a bytecode constant.
+    """
+
+    __slots__ = ("_global", "nfields", "fields")
+
+    def __init__(self) -> None:
+        self._global = gIndex()
+        self.nfields = VarInt()
+        self.fields: List[VarInt] = []
+
+    def deserialise(self, f: BinaryIO | BytesIO) -> "Constant":
+        self._global.deserialise(f)
+        self.nfields.deserialise(f)
+        _check_count(f, self.nfields.value)
+        for _ in range(self.nfields.value):
+            self.fields.append(VarInt().deserialise(f))
+        return self
+
+    def serialise(self) -> bytes:
+        self.nfields.value = len(self.fields)
+        return b"".join(
+            [
+                self._global.serialise(),
+                self.nfields.serialise(),
+                b"".join([field.serialise() for field in self.fields]),
+            ]
+        )
+
+
+class Bytecode(Serialisable):
+    """
+    The main bytecode class. To read a bytecode file, use the `from_path` class method.
+
+    For more information about the overall structure, see [here](https://n3rdl0rd.github.io/ModDocCE/files/hlboot)
+    """
+
+    # Populated by crashlink.decomp's static-initializer analysis.
+    _static_field_inits_cache: Optional[Dict[int, Dict[str, str]]] = None
+    _static_field_init_refs_cache: Optional[Dict[int, Dict[str, Set[str]]]] = None
+
+    # Attached by crashlink.dehlc's code_from_bin: the native image this
+    # bytecode was reconstructed from (None for deserialised .hl/.dat files).
+    hlc_binary: Optional["HLCBinary"] = None
+    # Symbol name (e.g. "g$42") -> recovered global index; set by de-HL/C
+    # reconstruction so lifting can resolve GetGlobal/SetGlobal operands.
+    hlc_global_index: Optional[Dict[str, int]] = None
+
+    def __init__(self) -> None:
+        self.deserialised = False
+        # SHA-256 of the raw image and where it was loaded from, set by
+        # from_path/from_bytes. Used to gate plugin optimizers to a specific
+        # bytecode (see crashlink.plugins).
+        self.sha256: Optional[str] = None
+        self.source_path: Optional[str] = None
+        self.magic = RawData(3)
+        self.version = SerialisableInt()
+        self.version.length = 1
+        self.flags = VarInt()
+        self.has_debug_info: Optional[bool] = None
+        self.nints = VarInt()
+        self.nfloats = VarInt()
+        self.nstrings = VarInt()
+        self.nbytes: Optional[VarInt] = VarInt()
+        self.ntypes = VarInt()
+        self.nglobals = VarInt()
+        self.nnatives = VarInt()
+        self.nfunctions = VarInt()
+        self.nconstants: Optional[VarInt] = VarInt()
+        self.entrypoint = fIndex()
+
+        self.ints: List[SerialisableInt] = []
+        self.floats: List[SerialisableF64] = []
+        self.strings = StringsBlock()
+        self.bytes: Optional[BytesBlock] = BytesBlock()
+
+        self.ndebugfiles: Optional[VarInt] = VarInt()
+        self.debugfiles: Optional[StringsBlock] = StringsBlock()
+
+        self.types: List[Type] = []
+        self.global_types: List[tIndex] = []
+        self.natives: List[Native] = []
+        self.functions: List[Function] = []
+        self.constants: List[Constant] = []
+
+        self.initialized_globals: Dict[int, Any] = {}
+
+        self.section_offsets: Dict[str, int] = {}
+        self.cached_all: List[Type] | None = None
+        self._findex_map: Dict[int, "Function | Native"] | None = None
+        self._proto_map: Dict[int, "Proto"] | None = None
+        self._field_map: Dict[int, "Field"] | None = None
+        self._proto_owner_map: Dict[int, "Obj"] | None = None
+        self._field_owner_map: Dict[int, "Obj"] | None = None
+        self._xref_index: Optional[XrefIndex] = None
+        self._search_index: Optional[SearchIndex] = None
+        self._source_map: Optional[SourceMap] = None
+        self._xref_lock = threading.Lock()
+        self._search_lock = threading.Lock()
+        self._source_map_lock = threading.Lock()
+        self._plugin_optimizer_classes: Optional[Tuple[List[Any], List[Any]]] = None
+        self._enum_global_map: Optional[Dict[int, Tuple[str, "tIndex"]]] = None
+        self._global_field_elem_types: Dict[Tuple[str, str], "Type"] = {}
+        self._hxsl_shaders_cache: Optional[Any] = None
+        # id(type definition) -> index in self.types; see type_index_of.
+        self._type_index_by_def: Optional[Dict[int, int]] = None
+        self.annotations: AnnotationStore = AnnotationStore()
+        self.inspection_only = False
+        self.recovery_capabilities: frozenset[str] = frozenset()
+        self.recovery_diagnostics: Tuple[str, ...] = ()
+        self.recovery_opcodes: Dict[int, List[Opcode]] = {}
+        self.recovery_lifts: Dict[int, List[LiftedOp]] = {}
+
+        self.virtuals_built = False
+
+    def type_index_of(self, definition: Any) -> Optional[int]:
+        """Index in `self.types` of the type whose definition is `definition` (identity),
+        or None. Cached; a stale cache (types mutated) is detected and rebuilt."""
+        cache = self._type_index_by_def
+        if cache is not None:
+            index = cache.get(id(definition))
+            if index is not None and index < len(self.types) and self.types[index].definition is definition:
+                return index
+        cache = self._type_index_by_def = {id(typ.definition): i for i, typ in enumerate(self.types)}
+        index = cache.get(id(definition))
+        return index if index is not None and self.types[index].definition is definition else None
+
+    def invalidate_findex_cache(self) -> None:
+        """
+        Invalidates the lazily-built findex -> Function|Native map. Call this after mutating
+        `self.functions` or `self.natives` outside of normal deserialisation.
+        """
+        self._findex_map = None
+        # The decompiler's global -> enum-constructor map is traced out of the
+        # static initializers' opcodes, so mutating functions invalidates it too.
+        self._enum_global_map = None
+
+    def invalidate_proto_field_cache(self) -> None:
+        """
+        Invalidates the lazily-built findex -> Proto/Field maps. Call this after mutating
+        `self.types` (or a type's `protos`/`bindings`) outside of normal deserialisation.
+        """
+        self._proto_map = None
+        self._field_map = None
+        self._proto_owner_map = None
+        self._field_owner_map = None
+
+    def _build_proto_field_maps(self) -> None:
+        proto_map: Dict[int, "Proto"] = {}
+        field_map: Dict[int, "Field"] = {}
+        proto_owner_map: Dict[int, "Obj"] = {}
+        field_owner_map: Dict[int, "Obj"] = {}
+        for typ in self.types:
+            if isinstance(typ.definition, Obj):
+                definition = typ.definition
+                for proto in definition.protos:
+                    proto_map[proto.findex.value] = proto
+                    proto_owner_map[proto.findex.value] = definition
+                fields = definition.resolve_fields(self)
+                for binding in definition.bindings:
+                    field_map[binding.findex.value] = fields[binding.field.value]
+                    field_owner_map[binding.findex.value] = definition
+        self._proto_map = proto_map
+        self._field_map = field_map
+        self._proto_owner_map = proto_owner_map
+        self._field_owner_map = field_owner_map
+
+    def get_proto_map(self) -> Dict[int, "Proto"]:
+        """
+        Returns a lazily-built map of fIndex value -> Proto, for fast resolution of which
+        Obj type/method a standalone function index belongs to.
+        """
+        if self._proto_map is None:
+            self._build_proto_field_maps()
+        assert self._proto_map is not None
+        return self._proto_map
+
+    def get_field_map(self) -> Dict[int, "Field"]:
+        """
+        Returns a lazily-built map of fIndex value -> Field, for fast resolution of which
+        Obj type/field a standalone function index is bound to.
+        """
+        if self._field_map is None:
+            self._build_proto_field_maps()
+        assert self._field_map is not None
+        return self._field_map
+
+    def get_findex_map(self) -> Dict[int, "Function | Native"]:
+        """
+        Returns a lazily-built map of fIndex value -> Function|Native, for fast resolution.
+        """
+        if self._findex_map is None:
+            self._findex_map = {}
+            for function in self.functions:
+                self._findex_map[function.findex.value] = function
+            for native in self.natives:
+                self._findex_map[native.findex.value] = native
+        return self._findex_map
+
+    def _build_virtual_tables(self) -> None:
+        """
+        Reconstructs the virtual method table (v-table) for all Obj types.
+        This is an internal method called at the end of deserialization.
+        """
+        if self.virtuals_built:
+            return
+
+        processed_class_ids = set()
+
+        def get_all_parent_methods(obj_def: Obj) -> Dict[str, int]:
+            # This helper is likely okay, but let's make it safer
+            parent_methods = {}
+            if obj_def.super and obj_def.super.value is not None:
+                try:
+                    super_type = obj_def.super.resolve(self)
+                    # Prevent self-inheritance loops.
+                    if super_type.definition is obj_def:
+                        return {}
+                    if isinstance(super_type.definition, Obj):
+                        super_def = super_type.definition
+                        parent_methods.update(get_all_parent_methods(super_def))
+                        for proto in super_def.protos:
+                            parent_methods[proto.name.resolve(self)] = proto.findex.value
+                except (IndexError, AttributeError):
+                    dbg_print(f"Warning: Could not resolve superclass for {obj_def.name.resolve(self)}")
+            return parent_methods
+
+        def process_class(class_type: Type) -> None:
+            class_id = id(class_type)
+            if class_id in processed_class_ids:
+                return
+
+            obj_def = class_type.definition
+            if not isinstance(obj_def, Obj):
+                processed_class_ids.add(class_id)
+                return
+
+            virtuals = []
+            virtual_map = {}
+
+            if obj_def.super is None or obj_def.super.value == -1:
+                pass  # virtuals and virtual_map are already empty
+            else:
+                try:
+                    super_type = obj_def.super.resolve(self)
+                except IndexError:
+                    raise MalformedBytecode(
+                        f"Class '{obj_def.name.resolve(self)}' has an invalid superclass index: {obj_def.super.value}"
+                    )
+
+                process_class(super_type)
+
+                if isinstance(super_type.definition, Obj):
+                    super_def = super_type.definition
+                    virtuals.extend(super_def._virtuals)
+                    virtual_map.update(super_def._virtual_map)
+                else:
+                    dbg_print(f"Warning: Superclass of '{obj_def.name.resolve(self)}' is not an Obj.")
+
+            all_parent_method_names = set(get_all_parent_methods(obj_def).keys())
+
+            for proto in obj_def.protos:
+                method_name = proto.name.resolve(self)
+                findex = proto.findex.value
+
+                is_override = method_name in virtual_map
+                is_new_virtual = not is_override and method_name in all_parent_method_names
+
+                if is_override:
+                    vid = virtual_map[method_name]
+                    virtuals[vid] = findex
+                elif is_new_virtual:
+                    vid = len(virtuals)
+                    virtuals.append(findex)
+                    virtual_map[method_name] = vid
+
+            obj_def._virtuals = virtuals
+            obj_def._virtual_map = virtual_map
+            obj_def.virtuals_initialized = True
+            processed_class_ids.add(class_id)
+
+        for t in self.types:
+            process_class(t)
+
+        self.virtuals_built = True
+
+    def _find_magic(self, f: BinaryIO | BytesIO, magic: bytes = b"HLB") -> None:
+        buffer_size = 1024
+        offset = 0
+        while True:
+            chunk = f.read(buffer_size)
+            if not chunk:
+                raise NoMagic("Reached the end of file without finding magic bytes.")
+            index = chunk.find(magic)
+            if index != -1:
+                f.seek(offset + index)
+                dbg_print(f"Found bytecode at {tell(f)}... ", end="")
+                return
+            offset += buffer_size
+
+    @classmethod
+    def from_path(
+        cls,
+        path: str,
+        search_magic: bool = True,
+        progress_cb: Optional[ProgressCallback] = None,
+    ) -> "Bytecode":
+        """
+        Create a new Bytecode instance from a file path.
+        """
+        # One read serves both parsing (BytesIO reads are cheaper than a
+        # buffered file's) and hashing, instead of opening the file twice.
+        with open(path, "rb") as fh:
+            data = fh.read()
+        instance = cls.from_bytes(data, search_magic=search_magic, progress_cb=progress_cb)
+        instance.source_path = path
+        return instance
+
+    @classmethod
+    def from_bytes(
+        cls,
+        data: bytes,
+        search_magic: bool = True,
+        progress_cb: Optional[ProgressCallback] = None,
+    ) -> "Bytecode":
+        """
+        Create a new Bytecode instance from a `bytes` object.
+        """
+        f = BytesIO(data)
+        instance = cls().deserialise(f, search_magic=search_magic, progress_cb=progress_cb)
+        f.close()
+        instance.sha256 = hashlib.sha256(data).hexdigest()
+        return instance
+
+    @classmethod
+    def create_empty(cls, version: int = 4, no_extra_types: bool = False) -> "Bytecode":
+        """
+        Creates an empty HashLink bytecode object, ideal for adding custom functions or code to for testing. By default, contains the following types already defined:
+
+        - t@0: Void
+        - t@1: I32
+        - t@2: F64
+        - t@3: Bool
+
+        Optionally, it can be created with only the Void type defined by passing `no_extra_types=True`. Note that for the bytecode to be valid and executable, there must be at least a single function, and this function must have a valid return type, meaning that the bytecode must contain **at least** 1 type.
+        """
+        instance = Bytecode()
+        instance.magic.value = b"HLB"
+        instance.version.value = version
+        instance.has_debug_info = False
+
+        void = Type()
+        void.kind.value = 0  # Void (_NoDataType)
+        void.definition = Void()
+        instance.types.append(void)
+
+        if not no_extra_types:
+            i32 = Type()
+            i32.kind.value = 3
+            i32.definition = I32()
+            instance.types.append(i32)
+
+            f64 = Type()
+            f64.kind.value = 6
+            f64.definition = F64()
+            instance.types.append(f64)
+
+            bool_t = Type()
+            bool_t.kind.value = 7
+            bool_t.definition = Bool()
+            instance.types.append(bool_t)
+
+        instance.set_meta()
+
+        return instance
+
+    def deserialise(
+        self,
+        f: BinaryIO | BytesIO,
+        search_magic: bool = True,
+        init_globals: bool = True,
+        progress_cb: Optional[ProgressCallback] = None,
+    ) -> "Bytecode":
+        """
+        Deserialise the bytecode in-place from an open binary file handle or a BytesIO object. By default will search for the bytecode magic (b'HLB') anywhere in the file, pass `search_magic=False` to disable.
+
+        progress_cb, if provided, is called as ``progress_cb(fraction, status)`` at each parse milestone, where fraction is in [0, 1].
+        """
+        # Parsing allocates millions of small, long-lived objects. Each one
+        # counts toward the cyclic GC's thresholds, so with the collector on
+        # it re-scans the ever-growing heap over and over - most of load time
+        # on large images. Nothing here needs cycle collection mid-parse.
+        gc_was_enabled = gc.isenabled()
+        gc.disable()
+        try:
+            return self._deserialise(f, search_magic, init_globals, progress_cb)
+        finally:
+            if gc_was_enabled:
+                gc.enable()
+
+    def _deserialise(
+        self,
+        f: BinaryIO | BytesIO,
+        search_magic: bool,
+        init_globals: bool,
+        progress_cb: Optional[ProgressCallback],
+    ) -> "Bytecode":
+        def _progress(frac: float, status: str) -> None:
+            if progress_cb is not None:
+                progress_cb(frac, status)
+
+        start_time = datetime.now()
+        dbg_print("---- Deserialise ----")
+        if search_magic:
+            dbg_print("Searching for magic...")
+            self._find_magic(f)
+        _progress(0.00, "parsing header")
+        self.track_section(f, "magic")
+        self.magic.deserialise(f)
+        if self.magic.value != b"HLB":
+            raise MalformedBytecode("Incorrect bytecode magic")
+        self.track_section(f, "version")
+        self.version.deserialise(f, length=1)
+        dbg_print(f"with version {self.version.value}... ", end="")
+        self.track_section(f, "flags")
+        self.flags.deserialise(f)
+        self.has_debug_info = bool(self.flags.value & 1)
+        dbg_print(f"debug info: {self.has_debug_info}. ")
+        self.track_section(f, "nints")
+        self.nints.deserialise(f)
+        self.track_section(f, "nfloats")
+        self.nfloats.deserialise(f)
+        self.track_section(f, "nstrings")
+        self.nstrings.deserialise(f)
+
+        if self.version.value >= 5 and self.nbytes:
+            dbg_print(f"Found nbytes (version >= 5) at {tell(f)}")
+            self.track_section(f, "nbytes")
+            self.nbytes.deserialise(f)
+        else:
+            self.nbytes = None
+
+        self.track_section(f, "ntypes")
+        self.ntypes.deserialise(f)
+        self.track_section(f, "nglobals")
+        self.nglobals.deserialise(f)
+        self.track_section(f, "nnatives")
+        self.nnatives.deserialise(f)
+        self.track_section(f, "nfunctions")
+        self.nfunctions.deserialise(f)
+
+        if self.version.value >= 4 and self.nconstants:
+            dbg_print(f"Found nconstants (version >= 4) at {tell(f)}")
+            self.track_section(f, "nconstants")
+            self.nconstants.deserialise(f)
+        else:
+            self.nconstants = None
+
+        self.track_section(f, "entrypoint")
+        self.entrypoint.deserialise(f)
+        dbg_print(f"Entrypoint: f@{self.entrypoint.value}")
+        for count, minimum_size in (
+            (self.nints, 4),
+            (self.nfloats, 8),
+            (self.nstrings, 1),
+            (self.nbytes, 1),
+            (self.ntypes, 1),
+            (self.nglobals, 1),
+            (self.nnatives, 4),
+            (self.nfunctions, 4),
+            (self.nconstants, 2),
+        ):
+            if count is not None:
+                _check_count(f, count.value, minimum_size)
+
+        _progress(0.02, "parsing ints and floats")
+        self.track_section(f, "ints")
+        for i in range(self.nints.value):
+            self.track_section(f, f"int {i}")
+            self.ints.append(SerialisableInt().deserialise(f, length=4))
+
+        self.track_section(f, "floats")
+        for i in range(self.nfloats.value):
+            self.track_section(f, f"float {i}")
+            self.floats.append(SerialisableF64().deserialise(f))
+
+        _progress(0.04, "parsing strings")
+        dbg_print(f"Strings section starts at {tell(f)}")
+        self.track_section(f, "strings")
+        self.strings.deserialise(f, self.nstrings.value)
+        dbg_print(f"Strings section ends at {tell(f)}")
+        assert self.nstrings.value == len(self.strings.value), "nstrings and len of strings don't match!"
+
+        if self.version.value >= 5 and self.bytes and self.nbytes:
+            dbg_print("Deserialising bytes... >=5")
+            self.track_section(f, "bytes")
+            self.bytes.deserialise(f, self.nbytes.value)
+        else:
+            self.bytes = None
+
+        _progress(0.06, "parsing debug files")
+        if self.has_debug_info and self.ndebugfiles and self.debugfiles:
+            dbg_print(f"Deserialising debug files... (at {tell(f)})")
+            self.track_section(f, "ndebugfiles")
+            self.ndebugfiles.deserialise(f)
+            dbg_print(f"Number of debug files: {self.ndebugfiles.value}")
+            self.track_section(f, "debugfiles")
+            self.debugfiles.deserialise(f, self.ndebugfiles.value)
+        else:
+            self.ndebugfiles = None
+            self.debugfiles = None
+
+        dbg_print(f"Starting main blobs at {tell(f)}")
+        dbg_print(f"Types starting at {tell(f)}")
+        self.track_section(f, "types")
+        _ntypes = self.ntypes.value
+        _report_every_type = max(1, _ntypes // 100)
+        for i in range(_ntypes):
+            self.track_section(f, f"type {i}")
+            self.types.append(Type().deserialise(f))
+            if i % _report_every_type == 0:
+                _progress(0.07 + (i / _ntypes) * 0.13, "parsing types")
+        dbg_print(f"Globals starting at {tell(f)}")
+        _progress(0.20, "parsing globals")
+        self.track_section(f, "globals")
+        for i in range(self.nglobals.value):
+            self.track_section(f, f"global {i}")
+            self.global_types.append(tIndex().deserialise(f))
+        dbg_print(f"Natives starting at {tell(f)}")
+        _progress(0.22, "parsing natives")
+        self.track_section(f, "natives")
+        for i in range(self.nnatives.value):
+            self.track_section(f, f"native {i}")
+            self.natives.append(Native().deserialise(f))
+        dbg_print(f"Functions starting at {tell(f)}")
+        _progress(0.23, "parsing functions")
+        self.track_section(f, "functions")
+        _nfunctions = self.nfunctions.value
+        _report_every_func = max(1, _nfunctions // 200)
+        for i in range(_nfunctions):
+            self.track_section(f, f"function {i}")
+            self.functions.append(Function().deserialise(f, self.has_debug_info, self.version.value))
+            if i % _report_every_func == 0:
+                _progress(0.23 + (i / _nfunctions) * 0.65, "parsing functions")
+        if self.nconstants is not None:
+            _progress(0.88, "parsing constants")
+            dbg_print(f"Constants starting at {tell(f)}")
+            self.track_section(f, "constants")
+            for i in range(self.nconstants.value):
+                self.track_section(f, f"constant {i}")
+                self.constants.append(Constant().deserialise(f))
+        dbg_print(f"Bytecode end at {tell(f)}.")
+        self._validate_structure(opcodes_already_validated=True)
+        self.deserialised = True
+        if init_globals:
+            _progress(0.90, "initializing globals")
+            dbg_print("Initializing globals...")
+            self.init_globals()
+            _progress(0.95, "building virtual tables")
+            dbg_print("Building virtual tables...")
+            self._build_virtual_tables()
+            _progress(0.98, "mapping statics")
+            dbg_print("Mapping statics...")
+            self.map_statics()
+        _progress(1.00, "done")
+        dbg_print(f"{(datetime.now() - start_time).total_seconds()}s elapsed.")
+        return self
+
+    def init_globals(self) -> None:
+        """
+        Internal method to initialize global instances of objects.
+        """
+        final: Dict[int, Any] = {}
+        if self.constants:
+            for const in self.constants:
+                res: Dict[str, Any] = {}
+                obj = const._global.resolve(self).definition
+                if not isinstance(obj, Obj):
+                    dbg_print("WARNING: Skipping non-Obj constant.")  # should literally never happen
+                    continue
+                obj_fields = obj.resolve_fields(self)
+                for i, field in enumerate(const.fields):
+                    # Field has:
+                    # - name: strRef
+                    # - type: tIndex
+                    # we need to use the type to know how to resolve the const ref to the actual value
+                    typ = obj_fields[i].type.resolve(self).definition
+                    name = obj_fields[i].name.resolve(self)
+                    if isinstance(typ, (I32, U8, U16, I64)):
+                        res[name] = self.ints[field.value].value
+                    elif isinstance(typ, (F32, F64)):
+                        res[name] = self.floats[field.value].value
+                    elif isinstance(typ, Bytes):
+                        res[name] = self.strings.value[field.value]
+                    else:
+                        res[name] = field.value
+                final[const._global.value] = res
+            assert len(final) == len(self.constants), (
+                "Not all constants were resolved! This is often due to bad DebugInfo blocks causing buffer overrun, try passing -N to troubleshoot."
+            )
+        self.initialized_globals = final
+
+    def map_statics(self) -> None:
+        """
+        Maps Haxe compiler-generated static Obj types to their dynamic counterparts, and vice versa. This makes pairing sets of Obj datastructures into full decompiled class definitions much easier later on.
+        """
+        names: Dict[str, List[Obj]] = {}
+        objs: List[Obj] = []
+        for typ in self.types:
+            if isinstance(typ.definition, Obj):
+                assert isinstance(typ.definition, Obj)  # for typechecking to shut up
+                objs.append(typ.definition)
+
+        for obj in objs:
+            names[destaticify(obj.name.resolve(self))] = []
+        for obj in objs:
+            names[destaticify(obj.name.resolve(self))].append(obj)
+
+        for _, v in names.items():
+            assert len(v) <= 2, "There should only be two matching Objs for each name!"
+            s = None
+            d = None
+            for obj in v:
+                if is_static_name(obj.name.resolve(self)):
+                    if s is not None:
+                        raise MalformedBytecode("Duplicate static classes!")
+                    s = obj
+                else:
+                    if d is not None:
+                        raise MalformedBytecode("Duplicate dynamic classes!")
+                    d = obj
+            if s:
+                s._is_static = True
+                if d:
+                    s._dynamic = d
+            if d:
+                d._is_static = False
+                if s:
+                    d._static = s
+
+    def fn(self, findex: int, native: bool = True) -> Function | Native:
+        """
+        Shorthand to to get a Function or a Native by its fIndex.
+        """
+        found = self.get_findex_map().get(findex)
+        if found is not None and (native or isinstance(found, Function)):
+            return found
+        raise ValueError(f"Function {findex} not found!")
+
+    def t(self, tindex: int) -> Type:
+        """
+        Shorthand to get a Type by its index. Equivalent to code.types[tindex]
+        """
+        return self.types[tindex]
+
+    def g(self, gindex: int) -> Type:
+        """
+        Shorthand to get a global's type by gIndex.
+        """
+        for g in self.global_types:
+            if g.value == gindex:
+                return g.resolve(self)
+        raise ValueError(f"Global {gindex} not found!")
+
+    def const_str(self, gindex: int) -> str:
+        """
+        Gets the value of an initialized global constant `String`.
+        """
+        # TODO: is this overcomplicated?
+        if gindex not in self.initialized_globals:
+            if gindex < 0 or gindex >= len(self.global_types):
+                raise ValueError(f"Global {gindex} not found!")
+            raise ValueError(f"Global {gindex} does not have a constant value!")
+        obj = self.global_types[gindex].resolve(self).definition
+        if not isinstance(obj, Obj):
+            raise TypeError(f"Global {gindex} is not an object!")
+        if not obj.name.resolve(self) == "String":
+            raise TypeError(f"Global {gindex} is not a string!")
+        obj_fields = obj.resolve_fields(self)
+        if len(obj_fields) != 2:
+            raise ValueError(f"Global {gindex} seems malformed!")
+        res = self.initialized_globals[gindex][obj_fields[0].name.resolve(self)]
+        if not isinstance(res, str):
+            raise TypeError("This should never happen!")
+        return res
+
+    def require_executable(self, action: str) -> None:
+        """Reject consumers that require recovered bytecode semantics."""
+        if self.inspection_only:
+            raise ValueError(
+                f"Inspection-only native recovery cannot {action}: register dataflow and operands are not recovered. "
+                "Inspect the original machine code or approximate lift instead."
+            )
+
+    def serialise(self, auto_set_meta: bool = True) -> bytes:
+        """
+        Serialise the bytecode to a `bytes` object.
+        """
+        self.require_executable("serialize executable bytecode")
+        start_time = datetime.now()
+        dbg_print("---- Serialise ----")
+        if auto_set_meta:
+            dbg_print("Setting meta...")
+            self.set_meta()
+        self._validate_structure()
+        res = b"".join(
+            [
+                self.magic.serialise(),
+                self.version.serialise(),
+                self.flags.serialise(),
+                self.nints.serialise(),
+                self.nfloats.serialise(),
+                self.nstrings.serialise(),
+            ]
+        )
+        dbg_print(f"VarInt block 1 at {hex(len(res))}")
+        if self.version.value >= 5 and self.nbytes:
+            res += self.nbytes.serialise()
+        res += b"".join(
+            [
+                self.ntypes.serialise(),
+                self.nglobals.serialise(),
+                self.nnatives.serialise(),
+                self.nfunctions.serialise(),
+            ]
+        )
+        dbg_print(f"VarInt block 2 at {hex(len(res))}")
+        if self.version.value >= 4 and self.nconstants:
+            res += self.nconstants.serialise()
+        res += self.entrypoint.serialise()
+        res += b"".join([i.serialise() for i in self.ints])
+        res += b"".join([f.serialise() for f in self.floats])
+        res += self.strings.serialise()
+        if self.version.value >= 5 and self.bytes:
+            res += self.bytes.serialise()
+        if self.has_debug_info and self.ndebugfiles and self.debugfiles:
+            res += b"".join([self.ndebugfiles.serialise(), self.debugfiles.serialise()])
+        res += b"".join(
+            [
+                b"".join([typ.serialise() for typ in self.types]),
+                b"".join([typ.serialise() for typ in self.global_types]),
+                b"".join([native.serialise() for native in self.natives]),
+            ]
+        )
+        if USE_TQDM:
+            res += b"".join([func.serialise() for func in tqdm(self.functions)])
+        else:
+            res += b"".join([func.serialise() for func in self.functions])
+        if self.constants:
+            res += b"".join([constant.serialise() for constant in self.constants])
+        dbg_print(f"Final size: {hex(len(res))}")
+        dbg_print(f"{(datetime.now() - start_time).total_seconds()}s elapsed.")
+        return res
+
+    def set_meta(self) -> None:
+        """
+        Sets bytecode metadata automatically.
+        """
+        self.flags.value = 1 if self.has_debug_info else 0
+        self.nints.value = len(self.ints)
+        self.nfloats.value = len(self.floats)
+        self.nstrings.value = len(self.strings.value)
+        if self.version.value >= 5 and self.bytes and self.nbytes:
+            self.nbytes.value = len(self.bytes.value)
+        self.ntypes.value = len(self.types)
+        self.nglobals.value = len(self.global_types)
+        self.nnatives.value = len(self.natives)
+        self.nfunctions.value = len(self.functions)
+        if self.version.value >= 4:
+            if self.nconstants is None:
+                self.nconstants = VarInt()
+            self.nconstants.value = len(self.constants)
+        if self.has_debug_info:
+            if self.ndebugfiles is None:
+                self.ndebugfiles = VarInt()
+            if self.debugfiles is None:
+                self.debugfiles = StringsBlock()
+            self.ndebugfiles.value = len(self.debugfiles.value)
+
+    def repair(self) -> None:
+        """
+        Alternate notation for code.set_meta() for the purpose of clarity.
+        """
+        self.set_meta()
+
+    def get_test_main(self) -> Function:
+        for f in self.functions:
+            if self.full_func_name(f).endswith("main"):
+                return f
+        raise ValueError("No main function found!")
+
+    def get_test_obj(self, test_name: str) -> Obj:
+        for t in self.types:
+            if isinstance(t.definition, Obj):
+                raw_name = t.definition.name.resolve(self)
+                if raw_name == test_name or destaticify(raw_name) == test_name:
+                    return t.definition
+        raise ValueError("No test class found!")
+
+    def _validate_structure(self, *, opcodes_already_validated: bool = False) -> None:
+        """Validate references before analysis can dereference them."""
+
+        def index(value: int, size: int, label: str) -> None:
+            if not 0 <= value < size:
+                raise MalformedBytecode(f"Invalid {label}: {value} (size {size})")
+
+        def type_ref(ref: tIndex) -> None:
+            index(ref.value, len(self.types), "type reference")
+
+        def string_ref(ref: strRef) -> None:
+            index(ref.value, len(self.strings.value), "string reference")
+
+        functions: Dict[int, Function | Native] = {}
+        for function in chain(self.functions, self.natives):
+            fi = function.findex.value
+            if fi < 0 or fi in functions:
+                raise MalformedBytecode(f"Invalid or duplicate function index: {fi}")
+            functions[fi] = function
+            type_ref(function.type)
+            if not isinstance(self.types[function.type.value].definition, Fun):
+                raise MalformedBytecode(f"Function f@{fi} does not have a function signature")
+            if isinstance(function, Native):
+                string_ref(function.lib)
+                string_ref(function.name)
+        if functions and self.entrypoint.value not in functions:
+            raise MalformedBytecode(f"Invalid entrypoint: {self.entrypoint.value}")
+
+        for typ in self.types:
+            kind = typ.kind.value
+            index(kind, len(Type.TYPEDEFS), "type kind")
+            definition = typ.definition
+            if not isinstance(definition, Type.TYPEDEFS[kind]):
+                raise MalformedBytecode(f"Type kind {kind} does not match its definition")
+            if isinstance(definition, Fun):
+                type_ref(definition.ret)
+                for arg in definition.args:
+                    type_ref(arg)
+            elif isinstance(definition, (Ref, Null)):
+                type_ref(definition.type)
+            elif isinstance(definition, Packed):
+                type_ref(definition.inner)
+            elif isinstance(definition, (Obj, Virtual)):
+                for field in definition.fields:
+                    string_ref(field.name)
+                    type_ref(field.type)
+                if isinstance(definition, Obj):
+                    string_ref(definition.name)
+                    if not 0 <= definition._global.value <= len(self.global_types):
+                        raise MalformedBytecode("Invalid object global reference")
+                    if definition.super.value != -1:
+                        type_ref(definition.super)
+                        if not isinstance(self.types[definition.super.value].definition, Obj):
+                            raise MalformedBytecode("Object superclass is not an object")
+                    for proto in definition.protos:
+                        string_ref(proto.name)
+                        if proto.findex.value not in functions:
+                            raise MalformedBytecode("Invalid prototype function reference")
+                    for binding in definition.bindings:
+                        if binding.findex.value not in functions:
+                            raise MalformedBytecode("Invalid binding function reference")
+            elif isinstance(definition, Enum):
+                string_ref(definition.name)
+                if not 0 <= definition._global.value <= len(self.global_types):
+                    raise MalformedBytecode("Invalid enum global reference")
+                for construct in definition.constructs:
+                    string_ref(construct.name)
+                    for param in construct.params:
+                        type_ref(param)
+            elif isinstance(definition, Abstract):
+                string_ref(definition.name)
+
+        checked: Set[int] = set()
+        for ti, typ in enumerate(self.types):
+            ancestors: Set[int] = set()
+            while ti not in checked and isinstance(typ.definition, Obj):
+                if ti in ancestors:
+                    raise MalformedBytecode("Cyclic object inheritance")
+                ancestors.add(ti)
+                ti = typ.definition.super.value
+                if ti == -1:
+                    break
+                typ = self.types[ti]
+            checked.update(ancestors)
+
+        for ref in self.global_types:
+            type_ref(ref)
+        for constant in self.constants:
+            index(constant._global.value, len(self.global_types), "constant global reference")
+
+        pool_sizes = {
+            "RefInt": len(self.ints),
+            "RefFloat": len(self.floats),
+            "RefString": len(self.strings.value),
+            "RefType": len(self.types),
+            "RefGlobal": len(self.global_types),
+            "RefBytes": len(self.bytes.value)
+            if self.version.value >= 5 and self.bytes is not None
+            else len(self.strings.value),
+        }
+        # Hot loop (one pass per operand of every opcode): compare inline and
+        # only build `index()`'s error label once a check has already failed.
+        for function in self.functions:
+            for ref in function.regs:
+                type_ref(ref)
+            nregs = len(function.regs)
+            nops = len(function.ops)
+            signature = self.types[function.type.value].definition
+            if isinstance(signature, Fun) and len(signature.args) > nregs:
+                raise MalformedBytecode("Function has fewer registers than arguments")
+            for pc, op in enumerate(function.ops):
+                opcode_name = op.op if opcodes_already_validated else op.validate()
+                assert opcode_name is not None
+                df = op.df
+                for name, kind in opcodes[opcode_name].items():
+                    operand = df[name]
+                    if kind == "Reg":
+                        if opcode_name != "EndTrap" and not 0 <= operand.value < nregs:
+                            index(operand.value, nregs, f"f@{function.findex.value} register at op {pc}")
+                    elif kind == "Regs":
+                        for reg in operand.value:
+                            if not 0 <= reg.value < nregs:
+                                index(reg.value, nregs, "register argument")
+                    elif kind in pool_sizes:
+                        if not 0 <= operand.value < pool_sizes[kind]:
+                            index(operand.value, pool_sizes[kind], kind)
+                    elif kind == "RefFun":
+                        if operand.value not in functions:
+                            raise MalformedBytecode(f"Invalid function reference at op {pc}: {operand.value}")
+                    elif kind in ("JumpOffset", "JumpOffsets"):
+                        offsets = operand.value if kind == "JumpOffsets" else (operand,)
+                        # Switch.end is the boundary after the switch, not an executable target.
+                        limit = nops + (opcode_name == "Switch" and name == "end")
+                        for offset in offsets:
+                            if not 0 <= pc + 1 + offset.value < limit:
+                                index(pc + 1 + offset.value, limit, f"branch target at op {pc}")
+            if function.has_debug:
+                if function.debuginfo is None or len(function.debuginfo.value) != nops:
+                    raise MalformedBytecode("Debug information does not match instruction count")
+                if function.debuginfo.value:
+                    if self.debugfiles is None:
+                        raise MalformedBytecode("Missing debug file table")
+                    ndebugfiles = len(self.debugfiles.value)
+                    for ref in function.debuginfo.value:
+                        if not 0 <= ref.value < ndebugfiles:
+                            index(ref.value, ndebugfiles, "debug file reference")
+
+    def is_ok(self) -> bool:
+        """
+        Runs a set of basic sanity checks to make sure the bytecode is correct-ish.
+        """
+
+        def fail(msg: str) -> None:
+            print(f"--- FAILED CHECK ---\n{msg}")
+
+        if len(self.ints) != self.nints.value:
+            fail("ints != nints")
+            return False
+
+        if len(self.floats) != self.nfloats.value:
+            fail("floats != nfloats")
+            return False
+
+        if len(self.strings.value) != self.nstrings.value:
+            fail("strings != nstrings")
+            print(len(self.strings.value), self.nstrings.value)
+            return False
+
+        if self.version.value >= 5:
+            if self.nbytes is None or self.bytes is None:
+                fail("nbytes or bytes is None and version >= 5")
+                return False
+            if len(self.bytes.value) != self.nbytes.value:
+                fail("bytes != nbytes")
+                return False
+
+        if len(self.types) != self.ntypes.value:
+            fail("types != ntypes")
+            return False
+
+        if len(self.global_types) != self.nglobals.value:
+            fail("globals != nglobals")
+            return False
+
+        if len(self.natives) != self.nnatives.value:
+            fail("natives != nnatives")
+            return False
+
+        if len(self.functions) != self.nfunctions.value:
+            fail("functions != nfunctions")
+            return False
+
+        if self.version.value >= 4:
+            if self.nconstants is None:
+                fail("nconstants is None and version >= 4")
+                return False
+            if len(self.constants) != self.nconstants.value:
+                fail("constants != nconstants")
+                return False
+
+        if self.has_debug_info:
+            if self.ndebugfiles is None or self.debugfiles is None:
+                fail("ndebugfiles or debugfiles is None and has_debug_info")
+                return False
+            if len(self.debugfiles.value) != self.ndebugfiles.value:
+                fail("debugfiles != ndebugfiles")
+                return False
+
+        try:
+            self._validate_structure()
+        except (MalformedBytecode, InvalidOpCode) as exc:
+            fail(str(exc))
+            return False
+        return True
+
+    def track_section(self, f: BinaryIO | BytesIO, section_name: str) -> None:
+        """
+        Internal helper function to denote the location of a data section at a given offset.
+        """
+        self.section_offsets[section_name] = f.tell()
+
+    def section_at(self, offset: int) -> Optional[str]:
+        """
+        Returns the name of the bytecode data section at the offset.
+        """
+        # returns the name of the section at the offset:
+        # if the offset is after a section start and before the next section start, it's still in the first section
+        for section_name, section_offset in list(reversed(self.section_offsets.items())):
+            if offset >= section_offset:
+                return section_name
+        return None
+
+    def add_string(self, string: str) -> strRef:
+        """
+        Adds a string to the bytecode's string block and returns a reference to it.
+        """
+        return strRef(self.strings.find_or_add(string))
+
+    def add_i32(self, value: int) -> intRef:
+        """
+        Adds an integer to the bytecode's integer block and returns a reference to it.
+        """
+        if not -(1 << 31) <= value < (1 << 32):
+            raise ValueError("Integer pool value must fit an i32 or raw u32 word")
+        val = SerialisableInt()
+        val.value = value & 0xFFFFFFFF
+        self.ints.append(val)
+        return intRef(len(self.ints) - 1)
+
+    def next_free_findex(self) -> fIndex:
+        """
+        Find the next available fIndex that is not already used by any function or native.
+        """
+        used_indexes = set()
+        for function in self.functions:
+            used_indexes.add(function.findex.value)
+        for native in self.natives:
+            used_indexes.add(native.findex.value)
+
+        index = 0
+        while index in used_indexes:
+            index += 1
+
+        return fIndex(index)
+
+    def find_prim_type(self, kind: Type.Kind) -> tIndex:
+        """
+        Finds the index of a primitive type in the bytecode.
+        """
+        assert kind.value in [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            16,
+            23,
+        ], f"This method can only find primitive types! Got: {kind}"
+        for i, typ in enumerate(self.types):
+            if typ.kind.value == kind.value:
+                return tIndex(i)
+        raise ValueError(f"Primitive type {kind} not found!")
+
+    def add_type(self, typ: Type) -> tIndex:
+        """
+        Adds a type and returns its tIndex.
+        """
+        self.types.append(typ)
+        self.invalidate_proto_field_cache()
+        return tIndex(len(self.types) - 1)
+
+    def gather_types(self) -> List[Type]:
+        """
+        Traverses the entire bytecode to find all unique types referenced, returning
+        them as a new list. This is a reimplementation of the `gather_types`
+        function from the official hlc compiler.
+
+        The traversal starts from "root" references (globals, natives, functions)
+        and recursively explores all types contained within them.
+        """
+        if self.cached_all is not None:
+            return self.cached_all
+        unique_types: List[Type] = []
+        # We use the serialized form of a type as a key to check for structural uniqueness.
+        seen_types: Dict[bytes, int] = {}
+
+        dbg_print("Gathering all types...")
+
+        def _get_type(typ: Optional[Type]) -> None:
+            if typ is None:
+                return
+
+            # OCaml: `match t with HObj { psuper = Some p } -> get_type (HObj p)`
+            # Ensure superclasses are processed first to maintain a logical order.
+            if isinstance(typ.definition, (Obj, Struct)) and typ.definition.super:
+                # Need to be careful not to resolve if super is None/invalid
+                if typ.definition.super.value is not None and typ.definition.super.value >= 0:
+                    _get_type(typ.definition.super.resolve(self))
+
+            type_key = typ.serialise()
+            if type_key in seen_types:
+                return  # Already processed this type structure
+
+            # Add the new unique type to our lists
+            seen_types[type_key] = len(unique_types)
+            unique_types.append(typ)
+
+            # Deconstruct the type and recurse on inner types
+            # This mirrors the `match t with ...` block in the OCaml code.
+            defn = typ.definition
+            if isinstance(defn, (Fun, Method)):
+                for arg_type_ref in defn.args:
+                    _get_type(arg_type_ref.resolve(self))
+                _get_type(defn.ret.resolve(self))
+            elif isinstance(defn, (Obj, Struct)):
+                # Super was handled above. Now do fields.
+                for field in defn.fields:
+                    _get_type(field.type.resolve(self))
+                # The OCaml version doesn't seem to traverse protos/bindings,
+                # as their function types will be gathered when iterating functions.
+            elif isinstance(defn, Enum):
+                for construct in defn.constructs:
+                    for param_type_ref in construct.params:
+                        _get_type(param_type_ref.resolve(self))
+            elif isinstance(defn, Virtual):
+                for field in defn.fields:
+                    _get_type(field.type.resolve(self))
+            elif isinstance(defn, (Null, Ref, Packed)):
+                # These types all wrap a single inner type.
+                # getattr is used to handle the different attribute names ('type' vs 'inner').
+                inner_type_ref = getattr(defn, "type", getattr(defn, "inner", None))
+                if inner_type_ref:
+                    _get_type(inner_type_ref.resolve(self))
+            # Primitive types (Void, I32, etc.) and types like Array, Dyn, etc.
+            # have no inner types to recurse on.
+
+        # The OCaml code seeds the process with primitives to ensure they get low indices.
+        # We'll do the same by creating temporary instances of them.
+        primitives_to_seed = [Void, U8, U16, I32, I64, F32, F64, Bool, TypeType, Dyn]
+        primitive_kind_map = {p: i for i, p in enumerate(Type.TYPEDEFS)}
+
+        for prim_class in (
+            tqdm(primitives_to_seed, desc="Seeding primitives...") if USE_TQDM else primitives_to_seed
+        ):
+            kind_val = primitive_kind_map.get(prim_class)
+            if kind_val is not None:
+                # Create a temporary Type object just for the traversal
+                temp_type = Type()
+                temp_type.kind.value = kind_val
+                temp_type.definition = prim_class()
+                _get_type(temp_type)
+
+        # OCaml: `Array.iter (fun g -> get_type g) code.globals;`
+        for g_type_ref in tqdm(self.global_types, desc="Global roots") if USE_TQDM else self.global_types:
+            _get_type(g_type_ref.resolve(self))
+
+        # OCaml: `Array.iter (fun (_,_,t,_) -> get_type t) code.natives;`
+        for native in tqdm(self.natives, desc="Natives") if USE_TQDM else self.natives:
+            _get_type(native.type.resolve(self))
+
+        # OCaml: `Array.iter (fun f -> ...`
+        for func in tqdm(self.functions, desc="Functions") if USE_TQDM else self.functions:
+            # `get_type f.ftype;`
+            _get_type(func.type.resolve(self))
+            # `Array.iter (fun r -> get_type r) f.regs;`
+            for reg_type_ref in func.regs:
+                _get_type(reg_type_ref.resolve(self))
+            # `Array.iter (function OType (_,t) -> get_type t ...`
+            for op in func.ops:
+                if op.op == "Type":
+                    _get_type(op.df["ty"].resolve(self))
+
+        self.cached_all = unique_types
+        dbg_print(f"Gathered {len(unique_types)} unique types.")
+        return unique_types
+
+    def get_field_for(self, idx: int) -> Optional[Field]:
+        """
+        Gets the field for a standalone function index.
+        """
+        return self.get_field_map().get(idx)
+
+    def get_proto_for(self, idx: int) -> Optional[Proto]:
+        """
+        Gets the proto for a standalone function index.
+        """
+        return self.get_proto_map().get(idx)
+
+    def get_proto_owner(self, idx: int) -> Optional[Obj]:
+        """
+        Gets the class that declares the proto for a standalone function index.
+        """
+        self.get_proto_map()
+        assert self._proto_owner_map is not None
+        return self._proto_owner_map.get(idx)
+
+    def proto_by_pindex(self, obj: "Obj", pindex: int) -> Optional[Proto]:
+        """
+        Resolves a method proto by its virtual-table index (``pindex``) across a
+        class hierarchy. CallMethod/CallThis/InstanceClosure address methods by
+        this index rather than by data-field index, so the proto must be looked
+        up by walking from the most-derived class up through its superclasses
+        (the most-derived override wins).
+        """
+        current: Optional[Obj] = obj
+        visited: set[int] = set()
+        while current is not None and id(current) not in visited:
+            visited.add(id(current))
+            for proto in current.protos:
+                if proto.pindex.value == pindex:
+                    return proto
+            if current.super is None or current.super.value < 0:
+                break
+            super_def = current.super.resolve(self).definition
+            current = super_def if isinstance(super_def, Obj) else None
+        return None
+
+    def full_func_name(self, func: Function | Native) -> str:
+        """
+        Generates a human-readable name for a function or native.
+        """
+        if isinstance(func, Native):
+            # Natives are never a class proto/field (they're top-level native
+            # imports), but unlike a Function they carry their own real name
+            # directly — no indirection needed to recover it.
+            return f"{func.lib.resolve(self)}.{func.name.resolve(self)}"
+        idx = func.findex.value
+        proto = self.get_proto_map().get(idx)
+        if proto:
+            name = proto.name.resolve(self)
+            owner = self._proto_owner_map.get(idx) if self._proto_owner_map else None
+            if owner:
+                return f"{owner.name.resolve(self)}.{name}"
+            return name
+        field = self.get_field_map().get(idx)
+        if field:
+            name = field.name.resolve(self)
+            owner = self._field_owner_map.get(idx) if self._field_owner_map else None
+            if owner:
+                return f"{owner.name.resolve(self)}.{name}"
+            return name
+        return "<none>"
+
+    def partial_func_name(self, func: Function | Native) -> str:
+        """
+        Generates a human-readable name for a function or native. Does not qualify the name with the object it belongs to.
+        """
+        if isinstance(func, Native):
+            return func.name.resolve(self)
+        proto = self.get_proto_for(func.findex.value)
+        if proto:
+            return proto.name.resolve(self)
+        else:
+            field = self.get_field_for(func.findex.value)
+            if field:
+                return field.name.resolve(self)
+        return "<none>"
+
+    def xref_index(self) -> "XrefIndex":
+        """Build (or return cached) the full cross-reference index for this bytecode."""
+        with self._xref_lock:
+            if self._xref_index is None:
+                self._xref_index = XrefIndex.build(self)
+            return self._xref_index
+
+    def search_index(self) -> "SearchIndex":
+        """Build (or return cached) the function search index for this bytecode."""
+        with self._search_lock:
+            if self._search_index is None:
+                self._search_index = SearchIndex.build(self)
+            return self._search_index
+
+    def source_map(self) -> "SourceMap":
+        """Build (or return cached) the source-location map for this bytecode."""
+        with self._source_map_lock:
+            if self._source_map is None:
+                self._source_map = SourceMap.build(self)
+            return self._source_map
+
+
+# ── Annotation store ──────────────────────────────────────────────────────────
+
+_LocalKey = Tuple[int, int, Optional[int]]  # (findex, reg_idx, defining_op_idx)
+_CommentKey = Tuple[int, int]  # (findex, src_op_idx)
+
+
+class AnnotationStore:
+    """
+    Persistent user annotations (renames, comments) keyed on stable bytecode
+    positions rather than IR object identity, so they survive re-decompilation.
+
+    Renames are keyed on (findex, reg_idx, defining_op_idx) where
+    defining_op_idx=None identifies the initial (pre-split) local for a register.
+    Comments are keyed on (findex, src_op_idx).
+    """
+
+    def __init__(self) -> None:
+        self._renames: Dict[_LocalKey, str] = {}
+        self._comments: Dict[_CommentKey, str] = {}
+
+    # ── Renames ───────────────────────────────────────────────────────────────
+
+    def rename(self, findex: int, reg_idx: int, defining_op_idx: Optional[int], name: str) -> None:
+        self._renames[(findex, reg_idx, defining_op_idx)] = name
+
+    def get_rename(self, findex: int, reg_idx: int, defining_op_idx: Optional[int]) -> Optional[str]:
+        return self._renames.get((findex, reg_idx, defining_op_idx))
+
+    def clear_rename(self, findex: int, reg_idx: int, defining_op_idx: Optional[int]) -> None:
+        self._renames.pop((findex, reg_idx, defining_op_idx), None)
+
+    def renames_for(self, findex: int) -> Dict[_LocalKey, str]:
+        return {k: v for k, v in self._renames.items() if k[0] == findex}
+
+    # ── Comments ──────────────────────────────────────────────────────────────
+
+    def set_comment(self, findex: int, src_op_idx: int, text: str) -> None:
+        self._comments[(findex, src_op_idx)] = text
+
+    def get_comment(self, findex: int, src_op_idx: int) -> Optional[str]:
+        return self._comments.get((findex, src_op_idx))
+
+    def clear_comment(self, findex: int, src_op_idx: int) -> None:
+        self._comments.pop((findex, src_op_idx), None)
+
+    def comments_for(self, findex: int) -> Dict[_CommentKey, str]:
+        return {k: v for k, v in self._comments.items() if k[0] == findex}
+
+    # ── Bulk export (for serialising the store, e.g. to a database file) ───────
+
+    def iter_renames(self) -> ItemsView[_LocalKey, str]:
+        return self._renames.items()
+
+    def iter_comments(self) -> ItemsView[_CommentKey, str]:
+        return self._comments.items()
+
+
+# ── Cross-reference index ──────────────────────────────────────────────────────
+
+
+class SourceKind(_EnumBase):
+    FUNCTION = "function"
+    TYPE = "type"
+    GLOBAL = "global"
+
+
+class TargetKind(_EnumBase):
+    FUNCTION = "function"
+    TYPE = "type"
+    FIELD = "field"
+    ENUM_CONSTRUCT = "enum_construct"
+    GLOBAL = "global"
+    STRING = "string"
+
+
+class RefKind(_EnumBase):
+    CALL = "call"
+    CALL_VIRTUAL = "call_virtual"
+    CLOSURE = "closure"
+    FIELD_READ = "field_read"
+    FIELD_WRITE = "field_write"
+    DYN_FIELD_READ = "dyn_field_read"
+    DYN_FIELD_WRITE = "dyn_field_write"
+    ALLOC = "alloc"
+    CAST = "cast"
+    TYPE_REF = "type_ref"
+    TYPE_CHECK = "type_check"
+    GLOBAL_READ = "global_read"
+    GLOBAL_WRITE = "global_write"
+    STRING_USE = "string_use"
+    ENUM_CONSTRUCT = "enum_construct"
+    ENUM_FIELD_READ = "enum_field_read"
+    ENUM_INDEX = "enum_index"
+    INHERITS = "inherits"
+    FIELD_DECL = "field_decl"
+    PROTO_DECL = "proto_decl"
+    BINDING_DECL = "binding_decl"
+    GLOBAL_TYPE = "global_type"
+    ENUM_PARAM_TYPE = "enum_param_type"
+    SIGNATURE_TYPE = "signature_type"
+
+
+@dataclass
+class XRef:
+    source_kind: SourceKind
+    source_index: int
+    target_kind: TargetKind
+    target_index: int
+    target_aux: Optional[int]
+    ref_kind: RefKind
+    opcode_index: Optional[int]
+
+
+_TargetKey = Tuple[TargetKind, int, Optional[int]]
+_SourceKey = Tuple[SourceKind, int]
+
+
+def _xref_target_key(ref: XRef) -> _TargetKey:
+    return (ref.target_kind, ref.target_index, ref.target_aux)
+
+
+def _xref_source_key(ref: XRef) -> _SourceKey:
+    return (ref.source_kind, ref.source_index)
+
+
+class XrefIndex:
+    """Bidirectional cross-reference index. Build once with `XrefIndex.build(code)`."""
+
+    def __init__(self) -> None:
+        self._to: Dict[_TargetKey, List[XRef]] = {}
+        self._from: Dict[_SourceKey, List[XRef]] = {}
+
+    def _add(self, ref: XRef) -> None:
+        self._to.setdefault(_xref_target_key(ref), []).append(ref)
+        self._from.setdefault(_xref_source_key(ref), []).append(ref)
+
+    def refs_to(self, target_kind: TargetKind, index: int, aux: Optional[int] = None) -> List[XRef]:
+        return self._to.get((target_kind, index, aux), [])
+
+    def refs_from(self, source_kind: SourceKind, index: int) -> List[XRef]:
+        return self._from.get((source_kind, index), [])
+
+    def callers_of(self, findex: int) -> List[XRef]:
+        return [
+            r
+            for r in self.refs_to(TargetKind.FUNCTION, findex)
+            if r.ref_kind in (RefKind.CALL, RefKind.CALL_VIRTUAL, RefKind.CLOSURE)
+        ]
+
+    def callees_of(self, findex: int) -> List[XRef]:
+        return [
+            r
+            for r in self.refs_from(SourceKind.FUNCTION, findex)
+            if r.ref_kind in (RefKind.CALL, RefKind.CALL_VIRTUAL, RefKind.CLOSURE)
+        ]
+
+    def field_reads(self, tindex: int, field_slot: int) -> List[XRef]:
+        return [
+            r for r in self.refs_to(TargetKind.FIELD, tindex, field_slot) if r.ref_kind == RefKind.FIELD_READ
+        ]
+
+    def field_writes(self, tindex: int, field_slot: int) -> List[XRef]:
+        return [
+            r for r in self.refs_to(TargetKind.FIELD, tindex, field_slot) if r.ref_kind == RefKind.FIELD_WRITE
+        ]
+
+    def all_field_accesses(self, tindex: int, field_slot: int) -> List[XRef]:
+        return [
+            r
+            for r in self.refs_to(TargetKind.FIELD, tindex, field_slot)
+            if r.ref_kind in (RefKind.FIELD_READ, RefKind.FIELD_WRITE)
+        ]
+
+    def allocators_of(self, tindex: int) -> List[XRef]:
+        return [r for r in self.refs_to(TargetKind.TYPE, tindex) if r.ref_kind == RefKind.ALLOC]
+
+    def subtypes_of(self, tindex: int) -> List[XRef]:
+        return [r for r in self.refs_to(TargetKind.TYPE, tindex) if r.ref_kind == RefKind.INHERITS]
+
+    def construct_uses(self, tindex: int, construct_idx: int) -> List[XRef]:
+        return self.refs_to(TargetKind.ENUM_CONSTRUCT, tindex, construct_idx)
+
+    def global_reads(self, gindex: int) -> List[XRef]:
+        return [r for r in self.refs_to(TargetKind.GLOBAL, gindex) if r.ref_kind == RefKind.GLOBAL_READ]
+
+    def global_writes(self, gindex: int) -> List[XRef]:
+        return [r for r in self.refs_to(TargetKind.GLOBAL, gindex) if r.ref_kind == RefKind.GLOBAL_WRITE]
+
+    def string_uses(self, string_idx: int) -> List[XRef]:
+        return self.refs_to(TargetKind.STRING, string_idx)
+
+    def type_refs(self, tindex: int) -> List[XRef]:
+        return self.refs_to(TargetKind.TYPE, tindex)
+
+    @classmethod
+    def build(cls, code: "Bytecode") -> "XrefIndex":
+        idx = cls()
+
+        _defn_to_ti: Dict[int, int] = {id(t.definition): ti for ti, t in enumerate(code.types)}
+        _field_owner_cache: Dict[Tuple[int, int], Tuple[int, int]] = {}
+
+        for func in code.functions:
+            findex = func.findex.value
+            regs = func.regs
+
+            def _reg_tindex(reg_val: int) -> Optional[int]:
+                try:
+                    return regs[reg_val].value
+                except IndexError:
+                    return None
+
+            def _field_owner(flat_slot: int, tindex: int, obj: Obj) -> Tuple[int, int]:
+                cache_key = (tindex, flat_slot)
+                cached = _field_owner_cache.get(cache_key)
+                if cached is not None:
+                    return cached
+                chain: List[Obj] = []
+                visited: Set[int] = set()
+                cur: Optional[Obj] = obj
+                while cur is not None and id(cur) not in visited:
+                    visited.add(id(cur))
+                    chain.append(cur)
+                    if cur.super.value < 0:
+                        break
+                    s = cur.super.resolve(code).definition
+                    cur = s if isinstance(s, Obj) else None
+                chain.reverse()
+                offset = 0
+                result = (0, flat_slot)
+                for ancestor in chain:
+                    if flat_slot < offset + len(ancestor.fields):
+                        own_slot = flat_slot - offset
+                        owner_ti = _defn_to_ti.get(id(ancestor), 0)
+                        result = (owner_ti, own_slot)
+                        break
+                    offset += len(ancestor.fields)
+                _field_owner_cache[cache_key] = result
+                return result
+
+            for op_idx, op in enumerate(func.ops):
+                op_name = op.op
+                df = op.df
+
+                def _emit(tk: TargetKind, ti: int, rk: RefKind, aux: Optional[int] = None) -> None:
+                    idx._add(XRef(SourceKind.FUNCTION, findex, tk, ti, aux, rk, op_idx))
+
+                if op_name in ("Call0", "Call1", "Call2", "Call3", "Call4", "CallN"):
+                    _emit(TargetKind.FUNCTION, df["fun"].value, RefKind.CALL)
+
+                elif op_name in ("CallMethod", "CallThis"):
+                    pindex = df["field"].value
+                    if op_name == "CallThis":
+                        recv_t = _reg_tindex(0)
+                    else:
+                        args = df["args"].value
+                        recv_t = _reg_tindex(args[0].value) if args else None
+                    if recv_t is not None:
+                        t = code.types[recv_t]
+                        if isinstance(t.definition, Obj):
+                            proto = code.proto_by_pindex(t.definition, pindex)
+                            if proto is not None:
+                                _emit(
+                                    TargetKind.FUNCTION,
+                                    proto.findex.value,
+                                    RefKind.CALL_VIRTUAL,
+                                )
+
+                elif op_name in ("StaticClosure", "InstanceClosure"):
+                    _emit(TargetKind.FUNCTION, df["fun"].value, RefKind.CLOSURE)
+
+                elif op_name == "VirtualClosure":
+                    pindex = df["field"].value
+                    recv_t = _reg_tindex(df["obj"].value)
+                    if recv_t is not None:
+                        t = code.types[recv_t]
+                        if isinstance(t.definition, Obj):
+                            proto = code.proto_by_pindex(t.definition, pindex)
+                            if proto is not None:
+                                _emit(
+                                    TargetKind.FUNCTION,
+                                    proto.findex.value,
+                                    RefKind.CLOSURE,
+                                )
+
+                elif op_name == "Field":
+                    obj_t = _reg_tindex(df["obj"].value)
+                    if obj_t is not None:
+                        t = code.types[obj_t]
+                        if isinstance(t.definition, Obj):
+                            try:
+                                flat = df["field"].value
+                                owner_t, own_slot = _field_owner(flat, obj_t, t.definition)
+                                _emit(
+                                    TargetKind.FIELD,
+                                    owner_t,
+                                    RefKind.FIELD_READ,
+                                    own_slot,
+                                )
+                            except (IndexError, KeyError):
+                                pass
+
+                elif op_name == "GetThis":
+                    this_t = _reg_tindex(0)
+                    if this_t is not None:
+                        t = code.types[this_t]
+                        if isinstance(t.definition, Obj):
+                            try:
+                                flat = df["field"].value
+                                owner_t, own_slot = _field_owner(flat, this_t, t.definition)
+                                _emit(
+                                    TargetKind.FIELD,
+                                    owner_t,
+                                    RefKind.FIELD_READ,
+                                    own_slot,
+                                )
+                            except (IndexError, KeyError):
+                                pass
+
+                elif op_name == "SetField":
+                    obj_t = _reg_tindex(df["obj"].value)
+                    if obj_t is not None:
+                        t = code.types[obj_t]
+                        if isinstance(t.definition, Obj):
+                            try:
+                                flat = df["field"].value
+                                owner_t, own_slot = _field_owner(flat, obj_t, t.definition)
+                                _emit(
+                                    TargetKind.FIELD,
+                                    owner_t,
+                                    RefKind.FIELD_WRITE,
+                                    own_slot,
+                                )
+                            except (IndexError, KeyError):
+                                pass
+
+                elif op_name == "SetThis":
+                    this_t = _reg_tindex(0)
+                    if this_t is not None:
+                        t = code.types[this_t]
+                        if isinstance(t.definition, Obj):
+                            try:
+                                flat = df["field"].value
+                                owner_t, own_slot = _field_owner(flat, this_t, t.definition)
+                                _emit(
+                                    TargetKind.FIELD,
+                                    owner_t,
+                                    RefKind.FIELD_WRITE,
+                                    own_slot,
+                                )
+                            except (IndexError, KeyError):
+                                pass
+
+                elif op_name == "DynGet":
+                    _emit(TargetKind.STRING, df["field"].value, RefKind.DYN_FIELD_READ)
+                elif op_name == "DynSet":
+                    _emit(TargetKind.STRING, df["field"].value, RefKind.DYN_FIELD_WRITE)
+                elif op_name == "New":
+                    dst_t = _reg_tindex(df["dst"].value)
+                    if dst_t is not None:
+                        _emit(TargetKind.TYPE, dst_t, RefKind.ALLOC)
+                elif op_name in ("SafeCast", "UnsafeCast", "ToVirtual"):
+                    dst_t = _reg_tindex(df["dst"].value)
+                    if dst_t is not None:
+                        _emit(TargetKind.TYPE, dst_t, RefKind.CAST)
+                elif op_name == "GetGlobal":
+                    _emit(TargetKind.GLOBAL, df["global"].value, RefKind.GLOBAL_READ)
+                elif op_name == "SetGlobal":
+                    _emit(TargetKind.GLOBAL, df["global"].value, RefKind.GLOBAL_WRITE)
+                elif op_name == "String":
+                    _emit(TargetKind.STRING, df["ptr"].value, RefKind.STRING_USE)
+                elif op_name == "Type":
+                    _emit(TargetKind.TYPE, df["ty"].value, RefKind.TYPE_REF)
+                elif op_name in ("GetType", "GetTID"):
+                    src_t = _reg_tindex(df["src"].value)
+                    if src_t is not None:
+                        _emit(TargetKind.TYPE, src_t, RefKind.TYPE_CHECK)
+                elif op_name == "MakeEnum":
+                    dst_t = _reg_tindex(df["dst"].value)
+                    if dst_t is not None:
+                        _emit(
+                            TargetKind.ENUM_CONSTRUCT,
+                            dst_t,
+                            RefKind.ENUM_CONSTRUCT,
+                            df["construct"].value,
+                        )
+                elif op_name == "EnumField":
+                    val_t = _reg_tindex(df["value"].value)
+                    if val_t is not None:
+                        _emit(
+                            TargetKind.ENUM_CONSTRUCT,
+                            val_t,
+                            RefKind.ENUM_FIELD_READ,
+                            df["construct"].value,
+                        )
+                elif op_name == "EnumIndex":
+                    val_t = _reg_tindex(df["value"].value)
+                    if val_t is not None:
+                        _emit(TargetKind.TYPE, val_t, RefKind.ENUM_INDEX)
+
+        for tindex, t in enumerate(code.types):
+            defn = t.definition
+
+            def _struct(tk: TargetKind, ti: int, rk: RefKind, aux: Optional[int] = None) -> None:
+                idx._add(XRef(SourceKind.TYPE, tindex, tk, ti, aux, rk, None))
+
+            if isinstance(defn, Obj):
+                if defn.super.value >= 0:
+                    _struct(TargetKind.TYPE, defn.super.value, RefKind.INHERITS)
+                for f in defn.fields:
+                    _struct(TargetKind.TYPE, f.type.value, RefKind.FIELD_DECL)
+                for proto in defn.protos:
+                    _struct(TargetKind.FUNCTION, proto.findex.value, RefKind.PROTO_DECL)
+                for binding in defn.bindings:
+                    _struct(TargetKind.FUNCTION, binding.findex.value, RefKind.BINDING_DECL)
+            elif isinstance(defn, Enum):
+                for construct in defn.constructs:
+                    for param_t in construct.params:
+                        _struct(TargetKind.TYPE, param_t.value, RefKind.ENUM_PARAM_TYPE)
+            elif isinstance(defn, Fun):
+                for arg_t in defn.args:
+                    _struct(TargetKind.TYPE, arg_t.value, RefKind.SIGNATURE_TYPE)
+                _struct(TargetKind.TYPE, defn.ret.value, RefKind.SIGNATURE_TYPE)
+            elif isinstance(defn, Virtual):
+                for f in defn.fields:
+                    _struct(TargetKind.TYPE, f.type.value, RefKind.FIELD_DECL)
+
+        for gindex, gt in enumerate(code.global_types):
+            idx._add(
+                XRef(
+                    SourceKind.GLOBAL,
+                    gindex,
+                    TargetKind.TYPE,
+                    gt.value,
+                    None,
+                    RefKind.GLOBAL_TYPE,
+                    None,
+                )
+            )
+
+        return idx
+
+
+# ── Function search index ──────────────────────────────────────────────────────
+
+
+class SearchIndex:
+    """Fast lookup index for functions and natives. Build once with `SearchIndex.build(code)`."""
+
+    def __init__(self) -> None:
+        self._full: Dict[str, List["Function | Native"]] = {}
+        self._partial: Dict[str, List["Function | Native"]] = {}
+        self._by_file: Dict[str, List["Function"]] = {}
+        self._by_type: Dict[int, List["Function | Native"]] = {}
+        self._all: List["Function | Native"] = []
+        self._findex_to_full: Dict[int, str] = {}
+
+    @classmethod
+    def build(cls, code: "Bytecode") -> "SearchIndex":
+        idx = cls()
+        defn_to_ti: Dict[int, int] = {id(t.definition): ti for ti, t in enumerate(code.types)}
+        _ = code.get_proto_map()
+
+        all_funcs: List[Function | Native] = [*code.functions, *code.natives]
+        for func in all_funcs:
+            full = code.full_func_name(func)
+            partial = code.partial_func_name(func)
+            findex = func.findex.value
+
+            idx._all.append(func)
+            idx._full.setdefault(full, []).append(func)
+            idx._partial.setdefault(partial, []).append(func)
+            idx._findex_to_full[findex] = full
+
+            owner_obj: Optional[Obj] = None
+            if code._proto_owner_map:
+                owner_obj = code._proto_owner_map.get(findex)
+            if owner_obj is None and code._field_owner_map:
+                owner_obj = code._field_owner_map.get(findex)
+            if owner_obj is not None:
+                ti = defn_to_ti.get(id(owner_obj))
+                if ti is not None:
+                    idx._by_type.setdefault(ti, []).append(func)
+
+            if isinstance(func, Function) and func.has_debug and func.debuginfo and func.debuginfo.value:
+                ref = func.debuginfo.value[0]
+                if code.debugfiles and ref.value < len(code.debugfiles.value):
+                    fname = code.debugfiles.value[ref.value]
+                    idx._by_file.setdefault(fname, []).append(func)
+
+        return idx
+
+    def find(self, query: str) -> List["Function | Native"]:
+        """Exact full-name match."""
+        return self._full.get(query, [])
+
+    def find_partial(self, query: str) -> List["Function | Native"]:
+        """Exact partial-name (method name only) match."""
+        return self._partial.get(query, [])
+
+    def search(self, query: str) -> List["Function | Native"]:
+        """Case-insensitive substring match against the full qualified name."""
+        q = query.lower()
+        return [f for f in self._all if q in self._findex_to_full.get(f.findex.value, "").lower()]
+
+    def in_file(self, filename: str) -> List["Function"]:
+        """All functions from `filename` (exact or trailing-suffix match)."""
+        exact = self._by_file.get(filename)
+        if exact is not None:
+            return exact
+        result: List[Function] = []
+        for k, v in self._by_file.items():
+            if k.endswith(filename) or k.endswith("/" + filename) or k.endswith("\\" + filename):
+                result.extend(v)
+        return result
+
+    def files(self) -> List[str]:
+        return list(self._by_file.keys())
+
+    def in_type(self, tindex: int) -> List["Function | Native"]:
+        return self._by_type.get(tindex, [])
+
+
+# ── Source location map ────────────────────────────────────────────────────────
+
+_LocKey = Tuple[int, int]
+_OpKey = Tuple[int, int]
+
+
+class SourceMap:
+    """Bidirectional source-location index. Build once with `SourceMap.build(code)`."""
+
+    def __init__(self) -> None:
+        self._by_op: Dict[_OpKey, fileRef] = {}
+        self._by_loc: Dict[_LocKey, List[Tuple[Function, int]]] = {}
+        self._file_names: Dict[int, str] = {}
+
+    @classmethod
+    def build(cls, code: "Bytecode") -> "SourceMap":
+        sm = cls()
+        if code.debugfiles:
+            sm._file_names = {i: name for i, name in enumerate(code.debugfiles.value)}
+        for func in code.functions:
+            if not isinstance(func, Function):
+                continue
+            if not func.has_debug or not func.debuginfo or not func.debuginfo.value:
+                continue
+            findex = func.findex.value
+            for op_idx, ref in enumerate(func.debuginfo.value):
+                sm._by_op[(findex, op_idx)] = ref
+                sm._by_loc.setdefault((ref.value, ref.line), []).append((func, op_idx))
+        return sm
+
+    def loc_of(self, findex: int, op_idx: int) -> Optional[fileRef]:
+        return self._by_op.get((findex, op_idx))
+
+    def loc_str(self, findex: int, op_idx: int) -> str:
+        ref = self._by_op.get((findex, op_idx))
+        if ref is None:
+            return ""
+        fname = self._file_names.get(ref.value, f"file#{ref.value}")
+        return f"{fname}:{ref.line}"
+
+    def ops_at(self, file_idx: int, line: int) -> List[Tuple[Function, int]]:
+        return self._by_loc.get((file_idx, line), [])
+
+    def funcs_at_line(self, file_idx: int, line: int) -> List[Function]:
+        seen: Dict[int, Function] = {}
+        for func, _ in self._by_loc.get((file_idx, line), []):
+            seen[func.findex.value] = func
+        return list(seen.values())
+
+    def file_index(self, filename: str) -> Optional[int]:
+        for idx, name in self._file_names.items():
+            if name == filename:
+                return idx
+        for idx, name in self._file_names.items():
+            if name.endswith(filename) or name.endswith("/" + filename) or name.endswith("\\" + filename):
+                return idx
+        return None
+
+    def files(self) -> List[str]:
+        return list(self._file_names.values())
+
+
+# ── Analysis worker ────────────────────────────────────────────────────────────
+
+
+class AnalysisWorker:
+    """
+    Thread-pool backed worker for off-thread bytecode analysis.
+
+    Cache entries are scoped by document identity. All public methods are thread-safe.
+    Callers receive standard :class:`concurrent.futures.Future` objects and can
+    integrate with any event loop or signal system.
+    """
+
+    def __init__(self, max_workers: int = 2) -> None:
+        self._pool = ThreadPoolExecutor(max_workers=max_workers)
+        # Keep the document alive while its identity is used as a key. Futures
+        # represent both pending and completed work, so concurrent callers share it.
+        self._cache: Dict[Tuple[int, int], Tuple[Bytecode, Future[Any]]] = {}
+        self._cache_lock = threading.Lock()
+
+    def decompile(self, code: "Bytecode", findex: int) -> "Future[Any]":
+        """Return a shared Future[IRFunction] for this document and function."""
+        key = (id(code), findex)
+        with self._cache_lock:
+            cached = self._cache.get(key)
+            if cached is not None:
+                future = cached[1]
+                if not future.done() or (not future.cancelled() and future.exception() is None):
+                    return future
+            future = self._pool.submit(self._do_decompile, code, findex)
+            self._cache[key] = (code, future)
+        # Register outside the lock: an already-completed Future calls back inline.
+        future.add_done_callback(lambda done: self._discard_failed(key, done))
+        return future
+
+    def _discard_failed(self, key: Tuple[int, int], future: "Future[Any]") -> None:
+        if not future.cancelled() and future.exception() is None:
+            return
+        with self._cache_lock:
+            cached = self._cache.get(key)
+            if cached is not None and cached[1] is future:
+                self._cache.pop(key)
+
+    def _do_decompile(self, code: "Bytecode", findex: int) -> Any:
+        from .decomp.function import IRFunction  # lazy to avoid circular import
+
+        func = code.get_findex_map()[findex]
+        if not isinstance(func, Function):
+            raise ValueError(f"findex {findex} refers to a Native, not a Function")
+        return IRFunction(code, func)
+
+    def invalidate(self, findex: Optional[int] = None) -> None:
+        """Evict matching work in every document and cancel it if not yet running.
+
+        Running callers may still receive their old result, but completion cannot
+        repopulate an evicted entry. Omit findex to clear all decompile entries.
+        """
+        with self._cache_lock:
+            if findex is None:
+                evicted = list(self._cache.values())
+                self._cache.clear()
+            else:
+                keys = [key for key in self._cache if key[1] == findex]
+                evicted = [self._cache.pop(key) for key in keys]
+        # Cancellation can invoke callbacks synchronously; never hold the lock here.
+        for _code, future in evicted:
+            future.cancel()
+
+    def build_indices(
+        self,
+        code: "Bytecode",
+        progress_cb: Optional[ProgressCallback] = None,
+    ) -> "Future[None]":
+        """Build xref, search, and source map indices in a background thread."""
+        return self._pool.submit(self._do_build_indices, code, progress_cb)
+
+    def _do_build_indices(
+        self,
+        code: "Bytecode",
+        progress_cb: Optional[ProgressCallback],
+    ) -> None:
+        def _p(frac: float, status: str) -> None:
+            if progress_cb is not None:
+                progress_cb(frac, status)
+
+        _p(0.0, "building xref index")
+        code.xref_index()
+        _p(0.33, "building search index")
+        code.search_index()
+        _p(0.66, "building source map")
+        code.source_map()
+        _p(1.0, "done")
+
+    def build_xref(self, code: "Bytecode") -> "Future[XrefIndex]":
+        """Build (or return cached) the xref index in a background thread."""
+        return self._pool.submit(code.xref_index)
+
+    def build_search(self, code: "Bytecode") -> "Future[SearchIndex]":
+        """Build (or return cached) the search index in a background thread."""
+        return self._pool.submit(code.search_index)
+
+    def build_source_map(self, code: "Bytecode") -> "Future[SourceMap]":
+        """Build (or return cached) the source map in a background thread."""
+        return self._pool.submit(code.source_map)
+
+    def shutdown(self, wait: bool = True) -> None:
+        """Shut down the thread pool. Call when the GUI closes."""
+        self._pool.shutdown(wait=wait)
+
+    def __enter__(self) -> "AnalysisWorker":
+        return self
+
+    def __exit__(self, *_: object) -> None:
+        self.shutdown()
+
+
+__all__ = [
+    "AnalysisWorker",
+    "ProgressCallback",
+    "Abstract",
+    "Array",
+    "Binding",
+    "Bool",
+    "Bytecode",
+    "Bytes",
+    "BytesBlock",
+    "Constant",
+    "DebugInfo",
+    "Dyn",
+    "DynObj",
+    "Enum",
+    "EnumConstruct",
+    "F32",
+    "F64",
+    "Field",
+    "Fun",
+    "Function",
+    "GUID",
+    "I32",
+    "I64",
+    "InlineBool",
+    "Method",
+    "Native",
+    "Null",
+    "Obj",
+    "Opcode",
+    "Packed",
+    "Proto",
+    "RawData",
+    "Ref",
+    "Reg",
+    "Regs",
+    "ResolvableVarInt",
+    "Serialisable",
+    "SerialisableF64",
+    "SerialisableInt",
+    "StringsBlock",
+    "Struct",
+    "Type",
+    "TypeDef",
+    "TypeType",
+    "U16",
+    "U8",
+    "VarInt",
+    "VarInts",
+    "Virtual",
+    "Void",
+    "bytesRef",
+    "fIndex",
+    "fieldRef",
+    "fileRef",
+    "floatRef",
+    "gIndex",
+    "intRef",
+    "strRef",
+    "tIndex",
+    "AnnotationStore",
+    "RefKind",
+    "SearchIndex",
+    "SourceKind",
+    "SourceMap",
+    "TargetKind",
+    "XRef",
+    "XrefIndex",
+]
