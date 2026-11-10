@@ -18,7 +18,7 @@ import os
 import shutil
 import sys
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), *[os.pardir] * 4))
 sys.path.insert(0, os.path.join(REPO, ".claude", "skills", "dsw-hlboot-reverse", "scripts"))
 import hlboot  # noqa: E402
 

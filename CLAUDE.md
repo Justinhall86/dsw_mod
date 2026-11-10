@@ -40,10 +40,14 @@ Blender, converted with the HMD toolkit, wired into `data.cdb`, packed into a pa
 - `dsw-part-kitbash` (part-level grafts, elite looks), `dsw-model-workshop` (remove or repaint parts), `dsw-unit-upscale` (polish),
   `dsw-model-modding` (cdb, HMD, pak mechanics; also `cdb_tools.py`, `cdb_validate.py`, `check_hmd.py`), `dsw-vehicle-preview` (vehicle turntables and HMD round-trip renders),
   `dsw-hlboot-reverse` (read the engine code in `hlboot.dat`: what a cdb attribute or effect really does, engine findings, the hlbc notes in `hlbc/`).
+  `dsw-hlboot-patching` (build, register and install the patched `hlboot.dat`; `mod_files/README.md` maps data.cdb and hlboot, `mod_files/status.py` checks them before a pack).
 
 ## Project layout
 
 Each agreed final model has `Final/` (PNG/GIF copies + README), built by `model_projects/build_final_folders.py` (edit its MANIFEST when a final changes).
+Thorvald finals are self-contained: `Final/model/` (final .blend with textures packed + converted FBX) and `Final/game_files/` (res-tree layout);
+registry `house_thorvald/MODEL_REGISTRY.md` (generated). `build_final_folders.py --stage <editor>/res/res` copies all game files into a res tree.
+Infantry (Trooper, Ranged, Demolition) game files are made in-repo by `08_scripts/90_export_game_fbx.py` → `91_package_game.py` → `93_roundtrip.py`.
 Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_progress_photos/<stage>`, `03_blender`, `04_textures`,
 `05_fbx_export`, `06_game_ready`, `07_data_cdb`, `08_scripts`, plus `SPEC.md` or `HANDOFF.md`. Custom weapons live in `model_projects/weapons/<weapon>/`
 (`weapon.json` records the mount and who uses it) and are mounted with `weapons/scripts/mount_weapon.py`. Index: `weapons/README.md`.

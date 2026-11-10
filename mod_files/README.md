@@ -15,18 +15,18 @@ Flow: edit script -> `mod_files/data.cdb` -> `cdb_validate.py` (0 NEW) -> `engin
 
 ## hlboot.dat (engine patches)
 
-The game's `hlboot.dat` is patched on purpose. Rules:
+The game's `hlboot.dat` is patched on purpose. **One command builds it:** `py -3.14 mod_files/hlboot_build.py` (see the
+`dsw-hlboot-patching` skill). Rules:
 
-1. **Every build is registered** in `mod_files/status.py` (`HLBOOT`: sha256 prefix -> what it is). A build that is not registered is unknown.
-2. **Vanilla copies live in `pak_archive/`** (`hlboot_vanilla_<sha>.dat`) and are never in the game folder. Re-apply patches from vanilla after a Steam update, in this order:
-   1. `thorvald_renegades/08_scripts/30_patch_hlboot_drop_timer.py`
-   2. `thorvald_renegades/08_scripts/31_patch_hlboot_keep_first_threshold.py`
-   3. (only if the cdb needs it) Quinn `resource_trades`, see below.
-3. **A cdb attribute that needs a patch is listed in `NEEDS_PATCH`** in `status.py`. The status script says when the cdb needs a feature the installed hlboot lacks.
-4. `hlbootdx.dat` is the DirectX twin. It has never been patched here; keep it vanilla unless a feature needs it.
+1. **Every build is registered** in `mod_files/hlboot_builds.json` (sha256 prefix -> role, source vanilla, features). `status.py` reads it.
+   A build that is not registered is unknown. `needs_patch` there maps a cdb attribute to the feature that implements it.
+2. **Vanilla copies live in `pak_archive/`** (`hlboot_vanilla_<sha>.dat`, git-ignored) and are never in the game folder.
+   `hlboot_build.py` always starts from vanilla: patch 30 (drop timer), patch 31 (keep-first-threshold), then the features the cdb needs.
+3. `hlbootdx.dat` is the DirectX twin. It has never been patched here; keep it vanilla unless a feature needs it.
+4. `--install` is the only step that touches the game, and it backs the old file up first. Install only when asked.
 
-Quinn's feature builder: `tool/quinn.py` (`build`, `install`). `mod_files/hlboot_build19145763/` holds *September 2025* builds,
-**older than the current game**. Do not install them over the current hlboot; rebuild from the current vanilla.
+Quinn's feature source is unpacked by `tool/unpack_quinn.py` into `tool/quinn_patcher/` (git-ignored). `mod_files/hlboot_build19145763/` holds
+*September 2025* builds (the second machine's game); they are older than `data.cdb` and are not to be installed over the Oct 2026 build.
 Game binaries stay out of the repo.
 
 ## Before you package

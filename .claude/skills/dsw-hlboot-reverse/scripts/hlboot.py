@@ -23,7 +23,9 @@ import struct
 import sys
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
-DEFAULT_DAT = r"C:\Program Files (x86)\Steam\steamapps\common\D4X\hlboot.dat"
+# HLBOOT_DAT lets a script work on a copy (mod_files/hlboot_build.py does this); D4X_GAME names the game folder
+DEFAULT_DAT = os.environ.get("HLBOOT_DAT") or os.path.join(
+    os.environ.get("D4X_GAME", r"C:\Program Files (x86)\Steam\steamapps\common\D4X"), "hlboot.dat")
 DEFAULT_CDB = os.path.join(REPO, "mod_files", "data.cdb")
 CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".cache")
 
