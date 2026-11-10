@@ -1,0 +1,20 @@
+{
+ "orange": {
+  "A": "Sponsons",
+  "B": "Prow",
+  "C": "Dorsal deck",
+  "D": "Flank slopes",
+  "E": "Fore pods",
+  "AD": "Sponsons + Flank slopes"
+ },
+ "grey": {
+  "1": "Kraken two-tone",
+  "2": "Charcoal outline",
+  "3": "Charcoal well",
+  "4": "Charcoal plates",
+  "5": "One tone",
+  "6": "Black + charcoal outline",
+  "7": "Black + charcoal well",
+  "8": "Black + charcoal plates"
+ }
+}

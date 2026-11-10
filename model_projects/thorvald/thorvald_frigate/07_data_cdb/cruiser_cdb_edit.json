@@ -1,0 +1,6 @@
+{
+  "unit": "TH_Frigate",
+  "event": 28,
+  "before": "Fx/Vehicle/Ships/Chronos/FX_Chronos_Reactor.fx",
+  "after": "Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx"
+}
