@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Male01_ThorvaldRanged",
+			"source": "CharMOD/Male01_ThorvaldRanged/Male01_ThorvaldRanged.hmd"
+		}
+	]
+}
