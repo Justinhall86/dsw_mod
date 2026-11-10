@@ -54260,7 +54260,7 @@
 					"otherEffects": [
 						{
 							"props": {
-								"structure": "Th_RenegadeBase"
+								"structure": "Th_LandfallShuttle"
 							},
 							"id": "SWorldEvent",
 							"comments": "engine: GhostMarket spawns this world event in the target region, owned by the caster"
@@ -54271,9 +54271,8 @@
 						"alignment": 1
 					},
 					"apply": {
-						"need": 3,
+						"need": 0,
 						"needSelector": true,
-						"alignment": 6,
 						"hostileAction": "Mission_NonHostile_Detected"
 					},
 					"props": {
@@ -54285,16 +54284,41 @@
 						}
 					},
 					"implemented": true,
-					"traits": [
-						{
-							"trait": "RenegadeControl",
-							"apply": 0,
-							"comments": "",
-							"props": {
-								"hideApplyTarget": true
-							}
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 34,
+						"y": 0
+					},
+					"name": "Iron Landfall",
+					"desc": "A Renegade shuttle on the Thorvald payroll lands in the chosen region. Disembark its company of Thorvald troops (two Troopers, an Iron Ranger and an Iron Guard) there, or send its crew raiding."
+				},
+				{
+					"id": "Th_RenegadeTakeover",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 3,
+						"needSelector": true,
+						"alignment": 2,
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
 						}
-					],
+					},
+					"implemented": true,
+					"traits": [],
 					"gfx": {
 						"file": "UI/icons/skill_icons02.png",
 						"size": 30,
@@ -54302,7 +54326,7 @@
 						"y": 0
 					},
 					"name": "Renegade Takeover",
-					"desc": "Pay a Renegade crew to set their shuttle down next to a village. While their base stands the village is under Renegade control and cannot be attacked or annexed by anyone."
+					"desc": "Sell a neutral village's location to the Renegade fleet. Their shuttles land on it and the Renegades take it: a Renegade Base, its militia and its raiders, until someone dismantles the base."
 				},
 				{
 					"id": "Th_RenegadeStrike",
@@ -54310,9 +54334,9 @@
 					"cooldowns": {},
 					"traits": [
 						{
-							"trait": "Th_RenegadeStrike_Signal",
+							"trait": "Th_RenegadeStrike_Mark",
 							"apply": 3,
-							"comments": "",
+							"comments": "on the target main base; it gives the owner faction Th_RenegadeStrike_Signal (Entity_FactionOwner_GainTTrait)",
 							"props": {
 								"hideApplyTarget": true
 							}
@@ -59527,6 +59551,36 @@
 					"mesh": [
 						{
 							"path": "CharMOD/Male01_ThorvaldTrooper/Prefab_ThorvaldTrooper.prefab"
+						}
+					],
+					"inherit": "MilitaryCommon",
+					"rigName": 0,
+					"scale": 1.0,
+					"anim": []
+				},
+				{
+					"id": "Th_SwornSword",
+					"radius": 1.5,
+					"height": 4,
+					"audio": {},
+					"props": {
+						"preload": {
+							"factions": [
+								{
+									"faction": "Thorvald"
+								}
+							]
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 4
+					},
+					"mesh": [
+						{
+							"path": "CharMOD/Male01_ThorvaldSwornSword/Prefab_ThorvaldSwornSword.prefab"
 						}
 					],
 					"inherit": "MilitaryCommon",
@@ -76030,6 +76084,163 @@
 					"flags": 16
 				},
 				{
+					"id": "Th_LandfallShuttle",
+					"texts": {
+						"name": "Thorvald Landing Shuttle",
+						"plural": {
+							"name": "Thorvald Landing Shuttles"
+						},
+						"desc": "A Renegade shuttle on the Thorvald payroll has set down here with a company aboard.\n\nHouse Thorvald can disembark the company or send the crew raiding. Anyone else can dismantle it."
+					},
+					"model": "Th_RenegadeBase",
+					"props": {
+						"worldEvent": {
+							"spawnProba": 0,
+							"maxPerRegion": 1,
+							"group": 0,
+							"actions": [
+								{
+									"type": 0,
+									"desc": "Disembark the company",
+									"props": {
+										"cost": [
+											{
+												"qty": 1,
+												"res": "Solari",
+												"time": 0
+											}
+										],
+										"onlyForCreator": true
+									},
+									"reward": {
+										"units": [
+											{
+												"unit": "TH_Trooper",
+												"nb": 2,
+												"factionUnit": false
+											},
+											{
+												"unit": "TH_Soldier",
+												"nb": 1,
+												"factionUnit": false
+											},
+											{
+												"unit": "TH_Special",
+												"nb": 1,
+												"factionUnit": false
+											}
+										]
+									},
+									"aiWeights": [
+										{
+											"value": 50,
+											"aiType": "Military"
+										}
+									]
+								},
+								{
+									"type": 0,
+									"desc": "Send the crew raiding (experimental)",
+									"props": {
+										"cost": [
+											{
+												"qty": 1,
+												"res": "Solari",
+												"time": 0
+											}
+										],
+										"onlyForCreator": true
+									},
+									"reward": {
+										"raid": true
+									},
+									"aiWeights": []
+								},
+								{
+									"type": 1,
+									"desc": "Dismantle the Renegade Base",
+									"props": {
+										"duration": 2,
+										"notForCreator": true
+									},
+									"reward": {
+										"res": [
+											{
+												"res": "Solari",
+												"minQty": 500,
+												"maxQty": 700,
+												"time": 0
+											},
+											{
+												"res": "Solari",
+												"minQty": 900,
+												"maxQty": 1200,
+												"time": 500
+											}
+										]
+									},
+									"aiWeights": [
+										{
+											"value": 40,
+											"aiType": "Military"
+										}
+									]
+								}
+							]
+						},
+						"lootingValue": [
+							{
+								"res": "GuildFavor",
+								"list": [
+									{
+										"time": 0,
+										"qty": 30
+									},
+									{
+										"time": 1000,
+										"qty": 30
+									}
+								]
+							},
+							{
+								"res": "Scraps",
+								"list": [
+									{
+										"time": 0,
+										"qty": 50
+									},
+									{
+										"time": 1000,
+										"qty": 50
+									}
+								]
+							},
+							{
+								"res": "Solari",
+								"list": [
+									{
+										"time": 0,
+										"qty": 1000
+									},
+									{
+										"time": 1000,
+										"qty": 1000
+									}
+								]
+							}
+						],
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Discovery"
+						}
+					},
+					"militia": [],
+					"stats": [],
+					"startUnits": [],
+					"flags": 16
+				},
+				{
 					"id": "SpaceCruiserWreck",
 					"texts": {
 						"plural": {
@@ -91950,6 +92161,276 @@
 							"y": 0
 						}
 					},
+					"id": "TH_SwornSword",
+					"traits": [
+						{
+							"ref": "Th_SwornSword_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 350,
+							"power": 14,
+							"armor": 3
+						}
+					],
+					"props": {
+						"excessWeight": 10,
+						"wheelPosition": {
+							"pos": 1,
+							"group": 0
+						}
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 4
+					},
+					"inherits": "Trooper",
+					"faction": "Thorvald",
+					"texts": {
+						"name": "Sworn Sword",
+						"desc": "Oath-bound blades of House Thorvald: a gunmetal half-mask, a rust waist-wrap and a drawn katana. Hired for Solari alone, not Manpower.",
+						"plural": {
+							"name": "Sworn Swords"
+						}
+					},
+					"aiWeights": [
+						{
+							"value": 20
+						}
+					],
+					"effects": {
+						"models": [
+							{
+								"ref": "Th_SwornSword",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Common_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Common_Death",
+								"fxTarget": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_C_Infantry_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_C_Infantry_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_C_Infantry_Attack"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 60,
+								"res": "Solari"
+							},
+							{
+								"qty": 0,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 9,
+								"res": "Solari"
+							},
+							{
+								"qty": 3,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "SmallFormation"
+						},
+						{
+							"ref": "SupportingTactics"
+						},
+						{
+							"ref": "LiveReformation"
+						},
+						{
+							"ref": "ParryingArmguards"
+						}
+					],
+					"attacks": {}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 0,
+							"y": 4
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 0,
+							"y": 4
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_corrino.png",
+							"size": 358,
+							"x": 0,
+							"y": 0
+						}
+					},
+					"id": "TH_SwornSword_Spawned",
+					"traits": [
+						{
+							"ref": "Th_SwornSword_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 350,
+							"power": 14,
+							"armor": 3
+						}
+					],
+					"props": {
+						"excessWeight": 10,
+						"maxCount": 5
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 0,
+						"y": 4
+					},
+					"inherits": "Trooper",
+					"faction": "Thorvald",
+					"texts": {
+						"name": "Sworn Sword",
+						"desc": "Oath-bound blades of House Thorvald: a gunmetal half-mask, a rust waist-wrap and a drawn katana. Hired for Solari alone, not Manpower.",
+						"plural": {
+							"name": "Sworn Swords"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "Th_SwornSword",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [],
+								"sound": "Play_Common_Move",
+								"soundSource": 0,
+								"kind": 1
+							},
+							{
+								"kind": 24,
+								"fxs": [],
+								"soundSource": 0,
+								"sound": "Common_Death",
+								"fxTarget": 0
+							}
+						],
+						"sound": {
+							"voices": [
+								{
+									"action": 0,
+									"event": "Voice_C_Infantry_Select"
+								},
+								{
+									"action": 1,
+									"event": "Voice_C_Infantry_Move"
+								},
+								{
+									"action": 2,
+									"event": "Voice_C_Infantry_Attack"
+								}
+							]
+						}
+					},
+					"costs": {
+						"recruit": [
+							{
+								"res": "Solari",
+								"qty": 0
+							},
+							{
+								"qty": 0,
+								"res": "Manpower"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 0,
+								"res": "Solari"
+							},
+							{
+								"qty": 0,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [
+						{
+							"ref": "SmallFormation"
+						},
+						{
+							"ref": "SupportingTactics"
+						},
+						{
+							"ref": "LiveReformation"
+						},
+						{
+							"ref": "ParryingArmguards"
+						}
+					],
+					"attacks": {},
+					"flags": 33
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_military.png",
+							"size": 250,
+							"x": 0,
+							"y": 4
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 0,
+							"y": 4
+						},
+						"wheelPortrait": {
+							"file": "UI/console/wheel_units_corrino.png",
+							"size": 358,
+							"x": 0,
+							"y": 0
+						}
+					},
 					"id": "C_Trooper_Aramsham",
 					"texts": {
 						"name": "Conscript Swordman",
@@ -94523,7 +95004,7 @@
 								"kind": 28,
 								"fxs": [
 									{
-										"fx": "Fx/Vehicle/Ships/Chronos/FX_Chronos_Reactor.fx",
+										"fx": "Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx",
 										"space": 0,
 										"flags": 0,
 										"attachTo": "B_Body"
@@ -149057,6 +149538,20 @@
 					"implemented": true,
 					"val": 1,
 					"__ignoreLoc__": true
+				},
+				{
+					"id": "Entity_ControlLossImmune",
+					"desc": "Cannot be taken out of your control",
+					"props": {
+						"allowStackSquashing": true
+					},
+					"gfx": {
+						"file": "UI/icons/attribute_icons.png",
+						"size": 32,
+						"x": 1,
+						"y": 0
+					},
+					"implemented": true
 				}
 			],
 			"props": {
@@ -151980,6 +152475,24 @@
 							"target2": {},
 							"ref": "Unlock_TBuilding",
 							"desc": "Can build the [Th_ConsignmentTerminal]"
+						},
+						{
+							"target": {
+								"unit": "TH_SwornSword_Spawned"
+							},
+							"target2": {},
+							"ref": "OnCouncilVoteEnd_SpawnMB_TUnit_Flat",
+							"val": 2.1,
+							"desc": "After every Council, receive 2 [TH_SwornSword_Spawned] near your Main Base if you hold at least 10% of the CHOAM shares"
+						},
+						{
+							"target": {
+								"unit": "TH_SwornSword_Spawned"
+							},
+							"target2": {},
+							"ref": "OnCouncilVoteEnd_SpawnMB_TUnit_Flat",
+							"val": 2.2,
+							"desc": "After every Council, receive 2 more [TH_SwornSword_Spawned] near your Main Base if you hold at least 20% of the CHOAM shares"
 						}
 					],
 					"type": 0,
@@ -159871,6 +160384,84 @@
 						"y": 1
 					},
 					"name": "Protection Support"
+				},
+				{
+					"id": "Th_SwornSword_Trait",
+					"desc": "Sworn Swords cannot be executed or taken out of your control. They fight closer to each other (+1 Armor per ally Sworn Sword nearby, up to 2).",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						},
+						"range": "Short_Range"
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_ExecuteImmune"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_ControlLossImmune"
+						},
+						{
+							"target": {
+								"trait": "Th_SwornSword_Buff"
+							},
+							"ref": "Army_SetTTraitStacks_PerNearbyTUnit",
+							"target2": {
+								"unit": "TH_SwornSword"
+							},
+							"desc": "Gain ::target_effects:: per ally [!TH_SwornSword] at [Short_Range] (x::target_stacking_limit:: max)"
+						},
+						{
+							"target": {
+								"trait": "Th_SwornSword_Buff"
+							},
+							"ref": "Army_SetTTraitStacks_PerNearbyTUnit",
+							"target2": {
+								"unit": "TH_SwornSword_Spawned"
+							},
+							"desc": "Gain ::target_effects:: per ally [!TH_SwornSword_Spawned] at [Short_Range] (x::target_stacking_limit:: max)"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Oath of the Blade",
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_SwornSword_Buff",
+					"desc": "This unit fights closer to its sworn brothers.",
+					"props": {
+						"stackingLimit": 2,
+						"tip": {
+							"cat": "UnitInspiration"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "Entity_Armor_Flat",
+							"val": 1,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 0,
+						"y": 1
+					},
+					"name": "Sworn Formation"
 				},
 				{
 					"id": "C_Ranger_Trait",
@@ -177691,6 +178282,64 @@
 					"name": "Explosives"
 				},
 				{
+					"id": "TTh_ConsignmentTerminal",
+					"name": "Consignment Terminal",
+					"desc": "Thorvald alloy is sold here to whoever pays, in whatever they pay with.",
+					"props": {
+						"tip": {
+							"cat": "Buildings"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"convertFrom": [
+									{
+										"val": 100,
+										"resource": "Plascrete",
+										"spawn": "TH_SwornSword_Spawned"
+									}
+								]
+							},
+							"target2": {
+								"convertTo": [
+									{
+										"val": 150,
+										"resource": "Solari"
+									},
+									{
+										"val": 8,
+										"resource": "Manpower"
+									},
+									{
+										"val": 24,
+										"resource": "Intel"
+									},
+									{
+										"val": 6,
+										"resource": "Influence"
+									},
+									{
+										"val": 4,
+										"resource": "Authority"
+									}
+								]
+							},
+							"ref": "Convert_TRes_To_TRes2",
+							"val": 1,
+							"desc": "Trade [Plascrete] for other resources in the top bar. Every trade also brings one [TH_SwornSword_Spawned] to your Main Base (up to its limit)"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/buildings_icons.png",
+						"size": 80,
+						"x": 0,
+						"y": 2
+					}
+				},
+				{
 					"id": "T_NeuralNodeAttack",
 					"desc": "This [Building_Village] attacks with electrical discharges.",
 					"props": {
@@ -190246,6 +190895,36 @@
 							"ref": "TRaid_HostileSpawn_DaysFrequency",
 							"val": 0.01,
 							"desc": "Renegade shuttles land on one of this faction's structures"
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/missionsTraits.png",
+						"size": 32,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_RenegadeStrike_Mark",
+					"name": "Renegade Strike",
+					"type": 2,
+					"displayed": true,
+					"desc": "House Thorvald has sold these coordinates to the Renegades. Their shuttles are inbound.",
+					"props": {
+						"duration": 35,
+						"linkedAbility": "Th_RenegadeStrike",
+						"tip": {
+							"cat": "RegionalEffect"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "Th_RenegadeStrike_Signal"
+							},
+							"target2": {},
+							"ref": "Entity_FactionOwner_GainTTrait",
+							"displayed": false
 						}
 					],
 					"gfx": {
@@ -212642,62 +213321,6 @@
 						"x": 0,
 						"y": 0
 					}
-				},
-				{
-					"id": "TTh_ConsignmentTerminal",
-					"name": "Consignment Terminal",
-					"desc": "Thorvald alloy is sold here to whoever pays, in whatever they pay with.",
-					"props": {
-						"tip": {
-							"cat": "Buildings"
-						}
-					},
-					"attributes": [
-						{
-							"target": {
-								"convertFrom": [
-									{
-										"val": 100,
-										"resource": "Plascrete"
-									}
-								]
-							},
-							"target2": {
-								"convertTo": [
-									{
-										"val": 150,
-										"resource": "Solari"
-									},
-									{
-										"val": 8,
-										"resource": "Manpower"
-									},
-									{
-										"val": 24,
-										"resource": "Intel"
-									},
-									{
-										"val": 6,
-										"resource": "Influence"
-									},
-									{
-										"val": 4,
-										"resource": "Authority"
-									}
-								]
-							},
-							"ref": "Convert_TRes_To_TRes2",
-							"desc": "Trade [Plascrete] for other resources in the top bar"
-						}
-					],
-					"type": 0,
-					"displayed": false,
-					"gfx": {
-						"file": "UI/icons/buildings_icons.png",
-						"size": 80,
-						"x": 0,
-						"y": 2
-					}
 				}
 			],
 			"props": {
@@ -221117,6 +221740,100 @@
 					]
 				},
 				{
+					"id": "Th_ConsignmentTerminal",
+					"texts": {
+						"name": "Consignment Terminal",
+						"desc": "A Heighforge freight port. Plascrete goes up to the waiting tenders, and Solari, recruits, information and favours come back down.",
+						"plural": {
+							"name": "Consignment Terminals"
+						}
+					},
+					"domain": "Economy",
+					"states": [
+						{
+							"attributes": [
+								{
+									"target": {},
+									"target2": {},
+									"ref": "CustomProperty",
+									"desc": "Allows trading [Plascrete] for [Solari], [Manpower], [Intel], [Influence] and [Authority] in the top bar"
+								}
+							],
+							"cost": [
+								{
+									"res": "Solari",
+									"qty": 1000
+								},
+								{
+									"qty": 500,
+									"res": "Plascrete"
+								}
+							],
+							"upkeep": [
+								{
+									"qty": 20,
+									"res": "Solari"
+								},
+								{
+									"qty": 10,
+									"res": "Water"
+								}
+							],
+							"duration": 8,
+							"effects": []
+						}
+					],
+					"props": {
+						"factionLimit": 1,
+						"isWonder": true,
+						"buildingRadius": 5,
+						"scale": 3,
+						"maxHealth": 2000,
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"buildingTrait": "TTh_ConsignmentTerminal",
+						"tip": {
+							"cat": "MajorBuilding"
+						},
+						"noFactor": true,
+						"lootingValue": [
+							{
+								"qty": 200,
+								"res": "Solari"
+							}
+						]
+					},
+					"visuals": {
+						"model": [
+							{
+								"path": "Structure/Buildings/SpacingGuildBranch/Prefab_SpacingGuildBranch.prefab"
+							}
+						],
+						"thumbnail": {
+							"file": "UI/structures/SpacingGuildBranch.png",
+							"size": 1,
+							"x": 0,
+							"y": 0,
+							"width": 592,
+							"height": 168
+						}
+					},
+					"aiWeights": [
+						{
+							"value": -5
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/buildings_icons.png",
+						"size": 80,
+						"x": 6,
+						"y": 2
+					}
+				},
+				{
 					"id": "Masterpiece_Eco",
 					"texts": {
 						"name": "Masterpiece",
@@ -224868,100 +225585,6 @@
 							"aiType": "Statecraft"
 						}
 					]
-				},
-				{
-					"id": "Th_ConsignmentTerminal",
-					"texts": {
-						"name": "Consignment Terminal",
-						"desc": "A Heighforge freight port. Plascrete goes up to the waiting tenders, and Solari, recruits, information and favours come back down.",
-						"plural": {
-							"name": "Consignment Terminals"
-						}
-					},
-					"domain": "Economy",
-					"states": [
-						{
-							"attributes": [
-								{
-									"target": {},
-									"target2": {},
-									"ref": "CustomProperty",
-									"desc": "Allows trading [Plascrete] for [Solari], [Manpower], [Intel], [Influence] and [Authority] in the top bar"
-								}
-							],
-							"cost": [
-								{
-									"res": "Solari",
-									"qty": 1000
-								},
-								{
-									"qty": 500,
-									"res": "Plascrete"
-								}
-							],
-							"upkeep": [
-								{
-									"qty": 20,
-									"res": "Solari"
-								},
-								{
-									"qty": 10,
-									"res": "Water"
-								}
-							],
-							"duration": 8,
-							"effects": []
-						}
-					],
-					"props": {
-						"factionLimit": 1,
-						"isWonder": true,
-						"buildingRadius": 5,
-						"scale": 3,
-						"maxHealth": 2000,
-						"onlyForFactions": [
-							{
-								"faction": "Thorvald"
-							}
-						],
-						"buildingTrait": "TTh_ConsignmentTerminal",
-						"tip": {
-							"cat": "MajorBuilding"
-						},
-						"noFactor": true,
-						"lootingValue": [
-							{
-								"qty": 200,
-								"res": "Solari"
-							}
-						]
-					},
-					"visuals": {
-						"model": [
-							{
-								"path": "Structure/Buildings/SpacingGuildBranch/Prefab_SpacingGuildBranch.prefab"
-							}
-						],
-						"thumbnail": {
-							"file": "UI/structures/SpacingGuildBranch.png",
-							"size": 1,
-							"x": 0,
-							"y": 0,
-							"width": 592,
-							"height": 168
-						}
-					},
-					"aiWeights": [
-						{
-							"value": -5
-						}
-					],
-					"gfx": {
-						"file": "UI/icons/buildings_icons.png",
-						"size": 80,
-						"x": 6,
-						"y": 2
-					}
 				},
 				{
 					"id": "ALLBUILDINGS",
@@ -244564,7 +245187,7 @@
 						"x": 5,
 						"y": 5
 					},
-					"flags": 1,
+					"flags": 65,
 					"steps": []
 				},
 				{
@@ -250539,7 +251162,7 @@
 					"id": "Th_MIronLandfall",
 					"texts": [],
 					"effects": {
-						"ope": "Th_IronLandfall"
+						"ope": "GhostMarket"
 					},
 					"difficulty": 0,
 					"requiredLevels": [],
@@ -250582,7 +251205,7 @@
 					"id": "Th_MRenegadeTakeover",
 					"texts": [],
 					"effects": {
-						"ope": "GhostMarket"
+						"ope": "Th_RenegadeTakeover"
 					},
 					"difficulty": 0,
 					"requiredLevels": [],
