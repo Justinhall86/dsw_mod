@@ -1,0 +1,85 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Thorvald_Ship",
+			"source": "VehMOD/Thorvald_Ship/Thorvald_Ship.hmd",
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"y": -0.55,
+					"z": 1,
+					"rotationX": 90,
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"x": -0.1092,
+							"y": 0.68,
+							"z": -0.2526,
+							"rotationX": -90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA2",
+							"x": -0.1092,
+							"y": 0.68,
+							"z": -0.2526,
+							"rotationX": -90,
+							"rotationZ": 25
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA3",
+							"x": -0.1092,
+							"y": 0.68,
+							"z": -0.2526,
+							"rotationX": -90,
+							"rotationZ": 50
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB",
+							"x": 0.1092,
+							"y": 0.68,
+							"z": -0.2526,
+							"rotationX": -90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB2",
+							"x": 0.1092,
+							"y": 0.68,
+							"z": -0.2526,
+							"rotationX": -90,
+							"rotationZ": -25
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB3",
+							"x": 0.1092,
+							"y": 0.68,
+							"z": -0.2526,
+							"rotationX": -90,
+							"rotationZ": -50
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "constraint",
+			"name": "constraint",
+			"object": "Thorvald_Ship.Muzzles",
+			"target": "Thorvald_Ship.root.B_ROOT.B_Body"
+		},
+		{
+			"type": "model",
+			"name": "Select",
+			"source": "Vehicle/Imperial/Hammer/Select.fbx",
+			"visible": false
+		}
+	]
+}
