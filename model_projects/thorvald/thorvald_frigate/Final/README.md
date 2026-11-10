@@ -21,3 +21,12 @@ Copies of the final renders (originals stay where they are):
 - `rt_tq.png` <- `thorvald/thorvald_frigate/02_progress_photos/cruiser_export_roundtrip/rt_tq.png`
 - `rt_side.png` <- `thorvald/thorvald_frigate/02_progress_photos/cruiser_export_roundtrip/rt_side.png`
 - `lineup_tq.png` <- `thorvald/thorvald_frigate/02_progress_photos/cruiser_variants/lineup_C3/lineup_tq.png`
+
+## The model
+
+- `model/`: `cruiser_export.blend` (textures packed), `Thorvald_Frigate.fbx` (the FBX that was converted)
+- `game_files/`: `VehMOD/Thorvald_Frigate`, `Fx/Vehicle/Ships/Thorvald` (copy the contents of `game_files/` into `<editor>/res/res/`)
+- data.cdb: unit `TH_Frigate`, model rows Th_Frigate, A_Frigate, mesh `VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab`
+- Rebuild: 08_scripts 80_export_cruiser -> 81_convert_cruiser -> 82_roundtrip -> 83_reactor_fx -> 84_cdb_cruiser (reactor FX row)
+
+Registry of all Thorvald models: `house_thorvald/MODEL_REGISTRY.md`.

@@ -1,7 +1,12 @@
 # Councillor ideas: a Thorvald version of every vanilla councillor
 
-> **IDEAS ONLY.** Nothing here is built, approved or in `data.cdb`. Names, numbers and effects are brainstorm placeholders. The
-> official draft is [counsellors.md](counsellors.md); this page is a pool to pick from when its perks are turned into traits.
+> **IDEAS ONLY.** Nothing on this page is built or approved. Names, numbers and effects are brainstorm placeholders. The current
+> roster, what is built in `data.cdb` and what is designed is in [counsellors.md](counsellors.md) (rewritten 2026-11-09); this page is
+> a pool to pick from. The pool is kept whole because its PROVEN / UNTESTED / UNKNOWN labels are the useful part.
+>
+> **Update 2026-11-09:** the councillors are now one per CHOAM path (Silva Economic, Ein Military, Nobru Political, Haruka Covert), so
+> picks that do not serve a path or the Defiance idea rank lower. Share-scaled perks (`CMarket_PerShare_GiveTTrait_Stack`, which turns
+> each 1% of CHOAM shares into one stack of a trait) are not in the tables below and are the first thing to test.
 
 The idea: every vanilla councillor is really a bonus that pushes a playstyle. So take each one, ask "what is the Thorvald version of
 that playstyle?", and write it down. When we build a councillor's trait later, we pick from this list instead of starting blank.
@@ -99,8 +104,10 @@ Taken from [faction_design.md](faction_design.md), [operations.md](operations.md
 
 ## Suggested picks per slot (ideas, not a decision)
 
-Each current councillor gets two perks in [counsellors.md](counsellors.md). These are alternatives from the pool above, in rough order of
-fit and of how safely they can be built.
+[counsellors.md](counsellors.md) has each councillor's built passive and designed target. These are alternatives from the pool above,
+in rough order of fit and of how safely they can be built. After the 2026-11-09 rework: Nobru's *War Profiteer* and *Vote Broker*
+fit the Political path; Silva's *Master of Operations* fits the Economic path best; Ein's *Academy Drillmaster* suits the Military
+path but note Ein already has the Armor-in-operation perk, so skip anything that adds Armor.
 
 | Slot | Best ideas from the pool | Why they fit |
 |---|---|---|
