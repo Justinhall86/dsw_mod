@@ -1,0 +1,4 @@
+name: Thorvald Sworn Sword engine changes
+about: Share-gated Council spawn (OnCouncilVoteEnd_SpawnMB_TUnit_Flat val fraction = CHOAM share threshold), spawn on a successful Convert trade (raw field `spawn` on a convertFrom entry), Entity_ControlLossImmune, and the Renegade Takeover hook (ability Th_RenegadeTakeover drops a real Renegade_Drop raid on the clicked village).
+needs: resource_trades (built first) for the trade spawn; Entity_ControlLossImmune row in the cdb attribute sheet (after Invalid).
+cdb: none (raw fields: `spawn` inside a convertFrom entry)

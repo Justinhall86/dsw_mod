@@ -25,12 +25,17 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "quinn_patcher")
 PATCH = os.path.join(ROOT, "!PATCH")
 WHEEL = os.path.join(HERE, "crashlink-0.0.9-py3-none-any.whl")
+OWN = os.path.join(HERE, "thorvald_ticks")      # our own tick folders (same layout as Quinn's), tracked in git
 
 
 def ticks():
     for group in ("FEATURES", "FIXES"):
         for name in sorted(os.listdir(os.path.join(PATCH, group))):
             yield group, name, os.path.join(PATCH, group, name)
+    if os.path.isdir(OWN):
+        for name in sorted(os.listdir(OWN)):
+            if os.path.isfile(os.path.join(OWN, name, "changes.py")):
+                yield "OWN", name, os.path.join(OWN, name)
 
 
 def about(folder):
@@ -66,8 +71,11 @@ def ensure_lib():
 def run_build(args, result):
     os.chdir(PATCH)
     sys.path.insert(0, PATCH)
-    from tools.project import on_path
-    on_path()
+    from tools import project
+    if os.path.isdir(OWN):
+        project.TICKS.extend(os.path.join(OWN, d) for d in sorted(os.listdir(OWN))
+                             if os.path.isfile(os.path.join(OWN, d, "changes.py")))
+    project.on_path()
     from crashlink import Bytecode
     from tools import deploy, ticks as tick_lists
 

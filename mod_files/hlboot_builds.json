@@ -1,0 +1,93 @@
+{
+  "_note": "Every hlboot.dat we know, keyed by sha256[:16]. mod_files/hlboot_build.py adds a line per build; status.py reads it. role: vanilla | patched. patched builds name the vanilla they came from.",
+  "builds": {
+    "9c7c1044d7c6b636": {
+      "role": "vanilla",
+      "desc": "Steam build of 2026-10-28 (the one data.cdb is based on)"
+    },
+    "54f1d7f34e7bea9c": {
+      "role": "patched",
+      "from": "9c7c1044d7c6b636",
+      "desc": "drop-timer patch only (30_patch_hlboot_drop_timer.py)",
+      "features": []
+    },
+    "186b1ccbee7653c8": {
+      "role": "patched",
+      "from": "9c7c1044d7c6b636",
+      "desc": "drop-timer + keep-first-threshold (30+31), the Renegades build",
+      "features": []
+    },
+    "d510fe05bda6a1c1": {
+      "role": "vanilla",
+      "desc": "Steam build 19145763 (Sept 2025), the D:\\Steam copy on the second machine; older than data.cdb"
+    },
+    "9e450b408ed76db6": {
+      "role": "patched",
+      "from": "d510fe05bda6a1c1",
+      "features": [
+        "resource_trades"
+      ],
+      "renegades": true,
+      "built": "2026-11-08",
+      "desc": "built by hlboot_build.py"
+    },
+    "54bb38c6683f363f": {
+      "role": "patched",
+      "from": "d510fe05bda6a1c1",
+      "features": [
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-08",
+      "desc": "built by hlboot_build.py"
+    },
+    "bbbc3e16971969ce": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-09",
+      "desc": "built by hlboot_build.py"
+    },
+    "478027b5d76378ea": {
+      "role": "vanilla",
+      "desc": "Steam build 26405381 (2026-11-09 update), the D:\\Steam copy; vanilla data.cdb content identical to 2026-10-28"
+    },
+    "2ca0502778c5387e": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-09",
+      "desc": "built by hlboot_build.py"
+    },
+    "5affbc836cab64dc": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-09",
+      "desc": "built by hlboot_build.py"
+    }
+  },
+  "needs_patch": {
+    "Convert_TRes_To_TRes2": "resource_trades",
+    "Entity_ControlLossImmune": "thorvald_sworn"
+  },
+  "always": [
+    "faction_styles"
+  ],
+  "_always_note": "features built every time: faction_styles = UI/Styles/factions/<faction id>.css (Thorvald's select card, emblems, banners; files from thorvald_councillors/04_textures/Styles)"
+}
