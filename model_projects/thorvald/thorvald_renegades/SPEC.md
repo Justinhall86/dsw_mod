@@ -41,3 +41,26 @@ re-rolls the threshold to 20-40 days when Renegades switch on, overwriting patch
 - All three operations have no infiltration requirement (requiredLevels []), so they are available from the start. Costs are Intel + Solari.
 - If Renegade Takeover misbehaves (the GhostMarket path is dormant vanilla code), fall back to `need: 0` (region) without RenegadeControl.
 - Global side effect: renegades arrive at 1:00 in every skirmish, whatever the factions.
+
+## v2 (2026-11-09): the operations rebuilt on what the engine does
+User test (auto_29.04.sav, day 118): Takeover "landed and did nothing" (bases 5, villages frozen); Strike and Landfall did nothing
+(no ThR_Ranger ever existed, so the Strike raid never spawned; no Th_IronLandfall trace). Causes, read from hlboot.dat:
+- **An ability's traits go on its TARGET ENTITY** (`AbilityManager.getApplyTarget`: need 0/5 zone, 1 faction, 2-4 struct...).
+  `apply` (Owner/TargetFaction/...) only picks the faction the trait counts for.
+  - Strike (need MainBase) put the signal on the enemy main-base building; `TRaid_HostileSpawn_DaysFrequency` is read only on
+    the faction (`Faction.dailyUpdate`).
+  - Landfall (need Zone) put `Operation_OnUsed_SpawnTUnit_Flat` on the region; it is read only on the caster faction
+    (`MissionManager.onOperationUsed`, no per-operation filter: vanilla uses it as "every operation spawns X").
+- Takeover's world-event "base" isn't a RenegadeBase: no pillagers, no Dismantle siege action for the AI, and RenegadeControl
+  (Untargetable) shielded the village whoever owned it.
+
+Fix (`08_scripts/40_operations_v2.py`, `--revert` -> `07_data_cdb/data_BEFORE_operations_v2.cdb`; engine part in
+`tool/thorvald_ticks/thorvald_sworn/thsw_ops.py`, hlboot build 5affbc83):
+| Operation | v2 |
+|---|---|
+| Renegade Strike | main base gets `Th_RenegadeStrike_Mark` (35 s) -> `Entity_FactionOwner_GainTTrait` gives the owner faction `Th_RenegadeStrike_Signal` -> raid at the next daily tick on one of their villages with an outpost. Raid flags 65. **Data only.** |
+| Renegade Takeover | new ability `Th_RenegadeTakeover` (neutral village). Engine hook at the top of `doUseAbility`: `spawnRaid("Renegade_Drop", null, village, null)`, the same call as `/rgddrop`: real drop, InstallHub, RenegadeBase, militia, pillagers. |
+| Iron Landfall | ability `GhostMarket` -> world event `Th_LandfallShuttle` in any region: creator actions "Disembark the company" (TH_Trooper x2, TH_Soldier, TH_Special at the shuttle, 1 Solari) and "Send the crew raiding" (experimental `raid: true` = Marauders owned by you; no vanilla event uses it); others can dismantle it. **Data only.** |
+Old rows `Th_IronLandfall` (ability/trait) and the `Th_RenegadeBase` world event are no longer used (bases already in saves stay).
+Not yet tested in game. Things to watch: Strike needs the victim to own a village with an outpost (else `dailyUpdate` returns
+early that day); Takeover on a village that is not neutral is refused by the targeting (alignment Neutral).

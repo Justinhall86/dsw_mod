@@ -147,6 +147,21 @@ any player or the state has `Block_RenegadesSpawn` (attr row 53):
 - `Operation_OnUsed_SpawnTUnit_Flat` (row 1311), read in `onOperationUsed` *after* the ability's traits are applied:
   recruits `floor(val)` of the unit at the caster's main base, then teleports them into the target zone. Put it in a
   few-second owner trait (apply 1) of one ability, and that operation spawns troops where you click.
+- **Ability traits land on the target entity** (2026-11-09, build 26405381). `AbilityManager.doUseAbility` applies every
+  `traits[]` entry to `getApplyTarget(ability, args)`: need 0 Zone and 5 -> `args.zone`, 1 Faction -> `args.faction`,
+  2/3/4 City/Village/MainBase -> `args.struct`, unit/building/mission otherwise. `apply` (0 All, 1 Owner, 3 TargetFaction...)
+  only sets which faction the application counts for. So a MainBase operation's trait is on the building, not the faction:
+  faction-read attributes (`TRaid_HostileSpawn_DaysFrequency`, `Faction_*`) never see it. Bridge: put
+  `Entity_FactionOwner_GainTTrait` (row 293, `Entity.updateAttributes`) on the building's trait; the owner faction holds the
+  target trait while it lasts (vanilla hero passives).
+- `MissionManager.onOperationUsed` reads all its `Operation*` attributes (1300-1313) on the caster faction with no
+  per-operation filter: `Operation_OnUsed_SpawnTUnit_Flat` on a faction trait fires for every operation.
+- `Faction.dailyUpdate`, `TRaid_HostileSpawn_DaysFrequency`: if no structure of the faction `canBeRaidedBy` the raid, the
+  function **returns** (the rest of that faction's daily update is skipped that day).
+- Raid army choice (`HUnit.spawnRaidComposition` -> `pickWeightIndex`): all weights 0 = uniform random, so weight 0 is fine.
+- Game UI art per faction comes from CSS classes made of the faction id (`.portrait.Corrino` -> `UI/menu/Corrino/box_portrait.png`
+  on the faction-select card); Quinn's `faction_styles` loads `UI/Styles/factions/<id>.css`. Councillor portraits are cdb
+  (`character.images.menuGfx`); a missing file there breaks the new-game screen (CouncilorButton) for that faction.
 - `Zone_Spawn_TUnit_MissileGen` creates `ent.MissileGen` (orbital strike) entities, not armies.
 - **Ability targeting.**
   - Trait `apply` enum: 0 AllFactions, 1 Owner, 2 Team, 3 TargetFaction, 4 EnemyFactions, 5 DisplayOnly.
@@ -244,3 +259,23 @@ Used by `model_projects/thorvald/thorvald_hq` (2026-11-03).
   - Neutral raids (owner null) are hostile to every owned entity. Origin-sietch allies are the only exception.
   - So a natural Renegade drop can only be friendly to a player through a code change: give it an owner.
 - `HConquest.isAlliedWithRenegades`: `CQ_RenegadeRelations` stock ≥ max stock. No direct callers.
+
+## Unit spawn caps and Council spawns (2026-11-08, build 19145763)
+- `unit.props.maxCount` is read in `Structure.implRecruit` / `implInlineRecruit` (and `Faction.getBaseUnitMax`): a recruit of that unit is refused (an `EReason`) once the faction's living units of
+  that kind reach `Faction.getUnitMax` (maxCount + `TUnit_Max_Flat`, row 289). Vanilla: `House_Soldier` 5, `Assassin` 1. `props.baseUnit` changes which row is counted.
+- `Faction.dailyUpdate` (`Faction_DailySpawn_TUnit_Flat`, row 292) and `LandsraadManager.closeVotes` for `OnCouncilVoteEnd_SpawnMB_TUnit_Flat` (row 290) call `Structure.recruit`, so they obey maxCount.
+  `TUnit_OnCouncilVoteEnd_MainBaseSpawn` (609) calls `Structure.spawnUnits` instead; whether that path checks the cap was not read. Council spawns fire at vote END, there is no opening hook for units.
+- Unit `flags` bits: Military 1, Mechanical 2, NoVision 4, NoControl 8, NoSelection 16, NotBuyable 32, Flying 64, NoSupply 128 ... (column doc in the unit sheet).
+- `Entity_ExecuteImmune` is checked in `Army.hurtBy`. No attribute grants immunity to `Uncontrollable` (control loss).
+
+## CHOAM thresholds and Thorvald engine changes (2026-11-08)
+- `ChoamMarket.updateFactionBonuses` gives each faction trait stack 1/0 of the traits in `DataCache.CHOAM_THRESHOLD_TRAITS` (CMarket_Bonus_1, _2) when
+  `getFactionSharesRatio` >= the matching value of constant `CMarket_Bonus_Thresholds` (0.1, 0.3). Thresholds are data; the trait list is code.
+  `getFactionSharesRatio(Game.inst.state.choamMarket, faction)` = shares / totalShares (0..1).
+- `Unit.isNoControl` reads Uncontrollable (row 1369) and Human_InCombat_Uncontrollable (1372, with isMechanical/isActivelyFighting); `Unit.isTaunted` reads 1369.
+- Attribute rows are compiled in as numbers = row position in the cdb `attribute` sheet; the first 1692 rows are identical in the 2026-10-22 and 10-28 cdbs.
+  Custom attributes go after `Invalid` (Convert_TRes_To_TRes2 is 1692, Entity_ControlLossImmune 1693).
+- Raw cdb fields survive to run time: engine code can `DynGet` any key of a row's JSON (Quinn's convertFrom/convertTo; our `spawn` on a convertFrom entry).
+- Our changes (tool/thorvald_ticks/thorvald_sworn): closeVotes reads the fraction of `OnCouncilVoteEnd_SpawnMB_TUnit_Flat`'s val as a share threshold;
+  after a successful resource_trades trade, a pay entry's `spawn` unit is recruited at the main base; `Entity_ControlLossImmune` short-circuits isNoControl/isTaunted.
+  Analysed and built on Steam build 19145763 (Sept 2025); the C: PC has the Oct 2026 build, so rebuild there (anchors are guarded).
