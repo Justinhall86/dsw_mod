@@ -2,7 +2,8 @@
 vanilla Renegade rig (B_ROOT > B_Body), so the existing model rows (Th_Frigate / A_Frigate: rig 29, inherit
 RenegadeFrigate, scale 1.2) keep working unchanged.
 
-    blender -b 03_blender/cruiser_turrets.blend --python 80_export_cruiser.py -- <out.fbx>
+    blender -b 03_blender/cruiser_v6_sealed.blend --python 80_export_cruiser.py -- <out.fbx>   (V6 since 2026-11-12;
+    old shape: POINTS=cruiser_muzzles.json with cruiser_turrets.blend)
 
 1. join hull + turrets into one mesh `Thorvald_Frigate`, one material `Thorvald_Frigate` using
    04_textures/Thorvald_Frigate_{Albedo,MetallicGlossAO,Normal}.png
@@ -112,7 +113,8 @@ got = np.array([tuple(ship.matrix_world @ v.co) for v in me.vertices]); ev.to_me
 print("evaluated world bounds", got.min(0).round(3), got.max(0).round(3), " max dev from target", np.abs(got - wco).max().round(5))
 
 # ---- 4. muzzles in the raw frame -------------------------------------------------------------
-mz = json.load(open(os.path.join(PROJ, "01_input", "cruiser_muzzles.json")))["muzzles"]
+PTS = json.load(open(os.path.join(PROJ, "01_input", os.environ.get("POINTS", "cruiser_v6_points.json"))))   # 2026-11-12: V6 shape
+mz = PTS["muzzles"]
 fire_world = TURN @ np.array([-1.0, 0, 0])                 # our barrels point -X -> +X in vanilla world
 fire_raw = Ainv[:3, :3] @ fire_world; fire_raw /= np.linalg.norm(fire_raw)
 up_raw = Ainv[:3, :3] @ np.array([0, 0, 1.0]); up_raw /= np.linalg.norm(up_raw)
@@ -122,12 +124,14 @@ for name, m in mz.items():
     r = (Ainv @ np.append(w, 1.0))[:3]
     out["muzzles"][name] = {"world": w.round(4).tolist(), "raw": r.round(4).tolist()}
     print("MUZZLE", name, "world", w.round(3), "raw", r.round(3))
-eng = [to_world(p) for p in ([80.2, 15.3, 0.6], [80.2, -15.3, 0.6])]
+eng = [to_world(p) for p in PTS.get("engines", [[80.2, 15.3, 0.6], [80.2, -15.3, 0.6]])]
 out["engines_world"] = [e.round(4).tolist() for e in eng]
 out["engines_raw"] = [(Ainv @ np.append(e, 1.0))[:3].round(4).tolist() for e in eng]
 out["scale_k"] = k
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
-json.dump(out, open(os.path.join(os.path.dirname(OUT), "cruiser_muzzles_raw.json"), "w"), indent=1)
+sys.path.insert(0, os.path.join(R, "mod_files"))
+import safe_write as SW  # noqa: E402
+SW.write_json(os.path.join(os.path.dirname(OUT), "cruiser_muzzles_raw.json"), out, indent=1)
 
 # ---- export ------------------------------------------------------------------------------------
 for o in origs:

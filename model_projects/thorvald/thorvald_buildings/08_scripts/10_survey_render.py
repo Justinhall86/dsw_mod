@@ -6,6 +6,11 @@
 Reuses the dsw-building-audit renderer; output goes to ../02_progress_photos/01_survey/.
 """
 import os
+
+def _repo(p=os.path.abspath(__file__)):
+    while not os.path.exists(os.path.join(p, "CLAUDE.md")): p = os.path.dirname(p)
+    return p
+
 import shutil
 import sys
 
@@ -15,7 +20,7 @@ sys.path.insert(0, os.path.join(REPO, ".claude", "skills", "dsw-building-audit",
 argv, sys.argv = sys.argv[1:], sys.argv[:1]
 import render_buildings as R  # noqa: E402
 
-OUT = os.path.join(HERE, "..", "02_progress_photos", "01_survey")
+OUT = os.path.join(_repo(), "gallery", "buildings", "building_survey_sheets")
 os.makedirs(OUT, exist_ok=True)
 R.OUT = OUT
 

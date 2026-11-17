@@ -1,0 +1,15 @@
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\27_terminal_build.py:123: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new("Mat_Terminal"); mat.use_nodes = True
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\27_terminal_build.py:137: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new("W"); sc.world = w; w.use_nodes = True
+00:18.984  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\13_terminal_kitbash\terminal_front.png'
+00:25.031  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\13_terminal_kitbash\terminal_back.png'
+00:31.391  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\13_terminal_kitbash\terminal_side.png'
+00:31.719  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\13_terminal_kitbash\terminal_zoom.png'
+MESH 1942 verts 2841 faces [4.98, 4.31, 2.69]
+Info: Packed 3 file(s)
+Info: Saved as "terminal_kitbash.blend"
+BUILD_DONE
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

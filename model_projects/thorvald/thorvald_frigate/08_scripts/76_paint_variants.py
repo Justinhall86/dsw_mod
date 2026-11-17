@@ -20,13 +20,18 @@ SRC = os.path.join(R, "model_inputs", "Structure", "Point_Of_Interest", "SpaceCr
 TEX = os.path.join(PROJ, "04_textures")
 OUT = os.path.join(TEX, "variants"); os.makedirs(OUT, exist_ok=True)
 
-ORANGE = np.array([0.80, 0.33, 0.06])
+ORANGE = np.array([float(v) for v in os.environ.get("COPPER", "0.80,0.33,0.06").split(",")])   # env COPPER=r,g,b (2026-11-12: matte copper)
+CGLOSS = float(os.environ.get("CGLOSS", "0.45")); CMET = float(os.environ.get("CMET", "0.2"))
+TAG = os.environ.get("TAG", "")
 ORANGE_SCHEMES = {          # whole panels (mirror pairs), from PANEL_MAP.png
     "A": ("Sponsons", [179, 126]),                    # the two shoulder decks the cannons stand on
     "B": ("Prow", [430, 90, 448]),                    # nose wedge top + its two cheeks
     "C": ("Dorsal deck", [376]),                      # the big raised aft deck
     "D": ("Flank slopes", [107, 106]),                # long sloped strips down both sides
-    "E": ("Fore pods", [326, 304]),                   # the two forward pod roofs
+    "E": ("Fore pods", [326, 304]),
+    # user 2026-11-12: accent in the recesses + the small tail box
+    "R": ("Spine recess", [415, 355, 356, 445, 203, 373, 374, 206, 420, 209]),
+    "T": ("Tail box", [354, 388, 359, 407, 408, 409, 16, 366, 389, 428]),                   # the two forward pod roofs
 }
 # deck / wall / underside / bevel greys (albedo, sRGB-ish values like the vanilla textures)
 GREY_SCHEMES = {
@@ -38,6 +43,11 @@ GREY_SCHEMES = {
     # user 2026-11-08: inverted - matte black is the primary tone, charcoal the secondary
     "6": ("Black + charcoal outline", dict(deck=0.045, wall=0.05, under=0.04, bevel=0.26, outline=0.17, matte=True)),
     "7": ("Black + charcoal well", dict(deck=0.045, wall=0.05, under=0.04, bevel=0.26, well=0.17, matte=True)),
+    # user 2026-11-12: gun metal grey primary (cool blue-grey, semi-metallic), matte copper accent
+    "9": ("Gunmetal", dict(deck=0.34, wall=0.27, under=0.16, bevel=0.50, gun=True)),
+    "a": ("Gunmetal + dark plates", dict(deck=0.34, wall=0.28, under=0.16, bevel=0.50, plates=0.22, gun=True)),
+    "b": ("Gunmetal dark", dict(deck=0.27, wall=0.21, under=0.12, bevel=0.45, gun=True)),
+    "c": ("Gunmetal + dark plates, darker", dict(deck=0.29, wall=0.235, under=0.13, bevel=0.44, plates=0.18, gun=True)),   # 2026-11-13
     "8": ("Black + charcoal plates", dict(deck=0.045, wall=0.05, under=0.04, bevel=0.26, plates=0.17, matte=True)),
 }
 WELL = [429, 415]                       # sunken main deck + its floor
@@ -128,7 +138,8 @@ def paint(ocode, gcode):
     if "outline" in gs:
         tone = np.where(near_edge, gs["outline"], tone)
     tone = np.where(bevel, gs["bevel"], tone)
-    base = np.stack([tone * 0.97, tone, tone * 1.06], -1)          # faint cool steel cast
+    cast = (0.90, 0.98, 1.12) if gs.get("gun") else (0.97, 1.0, 1.06)
+    base = np.stack([tone * cast[0], tone * cast[1], tone * cast[2]], -1)          # faint cool steel cast
     orange = cov & np.isin(PID, opanels) & ~bevel
     oa = blur(orange.astype(float), 0.8)
     base = base * (1 - oa[..., None]) + ORANGE[None, None] * oa[..., None]
@@ -138,19 +149,21 @@ def paint(ocode, gcode):
     out = np.clip(out, 0, 1)
     # swatches for the turrets: gun = deck grey, char = wall grey, copper = orange, ox = bevel
     sw = json.load(open(os.path.join(TEX, "cruiser_swatches.json")))
-    cols = {"gun": sec if gs.get("matte") else gs["deck"], "char": gs["wall"], "copper": ORANGE, "ox": gs["bevel"]}
+    cols = {"gun": sec if gs.get("matte") else gs["deck"], "char": gs["wall"], "copper": ORANGE, "ox": gs["bevel"],
+            "steel": np.array([0.60, 0.63, 0.68]), "bore": 0.03}   # 2026-11-12: polished barrel steel + dark bore
     for name, (u, v) in sw.items():
         cx, cy = int(u * W), int((1 - v) * H)
         c = cols[name]
         out[cy - 16:cy + 16, cx - 16:cx + 16] = c if np.ndim(c) else [c * 0.97, c, c * 1.06]
-    hull_met, hull_gloss = (0.2, 0.28) if gs.get("matte") else (0.55, 0.55)
-    met = np.where(oa > 0.5, 0.2, np.where(bevel, 0.75, hull_met))
-    gloss = np.where(oa > 0.5, 0.45, np.where(bevel, 0.7, hull_gloss))
+    hull_met, hull_gloss = (0.2, 0.28) if gs.get("matte") else (0.7, 0.45) if gs.get("gun") else (0.55, 0.55)
+    met = np.where(oa > 0.5, CMET, np.where(bevel, 0.75, hull_met))
+    gloss = np.where(oa > 0.5, CGLOSS, np.where(bevel, 0.7, hull_gloss))
     ao = mg[..., 2].copy(); ao[~cov] = 1.0
     for name, (u, v) in sw.items():
         cx, cy = int(u * W), int((1 - v) * H)
-        met[cy - 16:cy + 16, cx - 16:cx + 16] = 0.2 if name == "copper" else 0.6
-    code = ocode + gcode
+        met[cy - 16:cy + 16, cx - 16:cx + 16] = {"copper": CMET, "steel": 0.95, "bore": 0.3}.get(name, 0.6)
+        gloss[cy - 16:cy + 16, cx - 16:cx + 16] = {"copper": CGLOSS, "steel": 0.85, "bore": 0.2, "gun": 0.6}.get(name, 0.5)
+    code = ocode + gcode + TAG
     Image.fromarray((out * 255).astype(np.uint8)).save(os.path.join(OUT, code + "_Albedo.png"))
     Image.fromarray((np.stack([met, gloss, ao], -1) * 255).astype(np.uint8)).save(os.path.join(OUT, code + "_MetallicGlossAO.png"))
     print("%s  orange=%s (%.1f%% of hull texels)  grey=%s" % (code, oname, 100 * orange.sum() / cov.sum(), gname))

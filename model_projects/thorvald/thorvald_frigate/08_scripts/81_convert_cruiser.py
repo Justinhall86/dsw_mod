@@ -40,8 +40,11 @@ ref = os.path.join(REPO, "model_inputs", "Vehicle", "Common", "Renegade_Frigate"
 d4x = r"D:\Steam\steamapps\common\D4X\D4X.exe"
 
 # ---- 1. archive the old build ---------------------------------------------------------------
+sys.path.insert(0, os.path.join(REPO, "mod_files"))
+import safe_write as SW  # noqa: E402   2026-11-13: stop if any file in the folder was hand-edited (--force to override)
+SW.check_dir(folder)
 if os.path.isdir(folder):
-    arch = os.path.join(GR, "_archive", "Thorvald_Frigate_v13_" + datetime.date.today().isoformat())
+    arch = os.path.join(GR, "_archive", "Thorvald_Frigate_prev_" + datetime.date.today().isoformat())
     if not os.path.exists(arch):
         shutil.copytree(folder, arch)
         print("archived old build ->", arch)
@@ -154,4 +157,5 @@ with open(ppath, "w", encoding="utf-8", newline="\n") as f:
 print("prefab:", ppath, len(kids), "muzzles")
 subprocess.run([sys.executable, os.path.join(SK, "check_hmd.py"), hmd])
 print("FILES", sorted(os.listdir(folder)))
+SW.record_dir(folder)
 print("CONVERT_OK")

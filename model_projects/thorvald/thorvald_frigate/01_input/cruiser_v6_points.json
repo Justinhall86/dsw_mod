@@ -1,0 +1,69 @@
+{
+ "note": "V6 frame (cruiser_v6_fixed.blend). Muzzles = new barrel tips; engines = 74/83 engine centres warped by 88.",
+ "muzzles": {
+  "MuzzleA": {
+   "turret": "turret_14_L",
+   "mesh": [
+    -12.923,
+    35.867,
+    10.813
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  },
+  "MuzzleB": {
+   "turret": "turret_14_R",
+   "mesh": [
+    -12.923,
+    -35.867,
+    10.813
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  },
+  "MuzzleC": {
+   "turret": "turret_40_L",
+   "mesh": [
+    13.077,
+    35.861,
+    10.868
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  },
+  "MuzzleD": {
+   "turret": "turret_40_R",
+   "mesh": [
+    13.077,
+    -35.86,
+    10.868
+   ],
+   "fire_dir_mesh": [
+    -1,
+    0,
+    0
+   ]
+  }
+ },
+ "engines": [
+  [
+   80.2,
+   15.064,
+   7.959
+  ],
+  [
+   80.2,
+   -15.064,
+   7.959
+  ]
+ ]
+}

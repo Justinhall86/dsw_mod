@@ -7,6 +7,11 @@ Output: ../02_progress_photos/01_survey/lineup_3q.png and lineup_top.png
 """
 import json
 import os
+
+def _repo(p=os.path.abspath(__file__)):
+    while not os.path.exists(os.path.join(p, "CLAUDE.md")): p = os.path.dirname(p)
+    return p
+
 import subprocess
 import sys
 
@@ -19,7 +24,7 @@ import build_previews as B  # noqa: E402
 
 BASE = os.path.join(REPO, "model_inputs", "Structure", "Base")
 SCR = os.path.join(B.SCRATCH, "thv_hq")
-OUT = os.path.join(PROJ, "02_progress_photos", "01_survey")
+OUT = os.path.join(_repo(), "gallery", "buildings", "hq_outpost_survey")
 TX = os.path.join(SCR, "tex")
 os.makedirs(TX, exist_ok=True)
 

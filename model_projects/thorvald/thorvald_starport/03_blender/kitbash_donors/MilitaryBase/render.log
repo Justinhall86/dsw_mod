@@ -1,0 +1,23 @@
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new("tex"); mat.use_nodes = True
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:49: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new("W"); sc.world = w; w.use_nodes = True
+00:04.297  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\tex_front.png'
+00:04.703  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\tex_back.png'
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:109: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new("%s%d" % (kind, g)); m.use_nodes = True
+00:05.172  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\flat_front.png'
+00:05.593  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\flat_back.png'
+00:06.047  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\flat_top.png'
+00:06.328  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\id_front.png'
+00:06.703  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\id_back.png'
+00:07.093  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\MilitaryBase\id_top.png'
+FBX version: 7400
+BOUNDS (-1.0, -0.87, -0.01) (1.0, 0.87, 0.73)
+Info: Removed 1412 vertices
+ISLANDS 26 SEEDS 8
+Info: Saved as "parts.blend"
+PARTS_DONE
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

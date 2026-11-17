@@ -1,7 +1,7 @@
 """Thorvald cruiser reactor flare = a copy of the Chronos's (cyan 0,0.9,1; ReactorTriangle plates + tube), with the
 single Chronos reactor replaced by one per engine bell of the cruiser.
 
-    python 83_reactor_fx.py
+    python 83_reactor_fx.py [--force]      (refuses if the .fx was hand-edited since it was generated)
 Writes 06_game_ready/Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx (res-tree path
 Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx, attached by the TH_Frigate unit's kind-28 event to B_Body).
 
@@ -11,7 +11,7 @@ The Chronos's reactor sits at -z (its stern); ours is at +z, so each reactor is 
 Dropped: the Chronos-only warm strips (Cronos_Lights mesh), the editor-only Chronos preview model and the
 constraint that pointed at it.
 """
-import copy, json, os
+import copy, json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
@@ -45,9 +45,10 @@ for i, (x, y, z) in enumerate(eng):
             c[k] = round(c.get(k, 1.0) * F, 5)
     new_lights["children"].append(r)
 root["children"] = [new_lights]                      # no Chronos preview model, no constraint to it
-os.makedirs(os.path.dirname(OUT), exist_ok=True)
-with open(OUT, "w", encoding="utf-8", newline="\n") as f:
-    json.dump(fx, f, indent="\t"); f.write("\n")
+import sys  # noqa: E402
+sys.path.insert(0, os.path.join(REPO, "mod_files"))
+import safe_write as SW  # noqa: E402   2026-11-13: refuses to replace a hand edit; --force / FORCE=1 to override
+SW.write_json(OUT, fx, indent="\t")
 for r in new_lights["children"]:
     print(r["name"], {k: r[k] for k in ("x", "y", "z", "rotationY")},
           [(c["name"], c.get("scaleX"), c.get("scaleZ")) for c in r["children"]])

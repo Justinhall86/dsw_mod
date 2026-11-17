@@ -1,0 +1,27 @@
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\22_kitbash_blender.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new("W"); sc.world = w; w.use_nodes = True
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\22_kitbash_blender.py:15: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new("tex_" + donor); m.use_nodes = True
+00:03.563  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T1_user_fixed_front.png'
+00:06.141  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T1_user_fixed_back.png'
+00:08.735  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T2_pad_tower_depot_front.png'
+00:11.172  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T2_pad_tower_depot_back.png'
+00:13.532  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T3_military_tanks_tower_front.png'
+00:16.016  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T3_military_tanks_tower_back.png'
+00:18.329  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T4_pad_tower_tanks_front.png'
+00:20.704  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T4_pad_tower_tanks_back.png'
+00:23.594  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T5_depot_pad_tower_front.png'
+00:26.219  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\02_progress_photos\11_terminal_variants\T5_depot_pad_tower_back.png'
+Info: Saved as "T1_user_fixed.blend"
+VAR_DONE T1_user_fixed [-1.52, -1.0, -0.0] [3.19, 1.0, 3.3]
+Info: Saved as "T2_pad_tower_depot.blend"
+VAR_DONE T2_pad_tower_depot [-2.92, -1.75, -0.0] [3.61, 1.75, 3.3]
+Info: Saved as "T3_military_tanks_tower.blend"
+VAR_DONE T3_military_tanks_tower [-3.32, -1.21, -0.01] [1.4, 1.21, 3.3]
+Info: Saved as "T4_pad_tower_tanks.blend"
+VAR_DONE T4_pad_tower_tanks [-2.92, -4.31, -0.02] [4.41, 1.75, 3.3]
+Info: Saved as "T5_depot_pad_tower.blend"
+VAR_DONE T5_depot_pad_tower [-2.22, -1.92, -0.0] [5.0, 2.76, 3.3]
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

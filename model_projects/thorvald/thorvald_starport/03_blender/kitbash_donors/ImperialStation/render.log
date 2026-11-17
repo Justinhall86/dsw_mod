@@ -1,0 +1,4 @@
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new("tex"); mat.use_nodes = True
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:49: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new("W"); sc.world = w; w.use_nodes = True

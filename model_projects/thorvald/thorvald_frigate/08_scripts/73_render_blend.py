@@ -31,7 +31,7 @@ bs.setup_render(1400, 900)
 bs.setup_world(strength=pw.WORLD_STRENGTH, color=(0.62, 0.62, 0.64)); bs.setup_lights(); pw.soften_world()
 cam = bs.setup_camera(target=c, ortho_scale=span * 1.1, distance=span * 3)
 V = {"tq": (-0.7, -0.7, 0.55), "tq_rear": (0.7, 0.7, 0.55), "top": (-0.0001, 0, 1), "side": (0, -1, 0.08),
-     "front": (-1, 0, 0.12)}
+     "front": (-1, 0, 0.12), "low": (-0.7, -0.7, -0.3)}
 for name in want:
     if name in V:
         cam.data.ortho_scale = span * 1.1
@@ -39,8 +39,8 @@ for name in want:
         cam.rotation_euler = (c - cam.location).to_track_quat("-Z", "X" if name == "top" else "Y").to_euler()
         bs.render_to(os.path.join(out, name + ".png"), cam)
 if "close" in want:                         # shoulder close-up
-    t = Vector((27, -38, 3))
-    cam.data.ortho_scale = span * 0.38
+    t = Vector([float(v) for v in os.environ.get("CLOSE", "27,-38,3").split(",")])
+    cam.data.ortho_scale = span * float(os.environ.get("CLOSE_ZOOM", "0.38"))
     cam.location = t + Vector((-0.6, -0.8, 0.55)).normalized() * span * 3
     cam.rotation_euler = (t - cam.location).to_track_quat("-Z", "Y").to_euler()
     bs.render_to(os.path.join(out, "close.png"), cam)

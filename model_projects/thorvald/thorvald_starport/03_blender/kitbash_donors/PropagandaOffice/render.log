@@ -1,0 +1,23 @@
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new("tex"); mat.use_nodes = True
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:49: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new("W"); sc.world = w; w.use_nodes = True
+00:04.828  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\tex_front.png'
+00:05.266  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\tex_back.png'
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:109: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new("%s%d" % (kind, g)); m.use_nodes = True
+00:05.844  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\flat_front.png'
+00:06.250  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\flat_back.png'
+00:06.734  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\flat_top.png'
+00:07.016  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\id_front.png'
+00:07.375  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\id_back.png'
+00:07.766  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\PropagandaOffice\id_top.png'
+FBX version: 7400
+BOUNDS (-0.95, -1.64, -0.0) (0.7, 1.64, 1.73)
+Info: Removed 892 vertices
+ISLANDS 27 SEEDS 12
+Info: Saved as "parts.blend"
+PARTS_DONE
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

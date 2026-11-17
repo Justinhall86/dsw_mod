@@ -1,0 +1,19 @@
+[
+ {"name":"T1_user_fixed","pieces":[
+   {"donor":"PropagandaOffice","letters":"ABEFGHI","scale":1.6},
+   {"donor":"SpacingGuildBranch","letters":"DE","at":[3.9,0,0]}]},
+ {"name":"T2_pad_tower_depot","pieces":[
+   {"donor":"SpacingGuildBranch","letters":"ABCDEG"},
+   {"donor":"SupplyDepot","letters":"BDE","scale":1.9,"at":[2.55,0,0]}]},
+ {"name":"T3_military_tanks_tower","pieces":[
+   {"donor":"MilitaryBase","letters":"ABCDEFGH","scale":1.4},
+   {"donor":"SpacingGuildBranch","letters":"DE","at":[-0.4,0,0]}]},
+ {"name":"T4_pad_tower_tanks","pieces":[
+   {"donor":"SpacingGuildBranch","letters":"ABCDEG"},
+   {"donor":"MilitaryBase","letters":"CD","scale":2.4,"at":[2.35,0,0],"rotz":90},
+   {"donor":"MilitaryBase","letters":"CD","scale":2.4,"at":[0.2,-2.25,0]}]},
+ {"name":"T5_depot_pad_tower","pieces":[
+   {"donor":"SupplyDepot","letters":"ABCDE","scale":2.1},
+   {"donor":"SpacingGuildBranch","letters":"ABC","at":[3.25,0,0]},
+   {"donor":"SpacingGuildBranch","letters":"DE","at":[0.9,2.2,0]}]}
+]

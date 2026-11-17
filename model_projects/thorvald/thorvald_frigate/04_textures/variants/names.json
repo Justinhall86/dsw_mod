@@ -5,7 +5,9 @@
   "C": "Dorsal deck",
   "D": "Flank slopes",
   "E": "Fore pods",
-  "AD": "Sponsons + Flank slopes"
+  "R": "Spine recess",
+  "T": "Tail box",
+  "ADRT": "Sponsons + Flank slopes + Spine recess + Tail box"
  },
  "grey": {
   "1": "Kraken two-tone",
@@ -15,6 +17,10 @@
   "5": "One tone",
   "6": "Black + charcoal outline",
   "7": "Black + charcoal well",
+  "9": "Gunmetal",
+  "a": "Gunmetal + dark plates",
+  "b": "Gunmetal dark",
+  "c": "Gunmetal + dark plates, darker",
   "8": "Black + charcoal plates"
  }
 }

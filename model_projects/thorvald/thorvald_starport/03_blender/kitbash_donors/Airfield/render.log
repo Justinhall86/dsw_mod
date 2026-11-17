@@ -1,0 +1,32 @@
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new("tex"); mat.use_nodes = True
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:49: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new("W"); sc.world = w; w.use_nodes = True
+00:04.078  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\tex_front.png'
+00:04.453  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\tex_back.png'
+D:\dsw_mod\model_projects\thorvald\thorvald_starport\08_scripts\21_parts_blender.py:109: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new("%s%d" % (kind, g)); m.use_nodes = True
+00:04.828  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\flat_front.png'
+00:05.250  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\flat_back.png'
+00:05.578  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\flat_top.png'
+00:05.875  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\id_front.png'
+00:06.235  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\id_back.png'
+00:06.578  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_starport\03_blender\kitbash_donors\Airfield\id_top.png'
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+BOUNDS (-0.48, -0.0, -0.74) (0.48, 86.03, 26.93)
+Info: Removed 2472 vertices
+ISLANDS 41 SEEDS 1
+Info: Saved as "parts.blend"
+PARTS_DONE
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
