@@ -4,6 +4,15 @@ Operations are the agent missions run from the Intel screen. This page says how 
 has today, and the Thorvald set we want instead. The lore behind each one is in [lore.md](lore.md). Names, numbers and effects are
 **PROPOSED**.
 
+> **Status, updated 2026-11-12.** The "Proposed Thorvald set" below (Requisition, Embargo, Hammerfall, Holdout) was superseded on 2026-11-09. The
+> current set for the first playtest, in [faction_design.md](faction_design.md) ("Operations (pointer)") and the online faction spec, is **Alloy Tempering**
+> (Easy, CHOAM 1), **Consignment Levy** (Medium), **Mercenary Contract** (Medium, Spacing Guild 2), **Market Crash** (Hard, CHOAM 2) and **Supply Chain Holdout**
+> (Epic, Landsraad 2). **All designed, none built:** Thorvald still has Corrino's three (Consolidation, Interdiction Zone, Orbital Strike).
+> I have not mapped each old entry to a new one: Alloy Tempering is an armor buff like Requisition, and Market Crash is economic pressure like Embargo *(inference)*;
+> Hammerfall is not in the current set and was REJECTED on 2026-11-13 (Heighforge never acts on Arrakis; see the Rejected mechanics list in faction_design.md). Supply Chain Holdout is no longer gated by Political Asylum; the fallback is a copy of Cease Fire for one region.
+> Open items for operations are D14 and G5 in faction_design.md. The sections below are kept as history and as a source of clone recipes.
+> Not checked here: how the Mercenary Contract and the frigate's Orbital Drop overlap (D14), and whether Consignment Levy can target neutral villages.
+
 ## How operations work in `data.cdb` (checked 2026-10-30)
 Each operation is three linked rows:
 
@@ -46,16 +55,16 @@ Lore says Memnon is the Emperor's enemy by 10191, so running "the Emperor's" ope
 |---|---|---|---|---|---|
 | 0 | **Heighforge Requisition** | IChoam 1 | Troops in the target region gain extra armour and hold up longer (same idea as Consolidation) | Clone `MConsolidation` → `Consolidation` → `TConsolidation`; new name and text | Easy |
 | 1 | **Alloy Embargo** | ILandsraad 2 | The target faction is cut off from Thorvald alloy: its vehicles and air units cost more and repair slower for the duration | New trait on the target faction; base on `MAdministrativeBurden`'s targeting (faction at War or Hostility) | Medium: needs a vanilla trait that raises unit cost or slows repair |
-| 2 | **Hammerfall** | ISpaceGuild 2 | Heighforge drops refined slag ingots from orbit: the Orbital Strike effect, area damage to all ground units, villages and main bases, friend and foe | Clone `MOrbitalStrike` → `OrbitalStrike`; new name and text | Easy |
+| 2 | ~~**Hammerfall**~~ **REJECTED 2026-11-13** | ISpaceGuild 2 | Heighforge drops refined slag ingots from orbit: the Orbital Strike effect, area damage to all ground units, villages and main bases, friend and foe | Clone `MOrbitalStrike` → `OrbitalStrike`; new name and text | Easy |
 | bonus | **Supply Chain Holdout** | ILandsraad 2 | Thorvald suppliers stop deliveries to both armies in a region until they stand down: a truce, no fighting there for the duration | Clone `MCeaseFire` → `CeaseFire` → `TCeaseFire` | Easy for the op. Gating it behind the **Political Asylum** bonus is Medium (see below) |
 
 Then remove `Thorvald` from the `onlyForFactions` of `MConsolidation`, `MInterdictionZone` and `MOrbitalStrike`, so Corrino keeps them
 and Thorvald gets its own.
 
 ### Flavour text (draft)
-- **Heighforge Requisition:** "Fresh plate from the Heighforge decks, shipped down on the next tender. A Thorvald army is never short of armour for long."
+- **Heighforge Requisition** (superseded 2026-11-13: Heighforge ships nothing to Arrakis): "Fresh plate from the Heighforge decks, shipped down on the next tender. A Thorvald army is never short of armour for long."
 - **Alloy Embargo:** "Half the warships in the Imperium are built from Ipyrian alloy. The Earl can always decide whose half."
-- **Hammerfall:** "Heighforge was built to smelt moons. Pointing its slag chutes at a planet is only a matter of coordinates. The hammer of wealth falls on everyone below."
+- **Hammerfall** (REJECTED 2026-11-13): "Heighforge was built to smelt moons. Pointing its slag chutes at a planet is only a matter of coordinates. The hammer of wealth falls on everyone below."
 - **Supply Chain Holdout:** "No ammunition, no rations, no spare parts, for either side. Even an army stops when its suppliers do."
 
 ### Why this set
@@ -73,10 +82,9 @@ and Thorvald gets its own.
 - **Elacca Fog → Smelter Smoke** is a spare tier-2 option.
 
 ## Councillor tie-ins
-- **Lady Haruka**'s Sabotage Network (-25% preparation time, -15% Intel/Solari cost for all operations) makes the house a strong
-  operations faction. The 500/500 tier drops to 425/425.
-- **Adjutant Nobru** and **Master Silva** pay off Alloy Embargo and Requisition: one works the markets, the other runs the supply lines.
-- **Overseer Jool**'s Conscription Buffer (+Power, +Armor near Thorvald territory) stacks with Heighforge Requisition on a defended front.
+- **Lady Haruka**: the old Sabotage Network active perk was dropped (no active slot); its numbers are now her built passive (operations 25% faster to prepare, 15% cheaper). The 500/500 tier drops to about 425/425 before her other discounts. See [counsellors.md](counsellors.md).
+- **Adjutant Nobru** and **Master Silva** pay off Alloy Embargo and Requisition: one works the markets, the other runs the supply lines. *(Written before the 2026-11-09 rework; recheck against the current set.)*
+- **Envoy Ein** replaced Overseer Jool on 2026-11-02. Jool's Conscription Buffer is gone; Ein's built perk is +1 Armor in a region with a Thorvald operation, which stacks with Alloy Tempering (see the Armor stacking decision, D5).
 
 ([counsellors.md](counsellors.md) has the full abilities.)
 
@@ -87,13 +95,13 @@ and Thorvald gets its own.
 | **Belt Prospectors** | IField 1 | Survey a region: reveal it and add Plascrete yield there for the duration | Needs a resource-yield trait on a region |
 | **War Academy Liaison** | IField 2 | A War Academy officer (the Theodoric Ein type) joins the army in a region: +Power, faster healing | Could clone Atreides' `MSupportIntelligence` if its trait does something close. Not checked |
 
-## Open decisions
+## Open decisions (old list; superseded on 2026-11-12 by D14 and G5 in faction_design.md)
 1. **Approve the set** (Requisition, Embargo, Hammerfall, Holdout) or swap any of them for a stretch idea.
 2. **Keep Interdiction Zone too?** It fits the air roster. Vanilla factions have three unique operations; keeping it would give Thorvald five.
 3. **Gate for Supply Chain Holdout.** The faction screen says Political Asylum *unlocks* it. The `mission` props have `neededMission` and
    `replaces`, but there is no trait-based unlock field, so I still need to find how a faction bonus unlocks an operation. Fallback:
    make it a normal Thorvald operation.
-4. **Name check:** "Hammerfall" vs "Heighforge Strike" vs "Slag Drop".
+4. ~~Name check: "Hammerfall" vs "Heighforge Strike" vs "Slag Drop".~~ Dropped 2026-11-13: the operation is rejected.
 
 ## Build notes (when approved)
 - Minimal edits only: add these rows to the working `mod_files/data.cdb` and change nothing else, then validate with

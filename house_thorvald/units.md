@@ -8,10 +8,16 @@ Ground infantry have a look but no stats yet: the combat sheet shows four units 
 wealth comes from mining asteroids. Armour plate, hulls and machines are the house's pride, so the roster should look over-built and
 well-supplied rather than ragged.
 
-**Build status (2026-10-30):** the faction `Th_*` is installed (untested in game) with our models in five slots: Th_Trooper,
+**Build status (2026-10-30, updated 2026-11-12):** the faction `Th_*` is installed with our models in five slots: Th_Trooper,
 Th_Soldier (Iron Ranger), Th_Special (Iron Guard), Th_Elite (Heavy Vanguard), Th_Frigate. The fighter (Th_Ship) is also installed.
+Added since: the **Sworn Sword** (a mercenary unit, below) and the hero **Karlin Thorvald** (model and cdb row built 2026-11-03 per the repo's agent log; I did not recheck whether it is packed or installed).
+The only thing known to have been run in a game is the Consignment Terminal's Plascrete trade, which did not work (owner, 2026-11-12); what else was seen is not recorded, so units stay "not seen in game".
 Details in each `model_projects/thorvald_*` folder and `model_projects/thorvald_faction/SPEC.md`. The sections below are the original
-planning notes.
+planning notes and have not all been brought up to date.
+
+**Iron Guard rule dropped (2026-11-12).** The faction bonus that made soldiers cost Solari instead of Manpower was dropped, so the regular units
+keep their Manpower cost on purpose. The mercenary idea lives in the Sworn Sword and the mercenary rungs ([faction_design.md](faction_design.md)).
+"Iron Guard" now means only the bazooka unit.
 
 ## Units still needed (checked against `data.cdb` on 2026-10-31)
 Skipped on purpose: **Ornithopters** (4 variants) and the **Harvester**. Atreides and Harkonnen both use the shared vanilla base models
@@ -30,7 +36,7 @@ Skipped on purpose: **Ornithopters** (4 variants) and the **Harvester**. Atreide
 
 Already done (our models, installed, untested in game): Trooper, Iron Ranger, Iron Guard, Heavy Vanguard, Frigate, Fighter (`Th_Ship`).
 
-Fixes, not new units: units still cost Manpower, not Solari. Iron Guard now fires a bazooka and the Frigate's deploy animations use its own clips (2026-11-04, untested in game).
+Fixes, not new units: units cost Manpower, and that is now intended (see above). Iron Guard now fires a bazooka and the Frigate's deploy animations use its own clips (2026-11-04, untested in game).
 
 ## Name ideas from the lore
 The infantry names are being redone. Candidates that carry the lore:
@@ -43,7 +49,7 @@ The infantry names are being redone. Candidates that carry the lore:
 | Shield and flame blade | Heavy Vanguard | Heighforge Vanguard, Smelter Guard, Anvil |
 | Frigate | (TBD) | Anvil, Heighforge Tender, Hammer of Ipyr |
 
-"Iron Guard" is also the faction bonus name, so it is worth freeing it from the bazooka unit.
+(Older note, now moot: "Iron Guard" was also the faction bonus name, which is why freeing it from the bazooka unit was suggested. The bonus was dropped on 2026-11-12.)
 
 ## Overview
 | Unit | Source asset | Role | Status |
@@ -125,8 +131,14 @@ Recommendation: **DroneS**, since it already has a multi-house texture setup and
 
 ## Ground infantry (look exists, names under redo)
 From [images/art_combat_units_sheet.jpg](images/art_combat_units_sheet.jpg): Trooper, Iron Ranger (rifle), Iron Guard (bazooka),
-Heavy Vanguard (shield and flame blade). The house's "Iron Guard" bonus means all soldiers cost Solari instead of Manpower
-([faction_design.md](faction_design.md)), and the names are being redone. Stats, costs and weapons are not drafted.
+Heavy Vanguard (shield and flame blade). The old "Iron Guard" bonus (all soldiers cost Solari instead of Manpower) was dropped on 2026-11-12
+([faction_design.md](faction_design.md)), so these units pay Manpower; the names are being redone. The cdb rows inherit Corrino's stats and costs; no Thorvald stats are drafted.
+
+### Sworn Sword (mercenary unit, built, not checked in a match)
+The one Thorvald unit that pays Solari and no Manpower: 350 health, 14 Power, 3 Armor; trained for 60 Solari, 3 Command Points, upkeep 9. It is the mercenary face of the house.
+Sources: training; share rungs at the end of a Council (2 at 10% shares, 2 more at 20%); the frigate's Orbital Drop (a later stage). The Plascrete-trade source was dropped on 2026-11-12.
+A shared cap of 5 alive from spawns (8 at 10,000 Hegemony). Ability: Oath (execution immunity, via the new attribute `Entity_ControlLossImmune`). Per the repo report, the 2.0e model is exported and wired; the icon and portrait are still the Trooper's.
+Details: `model_projects/thorvald/thorvald_sworn_sword/` (`IMPLEMENTATION_SPEC_REPORT.md`).
 
 **Trooper model:** a preview kitbash exists in `model_projects/thorvald_trooper/` (Commando torso and shoulders, Mercenary forearms, Duncan legs
 and belt/sash, Idualis02 head with a cloth half mask, a shoulder yoke, a kasa hat rebuilt from a Meshy sculpt's measured profile and a gear-and-star emblem,
@@ -146,6 +158,7 @@ Guild Sub-Contract (5000 Hegemony) gives instant troop travel between Owned Airf
 this house's design. The lore agrees: the house's power base, Heighforge, is in orbit, and its alloys are aerospace alloys.
 
 ## Open decisions
+(The faction-level decisions are in [faction_design.md](faction_design.md), "Decisions to make and gaps to fill". The list below is the unit side only.)
 - Lock in a Frigate name from the candidates above (or propose your own).
 - Pick Fighter and Drone donor assets (recommend Smuggler Wraith/Banshee + DroneS, but all three Common options are open).
 - Decide how the air roster maps to vanilla slot tiers (which vanilla unit each one is reskinning/replacing in `data.cdb`).

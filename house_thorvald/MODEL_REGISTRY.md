@@ -12,22 +12,23 @@ Each unit's `Final/` folder is self-contained:
 
 | Unit (data.cdb) | Model rows | Version | Final folder | Game path (cdb mesh) |
 |---|---|---|---|---|
-| `TH_Frigate` Thorvald frigate (cruiser) | Th_Frigate, A_Frigate | Cruiser, AD7 paint (2026-11-08) | [`thorvald/thorvald_frigate/Final`](../model_projects/thorvald/thorvald_frigate/Final) | `VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab` |
+| `TH_Frigate` Thorvald frigate (cruiser) | Th_Frigate, A_Frigate | Cruiser V6, darker gunmetal + matte copper (2026-11-13) | [`thorvald/thorvald_frigate/Final`](../model_projects/thorvald/thorvald_frigate/Final) | `VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab` |
 | `TH_Ship` Thorvald fighter | Th_Ship | v6 (formerly f11) | [`thorvald/thorvald_ship/Final`](../model_projects/thorvald/thorvald_ship/Final) | `VehMOD/Thorvald_Ship/Prefab_Thorvald_Ship.prefab` |
 | `TH_Trooper` Thorvald Trooper | Th_Trooper, A_Trooper | v13 (T14) | [`thorvald/thorvald_trooper/Final`](../model_projects/thorvald/thorvald_trooper/Final) | `CharMOD/Male01_ThorvaldTrooper/Prefab_ThorvaldTrooper.prefab` |
 | `TH_Soldier` Thorvald Ranged (Iron Ranger) | Th_Soldier, A_Soldier | v2 (R5) | [`thorvald/thorvald_ranged/Final`](../model_projects/thorvald/thorvald_ranged/Final) | `CharMOD/Male01_ThorvaldRanged/Prefab_ThorvaldRanged.prefab` |
 | `TH_Special` Thorvald Demolition (Iron Guard) | Th_Special, A_Demo | v2 (D2) | [`thorvald/thorvald_demolition/Final`](../model_projects/thorvald/thorvald_demolition/Final) | `CharMOD/Male01_ThorvaldDemolition/Prefab_ThorvaldDemolition.prefab` |
 | `TH_Elite (+ TH_Elite2/3, Blood1/2)` Thorvald Elite (Heavy Vanguard) | Th_Elite, Th_Elite2, Th_Elite3, Th_Elite_Blood1, Th_Elite_Blood2, A_Elite | v2 (E4) | [`thorvald/thorvald_elite/Final`](../model_projects/thorvald/thorvald_elite/Final) | `CharMOD/Male01_ThorvaldElite/Prefab_ThorvaldElite.prefab` |
+| `TH_SwornSword (+ TH_SwornSword_Spawned)` Thorvald Sworn Sword | Th_SwornSword | 2.0e | [`thorvald/thorvald_sworn_sword/Final`](../model_projects/thorvald/thorvald_sworn_sword/Final) | `CharMOD/Male01_ThorvaldSwornSword/Prefab_ThorvaldSwornSword.prefab` |
 | `TH_Hero_1` Karlin Thorvald (hero) | Th_Hero_2 (the Corrino clone swapped the two hero model ids: unit TH_Hero_1 uses model row Th_Hero_2) + anim set ThorvaldKarlin | C1 two swords (the look staged for the game) | [`thorvald/thorvald_hero_1/Final`](../model_projects/thorvald/thorvald_hero_1/Final) | `CharMOD/Male01_ThorvaldKarlin/Prefab_ThorvaldKarlin.prefab` |
 
 ## Files per unit
 
 ### Thorvald frigate (cruiser) (`TH_Frigate`)
 
-- Final: `model_projects/thorvald/thorvald_frigate/Final/` (model 2 MB, game files 1.3 MB)
+- Final: `model_projects/thorvald/thorvald_frigate/Final/` (model 4 MB, game files 1.9 MB)
 - Source blend: `thorvald/thorvald_frigate/03_blender/cruiser_export.blend`
 - Working game folder: `thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate` -> res `VehMOD/Thorvald_Frigate`, `thorvald/thorvald_frigate/06_game_ready/Fx/Vehicle/Ships/Thorvald` -> res `Fx/Vehicle/Ships/Thorvald`
-- Rebuild: 08_scripts 80_export_cruiser -> 81_convert_cruiser -> 82_roundtrip -> 83_reactor_fx -> 84_cdb_cruiser (reactor FX row)
+- Rebuild: 08_scripts 88_lock_v6 -> 90_fix_gaps_barrels -> 91_fix_normals -> 93_seethrough_fix (cruiser_v6_sealed.blend) -> 80_export_cruiser -> 81_convert_cruiser -> 82_roundtrip -> 83_reactor_fx -> 84_cdb_cruiser (reactor FX row)
 
 ### Thorvald fighter (`TH_Ship`)
 
@@ -63,6 +64,17 @@ Each unit's `Final/` folder is self-contained:
 - Source blend: `thorvald/thorvald_elite/03_blender/v2_final.blend`
 - Working game folder: `thorvald/thorvald_elite/06_game_ready/Male01_ThorvaldElite` -> res `CharMOD/Male01_ThorvaldElite`
 - Rebuild: 08_scripts 12_assemble_export -> 14_make_game_package (made on the other PC; 06_game_ready is a copy of what was installed)
+- Saved version: `thorvald/thorvald_elite/09_snapshots/v2_E4_2026-11-13 (v2 as installed + the v5 ground palette; saved before v3 = Karlin's H2f4 antenna helmet)`
+- Saved version: `thorvald/thorvald_elite/NEXT (built 2026-11-13, not installed): v3b = H2f4 helmet at Karlin size, kasa removed, hidden hood/goggles culled; 03_blender/v3_v3b.blend (08_scripts/70_helmet_h2f4.py --tag v3b --scale 1.0 --cull-head), game files 06_game_ready/CharMOD/Male01_ThorvaldElite; palette copy thorvald_recolours/04_textures/ground_v6`
+
+### Thorvald Sworn Sword (`TH_SwornSword (+ TH_SwornSword_Spawned)`)
+
+- Final: `model_projects/thorvald/thorvald_sworn_sword/Final/` (model 0 MB, game files 0.0 MB)
+- Source blend: `thorvald/thorvald_sworn_sword/03_blender/SwornSword2_2.0e.blend`
+- Working game folder: `thorvald/thorvald_sworn_sword/06_game_ready/CharMOD/Male01_ThorvaldSwornSword` -> res `CharMOD/Male01_ThorvaldSwornSword`
+- Rebuild: 08_scripts 12_build_v2 --tag 2.0e -> 90_export_game_fbx -> 91_package_game (prefix ThSws) -> 93_roundtrip sworn; cdb 52_cdb_edit + 53_cdb_trade_val
+- Saved version: `thorvald/thorvald_sworn_sword/09_snapshots/v2.0e_2026-11-13 (2.0e as installed + the v5 ground palette; saved before 2.1 = S9 domed helmet + plume)`
+- Saved version: `thorvald/thorvald_sworn_sword/NEXT (built 2026-11-13, not installed): 2.1 = 2.0e + S9 domed helmet, plume and badge, rivets removed (Mat_SwornHelm); 03_blender/SwornSword2_2.1.blend (08_scripts/14_helm_tex_v21.py, 15_build_v21.py), game files 06_game_ready/CharMOD/Male01_ThorvaldSwornSword (2.0e archived); palette copy thorvald_recolours/04_textures/ground_v6`
 
 ### Karlin Thorvald (hero) (`TH_Hero_1`)
 

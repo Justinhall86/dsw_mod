@@ -13,6 +13,7 @@ Build work (models, exports, the faction clone) lives in `model_projects/thorval
 | [councillor_ideas.md](councillor_ideas.md) | **Ideas only:** a Thorvald version of every vanilla councillor, with a pool of perks to pick from |
 | [buildings.md](buildings.md) | The five unique buildings (Consignment Terminal, Alloy Smelter, Ore Drill, War Academy Annex, Contract Hall); models built, not installed |
 | [units.md](units.md) | Unit roster, sources and build status |
+| [name_candidates.md](name_candidates.md) | **Candidates only:** name ideas for the military councillor, a family member and others (Norse, Greek, Japanese-style) |
 | [art_direction.md](art_direction.md) | Look, palette, emblem, silhouette |
 | [image_index.md](image_index.md) | Every reference image and research file, with how far to trust it |
 | [research/](research/) | Source documents: the lore research PDF and [ecaz_missions.md](research/ecaz_missions.md) (Ecaz operations and how to adapt them) |

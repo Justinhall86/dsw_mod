@@ -40,6 +40,7 @@ supply chains and commercial theory next to battlefield command.
 | ~10189 AG | Firenza, childless and out of favour, dies "under unrecorded circumstances" within two years of the wedding | Memnon believes the Court used his sister and threw her away |
 | after 10189 | Memnon uses the Landsraad seat and Ipyr's wealth to back anti-Imperial factions | **This is Thorvald's state of mind when it comes to Arrakis** |
 | 10191 AG | The Arrakis crisis (the Dune: Spice Wars era) | Firenza is already dead; Thorvald arrives as an enemy of the Emperor |
+| 10193 to 10198 AG *(UNVERIFIED, Gemini 2026-11-16)* | Memnon walks out on Paul's Landsraad speech (10194) and leads the main noble rebellion against Emperor Paul; it ends with Thorvald's fleet stranded and Ipyr sterilized by Stilgar's Fremen. Said to come from Paul of Dune and The Winds of Dune | After the game's era. A possible basis for the Walkout spark as foreshadowing. Do not use until checked |
 
 The dates come from the wikis and are not cross-checked against the books. They are fine for flavour text; avoid putting exact years in UI text.
 
@@ -59,8 +60,8 @@ The dates come from the wikis and are not cross-checked against the books. They 
    enemy. That is the biggest gap between story and data, and it is the main reason to give the house its own operations
    ([operations.md](operations.md)).
 2. **Space first, ground second.** Heighforge is in orbit and the wealth is in the asteroid belt. That backs the air-heavy roster
-   (Frigate, fighter, drone) and Guild Sub-Contract's airfield bonus ([faction_design.md](faction_design.md)), and it makes "a strike from
-   Heighforge" the natural top-tier operation.
+   (Frigate, fighter, drone) and Guild Sub-Contract's airfield bonus ([faction_design.md](faction_design.md)), and it once made "a strike from
+   Heighforge" look like the natural top-tier operation. **Rejected 2026-11-13:** Heighforge orbits Ipyr, nowhere near Arrakis, so it never acts on Arrakis in a mechanic (see faction_design.md, Rejected mechanics).
 3. **"The hammer of wealth" is canon.** The 10000 Hegemony bonus name is the real motto, so keep it. It fits Iron Guard's
    Solari-not-Manpower rule: the house pays for its wars.
 4. **The War Academy explains the councillors.** A school that teaches logistics and trade next to tactics produces exactly a logistics

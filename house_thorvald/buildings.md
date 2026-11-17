@@ -1,20 +1,21 @@
 # Buildings — House Thorvald
 
 Unique Thorvald buildings. The 3D models exist (`model_projects/thorvald_buildings`, see its `SPEC.md`); effects, costs and unlocks
-are **PROPOSED** and nothing is in `data.cdb` yet. Every vanilla house has a few faction-only village buildings (Corrino's Propaganda
+are **PROPOSED**. Only the Consignment Terminal has rows in `data.cdb` (built 2026-11-05) and it is now abandoned, see below; the other
+four have models only. Updated 2026-11-12. Every vanilla house has a few faction-only village buildings (Corrino's Propaganda
 Office, the Smugglers' Water Network, Ecaz's Masterpieces); these are Thorvald's.
 
 | Building | Pillar | Proposed role | Look |
 |---|---|---|---|
-| **Consignment Terminal** | Treasury | Where Heighforge's alloy is consigned and sold on Arrakis: turns Spice and Plascrete into Solari, +Solari cap (the faction screen's "Sovereign Mint" bonus). A building, not a mint | Domed hub with landing ramps and cargo |
-| **Alloy Smelter** | Forge | Plascrete production; feeds the Terminal | Twin copper crucible hoppers |
+| ~~**Consignment Terminal**~~ | Treasury | **Abandoned 2026-11-12.** Was: sold Plascrete for Solari (the Convert line did not work in a game test) plus a +Solari cap. The rows and the model remain; the effects move to plain faction bonuses ([faction_design.md](faction_design.md)). What to do with the building (retire it, or keep it as a plain building) is open | Domed hub with landing ramps and cargo |
+| **Alloy Smelter** | Forge | Plascrete production. It used to feed the Terminal; with no trade, Plascrete needs another use (proposal B5 in [faction_design.md](faction_design.md)) or this building has little point | Twin copper crucible hoppers |
 | **Ore Drill** | Forge | Mining: Plascrete on rich ground (the asteroid-mining heritage, the Hammer of Wealth's +15%) | Sealed drill rig, no outlets |
 | **War Academy Annex** | Iron Guard | Ein's building: units recruited nearby join one level higher, or recruit faster | Command tower with a copper crown |
 | **Contract Hall** | Iron Guard | Where the house signs its mercenaries: cheaper Solari recruitment and upkeep in the region | Low walled compound, oxblood panels |
 
-Lore: Heighforge itself is a moon-sized exotic-metals factory in orbit ([lore.md](lore.md)); these buildings are its ground side.
-Councillor tie-ins are in [councillor_ideas.md](councillor_ideas.md) (Master of Operations unlocks the Terminal; Construction Chief
-speeds them up).
+Lore: Heighforge is a moon-sized exotic-metals factory in orbit around Ipyr ([lore.md](lore.md)), nowhere near Arrakis. These buildings are the house's own works on Arrakis, not a part of Heighforge (rejected idea, 2026-11-13).
+Councillor tie-ins are in [councillor_ideas.md](councillor_ideas.md) (the pool's Master of Operations unlocked the Terminal, which no
+longer applies; Construction Chief speeds buildings up).
 
 ## Headquarters: the Thorvald Citadel
 

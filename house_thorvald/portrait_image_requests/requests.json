@@ -1,0 +1,232 @@
+{
+ "style": "Stylised digital painting for a strategy-game character portrait in the look of Dune: Spice Wars UI art. Painterly, faceted flat colour planes with soft cel-shading, no outlines. Muted desaturated palette, one bright metallic trim colour. Cool rim light from upper left. Serious expression, three-quarter view. Not photographic, not 3D, not anime.",
+ "house_look": "House Thorvald: polished charcoal and gunmetal cloth, bold copper-bronze #B26E3C trim, oxblood #5A1A1E accents, high stand-up collars, small copper gear-and-star pin. No rust, bone, green, blue or gold.",
+ "negative": "photorealistic, photograph, 3D render, anime, outlines, text, watermark, frame, hat, mask, deformed hands, green clothing, gold trim",
+ "reference": "STYLE_REFERENCE_atreides.jpg",
+ "requests": [
+  {
+   "id": "C1",
+   "name": "Adjutant Nobru",
+   "aspect": "9:16",
+   "master_px": [
+    1152,
+    2048
+   ],
+   "background": "#00FF00",
+   "face_turn": "left",
+   "outputs": [
+    "336x624",
+    "180x320",
+    "128x128"
+   ],
+   "framing": "waist-up, head top 8-10% from top, eyes 22-26%, shoulders near both edges"
+  },
+  {
+   "id": "C2",
+   "name": "Envoy Theodoric Ein",
+   "aspect": "9:16",
+   "master_px": [
+    1152,
+    2048
+   ],
+   "background": "#00FF00",
+   "face_turn": "right",
+   "outputs": [
+    "336x624",
+    "180x320",
+    "128x128"
+   ],
+   "framing": "waist-up, head top 8-10% from top, eyes 22-26%, shoulders near both edges"
+  },
+  {
+   "id": "C3",
+   "name": "Master Silva",
+   "aspect": "9:16",
+   "master_px": [
+    1152,
+    2048
+   ],
+   "background": "#00FF00",
+   "face_turn": "left",
+   "outputs": [
+    "336x624",
+    "180x320",
+    "128x128"
+   ],
+   "framing": "waist-up, head top 8-10% from top, eyes 22-26%, shoulders near both edges"
+  },
+  {
+   "id": "C4",
+   "name": "Lady Haruka",
+   "aspect": "9:16",
+   "master_px": [
+    1152,
+    2048
+   ],
+   "background": "#00FF00",
+   "face_turn": "right",
+   "outputs": [
+    "336x624",
+    "180x320",
+    "128x128"
+   ],
+   "framing": "waist-up, head top 8-10% from top, eyes 22-26%, shoulders near both edges"
+  },
+  {
+   "id": "L1",
+   "name": "Earl Memnon Thorvald",
+   "aspect": "7:11",
+   "master_px": [
+    1400,
+    2200
+   ],
+   "background": "#00FF00",
+   "style_override": "stylised 3D game render, soft PBR",
+   "outputs": [
+    "700x1100",
+    "76x119",
+    "64x103"
+   ]
+  },
+  {
+   "id": "A1",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A2",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A3",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A4",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A5",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A6",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A7",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "redo"
+  },
+  {
+   "id": "A8",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "new"
+  },
+  {
+   "id": "A9",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "new"
+  },
+  {
+   "id": "A10",
+   "aspect": "1:1",
+   "master_px": [
+    960,
+    960
+   ],
+   "background": "#00FF00",
+   "outputs": [
+    "240x240",
+    "80x80"
+   ],
+   "status": "new"
+  }
+ ]
+}
