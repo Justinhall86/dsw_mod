@@ -650,8 +650,8 @@ Then in game: Karlin's look, the second sword, Nefud_Skill on the ability, and t
 ## Round 15 (2026-11-05): helmet with antennae (user reference: closed gunmetal helmet, copper seams, face window, mask, two antennae)
 
 - `08_scripts/60_helmet_survey.py` (`--prep`, render, `--assemble`): every headgear unit, no Sardaukar (22), head-bone parts only,
-  front/side/back -> `02_progress_photos/30_helmet/survey/helmet_survey_sheet.png`. `61_helmet_parts.py`: per-part galleries
-  (`30_helmet/parts/`), ids used by `--drop`.
+  front/side/back -> `gallery/helmets_and_heads/karlin_helmet_compare/survey/helmet_survey_sheet.png`. `61_helmet_parts.py`: per-part galleries
+  (`gallery/helmets_and_heads/karlin_helmet_compare/parts/`), ids used by `--drop`.
 - `08_scripts/62_helmet_build.py --donor X --drop ids --tag T` on `B_hero_C1.blend`: Karlin's hair removed (face skin and breathing
   mask kept); donor helmet moved head bone to head bone, fitted by a scale/offset search, 100 % B_HeadJ; painted gunmetal with
   copper lines on every panel edge (26b_paint.py), donor MGA/normal; antennae = the library katana blade cut at the guard,
@@ -659,10 +659,10 @@ Then in game: Karlin's look, the second sword, Nefud_Skill on the ability, and t
   splay), broad face to the front, width tapered 3.4 cm -> point, katana material (merges with the swords at export).
   Wrong turns on the antennae, fixed in the script: deleting hilt verts took the blade's long faces (0.19 m left); blade width
   axis is local z, not x (edge showed to the front); the katana's 3.5 cm curve was read as width (wide square "rabbit ears").
-- Variants (`30_helmet/compare_helmets.png`): **H1 Warden minus face plate and chin (picked: rounded shell, face window with
+- Variants (`gallery/helmets_and_heads/karlin_helmet_compare/compare_helmets.png`): **H1 Warden minus face plate and chin (picked: rounded shell, face window with
   the eyes, closest to the reference)**, H2 Imperial Trooper (covers the whole face), H3 FlameThrower minus visor/mask (too open).
 - H1 + swords: `22_mount_two_swords.py --nudge hero_H1 --sword1-tilt=-6`; 33_sword_clearance: 0 blade-in-body frames in all clips;
-  GIFs `10_poc_gifs/B_foundry_warlord_hero_H1_two_swords_{Run,AttackMelee01}.gif`, sheet `30_helmet/H1_attack_sheet.png`.
+  GIFs `10_poc_gifs/B_foundry_warlord_hero_H1_two_swords_{Run,AttackMelee01}.gif`, sheet `gallery/helmets_and_heads/karlin_helmet_compare/H1_attack_sheet.png`.
 - Fit note: Warden's search ended at its 1.33 cap with 20 skull verts within 4 mm / outside (renders show no poke-through;
   check in polish). Not exported: 50_assemble_export.py still defaults to C1 (`--src B_foundry_warlord_hero_H1_two_swords` to switch).
 **Polish candidates:** a copper groove along each antenna; a small forehead crest/socket where they meet; antenna splay/height;
@@ -670,13 +670,13 @@ helmet copper line weight; RTS-zoom check.
 - **H2 version (2026-11-05, user asked to try it):** `22_mount_two_swords.py --nudge hero_H2 --sword1-tilt=-6` ->
   `03_blender/weapons/B_foundry_warlord_hero_H2_two_swords.blend`; 33_sword_clearance 0 frames in all clips. Showcase
   `showcase/Karlin_H2_{Run,Attack,FightIdle}.gif` (`70_showcase_gifs.py -- --stem ..._H2_two_swords --name Karlin_H2`);
-  H1 showcase stays as `showcase/Karlin_*.gif`. Close-ups `30_helmet/H1_vs_H2_close.png`. The H2 shell closes over the
+  H1 showcase stays as `showcase/Karlin_*.gif`. Close-ups `gallery/helmets_and_heads/karlin_helmet_compare/H1_vs_H2_close.png`. The H2 shell closes over the
   eyes (only the mask shows below it).
 - **H2 front flattened (2026-11-05; user: the front coned out and with the antennae read as a bug).** `62_helmet_build.py`
   options: `--flatten F` (anything ahead of a plane 2 cm in front of Karlin's face pulled back with d' = F tanh(d/F); the
   cone stood 6.1 cm ahead), `--flat-front W` (front-facing surface within half-width W pulled forward onto that plane,
   weight 1 - (|x|/W)^4 for round corners - the front was a wedge, centre 4.7 cm ahead of the surface 4 cm to the side, so
   clamping the tip alone kept a prow), `--no-front-seam` (no copper line down the front centre). Variants in
-  `30_helmet/H2_flatten_compare.png`: H2f1 tip only, H2f3 W 7 cm, **H2f4 W 9 cm (picked)**.
+  `gallery/helmets_and_heads/karlin_helmet_compare/H2_flatten_compare.png`: H2f1 tip only, H2f3 W 7 cm, **H2f4 W 9 cm (picked)**.
   Build: `--donor ImpTrooper --drop 2,3 --tag H2f4 --flatten 0.01 --flat-front 0.09 --no-front-seam`; swords
   `--nudge hero_H2f4 --sword1-tilt=-6`, 0 blade-in-body frames; showcase `showcase/Karlin_H2flat_{Run,Attack,FightIdle}.gif`.

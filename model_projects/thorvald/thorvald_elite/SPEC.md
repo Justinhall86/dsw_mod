@@ -16,6 +16,19 @@ Gurney anim set, rigName 0, scale 1.1). Not yet seen in game.
 
 Renders: `02_progress_photos/<version>/` (front, three-quarter, side, back; v2 also has the shield sheet and a v1 comparison).
 
+## Helmet work (2026-11-13/15): nothing installed
+
+The owner wants a new helmet for the Heavy Vanguard. Candidates, newest last. Pictures are in `gallery/helmets_and_heads/` (index: `gallery/README.md`).
+
+| Candidate | Where | Status |
+|---|---|---|
+| v3b: Karlin H2f4 antenna helmet | `03_blender/v3_v3b.blend`, `02_progress_photos/40_v3_helmet/`, packaged in `06_game_ready/` | Built, not installed; superseded by the studies below |
+| House Guard helmet, recolour H5 (copper crown, chin, collar), face-plate dimples filled, Karlin antennae on the crown (60 %), Karlin breather instead of the chin vent | `gallery/helmets_and_heads/house_guard_study/antenna_breather/` (`HG_ant60_all_angles.png`) | Owner: "looks good", but the House Guard **is the Harkonnen Elite model** (`H_Elite`), so it may read as Harkonnen. Kept as a fallback |
+| Warden (Atreides Elite) helmet: top crest removed and crown smoothed, no collar, face guard replaced by Karlin's breather, antennae on the crown; W1-W5c paints | `gallery/helmets_and_heads/warden_study/` (README there), scenes `03_blender/helmet_study/wd_*.blend` | Built 2026-11-14. Owner (2026-11-15): reads insect-like, must read samurai; superseded by the samurai pass |
+| Samurai pass: Warden S01-S12 (eye slit, kasa shikoro, horn styles), then the **Sworn Sword 2.1 dome** (plume off) with long black kuwagata from the brow badge, spike halo, kasa shikoro, Sworn head + half-mask (D/E/F series), after the owner's reference pictures | `gallery/helmets_and_heads/warden_study/samurai/` (README), recipes `08_scripts/helmet_study/sm_variants.py`, scenes `03_blender/helmet_study/wd_<TAG>.blend` | Built 2026-11-15, waiting for the owner. Recommended: F01_big_kabuto. Note: uses the Sworn Sword's helmet, head and mask, so it overlaps that unit unless the Sworn Sword is retired |
+
+Rebuild any of them with the scripts in `08_scripts/helmet_study/` (each script's docstring has the command). The wd_/samurai scenes are already on the Elite rig (100 % B_HeadJ; the dome builds also swap in the Sworn Sword's head). Next after the owner picks one is a `70_helmet_*.py`-style fit onto `v2_final.blend` (remove TrooperHat, B_HeadJ weights), then 90/91 export.
+
 ## Folder map
 
 | Folder | What is in it |
@@ -27,6 +40,9 @@ Renders: `02_progress_photos/<version>/` (front, three-quarter, side, back; v2 a
 | `05_fbx_export/anim/` | The six Gurney animation clips used to pose previews |
 | `06_game_ready/` | A copy of the installed `CharMOD/Male01_ThorvaldElite` folder (HMD, prefab, 1024 px textures) |
 | `08_scripts/` | Recipe builder `03_variants_trooper.py` (variant `E4_Elite`) and its helpers |
+| `08_scripts/70_helmet_h2f4.py` | v3a/v3b: Karlin's H2f4 antenna helmet on the v2 body (built 2026-11-13, not installed) |
+| `08_scripts/helmet_study/` | Helmet candidate studies (House Guard, Warden): recolour, fill, antennae, breather. `paths.py` holds every path |
+| `04_textures/helmet_study/` | Masks and recoloured textures those scripts read and write (`house_guard/`, `warden/`) |
 
 ## Archive
 

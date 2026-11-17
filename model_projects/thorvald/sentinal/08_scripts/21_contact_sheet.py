@@ -8,6 +8,11 @@ Writes 02_progress_photos/05_variants/contact/contact_sheet.png  (large row)
         02_progress_photos/05_variants/contact/contact_sheet_128.png (~128px)
 """
 import os
+
+def _repo(p=os.path.abspath(__file__)):
+    while not os.path.exists(os.path.join(p, "CLAUDE.md")): p = os.path.dirname(p)
+    return p
+
 import shutil
 
 from PIL import Image, ImageDraw
@@ -15,7 +20,7 @@ from PIL import Image, ImageDraw
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PHOTO = os.path.join(ROOT, "02_progress_photos", "05_variants")
 CONTACT = os.path.join(PHOTO, "contact")
-REF = os.path.join(ROOT, "02_progress_photos", "00_reference")
+REF = os.path.join(_repo(), "gallery", "vehicles", "ravager_reference_views")
 
 ORDER = ["vanilla", "scythe", "bulwark", "mule", "nightwisp", "longshot"]
 LARGE = 360

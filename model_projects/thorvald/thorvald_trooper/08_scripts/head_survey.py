@@ -3,6 +3,11 @@
     blender -b --python head_survey.py -- [Key ...]
 """
 import os
+
+def _repo(p=os.path.abspath(__file__)):
+    while not os.path.exists(os.path.join(p, "CLAUDE.md")): p = os.path.dirname(p)
+    return p
+
 import sys
 
 import bmesh
@@ -15,7 +20,7 @@ import blender_scene as bs  # noqa: E402
 from dsw_core import script_args  # noqa: E402
 from units import UNITS, paths  # noqa: E402
 
-OUT = os.path.join(os.path.dirname(HERE), "02_progress_photos", "09_heads")
+OUT = os.path.join(_repo(), "gallery", "helmets_and_heads", "vanilla_head_renders")
 os.makedirs(OUT, exist_ok=True)
 keys = script_args() or list(UNITS)
 for key in keys:

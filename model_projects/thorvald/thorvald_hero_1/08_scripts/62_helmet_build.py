@@ -22,6 +22,11 @@ import argparse
 import json
 import math
 import os
+
+def _repo(p=os.path.abspath(__file__)):
+    while not os.path.exists(os.path.join(p, "CLAUDE.md")): p = os.path.dirname(p)
+    return p
+
 import subprocess
 import sys
 
@@ -63,7 +68,7 @@ ap.add_argument("--seam-cm", type=float, default=0.6, help="copper seam line wid
 a = ap.parse_args(P.script_args())
 drop = {int(x) for x in a.drop.split(",") if x}
 OUT_BLEND = os.path.join(PROJ, "03_blender", "nudge", "B_%s.blend" % ("hero_" + a.tag))
-OUT_DIR = os.path.join(PROJ, "02_progress_photos", "30_helmet", a.tag)
+OUT_DIR = os.path.join(_repo(), "gallery", "helmets_and_heads", "karlin_helmet_compare", a.tag)
 OUT_TEX = os.path.join(PROJ, "04_textures", "B_helmet", a.tag)
 for d in (OUT_DIR, OUT_TEX):
     os.makedirs(d, exist_ok=True)

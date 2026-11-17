@@ -10,6 +10,11 @@ what a graft onto Karlin's head would bring. Output 02_progress_photos/30_helmet
 """
 import json
 import os
+
+def _repo(p=os.path.abspath(__file__)):
+    while not os.path.exists(os.path.join(p, "CLAUDE.md")): p = os.path.dirname(p)
+    return p
+
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -17,7 +22,7 @@ PROJ = os.path.dirname(HERE)
 REPO = os.path.abspath(os.path.join(PROJ, os.pardir, os.pardir, os.pardir))
 EXTR = r"C:\dsw_mod\extr\Character"
 DONOR_DIR = os.path.join(PROJ, "05_fbx_export", "helmet_donors")
-OUT = os.path.join(PROJ, "02_progress_photos", "30_helmet", "survey")
+OUT = os.path.join(_repo(), "gallery", "helmets_and_heads", "karlin_helmet_compare", "survey")
 CANDIDATES = {
     "Warden": "Atreide/Unit/Warden/Female01_AtreideWarden.fbx",
     "AtreidesSoldier": "Atreide/Unit/Soldier/Male01_AtreideSoldier.fbx",
