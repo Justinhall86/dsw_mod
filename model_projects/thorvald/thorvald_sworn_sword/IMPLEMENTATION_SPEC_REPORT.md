@@ -1,13 +1,14 @@
 # Sworn Swords: implementation spec report (2026-11-08)
 
-# UPDATE 3 (2026-11-09): installed on the D: PC
-- Steam updated the D: copy to build 26405381 (vanilla hlboot 478027b5; vanilla data.cdb content unchanged). hlboot rebuilt on it and installed:
-  `bbbc3e16971969ce` = Renegades 30+31 + resource_trades + thorvald_sworn (all anchors found; build re-parsed).
-- Model: 2.0e (user-approved minimal look) exported and wired: model row `Th_SwornSword` -> `CharMOD/Male01_ThorvaldSwornSword/Prefab_ThorvaldSwornSword.prefab`
-  (`08_scripts/52_cdb_edit.py`). The placeholder Trooper mesh is gone; icon/portrait are still the Trooper's.
-- Fix: the Terminal's `Convert_TRes_To_TRes2` line had no `val`, and game.log said "ATTRIBUTES baking end - ! FAIL !". `53_cdb_trade_val.py` adds `val: 1`; the log is clean now.
-- Pak: `mod_files/stage_and_pack.py --install`. game.log: `[DataCache] Modified data.cdb`. Stages 1-4 are in game; none has been checked in a match yet.
-  Still not implemented: the Terminal sub-cap of 3.
+# UPDATE 3 (2026-11-12): the Terminal sale source is dropped
+
+The owner reported that the Consignment Terminal's Plascrete trade did not work in a game test and abandoned the whole trading idea. Effects on this report:
+- **Stage 3 (sale spawn) is dropped.** The `"spawn": "TH_SwornSword_Spawned"` field on the trade line, the `thsw_sale` engine patch and the Terminal-as-source rows in UPDATE 2 below are dead weight to remove (nothing removed yet).
+- **Stage 2 (share rungs), Stage 4 (Oath) and Stage 1 (training) are unaffected.** Do not `--revert` `41_cdb_sworn_engine.py` wholesale: it also holds the Oath and share-rung rows.
+- Remaining sources: training, Council-end share rungs, later the frigate's Orbital Drop. A data-only optional source is `Faction_DailySpawn_TUnit_Flat` (one vanilla use); the shared cap of 5 makes it a near-free refill, so gate it behind a Hegemony tier.
+- Design context: `house_thorvald/faction_design.md`, "Decision 2026-11-12".
+
+---
 
 # UPDATE 2 (2026-11-08, later): engine patches, Terminal and all spawning
 

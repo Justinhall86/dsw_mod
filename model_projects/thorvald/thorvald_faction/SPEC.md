@@ -40,6 +40,8 @@ Ornithopters, Harvester, Artillery Drone, Hammer (`Th_Ship`), heroes' bodies and
 - HQ starts with `[Th_Ornithopter]` only (same as Corrino's). Conquest mode untouched.
 
 ## Plascrete trade (2026-11-04)
+> **ABANDONED 2026-11-12.** The owner reported the Terminal's trade did not work in a game test and dropped the whole Plascrete-trading idea; the faction gets plain bonuses instead (proposals in `house_thorvald/faction_design.md`, "Decision 2026-11-12"). Everything below, including the Consignment Terminal paragraph, describes what was built, not what is wanted. **Nothing has been removed from `data.cdb`, hlboot or the scripts yet.** Likely cleanup, to confirm: remove the Convert line from `TTh_ConsignmentTerminal`, decide the building row's fate (do not delete without approval), and drop the trade hlboot patch on the next rebuild.
+
 `08_scripts/55_plascrete_topbar_trade.py` gives `NobruPassive` a `Convert_TRes_To_TRes2` line: 100 Plascrete for 150 Solari, instantly, from a Convert button in the top bar. Not tested in game.
 It has two halves and needs both: the rows in `data.cdb`, and an `hlboot.dat` patched with Quinn's `resource_trades` feature:
 `python tool/unpack_quinn.py`, then `python tool/quinn.py build --base <the game's hlboot.dat> --ticks resource_trades --out <file>`, then `python tool/quinn.py install --built <file> --game <D4X folder>`.

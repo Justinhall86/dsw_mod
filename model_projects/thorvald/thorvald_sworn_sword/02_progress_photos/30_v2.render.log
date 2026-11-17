@@ -1,0 +1,33 @@
+00:00.985  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword2_2.0e.blend"
+00:05.641  image.gpu        | WARNING DDS image '' failed to load data from file
+00:05.641  image.gpu        | WARNING DDS image '' falling back to uncompressed
+00:05.688  image.gpu        | WARNING DDS image '' failed to load data from file
+00:05.688  image.gpu        | WARNING DDS image '' falling back to uncompressed
+00:05.750  image.gpu        | WARNING DDS image '' failed to load data from file
+00:05.750  image.gpu        | WARNING DDS image '' falling back to uncompressed
+00:06.344  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_front.png'
+00:06.875  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_tq.png'
+00:07.360  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_side.png'
+00:07.860  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_back.png'
+00:08.391  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_front.png'
+00:08.938  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_tq.png'
+00:09.547  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_side.png'
+00:10.094  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_back.png'
+00:10.657  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_waist_front.png'
+00:11.344  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_waist_tq.png'
+00:11.922  render           | Saved: 'D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_waist_side.png'
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_front.png 499305 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_tq.png 492649 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_side.png 438342 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_body_back.png 474287 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_front.png 366529 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_tq.png 366741 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_side.png 353005 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_head_back.png 335854 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_waist_front.png 395480 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_waist_tq.png 418853 bytes
+RENDERED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\02_progress_photos\30_v2\2.0e_waist_side.png 358327 bytes
+RENDERED 11
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

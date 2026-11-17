@@ -64,3 +64,21 @@ Fix (`08_scripts/40_operations_v2.py`, `--revert` -> `07_data_cdb/data_BEFORE_op
 Old rows `Th_IronLandfall` (ability/trait) and the `Th_RenegadeBase` world event are no longer used (bases already in saves stay).
 Not yet tested in game. Things to watch: Strike needs the victim to own a village with an outpost (else `dailyUpdate` returns
 early that day); Takeover on a village that is not neutral is refused by the targeting (alignment Neutral).
+
+## v3 (2026-11-12): after the second operations playtest
+User verdicts: Strike A did nothing; Strike B, Takeover B and Landfall B left a lander nobody could remove; Renegade arrivals
+looked instant; Landfall A and C and all three Extractions work. Changes (`thorvald_faction/08_scripts/63_playtest3.py`,
+revert copy `thorvald_faction/07_data_cdb/data_BEFORE_playtest3.cdb`):
+- Removed Strike A (mission only), Strike B, Takeover B, Landfall B with their landers and walk-out raids.
+- Kept: Renegade Strike (`Th_RenegadeStrikeC`), Renegade Takeover (`Th_RenegadeTakeover`), Iron Landfall A (`GhostMarket`) and C, Extraction A/B/C, Hammerfall.
+- Renegade drop ship `ThR_DropShip` (unit + model, files in `06_game_ready/VehMOD/Renegade_DropShip`, made by `08_scripts/50_dropship_assets.py`):
+  raid field `thShip` on `Renegade_Drop` and `Th_RenegadeStrike`, read by the hlboot kit in `spawnRaidComposition`. It is the
+  SpaceShuttle hull in a charcoal and oxblood livery, because the landing motion lives in that rig's clips. A real Ravager hull
+  would need a kitbash skinned to the SpaceShuttle rig.
+- Not built or installed into the game yet at the time of writing (hlboot build 09191419eccaf120, pak sha 84890228221c15b7).
+
+## v3b: timed drops (2026-11-13, not tested in game)
+Cause of "units and ship at the same time": the raid's march order aborted the landing (see engine_findings.md). hlboot tick
+`thsw_drops.py` holds the order until every ship is down. Test variants (`thorvald_faction/08_scripts/64_timed_drops.py`, `--revert`):
+Renegade Strike (all land together, 3 s), Slow Descent (`ThR_DropShipSlow`, thArrive 7), Wave (thStagger 1.5), Slow Wave (7 s, 2.5).
+Takeover and natural Renegade drops get the base fix.

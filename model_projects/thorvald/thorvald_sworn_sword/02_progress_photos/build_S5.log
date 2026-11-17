@@ -1,0 +1,23 @@
+00:01.422  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_trooper\Final\model\Thorvald_Trooper_v13.blend"
+D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\08_scripts\11_build.py:103: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  km.use_nodes = True
+SASH 74 faces, hem 0.695 -> 0.565
+WRAP 600 faces z 1.065..1.262, circumference 1.10 m
+FBX version: 7400
+MASK Gunner parts [0, 1, 6, 7]: 321 faces, scale 1.186, 0 face verts pushed behind
+HELMET rx 0.123 ry 0.137 h 0.160 tilt 9.1, 8 ribs, 880 faces
+BADGE gear emblem x0.55 at (0.0, -0.127, 1.976)
+TAIL 0.904 m, 574 faces, 6 verts within 6 mm of body
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+AO baked (48 samples), mean 0.91
+TRIS total 10799 (no katana); kit {'SwornSash': 105, 'SwornWrap': 1200, 'SwornMask': 321, 'SwornHelmet': 1720, 'SwornTail': 1120}
+MATERIALS ['Mat_Commando', 'Mat_Duncan', 'Mat_Gurney', 'Mat_Katana', 'Mat_SwornKit', 'Mat_Thorvald_Trim']
+Info: Saved as "SwornSword_S5.blend"
+SAVED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword_S5.blend
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

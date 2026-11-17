@@ -1,0 +1,39 @@
+02:33.500  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword_S9.blend"
+03:04.500  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword_S9.blend"
+03:06.171  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword_S9.blend"
+03:08.093  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword_S9.blend"
+03:09.375  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword_S9.blend"
+FBX version: 7400
+CLIP Common_Run             SwornTail        worst frame   0:    0 verts inside (deepest 0.0 cm)
+CLIP Common_Run             SwornWrap        worst frame  15:  249 verts inside (deepest 8.0 cm)
+CLIP Common_Run             SwornSash        worst frame  15:   19 verts inside (deepest 7.9 cm)
+CLIP Common_Run             SwornMask        worst frame  25:   11 verts inside (deepest 0.7 cm)
+CLIP Common_Run             SwornHelmet      worst frame  15:    1 verts inside (deepest 4.2 cm)
+FBX version: 7400
+CLIP Common_AttackMelee01   SwornTail        worst frame  15:    2 verts inside (deepest 0.2 cm)
+CLIP Common_AttackMelee01   SwornWrap        worst frame  25:  282 verts inside (deepest 8.0 cm)
+CLIP Common_AttackMelee01   SwornSash        worst frame  13:    4 verts inside (deepest 7.5 cm)
+CLIP Common_AttackMelee01   SwornMask        worst frame   9:   50 verts inside (deepest 2.9 cm)
+CLIP Common_AttackMelee01   SwornHelmet      worst frame  15:    8 verts inside (deepest 0.3 cm)
+FBX version: 7400
+CLIP Common_AttackMelee02   SwornTail        worst frame  15:    1 verts inside (deepest 0.0 cm)
+CLIP Common_AttackMelee02   SwornWrap        worst frame  19:  277 verts inside (deepest 8.0 cm)
+CLIP Common_AttackMelee02   SwornSash        worst frame  11:    4 verts inside (deepest 7.0 cm)
+CLIP Common_AttackMelee02   SwornMask        worst frame  13:   24 verts inside (deepest 1.7 cm)
+CLIP Common_AttackMelee02   SwornHelmet      worst frame   0:    0 verts inside (deepest 0.0 cm)
+FBX version: 7400
+CLIP Common_FightIdle       SwornTail        worst frame   0:    0 verts inside (deepest 0.0 cm)
+CLIP Common_FightIdle       SwornWrap        worst frame   3:  218 verts inside (deepest 7.9 cm)
+CLIP Common_FightIdle       SwornSash        worst frame  27:    3 verts inside (deepest 5.3 cm)
+CLIP Common_FightIdle       SwornMask        worst frame   7:    6 verts inside (deepest 2.9 cm)
+CLIP Common_FightIdle       SwornHelmet      worst frame   0:    0 verts inside (deepest 0.0 cm)
+FBX version: 7400
+CLIP Common_FightHitFront   SwornTail        worst frame   0:    0 verts inside (deepest 0.0 cm)
+CLIP Common_FightHitFront   SwornWrap        worst frame   9:  317 verts inside (deepest 7.9 cm)
+CLIP Common_FightHitFront   SwornSash        worst frame   1:    5 verts inside (deepest 7.3 cm)
+CLIP Common_FightHitFront   SwornMask        worst frame   3:   39 verts inside (deepest 3.1 cm)
+CLIP Common_FightHitFront   SwornHelmet      worst frame  15:    2 verts inside (deepest 4.2 cm)
+TOTAL {'SwornTail': 3, 'SwornWrap': 1343, 'SwornSash': 35, 'SwornMask': 130, 'SwornHelmet': 11}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

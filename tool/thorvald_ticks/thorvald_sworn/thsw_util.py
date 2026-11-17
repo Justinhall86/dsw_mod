@@ -86,3 +86,19 @@ def the_game_chain(bc, fn, *fields):
         regs.append(reg)
         cur, cur_kind = reg, kind
     return out, regs
+
+
+def text(bc, fn, s):
+    """(register, instruction) that loads a real String object holding `s`.
+
+    The `String` opcode loads raw UCS2 bytes, not a String object: comparing against it never matches (2026-11-10: this is
+    why Renegade Takeover and the Consignment Terminal window did nothing). A constant string is a global, as in vanilla code."""
+    from tools.hlcode import kind_named, text_object
+    reg = new_reg(bc, fn, kind_named(bc, "String"))
+    return reg, op(bc, "GetGlobal", **{"dst": reg, "global": text_object(bc, s)})
+
+
+def nulls(bc, fn, kinds):
+    """One register per kind, each loaded with null: (registers, instructions)."""
+    regs = [new_reg(bc, fn, k) for k in kinds]
+    return regs, [op(bc, "Null", dst=r) for r in regs]

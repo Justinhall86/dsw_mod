@@ -1,0 +1,17 @@
+00:00.953  blend            | Read blend: "D:\dsw_mod\model_projects\thorvald\thorvald_trooper\Final\model\Thorvald_Trooper_v13.blend"
+D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\08_scripts\12_build_v2.py:97: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  km.use_nodes = True
+WRAP 960 faces, circumference 1.12 m
+SASH ribbon 108 faces, z 1.137 -> 0.565
+MASK Feydakin 1,2: 624 faces, scale 0.947 (fit 1.076), z 1.685..1.890, 146 head verts pushed
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+SHIN 30224 old-line px erased, copper band z 0.200..0.255 (42890 px)
+TRIS total 9019 (no katana); kit {'SwornSash': 216, 'SwornWrap': 1920, 'SwornMask': 624}
+MATERIALS ['Mat_Commando', 'Mat_Duncan', 'Mat_Gurney', 'Mat_Katana', 'Mat_SwornKit', 'Mat_Thorvald_Trim']
+Info: Saved as "SwornSword2_2.0e.blend"
+SAVED D:\dsw_mod\model_projects\thorvald\thorvald_sworn_sword\03_blender\SwornSword2_2.0e.blend
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
