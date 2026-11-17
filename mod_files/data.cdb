@@ -36744,7 +36744,7 @@
 							"res": "CouncilVote"
 						},
 						{
-							"qty": 40,
+							"qty": 200,
 							"res": "CommandPoint"
 						},
 						{
@@ -54291,8 +54291,114 @@
 						"x": 34,
 						"y": 0
 					},
-					"name": "Iron Landfall",
-					"desc": "A Renegade shuttle on the Thorvald payroll lands in the chosen region. Disembark its company of Thorvald troops (two Troopers, an Iron Ranger and an Iron Guard) there, or send its crew raiding."
+					"name": "Iron Landfall A",
+					"desc": "A Renegade shuttle on the Thorvald payroll lands in the chosen region. Disembark its company of Thorvald troops (two Troopers, an Iron Ranger and an Iron Guard) there.",
+					"duration": 3
+				},
+				{
+					"id": "Th_IronLandfallC",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 0,
+						"needSelector": true,
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 34,
+						"y": 0
+					},
+					"name": "Iron Landfall C",
+					"desc": "Variant C. No lander: each squad of the company is dropped by its own shuttle in the middle of the chosen region.",
+					"duration": 1,
+					"thDrop": "Th_LandfallCompany"
+				},
+				{
+					"id": "Th_ExtractionB",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 0,
+						"needSelector": true,
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 15,
+						"y": 0
+					},
+					"name": "Extraction B: Lift Shuttles",
+					"desc": "Variant B. Every ground unit of yours in the chosen region is picked up by a lightly armoured lift shuttle and flown back to your Main Base. The shuttles can be shot down.",
+					"duration": 1,
+					"thLift": "Th_LiftShuttle"
+				},
+				{
+					"id": "Th_ExtractionC",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 0,
+						"needSelector": true,
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 15,
+						"y": 0
+					},
+					"name": "Extraction C: Carryalls",
+					"desc": "Variant C. Every ground unit of yours in the chosen region is lifted out by a slow Thorvald carryall and flown back to your Main Base.",
+					"duration": 1,
+					"thLift": "Th_LiftCarryall"
 				},
 				{
 					"id": "Th_RenegadeTakeover",
@@ -54326,7 +54432,9 @@
 						"y": 0
 					},
 					"name": "Renegade Takeover",
-					"desc": "Sell a neutral village's location to the Renegade fleet. Their shuttles land on it and the Renegades take it: a Renegade Base, its militia and its raiders, until someone dismantles the base."
+					"desc": "Target a neutral village: Renegade drop ships land a warband on it. They take the village and set up a Renegade Base, which anyone can destroy.",
+					"duration": 3,
+					"thRaid": "Renegade_Drop"
 				},
 				{
 					"id": "Th_RenegadeStrike",
@@ -54376,8 +54484,185 @@
 						"x": 2,
 						"y": 0
 					},
+					"name": "Renegade Strike (old signal version, not offered)",
+					"desc": "Sell a rival House's coordinates to the Renegade fleet. Target the main base of another player (not a neutral city): within a day their shuttles land on one of that House's villages and pillage it.",
+					"duration": 1.2
+				},
+				{
+					"id": "Th_RenegadeStrikeC",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 3,
+						"needSelector": true,
+						"alignment": 4,
+						"validDiplomaticStatuses": [
+							{
+								"ref": "War"
+							},
+							{
+								"ref": "Hostility"
+							}
+						],
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 2,
+						"y": 0
+					},
 					"name": "Renegade Strike",
-					"desc": "Sell a rival House's coordinates to the Renegade fleet. Target the main base of another player (not a neutral city): within a day their shuttles land on one of that House's villages and pillage it."
+					"desc": "Target an enemy village: Renegade drop ships land on it together, the raiders step out, then they pillage it.",
+					"duration": 1,
+					"thRaid": "Th_RenegadeStrike"
+				},
+				{
+					"id": "Th_RenegadeStrikeSlow",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 3,
+						"needSelector": true,
+						"alignment": 4,
+						"validDiplomaticStatuses": [
+							{
+								"ref": "War"
+							},
+							{
+								"ref": "Hostility"
+							}
+						],
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 2,
+						"y": 0
+					},
+					"name": "Renegade Strike: Slow Descent",
+					"desc": "Test variant. Heavy drop ships take 7 seconds to come down; the raiders step out once they land and then march on the village.",
+					"duration": 1,
+					"thRaid": "Th_RenegadeStrikeSlow"
+				},
+				{
+					"id": "Th_RenegadeStrikeWave",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 3,
+						"needSelector": true,
+						"alignment": 4,
+						"validDiplomaticStatuses": [
+							{
+								"ref": "War"
+							},
+							{
+								"ref": "Hostility"
+							}
+						],
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 2,
+						"y": 0
+					},
+					"name": "Renegade Strike: Wave",
+					"desc": "Test variant. Drop ships come down one after another; the raiders gather and march once the last ship has landed.",
+					"duration": 1,
+					"thRaid": "Th_RenegadeStrikeWave"
+				},
+				{
+					"id": "Th_RenegadeStrikeSlowWave",
+					"flags": 0,
+					"cooldowns": {},
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 3,
+						"needSelector": true,
+						"alignment": 4,
+						"validDiplomaticStatuses": [
+							{
+								"ref": "War"
+							},
+							{
+								"ref": "Hostility"
+							}
+						],
+						"hostileAction": "Mission_NonHostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"traits": [],
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 2,
+						"y": 0
+					},
+					"name": "Renegade Strike: Slow Wave",
+					"desc": "Test variant. Heavy drop ships come down slowly, one after another; the raiders march once the last has landed.",
+					"duration": 1,
+					"thRaid": "Th_RenegadeStrikeSlowWave"
 				},
 				{
 					"id": "Th_IronLandfall",
@@ -54690,6 +54975,49 @@
 					"name": "Orbital Strike",
 					"duration": 3,
 					"desc": "The Emperor always keeps a few ships in low orbit. They are ready to strike at any time, as long as they get the right coordinates."
+				},
+				{
+					"id": "Th_OrbitalStrike",
+					"flags": 513,
+					"cooldowns": {},
+					"traits": [
+						{
+							"trait": "Th_OrbitalStrike",
+							"apply": 3,
+							"comments": "",
+							"props": {
+								"hideApplyTarget": true
+							}
+						}
+					],
+					"otherEffects": [],
+					"display": {
+						"where": 4,
+						"alignment": 1
+					},
+					"apply": {
+						"need": 0,
+						"needSelector": true,
+						"hostileAction": "Mission_Hostile_Detected"
+					},
+					"props": {
+						"unlockedBy": 1,
+						"tip": {
+							"allowed": true,
+							"padExpand": true,
+							"cat": "Operation"
+						}
+					},
+					"implemented": true,
+					"gfx": {
+						"file": "UI/icons/skill_icons02.png",
+						"size": 30,
+						"x": 20,
+						"y": 0
+					},
+					"name": "Hammerfall (Orbital Strike)",
+					"duration": 5,
+					"desc": "Heighforge tenders hold orbit over Arrakis. For five days they answer Thorvald's coordinates with alloy and fire."
 				},
 				{
 					"id": "ElaccaFog",
@@ -57119,6 +57447,29 @@
 						}
 					],
 					"scale": 1.5,
+					"rigName": 9,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 5,
+						"y": 2
+					},
+					"audio": {
+						"select": "Select_Shuttle"
+					},
+					"inherit": "ShuttleCommon"
+				},
+				{
+					"id": "ThR_DropShip",
+					"radius": 5,
+					"height": 3,
+					"props": {},
+					"mesh": [
+						{
+							"path": "VehMOD/Renegade_DropShip/Prefab_Renegade_DropShip.prefab"
+						}
+					],
+					"scale": 1.9,
 					"rigName": 9,
 					"gfx": {
 						"file": "UI/icons/icon_unit.png",
@@ -73872,6 +74223,18 @@
 						},
 						{
 							"unit": "TH_Elite"
+						},
+						{
+							"unit": "TH_Hero_1"
+						},
+						{
+							"unit": "TH_Hero_1"
+						},
+						{
+							"unit": "TH_Hero_2"
+						},
+						{
+							"unit": "TH_Hero_2"
 						}
 					],
 					"flags": 49158
@@ -76137,24 +76500,6 @@
 											"aiType": "Military"
 										}
 									]
-								},
-								{
-									"type": 0,
-									"desc": "Send the crew raiding (experimental)",
-									"props": {
-										"cost": [
-											{
-												"qty": 1,
-												"res": "Solari",
-												"time": 0
-											}
-										],
-										"onlyForCreator": true
-									},
-									"reward": {
-										"raid": true
-									},
-									"aiWeights": []
 								},
 								{
 									"type": 1,
@@ -79898,6 +80243,359 @@
 					"equipment": [],
 					"attacks": {},
 					"faction": "NoFaction"
+				},
+				{
+					"id": "Th_LiftShuttle",
+					"stats": [
+						{
+							"speed": 40,
+							"armor": 0,
+							"health": 150,
+							"maxExpLevel": 0,
+							"safeRegen": 0
+						}
+					],
+					"props": {
+						"zOffset": 10,
+						"hoverHeight": 3,
+						"maxUnitsPerAirfield": 1,
+						"aiWeight": 5,
+						"baseArrivalTime": 6,
+						"pickupTime": 3,
+						"dropTime": 2,
+						"accelerationSpeed": 40,
+						"rotationSpeed": 2,
+						"radius": 3,
+						"rotationAcceleration": 2,
+						"rotationDamping": 2,
+						"rotatingTilt": -20,
+						"tip": {
+							"cat": "Unit",
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"flags": 131706,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 5,
+						"y": 2
+					},
+					"traits": [],
+					"images": {},
+					"texts": {
+						"name": "Thorvald Lift Shuttle",
+						"plural": {
+							"name": "Thorvald Lift Shuttles"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "Shuttle",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Shuttle/FX_Shuttle_Reactor.fx",
+										"space": 0,
+										"attachTo": "SpaceShuttle",
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"kind": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Explosion/FX_Explosion_High.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "Shuttle"
+									}
+								],
+								"soundSource": 0
+							}
+						],
+						"death": {
+							"fadeDuration": 0.3,
+							"fadeDelay": 0.1
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"faction": "NoFaction"
+				},
+				{
+					"id": "Th_LiftCarryall",
+					"stats": [
+						{
+							"speed": 14,
+							"armor": 2,
+							"health": 300,
+							"maxExpLevel": 0,
+							"safeRegen": 0
+						}
+					],
+					"props": {
+						"zOffset": 8,
+						"hoverHeight": 1,
+						"maxUnitsPerAirfield": 2,
+						"aiWeight": 5,
+						"baseArrivalTime": 6,
+						"pickupTime": 5,
+						"dropTime": 5,
+						"accelerationSpeed": 3,
+						"rotationSpeed": 2,
+						"tip": {
+							"cat": "Unit",
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"flags": 122,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 4,
+						"y": 2
+					},
+					"traits": [],
+					"images": {},
+					"texts": {
+						"name": "Thorvald Carryall",
+						"plural": {
+							"name": "Thorvald Carryalls"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "Carryall",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/CarryAll/FX_CarryAll_Reactor.fx",
+										"space": 0,
+										"attachTo": "B_Chassis",
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"kind": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Explosion/FX_Explosion_High.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "B_Chassis"
+									}
+								],
+								"soundSource": 0
+							}
+						]
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"faction": "NoFaction"
+				},
+				{
+					"id": "ThR_DropShip",
+					"stats": [
+						{
+							"speed": 40,
+							"armor": 10,
+							"health": 600,
+							"maxExpLevel": 0,
+							"safeRegen": 0
+						}
+					],
+					"props": {
+						"zOffset": 10,
+						"hoverHeight": 3,
+						"maxUnitsPerAirfield": 1,
+						"aiWeight": 5,
+						"baseArrivalTime": 6,
+						"pickupTime": 3,
+						"dropTime": 2,
+						"accelerationSpeed": 40,
+						"rotationSpeed": 2,
+						"radius": 3,
+						"rotationAcceleration": 2,
+						"rotationDamping": 2,
+						"rotatingTilt": -20,
+						"tip": {
+							"cat": "Unit",
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"flags": 131706,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 5,
+						"y": 2
+					},
+					"traits": [],
+					"images": {},
+					"texts": {
+						"name": "Renegade Drop Ship",
+						"plural": {
+							"name": "Renegade Drop Ships"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "ThR_DropShip",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Shuttle/FX_Shuttle_Reactor.fx",
+										"space": 0,
+										"attachTo": "SpaceShuttle",
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"kind": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Explosion/FX_Explosion_High.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "Shuttle"
+									}
+								],
+								"soundSource": 0
+							}
+						],
+						"death": {
+							"fadeDuration": 0.3,
+							"fadeDelay": 0.1
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"faction": "NoFaction"
+				},
+				{
+					"id": "ThR_DropShipSlow",
+					"stats": [
+						{
+							"speed": 40,
+							"armor": 10,
+							"health": 600,
+							"maxExpLevel": 0,
+							"safeRegen": 0
+						}
+					],
+					"props": {
+						"zOffset": 10,
+						"hoverHeight": 3,
+						"maxUnitsPerAirfield": 1,
+						"aiWeight": 5,
+						"baseArrivalTime": 6,
+						"pickupTime": 3,
+						"dropTime": 2,
+						"accelerationSpeed": 40,
+						"rotationSpeed": 2,
+						"radius": 3,
+						"rotationAcceleration": 2,
+						"rotationDamping": 2,
+						"rotatingTilt": -20,
+						"tip": {
+							"cat": "Unit",
+							"padExpand": false,
+							"allowed": false
+						}
+					},
+					"flags": 131706,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 5,
+						"y": 2
+					},
+					"traits": [],
+					"images": {},
+					"texts": {
+						"name": "Renegade Heavy Drop Ship",
+						"plural": {
+							"name": "Renegade Heavy Drop Ships"
+						}
+					},
+					"aiWeights": [],
+					"effects": {
+						"models": [
+							{
+								"ref": "ThR_DropShip",
+								"flags": 0
+							}
+						],
+						"events": [
+							{
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Shuttle/FX_Shuttle_Reactor.fx",
+										"space": 0,
+										"attachTo": "SpaceShuttle",
+										"flags": 0
+									}
+								],
+								"soundSource": 0,
+								"kind": 0
+							},
+							{
+								"kind": 24,
+								"fxs": [
+									{
+										"fx": "Fx/Explosion/FX_Explosion_High.fx",
+										"space": 0,
+										"flags": 0,
+										"attachTo": "Shuttle"
+									}
+								],
+								"soundSource": 0
+							}
+						],
+						"death": {
+							"fadeDuration": 0.3,
+							"fadeDelay": 0.1
+						}
+					},
+					"costs": {},
+					"equipment": [],
+					"attacks": {},
+					"faction": "NoFaction",
+					"thArrive": 7.0
 				},
 				{
 					"id": "SpiceFreighter",
@@ -92109,13 +92807,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 30,
-								"res": "Manpower"
+								"qty": 150,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 6,
+								"qty": 9,
 								"res": "Solari"
 							},
 							{
@@ -92549,9 +93247,9 @@
 					"id": "TH_Trooper_Aramsham",
 					"texts": {
 						"name": "Thorvald Trooper",
-						"desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
+						"desc": "Contract swordsmen of House Thorvald: dark long coats, a wide kasa hat and a katana, bought and paid for in Solari.",
 						"plural": {
-							"name": "Conscript Swordmen"
+							"name": "Thorvald Troopers"
 						}
 					},
 					"traits": [],
@@ -92622,13 +93320,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 20,
-								"res": "Manpower"
+								"qty": 100,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 4,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
@@ -92919,13 +93617,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 30,
-								"res": "Manpower"
+								"qty": 150,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 6,
+								"qty": 9,
 								"res": "Solari"
 							},
 							{
@@ -93130,9 +93828,9 @@
 					"id": "TH_Soldier_Aramsham",
 					"texts": {
 						"name": "Iron Ranger",
-						"desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
+						"desc": "Thorvald marksmen with a long rifle, hired for their patience and kept on the payroll for their aim.",
 						"plural": {
-							"name": "Conscript Riflemen"
+							"name": "Iron Rangers"
 						}
 					},
 					"traits": [],
@@ -93204,13 +93902,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 20,
-								"res": "Manpower"
+								"qty": 100,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 4,
+								"qty": 6,
 								"res": "Solari"
 							},
 							{
@@ -93488,13 +94186,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 50,
-								"res": "Manpower"
+								"qty": 250,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 10,
+								"qty": 15,
 								"res": "Solari"
 							},
 							{
@@ -94308,17 +95006,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"res": "Solari",
-								"qty": 100
-							},
-							{
-								"qty": 50,
-								"res": "Manpower"
+								"qty": 350,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 20,
+								"qty": 30,
 								"res": "Solari"
 							},
 							{
@@ -94523,11 +95217,11 @@
 					},
 					"id": "TH_Ship",
 					"texts": {
-						"name": "Hammer",
+						"name": "Ipyr Lancer",
 						"plural": {
-							"name": "Hammers"
+							"name": "Ipyr Lancers"
 						},
-						"desc": "The Hammer is a specialized bomber of the Imperium, designed to deliver high-caliber explosives with frightening precision and break any defensive position."
+						"desc": "A Thorvald gunship in Heighforge plate, built around twin chin cannons. It rakes ground targets with sustained cannon fire instead of rockets."
 					},
 					"traits": [
 						{
@@ -94542,7 +95236,7 @@
 					],
 					"stats": [
 						{
-							"power": 22,
+							"power": 6,
 							"armor": 5,
 							"health": 340,
 							"range": 35
@@ -94590,7 +95284,7 @@
 								"kind": 0,
 								"fxs": [
 									{
-										"fx": "Fx/Vehicle/Ships/Hammer/FX_Hammer_Reactors.fx",
+										"fx": "Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Ship_Reactors.fx",
 										"space": 0,
 										"attachTo": "B_Body",
 										"flags": 0
@@ -94618,6 +95312,30 @@
 										"space": 0,
 										"flags": 2,
 										"attachTo": ""
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 4,
+								"fxs": [
+									{
+										"fx": "Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Ship_Muzzle.fx",
+										"space": 0,
+										"attachTo": "B_Body",
+										"flags": 128
+									}
+								],
+								"soundSource": 0
+							},
+							{
+								"kind": 16,
+								"fxs": [
+									{
+										"fx": "Fx/Unit/ImpactDistance.fx",
+										"space": 0,
+										"attachTo": "",
+										"flags": 0
 									}
 								],
 								"soundSource": 0
@@ -94652,7 +95370,7 @@
 					"attacks": {
 						"combos": [
 							{
-								"ref": "Th_Ship_Attack"
+								"ref": "Th_Ship_Gun"
 							}
 						]
 					}
@@ -95317,9 +96035,9 @@
 					"texts": {
 						"name": "Thorvald Frigate",
 						"plural": {
-							"name": "Cronos"
+							"name": "Thorvald Frigates"
 						},
-						"desc": "The Cronos is a symbol of the Imperium's power. It is equipped with powerful flanking cannons and the full infrastructure necessary to land shuttles."
+						"desc": "A black and copper gunship of House Thorvald: wide armoured hull, small rear jets and a heavy forward battery. Deployed, it holds position as a forward landing platform."
 					},
 					"traits": [
 						{
@@ -96163,7 +96881,7 @@
 						"plural": {
 							"name": "Vane"
 						},
-						"desc": "Captain Vane is a proud Sardaukar officer, used to wielding authority over his subordinates, conscripts of the Landsraad and Sardaukar alike. Pragmatic and experienced, he is often put in charge of dangerous operations, which he always returns victorious from."
+						"desc": "Captain Vane Torrver is a Thorvald contract officer, used to wielding authority over hired blades and house regulars alike. Pragmatic and experienced, he is sent wherever the Earl's money has to be defended with force."
 					},
 					"traits": [
 						{
@@ -96451,9 +97169,9 @@
 					"id": "TH_Soldier_Conquest",
 					"texts": {
 						"name": "Iron Ranger",
-						"desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
+						"desc": "Thorvald marksmen with a long rifle, hired for their patience and kept on the payroll for their aim.",
 						"plural": {
-							"name": "Conscript Trainees"
+							"name": "Iron Rangers"
 						}
 					},
 					"traits": [
@@ -96507,13 +97225,13 @@
 					"costs": {
 						"recruit": [
 							{
-								"qty": 30,
-								"res": "Manpower"
+								"qty": 150,
+								"res": "Solari"
 							}
 						],
 						"upkeep": [
 							{
-								"qty": 2,
+								"qty": 3,
 								"res": "Solari"
 							},
 							{
@@ -111280,6 +111998,34 @@
 					],
 					"type": 1,
 					"plane": 1,
+					"minRange": 0,
+					"gfx": {
+						"file": "UI/icons/icon_unit.png",
+						"size": 64,
+						"x": 5,
+						"y": 2
+					},
+					"flags": 0
+				},
+				{
+					"id": "Th_Ship_Gun",
+					"sequences": [
+						{
+							"dmgProfile": {
+								"hitType": 1
+							},
+							"duration": 0.5,
+							"animProfile": {
+								"animType": 1
+							},
+							"lockEnd": 0,
+							"lockStart": 0,
+							"windUp": 0,
+							"flags": 0
+						}
+					],
+					"type": 1,
+					"plane": 0,
 					"minRange": 0,
 					"gfx": {
 						"file": "UI/icons/icon_unit.png",
@@ -152396,21 +153142,6 @@
 					"attributes": [
 						{
 							"target": {},
-							"ref": "Village_ExtensionSlot_Flat",
-							"desc": "[!Village]s have ::s_value:: [!Building_Village] slot.",
-							"val": 1,
-							"target2": {}
-						},
-						{
-							"target": {
-								"resAction": "ImperialEdict"
-							},
-							"ref": "Unlock_TResAction",
-							"desc": "Can use [::target::] on Landsraad Resolutions to switch their scope.",
-							"target2": {}
-						},
-						{
-							"target": {},
 							"ref": "Allow_Landsraad",
 							"displayed": false,
 							"target2": {}
@@ -152440,14 +153171,6 @@
 						},
 						{
 							"target": {
-								"resource": "Scraps"
-							},
-							"ref": "TRes_Block",
-							"displayed": false,
-							"target2": {}
-						},
-						{
-							"target": {
 								"trait": "NeighoringTheEnemy"
 							},
 							"ref": "AdjacentTerritoryEnemyVillages_GainTTrait",
@@ -152460,13 +153183,6 @@
 							"ref": "DeclareWar_Instigator_Cost_ARatio",
 							"val": 1,
 							"desc": ""
-						},
-						{
-							"target": {},
-							"ref": "Outpost_DistanceCost_MRatio",
-							"desc": "[Authority] cost to [Annex] a [!Village] is increased ::percent:: more by distance from [ThorvaldCitadel].",
-							"val": 3,
-							"target2": {}
 						},
 						{
 							"target": {
@@ -152493,6 +153209,47 @@
 							"ref": "OnCouncilVoteEnd_SpawnMB_TUnit_Flat",
 							"val": 2.2,
 							"desc": "After every Council, receive 2 more [TH_SwornSword_Spawned] near your Main Base if you hold at least 20% of the CHOAM shares"
+						},
+						{
+							"target": {},
+							"target2": {},
+							"ref": "CustomProperty",
+							"desc": "The Iron Guard: soldiers are hired, not levied. They cost [Solari] and no [Manpower]"
+						},
+						{
+							"target": {
+								"resource": "Intel"
+							},
+							"target2": {},
+							"ref": "Unit_OnDeath_TResGain_Flat",
+							"val": 10,
+							"desc": "Political Asylum: gain ::value:: [Intel] whenever one of your units dies"
+						},
+						{
+							"target": {
+								"resource": "Manpower"
+							},
+							"target2": {},
+							"ref": "Unit_OnDeath_TResGain_Flat",
+							"val": 5,
+							"desc": "Political Asylum: gain ::value:: [Manpower] whenever one of your units dies"
+						},
+						{
+							"target": {
+								"resource": "Intel"
+							},
+							"target2": {},
+							"ref": "Pillage_TResPostGain_Flat",
+							"val": 30,
+							"desc": "Gain ::value:: [Intel] by pillaging a [!Village]"
+						},
+						{
+							"target": {
+								"resource": "Scraps"
+							},
+							"ref": "TRes_Block",
+							"displayed": false,
+							"target2": {}
 						}
 					],
 					"type": 0,
@@ -152736,19 +153493,31 @@
 					"attributes": [
 						{
 							"target": {
-								"ability": "DeployMainBase"
+								"convertFrom": [
+									{
+										"val": 300,
+										"resource": "Solari"
+									}
+								]
 							},
-							"ref": "Unlock_TAbility",
-							"desc": "Can use [DeployMainBase] on [Thorvald-adjective] and neutral [!Village]s once.",
-							"target2": {}
+							"target2": {
+								"convertTo": [
+									{
+										"val": 10,
+										"resource": "FuelCell"
+									}
+								]
+							},
+							"ref": "Convert_TRes_To_TRes2",
+							"val": 1,
+							"desc": "Guild Sub-Contract: buy [FuelCell]s with [Solari] in the top bar"
 						},
 						{
-							"target": {
-								"treaty": "ImperialMandate"
-							},
-							"ref": "Unlock_TTreaty",
-							"desc": "Can offer [ImperialMandate], giving [Sardaukar]s to another faction, as part of a trade.",
-							"target2": {}
+							"target": {},
+							"target2": {},
+							"ref": "Airfield_Range_ARatio",
+							"val": 1,
+							"desc": "::s_percent_value:: [!Airfield] range"
 						}
 					],
 					"type": 0,
@@ -152759,7 +153528,7 @@
 						"x": 4,
 						"y": 0
 					},
-					"name": "Hegemony Bonus 5k"
+					"name": "Guild Sub-Contract (5k Hegemony)"
 				},
 				{
 					"id": "Corrino_HegemonyBonus2",
@@ -152823,30 +153592,21 @@
 					"attributes": [
 						{
 							"target": {
-								"trait": "Thorvald_HegemonyBonus2_DestroyedMB"
+								"resource": "Solari"
 							},
 							"target2": {},
-							"ref": "CustomProperty",
-							"val": 50,
-							"desc": "Destroying the main base of a faction in [War] with [Thorvald-longname] for more than ::value:: days gives a second use of [DeployMainBase]."
+							"ref": "Army_TResUpkeep_MRatio",
+							"val": 0.7,
+							"desc": "The Hammer of Wealth: ::percent:: Military Unit [Solari] [!Upkeep]"
 						},
 						{
 							"target": {
-								"trait": "Thorvald_HegemonyBonus2_WarSource"
+								"resource": "Plascrete"
 							},
 							"target2": {},
-							"ref": "Entity_SetTTraitStacks",
-							"val": 1,
-							"displayed": false
-						},
-						{
-							"target": {
-								"resource": "Influence"
-							},
-							"target2": {},
-							"ref": "Entity_KillTruceTerritoryLoot_TRes_Flat",
-							"val": 15,
-							"desc": "Every kill on the territory of a faction in [Peace] gives ::value:: [Influence]."
+							"ref": "TRes_Prod_ARatio",
+							"val": 0.15,
+							"desc": "::s_percent_value:: [Plascrete] production"
 						}
 					],
 					"type": 0,
@@ -152857,7 +153617,7 @@
 						"x": 4,
 						"y": 0
 					},
-					"name": "Hegemony Bonus 10k"
+					"name": "The Hammer of Wealth (10k Hegemony)"
 				},
 				{
 					"id": "Corrino_HegemonyBonus2_WarSource",
@@ -160577,7 +161337,7 @@
 						"x": 1,
 						"y": 1
 					},
-					"name": "Imperial Support"
+					"name": "Syndicate Support"
 				},
 				{
 					"id": "C_Trooper_ImperialMandate_Trait",
@@ -160651,7 +161411,7 @@
 						"x": 0,
 						"y": 0
 					},
-					"name": "Imperial Enforcers"
+					"name": "Contract Enforcers"
 				},
 				{
 					"id": "C_Special_Trait",
@@ -168299,7 +169059,7 @@
 							},
 							"target2": {},
 							"ref": "CustomProperty",
-							"desc": "::target_effects:: if at least ::value:: conscript is currently in recruitment",
+							"desc": "::target_effects:: if at least ::value:: trooper is currently in recruitment",
 							"val": 1
 						},
 						{
@@ -168329,7 +169089,7 @@
 							},
 							"ref": "CustomProperty",
 							"val": 1,
-							"desc": "Conscript at [Long_Range] gain ::s_value:: [Armor] or ::s_value:: [Power]"
+							"desc": "Trooper at [Long_Range] gain ::s_value:: [Armor] or ::s_value:: [Power]"
 						},
 						{
 							"target": {
@@ -168986,7 +169746,7 @@
 						"x": 44,
 						"y": 0
 					},
-					"name": "Hand of the Emperor"
+					"name": "Hand of the Earl"
 				},
 				{
 					"id": "C_Hero_2_Buff",
@@ -169098,7 +169858,7 @@
 						"x": 44,
 						"y": 0
 					},
-					"name": "Hand of the Emperor"
+					"name": "Hand of the Earl"
 				},
 				{
 					"id": "C_Hero_2_SardaukarBuff",
@@ -169230,7 +169990,7 @@
 						"x": 44,
 						"y": 0
 					},
-					"name": "Hand of the Emperor"
+					"name": "Hand of the Earl"
 				},
 				{
 					"id": "C_Hero_2_Skill",
@@ -178284,52 +179044,13 @@
 				{
 					"id": "TTh_ConsignmentTerminal",
 					"name": "Consignment Terminal",
-					"desc": "Thorvald alloy is sold here to whoever pays, in whatever they pay with.",
+					"desc": "Thorvald alloy leaves Arrakis from here, and the port fees stay.",
 					"props": {
 						"tip": {
 							"cat": "Buildings"
 						}
 					},
-					"attributes": [
-						{
-							"target": {
-								"convertFrom": [
-									{
-										"val": 100,
-										"resource": "Plascrete",
-										"spawn": "TH_SwornSword_Spawned"
-									}
-								]
-							},
-							"target2": {
-								"convertTo": [
-									{
-										"val": 150,
-										"resource": "Solari"
-									},
-									{
-										"val": 8,
-										"resource": "Manpower"
-									},
-									{
-										"val": 24,
-										"resource": "Intel"
-									},
-									{
-										"val": 6,
-										"resource": "Influence"
-									},
-									{
-										"val": 4,
-										"resource": "Authority"
-									}
-								]
-							},
-							"ref": "Convert_TRes_To_TRes2",
-							"val": 1,
-							"desc": "Trade [Plascrete] for other resources in the top bar. Every trade also brings one [TH_SwornSword_Spawned] to your Main Base (up to its limit)"
-						}
-					],
+					"attributes": [],
 					"type": 0,
 					"displayed": false,
 					"gfx": {
@@ -190852,6 +191573,56 @@
 							"displayed": false,
 							"val": 1,
 							"target2": {}
+						}
+					],
+					"type": 2,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/missionsTraits.png",
+						"size": 32,
+						"x": 20,
+						"y": 0
+					},
+					"name": "Orbital Strike"
+				},
+				{
+					"id": "Th_OrbitalStrike",
+					"desc": "Heighforge tenders hold orbit over Arrakis. For five days they answer Thorvald's coordinates with alloy and fire.",
+					"props": {
+						"linkedAbility": "Th_OrbitalStrike",
+						"zoneOutline": 0,
+						"fx": [
+							{
+								"attachOnWorld": false,
+								"playOnApplication": true,
+								"sfx": "UI_Spyoperation_Orbitalstrike",
+								"isUIFx": false,
+								"attachSpecs": {},
+								"followPosOnly": false,
+								"flags": 0,
+								"targetPlayers": 0
+							},
+							{
+								"attachOnWorld": false,
+								"playOnApplication": false,
+								"vfxPath": "Fx/Abilities/Ability_OrbitalStrike.fx",
+								"isUIFx": false,
+								"attachSpecs": {},
+								"followPosOnly": false,
+								"flags": 0,
+								"targetPlayers": 0
+							}
+						],
+						"tip": {
+							"cat": "RegionalEffect"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"ref": "CustomProperty",
+							"desc": "Missiles strike from orbit targetting all ground enemy units, [!Village]s, and Main Bases, dealing heavy damage at the area of impact to ally and enemies units.",
+							"target2": {}
 						},
 						{
 							"target": {
@@ -190871,7 +191642,7 @@
 						"x": 20,
 						"y": 0
 					},
-					"name": "Orbital Strike"
+					"name": "Hammerfall"
 				},
 				{
 					"id": "Th_RenegadeStrike_Signal",
@@ -221743,7 +222514,7 @@
 					"id": "Th_ConsignmentTerminal",
 					"texts": {
 						"name": "Consignment Terminal",
-						"desc": "A Heighforge freight port. Plascrete goes up to the waiting tenders, and Solari, recruits, information and favours come back down.",
+						"desc": "A Heighforge freight port. Thorvald alloy goes up to the waiting tenders, and the fees come back down.",
 						"plural": {
 							"name": "Consignment Terminals"
 						}
@@ -221753,10 +222524,24 @@
 						{
 							"attributes": [
 								{
-									"target": {},
+									"target": {
+										"resource": "Solari"
+									},
 									"target2": {},
-									"ref": "CustomProperty",
-									"desc": "Allows trading [Plascrete] for [Solari], [Manpower], [Intel], [Influence] and [Authority] in the top bar"
+									"ref": "TRes_Prod_Flat",
+									"val": 30,
+									"scope": 2,
+									"desc": "::s_value:: [Solari]"
+								},
+								{
+									"target": {
+										"resource": "Influence"
+									},
+									"target2": {},
+									"ref": "TRes_Prod_Flat",
+									"val": 2,
+									"scope": 2,
+									"desc": "::s_value:: [Influence]"
 								}
 							],
 							"cost": [
@@ -221770,10 +222555,6 @@
 								}
 							],
 							"upkeep": [
-								{
-									"qty": 20,
-									"res": "Solari"
-								},
 								{
 									"qty": 10,
 									"res": "Water"
@@ -221809,7 +222590,7 @@
 					"visuals": {
 						"model": [
 							{
-								"path": "Structure/Buildings/SpacingGuildBranch/Prefab_SpacingGuildBranch.prefab"
+								"path": "StructMOD/ThorvaldConsignmentTerminal/Prefab_ThorvaldConsignmentTerminal.prefab"
 							}
 						],
 						"thumbnail": {
@@ -232597,7 +233378,7 @@
 						"y": 6
 					},
 					"faction": "Thorvald",
-					"desc": "The Emperor's stay on Arrakis might be short, but the infrastructure He brings may endure for centuries.",
+					"desc": "Heighforge alloy outlasts the contracts it was poured for. What Thorvald builds on Arrakis is built to stay.",
 					"aiWeights": [],
 					"props": {},
 					"attributes": [
@@ -232874,7 +233655,7 @@
 				{
 					"domain": "Expansion",
 					"id": "Thorvald_ImperialResearchers",
-					"name": "Imperial Researchers",
+					"name": "Heighforge Researchers",
 					"tier": 1,
 					"gridX": 0,
 					"gridY": 0,
@@ -232951,7 +233732,7 @@
 				{
 					"domain": "Expansion",
 					"id": "Thorvald_ImperialAdministration",
-					"name": "Imperial Administration",
+					"name": "Syndicate Administration",
 					"tier": 1,
 					"gridX": 0,
 					"gridY": 0,
@@ -232965,7 +233746,7 @@
 					"faction": "Thorvald",
 					"replaces": "LocalHubs",
 					"aiWeights": [],
-					"desc": "Economies of scale are very powerful things that a galactic Emperor uses with abundance.",
+					"desc": "Economies of scale are very powerful things, and nobody counts them like the Thorvald ledgers.",
 					"props": {},
 					"attributes": [
 						{
@@ -233123,7 +233904,7 @@
 				{
 					"domain": "Military",
 					"id": "Thorvald_ImperialCommand",
-					"name": "Imperial Command",
+					"name": "Guild Charter",
 					"tier": 1,
 					"gridX": 0,
 					"gridY": 0,
@@ -233136,7 +233917,7 @@
 					},
 					"faction": "Thorvald",
 					"replaces": "ArmyLogistics",
-					"desc": "It's the prerogative of the Emperor to commandeer any airport He may need for official business.",
+					"desc": "A standing charter with the Guild lets the Earl requisition any airport his contracts require.",
 					"aiWeights": [
 						{
 							"value": 20,
@@ -233215,7 +233996,7 @@
 				{
 					"domain": "Military",
 					"id": "Thorvald_ImperialThreat",
-					"name": "Imperial Protocols",
+					"name": "Syndicate Protocols",
 					"tier": 3,
 					"gridX": 0,
 					"gridY": 0,
@@ -233228,7 +234009,7 @@
 					},
 					"type": 15218003,
 					"faction": "Thorvald",
-					"desc": "The presence of the Emperor alone is often enough to intimidate the bravest nobles of the Imperium.",
+					"desc": "Everyone owes Thorvald something. Being reminded of it is often enough.",
 					"aiWeights": [
 						{
 							"value": 10,
@@ -233573,7 +234354,7 @@
 				{
 					"domain": "Statecraft",
 					"id": "Thorvald_EmperorEyes",
-					"name": "Emperor Eyes",
+					"name": "The Earl's Eyes",
 					"tier": 2,
 					"gridX": 0,
 					"gridY": 0,
@@ -233586,7 +234367,7 @@
 					},
 					"faction": "Thorvald",
 					"replaces": "CounterMeasures",
-					"desc": "No machination can stay hidden for long from the sight of an Emperor.",
+					"desc": "No machination stays hidden for long from the people who pay for both sides of it.",
 					"aiWeights": [
 						{
 							"value": 10,
@@ -245008,7 +245789,8 @@
 						"y": 5
 					},
 					"flags": 67,
-					"steps": []
+					"steps": [],
+					"thShip": "ThR_DropShip"
 				},
 				{
 					"id": "Renegade_Pillagers",
@@ -245188,6 +245970,279 @@
 						"y": 5
 					},
 					"flags": 65,
+					"steps": [],
+					"thShip": "ThR_DropShip"
+				},
+				{
+					"id": "Th_RenegadeStrikeSlow",
+					"name": "Renegade Strike",
+					"armies": [
+						{
+							"weight": 0,
+							"composition": [
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ranger",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ship",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"minGameDays": 150,
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"minGameDays": 250,
+									"condition": {}
+								}
+							]
+						}
+					],
+					"effects": [
+						{
+							"target": 0,
+							"effect": {
+								"action": 3,
+								"actionDays": 3
+							},
+							"startConditions": {
+								"distance": 30
+							},
+							"endConditions": {}
+						}
+					],
+					"props": {
+						"apparitionRadius": 20,
+						"chaseTime": 5,
+						"maxDistanceWaitingTime": 10,
+						"victimAlerts": [
+							{
+								"alert": "IncomingRaid"
+							}
+						]
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					},
+					"flags": 65,
+					"steps": [],
+					"thShip": "ThR_DropShipSlow"
+				},
+				{
+					"id": "Th_RenegadeStrikeWave",
+					"name": "Renegade Strike",
+					"armies": [
+						{
+							"weight": 0,
+							"composition": [
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ranger",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ship",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"minGameDays": 150,
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"minGameDays": 250,
+									"condition": {}
+								}
+							]
+						}
+					],
+					"effects": [
+						{
+							"target": 0,
+							"effect": {
+								"action": 3,
+								"actionDays": 3
+							},
+							"startConditions": {
+								"distance": 30
+							},
+							"endConditions": {}
+						}
+					],
+					"props": {
+						"apparitionRadius": 20,
+						"chaseTime": 5,
+						"maxDistanceWaitingTime": 10,
+						"victimAlerts": [
+							{
+								"alert": "IncomingRaid"
+							}
+						]
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					},
+					"flags": 65,
+					"steps": [],
+					"thShip": "ThR_DropShip",
+					"thStagger": 1.5
+				},
+				{
+					"id": "Th_RenegadeStrikeSlowWave",
+					"name": "Renegade Strike",
+					"armies": [
+						{
+							"weight": 0,
+							"composition": [
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ranger",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Ship",
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Trooper",
+									"minGameDays": 150,
+									"condition": {}
+								},
+								{
+									"unit": "ThR_Guard",
+									"minGameDays": 250,
+									"condition": {}
+								}
+							]
+						}
+					],
+					"effects": [
+						{
+							"target": 0,
+							"effect": {
+								"action": 3,
+								"actionDays": 3
+							},
+							"startConditions": {
+								"distance": 30
+							},
+							"endConditions": {}
+						}
+					],
+					"props": {
+						"apparitionRadius": 20,
+						"chaseTime": 5,
+						"maxDistanceWaitingTime": 10,
+						"victimAlerts": [
+							{
+								"alert": "IncomingRaid"
+							}
+						]
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					},
+					"flags": 65,
+					"steps": [],
+					"thShip": "ThR_DropShipSlow",
+					"thStagger": 2.5
+				},
+				{
+					"id": "Th_LandfallCompany",
+					"name": "Thorvald landing company (shuttle drop)",
+					"armies": [
+						{
+							"weight": 0,
+							"composition": [
+								{
+									"unit": "TH_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "TH_Trooper",
+									"condition": {}
+								},
+								{
+									"unit": "TH_Soldier",
+									"condition": {}
+								},
+								{
+									"unit": "TH_Special",
+									"condition": {}
+								}
+							]
+						}
+					],
+					"effects": [
+						{
+							"target": 0,
+							"effect": {
+								"action": 3,
+								"actionDays": 3
+							},
+							"startConditions": {
+								"distance": 30
+							},
+							"endConditions": {}
+						}
+					],
+					"props": {
+						"apparitionRadius": 20
+					},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 5,
+						"y": 5
+					},
+					"flags": 1,
 					"steps": []
 				},
 				{
@@ -251095,9 +252150,6 @@
 						"onlyForFactions": [
 							{
 								"faction": "Corrino"
-							},
-							{
-								"faction": "Thorvald"
 							}
 						],
 						"extraDetectionChance": 100,
@@ -251116,47 +252168,34 @@
 					"flags": 9
 				},
 				{
-					"id": "Th_MRenegadeStrike",
+					"id": "Th_MOrbitalStrike",
 					"texts": [],
 					"effects": {
-						"ope": "Th_RenegadeStrike"
+						"ope": "Th_OrbitalStrike"
 					},
 					"difficulty": 0,
 					"requiredLevels": [],
 					"cost": [],
-					"flags": 1,
 					"props": {
 						"onlyForFactions": [
 							{
 								"faction": "Thorvald"
 							}
 						],
-						"aiProhibited": [
-							{
-								"ref": "Economy"
-							},
-							{
-								"ref": "Military"
-							},
-							{
-								"ref": "Statecraft"
-							},
-							{
-								"ref": "Expansion"
-							}
-						],
+						"extraDetectionChance": 100,
 						"tip": {
 							"cat": "Mission"
 						}
 					},
 					"canBeDetected": true,
-					"aiWeights": [],
 					"gfx": {
 						"file": "UI/spying/missionIconsBW.png",
 						"size": 114,
-						"x": 2,
+						"x": 20,
 						"y": 0
-					}
+					},
+					"aiWeights": [],
+					"flags": 9
 				},
 				{
 					"id": "Th_MIronLandfall",
@@ -251241,6 +252280,350 @@
 						"file": "UI/spying/missionIconsBW.png",
 						"size": 114,
 						"x": 4,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MRenegadeStrikeC",
+					"texts": [],
+					"effects": {
+						"ope": "Th_RenegadeStrikeC"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MRenegadeStrikeSlow",
+					"texts": [],
+					"effects": {
+						"ope": "Th_RenegadeStrikeSlow"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MRenegadeStrikeWave",
+					"texts": [],
+					"effects": {
+						"ope": "Th_RenegadeStrikeWave"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MRenegadeStrikeSlowWave",
+					"texts": [],
+					"effects": {
+						"ope": "Th_RenegadeStrikeSlowWave"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MIronLandfallC",
+					"texts": [],
+					"effects": {
+						"ope": "Th_IronLandfallC"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 3,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MExtractionA",
+					"texts": [],
+					"effects": {
+						"ope": "ExtractionNetwork"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 15,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MExtractionB",
+					"texts": [],
+					"effects": {
+						"ope": "Th_ExtractionB"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 15,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_MExtractionC",
+					"texts": [],
+					"effects": {
+						"ope": "Th_ExtractionC"
+					},
+					"difficulty": 0,
+					"requiredLevels": [],
+					"cost": [],
+					"flags": 1,
+					"props": {
+						"onlyForFactions": [
+							{
+								"faction": "Thorvald"
+							}
+						],
+						"aiProhibited": [
+							{
+								"ref": "Economy"
+							},
+							{
+								"ref": "Military"
+							},
+							{
+								"ref": "Statecraft"
+							},
+							{
+								"ref": "Expansion"
+							}
+						],
+						"tip": {
+							"cat": "Mission"
+						}
+					},
+					"canBeDetected": true,
+					"aiWeights": [],
+					"gfx": {
+						"file": "UI/spying/missionIconsBW.png",
+						"size": 114,
+						"x": 15,
 						"y": 0
 					}
 				},
