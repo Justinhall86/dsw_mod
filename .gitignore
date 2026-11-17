@@ -38,3 +38,6 @@ mod_files/hlboot_build*/**/*.dat
 model_projects/thorvald_starport/**/*.blend1
 model_inputs/Achievements/
 model_inputs/Fx/
+
+# Blender autosave backups
+*.blend1
