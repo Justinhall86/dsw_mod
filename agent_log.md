@@ -2,6 +2,118 @@
 
 Changes made by Claude in this repo, newest first. Each entry says what changed, where, and how to undo it.
 
+## Working on (claims)
+
+One line per active session: date, what you are changing (unit / files), session name. Check this before touching
+anything listed; remove your line when you finish. Rules: CLAUDE.md "Several sessions share this repo".
+
+- (none)
+
+## 2026-11-15: Heavy Vanguard helmet, samurai pass (no game files changed)
+
+- Owner: W5c reads insect; make it samurai, longer antennae; sent reference pictures (now in `gallery/helmets_and_heads/warden_study/samurai/reference/`).
+- Round 1 Warden S01-S12 (eye slit, painted lames, Trooper kasa cut into a shikoro, horn styles); round 2-3 Sworn Sword 2.1 dome (plume off) + black kuwagata
+  + spike halo + kasa shikoro + Sworn head/half-mask (D01-D10, E01-E06, F01-F04). Recommended F01_big_kabuto. Sheets + README in `gallery/.../warden_study/samurai/`.
+- Scripts in `thorvald_elite/08_scripts/helmet_study/`: `wd_build.py` extended (new env options only; old W/H builds unchanged by default; pre-edit copy in the session scratchpad),
+  `wd_lineup.py` (LPAD option), new `wd_posmap.py`, `sm_recolour.py`, `sm_variants.py`, `sm_sheet.py`, `sm_lineup.py`, `sm_closeup.py`. Data `04_textures/helmet_study/warden/{posmap.npz,SM_*.png}`,
+  scenes `03_blender/helmet_study/wd_{S,D,E,F}*.blend`. Elite SPEC "Helmet work" updated. Test renders moved to the session scratchpad.
+- Undo: delete those new files/folders; `v2_final.blend` and the Sworn Sword 2.1 blend were only read.
+
+## 2026-11-14 (night): Heavy Vanguard Warden helmet study (no game files changed)
+
+- Warden helmet on the Elite body (v2_final.blend, kasa hat removed, ground_v6 palette): crest projected onto a fitted shell ellipsoid (smooth crown),
+  face guard replaced by Karlin's breather, neck liner removed, antennae on the crown; paints W1-W5c. House Guard version also put on the body for comparison.
+- New: `thorvald_elite/08_scripts/helmet_study/wd_*.py`, `04_textures/helmet_study/warden/`, `03_blender/helmet_study/wd_*.blend`,
+  `gallery/helmets_and_heads/warden_study/` (README). SPEC "Helmet work" table updated. Throw-away test renders moved to the session scratchpad.
+- Undo: delete those folders. `v2_final.blend` was only read (scenes saved under new names).
+
+## 2026-11-14: Heavy Vanguard helmet study, House Guard (no game files changed)
+
+- House Guard helmet: 12-angle study, six recolours (H1-H6), then H5 + face-plate dimples filled + Karlin H2f4 antennae on the crown + Karlin breather
+  (`gallery/helmets_and_heads/house_guard_study/`). Owner liked it; but `H_Elite` (Harkonnen Elite) uses this exact model, so a Warden version is next.
+- Scripts now in `thorvald_elite/08_scripts/helmet_study/` (paths in `paths.py`; verified: textures and a render reproduce byte-identical); data in
+  `thorvald_elite/04_textures/helmet_study/house_guard/`. Documented in `thorvald_elite/SPEC.md` ("Helmet work").
+- Undo: delete those two folders and the gallery study folders; nothing else depends on them.
+
+## 2026-11-14: new `gallery/` folder (reference sheets centralised; no game files changed)
+
+- New `gallery/` (README = index): helmet sheets (vanilla 18 + Thorvald 8), 48 head close-ups, vanilla per-unit part sheets, vehicle and building surveys, current ground-unit sheets.
+- `git mv` from unit projects: sworn_sword `02_head_survey`, trooper `00_reference`, hero_1 `30_helmet`, kitbash_explore `00_reference`, frigate `donor_survey`/`hull_survey`/`wreck_survey`,
+  sentinal `00_reference`, buildings `01_survey`, starport `10_kitbash_donors`, hq `01_survey`. Landsraad and Ginaz folders left in place.
+- Writer scripts re-pointed to gallery (head_survey x4, hero_1 60/61/62, buildings 10, hq 11, starport 20, sentinal 21); SPEC docs path-updated. CLAUDE.md Paths table has a Gallery row.
+- Undo: `git mv` the folders back (see list above), revert the script edits.
+
+## 2026-11-13 08:45 EST: lost-edit protection (tools + rules; no game files changed)
+
+- New `mod_files/snapshot.py`: working-tree snapshots to hidden refs `refs/snapshots/<time>` (never touches HEAD, the
+  index or files; not pushed). First snapshot `20261113-083412` (338 files). Recover: `--log <file>`, `--get <snap> <file>`.
+  To run automatically it needs Stop/SessionEnd hooks in `.claude/settings.json` (to be added by the user; Claude may not edit that file).
+- New `mod_files/safe_write.py` + registry `mod_files/generated_files.json`: generators refuse to overwrite a hand-edited output
+  (backups in `mod_files/backups/generated/`). Fitted to `thorvald_frigate/08_scripts/80`, `81`, `83`; baseline recorded for the
+  frigate's current game-ready files. Other generators are not fitted yet.
+- `CLAUDE.md`: new section "Several sessions share this repo". This log: "Working on (claims)" section above.
+- Undo: delete the two scripts and the registry, the CLAUDE.md section, this claims section; `git for-each-ref refs/snapshots`
+  + `git update-ref -d` removes snapshots.
+
+## 2026-11-13 08:20 EST: INSTALLED frigate repaint (pak rebuilt on top of the 08:11 install)
+
+Status: **installed into `D:\Steam\steamapps\common\D4X` on the D: PC; game launched. Not yet seen in a game.** Nothing committed.
+
+| File | sha256 (first 16) | Previous (archived) |
+|---|---|---|
+| `res.compressed1.pak` (168.5 MB) | `eb7d401f6a60aacf` | `2d9147dc9f38ee9c` (the 08:11 install) -> `pak_archive/20261113_082016_res.compressed1.pak` |
+| `hlboot.dat` | **not touched** (still `787c92e2aa979d49`) | |
+
+- Built with `py -3.14 mod_files/stage_and_pack.py --install --launch` from the current repo, so the 08:11 data (`mod_files/data.cdb` 07:14, scripts 63/64) and `VehMOD/Renegade_DropShip` are all still in it. Only the frigate's files changed.
+- **Frigate (`TH_Frigate`, model rows `Th_Frigate`/`A_Frigate`) repaint:** darker gunmetal (grey scheme `c` in `thorvald_frigate/08_scripts/76_paint_variants.py`) and darker matte copper (0.55,0.31,0.18, gloss 0.14); paint code `ADRTcd`. Previous textures in `thorvald_frigate/04_textures/_archive/ADRTac2_2026-11-13/`.
+- Same pak build also carries the 2026-11-12 frigate work (already in the 08:11 pak): V6 hull shape at Chronos height, holes sealed, polished lathed barrels, new muzzles and reactor positions. Chain: `88_lock_v6 -> 90_fix_gaps_barrels -> 91_fix_normals -> 93_seethrough_fix -> 80 -> 81 -> 82 -> 83`; `84` (cdb) was already applied, so no cdb change.
+- `mod_files/stage_and_pack.py` (2026-11-12): `Fx/Vehicle/Ships/Thorvald` now merges the frigate folder AND `thorvald_ship/06_game_ready/Fx/...`, so the fighter's `FX_Thorvald_Ship_Reactors.fx` / `_Muzzle.fx` are in the pak (they were missing from earlier paks); `*.bak*` files are no longer packed. Backup of the old script: `%TEMP%/stage_and_pack.before_ship_fx.py`.
+- **Overwritten (2026-11-12):** `thorvald_frigate/06_game_ready/Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx` was regenerated by `83_reactor_fx.py` for the taller V6 engines. A hand edit made on 2026-11-11 (backup `FX_Thorvald_Reactor.fx.bak_nose` = the committed version) was lost; its content was not recorded anywhere.
+- Checks: engine_preflight 0 fail / 9 warn; pack resolved all 1002 asset paths.
+- Undo: copy `pak_archive/20261113_082016_res.compressed1.pak` back as `res.compressed1.pak` (the 08:11 build). For the old paint only: copy the archived textures back into `04_textures/` and rerun 80 -> 81 -> `build_final_folders.py` -> `stage_and_pack.py --install`.
+
+## 2026-11-13 08:11 EST: INSTALLED playtest round 3 + timed Renegade drops (game files changed)
+
+Status: **installed into `D:\Steam\steamapps\common\D4X` on the D: PC. Not yet run in a game.** Nothing committed.
+
+### Installed game files
+| File | sha256 (first 16) | Previous (archived) |
+|---|---|---|
+| `hlboot.dat` | `787c92e2aa979d49` (registered in `mod_files/hlboot_builds.json`) | `ef6e024456bddeaf` -> `pak_archive/hlboot_game_ef6e024456bddeaf.dat` |
+| `res.compressed1.pak` (168.5 MB) | `2d9147dc9f38ee9c` | `53f7957ea985d686` (dated 2026-11-12 19:43) -> `pak_archive/20261113_081120_res.compressed1.pak` |
+Game folder paks after install: `res.compressed.pak`, `res.compressed1.pak` only.
+
+### For another session installing its own game files
+- Both files are whole-file builds: **a later install of either file replaces everything below.** To keep these changes, build from this repo state:
+  `py -3.14 mod_files/hlboot_build.py --install` (ticks from `tool/thorvald_ticks/thorvald_sworn/changes.py`, which now includes `thsw_drops`) and
+  `py -3.14 mod_files/stage_and_pack.py --install` (stages `mod_files/data.cdb` plus the asset folders, now including `VehMOD/Renegade_DropShip`).
+- The data in the pak is `mod_files/data.cdb` as of 2026-11-13 08:0x (after scripts 63 and 64). Edit on top of it; don't overwrite it with an older copy.
+- `thsw_terminal` (Consignment Terminal trade window) is **no longer** in the hlboot build (dropped from `changes.py`; module file kept).
+
+### Changes in this install (data: `model_projects/thorvald/thorvald_faction/08_scripts/63_playtest3.py`, `64_timed_drops.py`)
+- **Operations removed:** Renegade Strike A (mission), Strike B, Takeover B, Iron Landfall B, their lander structures `Th_RenegadeLander`/`Th_LandfallLander` and walk-out raids. Kept: Renegade Strike (`Th_RenegadeStrikeC`), Renegade Takeover, Iron Landfall A and C, Extraction A/B/C, Hammerfall.
+- **Renegade drop ship:** unit/model `ThR_DropShip` (SpaceShuttle hull, charcoal + oxblood livery, `VehMOD/Renegade_DropShip`, built by `thorvald_renegades/08_scripts/50_dropship_assets.py`); raid field `thShip` on `Renegade_Drop` and `Th_RenegadeStrike` (hlboot `thsw_ops._drop_ship`).
+- **Timed drops (new hlboot tick `tool/thorvald_ticks/thorvald_sworn/thsw_drops.py`):** raid troops stay aboard until their ship lands; the band marches after the last touchdown (fixes "ship and troops at the same time"; cause in `.claude/skills/dsw-hlboot-reverse/references/engine_findings.md`). Unit field `thArrive` = descent seconds, raid field `thStagger` = seconds between ships. Affects every shuttle raid, including vanilla Renegade drops.
+- **Test variants:** Renegade Strike: Slow Descent (`ThR_DropShipSlow`, 7 s), Wave (1.5 s apart), Slow Wave (7 s, 2.5 s apart): rows `Th_RenegadeStrikeSlow/Wave/SlowWave` in raid, ability, mission (`Th_MRenegadeStrike*`).
+- **Consignment Terminal:** trade removed; plain building, +30 Solari and +2 Influence, 10 Water upkeep; `TRes_Block` Scraps back on trait `Thorvald`.
+- **Heroes:** `ThorvaldCitadel.startUnits` += 2x `TH_Hero_1`, 2x `TH_Hero_2` (no vanilla precedent; watch game start).
+- Checks: engine_preflight 0 fail / 9 warn; cdb_validate 162 "missing file" lines only (no vanilla extract on this PC); pack resolved all 1002 asset paths.
+
+### Undo
+- Data: `64_timed_drops.py --revert`, then `63_playtest3.py --revert` (backups in `thorvald_faction/07_data_cdb/data_BEFORE_timed_drops.cdb`, `data_BEFORE_playtest3.cdb`).
+- Game files: copy the two archived files above back into the game folder (rename the pak to `res.compressed1.pak`).
+
+## 2026-11-12: Thorvald design docs review (docs only; no data, engine or script changes)
+
+Status: **only Markdown files in `house_thorvald/` and notes in two spec files changed.** Nothing in `mod_files/`, `data.cdb`, `hlboot.dat` or any script was touched, nothing was packed or installed. Done in an online chat session, written to the D: ("Workhorse") copy of the repo; the main-PC copy may be ahead.
+
+- **Owner decisions recorded:** the Plascrete trade (Consignment Terminal Convert line and the v2 window) did not work in a game test and is abandoned; the Iron Guard rule (0 Manpower, Solari only) is dropped; the Terminal stays as a plain building; the four councillor leads (Consignment Factor, Paid-Off Contracts, Double Ledger, Renegade Handler) are the designed targets. Replacement bonuses for the trade are **on hold until a test game**.
+- **Rewritten:** `faction_design.md` (new "Decisions to make and gaps to fill" list, D1 to D15 and G1 to G10), `counsellors.md`, `councillor_ideas.md` (reviewed pool). New: `name_candidates.md`. Updated: `buildings.md`, `operations.md`, `units.md`, `todo.md`, `CLAUDE.md` (Thorvald section), `thorvald_faction/SPEC.md` (abandonment note), `thorvald_sworn_sword/IMPLEMENTATION_SPEC_REPORT.md` ("UPDATE 4").
+- **Archived copies** (undo by copying back): `house_thorvald/_archive/faction_design_2026-11-03.md`, `counsellors_2026-11-03.md`, `councillor_ideas_2026-11-03.md`, `councillor_ideas_2026-11-12.md`.
+- **Not logged here:** the entries for 2026-11-04 to 2026-11-10 (Terminal v1 and v2, Sworn Sword stages 1 to 4, the hlboot rebuild on Steam build 26405381, the 2.0e model). They are in the repo reports (`IMPLEMENTATION_SPEC_REPORT.md`, `thorvald_faction/SPEC.md`), not in this log.
+- **Still to do (not done):** remove the Convert line and window rows from the Terminal, and the trade patch and `thsw_terminal` from the next hlboot rebuild; keep `thsw_share` and `thsw_oath`; do not `--revert` script 41 wholesale. The failure detail of the Terminal test has not been given.
+- Nothing committed.
+
 ## 2026-11-03 (18:00 to 20:38 EST): Karlin Thorvald hero, round 13-14 looks, cdb edit, game package
 
 Status: Karlin's model is **staged in the editor res tree and the cdb row is edited. Nothing is packed (no `repackage.py` run), nothing is installed, not seen in game.** Times from file modification times, local EST.

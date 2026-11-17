@@ -80,6 +80,66 @@
       "renegades": true,
       "built": "2026-11-09",
       "desc": "built by hlboot_build.py"
+    },
+    "d444056b3bf496f5": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-10",
+      "desc": "built by hlboot_build.py"
+    },
+    "a456fd80644d03c1": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-10",
+      "desc": "built by hlboot_build.py"
+    },
+    "ef6e024456bddeaf": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-11",
+      "desc": "built by hlboot_build.py"
+    },
+    "09191419eccaf120": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-12",
+      "desc": "built by hlboot_build.py"
+    },
+    "787c92e2aa979d49": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-13",
+      "desc": "built by hlboot_build.py"
     }
   },
   "needs_patch": {

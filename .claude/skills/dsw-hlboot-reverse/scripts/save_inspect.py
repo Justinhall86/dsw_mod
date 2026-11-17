@@ -14,7 +14,7 @@ import re
 import sys
 import zlib
 
-SAVES = r"C:\Program Files (x86)\Steam\steamapps\common\D4X\save"
+SAVES = next((p for p in (r"D:SteamsteamappsmmonD4Xsave", r"C:Program Files (x86)SteamsteamappsmmonD4Xsave") if os.path.isdir(p)), "")
 DEFAULT = ["Renegade_Drop", "Renegade_Pillagers", "Th_RenegadeStrike", "RenegadeControl", "Th_RenegadeBase",
            "ThR_Trooper", "ThR_Ranger", "ThR_Guard", "ThR_Ship", "Renegades_Drone",
            "Th_RenegadePact", "Th_TestFreeArmy", "Th_RenegadeStrike_Signal", "Th_IronLandfall",

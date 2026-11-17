@@ -1,0 +1,52 @@
+{
+ "model_projects/thorvald/thorvald_frigate/05_fbx_export/cruiser_muzzles_raw.json": {
+  "sha256": "63704727f7262e4baee1cb813d80db87601915b2826bf6b29f207ce24f6441fc",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx": {
+  "sha256": "eab324fbbfd733ebeeac3adb2ee52105bdd6a139b2b83e6639b8ef3f30becf10",
+  "time": "2026-11-13T08:36:07",
+  "by": "83_reactor_fx.py"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab": {
+  "sha256": "c10a5fa8727b2ebc1a87c1757e13cae697405e3488abebbf4396cb31509427e8",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/Thorvald_Frigate.hmd": {
+  "sha256": "216d631a065bcdbaabb801a3882fb116bd0d963c6242a9c3483608123d817232",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/Thorvald_Frigate.prefab": {
+  "sha256": "5aad483735a7cd3cd5c8b2150c021188f55996aebb23a73764e7044fdc0ef372",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/Thorvald_Frigate_Albedo.png": {
+  "sha256": "981d91e0b93051ac30f3a97ab5652d5a46bc4537037b8bdb50d1ed0c8bc1e511",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/Thorvald_Frigate_MetallicGlossAO.png": {
+  "sha256": "f898cb2c5a629ef5e1d464519f29131b7357871ee5dac8f6409085fc10abad42",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/Thorvald_Frigate_Normal.png": {
+  "sha256": "1354b153b15be9e0a07c400aa3d85de4a08ba3679c0bfdf348ae9f6f0417e001",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/materials.props": {
+  "sha256": "949768205940a34732f3bb252124014e278195ae434eaa2a5f92d1939b334664",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ },
+ "model_projects/thorvald/thorvald_frigate/06_game_ready/VehMOD/Thorvald_Frigate/props.json": {
+  "sha256": "2c9d4610263c0f0e6cf111395ee335506ca2df4ccbfc7efca44d6b58d9fb81b9",
+  "time": "2026-11-13T08:36:06",
+  "by": "accepted by hand"
+ }
+}

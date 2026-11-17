@@ -2,24 +2,26 @@
 final version, plus a README naming the version and where each file came from. Files are COPIED, never moved.
 Re-run after a final changes (update the MANIFEST below).
 
-    python build_final_folders.py [--dry]
+    python build_final_folders.py [--dry] [--registry-only]
+
+--registry-only rewrites house_thorvald/MODEL_REGISTRY.md and nothing else (no Final/ copies).
 """
 import glob, os, shutil, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DRY = "--dry" in sys.argv
+REG_ONLY = "--registry-only" in sys.argv
 
 # project -> (version label, notes, [glob patterns relative to the project, or to model_projects when prefixed "@"])
 MANIFEST = {
     "thorvald/thorvald_frigate": (
-        "Cruiser, AD7 paint (2026-11-08)",
-        "SpaceCruiserWreck hull, levelled and mirrored; 4 shoulder cannons; matte black + charcoal well, burnt-orange "
-        "sponsons and flank slopes; Chronos cyan reactor flare. Game files: 06_game_ready/VehMOD/Thorvald_Frigate "
-        "(+ Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx).",
-        ["02_progress_photos/cruiser_final/*.png", "02_progress_photos/cruiser_final/*.gif",
-         "02_progress_photos/cruiser_muzzles_AD7/MUZZLE_STRIP.png", "02_progress_photos/cruiser_muzzles_AD7/*.gif",
-         "02_progress_photos/cruiser_export_roundtrip/rt_tq.png", "02_progress_photos/cruiser_export_roundtrip/rt_side.png",
-         "02_progress_photos/cruiser_variants/lineup_C3/lineup_tq.png"]),
+        "Cruiser V6, darker gunmetal + matte copper (2026-11-13)",
+        "SpaceCruiserWreck hull, levelled and mirrored; V6 hull shape (wedge sides, rising keel, belly V, pinched prow) "
+        "at Chronos height (Z x1.39); holes capped / sealed; 4 shoulder cannons with polished lathed barrels; gunmetal "
+        "with dark plates, matte darker copper sponsons, flank slopes, spine recess and tail box (paint ADRTcd); Chronos cyan "
+        "reactor flare. Game files: 06_game_ready/VehMOD/Thorvald_Frigate (+ Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx).",
+        ["02_progress_photos/cruiser_v6_final/*.png", "02_progress_photos/cruiser_v6_darker/COMPARE2.png", "02_progress_photos/cruiser_v6_roundtrip/rt_tq.png",
+         "02_progress_photos/cruiser_v6_roundtrip/rt_side.png", "02_progress_photos/cruiser_final_paint/lineup/heights_side.png"]),
     "thorvald/thorvald_ship": (
         "v6 (formerly f11)", "Ravager host, Hawk wings and belly, twin chin barrels; Hammer rig 21, scale 1.6.",
         ["thorvald_ship_current.gif", "02_progress_photos/v6_final/*.png"]),
@@ -42,6 +44,11 @@ MANIFEST = {
          "02_progress_photos/03_d2/D2_side.png", "02_progress_photos/03_d2/v2_compare.png",
          "02_progress_photos/03_variants/D2_Demolition_front.png", "02_progress_photos/03_variants/D2_Demolition_back.png",
          "02_progress_photos/03_variants/D2_Demolition_head.png", "02_progress_photos/game_ready_roundtrip/roundtrip_sheet.png"]),
+    "thorvald/thorvald_sworn_sword": (
+        "2.0e", "Sworn Sword: Trooper v13 body, Karlin half-mask, waist wrap + hanging sash, copper shin band; no helmet/tail. "
+        "Installed on the D: PC 2026-11-09. Next: 2.1 with the S9 domed helmet + plume (2026-11-13).",
+        ["02_progress_photos/30_v2/2.0e_sheet.png", "02_progress_photos/30_v2/2.0e_body_*.png",
+         "02_progress_photos/game_ready_roundtrip/roundtrip_sheet.png"]),
     "thorvald/thorvald_hero_1": (
         "C1 two swords (the look staged for the game)",
         "Karlin (TH_Hero_1). The Round 15 helmet (H1/H2) is still open and not exported, so it is NOT in Final.",
@@ -69,7 +76,7 @@ MODELS = {
         game=[("06_game_ready/VehMOD/Thorvald_Frigate", "VehMOD/Thorvald_Frigate"),
               ("06_game_ready/Fx/Vehicle/Ships/Thorvald", "Fx/Vehicle/Ships/Thorvald")],
         mesh="VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab",
-        rebuild="08_scripts 80_export_cruiser -> 81_convert_cruiser -> 82_roundtrip -> 83_reactor_fx -> 84_cdb_cruiser (reactor FX row)"),
+        rebuild="08_scripts 88_lock_v6 -> 90_fix_gaps_barrels -> 91_fix_normals -> 93_seethrough_fix (cruiser_v6_sealed.blend) -> 80_export_cruiser -> 81_convert_cruiser -> 82_roundtrip -> 83_reactor_fx -> 84_cdb_cruiser (reactor FX row)"),
     "thorvald/thorvald_ship": dict(
         unit="TH_Ship", name="Thorvald fighter", models="Th_Ship",
         blends=["03_blender/v6_final_tex.blend"], fbx=["05_fbx_export/Thorvald_Ship.fbx"],
@@ -100,7 +107,17 @@ MODELS = {
         blends=["03_blender/v2_final.blend"], fbx=[],
         game=[("06_game_ready/Male01_ThorvaldElite", "CharMOD/Male01_ThorvaldElite")],
         mesh="CharMOD/Male01_ThorvaldElite/Prefab_ThorvaldElite.prefab",
-        rebuild="08_scripts 12_assemble_export -> 14_make_game_package (made on the other PC; 06_game_ready is a copy of what was installed)"),
+        rebuild="08_scripts 12_assemble_export -> 14_make_game_package (made on the other PC; 06_game_ready is a copy of what was installed)",
+        snapshots=["09_snapshots/v2_E4_2026-11-13 (v2 as installed + the v5 ground palette; saved before v3 = Karlin's H2f4 antenna helmet)",
+                   "NEXT (built 2026-11-13, not installed): v3b = H2f4 helmet at Karlin size, kasa removed, hidden hood/goggles culled; 03_blender/v3_v3b.blend (08_scripts/70_helmet_h2f4.py --tag v3b --scale 1.0 --cull-head), game files 06_game_ready/CharMOD/Male01_ThorvaldElite; palette copy thorvald_recolours/04_textures/ground_v6"]),
+    "thorvald/thorvald_sworn_sword": dict(
+        unit="TH_SwornSword (+ TH_SwornSword_Spawned)", name="Thorvald Sworn Sword", models="Th_SwornSword",
+        blends=["03_blender/SwornSword2_2.0e.blend"], fbx=["05_fbx_export/Male01_ThorvaldSwornSword.fbx"],
+        game=[("06_game_ready/CharMOD/Male01_ThorvaldSwornSword", "CharMOD/Male01_ThorvaldSwornSword")],
+        mesh="CharMOD/Male01_ThorvaldSwornSword/Prefab_ThorvaldSwornSword.prefab",
+        rebuild="08_scripts 12_build_v2 --tag 2.0e -> 90_export_game_fbx -> 91_package_game (prefix ThSws) -> 93_roundtrip sworn; cdb 52_cdb_edit + 53_cdb_trade_val",
+        snapshots=["09_snapshots/v2.0e_2026-11-13 (2.0e as installed + the v5 ground palette; saved before 2.1 = S9 domed helmet + plume)",
+                   "NEXT (built 2026-11-13, not installed): 2.1 = 2.0e + S9 domed helmet, plume and badge, rivets removed (Mat_SwornHelm); 03_blender/SwornSword2_2.1.blend (08_scripts/14_helm_tex_v21.py, 15_build_v21.py), game files 06_game_ready/CharMOD/Male01_ThorvaldSwornSword (2.0e archived); palette copy thorvald_recolours/04_textures/ground_v6"]),
     "thorvald/thorvald_hero_1": dict(
         unit="TH_Hero_1", name="Karlin Thorvald (hero)",
         models="Th_Hero_2 (the Corrino clone swapped the two hero model ids: unit TH_Hero_1 uses model row Th_Hero_2) + anim set ThorvaldKarlin",
@@ -176,7 +193,9 @@ def write_registry():
                   proj, size_mb(os.path.join(f, "model")), size_mb(os.path.join(f, "game_files"))),
               "- Source blend: " + ", ".join("`%s/%s`" % (proj, b) for b in s["blends"]),
               "- Working game folder: " + ", ".join("`%s/%s` -> res `%s`" % (proj, a, b) for a, b in s["game"]),
-              "- Rebuild: " + s["rebuild"], ""]
+              "- Rebuild: " + s["rebuild"]]
+        L += ["- Saved version: `%s/%s`" % (proj, x) for x in s.get("snapshots", [])]
+        L += [""]
     L += ["## Putting them in the game", "",
           "The data.cdb model rows already point at the game paths above. On a PC with the editor res tree:", "",
           "1. `python model_projects/build_final_folders.py --stage C:\\dsw_mod\\D4XEditor\\res\\res` "
@@ -190,6 +209,9 @@ def write_registry():
     print("registry ->", reg)
 
 
+if REG_ONLY:
+    write_registry()
+    raise SystemExit
 for proj, (ver, notes, pats) in MANIFEST.items():
     pdir = os.path.join(ROOT, *proj.split("/"))
     fdir = os.path.join(pdir, "Final")

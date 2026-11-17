@@ -36,7 +36,13 @@ SOURCES = {   # pak path -> folder with the files (copied as is)
     "CharMOD/Male01_ThorvaldSwornSword": os.path.join(TH, "thorvald_sworn_sword", "06_game_ready", "CharMOD", "Male01_ThorvaldSwornSword"),
     "VehMOD/Thorvald_Frigate": os.path.join(TH, "thorvald_frigate", "Final", "game_files", "VehMOD", "Thorvald_Frigate"),
     "VehMOD/Thorvald_Ship": os.path.join(TH, "thorvald_ship", "Final", "game_files", "VehMOD", "Thorvald_Ship"),
-    "Fx/Vehicle/Ships/Thorvald": os.path.join(TH, "thorvald_frigate", "Final", "game_files", "Fx", "Vehicle", "Ships", "Thorvald"),
+    # Renegade drop ship: the SpaceShuttle in a Renegade livery (raid field thShip; thorvald_renegades 50_dropship_assets.py)
+    "VehMOD/Renegade_DropShip": os.path.join(TH, "thorvald_renegades", "06_game_ready", "VehMOD", "Renegade_DropShip"),
+    # frigate reactor + the fighter's reactor/muzzle FX share this folder (a list = several sources merged; 2026-11-12)
+    "Fx/Vehicle/Ships/Thorvald": [os.path.join(TH, "thorvald_frigate", "Final", "game_files", "Fx", "Vehicle", "Ships", "Thorvald"),
+                                  os.path.join(TH, "thorvald_ship", "06_game_ready", "Fx", "Vehicle", "Ships", "Thorvald")],
+    # Consignment Terminal building = the user's copper starport (thorvald_starport 10/11/13 scripts)
+    "StructMOD/ThorvaldConsignmentTerminal": os.path.join(TH, "thorvald_starport", "06_game_ready", "StructMOD", "ThorvaldConsignmentTerminal"),
     # Thorvald councillor portraits (character.images menuGfx / tutoGfx) and spy-agent sheets: without
     # menuCouncilorsThorvald.png the new-game screen fails and Thorvald cannot be picked by a player (2026-11-09)
     "UI/Faction": os.path.join(TH, "thorvald_councillors", "04_textures", "Faction"),
@@ -59,10 +65,12 @@ os.makedirs(res)
 shutil.copy2(os.path.join(REPO, "mod_files", "data.cdb"), os.path.join(ED, "data.cdb"))
 shutil.copy2(os.path.join(REPO, "mod_files", "data.cdb"), os.path.join(res, "data.cdb"))
 n = 0
-for dst, src in SOURCES.items():
-    assert os.path.isdir(src), "missing source " + src
-    shutil.copytree(src, os.path.join(res, *dst.split("/")))
-    n += len(os.listdir(src))
+for dst, srcs in SOURCES.items():
+    for src in (srcs if isinstance(srcs, list) else [srcs]):
+        assert os.path.isdir(src), "missing source " + src
+        shutil.copytree(src, os.path.join(res, *dst.split("/")), dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns("*.bak*", "_archive"))
+        n += len(os.listdir(src))
 print("staged %d asset folders (%d files) + data.cdb in %s" % (len(SOURCES), n, res))
 
 # every prefab / props / materials.props reference that points into our own folders must exist in the tree
@@ -71,7 +79,7 @@ for root, _, files in os.walk(res):
     for f in files:
         if f.endswith((".prefab", ".props", ".json")) and f != "data.cdb":
             txt = open(os.path.join(root, f), encoding="utf-8", errors="ignore").read()
-            for top in ("CharMOD/", "VehMOD/"):
+            for top in ("CharMOD/", "VehMOD/", "StructMOD/"):
                 i = txt.find(top)
                 while i >= 0:
                     j = i

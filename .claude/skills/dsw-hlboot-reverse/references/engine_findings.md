@@ -279,3 +279,39 @@ Used by `model_projects/thorvald/thorvald_hq` (2026-11-03).
 - Our changes (tool/thorvald_ticks/thorvald_sworn): closeVotes reads the fraction of `OnCouncilVoteEnd_SpawnMB_TUnit_Flat`'s val as a share threshold;
   after a successful resource_trades trade, a pay entry's `spawn` unit is recruited at the main base; `Entity_ControlLossImmune` short-circuits isNoControl/isTaunted.
   Analysed and built on Steam build 19145763 (Sept 2025); the C: PC has the Oct 2026 build, so rebuild there (anchors are guarded).
+
+## Building windows and special building classes (2026-11-10)
+- Only three buildings get their own class and selection window, chosen by **hard-coded id strings**:
+  - `ent.Structure.createBuilding` builds `NuclearSilo`, `RecyclingPlant` or `SpacingGuildBranch` for those exact ids. Their `create(struct, uid, x, y)` constructors hard-code the kind string. Every other id becomes a plain `ent.Building`.
+  - `ui.GameUI.displayBuilding` opens `NuclearSiloUI`, `RecyclingPlantUI` or `GuildBranchUI` for the same ids, when the owner is you and the status is not 3. Every other building gets `BuildingUI`, which lists the attribute texts only (so a `CustomProperty` description does nothing).
+- `RecyclingPlant` and `SpacingGuildBranch` are the same design: a continuous daily trade. `giftRes` is paid each day for a middle currency, and `requestRes` spends that currency each day.
+  - The middle currency is hard-coded: `"Scraps"` or `"GuildFavor"`.
+  - The rates come from the resource `stats` columns: `recyclingPlantSellVal` and `recyclingPlantBuyVal`, or `guildSellVal` and `guildBuyVal`.
+  - The amount per day comes from constants 532 `RecyclingPlant_Exchange_ScrapsPerDay` and 531 `GuildBranch_Exchange_FavorsPerDay`.
+  - The window texts come from `Texts.DATA.recycling_plant` and `guild_branch`.
+  - The engine keeps one per faction (`Faction.recyclingPlant` and `Faction.guildBranch`).
+- Vanilla recycling rates: 30 Solari or 30 Plascrete gives 1 Scrap. 1 Scrap buys 1 Authority or 6.67 Intel.
+  Every house except the Fremen blocks `Scraps` with `TRes_Block` in its faction trait (Thorvald does too, copied from Corrino).
+- The `<prefab>_Construction.prefab` construction model is optional: `StructureModel.makeBuildingObj` checks `Loader.exists` and falls back to the main prefab.
+- Custom building models: a static HMD (one unskinned model, one material) converted with the toolkit's repack, skipping fbxfix. Example: `thorvald_starport/08_scripts/10-13`.
+
+## Operation lifecycle and ability duration (2026-11-10, from the first playtest of operations v2)
+- **An ability with no `duration` never ends.** `AbilityManager.activeAbilityIsOver`: an `ActiveAbility` with a duration is over when `launchTime + duration < now`; without one it is over only when its target entity is removed, or its trait conditions fail. While it is "ongoing" the operation cannot be started again and cannot be cancelled. Every vanilla operation has `duration` (3, in **days**: `HAbility.getDuration` ends in `Time.fromDays`). Setting it also makes the ability's traits take that duration instead of their own `props.duration`.
+- Mission lifecycle: `startMission` (flags bit 0 = auto-launch) -> `regularUpdate` moves a finished mission to `completeMissions` -> the player uses the ability -> `onOperationUsed` -> `cancelOperation(abilityId, targetedFactions)` removes the matching complete mission. `canStartMission` refuses (reason 5123) while a started or complete mission with the same id and target faction exists.
+- **A world-event reward `raid: true` crashes on a custom structure.** `WorldEventComponent.resolve` -> `Raids.spawnRaid` -> `Raid.pickNewTarget` reads `.posx` of `Raid.getLeader()` (null: no army yet) for every raid kind except `Renegade_Drop`, which picks a village from `canRaidStructure` and needs no leader. The event stays at 100% and can be neither resolved nor cancelled (87,558 "Null access .posx" log lines in one game).
+- `save_inspect.py` now finds the save folder on the D: PC too.
+
+## Shuttle drops and world-event landers (2026-11-12, second operations playtest)
+- `HUnit.spawnRaidComposition` gives each army of a flag-1 raid its own `ent.ShuttleSpawn("Shuttle", army, pos)`. The carrier kind is a hard-coded string. The Thorvald operations kit splices a helper in front of that call: a raw field `thShip` (unit id) on the **raid row** replaces it.
+- `ShuttleSpawn` does not fly anywhere: it is created at the drop point (start = end). The descent and lift-off are in the SpaceShuttle clips (`UnitSpawnArriving` 3 s, `UnitSpawnDrop` 1 s, `Leaving` 3 s; `getStateDuration` is hard-coded). `flyHeight` is 0 while arriving, so a carrier model without those clips would just sit on the ground. A drop-ship kind must therefore use the SpaceShuttle rig (rig 9, `props.json` animPaths `/Anim/SpaceShuttle`).
+- The SpaceShuttle HMD stores texture paths as length-prefixed strings; an equal-length path can be swapped in place (`thorvald_renegades/08_scripts/50_dropship_assets.py`). Vanilla "png" textures are DDS files.
+- A world event spawned by an ability and owned by the caster (`thEvent`) with only a `notForCreator` action cannot be selected, dismantled or destroyed by its owner and never expires. Do not leave one behind as decoration (Strike B, Takeover B, Landfall B were removed for this).
+- `Unit.deploy` on `TH_Frigate` logs `Null access .subObjectAnim` (`AnimPlayer.play` from `Army.onConvertKind`): the frigate model row lacks the deploy clip the vanilla frigate has.
+- Load time in that test: 243 s from `Game.new` to `Loading done`, of which "Loading models" 64 s and "Loading fx" 93 s. Code patches are not in that path.
+
+## Why raid troops leave their drop ship before it lands (2026-11-13)
+- `Raid.spawn` calls `Raid.goToTarget` straight after `spawnRaidComposition`. The march order goes through `MobileEntity.set_movementMode`, which calls `Entity.abortTransports` when `isWaitingForTransit` (carrier status = the initial arriving state). `Carrier.cancelTarget` only acts in that state, so every shuttle raid's troops are released at once and the empty ship lands alone. Drops with no march order (`spawnRaidComposition` called directly, the kit's `thDrop`) keep the 3 s descent.
+- Carried units are hidden by `Entity.isTransported` (`inTransit` = carrier's `getCarriedSync`, true while arriving/dropping).
+- `ShuttleSpawn.onReachedTarget` = `onDroppingTarget` (units placed, `onTransitDrop` -> `Army.moveTo(drop point)`, `removeTarget`) then state Leaving.
+- Carrier progress = (now - stateTime) / getStateDuration, clamped to 0..1, so moving `stateTime` forward delays a ship's descent.
+- Fix in `tool/thorvald_ticks/thorvald_sworn/thsw_drops.py`: goToTarget's `hasArmy` check also requires no raid army in transit; after each touchdown the raid marches if none is left aboard; unit raw field `thArrive` (descent seconds) and raid raw field `thStagger` (seconds between ships).
