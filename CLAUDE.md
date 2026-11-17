@@ -17,6 +17,21 @@ Blender, converted with the HMD toolkit, wired into `data.cdb`, packed into a pa
   fine detail and thin copper lines vanish when zoomed out.
 - **Install only when asked.** Slot and stat choices are the user's. "Put it in the game" means: export, cdb edit, validate, repackage.
 
+## Several sessions share this repo (don't lose each other's work)
+
+- **Start of a session:** read `agent_log.md` (newest entry and the "Working on" list at its top) and run `git status`.
+  Add a line to "Working on" for the units/files you will touch; remove it when you finish.
+- **Before you regenerate or overwrite a file that `git status` shows as modified**, look at the change (`git diff`,
+  `python mod_files/snapshot.py --log <file>`). Keep it: move it into the generator, or ask. Never overwrite blind.
+- **Hand edits go into the generator script, never only into its output** (FX, prefabs, props, textures, Final folders).
+  An output-only edit is lost the next time the script runs.
+- Generators write through `mod_files/safe_write.py`; it refuses to replace a file edited since the generator wrote it.
+  Don't pass `--force` / `FORCE=1` until you have looked at the edit. `python mod_files/safe_write.py --status` lists edited outputs.
+- Uncommitted work is snapshotted to hidden refs (`mod_files/snapshot.py`, Stop/SessionEnd hooks). To recover a file:
+  `python mod_files/snapshot.py --log <file>`, then `--get <snapshot> <file>` (writes `<file>.from_<snapshot>`).
+- **Build installs from the repo** (`mod_files/stage_and_pack.py`, `mod_files/hlboot_build.py`); both are whole-file builds,
+  so never install a pak or hlboot made from an old copy. Log every install and every change in `agent_log.md` before you finish.
+
 ## Paths
 
 | What | Where |
@@ -32,6 +47,7 @@ Blender, converted with the HMD toolkit, wired into `data.cdb`, packed into a pa
 | Vanilla vehicle previews and donor FBX | `model_inputs/Vehicle/<Faction>/<Model>/preview_textures/<Model>_real.fbx` |
 | Old paks | `pak_archive/` (never in the game folder) |
 | Knowledge base | `modeling.md` (add findings to it) |
+| **Gallery (look at pictures)** | `gallery/` (`README.md` is the index): helmet and head sheets, vanilla part sheets, vehicle and building surveys, current-look sheets. **Check it before rendering a survey; save new reference sheets there.** |
 
 ## Skills (start here)
 
@@ -41,6 +57,7 @@ Blender, converted with the HMD toolkit, wired into `data.cdb`, packed into a pa
   `dsw-model-modding` (cdb, HMD, pak mechanics; also `cdb_tools.py`, `cdb_validate.py`, `check_hmd.py`), `dsw-vehicle-preview` (vehicle turntables and HMD round-trip renders),
   `dsw-hlboot-reverse` (read the engine code in `hlboot.dat`: what a cdb attribute or effect really does, engine findings, the hlbc notes in `hlbc/`).
   `dsw-hlboot-patching` (build, register and install the patched `hlboot.dat`; `mod_files/README.md` maps data.cdb and hlboot, `mod_files/status.py` checks them before a pack).
+  `dsw-custom-building` (custom building model into the game: static HMD, prefab, StructMOD, cdb path; and which buildings get a click window and how the Consignment Terminal got one).
 
 ## Project layout
 
@@ -91,6 +108,9 @@ Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_prog
   (`SPEC.md`, `53_add_thorvald_faction.py`). Revert: `thorvald_faction/07_data_cdb/data_BEFORE_thorvald_faction.cdb`.
 - Cloned from Corrino (2026-10-29): copper 0xB26E3C, HQ `ThorvaldCitadel`, region `ThorvaldBase`, territory `ReachOfThorvald`, leader Earl Memnon Thorvald.
   Stats, abilities, faction bonuses and UI art are still Corrino's. The design bonuses in `house_thorvald/faction_design.md` are not implemented.
+  **Design update 2026-11-12 (owner):** the Plascrete trade (Consignment Terminal Convert line and v2 window) failed in a game test and is abandoned; the Terminal stays as a plain building;
+  the Iron Guard rule (0 Manpower, Solari only) is dropped, so regular units keep Manpower costs. Replacement bonuses are on hold until a test game. The open decisions and gaps are in
+  `house_thorvald/faction_design.md` ("Decisions to make and gaps to fill"). Do not remove rows or patches for the trade without the owner's go-ahead (see its cleanup hints).
 - Look: polished charcoal or gunmetal, bold copper trim, oxblood accents. No rust, no bone patches. Copper must be bold enough to read at RTS zoom.
 - Units built and installed. The four infantry models and the frigate also sit on the Atreides-slot rows `A_Trooper`, `A_Soldier`, `A_Demo`, `A_Elite` and `A_Frigate`:
 
@@ -103,7 +123,7 @@ Every unit has its own folder `model_projects/<unit>/` with `01_input`, `02_prog
 | `Th_Frigate` | `thorvald_frigate` (cruiser AD7, 2026-11-08) | SpaceCruiserWreck hull + 4 shoulder cannons on rig RenegadeFrigate 29 (scripts 80-84); own reactor FX `Fx/Vehicle/Ships/Thorvald/FX_Thorvald_Reactor.fx`; staged, not packed. Old v13 in `06_game_ready/_archive/` |
 | `Th_Ship` fighter | `thorvald_ship` (v6, formerly f11; see its SPEC.md) | Ravager host, Hawk wings and belly, twin chin barrels; Hammer rig 21, scale 1.6 |
 
-None of the Thorvald units has been seen in game yet.
+The Consignment Terminal's trade was tried in a game and did not work (owner, 2026-11-12); what else was seen is not recorded. No Thorvald unit has been confirmed in game.
 
 ## Vehicle kitbash and export (thorvald_frigate, thorvald_ship)
 
