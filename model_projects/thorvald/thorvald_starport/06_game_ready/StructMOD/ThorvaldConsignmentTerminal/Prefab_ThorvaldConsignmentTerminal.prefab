@@ -1,0 +1,32 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "ThorvaldConsignmentTerminal",
+			"source": "StructMOD/ThorvaldConsignmentTerminal/ThorvaldConsignmentTerminal.hmd",
+			"rotationZ": 90
+		},
+		{
+			"type": "tdecal",
+			"name": "tdecal",
+			"x": -0.34302,
+			"y": 0.78249,
+			"z": -0.21002,
+			"scaleX": 12,
+			"scaleY": 12,
+			"scaleZ": 1.01,
+			"rotationZ": -8,
+			"albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+			"normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"
+		},
+		{
+			"type": "reference",
+			"name": "FX_ConstructionStart",
+			"source": "Fx/Structure/Common/FX_ConstructionStart.fx",
+			"scaleX": 0.7,
+			"scaleY": 0.7,
+			"scaleZ": 0.7
+		}
+	]
+}
