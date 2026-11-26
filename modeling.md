@@ -624,3 +624,27 @@ Details: `model_projects/thorvald_faction/SPEC.md`; script `53_add_thorvald_fact
 - **Model props.json `hmd.animPaths`** decides where `animName` clips are found (e.g. `/Anim/Male01/DualSwords`). Run any
   command that writes these from Git Bash with `MSYS_NO_PATHCONV=1`, or `/Anim/...` becomes `C:/Program Files/Git/Anim/...`.
 - Drop unused material slots before export (an empty slot is skipped by the converter).
+
+## 19. Multi-bone vehicle kitbash without re-rigging (Thorvald Artillery Drone, 2026-11-26)
+
+Project `model_projects/thorvald/thorvald_artillery_drone` (SPEC.md has the full notes). Use this route when a vehicle's look must change
+but its animated rig must not (deploy, recoil, death clips).
+- **Keep the vanilla meshes and armatures, edit in place.** `08_scripts/20_build_drone.py` deletes faces by bone or box, clamps
+  vertices (blunts a point without holes) and joins donor chunks skinned (weight 1) to ONE existing bone of that HMD. The ship
+  builder's flatten-to-one-bone route would break every moving part.
+- **Spaces.** hmd2fbx writes mesh data in the HMD frame (Y up); in the armature's REST position a vehicle lies on its back. For the
+  Corrino drone, bind pose in world = R @ data with R = [[0,0,-1],[-1,0,0],[0,1,0]]. Measure it per vehicle before cutting.
+- **Clip FBX armatures differ.** `hmdanim2fbx` writes each clip's first frame into the bone rests, so an action from one clip FBX
+  cannot drive another armature. Pose a kitbash by moving its meshes onto the clip FBX's own armatures (same bone-named groups,
+  same data frame): `drone_scene.load_variant`.
+- **HMD without the toolkit conversion (no D4X.exe).** `08_scripts/hmd_writer.py` is the exact inverse of `hmd_reader` (re-writes
+  vanilla and toolkit-made HMDs byte for byte; it also keeps each joint's has-scale flag, which the reader drops). `60_write_hmd.py`
+  swaps new geometry and materials into the VANILLA HMD: joints and binds stay identical (no `53_fix_bind.py`), surviving vanilla
+  vertices keep their records via an `hmd_vid` attribute set before editing. Conventions back to the HMD: x -> -x for positions and
+  normals, v -> 1 - v, triangle (a,b,c) -> (a,c,b). Tangents from the UV gradient match vanilla (median dot 1.0).
+- **Muzzle offsets** in a prefab are bone-local (the barrel runs along the shoot bone's local +Z); compute a new barrel tip through
+  the joint's inverse bind (`transpos`) and keep the vanilla set-back.
+- **Paint in 3D.** Bake each texel's bind-pose position/normal/bone from the UV layout, then place bands by box/plane (`41_paint.py`).
+  Mirrored parts share UVs, so rules must be mirror-symmetric. Corrino gold decals include an emblem: paint it out, don't copper it.
+- **Cloud session:** Blender is the pip `bpy` module (5.2.x, Python 3.13); `import bpy` before `bmesh`. EEVEE needs Mesa EGL
+  (`apt-get install libegl1 libegl-mesa0 libgl1-mesa-dri`); software rendering is ~4-10 s a frame.
