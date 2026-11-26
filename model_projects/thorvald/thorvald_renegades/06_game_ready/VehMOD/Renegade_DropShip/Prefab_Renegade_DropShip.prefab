@@ -1,0 +1,10 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Renegade_DropShip",
+			"source": "VehMOD/Renegade_DropShip/Renegade_DropShip.hmd"
+		}
+	]
+}
