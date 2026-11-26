@@ -19,6 +19,9 @@ args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
 views = ["front", "tq", "back"]
 if "--views" in args:
     i = args.index("--views"); views = args[i + 1].split(","); del args[i:i + 2]
+hide = []
+if "--hide" in args:
+    i = args.index("--hide"); hide = args[i + 1].split(","); del args[i:i + 2]
 OUT, items = args[0], args[1:]
 SPACING = 1.25
 
@@ -62,6 +65,11 @@ for idx, item in enumerate(items):
     groups.append((label, meshes))
     print("ITEM", label, len(meshes), "meshes")
 
+for o in list(bpy.data.objects):
+    if o.type == "MESH" and any(h in o.name for h in hide):
+        o.hide_render = True
+        for _, ms in groups:
+            if o in ms: ms.remove(o)
 PW.apply_all()
 bs.setup_world(strength=1.0, color=(0.62, 0.62, 0.64))
 PW.soften_world()
@@ -73,7 +81,7 @@ lo = Vector([min(p[i] for p in pts) for i in range(3)]); hi = Vector([max(p[i] f
 ctr = (lo + hi) / 2
 W = hi.x - lo.x + 0.6
 H = 2.15
-DIRS = {"front": (0, -1, 0), "tq": (0.6, -0.8, 0.0), "back": (0, 1, 0), "rts": (0.0, -0.75, 0.9)}
+DIRS = {"front": (0, -1, 0), "tq": (0.6, -0.8, 0.0), "back": (0, 1, 0), "side": (1, 0, 0), "rts": (0.0, -0.75, 0.9)}
 for v in [w for w in views if w.startswith("head")]:   # head close-ups, one image per unit: head (front) / headtq
     d = (0, -1, 0.06) if v == "head" else (0.6, -0.8, 0.08)
     for i, (label, ms) in enumerate(groups):
@@ -87,8 +95,8 @@ for v in views:
     if v == "rts":
         bs.setup_render(130 * n + 40, 210)
     else:
-        bs.setup_render(int(430 * n), 820)
-    cam = bs.setup_camera(target=Vector((ctr.x, 0, 1.0 if v != "rts" else 0.9)), ortho_scale=max(W, H * (430 * n) / 820) if v != "rts" else W,
+        bs.setup_render(max(int(430 * n), 900), 820)
+    cam = bs.setup_camera(target=Vector((ctr.x, 0, 1.0 if v != "rts" else 0.9)), ortho_scale=max(W, H * max(430 * n, 900) / 820) if v != "rts" else W,
                           direction=DIRS[v], distance=12)
     bs.render_to("%s_%s.png" % (OUT, v), cam)
     bpy.data.objects.remove(cam, do_unlink=True)
