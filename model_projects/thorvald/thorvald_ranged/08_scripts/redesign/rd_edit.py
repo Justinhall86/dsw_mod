@@ -75,6 +75,20 @@ def delete(obj, lo, hi, mode="all"):
     bm.to_mesh(o.data); bm.free(); o.data.update(); return len(kill)
 
 
+def cut(obj, z, keep="above", r=None):
+    """Straight horizontal cut at WORLD height z (the builder's bisect helpers work in object space, wrong for transformed fills);
+    keep="above" drops what is below.  r: only faces within |x| < r are cut."""
+    o = find(obj); mw = o.matrix_world; inv = mw.inverted()
+    co = inv @ Vector((0, 0, z)); no = (mw.to_3x3().transposed() @ Vector((0, 0, 1))).normalized()
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    fs = [f for f in bm.faces if r is None or abs((mw @ f.calc_center_median()).x) < r]
+    geom = list({v for f in fs for v in f.verts}) + list({e for f in fs for e in f.edges}) + fs
+    bmesh.ops.bisect_plane(bm, geom=geom, plane_co=co, plane_no=no, clear_inner=(keep == "above"), clear_outer=(keep == "below"))
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    bm.to_mesh(o.data); bm.free(); o.data.update()
+    return len(o.data.polygons)
+
+
 def _tree(o):
     bm = bmesh.new(); bm.from_mesh(o.data); bm.transform(o.matrix_world)
     t = BVHTree.FromBMesh(bm); bm.free(); return t
@@ -94,11 +108,12 @@ def clip_in(obj, cover, centre=(0, -0.01, 1.80), margin=0.004, box=None):
     o.data.update(); return n
 
 
-def push_out(obj, solid, centre=(0, -0.01, 1.80), margin=0.004, box=None):
+def push_out(obj, solid, centre=(0, -0.01, 1.80), margin=0.004, box=None, axis=False):
     """Verts of obj that lie INSIDE solid's outer surface (seen from `centre`) are pushed out to (outer hit + margin):
     a cowl or mask that sinks into the head / chest is lifted clear of it."""
-    o = find(obj); tree = _tree(find(solid)); inv = o.matrix_world.inverted(); C = Vector(centre); n = 0
+    o = find(obj); tree = _tree(find(solid)); inv = o.matrix_world.inverted(); n = 0
     for v, p in list(_verts(o, box)):
+        C = Vector((centre[0], centre[1], p.z)) if axis else Vector(centre)    # axis=True: horizontal rays from a vertical axis (no sliding down the chest)
         d = p - C; L = d.length
         if L < 1e-4:
             continue

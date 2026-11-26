@@ -108,6 +108,28 @@ RD["RM6"] = dict(RD["RM5"], fill=RD["RD1"]["fill"] + [HOOD_A2, MASK_H, SNOOD],
 RD["RM7"] = dict(RD["RM6"], edits=RD["RM6"]["edits"] + [
                      ("clip_in", dict(obj="Gurney", cover="CommandoFill_snood", centre=(0, 0.0, 1.62), margin=0.004, box=((-0.32, -0.30, 1.50), (0.32, 0.30, 1.86))))],
                  title="Ranger RM7: RM6 with the collar under the snood")
+# RM8 (owner: "RM7!!!", colours approved): shape fixes only
+#  - hood crown rounded: back-top pulled in (y x0.80) and down (z x0.95), fading in from z 1.80 to 1.92 (the boxy profile)
+#  - mask mouth plate flattened toward the face (y x0.70 below z 1.775, soft), no respirator snout
+#  - snood cut at z 1.58: a neck wrap, not a bib hanging to mid-chest
+e7 = RD["RM7"]["edits"]
+RD["RM8"] = dict(RD["RM7"], edits=e7[:2] + [
+                     ("xform", dict(obj=HD, scale=(1.0, 0.80, 0.95), pivot=(0, 0.0, 1.80), box=((-1, 0.0, 1.80), (1, 1, 3)), falloff=(2, 1.80, 1.92))),
+                     e7[2],
+                     ("xform", dict(obj=MK, scale=(1.0, 0.70, 1.0), pivot=(0, -0.10, 1.76), box=((-1, -1, 0), (1, 1, 1.775)), falloff=(2, 1.775, 1.752))),
+                 ] + e7[3:6] + [
+                     ("cut", dict(obj="CommandoFill_snood", z=1.58, keep="above")),
+                 ] + e7[6:],
+                 title="Ranger RM8: RM7 with a round crown, flat mask, short snood")
+# RM9: RM8 pushed harder: crown y x0.70 / z x0.92; mask's chin block trimmed at z 1.728 (the snood covers the chin)
+e8 = RD["RM8"]["edits"]
+RD["RM9"] = dict(RD["RM8"], edits=e8[:2] + [
+                     ("xform", dict(obj=HD, scale=(1.0, 0.70, 0.92), pivot=(0, 0.0, 1.80), box=((-1, 0.0, 1.80), (1, 1, 3)), falloff=(2, 1.80, 1.92))),
+                 ] + e8[3:5] + [("cut", dict(obj=MK, z=1.728, keep="above"))] + e8[5:],
+                 title="Ranger RM9: round crown, trimmed mask, short snood")
+# RM10: RM9 with the snood pushed out HORIZONTALLY from the neck axis (the point-centred push slid it down the chest into a bib)
+RD["RM10"] = dict(RD["RM9"], edits=[e if e[0] != "push_out" else ("push_out", dict(e[1], centre=(0, 0.0, 0), axis=True)) for e in RD["RM9"]["edits"]],
+                  title="Ranger RM10: round crown, trimmed mask, neck snood")
 V.update(RD)
 
 keys = [k for k in sys.argv[sys.argv.index("--") + 1:]] if "--" in sys.argv else list(RD)
