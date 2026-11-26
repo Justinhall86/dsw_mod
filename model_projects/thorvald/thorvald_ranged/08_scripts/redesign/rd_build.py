@@ -130,6 +130,10 @@ RD["RM9"] = dict(RD["RM8"], edits=e8[:2] + [
 # RM10: RM9 with the snood pushed out HORIZONTALLY from the neck axis (the point-centred push slid it down the chest into a bib)
 RD["RM10"] = dict(RD["RM9"], edits=[e if e[0] != "push_out" else ("push_out", dict(e[1], centre=(0, 0.0, 0), axis=True)) for e in RD["RM9"]["edits"]],
                   title="Ranger RM10: round crown, trimmed mask, neck snood")
+# RM11: RM9 with the snood skinned like the body under it (builder's weights_from_base: nearest-surface weights from the uncut Gurney),
+# so its lower edge moves with the chest plate instead of the neck (Run test: the ochre plate poked through the snood's lower edge)
+RD["RM11"] = dict(RD["RM9"], fill=RD["RD1"]["fill"] + [HOOD_A2, MASK_H, dict(SNOOD, weights_from_base=True)],
+                  title="Ranger RM11: RM9 with the snood skinned to the body")
 V.update(RD)
 
 keys = [k for k in sys.argv[sys.argv.index("--") + 1:]] if "--" in sys.argv else list(RD)
