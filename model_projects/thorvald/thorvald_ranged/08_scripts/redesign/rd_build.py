@@ -20,6 +20,8 @@ sys.modules["units"].MI = os.path.abspath(os.path.join(HERE, "..", "..", "..", "
 sys.modules["units"]._INDEX.clear()
 g["SHOTS"] = os.path.join(g["PROJ"], "02_progress_photos", "05_redesign", "variants")
 g["BLENDS"] = os.path.join(g["PROJ"], "03_blender", "redesign")
+if os.environ.get("RD_OUT"):                       # test builds: blend + shots go to $RD_OUT instead of the project folders
+    g["BLENDS"] = g["SHOTS"] = os.environ["RD_OUT"]
 
 R5 = V["R5_Ranged"]
 LEGS = dict(donor="AtreidesSoldier", tag="legs", keep_comps=[4, 5, 13, 14, 20, 21, 30, 31, 61, 62, 79, 80])

@@ -9,6 +9,17 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 
 - (none)
 
+## 2026-11-26 (late): Ranger gap pass RM12-RM13 + new skill `dsw-model-qa` (no game files changed)
+
+- Owner asked for a four-angle sheet, then for the gaps and jagged edges seen in the animation sheets to be found and fixed, then to turn the method into a skill.
+- Gap finder (back faces culled, transparent film, 8 views, rest + Run f6 + AttackRange f30, hole localisation by ray casting): RM11 had real gaps at the collar
+  V-notch, the nape (collar vs torso panel parting in Run), the unwelded mid-back seam, and pouch slits; the rest were natural openings.
+  RM12 (cap, snood snap, per-vertex pouch weights) fixed the pouch slits but made the pouch strap bend away; RM13 (seam welds, `weld_weights` at the nape,
+  `rigid_weights` for the pouches) is the current build. Orange sawtooth: chest-plate colour region now chosen by face direction (`rd_uvdump.py` wrapper).
+- New skill `.claude/skills/dsw-model-qa/` (SKILL.md, references triage/fixes/lessons/example, scripts gap_check, gap_compare, turnaround, loops_near,
+  island_map, fit_ops, bl). `thorvald_ranged/08_scripts/redesign/rd_edit.py` is now a shim over the skill's `fit_ops.py` (RM13 rebuilt through it: identical mesh).
+  CLAUDE.md skills list has a line for it.
+
 ## 2026-11-26 (night): Thorvald Ranger RM7 approved -> RM9/RM11 armed and animation-tested (no game files changed)
 
 - Owner: "RM7!!!", colours approved, push forward. RM8-RM10 tried shape fixes (crown rounding, mask chin trim, short snood); the short snood (RM10) read jagged and

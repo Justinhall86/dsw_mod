@@ -58,6 +58,7 @@ Blender, converted with the HMD toolkit, wired into `data.cdb`, packed into a pa
   `dsw-hlboot-reverse` (read the engine code in `hlboot.dat`: what a cdb attribute or effect really does, engine findings, the hlbc notes in `hlbc/`).
   `dsw-hlboot-patching` (build, register and install the patched `hlboot.dat`; `mod_files/README.md` maps data.cdb and hlboot, `mod_files/status.py` checks them before a pack).
   `dsw-custom-building` (custom building model into the game: static HMD, prefab, StructMOD, cdb path; and which buildings get a click window and how the Consignment Terminal got one).
+  `dsw-model-qa` (find and fix see-through gaps, seams that open in motion and jagged colour edges before export: turnaround sheets, back-face-culled gap scan at rest and in clips, fitting ops, before/after compare).
 
 ## Project layout
 
