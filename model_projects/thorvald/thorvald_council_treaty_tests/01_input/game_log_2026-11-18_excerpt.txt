@@ -1,0 +1,138 @@
+Game.gameTick (Game.hx line 1583)
+Game.gameTick (Game.hx line 1583)
+Game.update (Game.hx line 1750)
+hxd.App.mainLoop (hxd/App.hx line 198)
+AppBase.mainLoop (AppBase.hx line 280)
+AppBase.mainLoop (AppBase.hx line 279)
+sys.thread.EventLoop.loop (D:\Projects\shiroTools\haxe\std/sys/thread/EventLoop.hx line 183)
+sys.thread._Thread.$Thread_Impl_.processEvents (D:\Projects\shiroTools\haxe\std/hl/_std/sys/thread/Thread.hx line 83)
+
+375.7    [Game] Access violation
+{
+  "removed": false,
+  "className": "ent.ShuttleSpawn",
+  "name": "Renegade Drop Ship",
+  "ekind": "EUnit",
+  "kind": "ThR_DropShip",
+  "state": "Stand"
+}
+ent.Carrier.update (ent/Carrier.hx line 229)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.onReachedTarget (ent/Carrier.hx line 370)
+ent.Carrier.update (ent/Carrier.hx line 231)
+logic.Logic.tick (logic/Logic.hx line 424)
+Game.gameTick (Game.hx line 1583)
+Game.gameTick (Game.hx line 1583)
+Game.update (Game.hx line 1750)
+hxd.App.mainLoop (hxd/App.hx line 198)
+AppBase.mainLoop (AppBase.hx line 280)
+AppBase.mainLoop (AppBase.hx line 279)
+sys.thread.EventLoop.loop (D:\Projects\shiroTools\haxe\std/sys/thread/EventLoop.hx line 183)
+sys.thread._Thread.$Thread_Impl_.processEvents (D:\Projects\shiroTools\haxe\std/hl/_std/sys/thread/Thread.hx line 83)
+
+375.7    [AppBase] Resource file not found 'Vehicle/Atreide/SapceShuttle/Reactor_albedo.png' fullpath : VehMOD/Renegade_DropShip/Renegade_DropShip.hmd@Vehicle/Atreide/SapceShuttle/Reactor_albedo.png
+{
+  "model": "VehMOD/Renegade_DropShip/Prefab_Renegade_DropShip.prefab",
+  "exceptStack": [
+    "h3d.prim.ModelCache.loadTexture (h3d/prim/ModelCache.hx line 112)",
+    "h3d.prim.ModelCache.~loadModel.0 (h3d/prim/ModelCache.hx line 53)",
+    "hxd.fmt.hmd.Library.makeMaterial (hxd/fmt/hmd/Library.hx line 324)",
+op Ship",
+  "ekind": "EUnit",
+  "kind": "ThR_DropShip",
+  "state": "Stand"
+}
+ent.Carrier.update (ent/Carrier.hx line 229)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.onReachedTarget (ent/Carrier.hx line 370)
+ent.Carrier.update (ent/Carrier.hx line 231)
+logic.Logic.tick (logic/Logic.hx line 424)
+Game.gameTick (Game.hx line 1583)
+Game.gameTick (Game.hx line 1583)
+Game.update (Game.hx line 1750)
+hxd.App.mainLoop (hxd/App.hx line 198)
+AppBase.mainLoop (AppBase.hx line 280)
+AppBase.mainLoop (AppBase.hx line 279)
+sys.thread.EventLoop.loop (D:\Projects\shiroTools\haxe\std/sys/thread/EventLoop.hx line 183)
+sys.thread._Thread.$Thread_Impl_.processEvents (D:\Projects\shiroTools\haxe\std/hl/_std/sys/thread/Thread.hx line 83)
+
+5269.8   [Game] Access violation
+{
+  "removed": false,
+  "className": "ent.ShuttleSpawn",
+  "name": "Renegade Drop Ship",
+  "ekind": "EUnit",
+  "kind": "ThR_DropShip",
+  "state": "Stand"
+}
+ent.Carrier.update (ent/Carrier.hx line 229)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.onReachedTarget (ent/Carrier.hx line 370)
+ent.Carrier.update (ent/Carrier.hx line 231)
+logic.Logic.tick (logic/Logic.hx line 424)
+Game.gameTick (Game.hx line 1583)
+Game.gameTick (Game.hx line 1583)
+Game.update (Game.hx line 1750)
+hxd.App.mainLoop (hxd/App.hx line 198)
+AppBase.mainLoop (AppBase.hx line 280)
+AppBase.mainLoop (AppBase.hx line 279)
+sys.thread.EventLoop.loop (D:\Projects\shiroTools\haxe\std/sys/thread/EventLoop.hx line 183)
+sys.thread._Thread.$Thread_Impl_.processEvents (D:\Projects\shiroTools\haxe\std/hl/_std/sys/thread/Thread.hx line 83)
+
+5269.9   [Game] Access violation
+{
+  "removed": false,
+  "className": "ent.ShuttleSpawn",
+  "name": "Renegade Drop Ship",
+  "ekind": "EUnit",
+  "kind": "ThR_DropShip",
+  "state": "Stand"
+}
+ent.Carrier.update (ent/Carrier.hx line 229)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.onReachedTarget (ent/Carrier.hx line 370)
+ent.Carrier.update (ent/Carrier.hx line 231)
+logic.Logic.tick (logic/Logic.hx line 424)
+Game.gameTick (Game.hx line 1583)
+Game.gameTick (Game.hx line 1583)
+Game.update (Game.hx line 1750)
+hxd.App.mainLoop (hxd/App.hx line 198)
+AppBase.mainLoop (AppBase.hx line 280)
+AppBase.mainLoop (AppBase.hx line 279)
+sys.thread.EventLoop.loop (D:\Projects\shiroTools\haxe\std/sys/thread/EventLoop.hx line 183)
+sys.thread._Thread.$Thread_Impl_.processEvents (D:\Projects\shiroTools\haxe\std/hl/_std/sys/thread/Thread.hx line 83)
+
+5269.9   [Game] Access violation
+{
+  "removed": false,
+  "className": "ent.ShuttleSpawn",
+  "name": "Renegade Drop Ship",
+  "ekind": "EUnit",
+  "kind": "ThR_DropShip",
+  "state": "Stand"
+}
+ent.Carrier.update (ent/Carrier.hx line 229)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.~onReachedTarget.0 (ent/Carrier.hx line 370)
+ent.ShuttleSpawn.onReachedTarget (ent/Carrier.hx line 370)
+ent.Carrier.update (ent/Carrier.hx line 231)
+logic.Logic.tick (logic/Logic.hx line 424)
+Game.gameTick (Game.hx line 1583)
+Game.gameTick (Game.hx line 1583)
+Game.update (Game.hx line 1750)
+hxd.App.mainLoop (hxd/App.hx line 198)
+AppBase.mainLoop (AppBase.hx line 280)
+AppBase.mainLoop (AppBase.hx line 279)
+sys.thread.EventLoop.loop (D:\Projects\shiroTools\haxe\std/sys/thread/EventLoop.hx line 183)
+sys.thread._Thread.$Thread_Impl_.processEvents (D:\Projects\shiroTools\haxe\std/hl/_std/sys/thread/Thread.hx line 83)
+
+5270.7   [Game] Game.dispose()
