@@ -134,6 +134,18 @@ RD["RM10"] = dict(RD["RM9"], edits=[e if e[0] != "push_out" else ("push_out", di
 # so its lower edge moves with the chest plate instead of the neck (Run test: the ochre plate poked through the snood's lower edge)
 RD["RM11"] = dict(RD["RM9"], fill=RD["RD1"]["fill"] + [HOOD_A2, MASK_H, dict(SNOOD, weights_from_base=True)],
                   title="Ranger RM11: RM9 with the snood skinned to the body")
+# RM12 (owner: fix the gaps and jagged edges; gap finder qa/gap_check.py): RM11 +
+#  - Gurney's open neck rim (the two halves are not joined at x = 0) welded and capped: no view into the hollow body at the nape when the head tips forward
+#  - the snood's lower edge pulled down onto the chest (a slit of light showed under it from the side)
+#  - back pouches skinned from the sash they sit on and snapped flush to it (they drifted off the belt when the spine bent)
+#  (the orange sawtooth is fixed in the recolour: rd_uvdump.py picks the ochre plate by face direction)
+PCH = "MercenaryFill_pouches"; SASH = "DuncanFill_sash"
+RD["RM12"] = dict(RD["RM11"], edits=RD["RM11"]["edits"] + [
+                      ("cap", dict(obj="Gurney", box=((-0.115, -0.05, 1.575), (0.115, 0.15, 1.78)))),
+                      ("snap_to", dict(obj="CommandoFill_snood", solid="Gurney", max_dist=0.03, margin=0.002, box=((-0.3, -0.3, 1.40), (0.3, 0.3, 1.66)))),
+                      ("transfer_weights", dict(obj=PCH, src=SASH)),
+                      ("snap_to", dict(obj=PCH, solid=SASH, max_dist=0.02, margin=0.001, boundary_only=False))],
+                  title="Ranger RM12: RM11 with the gaps closed")
 V.update(RD)
 
 keys = [k for k in sys.argv[sys.argv.index("--") + 1:]] if "--" in sys.argv else list(RD)

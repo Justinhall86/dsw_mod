@@ -129,6 +129,49 @@ def push_out(obj, solid, centre=(0, -0.01, 1.80), margin=0.004, box=None, axis=F
     o.data.update(); return n
 
 
+def snap_to(obj, solid, max_dist=0.025, margin=0.002, boundary_only=True, box=None):
+    """Pull obj's verts (open-edge verts only by default) that float within max_dist OUTSIDE solid onto its surface (+margin): closes the slit of
+    light under a cloth edge.  Uses the nearest surface point; verts already inside solid are left to clip/push ops."""
+    o = find(obj); tree = _tree(find(solid)); inv = o.matrix_world.inverted(); mw = o.matrix_world
+    bm = bmesh.new(); bm.from_mesh(o.data); bm.verts.ensure_lookup_table()
+    pick = {v.index for v in bm.verts if any(len(e.link_faces) == 1 for e in v.link_edges)} if boundary_only else {v.index for v in bm.verts}
+    bm.free(); n = 0
+    for v in o.data.vertices:
+        if v.index not in pick:
+            continue
+        p = mw @ v.co
+        if box and not all(box[0][i] <= p[i] <= box[1][i] for i in range(3)):
+            continue
+        hit, nrm, _i, d = tree.find_nearest(p, max_dist)
+        if hit is None:
+            continue
+        if (p - hit).dot(nrm) > 0:                      # outside the solid: bring it down onto the surface
+            v.co = inv @ (hit + nrm.normalized() * margin); n += 1
+    o.data.update(); return n
+
+
+def cap(obj, box, weld=0.0015):
+    """Close open boundary loops inside box: weld the boundary verts that sit on top of each other (a mirror seam) and fill the loops with
+    faces (no new verts, so skinning is unchanged).  New faces take the UVs of their verts' existing corners."""
+    o = find(obj); mw = o.matrix_world
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    inb = lambda v: all(box[0][i] <= (mw @ v.co)[i] <= box[1][i] for i in range(3))
+    bverts = [v for v in bm.verts if inb(v) and any(len(e.link_faces) == 1 for e in v.link_edges)]
+    bmesh.ops.remove_doubles(bm, verts=bverts, dist=weld)
+    edges = [e for e in bm.edges if len(e.link_faces) == 1 and all(inb(v) for v in e.verts)]
+    res = bmesh.ops.holes_fill(bm, edges=edges, sides=0)
+    uvl = bm.loops.layers.uv.active
+    for f in res["faces"]:
+        for l in f.loops:                               # borrow a UV from another corner of the same vertex
+            other = next((l2 for l2 in l.vert.link_loops if l2.face not in res["faces"]), None)
+            if other is not None:
+                l[uvl].uv = other[uvl].uv.copy()
+        f.material_index = next((l2.face.material_index for l2 in f.loops[0].vert.link_loops if l2.face not in res["faces"]), 0)
+    bmesh.ops.recalc_face_normals(bm, faces=res["faces"])
+    bm.to_mesh(o.data); bm.free(); o.data.update()
+    return len(res["faces"])
+
+
 def run(edits, g):
     for op, kw in edits:
         kw = dict(kw)
@@ -136,5 +179,7 @@ def run(edits, g):
             o = find(kw.pop("obj"))
             (g["bisect_below"](o, kw["z"], kw.get("r")) if op == "cut_below" else g["bisect_above"](o, kw["z"], kw.get("r", 9.0)))
             print("   edit %s %s z=%.3f" % (op, o.name, kw["z"])); continue
+        if op == "transfer_weights":                   # builder helper: nearest-surface skin weights from src onto obj
+            g["transfer_weights"](find(kw["src"]), find(kw["obj"])); print("   edit weights   %s <- %s" % (kw["obj"], kw["src"])); continue
         n = globals()[op](**kw)
         print("   edit %-8s %-28s %s" % (op, kw.get("obj"), n))
