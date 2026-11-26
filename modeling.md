@@ -624,3 +624,16 @@ Details: `model_projects/thorvald_faction/SPEC.md`; script `53_add_thorvald_fact
 - **Model props.json `hmd.animPaths`** decides where `animName` clips are found (e.g. `/Anim/Male01/DualSwords`). Run any
   command that writes these from Git Bash with `MSYS_NO_PATHCONV=1`, or `/Anim/...` becomes `C:/Program Files/Git/Anim/...`.
 - Drop unused material slots before export (an empty slot is skipped by the converter).
+
+## 19. Native-looking buildings (Consignment Terminal appearance pass, 2026-11-26)
+
+- **Village buildings are one mesh with one albedo per faction** (`<B>_Corrino_Albedo.png`, `_Atreides_`, ...). Kitbash from those and
+  recolour the Corrino albedo: Corrino's gold is large panel blocks, so gold -> copper gives bold copper for free. Details and scripts:
+  `model_projects/thorvald/thorvald_starport/TERMINAL_APPEARANCE.md`.
+- **A building HMD can use several texture sheets**: its own, shared `VillageMisc_Neutral` (faction albedo `VillageMisc_<Faction>_Albedo.png`),
+  another building's (Water Plant uses `FuelCellFactory`), `ConstructionAsset`, ground decals. Texture per material, never one albedo for all.
+- **True size = HMD x prefab node scales** (no cdb scale on buildings). Village buildings are 2-2.5 m, Market Place / Water Plant ~3.6 m,
+  the Guild Branch 5.2 m is the outlier. Vanilla textures are 512 per building, so a 1024 atlas of four 512 quadrants at scale 1 keeps the density.
+- **Dirt decal** (`tdecal`) = 1.6 x the footprint, scaleZ ~0.3 (Propaganda 5.21 for 3.27 m, Military Base 3.57 for 2.24 m).
+- HMD meshes are split at UV seams: join islands by vertex position before picking parts, and pick them from a printed list (centre, bounds).
+- Headless Linux: the `bpy` wheel works (in a venv); EEVEE and Workbench hang without a GPU, Cycles CPU is fine.

@@ -10,6 +10,9 @@ replaced by a plain copy; the rest (local repack with the game's D4X.exe, embedd
 Output: 06_game_ready/StructMOD/ThorvaldConsignmentTerminal/ (HMD, 3 PNGs, materials.props, prefab). The prefab copies
 the vanilla Guild Branch's: the model (rotationZ 90), the dirt decal and the construction-start FX; the Guild's
 orange beacon is left out.
+2026-11-26: the dirt decal is sized from the HMD like the vanilla village buildings (Propaganda Office 5.21 for 3.27 m,
+Military Base 3.57 for 2.24 m: 1.6 x the larger XY extent, centred, scaleZ 0.3). The Guild's fixed 12 suited only the
+old 5.5 m model; a decal that size would spread a dirt patch far around the native-scale Terminal.
 """
 import json
 import os
@@ -58,11 +61,13 @@ for m in d.materials:
 json.dump({"materials": {"PBR": {d.materials[0].name: {
     "mode": "PBR", "blend": "None", "shadows": True, "culling": "Back", "depthTest": "Less", "colorMask": 15,
     "enableStencil": False, "emissive": 0.1}}}}, open(os.path.join(OUT, "materials.props"), "w"), indent="\t")
+b = d.geometries[0].bounds                       # xMin, yMin, zMin, xMax, yMax, zMax (HMD space)
+DECAL = round(1.6 * max(abs(b[3] - b[0]), abs(b[4] - b[1]), abs(b[5] - b[2])), 2)   # footprint > height here
+print("dirt decal scale", DECAL)
 src = "%s/%s/%s.hmd" % (RESDIR, NAME, NAME)
 prefab = {"type": "prefab", "children": [
     {"type": "model", "name": NAME, "source": src, "rotationZ": 90},
-    {"type": "tdecal", "name": "tdecal", "x": -0.34302, "y": 0.78249, "z": -0.21002, "scaleX": 12, "scaleY": 12,
-     "scaleZ": 1.01, "rotationZ": -8, "albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
+    {"type": "tdecal", "name": "tdecal", "scaleX": DECAL, "scaleY": DECAL, "scaleZ": 0.3, "rotationZ": -8, "albedoMap": "Structure/Resources/Decals/DirtDecal_1_color.png",
      "normalMap": "Structure/Resources/Decals/DirtDecal_1_normal.png"},
     {"type": "reference", "name": "FX_ConstructionStart", "source": "Fx/Structure/Common/FX_ConstructionStart.fx",
      "scaleX": 0.7, "scaleY": 0.7, "scaleZ": 0.7},

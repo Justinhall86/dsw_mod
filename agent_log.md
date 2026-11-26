@@ -8,8 +8,19 @@ One line per active session: date, what you are changing (unit / files), session
 anything listed; remove your line when you finish. Rules: CLAUDE.md "Several sessions share this repo".
 
 - 2026-11-16: Council/treaty experiments: A1, A2, Smear, B1, B2 are INSTALLED and waiting for the owner's game test. Do not revert the `Th_*Test` / `Th_Walkout` / `Th_Smear` rows or rebuild the pak without reading `model_projects/thorvald/thorvald_council_treaty_tests/README.md`. Condottieri + Tribute are installed too. Session "council-treaty".
-- 2026-11-26: Consignment Terminal appearance pass (model/texture only): `thorvald_starport/08_scripts/3x_*`, `02_progress_photos/2x_*`, `gallery/buildings/village_faction_survey/`. No cdb, pak or game files. Session "terminal-look" (cloud, branch ccr-dde060bd-8vdc6z).
 - 2026-11-21: of the test drones only `TH_Drone3` (Spotter) is still in `mod_files/data.cdb` (others removed 2026-11-21; the installed pak still has all five). Read `model_projects/thorvald/thorvald_drones/README.md` before rebuilding or reverting. Session "council-treaty".
+
+## 2026-11-26: Consignment Terminal appearance pass: native-scale V5 "Crate Lift Hall" (model/texture only, NOT converted or installed)
+
+- Cloud session, branch `ccr-dde060bd-8vdc6z`. Summary and steps: `model_projects/thorvald/thorvald_starport/TERMINAL_APPEARANCE.md`.
+- Survey of all faction-skinned village buildings at true in-game size: `gallery/buildings/village_faction_survey/survey_corrino.png`. D5 was 2.5x their footprint.
+- New scripts `thorvald_starport/08_scripts/30-36`, `terminal_scene.py`, `terminal_sheets.py`, specs in `08_scripts/specs/`. Variants V1-V5 (+ palettes) in
+  `02_progress_photos/22_native_variants/` (`FINALISTS.png`) and lineups next to Corrino/Atreides buildings in `23_lineups/`.
+- Recommended V5: Corrino Propaganda hall (obelisk off) + Supply Depot cargo block + oxblood crate pallet, at vanilla scale (3.0 x 3.3 x 1.4 m),
+  charcoal + faction copper 0xB26E3C, donors' own normal/MGAO maps, emblems painted out. The final .blend could not be pushed (cloud network blocks lfs.github.com; host change declined): rebuild it with `34_build_terminal.py specs/V5_crate_lift_hall.json` and commit it locally.
+- Changed: `10_export_building.py` honours object props `footprint`/`lift_ao` (default = old behaviour); `11_convert_building.py` sizes the dirt decal from the HMD (was the Guild's 12).
+- Export tested (bpy wheel): scale 1.000, 5,411 faces. Not converted (needs D4X.exe), so `06_game_ready/` still holds D5. No cdb, hlboot, pak or game-folder change.
+- Undo: nothing installed; revert the branch commits. Findings added to `modeling.md` section 19.
 
 ## 2026-11-21: soldier drop operations and four drones removed; building drops researched (data only, NOT installed)
 

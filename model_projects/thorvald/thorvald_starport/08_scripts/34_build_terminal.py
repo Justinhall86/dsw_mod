@@ -8,7 +8,8 @@ Spec (JSON):
   donors    village buildings the pieces come from (30_village_convert.py names)
   drop_sheets  texture sheets whose faces are removed (default: ground decals). At most four sheets may remain:
             each gets one 512 quadrant of the 1024 atlas, the vanilla density.
-  strength  gunmetal darkening for 33_thorvald_paint.py (default 1)
+  strength  gunmetal darkening for 33_thorvald_paint.py (default 1; 1.6 = charcoal)
+  copper    copper anchor RGB (default 33_thorvald_paint.COPPER)
   pieces    list of {donor, keep: [[x0,y0,z0],[x1,y1,z1]] (optional), remove: [box, ...] (optional),
                      scale (default 1: keep vanilla texel density), rotz (deg), at: [x, y, z], mirror_x (bool)}
             Boxes are in the donor's own grid coordinates (32_donor_grid.py sheets: native size, XY centred, base z 0).
@@ -147,7 +148,7 @@ def build(spec):
         if bad:
             print("UV_OUT", o.name, bad, "loops clamped")
     tex = PAINT.atlas(sheets, os.path.join(T.PROJ, "04_textures", "terminal_native", spec["name"]), "",
-                      spec.get("strength", 1.0))
+                      spec.get("strength", 1.0), spec.get("copper"))
     bpy.ops.object.select_all(action="DESELECT")
     for o in parts:
         o.select_set(True)

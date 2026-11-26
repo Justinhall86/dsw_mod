@@ -47,8 +47,10 @@ def _load(sheet, key, mode="RGB", fallback=None):
     return Image.open(p).convert(mode).resize((Q, Q), Image.LANCZOS)
 
 
-def paint(donor, strength=1.0):
-    """Thorvald albedo for one donor (512 RGB). strength scales the gunmetal darkening (1 = default)."""
+def paint(donor, strength=1.0, copper=None):
+    """Thorvald albedo for one sheet (512 RGB). strength scales the gunmetal darkening (1 = default);
+    copper overrides the copper anchor colour (RGB)."""
+    cu_anchor = np.array(copper, np.float32) if copper is not None else COPPER
     im = _load(donor, "corrino")
     rgb = np.asarray(im).astype(np.float32)
     for e in EMBLEMS.get(donor, []):
@@ -79,7 +81,7 @@ def paint(donor, strength=1.0):
     out[:] = gm
     if gold.any():
         anchor = np.percentile(v[gold], 75)
-        cu = COPPER * np.clip(v / anchor, 0.25, 1.25)[..., None]
+        cu = cu_anchor * np.clip(v / anchor, 0.25, 1.25)[..., None]
         out = out * (1 - soft(gold)) + cu * soft(gold)
     if red.any():
         anchor = np.percentile(v[red], 75)
@@ -90,7 +92,7 @@ def paint(donor, strength=1.0):
     return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
 
 
-def atlas(donors, out_dir=OUT, tag="", strength=1.0):
+def atlas(donors, out_dir=OUT, tag="", strength=1.0, copper=None):
     """Writes Terminal<tag>_{Albedo,MetallicGlossAO,Normal}.png (1024) and returns their paths."""
     os.makedirs(out_dir, exist_ok=True)
     A = Image.new("RGB", (2 * Q, 2 * Q), (60, 61, 63))
@@ -99,7 +101,7 @@ def atlas(donors, out_dir=OUT, tag="", strength=1.0):
     for i, d in enumerate(donors):
         cx, cy = QUADS[i]
         box = (cx * Q, (1 - cy) * Q)
-        A.paste(paint(d, strength), box)
+        A.paste(paint(d, strength, copper), box)
         M.paste(_load(d, "mga", "RGB", (0, 60, 255)), box)
         N.paste(_load(d, "normal", "RGB", (128, 128, 255)), box)
     paths = {}
