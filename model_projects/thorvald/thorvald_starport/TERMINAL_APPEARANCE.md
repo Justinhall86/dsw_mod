@@ -4,12 +4,26 @@ Goal (owner): the Terminal should look like a building Shiro could have shipped 
 buildings, in Thorvald colours. Model and texture only: no cdb, hlboot, pak or game-folder change. Output names and the
 `StructMOD/ThorvaldConsignmentTerminal/` path stay the same, so the data row needs no edit.
 
-**Recommended: V5 "Crate Lift Hall"** (spec `08_scripts/specs/V5_crate_lift_hall.json`). The final .blend is **not in git**: the cloud session's
+**Round-2 pick: V5 "Crate Lift Hall"; superseded by V7 in round 3 (below)** (spec `08_scripts/specs/V5_crate_lift_hall.json`). The final .blend is **not in git**: the cloud session's
 network blocks the Git LFS host. Rebuild it (deterministic, under a minute) with
 `blender -b --python 08_scripts/34_build_terminal.py -- 08_scripts/specs/V5_crate_lift_hall.json` after `30_village_convert.py`;
 it lands in `03_blender/terminal_native/V5_crate_lift_hall.blend`. Commit that one from the local session (LFS works there).
 Sheets: `02_progress_photos/22_native_variants/FINALISTS.png`, `02_progress_photos/23_lineups/lineup_v3_finalists.png`.
 Not converted, packed or seen in the game yet.
+
+## Round 3 (owner feedback, 2026-11-26)
+
+Owner: the Propaganda Office's triangular wings read as Corrino's unique building, so they go; the grey slab tower from D5 was liked but
+was too tall; no crane; asked what was wrong with the hangar (V3: tower and hangar stood apart like two buildings, crates hidden, little copper;
+the placement was the problem, not the idea).
+
+- **V7 "low tower hall" (now recommended):** V5 minus both wings (boxes |y| > 0.55 on the hall), plus the Guild Branch's slab tower
+  (islands x -2.5..-0.9, antenna included) at scale 0.6 and height x0.42 (slab ~1.0 m), behind the hall. Its gold stays charcoal
+  (`sheet_paint` `gold_to: gunmetal`) and the Guild logo is painted out (`EMBLEMS["SpacingGuildBranch"]`). 3.0 x 2.1 x 1.4 m.
+- **V6:** the same with the tower at a uniform 0.6 (slab ~1.4 m, 2.0 m with the antenna).
+- **V8:** V3 redone: Processing Plant hangar + the same tower (~1.2 m) behind it + crates in front. It's one building now, but there's little copper at RTS zoom.
+- Sheets: `22_native_variants/FINALISTS_round3.png`, `23_lineups/lineup_v4_towers.png`. Specs `08_scripts/specs/V6..V8*.json`.
+- Rebuild the chosen one with `34_build_terminal.py specs/V7_low_tower_hall.json`, then follow the steps below with that blend.
 
 ## Why D5 read as a kitbash (from the survey)
 

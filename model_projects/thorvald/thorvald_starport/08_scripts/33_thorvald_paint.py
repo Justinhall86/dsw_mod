@@ -37,6 +37,7 @@ EMBER = np.array((255, 150, 60), np.float32)
 EMBLEMS = {
     "PropagandaOffice": [(380, 284, 484, 384)],             # Corrino hawk on the side panel
     "SupplyDepot": [(32, 384, 104, 452, 183, 163, 93)],     # depot crest on the gold panel
+    "SpacingGuildBranch": [(50, 220, 146, 310)],             # Guild logo on the tall tower's face
 }
 
 
@@ -47,9 +48,10 @@ def _load(sheet, key, mode="RGB", fallback=None):
     return Image.open(p).convert(mode).resize((Q, Q), Image.LANCZOS)
 
 
-def paint(donor, strength=1.0, copper=None):
+def paint(donor, strength=1.0, copper=None, gold_to="copper"):
     """Thorvald albedo for one sheet (512 RGB). strength scales the gunmetal darkening (1 = default);
-    copper overrides the copper anchor colour (RGB)."""
+    copper overrides the copper anchor colour (RGB); gold_to="gunmetal" keeps this sheet's gold panels charcoal
+    (the Guild tower the owner liked in D5 was grey, not copper)."""
     cu_anchor = np.array(copper, np.float32) if copper is not None else COPPER
     im = _load(donor, "corrino")
     rgb = np.asarray(im).astype(np.float32)
@@ -79,7 +81,7 @@ def paint(donor, strength=1.0, copper=None):
     k = strength
     gm = (22 * k + lum * (1 - 0.32 * k))[..., None] * np.array([0.97, 0.99, 1.03], np.float32)
     out[:] = gm
-    if gold.any():
+    if gold.any() and gold_to == "copper":
         anchor = np.percentile(v[gold], 75)
         cu = cu_anchor * np.clip(v / anchor, 0.25, 1.25)[..., None]
         out = out * (1 - soft(gold)) + cu * soft(gold)
@@ -92,7 +94,7 @@ def paint(donor, strength=1.0, copper=None):
     return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
 
 
-def atlas(donors, out_dir=OUT, tag="", strength=1.0, copper=None):
+def atlas(donors, out_dir=OUT, tag="", strength=1.0, copper=None, sheet_opts=None):
     """Writes Terminal<tag>_{Albedo,MetallicGlossAO,Normal}.png (1024) and returns their paths."""
     os.makedirs(out_dir, exist_ok=True)
     A = Image.new("RGB", (2 * Q, 2 * Q), (60, 61, 63))
@@ -101,7 +103,7 @@ def atlas(donors, out_dir=OUT, tag="", strength=1.0, copper=None):
     for i, d in enumerate(donors):
         cx, cy = QUADS[i]
         box = (cx * Q, (1 - cy) * Q)
-        A.paste(paint(d, strength, copper), box)
+        A.paste(paint(d, strength, copper, **(sheet_opts or {}).get(d, {})), box)
         M.paste(_load(d, "mga", "RGB", (0, 60, 255)), box)
         N.paste(_load(d, "normal", "RGB", (128, 128, 255)), box)
     paths = {}

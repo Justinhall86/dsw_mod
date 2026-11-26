@@ -1,0 +1,95 @@
+{
+ "drop_sheets": [
+  "SupplyDepot_Ground",
+  "ConstructionAsset"
+ ],
+ "strength": 1.6,
+ "copper": [
+  178,
+  110,
+  60
+ ],
+ "sheet_paint": {
+  "SpacingGuildBranch": {
+   "gold_to": "gunmetal"
+  }
+ },
+ "name": "V8_tower_hangar",
+ "note": "Processing Plant hangar + Guild slab tower (charcoal) at 0.6 (height x0.5, ~1.2 m) behind it + crate stacks in front",
+ "donors": [
+  "ProcessingPlant",
+  "SpacingGuildBranch",
+  "SupplyDepot"
+ ],
+ "pieces": [
+  {
+   "donor": "ProcessingPlant"
+  },
+  {
+   "donor": "SpacingGuildBranch",
+   "keep": [
+    [
+     -2.5,
+     -0.4,
+     0.05
+    ],
+    [
+     -0.9,
+     0.4,
+     3.5
+    ]
+   ],
+   "scale": [
+    0.6,
+    0.6,
+    0.5
+   ],
+   "at": [
+    0.85,
+    1.1,
+    0
+   ]
+  },
+  {
+   "donor": "SupplyDepot",
+   "keep": [
+    [
+     0.6,
+     0.4,
+     0
+    ],
+    [
+     1.0,
+     1.0,
+     0.2
+    ]
+   ],
+   "rotz": 90,
+   "at": [
+    1.5,
+    -1.95,
+    0
+   ]
+  },
+  {
+   "donor": "SupplyDepot",
+   "keep": [
+    [
+     -0.45,
+     0.37,
+     0.6
+    ],
+    [
+     -0.16,
+     0.7,
+     0.95
+    ]
+   ],
+   "at": [
+    1.25,
+    -1.3,
+    -0.62
+   ]
+  }
+ ]
+}
