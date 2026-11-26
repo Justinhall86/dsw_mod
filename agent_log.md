@@ -21,6 +21,7 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 - Changed: `10_export_building.py` honours object props `footprint`/`lift_ao` (default = old behaviour); `11_convert_building.py` sizes the dirt decal from the HMD (was the Guild's 12).
 - Export tested (bpy wheel): scale 1.000, 5,411 faces. Not converted (needs D4X.exe), so `06_game_ready/` still holds D5. No cdb, hlboot, pak or game-folder change.
 - Round 3 (owner feedback): Propaganda wings removed (too Corrino), D5's Guild slab tower back in charcoal with the logo painted out and lower; no crane. New V6 (tower ~1.4 m), **V7 (~1.0 m, now recommended)**, V8 (hangar redone). `33_thorvald_paint.py` gained per-sheet `gold_to`; `34` takes `sheet_paint`. Sheets `FINALISTS_round3.png`, `lineup_v4_towers.png`. Still not converted or installed.
+- **Owner chose V7.** Final blend `thorvald_starport/03_blender/ThorvaldConsignmentTerminal_V7_native.blend` (LFS; `lfs.github.com` added to the cloud environment's allowed hosts with the owner's approval). Export tested: scale 1.000, 5,834 faces. Next (local): 10 export -> 11 convert -> 12 round trip (check facing) -> validate -> pack when asked.
 - Undo: nothing installed; revert the branch commits. Findings added to `modeling.md` section 19.
 
 ## 2026-11-21: soldier drop operations and four drones removed; building drops researched (data only, NOT installed)

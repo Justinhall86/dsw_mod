@@ -4,12 +4,11 @@ Goal (owner): the Terminal should look like a building Shiro could have shipped 
 buildings, in Thorvald colours. Model and texture only: no cdb, hlboot, pak or game-folder change. Output names and the
 `StructMOD/ThorvaldConsignmentTerminal/` path stay the same, so the data row needs no edit.
 
-**Round-2 pick: V5 "Crate Lift Hall"; superseded by V7 in round 3 (below)** (spec `08_scripts/specs/V5_crate_lift_hall.json`). The final .blend is **not in git**: the cloud session's
-network blocks the Git LFS host. Rebuild it (deterministic, under a minute) with
-`blender -b --python 08_scripts/34_build_terminal.py -- 08_scripts/specs/V5_crate_lift_hall.json` after `30_village_convert.py`;
-it lands in `03_blender/terminal_native/V5_crate_lift_hall.blend`. Commit that one from the local session (LFS works there).
-Sheets: `02_progress_photos/22_native_variants/FINALISTS.png`, `02_progress_photos/23_lineups/lineup_v3_finalists.png`.
+**CHOSEN (owner, 2026-11-26): V7 "Low Tower Hall"**: final blend `03_blender/ThorvaldConsignmentTerminal_V7_native.blend` (Git LFS),
+spec `08_scripts/specs/V7_low_tower_hall.json`, 3.0 x 2.1 x 1.4 m, 5,834 faces. The round-2 pick V5 (below) is superseded.
 Not converted, packed or seen in the game yet.
+Sheets: `02_progress_photos/22_native_variants/FINALISTS_round3.png`, `02_progress_photos/23_lineups/lineup_v4_towers.png`
+(round 2: `FINALISTS.png`, `lineup_v3_finalists.png`).
 
 ## Round 3 (owner feedback, 2026-11-26)
 
@@ -17,13 +16,12 @@ Owner: the Propaganda Office's triangular wings read as Corrino's unique buildin
 was too tall; no crane; asked what was wrong with the hangar (V3: tower and hangar stood apart like two buildings, crates hidden, little copper;
 the placement was the problem, not the idea).
 
-- **V7 "low tower hall" (now recommended):** V5 minus both wings (boxes |y| > 0.55 on the hall), plus the Guild Branch's slab tower
+- **V7 "low tower hall" (chosen by the owner):** V5 minus both wings (boxes |y| > 0.55 on the hall), plus the Guild Branch's slab tower
   (islands x -2.5..-0.9, antenna included) at scale 0.6 and height x0.42 (slab ~1.0 m), behind the hall. Its gold stays charcoal
   (`sheet_paint` `gold_to: gunmetal`) and the Guild logo is painted out (`EMBLEMS["SpacingGuildBranch"]`). 3.0 x 2.1 x 1.4 m.
 - **V6:** the same with the tower at a uniform 0.6 (slab ~1.4 m, 2.0 m with the antenna).
 - **V8:** V3 redone: Processing Plant hangar + the same tower (~1.2 m) behind it + crates in front. It's one building now, but there's little copper at RTS zoom.
 - Sheets: `22_native_variants/FINALISTS_round3.png`, `23_lineups/lineup_v4_towers.png`. Specs `08_scripts/specs/V6..V8*.json`.
-- Rebuild the chosen one with `34_build_terminal.py specs/V7_low_tower_hall.json`, then follow the steps below with that blend.
 
 ## Why D5 read as a kitbash (from the survey)
 
@@ -69,8 +67,8 @@ Changed: `10_export_building.py` reads the object props `footprint` and `lift_ao
 
 ## Putting V5 in the game (owner's local session; when asked)
 
-1. Rebuild the blend (above), then `blender -b 03_blender/terminal_native/V5_crate_lift_hall.blend --python 08_scripts/10_export_building.py -- <project>` (prints `@@scale 1.000`;
-   tested in the cloud session: 3.0 x 3.27 x 1.41, 5,411 faces).
+1. `blender -b 03_blender/ThorvaldConsignmentTerminal_V7_native.blend --python 08_scripts/10_export_building.py -- <project>` (prints `@@scale 1.000`;
+   tested in the cloud session: 3.0 x 2.08 x 1.41, 5,834 faces).
 2. `py -3 08_scripts/11_convert_building.py` (needs `D4X.exe`; overwrites `06_game_ready/StructMOD/ThorvaldConsignmentTerminal/`, D5 is in git history).
 3. `py -3 08_scripts/12_roundtrip_render.py`: check the facing. V5 was designed with its front toward the camera in the same Blender frame as D5
    (camera from -X -Y), and the prefab keeps `rotationZ` 90; if the round trip shows it turned, change the prefab rotation, not the mesh.
