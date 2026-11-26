@@ -42,7 +42,7 @@ The user allows `hlboot.dat` edits as a last resort (two are applied). Never del
 3. **Copies of the base operation / multiple bases on an enemy.** Only the ability id `GhostMarket` spawns a world-event structure, so a second mission row would share that ability.
    Practical route: the operation is free and ~instant now, so place bases one village at a time. The engine refuses a second base in a zone that already has one.
    If the user insists on copies, test two mission rows pointing at `GhostMarket` carefully (`getMissionFromAbility` returns the first match).
-4. **Turret drop (the user left it to me).** There is no turret unit or structure in the data. Plan: clone `TH_Soldier` (Iron Ranger, sniper) into an immobile unit (Speed stat at a tiny value, not 0), and add an operation that drops 3 of them into the clicked region.
+4. **(Built 2026-11-18, not tested: see `../thorvald_drop_ops/README.md`.) Turret drop (the user left it to me).** There is no turret unit or structure in the data. Plan: clone `TH_Soldier` (Iron Ranger, sniper) into an immobile unit (Speed stat at a tiny value, not 0), and add an operation that drops 3 of them into the clicked region.
    It rides on the same path as Iron Landfall, so do it **after** item 1 is solved. Check the unit `stats` format and the Speed resource in `unit` rows before cloning.
 5. **Start frigate / fighter.** Deliberately not start units: no vanilla structure starts with a ship, and a bad spawn could crash every game start (not testable from the CLI).
    If the user insists, add one `TH_Frigate` to `ThorvaldCitadel.startUnits` with a revert ready, and watch the first load.

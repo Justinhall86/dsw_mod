@@ -41,6 +41,9 @@ res = np.dstack([out.clip(0, 255), a[..., 3]]).astype(np.uint8)
 Image.fromarray(res, "RGBA").save(os.path.join(OUT, "RenegadeDropShip_Albedo.png"))
 print("panel px", int(panel.sum()), "glass px", int(glass.sum()))
 
+# The vanilla HMD's Mat_Reactor points at a misspelt folder (Vehicle/Atreide/SapceShuttle/Reactor_albedo.png). The engine then falls back to
+# the file of that name beside the HMD. Without this copy every drop ship throws on spawn and the Renegade drop timer never resets (2026-11-18).
+shutil.copy2(os.path.join(SRC, "Reactor_albedo.png"), OUT)
 shutil.copy2(os.path.join(SRC, "materials.props"), OUT)
 shutil.copy2(os.path.join(SRC, "props.json"), OUT)                    # hmd.animPaths -> /Anim/SpaceShuttle (vanilla clips)
 json.dump({"type": "prefab", "children": [{"type": "model", "name": "Renegade_DropShip",

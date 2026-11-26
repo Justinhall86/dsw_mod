@@ -140,6 +140,18 @@
       "renegades": true,
       "built": "2026-11-13",
       "desc": "built by hlboot_build.py"
+    },
+    "42f92959bcb91dc6": {
+      "role": "patched",
+      "from": "478027b5d76378ea",
+      "features": [
+        "faction_styles",
+        "resource_trades",
+        "thorvald_sworn"
+      ],
+      "renegades": true,
+      "built": "2026-11-20",
+      "desc": "built by hlboot_build.py"
     }
   },
   "needs_patch": {

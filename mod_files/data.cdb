@@ -36811,6 +36811,10 @@
 							{
 								"trait": "Th_TestFreeArmy",
 								"displayed": true
+							},
+							{
+								"trait": "Th_CouncilTest",
+								"displayed": true
 							}
 						],
 						"aiType": [
@@ -54975,49 +54979,6 @@
 					"name": "Orbital Strike",
 					"duration": 3,
 					"desc": "The Emperor always keeps a few ships in low orbit. They are ready to strike at any time, as long as they get the right coordinates."
-				},
-				{
-					"id": "Th_OrbitalStrike",
-					"flags": 513,
-					"cooldowns": {},
-					"traits": [
-						{
-							"trait": "Th_OrbitalStrike",
-							"apply": 3,
-							"comments": "",
-							"props": {
-								"hideApplyTarget": true
-							}
-						}
-					],
-					"otherEffects": [],
-					"display": {
-						"where": 4,
-						"alignment": 1
-					},
-					"apply": {
-						"need": 0,
-						"needSelector": true,
-						"hostileAction": "Mission_Hostile_Detected"
-					},
-					"props": {
-						"unlockedBy": 1,
-						"tip": {
-							"allowed": true,
-							"padExpand": true,
-							"cat": "Operation"
-						}
-					},
-					"implemented": true,
-					"gfx": {
-						"file": "UI/icons/skill_icons02.png",
-						"size": 30,
-						"x": 20,
-						"y": 0
-					},
-					"name": "Hammerfall (Orbital Strike)",
-					"duration": 5,
-					"desc": "Heighforge tenders hold orbit over Arrakis. For five days they answer Thorvald's coordinates with alloy and fire."
 				},
 				{
 					"id": "ElaccaFog",
@@ -94829,6 +94790,98 @@
 								"ref": "Th_Drone_Attack"
 							}
 						]
+					}
+				},
+				{
+					"images": {
+						"bigPortrait": {
+							"file": "UI/Faction/unit_vehicles.png",
+							"size": 250,
+							"x": 0,
+							"y": 5
+						},
+						"smallPortrait": {
+							"file": "UI/Faction/unitsSmall.png",
+							"size": 80,
+							"x": 2,
+							"y": 5
+						}
+					},
+					"id": "TH_Drone3",
+					"texts": {
+						"name": "Spotter Drone",
+						"desc": "It does not shoot. It paints targets, and every Thorvald gun in sight hits them harder.",
+						"plural": {
+							"name": "Spotter Drones"
+						}
+					},
+					"traits": [
+						{
+							"ref": "Th_Drone3_Trait"
+						}
+					],
+					"stats": [
+						{
+							"health": 250,
+							"power": 6,
+							"armor": 2,
+							"maxSupply": 200,
+							"range": 25
+						}
+					],
+					"props": {
+						"squadSize": 1,
+						"radius": 3.5,
+						"vibrationsFactor": 0.1,
+						"wheelPosition": {
+							"pos": 4,
+							"group": 0
+						},
+						"reconRate": 100
+					},
+					"aiWeights": [],
+					"inherits": "Drone",
+					"faction": "Thorvald",
+					"flags": 0,
+					"effects": {
+						"models": [
+							{
+								"ref": "N_Renegade_Drone",
+								"flags": 0
+							}
+						],
+						"favorsLoot": 2,
+						"scrapLoot": 0
+					},
+					"costs": {
+						"recruit": [
+							{
+								"qty": 250,
+								"res": "Solari"
+							}
+						],
+						"upkeep": [
+							{
+								"qty": 10,
+								"res": "Solari"
+							},
+							{
+								"res": "FuelCell",
+								"qty": 3
+							},
+							{
+								"qty": 3,
+								"res": "CommandPoint"
+							}
+						]
+					},
+					"equipment": [],
+					"attacks": {},
+					"gfx": {
+						"file": "UI/Faction/unitsSmall.png",
+						"size": 80,
+						"x": 2,
+						"y": 5
 					}
 				},
 				{
@@ -153364,6 +153417,14 @@
 							"displayed": false
 						},
 						{
+							"target": {
+								"unit": "TH_Drone3"
+							},
+							"target2": {},
+							"ref": "Unlock_TUnit_Force",
+							"displayed": false
+						},
+						{
 							"target": {},
 							"target2": {},
 							"ref": "Unit_ImportCost_MRatio",
@@ -153410,6 +153471,83 @@
 						"file": "UI/Faction/factionButton00.png",
 						"size": 64,
 						"x": 4,
+						"y": 0
+					}
+				},
+				{
+					"id": "Th_CouncilTest",
+					"name": "TEST: Council action A1",
+					"type": 0,
+					"displayed": true,
+					"desc": "Experiment A1: Thorvald may use Landsraad Immunity at the Council.",
+					"props": {
+						"tip": {
+							"allowed": true,
+							"padExpand": true
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resAction": "LandsraadImmunity"
+							},
+							"target2": {},
+							"ref": "Unlock_TResAction",
+							"desc": "Can use [LandsraadImmunity] on a resolution to become immune to it"
+						},
+						{
+							"target": {
+								"resAction": "Th_Walkout"
+							},
+							"target2": {},
+							"ref": "Unlock_TResAction",
+							"desc": "TEST A2: can use [Th_Walkout] on a resolution"
+						},
+						{
+							"target": {
+								"resAction": "Th_Smear"
+							},
+							"target2": {},
+							"ref": "Unlock_TResAction",
+							"desc": "TEST: can use [Th_Smear] on a resolution"
+						},
+						{
+							"target": {
+								"treaty": "Th_SponsorshipTest"
+							},
+							"target2": {},
+							"ref": "Unlock_TTreaty",
+							"desc": "TEST B1: can offer [Th_SponsorshipTest]"
+						},
+						{
+							"target": {
+								"treaty": "Th_PatronageTest"
+							},
+							"target2": {},
+							"ref": "Unlock_TTreaty",
+							"desc": "TEST B2: can offer [Th_PatronageTest]"
+						},
+						{
+							"target": {
+								"treaty": "Th_Condottieri"
+							},
+							"target2": {},
+							"ref": "Unlock_TTreaty",
+							"desc": "TEST K: can offer [Th_Condottieri]"
+						},
+						{
+							"target": {
+								"treaty": "Th_TributeTest"
+							},
+							"target2": {},
+							"ref": "Unlock_TTreaty",
+							"desc": "TEST: can offer [Th_TributeTest]"
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 42,
 						"y": 0
 					}
 				},
@@ -161678,6 +161816,73 @@
 						"y": 0
 					},
 					"name": "Siege Engine"
+				},
+				{
+					"id": "Th_Drone3_Debuff",
+					"desc": "",
+					"props": {
+						"stackingLimit": 1,
+						"tip": {
+							"cat": "UnitAffliction"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "Entity_DamageReceived_ARatio",
+							"val": 0.15
+						}
+					],
+					"type": 2,
+					"displayed": true,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 33,
+						"y": 2
+					},
+					"name": "Marked"
+				},
+				{
+					"id": "Th_Drone3_Trait",
+					"desc": "[!TH_Drone]s anchor themselves to the ground to deliver high-caliber explosives to a long range.",
+					"props": {
+						"tip": {
+							"cat": "UnitTrait"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"trait": "Th_Drone3_Debuff"
+							},
+							"target2": {
+								"range": "Medium_Range"
+							},
+							"ref": "Entity_GiveTTrait_UnitAtWar_AtTRange2",
+							"desc": "Enemy units at [Medium_Range] are [Th_Drone3_Debuff]: ::target_effects::"
+						},
+						{
+							"target": {
+								"trait": "Th_Drone3_Debuff"
+							},
+							"target2": {
+								"range": "Long_Range"
+							},
+							"ref": "Entity_GiveTTrait_AerialUnitAtWar_AtTRange2",
+							"desc": "Flying enemy units at [Long_Range] are [Th_Drone3_Debuff]"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"gfx": {
+						"file": "UI/icons/unitsTraits.png",
+						"size": 64,
+						"x": 6,
+						"y": 0
+					},
+					"name": "Target Marking"
 				},
 				{
 					"id": "C_LazaTiger_Trait",
@@ -191586,65 +191791,6 @@
 					"name": "Orbital Strike"
 				},
 				{
-					"id": "Th_OrbitalStrike",
-					"desc": "Heighforge tenders hold orbit over Arrakis. For five days they answer Thorvald's coordinates with alloy and fire.",
-					"props": {
-						"linkedAbility": "Th_OrbitalStrike",
-						"zoneOutline": 0,
-						"fx": [
-							{
-								"attachOnWorld": false,
-								"playOnApplication": true,
-								"sfx": "UI_Spyoperation_Orbitalstrike",
-								"isUIFx": false,
-								"attachSpecs": {},
-								"followPosOnly": false,
-								"flags": 0,
-								"targetPlayers": 0
-							},
-							{
-								"attachOnWorld": false,
-								"playOnApplication": false,
-								"vfxPath": "Fx/Abilities/Ability_OrbitalStrike.fx",
-								"isUIFx": false,
-								"attachSpecs": {},
-								"followPosOnly": false,
-								"flags": 0,
-								"targetPlayers": 0
-							}
-						],
-						"tip": {
-							"cat": "RegionalEffect"
-						}
-					},
-					"attributes": [
-						{
-							"target": {},
-							"ref": "CustomProperty",
-							"desc": "Missiles strike from orbit targetting all ground enemy units, [!Village]s, and Main Bases, dealing heavy damage at the area of impact to ally and enemies units.",
-							"target2": {}
-						},
-						{
-							"target": {
-								"unit": "TH_MissileShip"
-							},
-							"ref": "Zone_Spawn_TUnit_MissileGen",
-							"displayed": false,
-							"val": 1,
-							"target2": {}
-						}
-					],
-					"type": 2,
-					"displayed": true,
-					"gfx": {
-						"file": "UI/icons/missionsTraits.png",
-						"size": 32,
-						"x": 20,
-						"y": 0
-					},
-					"name": "Hammerfall"
-				},
-				{
 					"id": "Th_RenegadeStrike_Signal",
 					"name": "Renegade Strike",
 					"type": 2,
@@ -197560,6 +197706,127 @@
 						"y": 0
 					},
 					"name": "Patronage"
+				},
+				{
+					"id": "Th_TributeTest_Receiver",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_Tribute_Flat",
+							"val": 0.2,
+							"target2": {}
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Tribute (test)"
+				},
+				{
+					"id": "Th_Condottieri_Sender",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_Prod_Flat",
+							"val": 5,
+							"target2": {},
+							"desc": "::s_value:: [Solari] production"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Condottieri (test)"
+				},
+				{
+					"id": "Th_Condottieri_Receiver",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_Prod_Flat",
+							"val": -5,
+							"target2": {},
+							"desc": "::s_value:: [Solari] production"
+						},
+						{
+							"target": {
+								"unit": "TH_SwornSword_Spawned"
+							},
+							"ref": "Faction_DailySpawn_TUnit_Flat",
+							"val": 1,
+							"target2": {},
+							"desc": "Each day, receive ::value:: [TH_SwornSword_Spawned] near your Main Base"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Condottieri (test)"
+				},
+				{
+					"id": "Th_SponsorTest_Sender",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"attributes": [
+						{
+							"target": {
+								"resource": "Solari"
+							},
+							"ref": "TRes_OnCouncilVoteEnd_Flat",
+							"target2": {},
+							"val": 50,
+							"desc": "::s_value:: [Solari] after every Council"
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Sponsorship (test)"
+				},
+				{
+					"id": "Th_SponsorTest_Receiver",
+					"desc": "",
+					"props": {
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"attributes": [
+						{
+							"target": {},
+							"target2": {},
+							"ref": "FreeVotes_Resolution_Flat",
+							"val": 10,
+							"desc": "The first ::value:: votes placed on each resolution are free."
+						}
+					],
+					"type": 0,
+					"displayed": false,
+					"name": "Sponsorship (test)"
 				},
 				{
 					"id": "TWaterGift_Easy",
@@ -237739,6 +238006,215 @@
 					]
 				},
 				{
+					"id": "Th_SponsorshipTest",
+					"name": "Sponsorship (test)",
+					"desc": "TEST B1: the partner gets 10 free votes on every resolution; Thorvald gets 50 Solari after every Council.",
+					"props": {
+						"group": 1,
+						"onlyForFactions": [
+							{
+								"ref": "Thorvald"
+							}
+						],
+						"diplomaticStatuses": [
+							{
+								"ref": "Peace"
+							}
+						],
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"costs": [
+						{
+							"res": "Solari",
+							"qty": 50
+						}
+					],
+					"stats": [
+						{
+							"duration": -1,
+							"relationshipChange": 0,
+							"relationshipGain": 0,
+							"tradeValue": 1200
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/treatiesSquare.png",
+						"size": 80,
+						"x": 6,
+						"y": 0
+					},
+					"flags": 513,
+					"traits": [
+						{
+							"trait": "Th_SponsorTest_Receiver",
+							"apply": 2,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 1
+						},
+						{
+							"trait": "Th_SponsorTest_Sender",
+							"apply": 1,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 1
+						}
+					],
+					"images": {
+						"event": {
+							"file": "UI/icons/eventIcons.png",
+							"size": 60,
+							"x": 5,
+							"y": 1
+						}
+					},
+					"aiWeights": [
+						{
+							"value": 10
+						}
+					],
+					"effects": []
+				},
+				{
+					"id": "Th_Condottieri",
+					"name": "Condottieri (test)",
+					"desc": "TEST K: Thorvald hires out a company. The partner pays 5 Solari production and receives a Sworn Sword each day.",
+					"props": {
+						"group": 1,
+						"onlyForFactions": [
+							{
+								"ref": "Thorvald"
+							}
+						],
+						"diplomaticStatuses": [
+							{
+								"ref": "Peace"
+							}
+						],
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"costs": [
+						{
+							"res": "Solari",
+							"qty": 100
+						}
+					],
+					"stats": [
+						{
+							"duration": 1,
+							"relationshipChange": 0,
+							"relationshipGain": 0,
+							"tradeValue": 1200
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/treatiesSquare.png",
+						"size": 80,
+						"x": 6,
+						"y": 0
+					},
+					"flags": 529,
+					"traits": [
+						{
+							"trait": "Th_Condottieri_Sender",
+							"apply": 1,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 1
+						},
+						{
+							"trait": "Th_Condottieri_Receiver",
+							"apply": 2,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 1
+						}
+					],
+					"images": {
+						"event": {
+							"file": "UI/icons/eventIcons.png",
+							"size": 60,
+							"x": 5,
+							"y": 1
+						}
+					},
+					"aiWeights": [
+						{
+							"value": 10
+						}
+					],
+					"effects": []
+				},
+				{
+					"id": "Th_TributeTest",
+					"name": "Tribute (test)",
+					"desc": "TEST: the partner gives 20% of its Solari production to Thorvald.",
+					"props": {
+						"group": 1,
+						"onlyForFactions": [
+							{
+								"ref": "Thorvald"
+							}
+						],
+						"diplomaticStatuses": [
+							{
+								"ref": "Peace"
+							}
+						],
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"costs": [
+						{
+							"res": "Solari",
+							"qty": 50
+						}
+					],
+					"stats": [
+						{
+							"duration": -1,
+							"relationshipChange": 0,
+							"relationshipGain": 0,
+							"tradeValue": 1200
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/treatiesSquare.png",
+						"size": 80,
+						"x": 6,
+						"y": 0
+					},
+					"flags": 529,
+					"traits": [
+						{
+							"trait": "Th_TributeTest_Receiver",
+							"apply": 2,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 2
+						}
+					],
+					"images": {
+						"event": {
+							"file": "UI/icons/eventIcons.png",
+							"size": 60,
+							"x": 5,
+							"y": 1
+						}
+					},
+					"aiWeights": [
+						{
+							"value": 10
+						}
+					],
+					"effects": []
+				},
+				{
 					"id": "TTreaty",
 					"name": "",
 					"desc": "",
@@ -237775,6 +238251,73 @@
 						}
 					},
 					"flags": 33,
+					"costs": [
+						{
+							"res": "Manpower",
+							"qty": 50
+						}
+					],
+					"stats": [
+						{
+							"relationshipChange": 0,
+							"relationshipGain": 0,
+							"tradeValue": 1800,
+							"duration": -1
+						}
+					],
+					"gfx": {
+						"file": "UI/icons/treatiesSquare.png",
+						"size": 80,
+						"x": 9,
+						"y": 0
+					},
+					"images": {
+						"event": {
+							"file": "UI/icons/eventIcons.png",
+							"size": 60,
+							"x": 8,
+							"y": 1
+						}
+					},
+					"effects": []
+				},
+				{
+					"id": "Th_PatronageTest",
+					"name": "Patronage (test)",
+					"desc": "TEST B2: the stub treaty with its receiver trait (+20% Life and Power).",
+					"traits": [
+						{
+							"trait": "TPatronage_Sender",
+							"apply": 1,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 1
+						},
+						{
+							"trait": "TPatronage_Receiver",
+							"apply": 2,
+							"comment": "",
+							"flags": 0,
+							"bonusType": 1
+						}
+					],
+					"props": {
+						"group": 1,
+						"onlyForFactions": [
+							{
+								"ref": "Thorvald"
+							}
+						],
+						"diplomaticStatuses": [
+							{
+								"ref": "Peace"
+							}
+						],
+						"tip": {
+							"cat": "DiplomaticGift"
+						}
+					},
+					"flags": 513,
 					"costs": [
 						{
 							"res": "Manpower",
@@ -243584,6 +244127,123 @@
 						"x": 4,
 						"y": 1
 					}
+				},
+				{
+					"id": "Th_Walkout",
+					"issuingFaction": "Thorvald",
+					"texts": {
+						"name": "Walkout (test)",
+						"actionTitle": "Walk out (test)",
+						"actionDesc": "TEST A2: a copy of Landsraad Immunity under a new id. Thorvald walks out to become immune to this resolution.",
+						"currentTitleOwner": "[Thorvald-adjective] Walkout",
+						"currentTitleOpponent": "[Thorvald-adjective] Walkout",
+						"currentDescOwner": "You have walked out on this resolution.",
+						"currentDescOpponent": "[Thorvald-longname] has walked out on this resolution."
+					},
+					"effects": [],
+					"target": {
+						"isAllChoices": true,
+						"type": 7,
+						"choice": 15,
+						"nature": 3
+					},
+					"props": {
+						"placeCost": [
+							{
+								"res": "Standing",
+								"qty": [
+									{
+										"val": 0
+									},
+									{
+										"val": 0
+									},
+									{
+										"val": 30
+									}
+								],
+								"max": 30,
+								"options": {}
+							}
+						],
+						"ignoreNoChoice": true,
+						"maxPerCouncil": 3,
+						"issuingChance": 0,
+						"tip": {
+							"cat": "ResAction"
+						}
+					},
+					"flags": 9,
+					"effectNature": 1,
+					"gfx": {
+						"file": "UI/icons/ResActions_Icons.png",
+						"size": 64,
+						"x": 4,
+						"y": 1
+					}
+				},
+				{
+					"id": "Th_Smear",
+					"texts": {
+						"name": "Smear (test)",
+						"actionTitle": "Smear (test)",
+						"actionDesc": "TEST: a copy of Corruption under a new id. Elected faction ::effects::.",
+						"currentTitleOwner": "[Thorvald-adjective] Smear",
+						"currentDescOwner": "Effect on elected faction: ::effects::."
+					},
+					"effects": [
+						{
+							"vals": [
+								{
+									"val": 30
+								}
+							],
+							"target": {
+								"resource": "Standing"
+							},
+							"ref": "TRes_Lose",
+							"desc": "lose ::value:: [::target-resource::]",
+							"trigger": 1,
+							"target2": {}
+						}
+					],
+					"target": {
+						"isAllChoices": true,
+						"choice": 12,
+						"type": 7
+					},
+					"props": {
+						"placeCost": [
+							{
+								"res": "Intel",
+								"qty": [
+									{
+										"val": 0
+									},
+									{
+										"val": 1
+									},
+									{
+										"val": 20
+									}
+								],
+								"options": {}
+							}
+						],
+						"issuingChance": 0.1,
+						"tip": {
+							"cat": "ResAction"
+						}
+					},
+					"flags": 1,
+					"gfx": {
+						"file": "UI/icons/ResActions_Icons.png",
+						"size": 64,
+						"x": 1,
+						"y": 1
+					},
+					"issuingFaction": "Thorvald",
+					"effectNature": 0
 				},
 				{
 					"id": "LandsraadFavorite",
@@ -252150,36 +252810,6 @@
 						"onlyForFactions": [
 							{
 								"faction": "Corrino"
-							}
-						],
-						"extraDetectionChance": 100,
-						"tip": {
-							"cat": "Mission"
-						}
-					},
-					"canBeDetected": true,
-					"gfx": {
-						"file": "UI/spying/missionIconsBW.png",
-						"size": 114,
-						"x": 20,
-						"y": 0
-					},
-					"aiWeights": [],
-					"flags": 9
-				},
-				{
-					"id": "Th_MOrbitalStrike",
-					"texts": [],
-					"effects": {
-						"ope": "Th_OrbitalStrike"
-					},
-					"difficulty": 0,
-					"requiredLevels": [],
-					"cost": [],
-					"props": {
-						"onlyForFactions": [
-							{
-								"faction": "Thorvald"
 							}
 						],
 						"extraDetectionChance": 100,

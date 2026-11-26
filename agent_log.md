@@ -7,7 +7,125 @@ Changes made by Claude in this repo, newest first. Each entry says what changed,
 One line per active session: date, what you are changing (unit / files), session name. Check this before touching
 anything listed; remove your line when you finish. Rules: CLAUDE.md "Several sessions share this repo".
 
-- (none)
+- 2026-11-16: Council/treaty experiments: A1, A2, Smear, B1, B2 are INSTALLED and waiting for the owner's game test. Do not revert the `Th_*Test` / `Th_Walkout` / `Th_Smear` rows or rebuild the pak without reading `model_projects/thorvald/thorvald_council_treaty_tests/README.md`. Condottieri + Tribute are installed too. Session "council-treaty".
+- 2026-11-21: of the test drones only `TH_Drone3` (Spotter) is still in `mod_files/data.cdb` (others removed 2026-11-21; the installed pak still has all five). Read `model_projects/thorvald/thorvald_drones/README.md` before rebuilding or reverting. Session "council-treaty".
+
+## 2026-11-21: soldier drop operations and four drones removed; building drops researched (data only, NOT installed)
+
+- `thorvald_drones/08_scripts/20_remove_drop_ops_and_drones.py --apply`: removed all six drop operations (missions, abilities, raids, `TH_Turret_*`, `Th_Turret_Trait`) and drones Thumper, Quartermaster, Signal and Smoke-Layer (units, traits, abilities, 4 unlock lines on `Th_TestFreeArmy`). Kept the Spotter `TH_Drone3`. Rows were deleted rather than restored from old backups, so the Hammerfall removal stays. Backup `thorvald_drones/07_data_cdb/data_BEFORE_remove_drops_drones.cdb`; undo with `--revert`.
+- Checks: cdb_validate 161 NEW, all missing-file lines; engine_preflight 0 fail.
+- Research: `house_thorvald/building_drops_2026-11-21.md`. Any structure row with `attackCombos` gets an auto-attack (#10259/#10261, no id check), so a dropped shooting building is data only through `thEvent`.
+- Game folder unchanged (pak `be5e5ea375600955`, hlboot `787c92e2aa979d49`).
+- The claim line for the drones in "Working on" is now out of date: only `TH_Drone3` is left.
+
+## 2026-11-20: playtest results, Hammerfall removed, shuttle-hook crash fixed (data + hlboot BUILT, NOT installed)
+
+- Owner's results and the log analysis: `house_thorvald/playtest_results_2026-11-20.md`.
+- **Hammerfall removed** (owner: "please revert it/remove it"): `thorvald_faction/08_scripts/65_remove_hammerfall.py --apply` deleted mission `Th_MOrbitalStrike`, ability and trait `Th_OrbitalStrike`. Backup `thorvald_faction/07_data_cdb/data_BEFORE_remove_hammerfall.cdb`; undo with `--revert`. cdb_validate: only missing-file lines (no vanilla extract on this PC); engine_preflight 0 fail / 9 warn.
+- **Shuttle landing crash:** `tool/thorvald_ticks/thorvald_sworn/thsw_drops.py` `_array` now uses `SafeCast` (was `UnsafeCast` of a virtual). This caused 3.57 million Access violations, ships hanging forever, and troops marching before landing. Built `mod_files/hlboot_build_out/hlboot.dat` sha `42f92959bcb91dc6` (registered; 2 bytes differ from the installed `787c92e2aa979d49`). **Not installed.**
+- Not changed: `Th_TributeTest` (still throws when signed; see the results file). Game folder: pak `be5e5ea375600955` and hlboot `787c92e2aa979d49` are unchanged. game.log (4.4 GB) is left in place.
+
+## 2026-11-19: Heavy Vanguard "Ronin helm" study (NOT installed; no game files, cdb or pak touched)
+
+- Owner request: strip the Elite's head (kasa, goggles), add a helmet from the owner's Meshy "Cyber Ronin" model (its own visor cut away), and the vanilla Atreides Ranger visor-mask recoloured copper/black glass.
+- Inputs: `thorvald_elite/01_input/ronin_helm/` (glb + concept + owner's copper-mask paint-over). Builder `08_scripts/ronin_helm/r10_build.py` (env knobs in its docstring); blends `03_blender/helmet_study/ronin_R1..R4.blend`; textures `04_textures/helmet_study/ronin/`.
+- Renders `02_progress_photos/50_ronin_helm/` (`R4_angle_sheet.png` = recommended, 12 % smaller helmet; `R3_angle_sheet.png` big). Meshy helm decimated to 6k tris, palette + baked AO texture (Meshy file had no UVs/texture).
+- Also: angle sheet of the installed v2 in `02_progress_photos/angle_sheet/`; `08_scripts/render_six_views.py`; concept sheets saved to `gallery/helmets_and_heads/reference_concepts/`.
+- Undo: delete those folders/files. Nothing to revert in game data.
+- Follow-up (owner picked R4): **R9** = one crescent (rear crescent deleted, its hole capped), Thorvald palette sampled from the installed ThEli textures (charcoal #242527, copper #b36a36), per-texel colour regions (clean borders), straight plane cuts + edge relax + Laplacian smoothing, skull inside the helmet removed. Sheet `R9_angle_sheet.png`. Still not installed.
+- Follow-up: **R10** = R9 with `DESAT=1` (owner: shades, not colour): all colour textures of body, apron, helmet and mask turned to luminance grey (shield and glaive untouched). Sheet `R10b_angle_sheet.png`. Still not installed.
+- Follow-up: **R12** = R10 + `COPPER=1`: brushed rose-copper gradient map (owner photo `01_input/ronin_helm/owner_copper_reference.png`: #6e3e2d / #c49684 / #efbda9) on the apron (orange pixels of the sash texture), the mask plates and the helmet crescent. Sheet `R12_angle_sheet.png`. Still not installed.
+- Follow-up: **R18** = mask copper matched to the apron (`MASK_MATTE=1` unplugs the Ranger metal/gloss maps, `MASK_T`, `MASK_GAIN` calibrated on the render: mask 194,141,123 vs apron 213,151,128) + copper accents `CU_ACCENTS=Trim_Albedo,Gurney,MercenaryFill,DuncanFill_feet` (only originally bright-copper pixels: inlay lines, arm-band studs, chest gear; `ACC_MINR_TRIM` keeps the Trim atlas brown cloth grey). R13a/b (black mask from `MASK_METAL`) are dead ends. Sheet `R18_angle_sheet.png`. Still not installed.
+- Follow-up: **ten whole-unit variants V01-V10** on R18 (owner: "10 different versions ... as creative as you want"): `08_scripts/ronin_helm/r20_variants.py -- <V>` (post-process of `ronin_R18.blend`: armour value/tint, copper ratio, metal/rough via a copper-mask image, specular scale, glowing visor glass from the Ranger's green, weapons recoloured, shield removed, helmet x1.1). Mask, apron and crescent keep R18's calibrated copper in all of them. Blends `03_blender/helmet_study/variants/`, textures `04_textures/helmet_study/ronin/variants/`, sheets `02_progress_photos/51_ronin_variants/` (`overview_*.png`, `<V>_sheet.png`, `sheet.py`). Still not installed.
+- Follow-up 2026-11-20: owner picked **V03 Steel Ronin**; **V11 "Steel Ronin 2"** = V03 with mask plates moved to the apron's antique copper (`mask_cu=855645`) and the armour inlays and studs in gunmetal (`inlay=2c2d2e`, armour metal/rough). Sheet `V03_vs_V11.png`. Still not installed.
+- Follow-up 2026-11-20 (owner: crescent + weapons in the same copper; "jagged, not AAA"): `r10_build.py` got `VOXEL`/`PRE_SMOOTH` (voxel remesh 0.010 + 40 corrective-smooth passes of the Meshy shell before the decimate; test `r31_clean_test.py`) and `SPLIT_HORN=1` (front crescent cut off the remeshed shell into its own object `Kit_ronincrescent` with a solid material, selection outline cleaned by grow/shrink `HORN_MORPH`, rear crescent deleted, holes capped; `HS=0.2312` pins the old scale since the horns no longer set the width). Base **R21** (`TRIS=4500`: helmet 10.5k tris + crescent 1.4k; R19/R20/R20b/R20c are steps). **V12 "Steel Ronin 3"** = V11 on R21 + crescent/glaive/shield antique copper (render: mask #c38976, crescent #d0917d, apron #d49480, shield #c28c7c) + smooth shading with 35° sharp edges on every mesh (the shield/glaive were flat-shaded). Sheets `51_ronin_variants/V12_sheet.png`, `V11_vs_V12_helmet.png`; close-ups `02_progress_photos/52_ronin_cleanup/`; `r30_closeup.py`. Still not installed.
+
+## 2026-11-18: feasibility pass over the House Thorvald handoffs (read only; no game data changed)
+
+- Appended "Feasibility check (Claude Code, 2026-11-18)" to the nine `house_thorvald/handoff_*.md` files. New: `house_thorvald/feasibility_summary_2026-11-18.md`, `house_thorvald/hook_catalog_2026-11-18.csv`.
+- 2026-11-20: `house_thorvald/playtest_checklist_2026-11-18.md` Tribute line changed to "listed only; do not sign". The installed pak `be5e5ea375600955` and hlboot `787c92e2aa979d49` were re-checked and still match the checklist.
+- `data.cdb`, `hlboot.dat` and the pak are unchanged. Quinn's features were dry-built against the vanilla boot file into the session scratchpad only.
+- **Open bug, not fixed:** installed treaty `Th_TributeTest` lacks the Instigator flag (8) on its trait line; the engine throws once it is signed. Do not sign it until fixed.
+- **Stale:** `engine_findings.md` and `thorvald_council_treaty_tests/README.md` say `TRes_Tribute_Flat` has no reader. It does (`Object.updateTransactionInfo`).
+- Undo: remove the appended sections and delete the two new files.
+
+## 2026-11-18: INSTALLED six test drop operations (pak `be5e5ea375600955`; hlboot unchanged)
+
+- From `thorvald_renegades/HANDOFF.md` item 4 (turret drop). Project `model_projects/thorvald/thorvald_drop_ops/`. **Designed yes / built yes / installed yes / tested no.**
+- `mod_files/data.cdb` additions only: units `TH_Turret_Sniper`, `TH_Turret_Rocket`; trait `Th_Turret_Trait`; six each of `Th_MOp_*`, `Th_Op_*`, `Th_Drop_*`. Validator 175 NEW (unchanged), preflight 0 fail.
+- Single test list for everything installed: `house_thorvald/playtest_checklist_2026-11-18.md`.
+- Undo: `thorvald_drop_ops/08_scripts/10_add_drop_ops.py --revert`, rebuild with `thorvald_council_treaty_tests/08_scripts/20_build_pak.py --install`. Previous pak: `pak_archive/20261118_221647_res.compressed1.pak`.
+
+## 2026-11-18: FIXED and INSTALLED the Renegade drop loop (pak `2dab2ff67f4102d8`; hlboot and data.cdb unchanged)
+
+- **Symptom (owner's 18 Nov game):** Renegades outside nearly every village, heavy slowdown, 5.2 GB `game.log`.
+- **Cause:** the vanilla SpaceShuttle HMD's `Mat_Reactor` uses a misspelt path (`Vehicle/Atreide/SapceShuttle/Reactor_albedo.png`); the engine falls back to that filename beside the HMD (`ModelCache.loadTexture`).
+  Our `VehMOD/Renegade_DropShip` folder lacked the file, so each `ThR_DropShip` failed in `Unit.initVisual` (`Null access .parent`). The throw happens inside `Raids.spawnRaid`, before `setupNextRenegadeDrop` and the score reset
+  (`Raids.regularUpdate`, Raids.hx:820-822), so a new drop fired on every update: 5,422 failed ships logged. Each broken ship then threw `Access violation` in `Carrier.update` every tick, with a full stack trace in the log.
+- **Fix:** `Reactor_albedo.png` added to `thorvald_renegades/06_game_ready/VehMOD/Renegade_DropShip/`, and to the generator `50_dropship_assets.py`. New read-only check `51_check_hmd_textures.py`: 14 HMDs, 0 missing (it reports this bug when the file is removed).
+- **Status:** installed, **not tested in game**. Saves from the 18 Nov game may still hold the broken ships: test on a new game.
+- `game.log` purged at the owner's request; excerpt kept in `thorvald_council_treaty_tests/01_input/game_log_2026-11-18_excerpt.txt`. Previous pak: `pak_archive/20261118_214301_res.compressed1.pak`.
+
+## 2026-11-18: INSTALLED the drones build (hlboot unchanged); Renegade Drop Ship error found in the 18 Nov game log
+
+- Game pak now matches `mod_files/data.cdb`: Council/treaty experiments + Condottieri + Tribute + `TH_Drone1`-`TH_Drone5`. **Drones: installed, not tested.** Sworn Sword still pinned to the 13 Nov copy.
+- Checked for other sessions first: no new commits, stashes, worktrees or claims; `data.cdb` was exactly as the drones script left it.
+- Renegade Drop Ship error found in the 18 Nov log: fixed the same day, see the entry above.
+
+## 2026-11-16 (late): five test drones TH_Drone1-5 in data.cdb; pak BUILT, NOT INSTALLED (game was running)
+
+- Project `model_projects/thorvald/thorvald_drones/` (README = design, rows, unknowns; script `08_scripts/10_add_drones.py`, `--revert`).
+  **Designed yes / built yes / installed no / tested no.** Thumper (deploy, calls worms), Quartermaster (deploy, field depot), Spotter (marks enemies),
+  Signal (toggle rally / jamming), Smoke-Layer (slow aura + burst). Vanilla drone models; unlocked only by `Th_TestFreeArmy`.
+- `mod_files/data.cdb`: 7 units, 15 traits, 7 abilities added; no vanilla row edited. Preflight 0 fail. Validator 175 NEW (was 162): 13 "missing file"
+  lines for vanilla FX copied from donor rows (same as the vanilla baseline).
+- Pak `ebbe88cfe0dce6b9` is in the editor res folder. **The game still has the earlier pak, so master data.cdb is ahead of the game.** Install with the
+  game closed: `py -3.14 model_projects/thorvald/thorvald_council_treaty_tests/08_scripts/20_build_pak.py --install`.
+- Undo: `10_add_drones.py --revert` (before any Council/treaty experiment revert), rebuild.
+
+## 2026-11-16 (late): INSTALLED the Condottieri + Tribute build (game closed first; hlboot unchanged)
+
+- `20_build_pak.py --install --launch`: the game pak now matches `mod_files/data.cdb` (A1, A2, Smear, B1, B2, K, TRIB). **All built, none tested.**
+  The previous pak went to `pak_archive/` (newest `*_res.compressed1.pak`). Sworn Sword still pinned to the 13 Nov copy.
+
+## 2026-11-16 21:00: Condottieri + Tribute treaty tests added to data.cdb; pak BUILT, NOT INSTALLED (game was running)
+
+- Handoff saved as `house_thorvald/handoff_condottieri_treaty_test.md`. **Designed yes / built yes (data + pak) / installed no / tested no.**
+- `mod_files/data.cdb` additions only: treaties `Th_Condottieri`, `Th_TributeTest`; traits `Th_Condottieri_Sender`, `Th_Condottieri_Receiver`,
+  `Th_TributeTest_Receiver`; two more unlocks on `Th_CouncilTest`. Validator 162 NEW (unchanged), preflight 0 fail.
+- Pak `4906356cc114e41d` is in `D:\D4XEditor\res\`; the game still has `9cb4dd2be2c69fef` (20:46). So **master data.cdb is ahead of the installed pak**.
+  Install: `py -3.14 model_projects/thorvald/thorvald_council_treaty_tests/08_scripts/20_build_pak.py --install` with the game closed.
+- Undo: `10_experiments.py TRIB --revert`, then `K --revert` (backups in `07_data_cdb/`).
+
+## 2026-11-16 20:46: INSTALLED Council + treaty experiments A2, Smear, B1, B2 on top of A1 (one pak; hlboot unchanged)
+
+- Owner asked for all changes at once, so five experiments share one pak (`9cb4dd2be2c69fef`); **all built, none tested**. B3 not built.
+- `mod_files/data.cdb` additions only (no vanilla row edited): resAction `Th_Walkout`, `Th_Smear`; treaties `Th_SponsorshipTest`, `Th_PatronageTest`;
+  traits `Th_SponsorTest_Sender`, `Th_SponsorTest_Receiver`; four more unlocks on `Th_CouncilTest`. Validator 162 NEW (unchanged), preflight 0 fail.
+- Built with `thorvald_council_treaty_tests/08_scripts/20_build_pak.py --install --launch` (Sworn Sword still pinned to the 13 Nov copy).
+  Previous (A1-only) pak -> `pak_archive/20261116_204642_res.compressed1.pak`. Game launched through Steam.
+- Undo: `10_experiments.py <B2|B1|SMEAR|A2|A1> --revert` in that order (backups in `07_data_cdb/`), rebuild; details in that folder's README.
+
+## 2026-11-16 20:43: INSTALLED Council experiment A1 (data.cdb + pak; hlboot unchanged)
+
+- A1: **designed yes / built yes / tested no.** `mod_files/data.cdb`: new trait `Th_CouncilTest` (`Unlock_TResAction` -> `LandsraadImmunity`) after
+  `Th_TestFreeArmy`, added to Thorvald `startingTraits`. No vanilla row edited. Script `thorvald_council_treaty_tests/08_scripts/10_experiments.py A1`.
+- Pak `1494ff5a1c78f7f1` built by `08_scripts/20_build_pak.py --install` (wraps `stage_and_pack.py`) into `D:\Steam\steamapps\common\D4X`.
+  Previous pak -> `pak_archive/20261116_204311_res.compressed1.pak`. Validator 162 NEW (same as before), preflight 0 fail.
+- **Sworn Sword pinned:** the repo's uninstalled 2.1 Sworn Sword game files were NOT packed; the pak carries the 13 Nov copy
+  (`thorvald_council_treaty_tests/01_input/staged_2026-11-13/`). A plain `stage_and_pack.py` run would install the 2.1 model.
+- Undo: `10_experiments.py A1 --revert` (backup `07_data_cdb/data_BEFORE_A1.cdb`) and rebuild, or restore the archived pak.
+
+## 2026-11-16: Council action + treaty feasibility, Step 0 (READ ONLY; no data.cdb, pak or hlboot changed)
+
+- Handoff `house_thorvald/handoff_council_treaty_test.md`. Report: `model_projects/thorvald/thorvald_council_treaty_tests/README.md`
+  (dump script `08_scripts/00_step0_dump.py`, raw dump `01_input/`). Engine findings added to
+  `.claude/skills/dsw-hlboot-reverse/references/engine_findings.md` ("Council actions and treaties").
+- Experiments A1, A2, B1, B2, B3: **designed yes / built no / tested no**. Waiting for the owner's go-ahead for Step 1.
+- Key findings: 7th resAction is `LandsraadImmunity_Bonus`; offering actions and listing treaties are data-driven, but immunity, Edict and Bounty
+  are keyed on the vanilla id strings (a cloned `Th_Walkout` should do nothing); treaty `apply` = Both/Sender/Receiver (schema enum);
+  vanilla `TTreaty` is NeverActive and uses `TPatronage_Sender` twice, so B2 as written tests nothing.
+- Undo: delete the new folder and the engine_findings section. Nothing else was touched.
 
 ## 2026-11-15: Heavy Vanguard helmet, samurai pass (no game files changed)
 

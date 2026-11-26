@@ -80,6 +80,16 @@
 				"colorMask": 15,
 				"enableStencil": false,
 				"emissive": 0.1
+			},
+			"Mat_Duncan": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
 			}
 		}
 	}

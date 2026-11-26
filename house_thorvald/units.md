@@ -118,6 +118,11 @@ No model picked yet. Likely donors already in `model_inputs/Vehicle/`:
 Recommendation: pick from **Smuggler** (Wraith/Banshee) since the frigate itself reads as a renegade/smuggler-adjacent design —
 reskinning one of these would keep a consistent silhouette family for the house.
 
+## Test drones (2026-11-16)
+
+Five data-only candidates, `TH_Drone1` to `TH_Drone5`, are in `data.cdb` for testing (vanilla models, test mode only): Thumper, Quartermaster,
+Spotter, Signal, Smoke-Layer. Design, rows and status: `model_projects/thorvald/thorvald_drones/README.md`. Built, not tested.
+
 ## Drone — options to source
 No model picked yet. Likely donors:
 

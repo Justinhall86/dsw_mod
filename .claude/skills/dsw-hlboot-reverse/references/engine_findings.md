@@ -315,3 +315,28 @@ Used by `model_projects/thorvald/thorvald_hq` (2026-11-03).
 - `ShuttleSpawn.onReachedTarget` = `onDroppingTarget` (units placed, `onTransitDrop` -> `Army.moveTo(drop point)`, `removeTarget`) then state Leaving.
 - Carrier progress = (now - stateTime) / getStateDuration, clamped to 0..1, so moving `stateTime` forward delays a ship's descent.
 - Fix in `tool/thorvald_ticks/thorvald_sworn/thsw_drops.py`: goToTarget's `hasArmy` check also requires no raid army in transit; after each touchdown the raid marches if none is left aboard; unit raw field `thArrive` (descent seconds) and raid raw field `thStagger` (seconds between ships).
+
+## Council actions and treaties (read 2026-11-16, vanilla hlboot 478027b5; nothing tested in game)
+
+Full report: `model_projects/thorvald/thorvald_council_treaty_tests/README.md`.
+
+- **Council actions are offered from data.** `CouncilResolution.getPlaceableActions` loops over every `resAction` row: not `noPlayer`,
+  no missing unlock (`Unlock_TResAction`), target nature/type match the resolution. `issuingFaction` is not checked.
+- **Three actions work by id string, not by data:** `isVoteTypeImmune` tests `"LandsraadImmunity"` / `"LandsraadImmunity_Bonus"`,
+  `isVoteTypeInverted` tests `"ImperialEdict"`, `CouncilVotes.bountyCashBack` tests `"Bounty"`. A row cloned under a new id loses that behaviour.
+  Corruption, InciteRebellion and LandsraadFavorite act through their `effects` rows (trigger switch in `resolutionActionEffects`).
+- **Treaties are listed from data.** `HDiplomacy.getCompatibleTreaties` loops over every treaty row and filters by flags, `targetFlags`,
+  `needLandsraadAccess`, `notForFactions`, `onlyForFactions`.
+- **Treaty trait `apply`:** 0 Both, 1 Sender, 2 Receiver (`DiplomacyManager.startTreaty`). Flag NeverActive (32) ends the treaty at once.
+  `stats.duration` is in months. Flag OneWay fires `effects` on the receiver only.
+- **Special cases by id:** MilitaryPressure, ImproveRelations, ImperialMandate, HarmlessGadget, ResearchAgreement. The AI proposes treaties
+  by id (`logic.ai.Trading.doTrade`), so it will not propose a new one.
+- Inference, not confirmed: something with no `Unlock_*` source anywhere counts as unlocked (`HAttributes.getUnlockSources` returns empty).
+- **Treaty cancel rules:** no treaty can be broken for `Diplomacy_Treaty_GracePeriod_Days` (10) days after it starts
+  (`HDiplomacy.canBreakActiveTreatyDiplomatically`); cancelling costs `Diplomacy_TreatyCancel_InfluenceCost` (50 Influence). Both are global constants.
+- **`Faction_DailySpawn_TUnit_Flat`** is read in `Faction.dailyUpdate` and recruits at that faction's main base.
+  **`TRes_Tribute_Flat`** has no reader by attribute index (`hlboot.py atb`), so it is probably dead.
+
+## A carrier that throws on spawn makes Renegade drops repeat (2026-11-18)
+- `Raids.regularUpdate` calls `spawnRaid("Renegade_Drop")` before `setupNextRenegadeDrop` and resetting `nextRenegadesDropScore`. If the spawn throws, the score stays over the threshold and a drop fires on every update.
+- `ModelCache.loadTexture`: if an HMD's texture path is not found, it tries the same filename beside the HMD, then throws. Copied vanilla HMDs need those sibling textures (SpaceShuttle: `Reactor_albedo.png`). Check with `thorvald_renegades/08_scripts/51_check_hmd_textures.py`.

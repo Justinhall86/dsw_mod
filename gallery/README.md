@@ -8,6 +8,7 @@ Unit progress photos, variants and turntables stay in the unit's own `02_progres
 | Folder | What is in it | Start with |
 |---|---|---|
 | `helmets_and_heads/` | Every helmet and headgear in the game, plus our own | `helmet_sheet_1_vanilla.png` (18 vanilla), `helmet_sheet_2_thorvald.png` (kasa hat, Karlin H1/H2/H2f4, Sworn Sword dome and half-mask) |
+| `helmets_and_heads/reference_concepts/` | Owner concept art: Vanguard samurai 6-angle sheet, Ronin helm painting | `vanguard_samurai_concept_sheet.jpg`, `ronin_helm_concept.jpg` |
 | `helmets_and_heads/house_guard_study/` | House Guard helmet (= Harkonnen Elite model): 12 angles, six recolours (H1-H6), and the antenna + breather version (`antenna_breather/`) | `vanilla_all_angles.png`, `recolour_compare.png` |
 | `helmets_and_heads/warden_study/` | Warden (Atreides Elite) helmet reworked for the Heavy Vanguard: W1-W5c, faction lineup, House Guard comparison | `warden_variants.png`, `lineup/faction_lineup.png` |
 | `helmets_and_heads/warden_study/samurai/` | Heavy Vanguard samurai pass (2026-11-15): Warden S01-S12, Sworn-dome kabuto D/E/F (horns, spike halo, kasa shikoro), owner's reference pictures | `F01_big_kabuto_all_angles.png`, `faction_lineup_samurai.png` |
