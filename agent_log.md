@@ -9,6 +9,15 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 
 - (none)
 
+## 2026-11-26 (night): Thorvald Ranger RM7 approved -> RM9/RM11 armed and animation-tested (no game files changed)
+
+- Owner: "RM7!!!", colours approved, push forward. RM8-RM10 tried shape fixes (crown rounding, mask chin trim, short snood); the short snood (RM10) read jagged and
+  RM7's drape matches the reference, so it was kept. Edit stage gained `cut` (world space; the builder's bisect works in object space) and `push_out(axis=True)`.
+- RM9 = RM7 + rounder crown + mask chin trimmed. RM11 = RM9 with the snood skinned from the body (`weights_from_base`); same look, sounder in motion. **Current: RM11.**
+- Sniper mounted (`weapons/scripts/mount_weapon.py`): `03_blender/redesign/Thorvald_Ranger_RM9.blend`, `..._RM11.blend`. Sniper clips tested (Run every frame; AttackRange,
+  Idle, FightIdle, AttackMelee sampled): hood and mask hold. Inherited from v2: orange sawtooth at the chest-plate/sleeve edge near the armpit; empty hands in one
+  AttackMelee frame. GIFs and sheets in `02_progress_photos/05_redesign/anim/`. Not exported, no cdb change.
+
 ## 2026-11-26 (evening): Thorvald Ranger fitted ninja hood + rigid mask, RM1-RM7 (no game files changed)
 
 - Owner: RH5 closest but the shawl reads "Arrakis"; push toward the reference; try a rigid mask; edit the parts to fit.

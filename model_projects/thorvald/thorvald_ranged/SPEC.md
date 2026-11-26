@@ -85,3 +85,8 @@ Edit stage `08_scripts/redesign/rd_edit.py`; recipe key `edits`. RM7 = RD1 + Ass
 its front pulled 2.8 cm down (soft falloff), head deleted above z 1.868 (black cap), Harkonnen Trooper mask 28/29/43/44/82/84 scaled (1, 0.88, 0.85), Commando neck
 wrap (2/3, z < 1.725) as snood with the Gurney collar clipped under it. Open: snood is a flat bib from the front; hood top is boxy in profile; the mask's mouth
 snout still stands out; not animation-tested.
+
+### Approved look (owner, 2026-11-26): RM7 -> current build RM11
+RM11 = RM9 (RM7 + crown y x0.70/z x0.92 at the back-top, mask cut at z 1.728) with the snood skinned from the body. Armed: `03_blender/redesign/Thorvald_Ranger_RM11.blend`.
+Animation check in `02_progress_photos/05_redesign/anim/` (Run GIFs, clip sheets). Known, inherited from v2: orange sawtooth where the chest plate meets the sleeve
+by the armpit. Next (when asked): export with `90_export_game_fbx.py` -> `91_package_game.py` -> `93_roundtrip.py`, cdb row for `Th_Soldier` model.
