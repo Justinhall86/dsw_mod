@@ -28,6 +28,14 @@ for k, r in HEAD.items():
     if v.startswith(k):
         rc.RULES["head"] = r
 data = json.load(open(sys.argv[2]))
+# grafted rigid mask (Harkonnen Trooper texture): all its faces -> region "mask" (dark gunmetal plates, black recesses, red trim -> black)
+rc.RULES["mask"] = [((0, 30), (0.35, 1), (0.2, 1), "black", (0.05, 0.13)),          # Harkonnen red -> black
+                    ((330, 360), (0.35, 1), (0.2, 1), "black", (0.05, 0.13)),
+                    (None, (0, 0.35), (0.42, 1), "gunmetal", (0.12, 0.30)),          # plates
+                    (None, (0, 1), (0, 1), "black", (0.04, 0.12))]
+for tex in list(data):
+    if "Harkonnen_Trooper" in os.path.basename(tex):
+        data[tex] = {"mask": [p for polys in data[tex].values() for p in polys]}
 out_dir = os.path.abspath(sys.argv[3]); os.makedirs(out_dir, exist_ok=True)
 mapping = {}
 for tex, regions in data.items():

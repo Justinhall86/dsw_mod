@@ -9,6 +9,16 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 
 - (none)
 
+## 2026-11-26 (evening): Thorvald Ranger fitted ninja hood + rigid mask, RM1-RM7 (no game files changed)
+
+- Owner: RH5 closest but the shawl reads "Arrakis"; push toward the reference; try a rigid mask; edit the parts to fit.
+- New edit stage `thorvald_ranged/08_scripts/redesign/rd_edit.py` (xform with soft falloff, radial, cut, delete box, clip_in / push_out by rays from a centre);
+  recipes carry `edits=[...]`, run by `rd_build.py` after the builder assembles the parts. Island id maps of six donors: `gallery/helmets_and_heads/hood_survey/islands/`.
+- **RM7** = RD1 + Assassin hood shell/lining (13, 16; shawl 3 and collar ring 31 dropped), tightened and pulled down to the brows; head above z 1.868 deleted
+  (hood lining reads as the black cap); Harkonnen Trooper half mask (28, 29, 43, 44, 82, 84) compressed onto the face; Commando's own neck wrap (islands 2/3 below
+  z 1.725) as a snood, Gurney collar pressed under it. Mask has its own colour region in `rd_recolour.py`. Sheet `05_redesign/sheet_rm7_vs_reference.png`.
+- RM4 tried the Scout face plate as the mask (reads as a flat visor). Not animation-tested; not exported.
+
 ## 2026-11-26 (later): Thorvald Ranger hood pass, RH1-RH5 (no game files changed)
 
 - Owner: RD1 is closest; sent a ninja-hood reference (black cowl, rigid half mask, eyes showing), asked for non-turban head wraps in the game.

@@ -79,3 +79,9 @@ RD1 + a grafted vanilla hood + cowl (fill with `keep_comps`), head not lifted (`
 - RH2: Ravager Melee islands 8, 9, 10, 11, 17, 18, 20, `scale_xy=1.06`, `shift_z=0.015` (fault: hood rim cuts the brow, dark jagged line).
 - RH5: Assassin (Infiltrator mesh, Assassin albedo, Infiltrator normal) islands 3, 13, 16, 31, `scale_xy=1.10`, `shift_z=0.015` (fault: chest-plate fleck through the cowl).
 - RH1 (unfitted), RH3 (smaller head: gaps at the cheeks), RH4 (kept the goggle face) were tries. Sheet: `sheet_hood_vs_reference.png`.
+
+### Fitted hood + rigid mask (2026-11-26, evening): RM1-RM7 (current best RM7)
+Edit stage `08_scripts/redesign/rd_edit.py`; recipe key `edits`. RM7 = RD1 + Assassin hood 13/16 (no shawl, no collar ring) squeezed front-to-back (0.86) and
+its front pulled 2.8 cm down (soft falloff), head deleted above z 1.868 (black cap), Harkonnen Trooper mask 28/29/43/44/82/84 scaled (1, 0.88, 0.85), Commando neck
+wrap (2/3, z < 1.725) as snood with the Gurney collar clipped under it. Open: snood is a flat bib from the front; hood top is boxy in profile; the mask's mouth
+snout still stands out; not animation-tested.

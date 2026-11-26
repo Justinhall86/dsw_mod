@@ -57,9 +57,90 @@ RD["RH4"] = dict(RD["RH2"], fill=RD["RD1"]["fill"] + [dict(donor="Assassin", tag
 # RH5: RH4 without islands 2/5 (they are the Assassin's goggle face, not hood)
 RD["RH5"] = dict(RD["RH2"], fill=RD["RD1"]["fill"] + [dict(donor="Assassin", tag="hood", keep_comps=[3, 13, 16, 31], scale_xy=1.10, shift_z=0.015)],
                  title="Ranger RH5: Assassin hood (no goggles)")
+# --- fitted ninja hood + rigid mask (owner 2026-11-26: RH5 closest but the shawl reads "Arrakis"; push toward the reference; try a rigid mask) ---
+U.UNITS["HarkTrooper"] = (U.EX + "Male01_HarkonnenTrooper_TRUE_FBX.fbx", "Harkonnen_Trooper", "Harkonnen/Unit/Trooper")
+U.UNITS["Scout"] = (U.EX + "Male01_Scout_TRUE_FBX.fbx", "Smuggler_Scout", "Smuggler/Unit/Scout")
+HOOD_A = dict(donor="Assassin", tag="hood", keep_comps=[13, 16, 31], scale_xy=1.10, shift_z=0.015)     # shell, lining, collar ring (no shawl 3)
+MASK_H = dict(donor="HarkTrooper", tag="mask", keep_comps=[28, 29, 43, 44, 82, 84])                     # cheek plates + mouth/chin plate + vents
+HEAD = "CommandoHead"
+RD["RM1"] = dict(RD["RH2"], fill=RD["RD1"]["fill"] + [HOOD_A, MASK_H],
+                 edits=[("clip_in", dict(obj=HEAD, cover="AssassinFill_hood", centre=(0, 0.0, 1.80))),
+                        ("clip_in", dict(obj=HEAD, cover="HarkTrooperFill_mask", centre=(0, 0.0, 1.78)))],
+                 title="Ranger RM1: Assassin hood without shawl + Harkonnen half mask")
+# RM2: hood at its own size (head hair is clipped inside instead), tightened front-to-back, front rim pulled down to the brows; no collar ring
+HOOD_A2 = dict(HOOD_A, keep_comps=[13, 16], scale_xy=1.0, shift_z=0.0)
+HD = "AssassinFill_hood"
+RD["RM2"] = dict(RD["RM1"], fill=RD["RD1"]["fill"] + [HOOD_A2, MASK_H],
+                 edits=[("xform", dict(obj=HD, scale=(0.97, 0.86, 0.97), pivot=(0, -0.02, 1.80))),                      # shallower: no box behind the skull
+                        ("xform", dict(obj=HD, move=(0, -0.008, -0.028), falloff=(1, 0.04, -0.10))),                    # front pulled down + forward (soft)
+                        ("clip_in", dict(obj=HEAD, cover=HD, centre=(0, 0.0, 1.80), margin=0.005)),
+                        ("clip_in", dict(obj=HEAD, cover="HarkTrooperFill_mask", centre=(0, 0.0, 1.78)))],
+                 title="Ranger RM2: fitted hood + Harkonnen half mask")
+# RM3: RM2 + the head's skin and hair above the brow line deleted (z > 1.858): the hood's black lining shows there = the reference's black cap band
+CAP = ("delete", dict(obj=HEAD, lo=(-1, -1, 1.858), hi=(1, 1, 3)))
+RD["RM3"] = dict(RD["RM2"], edits=RD["RM2"]["edits"] + [CAP], title="Ranger RM3: fitted hood, black cap to the brows, Harkonnen half mask")
+# RM4: RM3 with the Scout's face plate cut below its eye slots as the mask (smooth, one piece)
+MASK_S = dict(donor="Scout", tag="mask", keep_comps=[12, 13], zmax=1.815)
+RD["RM4"] = dict(RD["RM3"], fill=RD["RD1"]["fill"] + [HOOD_A2, MASK_S],
+                 edits=[e if e[1].get("cover") != "HarkTrooperFill_mask" else ("clip_in", dict(e[1], cover="ScoutFill_mask")) for e in RD["RM3"]["edits"]],
+                 title="Ranger RM4: fitted hood, black cap, Scout half mask")
+# RM5: RM3 with the cap cut taking every face that crosses z 1.860 (RM3 left a square of skin mid-forehead), and the Harkonnen mask
+# compressed toward the face: 15 % shorter from its top edge and 12 % shallower, so the respirator snout no longer hangs below the chin
+MK = "HarkTrooperFill_mask"
+RD["RM5"] = dict(RD["RM3"], edits=RD["RM2"]["edits"][:2] + [
+                     ("xform", dict(obj=MK, scale=(1.0, 0.88, 0.85), pivot=(0, -0.10, 1.835))),
+                     ("clip_in", dict(obj=HEAD, cover=HD, centre=(0, 0.0, 1.80), margin=0.005)),
+                     ("clip_in", dict(obj=HEAD, cover=MK, centre=(0, 0.0, 1.78))),
+                     ("delete", dict(obj=HEAD, lo=(-1, -1, 1.860), hi=(1, 1, 3), mode="any"))],
+                 title="Ranger RM5: fitted hood, black cap, compact Harkonnen half mask")
+# RM6: RM5 + the Commando's own black neck wrap (lower part of its head islands 2/3, cut at z 1.725 under the chin) as the snood over the
+# Gurney collar; eye band opened (cap cut 8 mm higher, mask 6 mm lower)
+SNOOD = dict(donor="Commando", tag="snood", keep_comps=[2, 3], zmax=1.725)
+RD["RM6"] = dict(RD["RM5"], fill=RD["RD1"]["fill"] + [HOOD_A2, MASK_H, SNOOD],
+                 edits=RD["RM2"]["edits"][:2] + [
+                     ("xform", dict(obj=MK, scale=(1.0, 0.88, 0.85), pivot=(0, -0.10, 1.835), move=(0, 0, -0.006))),
+                     ("clip_in", dict(obj=HEAD, cover=HD, centre=(0, 0.0, 1.80), margin=0.005)),
+                     ("clip_in", dict(obj=HEAD, cover=MK, centre=(0, 0.0, 1.78))),
+                     ("delete", dict(obj=HEAD, lo=(-1, -1, 1.868), hi=(1, 1, 3), mode="any")),
+                     ("push_out", dict(obj="CommandoFill_snood", solid="Gurney", centre=(0, 0.0, 1.66), margin=0.006))],
+                 title="Ranger RM6: fitted hood, black cap, compact half mask, black snood")
+# RM7: RM6 + the Gurney collar (studs, edges) pressed under the snood, only inside the collar box (chest armour untouched)
+RD["RM7"] = dict(RD["RM6"], edits=RD["RM6"]["edits"] + [
+                     ("clip_in", dict(obj="Gurney", cover="CommandoFill_snood", centre=(0, 0.0, 1.62), margin=0.004, box=((-0.32, -0.30, 1.50), (0.32, 0.30, 1.86))))],
+                 title="Ranger RM7: RM6 with the collar under the snood")
 V.update(RD)
 
 keys = [k for k in sys.argv[sys.argv.index("--") + 1:]] if "--" in sys.argv else list(RD)
+import bpy
+from mathutils import Vector
+import rd_edit
+bs = g["bs"]
+
+
+def shots(name):
+    """The builder's standard views (front / tq / back / head), re-rendered after the edits."""
+    meshes = [o for o in bpy.data.objects if o.type == "MESH" and not o.hide_render]
+    lo = Vector((9, 9, 9)); hi = Vector((-9, -9, -9))
+    for o in meshes:
+        a, b = bs.model_bounds(o)
+        lo = Vector(map(min, lo, a)); hi = Vector(map(max, hi, b))
+    centre = Vector((0, 0, (lo.z + hi.z) / 2)); scale = (hi.z - lo.z) * 1.1
+    for tag, d in (("front", (0, -1, 0)), ("tq", (0.7, -0.7, 0)), ("back", (0, 1, 0))):
+        bs.setup_render(500, 700)
+        cam = bs.setup_camera(target=centre, ortho_scale=scale, direction=d, distance=scale * 2.5)
+        bs.render_to(os.path.join(g["SHOTS"], "%s_%s.png" % (name, tag)), cam); bpy.data.objects.remove(cam, do_unlink=True)
+    for tag, d in (("head", (0.5, -0.85, 0.05)), ("headfront", (0, -1, 0.04)), ("headside", (1, 0, 0.04))):
+        bs.setup_render(500, 500)
+        cam = bs.setup_camera(target=Vector((0, 0, 1.74)), ortho_scale=0.62, direction=d, distance=4)
+        bs.render_to(os.path.join(g["SHOTS"], "%s_%s.png" % (name, tag)), cam); bpy.data.objects.remove(cam, do_unlink=True)
+
+
+sys.path.insert(0, HERE)
 for k in keys:
     print("=== BUILD", k)
     g["build"](k, V[k])
+    if V[k].get("edits"):
+        rd_edit.run(V[k]["edits"], g)
+        shots(k)
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(g["BLENDS"], k + ".blend"), compress=True)
+        print("EDITED", k)
