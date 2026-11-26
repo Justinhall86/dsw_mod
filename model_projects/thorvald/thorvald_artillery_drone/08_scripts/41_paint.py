@@ -14,7 +14,7 @@ it (barycentric over the UV triangles), so the paint can be placed in 3D and sta
   Normal: the source's, unchanged.
 
 Rule keys (all optional; a texel must pass every one given):
-  role: copper | oxblood | charcoal | gunmetal | steel       mats: [material-name substrings]   bones: [dominant bone]
+  role: copper | oxblood | charcoal | gunmetal | steel | base (erase a decal: the surrounding panel's value)       mats: [material-name substrings]   bones: [dominant bone]
   box: [x0,x1,y0,y1,z0,z1]   plane: {n: [nx,ny,nz], range: [lo, hi]} (n . p)   mirror_y: test |y| (default true)
   up: minimum normal z      down: maximum normal z     src: gold | light | dark | accent (class of the source texel)
   soft: edge softness in metres of build space (default 0.008)   strength: 0..1
@@ -215,12 +215,25 @@ def paint_material(g, mi, mat, rules, out_dir):
     roles["copper"] = cu
     roles.setdefault("oxblood", np.zeros_like(cu))
     roles.setdefault("steel", np.zeros_like(cu))
+    # "base" inpaint: the panel's own two-tone value with the decal pixels left out (normalised blur), no detail
+    keep = 1 - accent
+    Lin = blur(L * keep, 10) / np.maximum(blur(keep, 10), 0.05)
+    t_in = smooth(Lin, 0.14, 0.62)
+    base_in = PAL["charcoal"][None, None] * (1 - t_in)[..., None] + PAL["gunmetal"][None, None] * t_in[..., None]
     # 3. rules
     for r in rules:
         m = rule_mask(r, mat, P, N, Bn, bones, cls, cov)
         if not m.any():
             continue
         role = r["role"]
+        if role == "base":                      # erase a decal (e.g. the Corrino emblem): surrounding panel colour
+            out = out * (1 - m[..., None]) + base_in * m[..., None]
+            for k in roles:
+                roles[k] = roles[k] * (1 - m)
+            roles["charcoal"] = roles["charcoal"] + m * (1 - t_in)
+            roles["gunmetal"] = roles["gunmetal"] + m * t_in
+            print("   rule base     %-28s %6.2f%% of texels" % (r.get("_what", "")[:28], 100 * m.sum() / max(cov.sum(), 1)))
+            continue
         tone = (0.78 + 0.45 * np.clip(detail - 1, -0.3, 0.3) + 0.25 * (L - 0.45)) if role in ("copper", "oxblood") else detail
         col = PAL[role] * np.clip(tone, 0.55, 1.3)[..., None]
         out = out * (1 - m[..., None]) + col * m[..., None]
