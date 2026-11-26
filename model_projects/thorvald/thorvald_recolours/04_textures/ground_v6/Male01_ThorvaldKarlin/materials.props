@@ -1,0 +1,86 @@
+{
+	"materials": {
+		"PBR": {
+			"Mat_Body": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Apron": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Gurney": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Trim": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Duncan": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Face": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Mercenary": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			},
+			"Mat_Katana": {
+				"mode": "PBR",
+				"blend": "None",
+				"shadows": true,
+				"culling": "Back",
+				"depthTest": "Less",
+				"colorMask": 15,
+				"enableStencil": false,
+				"emissive": 0.1
+			}
+		}
+	}
+}
