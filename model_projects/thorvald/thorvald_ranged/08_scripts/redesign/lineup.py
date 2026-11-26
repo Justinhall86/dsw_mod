@@ -1,0 +1,86 @@
+"""Side-by-side lineup of vanilla units (units.py keys or FBX paths) and our .blend units, matte game-like preview.
+
+    python lineup.py <out_prefix> <item> [<item> ...] [--views front,tq,back,rts]
+    item = Label=vanilla:<units.py key>   |   Label=fbx:<path>|<texture stem>   |   Label=blend:<path>
+Uses the dsw-new-unit skill helpers. Read-only on every input.
+"""
+import os, sys
+import bpy
+from mathutils import Vector
+
+SK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "..", ".claude", "skills", "dsw-new-unit", "scripts")
+sys.path.insert(0, os.path.abspath(SK))
+import blender_scene as bs  # noqa
+import preview_wiring as PW  # noqa
+import units  # noqa
+
+args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
+views = ["front", "tq", "back"]
+if "--views" in args:
+    i = args.index("--views"); views = args[i + 1].split(","); del args[i:i + 2]
+OUT, items = args[0], args[1:]
+SPACING = 1.25
+
+bs.reset_scene()
+groups = []
+for idx, item in enumerate(items):
+    label, spec = item.split("=", 1)
+    kind, val = spec.split(":", 1)
+    before = set(bpy.data.objects)
+    if kind == "blend":
+        with bpy.data.libraries.load(val, link=False) as (src, dst):
+            dst.objects = list(src.objects)
+        for o in dst.objects:
+            if o is not None and o.type in ("MESH", "ARMATURE", "EMPTY"):
+                bpy.context.scene.collection.objects.link(o)
+    else:
+        if kind == "vanilla":
+            path, wanted = units.paths(val)
+        else:
+            path, stem = val.split("|")
+            wanted = units._tex(stem, os.path.dirname(path))
+        bs.import_model(path)
+        for o in set(bpy.data.objects) - before:
+            if o.type == "MESH":
+                for m in o.data.materials:
+                    if m and m.use_nodes:
+                        bs.wire_textures(m, wanted)
+    new = [o for o in set(bpy.data.objects) - before]
+    for o in new:
+        if o.type == "MESH" and (o.name.startswith("Cube") or o.hide_render):
+            bpy.data.objects.remove(o, do_unlink=True)
+    new = [o for o in set(bpy.data.objects) - before if o.name in bpy.data.objects]
+    roots = [o for o in new if o.parent is None or o.parent not in new]
+    # centre each unit on x by its meshes' bounds
+    meshes = [o for o in new if o.type == "MESH"]
+    bpy.context.view_layer.update()
+    xs = [ (o.matrix_world @ Vector(c)).x for o in meshes for c in o.bound_box]
+    cx = (min(xs) + max(xs)) / 2 if xs else 0
+    for r in roots:
+        r.location.x += idx * SPACING - cx
+    groups.append((label, meshes))
+    print("ITEM", label, len(meshes), "meshes")
+
+PW.apply_all()
+bs.setup_world(strength=1.0, color=(0.62, 0.62, 0.64))
+PW.soften_world()
+bs.setup_lights(sun_energy=3.0, fill_energy=120)
+bpy.context.view_layer.update()
+allm = [o for _, ms in groups for o in ms]
+pts = [o.matrix_world @ Vector(c) for o in allm for c in o.bound_box]
+lo = Vector([min(p[i] for p in pts) for i in range(3)]); hi = Vector([max(p[i] for p in pts) for i in range(3)])
+ctr = (lo + hi) / 2
+W = hi.x - lo.x + 0.6
+H = 2.15
+DIRS = {"front": (0, -1, 0), "tq": (0.6, -0.8, 0.0), "back": (0, 1, 0), "rts": (0.0, -0.75, 0.9)}
+for v in views:
+    n = len(items)
+    if v == "rts":
+        bs.setup_render(130 * n + 40, 210)
+    else:
+        bs.setup_render(int(430 * n), 820)
+    cam = bs.setup_camera(target=Vector((ctr.x, 0, 1.0 if v != "rts" else 0.9)), ortho_scale=max(W, H * (430 * n) / 820) if v != "rts" else W,
+                          direction=DIRS[v], distance=12)
+    bs.render_to("%s_%s.png" % (OUT, v), cam)
+    bpy.data.objects.remove(cam, do_unlink=True)
+print("LABELS", [g[0] for g in groups])

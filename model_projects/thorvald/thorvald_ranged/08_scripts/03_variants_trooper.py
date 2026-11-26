@@ -1762,6 +1762,8 @@ def build(name, v):
             keep_faces(part, lambda ds: all(d in bones for d in ds))
         if "zmax" in f:
             trim_above(part, f["zmax"], 9.0)
+        if "zmin" in f:  # straight cut at the bottom too (Ranger redesign: Duncan's sash belt band without the hanging apron)
+            bisect_below(part, f["zmin"], f.get("zmin_r"))
         if f.get("retex_dark"):  # faces whose texel is dark + neutral share texels with another part (Duncan: tabard = trousers):
             rd = f["retex_dark"]  # point them at ONE flat texel so the recolour can colour them on their own
             import numpy as np

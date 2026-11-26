@@ -58,3 +58,17 @@ cloth simulation / Solidify modifiers, IK "Child Of" rigs (the game plays baked 
 - The rifle slung across the back (reference back view) - the game shows one weapon; a second, back-mounted copy is possible as a static prop.
 - Harness straps over the suit, the tattered ends of the bicep wrap.
 - Not exported, no data.cdb entry, not installed; never seen in game.
+
+## Redesign (2026-11-26): make the Ranger read as its own unit (RD1-RD4, owner to choose)
+Owner: the Ranger should differ from the melee Trooper the way the Atreides Ranger differs from the Atreides Trooper. v2 was the Trooper with
+the pauldrons off; at RTS zoom the kasa hat and the rust apron made the two identical (`02_progress_photos/05_redesign/00_compare_rts.png`).
+- All four: R5 without the hat and without the apron. Duncan's sash is cut to the belt band (`zmin=1.12`, a new optional fill key in
+  `03_variants_trooper.py`; old recipes unchanged); Soldier trousers, back pouches, ochre chest plate, bicep wrap kept.
+- Heads: RD1 Commando bare + face wrap; RD2 Raider wrap in **oxblood**; RD3 HeavyWeapon helmet (copper visor, gunmetal shell; a white chip on
+  the chin, from the eye-white "keep" rule, still to fix); RD4 Feydakin breather (copper collar).
+- Sheets: `02_progress_photos/05_redesign/sheet_redesign_front.png`, `sheet_redesign_rts.png`, `sheet_atreides_pair.png`.
+- Rebuild (works in the cloud with the `bpy` module, `pip install bpy==5.2.4`; `bl.py` stands in for `blender -b`):
+  `python 08_scripts/redesign/bl.py 08_scripts/redesign/rd_build.py -- RD2` -> `bash 08_scripts/redesign/rd_colour.sh RD2` ->
+  `bash 08_scripts/redesign/rd_final.sh RD2` -> lineup with `08_scripts/redesign/lineup.py`. Generated blends/textures (03_blender/redesign,
+  04_textures/redesign, 10_upscale/redesign) are not committed.
+- Not done: weapon mount, animation clip test, export, cdb, install.

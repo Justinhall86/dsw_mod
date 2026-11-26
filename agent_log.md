@@ -9,6 +9,16 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 
 - (none)
 
+## 2026-11-26: Thorvald Ranger redesign, four options RD1-RD4 (no game files changed)
+
+- Owner asked for a Ranger that reads apart from the melee Trooper, as the Atreides Ranger does. Built R5 minus kasa hat and apron (sash cut to the belt band),
+  four heads: RD1 Commando, RD2 oxblood Raider wrap, RD3 copper-visor HeavyWeapon helmet, RD4 Feydakin breather. Details and rebuild steps in `thorvald_ranged/SPEC.md` "Redesign".
+- New: `thorvald_ranged/08_scripts/redesign/` (`rd_build.py`, `rd_colour.sh`, `rd_recolour.py`, `rd_final.sh`, `lineup.py`, `bl.py`), pictures in `02_progress_photos/05_redesign/`.
+- Changed: `03_variants_trooper.py` gains an optional fill key `zmin` (bottom cut). Existing recipes are unaffected.
+- Found: the project's `units.py` and the builder's kitbash path still point one folder too high (from the move under `model_projects/thorvald/`); `rd_build.py` patches them at run time, the files themselves are untouched.
+- Made in a cloud session (Linux, `bpy` 5.2.4 + Mesa for EEVEE). Generated blends/textures not committed (rebuildable).
+- Undo: delete those new folders and the `zmin` lines in `03_variants_trooper.py`.
+
 ## 2026-11-15: Heavy Vanguard helmet, samurai pass (no game files changed)
 
 - Owner: W5c reads insect; make it samurai, longer antennae; sent reference pictures (now in `gallery/helmets_and_heads/warden_study/samurai/reference/`).
