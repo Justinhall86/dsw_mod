@@ -39,6 +39,10 @@ under a snood (box it so armour elsewhere is not touched).
 ## Props → `rigid_weights(obj, src)`;  cloth → `transfer_weights(obj, src)`
 - A pouch, holster, canister: one weight set per island, read from `src` at the island centre. It moves as a block with what it hangs on.
   Per-vertex transfer gave the pouch strap different weights from the pouch body and it bent away (RM12).
+- But a rigid prop on a surface that bends (a belt over the hips and spine) separates from it at the contact face: that was the RM11 state
+  and RM13 changed nothing. Use per-vertex weights for the verts touching the surface and copy them to the rest of the island by nearest
+  touching vert (not yet an op; do it in a recipe and promote it to `fit_ops` once it works).
+- Before either: read the current weights (`diff_blends.py` will tell you if your op changed none).
 - A snood, apron, tabard that should follow the body under it: per-vertex nearest-surface weights (`transfer_weights`, or the builder's
   `weights_from_base=True` on a fill).
 

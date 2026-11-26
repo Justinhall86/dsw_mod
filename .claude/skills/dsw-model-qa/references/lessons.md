@@ -3,7 +3,7 @@
 ## Seeing the problem
 - **The game culls back faces; Blender's render does not.** Every QA render culls (`gap_check.py` always does, `turnaround.py --cull`).
   Inward-wound faces and the inside of open shells look solid in Blender and are see-through in game.
-- **Scan poses.** Ranger RM11: rest pose 12 candidates, poses 26; the nape and pouch gaps never showed at rest.
+- **Scan poses.** Ranger RM11: 10 candidates at rest, 31 in two clip poses; the nape and pouch gaps never showed at rest.
 - **Enclosed transparency ≠ defect.** About two thirds of the candidates were natural space (between legs, arm/body, handle loops,
   fingers). Localise (`at` list) before fixing anything.
 - **`scene.ray_cast` hits `hide_render` objects.** Remove the weapon (`--drop`) instead of hiding it, or the localisation names it.
@@ -15,12 +15,17 @@
   and keep the every-frame script for the one clip you turn into a GIF.
 
 ## Fixing it
+- **Check that a fix changed something before rescanning.** RM13's `rigid_weights` reproduced the weights the builder had already given
+  (0 changed) and `weld_weights` changed 10 weights: the 15-minute rescan said "fixed 2, remains 39". `diff_blends.py` says it in seconds.
+  Identical pixel counts in `gap_compare.py` mean the same thing.
 - **Grafted parts carry their import transform.** The builders' `bisect_below/above` cut in object space; a "cut at z 1.58" on a graft cut
   nothing (RM8). `fit_ops.cut` is world space.
 - **A point-centred push slides cloth.** `push_out` from one centre moved the snood's front verts down the chest into a bib; the
   "short snood" cut appeared not to work because the push ran after it. Use `axis=True`.
-- **Per-vertex weights tear props.** RM12 copied the sash weights onto the pouches vertex by vertex; the thin strap got different weights from
-  the pouch body and bent away (a worse gap than before). `rigid_weights` fixed it.
+- **Per-vertex weights tear props; rigid weights can leave them floating.** RM12 copied the sash weights onto the pouches vertex by vertex:
+  the inner face then followed the belt (slits closed) but the thin strap got different weights and bent away. RM13's `rigid_weights` was a
+  no-op (the builder had already made the pouches rigid), so the slits came back. A prop on a bending surface needs both: per-vertex weights
+  on the verts that touch the surface, the rest of the island following its nearest touching vert.
 - **Unwelded mirror seams.** Gurney's halves are not joined at x = 0: open loops run along the centre line and open as the back bends.
   `cap` welds them; when it reports 0 faces filled, the weld alone closed it.
 - **Removing a part uncovers what it hid.** The Ranger's removed pauldrons had covered the collar/torso panel junction at the nape; in Run

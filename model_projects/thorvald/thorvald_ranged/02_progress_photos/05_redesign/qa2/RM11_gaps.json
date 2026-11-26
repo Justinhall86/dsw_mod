@@ -1,0 +1,971 @@
+[
+ {
+  "pose": "rest",
+  "angle": 0.0,
+  "png": "RM11_rest_a000.png",
+  "holes": []
+ },
+ {
+  "pose": "rest",
+  "angle": 45.0,
+  "png": "RM11_rest_a045.png",
+  "holes": [
+   {
+    "x": 416,
+    "y": 233,
+    "px": 387,
+    "at": {
+     "Gurney": {
+      "n": 12,
+      "rest": [
+       0.272,
+       0.061,
+       1.374
+      ]
+     },
+     "MercenaryFill_pouches": {
+      "n": 7,
+      "rest": [
+       0.122,
+       0.197,
+       1.292
+      ]
+     }
+    }
+   },
+   {
+    "x": 337,
+    "y": 475,
+    "px": 68,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 21,
+      "rest": [
+       0.045,
+       -0.043,
+       0.599
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "rest",
+  "angle": 90.0,
+  "png": "RM11_rest_a090.png",
+  "holes": [
+   {
+    "x": 315,
+    "y": 141,
+    "px": 25,
+    "at": {
+     "Gurney": {
+      "n": 15,
+      "rest": [
+       0.003,
+       -0.06,
+       1.601
+      ]
+     },
+     "CommandoFill_snood": {
+      "n": 7,
+      "rest": [
+       0.132,
+       -0.086,
+       1.618
+      ]
+     }
+    }
+   },
+   {
+    "x": 404,
+    "y": 243,
+    "px": 140,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 15,
+      "rest": [
+       0.03,
+       0.207,
+       1.279
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "rest",
+  "angle": 135.0,
+  "png": "RM11_rest_a135.png",
+  "holes": [
+   {
+    "x": 339,
+    "y": 457,
+    "px": 9,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 24,
+      "rest": [
+       0.017,
+       0.017,
+       0.643
+      ]
+     }
+    }
+   },
+   {
+    "x": 348,
+    "y": 574,
+    "px": 3611,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 18,
+      "rest": [
+       0.056,
+       0.091,
+       0.315
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "rest",
+  "angle": 180.0,
+  "png": "RM11_rest_a180.png",
+  "holes": []
+ },
+ {
+  "pose": "rest",
+  "angle": 225.0,
+  "png": "RM11_rest_a225.png",
+  "holes": [
+   {
+    "x": 359,
+    "y": 457,
+    "px": 9,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 24,
+      "rest": [
+       0.011,
+       -0.001,
+       0.632
+      ]
+     }
+    }
+   },
+   {
+    "x": 350,
+    "y": 574,
+    "px": 3614,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 17,
+      "rest": [
+       -0.046,
+       0.098,
+       0.303
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "rest",
+  "angle": 270.0,
+  "png": "RM11_rest_a270.png",
+  "holes": [
+   {
+    "x": 383,
+    "y": 141,
+    "px": 25,
+    "at": {
+     "Gurney": {
+      "n": 15,
+      "rest": [
+       -0.015,
+       -0.056,
+       1.604
+      ]
+     },
+     "CommandoFill_snood": {
+      "n": 5,
+      "rest": [
+       -0.129,
+       -0.078,
+       1.624
+      ]
+     },
+     "AssassinFill_hood": {
+      "n": 1,
+      "rest": [
+       -0.122,
+       -0.026,
+       1.655
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "rest",
+  "angle": 315.0,
+  "png": "RM11_rest_a315.png",
+  "holes": [
+   {
+    "x": 361,
+    "y": 475,
+    "px": 68,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 23,
+      "rest": [
+       -0.06,
+       -0.054,
+       0.602
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 0.0,
+  "png": "RM11_Sniper_Run_f6_a000.png",
+  "holes": [
+   {
+    "x": 392,
+    "y": 205,
+    "px": 108,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 15,
+      "rest": [
+       0.038,
+       0.189,
+       1.279
+      ]
+     }
+    }
+   },
+   {
+    "x": 257,
+    "y": 261,
+    "px": 36,
+    "at": {
+     "Gurney": {
+      "n": 23,
+      "rest": [
+       -0.334,
+       0.032,
+       1.163
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 45.0,
+  "png": "RM11_Sniper_Run_f6_a045.png",
+  "holes": []
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 90.0,
+  "png": "RM11_Sniper_Run_f6_a090.png",
+  "holes": [
+   {
+    "x": 308,
+    "y": 90,
+    "px": 14,
+    "at": {
+     "Gurney": {
+      "n": 8,
+      "rest": [
+       0.154,
+       0.113,
+       1.681
+      ]
+     },
+     "CommandoFill_snood": {
+      "n": 13,
+      "rest": [
+       0.163,
+       0.033,
+       1.719
+      ]
+     }
+    }
+   },
+   {
+    "x": 426,
+    "y": 209,
+    "px": 90,
+    "at": {
+     "Gurney": {
+      "n": 13,
+      "rest": [
+       -0.371,
+       -0.01,
+       1.356
+      ]
+     },
+     "MercenaryFill_pouches": {
+      "n": 1,
+      "rest": [
+       -0.154,
+       0.174,
+       1.245
+      ]
+     },
+     "DuncanFill_sash": {
+      "n": 6,
+      "rest": [
+       -0.169,
+       0.035,
+       1.301
+      ]
+     }
+    }
+   },
+   {
+    "x": 281,
+    "y": 259,
+    "px": 1132,
+    "at": {
+     "DuncanFill_sash": {
+      "n": 7,
+      "rest": [
+       0.174,
+       0.058,
+       1.164
+      ]
+     },
+     "AtreidesSoldierFill_legs": {
+      "n": 2,
+      "rest": [
+       0.187,
+       -0.007,
+       1.112
+      ]
+     },
+     "Gurney": {
+      "n": 11,
+      "rest": [
+       0.459,
+       0.112,
+       1.314
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 135.0,
+  "png": "RM11_Sniper_Run_f6_a135.png",
+  "holes": [
+   {
+    "x": 453,
+    "y": 223,
+    "px": 233,
+    "at": {
+     "Gurney": {
+      "n": 21,
+      "rest": [
+       -0.359,
+       -0.043,
+       1.279
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 180.0,
+  "png": "RM11_Sniper_Run_f6_a180.png",
+  "holes": []
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 225.0,
+  "png": "RM11_Sniper_Run_f6_a225.png",
+  "holes": [
+   {
+    "x": 338,
+    "y": 122,
+    "px": 103,
+    "at": {
+     "Gurney": {
+      "n": 24,
+      "rest": [
+       -0.127,
+       0.13,
+       1.616
+      ]
+     }
+    }
+   },
+   {
+    "x": 469,
+    "y": 285,
+    "px": 35,
+    "at": {
+     "Gurney": {
+      "n": 22,
+      "rest": [
+       0.009,
+       -0.014,
+       1.142
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 270.0,
+  "png": "RM11_Sniper_Run_f6_a270.png",
+  "holes": [
+   {
+    "x": 271,
+    "y": 229,
+    "px": 127,
+    "at": {
+     "DuncanFill_sash": {
+      "n": 4,
+      "rest": [
+       -0.177,
+       -0.023,
+       1.248
+      ]
+     },
+     "MercenaryFill_pouches": {
+      "n": 2,
+      "rest": [
+       -0.178,
+       0.135,
+       1.189
+      ]
+     },
+     "Gurney": {
+      "n": 12,
+      "rest": [
+       -0.343,
+       -0.012,
+       1.418
+      ]
+     }
+    }
+   },
+   {
+    "x": 405,
+    "y": 230,
+    "px": 85,
+    "at": {
+     "Gurney": {
+      "n": 17,
+      "rest": [
+       0.28,
+       0.001,
+       1.331
+      ]
+     },
+     "DuncanFill_sash": {
+      "n": 4,
+      "rest": [
+       0.164,
+       -0.065,
+       1.25
+      ]
+     }
+    }
+   },
+   {
+    "x": 422,
+    "y": 286,
+    "px": 671,
+    "at": {
+     "Gurney": {
+      "n": 8,
+      "rest": [
+       0.532,
+       0.069,
+       1.207
+      ]
+     },
+     "AtreidesSoldierFill_legs": {
+      "n": 8,
+      "rest": [
+       0.18,
+       -0.083,
+       1.09
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_Run_f6",
+  "angle": 315.0,
+  "png": "RM11_Sniper_Run_f6_a315.png",
+  "holes": [
+   {
+    "x": 339,
+    "y": 115,
+    "px": 23,
+    "at": {
+     "Gurney": {
+      "n": 24,
+      "rest": [
+       0.145,
+       0.101,
+       1.653
+      ]
+     }
+    }
+   },
+   {
+    "x": 248,
+    "y": 231,
+    "px": 300,
+    "at": {
+     "Gurney": {
+      "n": 18,
+      "rest": [
+       -0.298,
+       -0.118,
+       1.279
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 0.0,
+  "png": "RM11_Sniper_AttackRange_f30_a000.png",
+  "holes": [
+   {
+    "x": 457,
+    "y": 254,
+    "px": 12,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 7,
+      "rest": [
+       -0.062,
+       0.24,
+       1.289
+      ]
+     },
+     "DuncanFill_sash": {
+      "n": 15,
+      "rest": [
+       -0.125,
+       0.103,
+       1.294
+      ]
+     }
+    }
+   },
+   {
+    "x": 455,
+    "y": 268,
+    "px": 39,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 9,
+      "rest": [
+       -0.04,
+       0.29,
+       1.226
+      ]
+     },
+     "DuncanFill_sash": {
+      "n": 13,
+      "rest": [
+       -0.122,
+       0.104,
+       1.236
+      ]
+     }
+    }
+   },
+   {
+    "x": 455,
+    "y": 289,
+    "px": 25,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 9,
+      "rest": [
+       -0.042,
+       0.291,
+       1.17
+      ]
+     },
+     "DuncanFill_sash": {
+      "n": 12,
+      "rest": [
+       -0.129,
+       0.105,
+       1.167
+      ]
+     }
+    }
+   },
+   {
+    "x": 454,
+    "y": 309,
+    "px": 64,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 9,
+      "rest": [
+       -0.044,
+       0.29,
+       1.163
+      ]
+     },
+     "AtreidesSoldierFill_legs": {
+      "n": 8,
+      "rest": [
+       -0.121,
+       0.101,
+       1.091
+      ]
+     },
+     "DuncanFill_sash": {
+      "n": 6,
+      "rest": [
+       -0.123,
+       0.118,
+       1.126
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 45.0,
+  "png": "RM11_Sniper_AttackRange_f30_a045.png",
+  "holes": [
+   {
+    "x": 304,
+    "y": 274,
+    "px": 340,
+    "at": {
+     "MercenaryFill_pouches": {
+      "n": 18,
+      "rest": [
+       0.153,
+       0.241,
+       1.217
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 90.0,
+  "png": "RM11_Sniper_AttackRange_f30_a090.png",
+  "holes": [
+   {
+    "x": 393,
+    "y": 142,
+    "px": 326,
+    "at": {
+     "Gurney": {
+      "n": 12,
+      "rest": [
+       -0.546,
+       -0.033,
+       1.179
+      ]
+     },
+     "CommandoFill_snood": {
+      "n": 8,
+      "rest": [
+       -0.128,
+       -0.086,
+       1.683
+      ]
+     }
+    }
+   },
+   {
+    "x": 349,
+    "y": 438,
+    "px": 54,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 21,
+      "rest": [
+       0.016,
+       -0.008,
+       0.702
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 135.0,
+  "png": "RM11_Sniper_AttackRange_f30_a135.png",
+  "holes": [
+   {
+    "x": 228,
+    "y": 150,
+    "px": 19,
+    "at": {
+     "Gurney": {
+      "n": 23,
+      "rest": [
+       -0.13,
+       0.118,
+       1.638
+      ]
+     },
+     "TrooperNeck": {
+      "n": 1,
+      "rest": [
+       -0.076,
+       0.122,
+       1.64
+      ]
+     }
+    }
+   },
+   {
+    "x": 226,
+    "y": 160,
+    "px": 7,
+    "at": {
+     "Gurney": {
+      "n": 24,
+      "rest": [
+       -0.139,
+       0.134,
+       1.606
+      ]
+     }
+    }
+   },
+   {
+    "x": 259,
+    "y": 281,
+    "px": 35,
+    "at": {
+     "DuncanFill_sash": {
+      "n": 9,
+      "rest": [
+       -0.11,
+       0.112,
+       1.2
+      ]
+     },
+     "MercenaryFill_pouches": {
+      "n": 15,
+      "rest": [
+       -0.114,
+       0.135,
+       1.199
+      ]
+     }
+    }
+   },
+   {
+    "x": 309,
+    "y": 621,
+    "px": 715,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 17,
+      "rest": [
+       -0.038,
+       0.049,
+       0.148
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 180.0,
+  "png": "RM11_Sniper_AttackRange_f30_a180.png",
+  "holes": []
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 225.0,
+  "png": "RM11_Sniper_AttackRange_f30_a225.png",
+  "holes": [
+   {
+    "x": 437,
+    "y": 92,
+    "px": 22,
+    "at": {
+     "Gurney": {
+      "n": 19,
+      "rest": [
+       0.653,
+       -0.136,
+       1.058
+      ]
+     }
+    }
+   },
+   {
+    "x": 441,
+    "y": 120,
+    "px": 10,
+    "at": {
+     "Gurney": {
+      "n": 24,
+      "rest": [
+       0.715,
+       -0.115,
+       1.088
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 270.0,
+  "png": "RM11_Sniper_AttackRange_f30_a270.png",
+  "holes": []
+ },
+ {
+  "pose": "Sniper_AttackRange_f30",
+  "angle": 315.0,
+  "png": "RM11_Sniper_AttackRange_f30_a315.png",
+  "holes": [
+   {
+    "x": 374,
+    "y": 122,
+    "px": 10,
+    "at": {
+     "Gurney": {
+      "n": 21,
+      "rest": [
+       0.168,
+       -0.066,
+       1.577
+      ]
+     },
+     "CommandoFill_snood": {
+      "n": 3,
+      "rest": [
+       0.082,
+       -0.111,
+       1.603
+      ]
+     }
+    }
+   },
+   {
+    "x": 341,
+    "y": 133,
+    "px": 51,
+    "at": {
+     "CommandoFill_snood": {
+      "n": 3,
+      "rest": [
+       0.121,
+       -0.148,
+       1.566
+      ]
+     },
+     "Gurney": {
+      "n": 14,
+      "rest": [
+       -0.574,
+       -0.023,
+       1.162
+      ]
+     }
+    }
+   },
+   {
+    "x": 349,
+    "y": 133,
+    "px": 7,
+    "at": {
+     "Gurney": {
+      "n": 13,
+      "rest": [
+       -0.059,
+       -0.096,
+       1.448
+      ]
+     },
+     "CommandoFill_snood": {
+      "n": 4,
+      "rest": [
+       0.127,
+       -0.117,
+       1.592
+      ]
+     }
+    }
+   },
+   {
+    "x": 452,
+    "y": 221,
+    "px": 36,
+    "at": {
+     "Gurney": {
+      "n": 24,
+      "rest": [
+       -0.008,
+       0.163,
+       1.356
+      ]
+     }
+    }
+   },
+   {
+    "x": 391,
+    "y": 599,
+    "px": 421,
+    "at": {
+     "AtreidesSoldierFill_legs": {
+      "n": 18,
+      "rest": [
+       0.028,
+       0.052,
+       0.196
+      ]
+     }
+    }
+   }
+  ]
+ }
+]

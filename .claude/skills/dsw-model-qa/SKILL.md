@@ -18,6 +18,7 @@ This skill is the loop that found and fixed them on the Thorvald Ranger (RM11 �
 | 2 | Gap scan at rest **and** in 2-3 clip poses, back faces culled | `gap_check.py` | circled PNGs, `<tag>_gaps.json`, `<tag>_gap_sheet.png` |
 | 3 | Triage: real gap or natural opening? | read `references/triage.md`; `loops_near.py` for the mesh edge it sits on | a short list of real gaps with rest positions |
 | 4 | Fix with the smallest op that matches the cause | `fit_ops.py` (in a recipe, or on a finished blend from a JSON list) | new blend |
+| 4b | Prove the fix changed something (seconds, not a 15-minute rescan) | `diff_blends.py` before → after | verts moved / weights changed per object |
 | 5 | Rescan with identical settings and compare | `gap_check.py` again → `gap_compare.py` | fixed / remains / NEW table + crops |
 | 6 | Look at the fixes in motion, then send the sheets | `anim_shots.py` of the unit project (sampled frames) | before/after images to the user |
 
@@ -39,6 +40,7 @@ python <skill>/scripts/bl.py <unit.blend> <skill>/scripts/gap_check.py -- <out_d
   unit on a CPU; run it in the background.
 - `gap_compare.py <dir> <tagA> <dir> <tagB> <out.png>` - plain Python + Pillow. Use the same views and clips for both runs.
 - `turnaround.py <out.png> --title "..." --drop Sniper --pose Sniper_FightIdle:1 [--cull]` - `--cull` shows what the game shows.
+- `diff_blends.py` (run in the before blend) `-- <after.blend>` - per object: verts moved, weights changed, faces added; matched by position.
 - `loops_near.py <obj> x,y,z ...` - nearest open edge loops to a reported rest position; flags loops on the x = 0 mirror seam.
 - `island_map.py <out_prefix> <fbx> <ids>` - flat-coloured islands with ids written on: pick graft pieces, read what a donor part is.
 - `fit_ops.py` - the fixing ops; as a module (`fit_ops.run([(op, kwargs), ...])`) or `blender -b in.blend --python fit_ops.py -- fixes.json out.blend`.
@@ -66,7 +68,8 @@ and needs to know what was left on purpose.
 | Panels that meet at rest but part in motion (different bones) | `weld_weights` on the edge verts in a box |
 | Cloth edge floating above the body (slit of light from the side) | `snap_to` (boundary verts onto the surface) |
 | Graft sunk into the body | `push_out` - use `axis=True` for cloth, a single centre slides it down the chest |
-| Prop with straps/loops bending away from what it hangs on | `rigid_weights` (one weight set per island), **not** per-vertex transfer |
+| Prop with straps/loops bending away from what it hangs on | `rigid_weights` (one weight set per island) - check it is not rigid already |
+| Rigid prop separating from a bending surface (pouch off a belt) | per-vertex weights at the contact face, rest of the island follows (fixes.md) |
 | Cloth that should follow the body under it | `transfer_weights` (or the builder's `weights_from_base`) |
 | A part poking through another | `clip_in` (pull under the cover) |
 | Need a straight cut on a grafted part | `cut` (world space; builder `bisect_*` helpers are object space) |
@@ -76,6 +79,7 @@ and needs to know what was left on purpose.
 
 - Scan in **poses**, not only rest: on the Ranger most real gaps only appeared in Run / AttackRange.
 - **Cull back faces** in every QA render; a Blender render that looks closed can be see-through in game.
-- Make one change per pass and compare with `gap_compare.py`; a fix can make another spot worse (RM12's pouch strap).
-- A per-vertex weight transfer can tear a prop apart; a uniform weight set cannot.
+- Make one change per pass, `diff_blends.py` it, then compare with `gap_compare.py`; a fix can make another spot worse (RM12's pouch strap)
+  or do nothing at all (RM13's rigid weights equalled what the builder had already set). Identical pixel counts = no effect.
+- Weights decide most motion gaps: per-vertex transfer can tear a prop apart, a uniform set can leave it floating off a bending surface.
 - Report honestly: what was fixed (with before/after crops), what remains and why it is natural, what was not checked (clips not scanned).
