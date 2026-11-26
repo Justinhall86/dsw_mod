@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.abspath(SK))
 import blender_scene as bs  # noqa
 import preview_wiring as PW  # noqa
 import units  # noqa
+units.MI = os.path.abspath(os.path.join(SK, '..', '..', '..', '..', 'model_inputs')); units._INDEX.clear()   # its own MI is stale
 
 args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
 views = ["front", "tq", "back"]
@@ -73,6 +74,14 @@ ctr = (lo + hi) / 2
 W = hi.x - lo.x + 0.6
 H = 2.15
 DIRS = {"front": (0, -1, 0), "tq": (0.6, -0.8, 0.0), "back": (0, 1, 0), "rts": (0.0, -0.75, 0.9)}
+for v in [w for w in views if w.startswith("head")]:   # head close-ups, one image per unit: head (front) / headtq
+    d = (0, -1, 0.06) if v == "head" else (0.6, -0.8, 0.08)
+    for i, (label, ms) in enumerate(groups):
+        bs.setup_render(520, 600)
+        cam = bs.setup_camera(target=Vector((i * SPACING, 0, 1.74)), ortho_scale=0.62, direction=d, distance=6)
+        bs.render_to("%s_%s_%s.png" % (OUT, v, label.replace(" ", "_")), cam)
+        bpy.data.objects.remove(cam, do_unlink=True)
+views = [w for w in views if not w.startswith("head")]
 for v in views:
     n = len(items)
     if v == "rts":

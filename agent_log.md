@@ -9,6 +9,16 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 
 - (none)
 
+## 2026-11-26 (later): Thorvald Ranger hood pass, RH1-RH5 (no game files changed)
+
+- Owner: RD1 is closest; sent a ninja-hood reference (black cowl, rigid half mask, eyes showing), asked for non-turban head wraps in the game.
+- Hood survey of every vanilla unit: `gallery/helmets_and_heads/hood_survey/` (README has the island ids). Real hoods: Ravager, Assassin (= Infiltrator mesh,
+  black texture), Infiltrator, Smuggler Mercenary, Scout. Converted Infiltrator, Scout, Harkonnen Trooper HMDs into `thorvald_ranged/05_fbx_export/`.
+- Built on RD1 (Commando eyes + black face wrap kept): RH2 = Ravager hood + cowl (skull mask left out), RH5 = Assassin hood + cowl (goggle face left out);
+  RH1/RH3/RH4 were fitting tries. Recipes in `08_scripts/redesign/rd_build.py`; sheet `02_progress_photos/05_redesign/sheet_hood_vs_reference.png`.
+- Known faults: RH2 has a dark jagged line where the hood rim cuts the brow; RH5 shows a fleck of the chest plate through the cowl's lower-left edge.
+- Found: the dsw-new-unit skill's own `units.py` also has a stale `MI` (`.claude/model_inputs`); texture lookups by name silently fail. My scripts set it at run time; the skill file is unchanged.
+
 ## 2026-11-26: Thorvald Ranger redesign, four options RD1-RD4 (no game files changed)
 
 - Owner asked for a Ranger that reads apart from the melee Trooper, as the Atreides Ranger does. Built R5 minus kasa hat and apron (sash cut to the belt band),

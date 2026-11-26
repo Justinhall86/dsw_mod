@@ -30,6 +30,33 @@ RD["RD1"] = dict(R5, hat=None, fill=[R5["fill"][0], SASH_BELT, R5["fill"][2]], t
 RD["RD2"] = dict(RD["RD1"], donor="Raider", title="Ranger RD2: Raider hood + mask")
 RD["RD3"] = dict(RD["RD1"], donor="HeavyWeapon", title="Ranger RD3: HeavyWeapon helmet")
 RD["RD4"] = dict(RD["RD1"], donor="Feydakin", title="Ranger RD4: Feydakin breather")
+# --- hooded options (2026-11-26, owner: "RD1 is closest", reference = black ninja cowl + rigid half mask, eyes showing) ---
+U = sys.modules["units"]
+CH = U.MI
+U.UNITS["RavagerMelee"] = (os.path.join(CH, "Common", "Ravager", "Ravager_Melee_TRUE_FBX.fbx"), "Ravager", "Common/Ravager")
+U.UNITS["Assassin"] = (U.EX + "Female01_Infiltrator_TRUE_FBX.fbx", "Assassin", "Common/Assassin")   # Assassin = Infiltrator mesh + black texture
+_paths = U.paths
+def _paths_fixed(key):   # the Assassin set has no normal map: use the Infiltrator's (same mesh, same UVs)
+    p, w = _paths(key)
+    if key == "Assassin":
+        w = dict(w, Normal=os.path.join(CH, "Fremen", "Unit", "Infiltrator", "Fremen_Infiltrator_Normal.png"))
+    return p, w
+U.paths = _paths_fixed
+# Ravager hood islands: 9/10/20 crown, 17/18 sides, 8 front cowl, 11 back cowl (mask 25/26/34/35/46/47 and drape 19 left out)
+RD["RH1"] = dict(RD["RD1"], fill=RD["RD1"]["fill"] + [dict(donor="RavagerMelee", tag="hood", keep_comps=[8, 9, 10, 11, 17, 18, 20])],
+                 title="Ranger RH1: RD1 + Ravager hood and cowl (no skull mask)")
+HOOD_R = dict(donor="RavagerMelee", tag="hood", keep_comps=[8, 9, 10, 11, 17, 18, 20])
+# RH2: head not lifted (the +3 cm was for the Trooper's hat), hood 6 % wider and 1.5 cm up so the Commando hair sits inside it
+RD["RH2"] = dict(RD["RH1"], head_shift_z=0.0, fill=RD["RD1"]["fill"] + [dict(HOOD_R, scale_xy=1.06, shift_z=0.015)], title="Ranger RH2: Ravager hood, fitted")
+# RH3: RH2 + the head 6 % smaller (about the neck), so the hood can stay closer to its own size
+RD["RH3"] = dict(RD["RH2"], head_scale=0.94, head_pivot_z=1.70, fill=RD["RD1"]["fill"] + [dict(HOOD_R, scale_xy=1.03, shift_z=0.005)],
+                 title="Ranger RH3: Ravager hood, smaller head")
+# RH4: the Assassin hood (Infiltrator mesh, black texture): 2/5 hood halves, 13/16 crown + lining, 3 cowl, 31 cowl edge; its mask (20) and goggles left out
+RD["RH4"] = dict(RD["RH2"], fill=RD["RD1"]["fill"] + [dict(donor="Assassin", tag="hood", keep_comps=[2, 3, 5, 13, 16, 31], scale_xy=1.10, shift_z=0.015)],
+                 title="Ranger RH4: Assassin hood")
+# RH5: RH4 without islands 2/5 (they are the Assassin's goggle face, not hood)
+RD["RH5"] = dict(RD["RH2"], fill=RD["RD1"]["fill"] + [dict(donor="Assassin", tag="hood", keep_comps=[3, 13, 16, 31], scale_xy=1.10, shift_z=0.015)],
+                 title="Ranger RH5: Assassin hood (no goggles)")
 V.update(RD)
 
 keys = [k for k in sys.argv[sys.argv.index("--") + 1:]] if "--" in sys.argv else list(RD)

@@ -72,3 +72,10 @@ the pauldrons off; at RTS zoom the kasa hat and the rust apron made the two iden
   `bash 08_scripts/redesign/rd_final.sh RD2` -> lineup with `08_scripts/redesign/lineup.py`. Generated blends/textures (03_blender/redesign,
   04_textures/redesign, 10_upscale/redesign) are not committed.
 - Not done: weapon mount, animation clip test, export, cdb, install.
+
+### Hood pass (2026-11-26, later): RH1-RH5
+Owner picked RD1 and sent a ninja-hood reference (`02_progress_photos/05_redesign/reference/`). Vanilla hoods surveyed in `gallery/helmets_and_heads/hood_survey/`.
+RD1 + a grafted vanilla hood + cowl (fill with `keep_comps`), head not lifted (`head_shift_z=0`):
+- RH2: Ravager Melee islands 8, 9, 10, 11, 17, 18, 20, `scale_xy=1.06`, `shift_z=0.015` (fault: hood rim cuts the brow, dark jagged line).
+- RH5: Assassin (Infiltrator mesh, Assassin albedo, Infiltrator normal) islands 3, 13, 16, 31, `scale_xy=1.10`, `shift_z=0.015` (fault: chest-plate fleck through the cowl).
+- RH1 (unfitted), RH3 (smaller head: gaps at the cheeks), RH4 (kept the goggle face) were tries. Sheet: `sheet_hood_vs_reference.png`.

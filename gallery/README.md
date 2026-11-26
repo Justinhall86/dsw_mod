@@ -11,6 +11,7 @@ Unit progress photos, variants and turntables stay in the unit's own `02_progres
 | `helmets_and_heads/house_guard_study/` | House Guard helmet (= Harkonnen Elite model): 12 angles, six recolours (H1-H6), and the antenna + breather version (`antenna_breather/`) | `vanilla_all_angles.png`, `recolour_compare.png` |
 | `helmets_and_heads/warden_study/` | Warden (Atreides Elite) helmet reworked for the Heavy Vanguard: W1-W5c, faction lineup, House Guard comparison | `warden_variants.png`, `lineup/faction_lineup.png` |
 | `helmets_and_heads/warden_study/samurai/` | Heavy Vanguard samurai pass (2026-11-15): Warden S01-S12, Sworn-dome kabuto D/E/F (horns, spike halo, kasa shikoro), owner's reference pictures | `F01_big_kabuto_all_angles.png`, `faction_lineup_samurai.png` |
+| `helmets_and_heads/hood_survey/` | Every vanilla hood/cowl (not turbans): Ravager, Assassin/Infiltrator, Mercenary, Scout; island ids for grafting | `hood_candidates_sheet.png` |
 | `helmets_and_heads/vanilla_head_renders/` | Front + three-quarter close-up of each head (33 vanilla, 15 Thorvald; includes bare heads) | `<Unit>_front.png`, `<Unit>_tq.png`; `all_heads.py` and `custom_heads.py` made them (Blender, edit the paths at the top) |
 | `helmets_and_heads/trooper_reference_sheets/` | `heads_sheet.png` (12 bare/helm heads), hat extract, per-unit part sheets, Meshy sheet | `heads_sheet.png` |
 | `helmets_and_heads/sworn_sword_head_survey/` | Head donors tried for the Sworn Sword | |
