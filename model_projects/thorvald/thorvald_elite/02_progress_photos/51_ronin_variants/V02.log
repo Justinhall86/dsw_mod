@@ -1,0 +1,34 @@
+00:02.657  blend            | Read blend: "d:\dsw_mod\model_projects\thorvald\thorvald_elite\03_blender\helmet_study\ronin_R18.blend"
+09:12.688  image.gpu        | WARNING DDS image '' failed to load data from file
+09:12.875  image.gpu        | WARNING DDS image '' falling back to uncompressed
+09:13.313  image.gpu        | WARNING DDS image '' failed to load data from file
+09:13.313  image.gpu        | WARNING DDS image '' falling back to uncompressed
+09:13.532  image.gpu        | WARNING DDS image '' failed to load data from file
+09:13.532  image.gpu        | WARNING DDS image '' falling back to uncompressed
+09:13.704  image.gpu        | WARNING DDS image '' failed to load data from file
+09:13.704  image.gpu        | WARNING DDS image '' falling back to uncompressed
+09:13.782  image.gpu        | WARNING DDS image '' failed to load data from file
+09:13.782  image.gpu        | WARNING DDS image '' falling back to uncompressed
+09:13.782  image.gpu        | WARNING DDS image '' failed to load data from file
+09:13.782  image.gpu        | WARNING DDS image '' falling back to uncompressed
+09:20.157  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\head_front.png'
+09:24.547  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\head_tq.png'
+09:26.282  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\head_side.png'
+09:27.782  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_front.png'
+09:29.063  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_tq.png'
+09:30.188  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_back.png'
+09:31.266  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_tqL.png'
+09:32.391  render           | Saved: 'd:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\rts.png'
+Info: Saved as "ronin_V02.blend"
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\head_front.png 272900 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\head_tq.png 273247 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\head_side.png 254079 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_front.png 421875 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_tq.png 406748 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_back.png 392299 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\body_full_tqL.png 408570 bytes
+RENDERED d:\dsw_mod\model_projects\thorvald\thorvald_elite\02_progress_photos\51_ronin_variants\V02\rts.png 136766 bytes
+VARIANT DONE V02 Nightblade
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
