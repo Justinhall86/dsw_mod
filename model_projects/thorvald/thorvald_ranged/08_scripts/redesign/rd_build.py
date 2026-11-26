@@ -146,6 +146,19 @@ RD["RM12"] = dict(RD["RM11"], edits=RD["RM11"]["edits"] + [
                       ("transfer_weights", dict(obj=PCH, src=SASH)),
                       ("snap_to", dict(obj=PCH, solid=SASH, max_dist=0.02, margin=0.001, boundary_only=False))],
                   title="Ranger RM12: RM11 with the gaps closed")
+# RM13: second gap pass (qa/gap_check.py on RM12):
+#  - front V-notch of Gurney's collar welded + capped (the slit seen from the side under the snood)
+#  - small socket hole at the centre of the back plate (two 6-edge loops at x = 0) welded + capped
+#  - nape: Gurney's collar panel and torso panel edges meet at rest but pull apart in Run (different bones); edge weights averaged within 2.5 cm
+#  - pouches back to RM11's placement, but one rigid weight set per pouch from the sash (RM12's per-vertex weights let the strap bend away)
+RD["RM13"] = dict(RD["RM11"], edits=RD["RM11"]["edits"] + [
+                      ("cap", dict(obj="Gurney", box=((-0.115, -0.05, 1.575), (0.115, 0.15, 1.78)))),
+                      ("cap", dict(obj="Gurney", box=((-0.065, -0.145, 1.600), (0.065, -0.07, 1.72)))),
+                      ("cap", dict(obj="Gurney", box=((-0.05, 0.165, 1.355), (0.05, 0.205, 1.40)))),
+                      ("weld_weights", dict(obj="Gurney", box=((-0.20, 0.0, 1.55), (0.20, 0.26, 1.72)), radius=0.025)),
+                      ("snap_to", dict(obj="CommandoFill_snood", solid="Gurney", max_dist=0.03, margin=0.002, box=((-0.3, -0.3, 1.40), (0.3, 0.3, 1.66)))),
+                      ("rigid_weights", dict(obj=PCH, src=SASH))],
+                  title="Ranger RM13: second gap pass")
 V.update(RD)
 
 keys = [k for k in sys.argv[sys.argv.index("--") + 1:]] if "--" in sys.argv else list(RD)

@@ -172,6 +172,73 @@ def cap(obj, box, weld=0.0015):
     return len(res["faces"])
 
 
+def _weights(o, v):
+    names = {g.index: g.name for g in o.vertex_groups}
+    return {names[g.group]: g.weight for g in v.groups if g.weight > 0}
+
+
+def _set_weights(o, v, w):
+    for g in list(v.groups):
+        o.vertex_groups[g.group].remove([v.index])
+    for name, val in w.items():
+        vg = o.vertex_groups.get(name) or o.vertex_groups.new(name=name)
+        vg.add([v.index], val, "REPLACE")
+
+
+def weld_weights(obj, box, radius=0.025, boundary_only=True):
+    """Edges of two panels that meet at rest but pull apart in motion (different bones): every (boundary) vert in box gets the average
+    skin weights of all (boundary) verts within radius, so neighbouring edges move together.  Geometry is not touched."""
+    o = find(obj); mw = o.matrix_world
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    bset = {v.index for v in bm.verts if any(len(e.link_faces) == 1 for e in v.link_edges)} if boundary_only else None
+    bm.free()
+    pts = [(v, mw @ v.co) for v in o.data.vertices if (bset is None or v.index in bset)
+           and all(box[0][i] <= (mw @ v.co)[i] <= box[1][i] for i in range(3))]
+    new = []
+    for v, p in pts:
+        acc = {}; n = 0
+        for v2, p2 in pts:
+            if (p2 - p).length <= radius:
+                n += 1
+                for k, val in _weights(o, v2).items():
+                    acc[k] = acc.get(k, 0.0) + val
+        tot = sum(acc.values()) or 1.0
+        new.append((v, {k: val / tot for k, val in acc.items()}))
+    for v, w in new:
+        _set_weights(o, v, w)
+    return len(new)
+
+
+def rigid_weights(obj, src):
+    """Every island of obj gets ONE weight set: src's weights at the vertex nearest the island's centre (a pouch moves as a block with what
+    it hangs on, its strap cannot bend away from it)."""
+    o = find(obj); s_ = find(src); mw = o.matrix_world; smw = s_.matrix_world
+    from mathutils.kdtree import KDTree
+    kd = KDTree(len(s_.data.vertices))
+    for v in s_.data.vertices:
+        kd.insert(smw @ v.co, v.index)
+    kd.balance()
+    bm = bmesh.new(); bm.from_mesh(o.data); bm.verts.ensure_lookup_table()
+    seen = set(); islands = []
+    for v0 in bm.verts:
+        if v0.index in seen: continue
+        stack = [v0]; comp = []
+        while stack:
+            v = stack.pop()
+            if v.index in seen: continue
+            seen.add(v.index); comp.append(v.index)
+            stack += [e.other_vert(v) for e in v.link_edges if e.other_vert(v).index not in seen]
+        islands.append(comp)
+    bm.free()
+    for comp in islands:
+        c = sum((mw @ o.data.vertices[i].co for i in comp), Vector()) / len(comp)
+        _co, si, _d = kd.find(c)
+        w = _weights(s_, s_.data.vertices[si])
+        for i in comp:
+            _set_weights(o, o.data.vertices[i], w)
+    return len(islands)
+
+
 def run(edits, g):
     for op, kw in edits:
         kw = dict(kw)
