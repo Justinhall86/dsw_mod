@@ -1,0 +1,62 @@
+{
+ "vanilla Opening 44 R": 0.138,
+ "vanilla Opening 44 L": 0.145,
+ "vanilla AttackRange 0 R": 0.138,
+ "vanilla AttackRange 0 L": 0.145,
+ "vanilla AttackRange 20 R": 0.138,
+ "vanilla AttackRange 20 L": 0.145,
+ "bounds vanilla Idle": [
+  [
+   -1.056,
+   -0.93,
+   0.547
+  ],
+  [
+   1.217,
+   0.933,
+   1.098
+  ]
+ ],
+ "bounds vanilla Opening": [
+  [
+   -1.055,
+   -0.932,
+   -0.003
+  ],
+  [
+   1.215,
+   0.932,
+   1.423
+  ]
+ ],
+ "ours Opening 44 R": 0.147,
+ "ours Opening 44 L": 0.153,
+ "ours AttackRange 0 R": 0.147,
+ "ours AttackRange 0 L": 0.153,
+ "ours AttackRange 20 R": 0.147,
+ "ours AttackRange 20 L": 0.153,
+ "bounds ours Idle": [
+  [
+   -1.056,
+   -0.93,
+   0.547
+  ],
+  [
+   0.938,
+   0.933,
+   1.438
+  ]
+ ],
+ "bounds ours Opening": [
+  [
+   -1.055,
+   -0.932,
+   -0.003
+  ],
+  [
+   1.299,
+   0.932,
+   1.624
+  ]
+ ]
+}
