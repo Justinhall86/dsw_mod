@@ -1,0 +1,7 @@
+# 2026-11-26 Terminal appearance pass: regenerable intermediates (30_village_convert.py, terminal_sheets.py, 34_build_terminal.py)
+03_blender/village_donors/
+03_blender/sheets/
+04_textures/terminal_native/
+02_progress_photos/*/_tiles/
+# variant blends are rebuilt from 08_scripts/specs/*.json; only the chosen final is committed (force-added)
+03_blender/terminal_native/

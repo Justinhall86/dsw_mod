@@ -8,6 +8,7 @@ One line per active session: date, what you are changing (unit / files), session
 anything listed; remove your line when you finish. Rules: CLAUDE.md "Several sessions share this repo".
 
 - 2026-11-16: Council/treaty experiments: A1, A2, Smear, B1, B2 are INSTALLED and waiting for the owner's game test. Do not revert the `Th_*Test` / `Th_Walkout` / `Th_Smear` rows or rebuild the pak without reading `model_projects/thorvald/thorvald_council_treaty_tests/README.md`. Condottieri + Tribute are installed too. Session "council-treaty".
+- 2026-11-26: Consignment Terminal appearance pass (model/texture only): `thorvald_starport/08_scripts/3x_*`, `02_progress_photos/2x_*`, `gallery/buildings/village_faction_survey/`. No cdb, pak or game files. Session "terminal-look" (cloud, branch ccr-dde060bd-8vdc6z).
 - 2026-11-21: of the test drones only `TH_Drone3` (Spotter) is still in `mod_files/data.cdb` (others removed 2026-11-21; the installed pak still has all five). Read `model_projects/thorvald/thorvald_drones/README.md` before rebuilding or reverting. Session "council-treaty".
 
 ## 2026-11-21: soldier drop operations and four drones removed; building drops researched (data only, NOT installed)

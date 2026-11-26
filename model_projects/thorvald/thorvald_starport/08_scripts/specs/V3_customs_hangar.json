@@ -1,0 +1,90 @@
+{
+ "name": "V3_customs_hangar",
+ "note": "Processing Plant hangar + Recruitment Office tower (antennas and side props off) + crate stack",
+ "donors": [
+  "ProcessingPlant",
+  "RecruitmentOffice",
+  "SupplyDepot"
+ ],
+ "drop_sheets": [
+  "SupplyDepot_Ground",
+  "ConstructionAsset"
+ ],
+ "pieces": [
+  {
+   "donor": "ProcessingPlant",
+   "at": [
+    0.3,
+    -0.2,
+    0
+   ]
+  },
+  {
+   "donor": "RecruitmentOffice",
+   "remove": [
+    [
+     [
+      -2,
+      -2,
+      1.4
+     ],
+     [
+      2,
+      2,
+      3
+     ]
+    ],
+    [
+     [
+      0.75,
+      -0.3,
+      0
+     ],
+     [
+      1.1,
+      0.1,
+      0.5
+     ]
+    ],
+    [
+     [
+      -1.1,
+      -0.3,
+      0
+     ],
+     [
+      -0.75,
+      0.1,
+      0.5
+     ]
+    ]
+   ],
+   "at": [
+    -0.95,
+    0.45,
+    0
+   ]
+  },
+  {
+   "donor": "SupplyDepot",
+   "keep": [
+    [
+     0.6,
+     0.4,
+     0
+    ],
+    [
+     1.0,
+     1.0,
+     0.2
+    ]
+   ],
+   "rotz": 90,
+   "at": [
+    1.6,
+    -2.27,
+    0
+   ]
+  }
+ ]
+}

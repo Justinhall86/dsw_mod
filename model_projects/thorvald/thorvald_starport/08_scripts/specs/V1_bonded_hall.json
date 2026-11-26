@@ -1,0 +1,11 @@
+{
+ "name": "V1_bonded_hall",
+ "note": "Corrino Propaganda hall (obelisk off, pedestal kept) docked into the Supply Depot: cargo block, crate stacks in oxblood",
+ "donors": ["PropagandaOffice", "SupplyDepot"],
+ "drop_sheets": ["SupplyDepot_Ground", "ConstructionAsset"],
+ "pieces": [
+  {"donor": "PropagandaOffice", "remove": [[[-1, -1, 1.09], [1, 1, 3]]], "at": [-0.55, 0, 0]},
+  {"donor": "SupplyDepot", "remove": [[[-0.6, 0.4, 0.97], [-0.5, 0.55, 2]]], "rotz": 180, "at": [0.95, 0.15, 0]},
+  {"donor": "SupplyDepot", "keep": [[0.6, 0.4, 0], [1.0, 1.0, 0.2]], "rotz": 90, "at": [1.1, -1.92, 0]}
+ ]
+}

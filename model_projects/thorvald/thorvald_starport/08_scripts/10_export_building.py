@@ -7,6 +7,11 @@ embedded (Albedo on Base Color, MetallicGlossAO on Specular IOR Level, Normal th
 the toolkit's converter expects. Sized like the vanilla Spacing Guild Branch (footprint ~5.5 units before the
 building row's scale), centred on the origin, base at z = 0. Textures are resized to 1024 and the AO channel lifted
 (the albedo is already shaded by AO; vanilla AO is bright, mean ~230).
+
+2026-11-26 (native-scale Terminal, 34_build_terminal.py): the object may carry custom properties
+  footprint = 0  -> keep the modelled size (donors are at vanilla scale, so texel density matches the village buildings)
+  lift_ao   = 0  -> leave the AO channel alone (the atlas carries the vanilla donors' own MetallicGlossAO)
+Without them the old behaviour stays (5.5 footprint, AO lifted).
 """
 import os
 import sys
@@ -21,6 +26,8 @@ FOOTPRINT = 5.5
 TEX = 1024
 
 ob = bpy.data.objects["Thorvald_Starport"]
+FOOTPRINT = float(ob.get("footprint", FOOTPRINT))
+LIFT_AO = bool(ob.get("lift_ao", 1))
 for o in list(bpy.data.objects):
     if o is not ob:
         bpy.data.objects.remove(o, do_unlink=True)
@@ -31,7 +38,7 @@ me.transform(ob.matrix_world)
 ob.matrix_world = Matrix.Identity(4)
 co = np.array([v.co[:] for v in me.vertices])
 lo, hi = co.min(0), co.max(0)
-s = FOOTPRINT / max(hi[0] - lo[0], hi[1] - lo[1])
+s = FOOTPRINT / max(hi[0] - lo[0], hi[1] - lo[1]) if FOOTPRINT > 0 else 1.0
 off = Vector((-(lo[0] + hi[0]) / 2, -(lo[1] + hi[1]) / 2, -lo[2]))
 me.transform(Matrix.Diagonal((s, s, s, 1)) @ Matrix.Translation(off))
 co = np.array([v.co[:] for v in me.vertices])
@@ -63,7 +70,7 @@ def lift_ao(px):
 
 
 alb = resized("Thorvald_Starport_Albedo")
-mga = resized("Thorvald_Starport_MetallicGlossAO", lift_ao)
+mga = resized("Thorvald_Starport_MetallicGlossAO", lift_ao if LIFT_AO else None)
 nrm = resized("Thorvald_Starport_Normal")
 
 # ---- rewire the material exactly as the converter expects

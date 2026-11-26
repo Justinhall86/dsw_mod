@@ -1,0 +1,103 @@
+{
+ "name": "V2_cargo_works",
+ "note": "Water Plant body (its four tanks off) with Supply Depot crate stacks in their place; conveyor reads as the loading line",
+ "donors": [
+  "WaterPlant",
+  "SupplyDepot"
+ ],
+ "drop_sheets": [
+  "SupplyDepot_Ground",
+  "ConstructionAsset"
+ ],
+ "pieces": [
+  {
+   "donor": "WaterPlant",
+   "remove": [
+    [
+     [
+      0.9,
+      -0.8,
+      0
+     ],
+     [
+      1.7,
+      1.4,
+      3
+     ]
+    ],
+    [
+     [
+      -0.1,
+      -1.9,
+      0
+     ],
+     [
+      1.0,
+      -1.45,
+      0.4
+     ]
+    ]
+   ]
+  },
+  {
+   "donor": "SupplyDepot",
+   "keep": [
+    [
+     0.6,
+     0.4,
+     0
+    ],
+    [
+     1.0,
+     1.0,
+     0.2
+    ]
+   ],
+   "at": [
+    0.08,
+    -1.95,
+    0
+   ]
+  },
+  {
+   "donor": "SupplyDepot",
+   "keep": [
+    [
+     -0.45,
+     0.37,
+     0.6
+    ],
+    [
+     -0.16,
+     0.7,
+     0.95
+    ]
+   ],
+   "at": [
+    0.7,
+    -1.83,
+    -0.62
+   ]
+  },
+  {
+   "donor": "SupplyDepot",
+   "keep": [
+    [
+     0.6,
+     0.4,
+     0
+    ],
+    [
+     1.0,
+     1.0,
+     0.2
+    ]
+   ],
+   "at": [
+    0.45,
+    -0.2,
+    0
+   ]
+  }
+ ]
+}
