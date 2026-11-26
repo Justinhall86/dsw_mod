@@ -31,7 +31,9 @@ anything on the rifle. Real:
 - `weld_weights` at the nape changed 10 Gurney weights: the boundary verts there already shared weights, so the gap is not a weight split
   between those panels. Find it with `loops_near.py` on the posed position before choosing an op.
 - Welds removed 56 duplicate verts and `cap` added 3 faces at the neck rim; the rest-pose slit at the collar changed 25 → 24 px (the snap).
-- Colour: the plate region by face direction removed the sawtooth from the front; check it in AttackRange before calling it done.
+- Colour: choosing the plate region by face direction darkened the plate's sides, but orange flame-shaped shards remain at the plate's top
+  corners by the shoulders (visible in the RM13 turnaround front and ¾ views). The corner faces face forward and up, so the direction rule
+  still splits them; next try: the plate's upper corners by UV polygon (paint the whole corner panel one colour).
 
 ## What this example teaches (now in SKILL.md)
 1. Run `diff_blends.py` after every fix before rescanning: a no-op fix costs seconds to detect, a rescan costs 15 minutes.
@@ -39,6 +41,7 @@ anything on the rifle. Real:
 3. Localise with the posed geometry in mind: a gap that only opens in Run is usually weights, and the bone pair involved decides the fix.
 
 ## Next for this unit (not done at the time of writing)
+- Colour: the orange shards at the chest plate's upper corners (see above).
 - Pouches: transfer per-vertex weights to the inner (sash-facing) verts only, then give the rest of each island the weights of its nearest inner vert.
 - Nape: `loops_near.py Gurney -0.129,0.131,1.615` with the RM13 blend, then compare the weights on both sides of that loop in the Run pose.
 - Collar slit: cap the front notch with a tighter box after the weld, or snap the notch edge to the snood.

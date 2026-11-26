@@ -42,7 +42,8 @@ for o in hidden:
 for spec in poses:
     clip, fr = spec.rsplit(":", 1)
     Q.pose_clip(clip, fr, anim_dir)
-    panels.append(("%s f%s" % (os.path.basename(clip).replace(".fbx", ""), fr), render("pose_%s_%s" % (os.path.basename(clip), fr), (0.6, -0.8, 0.08))))
+    # the game clips turn the unit to face +Y (rest pose faces -Y), so the front three-quarter of a posed unit is seen from +Y
+    panels.append(("%s f%s" % (os.path.basename(clip).replace(".fbx", ""), fr), render("pose_%s_%s" % (os.path.basename(clip), fr), (-0.6, 0.8, 0.08))))
 
 
 def crop(im):

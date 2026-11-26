@@ -7,6 +7,7 @@
 - **Enclosed transparency ≠ defect.** About two thirds of the candidates were natural space (between legs, arm/body, handle loops,
   fingers). Localise (`at` list) before fixing anything.
 - **`scene.ray_cast` hits `hide_render` objects.** Remove the weapon (`--drop`) instead of hiding it, or the localisation names it.
+- **Posed units face +Y.** A posed panel or close-up from the rest-pose "front" direction shows the back (`turnaround.py` handles it).
 - **The anim camera names lie.** Clips turn the unit to face +Y, so in `anim_shots.py` the "back" camera sees the chest. Check which side a
   crop shows before describing it.
 - **`clip_test.py` penetration counts that are the same in every clip are layering by design** (hood lining inside the shell, mask edges
