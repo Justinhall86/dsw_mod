@@ -18,6 +18,7 @@ Unit progress photos, variants and turntables stay in the unit's own `02_progres
 | `helmets_and_heads/karlin_helmet_compare/` | Karlin helmet H1 vs H2 vs H2f4 and per-part galleries | `compare_helmets.png` |
 | `parts_by_unit/vanilla_unit_parts_sheets/` | Every part of each vanilla unit with its id (torso, pauldrons, arms, legs, collars, belts): Commando, Duncan, Gurney, Raider, Marauder, Militia, Feydakin, Ranger, Warden, House Guard, Imperial Trooper, Aramsham, Mercenary, Otheym, Bannerjee, Free Company, Heavy Weapon | `<Unit>_parts.png` |
 | `vehicles/` | Frigate donor/hull/wreck surveys (every donor ship), Ravager vanilla/recolour views | `frigate_donor_survey/` |
+| `vehicles/drone_donor_survey/` | Grid surveys (world coordinates for cut boxes) of the Vernius Tesla and Railgun drones and the Atreides drone, made for the Thorvald artillery drone (2026-11-26); DroneH, DroneS and the Corrino drone are in `frigate_donor_survey/` | `<donor>/<donor>_grid.png` |
 | `buildings/` | Building survey sheets and GIFs, starport kitbash donors, HQ outpost parts | `building_survey_sheets/survey_sheet.png` |
 | `units_current/` | Sheets of the current in-game ground units (latest palette) | `ground_units_v6_sheet.png` |
 
