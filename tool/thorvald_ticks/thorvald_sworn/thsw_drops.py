@@ -49,8 +49,13 @@ def _array(bc, R, obj, obj_kind, name, bail):
         out += [op(bc, "Field", dst=a, obj=p, field=at2), (op(bc, "JNull", reg=a), bail)]
         p = a
         if name_of_kind(bc, k2) != "hl.types.ArrayObj":
+            # The proxy's `array` field is a VIRTUAL (kind 15), not an object: the game itself uses SafeCast here
+            # (Carrier.update #24722 op 7). UnsafeCast read the virtual wrapper as if it were the ArrayObj, so
+            # `length` and `array` were garbage: an Access violation in ShuttleSpawn.onReachedTarget on every tick
+            # (ships hung forever) and a wrong "all ships down" answer (troops marched before the ships landed).
+            # Found in the 2026-11-20 playtest log (3.57 million Access violation entries, 4.4 GB game.log).
             c = R(arr_kind)
-            out.append(op(bc, "UnsafeCast", dst=c, src=p))
+            out.append(op(bc, "SafeCast", dst=c, src=p))
             p = c
     return out, p
 
