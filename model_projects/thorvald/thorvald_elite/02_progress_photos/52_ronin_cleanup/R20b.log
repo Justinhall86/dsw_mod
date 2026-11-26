@@ -1,0 +1,44 @@
+00:00.969  blend            | Read blend: "d:\dsw_mod\model_projects\thorvald\thorvald_elite\03_blender\v2_final.blend"
+GOGGLES faces removed 140
+HEAD skull bbox (-0.104, -0.153, 1.721) (0.104, 0.106, 2.0)
+15:33:28 | INFO: Data are loaded, start creating Blender stuff
+15:33:28 | INFO: Blender create Mesh node mesh
+15:33:28 | INFO: glTF import finished in 0.16s
+d:\dsw_mod\model_projects\thorvald\thorvald_elite\08_scripts\ronin_helm\r10_build.py:225: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  cmat.use_nodes = True
+d:\dsw_mod\model_projects\thorvald\thorvald_elite\08_scripts\ronin_helm\r10_build.py:340: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+HELMET after remesh/smooth: faces 153384
+SPLIT_HORN cleaned front faces 5332 pieces 4
+SPLIT_HORN horn faces 7118 front 5332 split y -0.381 gap 0.132
+CRESCENT tris 1361
+MESHY face block removed 4639
+HELMET tris after decimate 17577 islands 43 crumb faces 88
+REGIONS {'lame': 3329, 'rim': 728, 'dome': 6822, 'plate': 1251, 'gorget': 3400, 'horn': 34}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+HELMET scale 0.2312 placed at (0.0, -0.023, 1.861)
+FBX version: 7400
+RANGER mask faces kept 175
+CULL head faces poking out 182
+SKULL faces inside the helmet removed 818
+COPPER on RangerMask_Copper pixels 35350
+COPPER on DuncanFill_feet_0_up2_Albedo pixels 158933
+COPPER on MercenaryFill_legs_1_up2_Albedo pixels 66340
+COPPER on MercenaryFill_legs_0_up2_Albedo pixels 324142
+COPPER on Gurney_0_up2_Albedo pixels 114377
+COPPER on DuncanFill_sash_0_up2_Albedo pixels 751985
+COPPER on Trim_Albedo.png pixels 54519
+DESAT colour textures turned grey: 9 ['CommandoHead_0_up2_Albedo', 'DuncanFill_feet_0_up2_Albedo', 'DuncanFill_sash_0_up2_Albedo', 'Gurney_0_up2_Albedo', 'MercenaryFill_legs_0_up2_Albedo', 'MercenaryFill_legs_1_up2_Albedo', 'RangerMask_Copper', 'RoninHelm_Albedo', 'Trim_Albedo.png']
+Error: Unable to pack file, source path 'd:\dsw_mod\model_inputs\Character\Atreide\A_Ranger\Character\Atreide\Unit\Soldier\AtreideSoldier01_Albedo.png' not found
+Error: Unable to pack file, source path 'd:\dsw_mod\model_inputs\Character\Atreide\A_Ranger\Character\Atreide\Unit\Soldier\AtreideSoldier01_MetallicGlossAO.png' not found
+Error: Unable to pack file, source path 'd:\dsw_mod\model_inputs\Character\Atreide\A_Ranger\Character\Atreide\Unit\Soldier\AtreideSoldier01_Normal.png' not found
+Info: Packed 18 file(s)
+PACK WARNING Error: Unable to pack file, source path 'd:\dsw_mod\model_inputs\Character\Atreide\A_Ranger\Character\Atreide\Unit\Soldi
+Info: Saved as "ronin_R20b.blend"
+SAVED
+DONE R20b
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
