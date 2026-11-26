@@ -10,6 +10,23 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 - 2026-11-16: Council/treaty experiments: A1, A2, Smear, B1, B2 are INSTALLED and waiting for the owner's game test. Do not revert the `Th_*Test` / `Th_Walkout` / `Th_Smear` rows or rebuild the pak without reading `model_projects/thorvald/thorvald_council_treaty_tests/README.md`. Condottieri + Tribute are installed too. Session "council-treaty".
 - 2026-11-21: of the test drones only `TH_Drone3` (Spotter) is still in `mod_files/data.cdb` (others removed 2026-11-21; the installed pak still has all five). Read `model_projects/thorvald/thorvald_drones/README.md` before rebuilding or reverting. Session "council-treaty".
 
+## 2026-11-26: Thorvald Artillery Drone look, model pass (game files BUILT, NOT installed; cdb, hlboot, pak untouched)
+
+- Owner handoff: give `TH_Drone` / `TH_Drone_Deployed` (model row `Th_Drone`, today Corrino's `Prefab_DroneC`) a Thorvald look, model and texture only.
+  Project `model_projects/thorvald/thorvald_artillery_drone/` (SPEC.md = design, variants, rebuild, hand-off). Cloud session, branch `ccr-a90ec6dc-f0xjqn`.
+- **Pick: variant I** (sheet `02_progress_photos/04_variants_final/variants_compare.png`, turntables `05_final/`): the Corrino drone kept (hull, legs, lid,
+  rig, every DroneC clip), launcher tips + gold clip tabs + wing-point inserts removed, Corrino emblem painted out, wing points blunted; twin heavy
+  barrels from the Renegade Frigate tubes (the Th_Ship's barrel donor) on `B_Canon*_Shoot` (they recoil like the vanilla tips), two Vernius Tesla
+  towers as foundry funnels on `B_Main`; charcoal/gunmetal, oxblood wing fronts + copper collar, oxblood lid badge. J = same without funnels.
+- Game files `06_game_ready/VehMOD/ThorvaldDrone/` (2 HMDs, 3 texture sets, `Prefab_ThorvaldDrone.prefab` with muzzles moved to the new barrel
+  mouths, props). The HMDs are the vanilla drone HMDs with new geometry/materials swapped in (`08_scripts/hmd_writer.py`, `60_write_hmd.py`;
+  no D4X.exe here): joints and binds identical, so no `53_fix_bind.py`. Checked: writer byte-identical on 7 HMDs, unchanged drone round-trips
+  bit-identically, round trip of the pick level/same facing, muzzles 0.15 behind the mouths like vanilla (`02_progress_photos/06_roundtrip/`).
+- **To use it (owner's local session):** add `"VehMOD/ThorvaldDrone"` to `SOURCES` in `mod_files/stage_and_pack.py` and point model row `Th_Drone`
+  at `VehMOD/ThorvaldDrone/Prefab_ThorvaldDrone.prefab` (exact commands in SPEC.md), validate, pack, test. Undo = nothing to revert in game data.
+- Also: `gallery/vehicles/drone_donor_survey/` (Tesla, Railgun, Atreides drone grids), `modeling.md` section 19 (multi-bone vehicle kitbash,
+  HMD template writer, cloud bpy notes).
+
 ## 2026-11-21: soldier drop operations and four drones removed; building drops researched (data only, NOT installed)
 
 - `thorvald_drones/08_scripts/20_remove_drop_ops_and_drones.py --apply`: removed all six drop operations (missions, abilities, raids, `TH_Turret_*`, `Th_Turret_Trait`) and drones Thumper, Quartermaster, Signal and Smoke-Layer (units, traits, abilities, 4 unlock lines on `Th_TestFreeArmy`). Kept the Spotter `TH_Drone3`. Rows were deleted rather than restored from old backups, so the Hammerfall removal stays. Backup `thorvald_drones/07_data_cdb/data_BEFORE_remove_drops_drones.cdb`; undo with `--revert`.
