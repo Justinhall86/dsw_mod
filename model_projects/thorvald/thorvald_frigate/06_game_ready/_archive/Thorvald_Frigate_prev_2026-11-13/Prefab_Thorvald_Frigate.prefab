@@ -1,0 +1,106 @@
+{
+	"type": "prefab",
+	"children": [
+		{
+			"type": "model",
+			"name": "Thorvald_Frigate",
+			"source": "VehMOD/Thorvald_Frigate/Thorvald_Frigate.hmd",
+			"children": [
+				{
+					"type": "object",
+					"name": "Muzzles",
+					"children": [
+						{
+							"type": "object",
+							"name": "MuzzleA",
+							"x": 2.8916,
+							"y": 2.5949,
+							"z": -0.8778,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB",
+							"x": -2.8916,
+							"y": 2.5949,
+							"z": -0.8778,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleC",
+							"x": 2.8911,
+							"y": 2.5993,
+							"z": 1.2184,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleD",
+							"x": -2.8911,
+							"y": 2.5993,
+							"z": 1.2183,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleE",
+							"x": 2.8916,
+							"y": 2.5949,
+							"z": -0.8778,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA_2",
+							"x": 2.8911,
+							"y": 2.5993,
+							"z": 1.2184,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA_3",
+							"x": 2.8916,
+							"y": 2.5949,
+							"z": -0.8778,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleA_4",
+							"x": 2.8911,
+							"y": 2.5993,
+							"z": 1.2184,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB_2",
+							"x": -2.8911,
+							"y": 2.5993,
+							"z": 1.2183,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB_3",
+							"x": -2.8916,
+							"y": 2.5949,
+							"z": -0.8778,
+							"rotationY": 90
+						},
+						{
+							"type": "object",
+							"name": "MuzzleB_4",
+							"x": -2.8911,
+							"y": 2.5993,
+							"z": 1.2183,
+							"rotationY": 90
+						}
+					]
+				}
+			]
+		}
+	]
+}
