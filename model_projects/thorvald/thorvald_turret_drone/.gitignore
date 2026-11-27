@@ -1,0 +1,9 @@
+# Regenerable intermediates (rebuild with 08_scripts; see SPEC.md)
+01_input/anim_fbx/
+01_input/donor_textures/
+09_roundtrip/anim_fbx/
+**/_tiles/
+**/_tt_*/
+03_blender/variants/
+04_textures/*/
+01_input/anim_fbx_tank/
