@@ -10,6 +10,22 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 - 2026-11-16: Council/treaty experiments: A1, A2, Smear, B1, B2 are INSTALLED and waiting for the owner's game test. Do not revert the `Th_*Test` / `Th_Walkout` / `Th_Smear` rows or rebuild the pak without reading `model_projects/thorvald/thorvald_council_treaty_tests/README.md`. Condottieri + Tribute are installed too. Session "council-treaty".
 - 2026-11-21: of the test drones only `TH_Drone3` (Spotter) is still in `mod_files/data.cdb` (others removed 2026-11-21; the installed pak still has all five). Read `model_projects/thorvald/thorvald_drones/README.md` before rebuilding or reverting. Session "council-treaty".
 
+## 2026-11-27: Thorvald drone as a non-deploying turret "tank" (game files BUILT, NOT installed; cdb, hlboot, pak untouched)
+
+- Owner follow-up: no deploy, shoots like a tank, turret with two barrels, sturdier, unlike the artillery drone. Owner chose
+  "turret fixed, body aims" (DSW turns whole units to aim; turret motion is hard-coded to the Missile Battery building).
+  Project `model_projects/thorvald/thorvald_turret_drone/` (SPEC.md = design, cdb hand-off, verification, rebuild).
+- Pick G1: on the Renegade drone rig (rig 25, never deploys, twin cannon bones): Atreides harvester body on its tracks + Harkonnen
+  drone dome as turret + twin heavy Renegade Frigate tubes; Thorvald paint. Own clips `Anim/Anim_DroneR_*` (the five DroneR
+  clips with B_Body's hover bob/roll removed) referenced only by this model's props.json.
+- Game files `06_game_ready/VehMOD/ThorvaldGunDrone/`. Round trip: on the ground and level in every Idle/FightIdle/Run/AttackRange
+  frame, muzzles 0.15 inside the barrel mouths throughout.
+- **To use it:** SOURCES line in `stage_and_pack.py`; model row `Th_Drone` -> `VehMOD/ThorvaldGunDrone/Prefab_ThorvaldGunDrone.prefab`
+  with rigName 25, inherit DroneCommon, scale 3.1; unit `TH_Drone` without the deploy fields and with an attack combo firing from
+  MuzzleA/B (gameplay is the owner's call). Details in SPEC.md.
+- Shared tools changed (artillery drone project, backward compatible): `41_paint.py` and `42_apply_paint.py` take `--proj`;
+  `20_build_drone.py` grafts can keep a donor's own materials (`materials` map, DDS sets converted into `01_input/donor_textures`).
+
 ## 2026-11-26: Thorvald Artillery Drone look, model pass (game files BUILT, NOT installed; cdb, hlboot, pak untouched)
 
 - Owner handoff: give `TH_Drone` / `TH_Drone_Deployed` (model row `Th_Drone`, today Corrino's `Prefab_DroneC`) a Thorvald look, model and texture only.
