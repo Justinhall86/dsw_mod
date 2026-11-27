@@ -1,6 +1,6 @@
 """Paint a built drone variant in the House Thorvald palette: polished charcoal and gunmetal, bold copper, oxblood accents.
 
-    python 41_paint.py <spec.json> [variant ...]      (needs 04_textures/<variant>/_geo.npz from 20_build_drone.py)
+    python 41_paint.py <spec.json> [variant ...] [--proj <other project folder>]     (needs 04_textures/<variant>/_geo.npz from 20_build_drone.py)
 
 Writes 04_textures/<variant>/<Material>_{Albedo,MetallicGlossAO,Normal}.png for every material of the variant
 (Mat_ThDrone = the drone's own 2048 map set, Mat_ThDrone_<Donor> = a donor's map set at its own size).
@@ -31,6 +31,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
 REPO = os.path.abspath(os.path.join(PROJ, "..", "..", ".."))
 VEH = os.path.join(REPO, "model_inputs", "Vehicle")
+if "--proj" in sys.argv:                 # paint another project's variants (thorvald_turret_drone uses this script)
+    PROJ = os.path.abspath(sys.argv[sys.argv.index("--proj") + 1])
+    del sys.argv[sys.argv.index("--proj"):sys.argv.index("--proj") + 2]
 TEX = os.path.join(PROJ, "04_textures")
 
 # sRGB 0..1, sampled from the installed Thorvald units (Heavy Vanguard ThEli textures: charcoal #242527, copper #b36a36)
@@ -105,10 +108,18 @@ def source_dir(mat):
     if mat in ("Mat_ThDrone",):
         return os.path.join(VEH, "Imperial", "DroneI", "preview_textures")
     stem = mat[len("Mat_ThDrone_"):]
+    cached = os.path.join(PROJ, "01_input", "donor_textures", stem)      # donor_texset() conversions (20_build_drone.py)
+    if os.path.exists(os.path.join(cached, "albedo.png")):
+        return cached
     for fac in os.listdir(VEH):
         d = os.path.join(VEH, fac, stem, "preview_textures")
         if os.path.isdir(d):
             return d
+    for fac in os.listdir(VEH):                      # file named unlike its folder (Atreide/Harvester/.../Vehicule_Harvester_real.fbx)
+        for folder in os.listdir(os.path.join(VEH, fac)):
+            d = os.path.join(VEH, fac, folder, "preview_textures")
+            if os.path.exists(os.path.join(d, stem + "_real.fbx")):
+                return d
     raise SystemExit("no source textures for %s" % mat)
 
 

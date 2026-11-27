@@ -1,6 +1,6 @@
 """Put a variant's painted textures (41_paint.py) on its built geometry and save the textured, self-contained blend.
 
-    blender -b --factory-startup --python 42_apply_paint.py -- <variant> [<variant> ...]
+    blender -b --factory-startup --python 42_apply_paint.py -- <variant> [<variant> ...] [--proj <other project folder>]
 
 Reads 03_blender/variants/<variant>_geo.blend and 04_textures/<variant>/<Material>_{Albedo,MetallicGlossAO,Normal}.png,
 writes 03_blender/variants/<variant>.blend with the images packed. Wiring is the toolkit's (Albedo -> Base Color,
@@ -15,10 +15,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import drone_scene as ds  # noqa: E402
 
-VDIR = os.path.join(ds.PROJ, "03_blender", "variants")
-for var in sys.argv[sys.argv.index("--") + 1:]:
+ARGS = sys.argv[sys.argv.index("--") + 1:]
+PROJ = ds.PROJ
+if "--proj" in ARGS:                     # another project's variants (thorvald_turret_drone)
+    PROJ = os.path.abspath(ARGS[ARGS.index("--proj") + 1])
+    del ARGS[ARGS.index("--proj"):ARGS.index("--proj") + 2]
+VDIR = os.path.join(PROJ, "03_blender", "variants")
+for var in ARGS:
     bpy.ops.wm.open_mainfile(filepath=os.path.join(VDIR, var + "_geo.blend"))
-    tex = os.path.join(ds.PROJ, "04_textures", var)
+    tex = os.path.join(PROJ, "04_textures", var)
     for m in list(bpy.data.materials):
         if not m.users or not m.name.startswith("Mat_ThDrone"):
             continue

@@ -26,7 +26,7 @@ Spec (JSON) per variant:
   remove:        ... mirror_y: true also removes the box mirrored across Y = 0
   retail:        [{part, box, bones, pivot: [x,y,z], scale: [sx,sy,sz], offset: [dx,dy,dz], clamp: [box], mirror_y: true}]
                  move/scale/clamp host vertices (|y| tested when mirror_y; pivot, offset and clamp y take the vertex's side)
-  grafts:        [{donor, box_abs | cyl_abs, strict, min_island_faces, remove_abs, clamp_abs, rot_deg, scale,
+  grafts:        [{donor, box_abs | cyl_abs, strict, min_island_faces, remove_abs, clamp_abs, rot_deg, scale, materials,
                    part, skin, frame: world|barrel, ...}]
      frame world : at [x,y,z] = chunk-centre in build space; mirror: true adds a copy across Y = 0
      frame barrel: chunk is first rotated (rot_deg) so its long axis is +X with the muzzle at +X and its top at +Z, then
@@ -177,6 +177,27 @@ def donor_material(stem):
     return ds.pbr_mat(name, os.path.join(d, "albedo.png"), os.path.join(d, "mgao.png"), os.path.join(d, "normal.png"))
 
 
+TEX_CACHE = os.path.join(PROJ, "01_input", "donor_textures")    # callers may point this at their own project
+
+
+def donor_texset(folder, tex_stem):
+    """Material Mat_ThDrone_<tex_stem> from model_inputs/Vehicle/<folder>/<tex_stem>_{Albedo,MetallicGlossAO,Normal}.png
+    (DDS behind a .png name), converted to real PNGs in TEX_CACHE/<tex_stem>/ (41_paint.py finds them there)."""
+    from PIL import Image
+    src = os.path.join(B.VEH, folder)
+    out = os.path.join(TEX_CACHE, tex_stem)
+    os.makedirs(out, exist_ok=True)
+    for suf, dst in (("Albedo", "albedo"), ("MetallicGlossAO", "mgao"), ("Normal", "normal")):
+        cand = [os.path.join(src, "%s_%s.png" % (tex_stem, suf))] + ([os.path.join(src, "%s_MetallicGlossAOEmiss.png" % tex_stem)] if suf == "MetallicGlossAO" else [])
+        p = next((c for c in cand if os.path.exists(c)), None)
+        if p is None:
+            raise SystemExit("no %s map for %s in %s" % (suf, tex_stem, src))
+        d = os.path.join(out, dst + ".png")
+        if not os.path.exists(d):
+            Image.open(p).convert("RGBA").save(d)
+    return ds.pbr_mat("Mat_ThDrone_" + tex_stem, *[os.path.join(out, f) for f in ("albedo.png", "mgao.png", "normal.png")])
+
+
 def cut_chunk(g, idx):
     rel, stem = B.donor(g["donor"])
     objs = B.import_and_flatten(rel, "g%d_%s" % (idx, g["donor"]))
@@ -202,11 +223,22 @@ def cut_chunk(g, idx):
                                        selected_objects=objs):
             bpy.ops.object.join()
     ch = objs[0]
-    mat = donor_material(stem)
-    ch.data.materials.clear()
-    ch.data.materials.append(mat)
-    for p in ch.data.polygons:
-        p.material_index = 0
+    if g.get("materials"):
+        # keep the donor's own material split (e.g. the harvester's body + tracks): imported material name substring ->
+        # texture-set stem in the donor folder (DDS behind .png, converted once into TEX_CACHE/<stem>/)
+        folder = os.path.dirname(stem.replace("/", os.sep))
+        for i, sl in enumerate(ch.material_slots):
+            nm = sl.material.name if sl.material else ""
+            key = next((k for k in g["materials"] if k.lower() in nm.lower()), None)
+            if key is None:
+                raise SystemExit("graft %s: no texture set for material %r" % (g["donor"], nm))
+            ch.material_slots[i].material = donor_texset(folder, g["materials"][key])
+    else:
+        mat = donor_material(stem)
+        ch.data.materials.clear()
+        ch.data.materials.append(mat)
+        for p in ch.data.polygons:
+            p.material_index = 0
     if ch.data.uv_layers:
         ch.data.uv_layers.active.name = "UVMap"
     # centre, scale, rotate in the donor frame
