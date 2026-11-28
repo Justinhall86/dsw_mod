@@ -1,0 +1,300 @@
+{
+ "Kraken": {
+  "model_row": "A_Frigate",
+  "hmd_models": [
+   "Kraken_low"
+  ],
+  "mesh": "Vehicle/Atreide/Kraken/Prefab_Kraken.prefab",
+  "rig": 15,
+  "inherit": "Kraken",
+  "cdb_scale": 1.6,
+  "radius": 10,
+  "height": 6,
+  "tris": 520,
+  "materials": [
+   "Mat_Kraken"
+  ],
+  "textures": {
+   "Vehicle/Atreide/Kraken/Kraken_Albedo.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Atreide/Kraken/Kraken_MetallicGlossAOEmiss.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Atreide/Kraken/Kraken_Normal.png": [
+    "512",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   5.97,
+   7.99,
+   1.86
+  ]
+ },
+ "Overlord": {
+  "model_row": "H_Frigate",
+  "hmd_models": [
+   "Overlord"
+  ],
+  "mesh": "Vehicle/Harkonnen/Overlord/Overlord.fbx",
+  "rig": 17,
+  "inherit": "Overlord",
+  "cdb_scale": 1.2,
+  "radius": 10,
+  "height": 6,
+  "tris": 5800,
+  "materials": [
+   "Mat_Overlord"
+  ],
+  "textures": {
+   "Vehicle/Harkonnen/Overlord/Overlord_Albedo.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Harkonnen/Overlord/Overlord_MetallicGlossAOEmiss.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Harkonnen/Overlord/Overlord_Normal.png": [
+    "512",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   3.84,
+   13.61,
+   5.21
+  ]
+ },
+ "Chronos": {
+  "model_row": "C_Frigate",
+  "hmd_models": [
+   "Chronos"
+  ],
+  "mesh": "Vehicle/Imperial/Chronos/Prefab_Chronos.prefab",
+  "rig": 20,
+  "inherit": "Chronos",
+  "cdb_scale": 1.7,
+  "radius": 10,
+  "height": 5,
+  "tris": 4510,
+  "materials": [
+   "Mat_Chronos4",
+   "_Mat_ImperiumDrone2"
+  ],
+  "textures": {
+   "Vehicle/Imperial/Chronos/Chronos_Albedo.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Imperial/Chronos/Chronos_MetallicGlossAOEmiss.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Imperial/Chronos/Chronos_Normal.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Imperial/DroneI/ImperiumDrone_Albedo.png": [
+    "2048",
+    "DDS DXT5"
+   ],
+   "Vehicle/Imperial/DroneI/ImperiumDrone_MetallicGlossAO.png": [
+    "2048",
+    "DDS DXT5"
+   ],
+   "Vehicle/Imperial/DroneI/ImperiumDrone_Normal.png": [
+    "2048",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   6.1,
+   9.29,
+   2.77
+  ]
+ },
+ "Wraith": {
+  "model_row": "S_Frigate",
+  "hmd_models": [
+   "Wraith"
+  ],
+  "mesh": "Vehicle/Smuggler/Wraith/Prefab_Wraith.prefab",
+  "rig": 18,
+  "inherit": "Wraith",
+  "cdb_scale": 1.2,
+  "radius": 13,
+  "height": 8,
+  "tris": 8416,
+  "materials": [
+   "Mat_Wraith"
+  ],
+  "textures": {
+   "Vehicle/Smuggler/Wraith/Wraith_Albedo.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Smuggler/Wraith/Wraith_MetallicGlossAOEmiss.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Smuggler/Wraith/Wraith_Normal.png": [
+    "512",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   8.46,
+   8.53,
+   6.07
+  ]
+ },
+ "Altar": {
+  "model_row": "F_Frigate",
+  "hmd_models": [
+   "Altar",
+   "Altar_AllFabric"
+  ],
+  "mesh": "Vehicle/Fremen/Altar/Prefab_Altar.prefab",
+  "rig": 26,
+  "inherit": "Altar",
+  "cdb_scale": 1.5,
+  "radius": 10,
+  "height": 6,
+  "tris": 2810,
+  "materials": [
+   "Mat_Altar"
+  ],
+  "textures": {
+   "Vehicle/Fremen/Altar/Altar_Albedo.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Fremen/Altar/Altar_MetallicGlossAOEmiss.png": [
+    "512",
+    "DDS DXT5"
+   ],
+   "Vehicle/Fremen/Altar/Altar_Normal.png": [
+    "512",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   5.49,
+   9.87,
+   3.83
+  ]
+ },
+ "Monument": {
+  "model_row": "E_Frigate",
+  "hmd_models": [
+   "Ecaz_Monument"
+  ],
+  "mesh": "Vehicle/Ecaz/Monument/Prefab_Monument.prefab",
+  "rig": 30,
+  "inherit": "Monument",
+  "cdb_scale": 1.2,
+  "radius": 13,
+  "height": 8,
+  "tris": 4048,
+  "materials": [
+   "Mat_Ecaz_Monument"
+  ],
+  "textures": {
+   "Vehicle/Ecaz/Monument/Monument_Albedo.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Ecaz/Monument/Monument_MetallicGlossAO.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Ecaz/Monument/Monument_Normal.png": [
+    "1024",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   8.09,
+   6.18,
+   9.15
+  ]
+ },
+ "FolderRelay": {
+  "model_row": "V_Frigate",
+  "hmd_models": [
+   "FolderRelay"
+  ],
+  "mesh": "Vehicle/Vernius/FolderRelay/Prefab_FolderRelay.prefab",
+  "rig": 36,
+  "inherit": "FolderRelay",
+  "cdb_scale": 1,
+  "radius": 13,
+  "height": 8,
+  "tris": 3936,
+  "materials": [
+   "FolderRelay1"
+  ],
+  "textures": {
+   "Vehicle/Vernius/FolderRelay/FolderRelay_Albedo.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Vernius/FolderRelay/FolderRelay_MetallicGlossAO.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Vernius/FolderRelay/FolderRelay_Normal.png": [
+    "1024",
+    "DDS DXT5"
+   ],
+   "Vehicle/Vernius/FolderRelay/FolderRelay_Emissive.png": [
+    "1024",
+    "DDS DXT5"
+   ]
+  },
+  "size_raw": [
+   6.26,
+   6.27,
+   10.76
+  ]
+ },
+ "Thorvald": {
+  "model_row": "Th_Frigate",
+  "hmd_models": [
+   "Thorvald_Frigate"
+  ],
+  "mesh": "VehMOD/Thorvald_Frigate/Prefab_Thorvald_Frigate.prefab",
+  "rig": 29,
+  "inherit": "RenegadeFrigate",
+  "cdb_scale": 1.2,
+  "radius": 10,
+  "height": 5,
+  "tris": 4763,
+  "materials": [
+   "Thorvald_Frigate"
+  ],
+  "textures": {
+   "VehMOD/Thorvald_Frigate/Thorvald_Frigate_Albedo.png": [
+    "1024",
+    "PNG"
+   ],
+   "VehMOD/Thorvald_Frigate/Thorvald_Frigate_MetallicGlossAO.png": [
+    "1024",
+    "PNG"
+   ],
+   "VehMOD/Thorvald_Frigate/Thorvald_Frigate_Normal.png": [
+    "1024",
+    "PNG"
+   ]
+  },
+  "size_raw": [
+   7.67,
+   13.17,
+   3.79
+  ]
+ }
+}

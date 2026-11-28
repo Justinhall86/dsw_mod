@@ -10,6 +10,12 @@ anything listed; remove your line when you finish. Rules: CLAUDE.md "Several ses
 - 2026-11-16: Council/treaty experiments: A1, A2, Smear, B1, B2 are INSTALLED and waiting for the owner's game test. Do not revert the `Th_*Test` / `Th_Walkout` / `Th_Smear` rows or rebuild the pak without reading `model_projects/thorvald/thorvald_council_treaty_tests/README.md`. Condottieri + Tribute are installed too. Session "council-treaty".
 - 2026-11-21: of the test drones only `TH_Drone3` (Spotter) is still in `mod_files/data.cdb` (others removed 2026-11-21; the installed pak still has all five). Read `model_projects/thorvald/thorvald_drones/README.md` before rebuilding or reverting. Session "council-treaty".
 
+## 2026-11-28: frigate reference renders (read-only; nothing installed)
+
+- New `gallery/vehicles/frigate_reference/` (README is the index): the 7 vanilla faction frigates (Kraken, Overlord, Cronos, Wraith, Altar, Monument, Folder Relay) + the current Thorvald cruiser, each from its shipped HMD and textures, all at in-game size (mesh × cdb scale) with the same camera and lighting. Per-ship sheets (3/4 front, 3/4 rear, top, RTS thumbnail), top-down and 3/4 lineups, data table. Finding: no frigate has a team-colour mask; faction colour is painted into the albedo.
+- Rendered in the cloud container with bpy 5.3 + Cycles (no Blender or GPU there). Ship noses aligned by eye (see the README's caveats).
+- No game, cdb, pak or model files touched. Undo: delete that folder and its line in `gallery/README.md`.
+
 ## 2026-11-21: soldier drop operations and four drones removed; building drops researched (data only, NOT installed)
 
 - `thorvald_drones/08_scripts/20_remove_drop_ops_and_drones.py --apply`: removed all six drop operations (missions, abilities, raids, `TH_Turret_*`, `Th_Turret_Trait`) and drones Thumper, Quartermaster, Signal and Smoke-Layer (units, traits, abilities, 4 unlock lines on `Th_TestFreeArmy`). Kept the Spotter `TH_Drone3`. Rows were deleted rather than restored from old backups, so the Hammerfall removal stays. Backup `thorvald_drones/07_data_cdb/data_BEFORE_remove_drops_drones.cdb`; undo with `--revert`.
